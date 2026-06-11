@@ -1,0 +1,612 @@
+#!/usr/bin/env python3
+"""
+Best-Use-of-Biomass Recommendation Engine.
+
+Deterministic encoding of Frontier's BiCRS decision framework
+(see data/ENGINE_SPEC.md and PLAN.md sec 4).
+
+Reads:  data/processed/{feedstocks,storage,facilities}.json
+Writes: data/processed/recommendations.json   (one record per feedstock region)
+
+Every output carries a transparent rationale, caveats, and Frontier-exclusion flags.
+This module is decision-support, not a black box; the logic mirrors the spec step-by-step.
+"""
+
+import json
+import math
+import os
+from collections import Counter
+
+# --------------------------------------------------------------------------
+# Paths
+# --------------------------------------------------------------------------
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+PROC = os.path.join(ROOT, "data", "processed")
+
+FEEDSTOCKS_PATH = os.path.join(PROC, "feedstocks.json")
+STORAGE_PATH = os.path.join(PROC, "storage.json")
+FACILITIES_PATH = os.path.join(PROC, "facilities.json")
+OUT_PATH = os.path.join(PROC, "recommendations.json")
+
+# --------------------------------------------------------------------------
+# Pathway constants (thesis sec 2.1 / ENGINE_SPEC.md)
+# --------------------------------------------------------------------------
+ODT_TO_CO2 = 1.47  # tCO2 per oven-dry-ton of biomass carbon basis
+
+PATHWAYS = {
+    "beccs": {
+        "label": "BECCS (heat/electricity)",
+        "cdr_efficiency": 0.80,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "co_product": "energy",
+        "needs_geologic_storage": True,
+    },
+    "beccs_pp": {
+        "label": "BECCS pulp & paper",
+        "cdr_efficiency": 0.80,
+        "cost_band": "$200-225",
+        "co_product": "energy/none",
+        "needs_geologic_storage": True,
+    },
+    "wte_ccs": {
+        "label": "WtE + CCS",
+        "cdr_efficiency": 0.55,
+        "cost_band": "~$100-200",
+        "co_product": "energy",
+        "needs_geologic_storage": True,
+    },
+    "injection": {
+        "label": "Biomass waste injection",
+        "cdr_efficiency": 0.90,
+        "cost_band": "$125-285",
+        "co_product": "PFAS destruction",
+        "needs_geologic_storage": True,
+    },
+    "bio_oil": {
+        "label": "Bio-oil sequestration",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "co_product": "biochar/nutrients",
+        "needs_geologic_storage": False,
+    },
+    "burial": {
+        "label": "Biomass burial",
+        "cdr_efficiency": 0.90,
+        "cost_band": "<$100-150",
+        "co_product": "none",
+        "needs_geologic_storage": False,
+    },
+    "ad_ccs": {
+        "label": "AD + CCS",
+        "cdr_efficiency": 0.37,
+        "cost_band": "$145-300",
+        "co_product": "low-C fuel",
+        "needs_geologic_storage": True,  # partial in spec; treat as needing storage
+    },
+    "biochar": {
+        "label": "Biochar",
+        "cdr_efficiency": 0.30,
+        "cost_band": "~$100-200",
+        "co_product": "nutrients",
+        "needs_geologic_storage": False,
+    },
+}
+
+# Caveats / flags text (spec)
+BURIAL_CAVEAT = (
+    "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); "
+    "Frontier pursuing via prepurchase not offtake."
+)
+RNG_FLAG = "RNG+CCS is complex; Frontier not pursuing offtakes (thesis sec 3.4)."
+
+
+# --------------------------------------------------------------------------
+# Helpers
+# --------------------------------------------------------------------------
+def haversine_km(lon1, lat1, lon2, lat2):
+    """Great-circle distance in km between two (lon, lat) points."""
+    r = 6371.0
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlmb = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dlmb / 2) ** 2
+    return 2 * r * math.asin(min(1.0, math.sqrt(a)))
+
+
+def num(field, default=0.0):
+    """Safely pull a numeric .value from a {value, low, high, ...} estimate block."""
+    if not isinstance(field, dict):
+        return default
+    v = field.get("value")
+    if v is None:
+        return default
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return default
+
+
+def region_country(region):
+    """ISO3 country used to match facilities. US states carry parent='USA'."""
+    if region.get("level") == "country":
+        return region.get("id")
+    return region.get("parent") or region.get("id")
+
+
+# --------------------------------------------------------------------------
+# Step 1 -- storage proximity
+# --------------------------------------------------------------------------
+_ACCESS_RANK = {"poor": 0, "moderate": 1, "good": 2}
+
+
+def _in_country_storage_grade(country, storage):
+    """
+    Storage access implied by qualifying storage located *within the same country*.
+    Robust for large countries whose geographic centroid sits far from any basin
+    centroid (e.g. the US, whose centroid in Kansas is >500 km from Gulf Coast /
+    Illinois basins despite world-class in-country storage).
+      good     : in-country high-confidence basin OR operational/construction site
+      moderate : in-country medium-confidence basin (capacity_gt >= 1)
+      poor     : only low-confidence in-country storage, or none
+    Returns (grade, only_low_in_country).
+    """
+    has_good = False
+    has_moderate = False
+    has_low = False
+    for s in storage:
+        if s.get("country") != country:
+            continue
+        kind = s.get("kind")
+        if kind == "site" and s.get("status") in ("operational", "construction"):
+            has_good = True
+        elif kind == "basin":
+            conf = s.get("confidence")
+            cap = s.get("capacity_gt") or 0
+            if cap < 1:
+                continue
+            if conf == "high":
+                has_good = True
+            elif conf == "medium":
+                has_moderate = True
+            elif conf == "low":
+                has_low = True
+    if has_good:
+        return "good", False
+    if has_moderate:
+        return "moderate", False
+    if has_low:
+        return "poor", True
+    return "poor", False
+
+
+def compute_storage_access(centroid, country, storage):
+    """
+    Returns (storage_access, nearest_storage_km, only_low_conf_nearby).
+
+    Combines two signals and takes the more favourable:
+      (1) nearest_storage_km = min haversine distance from region centroid to any
+          qualifying site (operational/construction) or high/medium basin (cap>=1):
+            good < 500 km, moderate < 1000 km, else poor.
+          Forced 'poor' if the only basin within reach is low-confidence.
+      (2) in-country qualifying storage grade (handles large-country centroid bias).
+    nearest_storage_km is still reported from the centroid signal for the rationale.
+    """
+    # --- centroid signal ---
+    centroid_access = "poor"
+    nearest_good = None
+    nearest_low = None
+    only_low_nearby = False
+    if centroid and len(centroid) >= 2 and centroid[0] is not None and centroid[1] is not None:
+        lon, lat = centroid[0], centroid[1]
+        for s in storage:
+            slat, slon = s.get("lat"), s.get("lon")
+            if slat is None or slon is None:
+                continue
+            d = haversine_km(lon, lat, slon, slat)
+            kind = s.get("kind")
+            if kind == "site":
+                if s.get("status") in ("operational", "construction"):
+                    if nearest_good is None or d < nearest_good:
+                        nearest_good = d
+            elif kind == "basin":
+                conf = s.get("confidence")
+                cap = s.get("capacity_gt") or 0
+                if conf in ("high", "medium") and cap >= 1:
+                    if nearest_good is None or d < nearest_good:
+                        nearest_good = d
+                elif conf == "low":
+                    if nearest_low is None or d < nearest_low:
+                        nearest_low = d
+        if nearest_good is not None:
+            only_low_nearby = (
+                nearest_low is not None and nearest_low < 500 and nearest_good >= 500
+            )
+            if only_low_nearby:
+                centroid_access = "poor"
+            elif nearest_good < 500:
+                centroid_access = "good"
+            elif nearest_good < 1000:
+                centroid_access = "moderate"
+            else:
+                centroid_access = "poor"
+
+    # --- in-country signal ---
+    country_access, only_low_in_country = _in_country_storage_grade(country, storage)
+
+    # --- combine: take the better grade ---
+    if _ACCESS_RANK[country_access] >= _ACCESS_RANK[centroid_access]:
+        access = country_access
+    else:
+        access = centroid_access
+
+    # only_low flag: only meaningful when the final access is poor
+    only_low = (access == "poor") and (only_low_nearby or only_low_in_country)
+
+    nearest_km = round(nearest_good) if nearest_good is not None else (
+        round(nearest_low) if nearest_low is not None else None
+    )
+    return access, nearest_km, only_low
+
+
+# --------------------------------------------------------------------------
+# Step 2 -- retrofit availability
+# --------------------------------------------------------------------------
+def compute_retrofit(country, facilities):
+    """
+    has_retrofit = any facility in same country with retrofit_score in {high, medium}.
+    Returns (has_retrofit, anchor_name, anchor_type, has_pp_or_bioenergy).
+    Prefers the highest-scoring facility, favoring pulp_paper/bioenergy for the anchor.
+    """
+    matches = [f for f in facilities if f.get("country") == country]
+    qualifying = [f for f in matches if f.get("retrofit_score") in ("high", "medium")]
+
+    has_retrofit = len(qualifying) > 0
+    has_pp_or_bioenergy = any(
+        f.get("type") in ("pulp_paper", "bioenergy") for f in qualifying
+    )
+
+    anchor_name = None
+    anchor_type = None
+    if qualifying:
+        score_rank = {"high": 0, "medium": 1, "low": 2}
+        # Prefer pulp_paper/bioenergy, then higher retrofit score.
+        def keyfn(f):
+            pref = 0 if f.get("type") in ("pulp_paper", "bioenergy") else 1
+            return (pref, score_rank.get(f.get("retrofit_score"), 3))
+
+        best = sorted(qualifying, key=keyfn)[0]
+        anchor_name = best.get("name")
+        anchor_type = best.get("type")
+
+    return has_retrofit, anchor_name, anchor_type, has_pp_or_bioenergy
+
+
+# --------------------------------------------------------------------------
+# Step 3 -- decision tree (first match wins)
+# --------------------------------------------------------------------------
+def decide(region, storage_access, has_retrofit, has_pp_or_bioenergy):
+    dom = region.get("dominant_feedstock")
+    density = region.get("feedstock_density")
+    nutrient = region.get("nutrient_status")
+    near = storage_access in ("good", "moderate")
+
+    # 1. wet manure
+    if dom == "manure_wet":
+        if near:
+            return "injection", "ad_ccs"
+        return "ad_ccs", "biochar"
+
+    # 2. MSW
+    if dom == "msw":
+        if near:
+            return "wte_ccs", "burial"
+        return "burial", "bio_oil"
+
+    # 3. forestry_woody OR (ag_dry & concentrated)
+    if dom == "forestry_woody" or (dom == "ag_dry" and density == "concentrated"):
+        if storage_access == "good":
+            if has_retrofit and has_pp_or_bioenergy:
+                return "beccs_pp", "bio_oil"
+            return "beccs", "bio_oil"
+        elif storage_access == "moderate":
+            return "beccs", "bio_oil"
+        else:  # poor
+            if nutrient == "excess":
+                return "burial", "bio_oil"
+            return "bio_oil", "biochar"
+
+    # 4. ag_dry & diffuse
+    if dom == "ag_dry" and density != "concentrated":
+        if storage_access == "good":
+            return "bio_oil", "beccs"
+        elif nutrient == "excess" and storage_access == "poor":
+            return "burial", "bio_oil"
+        return "bio_oil", "biochar"
+
+    # 5. mixed / fallback
+    if storage_access == "good" and has_retrofit:
+        return "beccs", "injection"
+    elif storage_access == "poor":
+        return "burial", "bio_oil"
+    return "beccs", "bio_oil"
+
+
+# --------------------------------------------------------------------------
+# Step 4 -- KPI score
+# --------------------------------------------------------------------------
+def kpi_score(pathway_key, storage_access):
+    p = PATHWAYS[pathway_key]
+    eff = p["cdr_efficiency"]
+    co = p["co_product"]
+
+    # co-product term
+    if co == "energy" or co == "energy/none":
+        co_term = 1.0
+    elif co in ("low-C fuel",):
+        co_term = 0.5
+    else:
+        co_term = 0.0
+
+    # co-benefit term: PFAS / nutrients / methane-avoidance present
+    co_benefit = 0
+    if co in ("PFAS destruction", "biochar/nutrients", "nutrients", "low-C fuel"):
+        co_benefit = 1
+
+    score = 60 * eff + 25 * co_term + 15 * co_benefit
+
+    if p["needs_geologic_storage"] and storage_access == "poor":
+        score -= 10
+
+    return round(score)
+
+
+# --------------------------------------------------------------------------
+# Step 5 -- CDR potential (Mtpa)
+# --------------------------------------------------------------------------
+def cdr_potential_mtpa(region, pathway_key):
+    eff = PATHWAYS[pathway_key]["cdr_efficiency"]
+    ag = num(region.get("ag_residues_odt_mt"))
+    forestry = num(region.get("forestry_residues_odt_mt"))
+    manure = num(region.get("animal_manure_odt_mt"))
+    wwtp = num(region.get("human_wwtp_odt_mt"))
+    msw = num(region.get("msw_total_mt"))
+    biofrac = num(region.get("msw_biogenic_frac"), default=0.5)
+
+    if pathway_key in ("wte_ccs",):
+        # msw_total * biogenic_frac * ~1.0 tCO2/t * eff
+        return round(msw * biofrac * 1.0 * eff, 1)
+
+    if pathway_key in ("injection", "ad_ccs"):
+        # wet-waste pathways: manure (+ human/wwtp) odt * 1.47 * eff
+        return round((manure + wwtp) * ODT_TO_CO2 * eff, 1)
+
+    # ag/forestry/mixed dry pathways (beccs, beccs_pp, bio_oil, burial, biochar)
+    return round((ag + forestry) * ODT_TO_CO2 * eff, 1)
+
+
+# --------------------------------------------------------------------------
+# Rationale + caveats + flags
+# --------------------------------------------------------------------------
+def build_rationale(region, rec_key, storage_access, nearest_km,
+                    has_retrofit, anchor_name, anchor_type):
+    dom = region.get("dominant_feedstock")
+    density = region.get("feedstock_density")
+    nutrient = region.get("nutrient_status")
+    p = PATHWAYS[rec_key]
+    eff_pct = int(round(p["cdr_efficiency"] * 100))
+
+    dist = f"{nearest_km} km" if nearest_km is not None else "no mapped"
+    feed_desc = {
+        "ag_dry": "dry agricultural residues",
+        "forestry_woody": "woody forestry residues",
+        "msw": "municipal solid waste",
+        "manure_wet": "wet animal manure / biosolids",
+        "mixed": "mixed biomass residues",
+    }.get(dom, "biomass residues")
+
+    storage_desc = {
+        "good": f"good geologic storage access (nearest qualifying storage ~{dist})",
+        "moderate": f"moderate geologic storage access (~{dist})",
+        "poor": "poor/absent geologic storage access",
+    }[storage_access]
+
+    anchor_clip = ""
+    if has_retrofit and anchor_name:
+        anchor_clip = f" with a retrofittable {anchor_type} anchor ({anchor_name})"
+
+    base = f"{density.capitalize()} {feed_desc}, {nutrient} nutrient status, {storage_desc}"
+
+    if rec_key == "beccs_pp":
+        return (f"{base}{anchor_clip} -> BECCS retrofit of existing pulp & paper / bioenergy "
+                f"maximizes CDR efficiency ({eff_pct}%) plus energy co-product -- Frontier's "
+                f"top-preferred use of biomass.")
+    if rec_key == "beccs":
+        return (f"{base}{anchor_clip} -> BECCS (combustion + capture) delivers {eff_pct}% CDR "
+                f"efficiency with an energy co-product, Frontier's most-preferred pathway where "
+                f"feedstock is concentrated near storage.")
+    if rec_key == "wte_ccs":
+        return (f"{base} -> WtE + CCS captures biogenic CO2 from municipal waste already being "
+                f"combusted ({eff_pct}% CDR efficiency, energy co-product).")
+    if rec_key == "injection":
+        return (f"{base} -> wet wastes are unsuited to combustion (thesis sec 2.2); waste injection "
+                f"delivers >{eff_pct - 1}% CDR efficiency with PFAS-destruction co-benefit.")
+    if rec_key == "ad_ccs":
+        return (f"{base} -> wet feedstock far from storage favors anaerobic digestion + CCS "
+                f"({eff_pct}% CDR efficiency, low-carbon fuel co-product); never combustion.")
+    if rec_key == "bio_oil":
+        return (f"{base} -> diffuse residues distant from concentrated storage favor modular "
+                f"bio-oil sequestration (Charm-style roving model, ~{eff_pct}% CDR efficiency) "
+                f"returning biochar + nutrients.")
+    if rec_key == "burial":
+        return (f"{base} -> with excess nutrients and no viable geologic storage, biomass burial "
+                f"offers >{eff_pct - 1}% CDR efficiency at low cost without needing CO2 storage "
+                f"(Kodama/Graphyte model).")
+    if rec_key == "biochar":
+        return (f"{base} -> distributed biochar returns nutrients to soils ({eff_pct}% CDR "
+                f"efficiency); lower preference but storage-independent.")
+    return base
+
+
+# Large, internally heterogeneous countries: a single national recommendation is a
+# rollup and masks strong sub-national variation in feedstock, storage, and nutrients.
+LARGE_HETEROGENEOUS = {"USA", "CHN", "IND", "RUS", "BRA", "CAN", "AUS"}
+
+
+def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
+                        nutrient_alt=False):
+    caveats = []
+    flags = []
+    dom = region.get("dominant_feedstock")
+
+    # Excess-nutrient alternative caveat
+    if nutrient_alt:
+        caveats.append(
+            "Excess nutrient status: high-removal pathways (including biomass burial) are "
+            "tolerable or favoured here since nutrient export is less of a constraint "
+            "(thesis sec 2.2, China example) -- burial surfaced as the alternative."
+        )
+
+    # National-rollup caveat for large heterogeneous countries
+    if region.get("level") == "country" and region.get("id") in LARGE_HETEROGENEOUS:
+        extra = (" See US state-level cells for spatially-resolved recommendations."
+                 if region.get("id") == "USA" else "")
+        caveats.append(
+            "National rollup -- feedstock type/density, storage access, and nutrient status "
+            "vary substantially sub-nationally; the optimal pathway is local." + extra
+        )
+
+    # Burial durability caveat (mandatory whenever burial is recommended OR runner-up)
+    if rec_key == "burial" or runner_key == "burial":
+        caveats.append(BURIAL_CAVEAT)
+
+    # Storage-confidence caveat
+    if only_low_conf:
+        caveats.append(
+            "Only low-confidence geologic storage mapped nearby (e.g. cratonic / basalt "
+            "settings); treated as no viable storage pending appraisal."
+        )
+
+    # AD / biogas RNG flag
+    if rec_key == "ad_ccs" or runner_key == "ad_ccs" or dom == "manure_wet":
+        flags.append(RNG_FLAG)
+
+    # Corn-ethanol / purpose-grown exclusions: surface where ethanol anchors or
+    # corn-heavy ag stories could tempt the wrong pathway.
+    notes = (region.get("notes") or "").lower()
+    if "ethanol" in notes or "corn" in notes or anchor_type == "ethanol":
+        flags.append(
+            "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal "
+            "additionality, thesis exclusions); not recommended despite local ethanol capacity."
+        )
+
+    # Never recommend purpose-grown crops -- guarded by construction, but flag if the
+    # feedstock narrative leans on dedicated energy crops.
+    if "energy crop" in notes or "purpose-grown" in notes or "miscanthus" in notes or "switchgrass" in notes:
+        flags.append(
+            "Purpose-grown energy crops excluded by Frontier (land-use competition, "
+            "thesis exclusions); recommendation uses residues only."
+        )
+
+    return caveats, flags
+
+
+# --------------------------------------------------------------------------
+# Main build
+# --------------------------------------------------------------------------
+def build():
+    with open(FEEDSTOCKS_PATH) as f:
+        feedstocks = json.load(f)
+    with open(STORAGE_PATH) as f:
+        storage = json.load(f)
+    with open(FACILITIES_PATH) as f:
+        facilities = json.load(f)
+
+    records = []
+    for region in feedstocks:
+        centroid = region.get("centroid")
+        country = region_country(region)
+
+        # Step 1
+        storage_access, nearest_km, only_low_conf = compute_storage_access(
+            centroid, country, storage
+        )
+        # Step 2
+        has_retrofit, anchor_name, anchor_type, has_pp_be = compute_retrofit(country, facilities)
+        # Step 3
+        rec_key, runner_key = decide(region, storage_access, has_retrofit, has_pp_be)
+
+        # Excess-nutrient nuance (thesis sec 2.2, China example): where the ecosystem
+        # carries surplus nutrients, high-removal pathways (incl. biomass burial) are
+        # tolerable/favoured, so burial is surfaced as the alternative for dry-biomass
+        # removal recommendations even when BECCS/bio-oil leads on storage grounds.
+        nutrient_alt = False
+        if (region.get("nutrient_status") == "excess"
+                and rec_key in ("beccs", "beccs_pp", "bio_oil")
+                and runner_key != "burial"):
+            runner_key = "burial"
+            nutrient_alt = True
+        # Step 4
+        score = kpi_score(rec_key, storage_access)
+        # Step 5
+        cdr = cdr_potential_mtpa(region, rec_key)
+
+        rationale = build_rationale(
+            region, rec_key, storage_access, nearest_km,
+            has_retrofit, anchor_name, anchor_type
+        )
+        caveats, flags = build_caveats_flags(
+            region, rec_key, runner_key, only_low_conf, anchor_type, nutrient_alt
+        )
+
+        rec = {
+            "id": region.get("id"),
+            "name": region.get("name"),
+            "recommended": rec_key,
+            "recommended_label": PATHWAYS[rec_key]["label"],
+            "runner_up": runner_key,
+            "runner_up_label": PATHWAYS[runner_key]["label"],
+            "kpi_score": score,
+            "cdr_efficiency": PATHWAYS[rec_key]["cdr_efficiency"],
+            "cost_band": PATHWAYS[rec_key]["cost_band"],
+            "cdr_potential_mtpa": cdr,
+            "storage_access": storage_access,
+            "nearest_storage_km": nearest_km,
+            "has_retrofit": has_retrofit,
+            "anchor_facility": (
+                f"{anchor_name} ({anchor_type})" if anchor_name else None
+            ),
+            "rationale": rationale,
+            "caveats": caveats,
+            "flags": flags,
+        }
+        records.append(rec)
+
+    with open(OUT_PATH, "w") as f:
+        json.dump(records, f, indent=2, ensure_ascii=False)
+
+    return records
+
+
+def print_summary(records):
+    by_path = Counter(r["recommended"] for r in records)
+    total_cdr = sum(r["cdr_potential_mtpa"] or 0 for r in records)
+
+    print(f"\nWrote {len(records)} recommendation records to {OUT_PATH}\n")
+    print("Regions per recommended pathway:")
+    for key in PATHWAYS:
+        if by_path.get(key):
+            print(f"  {key:12s} {PATHWAYS[key]['label']:28s} {by_path[key]:4d}")
+    # any pathway not in PATHWAYS (shouldn't happen)
+    for key, n in by_path.items():
+        if key not in PATHWAYS:
+            print(f"  {key:12s} (UNKNOWN) {n}")
+
+    print(f"\nTotal regions: {sum(by_path.values())}")
+    print(f"Global summed CDR potential across recommended pathways: "
+          f"{total_cdr:,.1f} Mtpa  (~{total_cdr/1000:.2f} Gtpa)")
+
+
+if __name__ == "__main__":
+    recs = build()
+    print_summary(recs)

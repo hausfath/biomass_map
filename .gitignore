@@ -1,0 +1,14 @@
+# Internal Frontier strategy document — do NOT publish
+# (the thesis .docx is the only Word doc in the folder; this keeps it out of the public repo)
+*.docx
+
+# OS / editor cruft
+.DS_Store
+*.swp
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

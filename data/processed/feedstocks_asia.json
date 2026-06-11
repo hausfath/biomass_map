@@ -1,0 +1,1124 @@
+[
+  {
+    "id": "CHN",
+    "name": "China",
+    "level": "country",
+    "parent": null,
+    "centroid": [104.2, 35.9],
+
+    "ag_residues_odt_mt": {
+      "value": 500.0,
+      "low": 380.0,
+      "high": 620.0,
+      "source": "Gross production 827 Mt (2017, FAOSTAT crop stats × Slade et al. 2014 RPRs) incl. rice ~200 Mt, wheat ~130 Mt, maize ~220 Mt straw gross; 40% sustainable recoverable fraction applied. Cross-checked: IEA 2022 global residue supply; Pmc9133383 (China straw utilization review).",
+      "notes": "Gross crop straw ~700–830 Mt/yr wet weight (≈600–700 Mt odt); 40% recoverable cap = 240–280 Mt straw odt PLUS high-value residues (cotton, oilseed, sugarcane) brings total recoverable to ~380–620 Mt odt. Significant field burning of rice/wheat straw persists in Northeast/Huang-Huai-Hai plain — sourcing risk for quality biomass. Waste biomass for BiCRS excludes purpose-grown energy crops."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 120.0,
+      "low": 60.0,
+      "high": 200.0,
+      "source": "China Medium- and Long-term Renewable Energy Plan (NDRC): ~300 Mt gross forestry/processing residues available; ScienceDirect doi:10.1016/j.resconrec.2020.104879 gives 125–900 Mt range; recoverable ~40% of midpoint. FAO FRA 2020 roundwood harvest China ~340 Mm3/yr.",
+      "notes": "Wide uncertainty range (studies vary 125–900 Mt gross). Top provinces: Guangxi, Yunnan, Fujian. Logging + processing residues dominant. Recoverable constrained by logistics and existing use for panels/pulp. 60 Mt low = conservative FAO-comparable; 200 Mt high = NDRC upper-end."
+    },
+
+    "msw_total_mt": {
+      "value": 310.0,
+      "low": 280.0,
+      "high": 340.0,
+      "source": "Nature Comms Earth Environ 2025 (doi:10.1038/s43247-025-02859-0): China processed 310 Mt MSW in 2022; incineration capacity reached ~300 Mt/yr by end-2022. Cross-check: World Bank What a Waste 2.0 (2018) country dataset.",
+      "notes": "China is now the world's largest MSW producer and incinerator. Rapid WtE scale-up: 648 incineration plants in 2022, up from 109 in 2011. Biogenic fraction lower than typical LMIC due to mandatory sorting (since 2019) increasing inorganic share in MSW stream."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.50,
+      "source": "Tracking carbon flows in municipal waste management in China, Sci Reports 2024; World Bank What a Waste 2.0 East Asia averages; organic kitchen waste ~50% of unsorted stream pre-sorting.",
+      "notes": "Biogenic fraction declining with sorting/diversion of organics. Range 0.45–0.58 depending on city/year."
+    },
+    "msw_treatment": {
+      "wte_pct": 75,
+      "landfill_pct": 20,
+      "dump_pct": 2,
+      "recycle_compost_pct": 3,
+      "source": "Nature Comms Earth Environ 2025; WTERT 2022 report on China MSW incineration; incineration share reached 75% of treated waste in 2022."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 600.0,
+      "low": 450.0,
+      "high": 800.0,
+      "source": "Regional Characteristics of Livestock Manure in China (MDPI Sustainability 2025, doi:10.3390/su18041844): 1803 Mt wet manure in 2023; dry matter ~30% avg = ~540 Mt odt. Alt source: China MOA reports 4 billion tons total incl. urine — wet weight. FAO GLEAM livestock data.",
+      "notes": "Wet-weight figures in Chinese literature are very large (1.8–4 billion t/yr) depending on inclusion of urine and litter — dry matter basis is most relevant. Pig manure alone ~700 Mt wet (Frontiers Env Sci 2023). China holds ~50% of world's pigs, ~12% of cattle. EXCESS nutrient status — manure nutrient oversupply in intensive livestock areas (Shandong, Henan, Sichuan)."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 7.5,
+      "low": 5.0,
+      "high": 10.0,
+      "source": "ScienceDirect 2023 (20-yr shift in China sludge): 5476 WWTPs produced 39 Mt wet sludge @ 80% moisture in 2019 → ~7.8 Mt dry solids. Trend growing rapidly with urbanization.",
+      "notes": "Sewage treatment coverage expanding rapidly; ~70% of wastewater treated as of 2020. Sludge disposal remains a challenge — burial/land application common. High heavy-metal content in some industrial zones — flag as quality concern for BiCRS."
+    },
+
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FAO FAOSTAT Cropland Nutrient Budget: China cropland shows large N and P surpluses annually; ~47 Mt nutrient consumption in 2022 (Statista/IFA); thesis §2.2 cites China explicitly as excess-nutrient case where biomass burial may beat BECCS. IFA NUE Backgrounder 2020: China NUE ~0.30 N.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+
+    "notes": "China is the single largest biomass feedstock country globally. Ag residues concentrated in major grain belts (NE China maize; Yangtze/Pearl river deltas rice; Huang-Huai-Hai wheat). MSW WtE infrastructure already large — retrofit CCS on existing incinerators is the highest-leverage near-term opportunity. Excess nutrient status supports biomass burial/Kodama-type pathways in intensive agriculture regions. Sourcing concerns: open burning of rice/wheat straw in Punjab-analogue regions; regulatory framework for biomass waste collection still developing. Flag: RNG from manure NOT recommended per Frontier exclusions."
+  },
+
+  {
+    "id": "IND",
+    "name": "India",
+    "level": "country",
+    "parent": null,
+    "centroid": [78.9, 20.6],
+
+    "ag_residues_odt_mt": {
+      "value": 200.0,
+      "low": 140.0,
+      "high": 260.0,
+      "source": "India total crop residue 500–683 Mt/yr wet weight (CPCB Annual Report 2021-22; Agronomy Journals 2024; ResearchGate surplus estimation). Major crops: rice ~43 Mt, wheat ~89 Mt, sugarcane ~56 Mt, cotton ~47 Mt residues (surplus, odt-basis per ScienceDirect doi:10.1016/j.indcrop.2022). 40% recoverable applied to gross ~500 Mt odt.",
+      "notes": "India #2 globally for crop residue. Major burning problem in Punjab/Haryana — rice-wheat rotation leaves <3-week window, ~30 Mt straw burned annually in Indo-Gangetic Plains. Bagasse largely used in-mill. Recoverable excludes uses already committed (fodder, fuel, composting). FAO 2022 rice straw Punjab study confirms field-burning sourcing risk."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 30.0,
+      "low": 15.0,
+      "high": 50.0,
+      "source": "FAO FRA 2020: India roundwood production ~90 Mm3/yr; Slade et al. 2014 South Asia forestry residue estimates. India Forest Survey 2021 (FSI): forest cover 24% of land, but net logging residues constrained by public forest access rules.",
+      "notes": "India's forests largely under government control with restricted commercial logging. Processing/mill residues (sawmills, plywood) more accessible. Bamboo (India ~13.9 Mha) is significant but under-quantified. Estimate is conservative."
+    },
+
+    "msw_total_mt": {
+      "value": 62.0,
+      "low": 55.0,
+      "high": 72.0,
+      "source": "CPCB Annual Report on Solid Waste Management 2021-22: 170,338 TPD = ~62 Mt/yr. Cross-check World Bank What a Waste 2.0 India country data.",
+      "notes": "Collection efficiency ~92% officially, but 22% unaccounted — significant open dumping continues. 2452 existing dumpsites."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.58,
+      "source": "CPCB 2021-22: organic/food waste ~55–60% of India MSW composition; World Bank What a Waste 2.0 South Asia averages. Higher than US/EU due to food waste dominance.",
+      "notes": "High organic fraction typical of LMIC. Biogenic fraction 0.52–0.65 range depending on city affluence."
+    },
+    "msw_treatment": {
+      "wte_pct": 2,
+      "landfill_pct": 24,
+      "dump_pct": 52,
+      "recycle_compost_pct": 22,
+      "source": "CPCB Annual Report 2021-22: processed 54%, landfilled 24%, unaccounted 22% (which maps to open dump/informal). WtE capacity minimal (~2%)."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 180.0,
+      "low": 130.0,
+      "high": 230.0,
+      "source": "FAO GLEAM 2.0: India cattle population ~300 M (largest in world), buffalo ~110 M, small ruminants ~380 M, poultry ~850 M. Manure dry matter estimated at ~0.5 kg odt/head/day cattle, scaled. IEA Outlook for Biogas 2020 South Asia regional estimates.",
+      "notes": "India has the world's largest cattle herd. Much manure already used as cooking fuel (dung cakes) or applied directly to fields. Biogas uptake growing but still limited. Wet manure is diffuse across 600,000+ villages — logistics challenge. EXCESS nutrient status in intensive agriculture zones (Punjab, Haryana, UP), but moderate nationally."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 1.5,
+      "low": 0.8,
+      "high": 3.0,
+      "source": "IndiaSPEND: India generates 72 billion litres/day sewage; treats only 28% → ~20 billion L/day treated. At ~200 mg/L dry solids: ~4 Mt/yr raw sludge if fully treated; actually ~1.5 Mt given 28% treatment rate. Modelling and techno-economic assessment pathways India (ScienceDirect 2024).",
+      "notes": "Sewage treatment coverage very low (~28% actual treatment). Large gap between generation and treatment. Sludge utilization infrastructure nascent. Scale-up of WWTP is itself a priority — human waste stream severely underutilized."
+    },
+
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FAO FAOSTAT: India N surplus on cropland well-documented; 29.84 Mt nutrient consumption 2022 (IFA/Statista); NUE ~0.30 N per IFA 2020. Excess in intensively farmed states; deficit in rainfed eastern states — nationally call 'excess' following thesis guidance.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "India is the #2 country globally for waste biomass. Ag residue burning in Punjab/Haryana is a major air quality and biomass sourcing risk — significant policy focus on alternatives. Diffuse feedstock distribution (smallholder farming dominant) favors bio-oil sequestration (Charm model) or distributed biochar over centralized BECCS, except in dense sugarcane/rice milling regions (UP, Maharashtra, Punjab). Excess nutrient areas support biomass burial. Weak regulatory enforcement on burning bans — sourcing risk flagged per thesis East/South Asia caveats. RNG not recommended."
+  },
+
+  {
+    "id": "IDN",
+    "name": "Indonesia",
+    "level": "country",
+    "parent": null,
+    "centroid": [113.9, -0.8],
+
+    "ag_residues_odt_mt": {
+      "value": 120.0,
+      "low": 80.0,
+      "high": 160.0,
+      "source": "ICCT 2021 (Availability use removal oil palm biomass Indonesia): palm fronds ~299 Mt wet (2013), EFB ~28 Mt, OPT ~134 Mt; dry matter ~40–50% fronds/trunks, ~25% EFB. Rice paddy ~54 Mt (FAOSTAT 2022) × RPR 1.0 × 0.4 recoverable = ~22 Mt rice straw. Palm residues dominant: EFB+fronds recoverable ~80–100 Mt odt.",
+      "notes": "Palm oil residues (EFB, fronds, mesocarp fibre, PKS) dominate Indonesia's agricultural residue stream — they are concentrated at palm oil mills, making them high-density feedstocks. EFB currently used for composting and co-firing. Peat land emissions concern for palm expansion areas. RSPO-certified mills have better tracking. Rice straw from Java/Sumatra adds secondary supply."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 35.0,
+      "low": 20.0,
+      "high": 55.0,
+      "source": "FAO Asia-Pacific Forestry Commission (Trash or Treasure, FAO x6966e): Indonesia one of top 3 logging residue producers in AP (88% of usable logging residues in AP from China+Indonesia+Malaysia). FAO FRA 2020 Indonesia roundwood ~65 Mm3/yr; Slade et al. 2014 estimates.",
+      "notes": "Significant deforestation/illegal logging concerns — not all forestry residues are from sustainable sources. Certified plantation forestry (acacia, eucalyptus for pulp) is the most trackable supply. Flag: sourcing integrity risk for uncertified timber residues per thesis caveats."
+    },
+
+    "msw_total_mt": {
+      "value": 64.0,
+      "low": 55.0,
+      "high": 75.0,
+      "source": "World Bank What a Waste 2.0 (2018); DevelopmentAid world waste statistics; ASEAN waste management summary report. 64 Mt/yr figure for 2020.",
+      "notes": "Only ~60% of waste formally collected; large open dumping fraction. Recycling only 14% (informal sector)."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.60,
+      "source": "ASEAN waste composition data; World Bank What a Waste 2.0: organic/food waste ~55–65% of SEA MSW. Indonesia high food waste fraction.",
+      "notes": "High biogenic fraction typical of LMIC with high food waste share."
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 45,
+      "dump_pct": 40,
+      "recycle_compost_pct": 14,
+      "source": "Indonesia MSW report UMD/SPP 2025; ASEAN waste management summary; ~40% informal/open dump, ~45% controlled landfill, minimal WtE."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 45.0,
+      "low": 30.0,
+      "high": 65.0,
+      "source": "FAO GLEAM 2.0: Indonesia cattle ~17 M, buffalo ~1.5 M, pigs ~8 M, poultry ~3.2 B. Scaled manure dry-matter at regional livestock density factors. IEA biogas SEA regional data.",
+      "notes": "Significant smallholder livestock sector. Cattle and poultry dominant manure streams. Palm oil mill effluent (POME) is a major wet-waste stream (~60 Mt/yr wet) with high biogas potential — currently ~20% captured. POME categorized here as ag residue wet component not manure."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.8,
+      "low": 0.4,
+      "high": 1.5,
+      "source": "World Bank wastewater data: Indonesia sewage treatment coverage ~15–20% of population; estimated from population (275 M) × 0.18 treatment rate × 0.06 kg dry solids/capita/day × 365.",
+      "notes": "Very low sewage treatment coverage. Most human waste in septic tanks or open channels. Limited centralized WWTP sludge available at scale."
+    },
+
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT nutrient budgets: Indonesia fertilizer use moderate; palm plantations receive significant NPK but soil P surplus less extreme than China/India. National NUE moderate.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+
+    "notes": "Indonesia's most distinctive BiCRS feedstock is palm oil mill residues — concentrated at ~2000 mills across Sumatra/Kalimantan/Sulawesi, making BECCS or WtE+CCS retrofits at mill clusters viable. POME is a major wet-waste stream suitable for AD+CCS or waste injection. Forestry residue sourcing integrity is a major risk — requires SVLK or FSC certification verification. Geologic CO2 storage options limited onshore; offshore basins present. Sourcing risk flagged for uncertified biomass per thesis."
+  },
+
+  {
+    "id": "THA",
+    "name": "Thailand",
+    "level": "country",
+    "parent": null,
+    "centroid": [101.0, 15.9],
+
+    "ag_residues_odt_mt": {
+      "value": 35.0,
+      "low": 22.0,
+      "high": 48.0,
+      "source": "Rice straw: 32.9 Mt/yr (Logistics cost analysis rice straw Thailand, Energy 2011; UNCSAM Status of Straw Mgmt Asia-Pacific 2021). ~48% burned in field. Sugarcane bagasse: ~10 Mt/yr (Thailand #5 sugar producer). Cassava: ~8 Mt residues. Total gross ~55 Mt; 40% recoverable = ~22 Mt. But bagasse concentrated at mills, raising recoverable to ~35 Mt.",
+      "notes": "Sugarcane bagasse concentrated at ~50+ sugar mills — high-density feedstock amenable to BECCS. Rice straw diffuse across Central Plains. Cassava stalk and tapioca residues secondary supply. Approx 48% of rice straw field-burned — sourcing risk."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 8.0,
+      "low": 4.0,
+      "high": 14.0,
+      "source": "FAO FRA 2020: Thailand roundwood ~20 Mm3/yr (incl. rubber wood). Slade et al. 2014 South/SE Asia forestry estimates. Rubber wood residues from replanting significant.",
+      "notes": "Rubber plantation replanting generates significant woody biomass (rubber wood). Deforestation history limits natural forest logging residues. Plantation residues more traceable."
+    },
+
+    "msw_total_mt": {
+      "value": 27.0,
+      "low": 22.0,
+      "high": 32.0,
+      "source": "World Bank What a Waste 2.0; ASEAN waste management summary: Thailand 26.77 Mt/yr. Thailand MSW generation analysis WTERT 2020.",
+      "notes": "Bangkok generates ~9,500 t/day; rest of country smaller municipalities. Growing WtE capacity."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "Thailand MSW composition studies: food/organic waste ~45–55% of stream. World Bank What a Waste 2.0.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 5,
+      "landfill_pct": 55,
+      "dump_pct": 25,
+      "recycle_compost_pct": 15,
+      "source": "WTERT 2020 Thailand MSW; Thailand ONEP national waste data; World Bank What a Waste 2.0."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 22.0,
+      "low": 14.0,
+      "high": 30.0,
+      "source": "FAO GLEAM: Thailand pigs ~11 M, cattle ~6 M, poultry ~1.4 B. Scaled dry matter manure factors. Thailand is major pork/poultry exporter — intensive factory farming generates concentrated manure streams.",
+      "notes": "Intensive pig and poultry operations in Central Thailand concentrate manure in a form suitable for AD. Biogas from swine farms already deployed at commercial scale in Thailand."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.35,
+      "low": 0.20,
+      "high": 0.55,
+      "source": "Estimated: Thailand population 72 M × ~30% WWTP coverage × 0.06 kg dry solids/cap/day × 365.",
+      "notes": "Moderate WWTP coverage; expanding. Sewage sludge underutilized."
+    },
+
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT: Thailand moderate fertilizer intensity. Some N surplus in intensive cropping areas. Not classified excess nationally.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "mixed",
+
+    "notes": "Thailand has two distinct feedstock streams: (1) concentrated bagasse at sugar mills — best suited for BECCS retrofit; (2) diffuse rice straw across the Central Plains — bio-oil/biochar favored. Straw burning bans enforced unevenly. Eastern Seaboard has industrial clusters near coastal CO2 storage (Gulf of Thailand). Sourcing risk moderate."
+  },
+
+  {
+    "id": "VNM",
+    "name": "Vietnam",
+    "level": "country",
+    "parent": null,
+    "centroid": [108.3, 16.2],
+
+    "ag_residues_odt_mt": {
+      "value": 30.0,
+      "low": 20.0,
+      "high": 42.0,
+      "source": "Sci Reports 2020 (Renewable energy from biomass surplus resource Vietnam): 54 Mt rice straw/yr total (Mekong Delta dominant). Energy potential study Agronomy 2021 (doi:10.3390/agronomy11010169): 88.6 Mt total agricultural residues including rice straw, sugarcane, corn, cassava. Recoverable ~40% gross = ~35 Mt, minus committed uses = ~30 Mt.",
+      "notes": "Rice straw dominates — Vietnam produces ~40+ Mt paddy/yr (FAOSTAT 2022). Mekong Delta is highest-density rice straw region globally. Sugarcane bagasse secondary. Currently ~50% of rice straw burned in field or left to decompose. VietnamNews 2026 cites circular economy opportunity."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 10.0,
+      "low": 5.0,
+      "high": 18.0,
+      "source": "FAO FRA 2020: Vietnam roundwood ~30 Mm3/yr; plantation forestry (acacia, eucalyptus) significant. Processing residues from wood products export industry.",
+      "notes": "Vietnam is a major wood products exporter (furniture). Mill residues concentrated in industrial provinces (Binh Duong, Dong Nai, Binh Dinh). Natural forest logging officially banned since 2016 — plantation residues the trackable supply."
+    },
+
+    "msw_total_mt": {
+      "value": 22.0,
+      "low": 18.0,
+      "high": 28.0,
+      "source": "World Bank What a Waste 2.0; ASEAN waste management summary: Vietnam ~22 Mt/yr. DevelopmentAid statistics 2022.",
+      "notes": "Growing rapidly with urbanization. Hanoi and HCMC generate bulk of MSW. Mostly landfilled."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.60,
+      "source": "Vietnam MSW composition: food/organic waste ~60% typical of LMIC with high food waste fraction. World Bank What a Waste 2.0.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 2,
+      "landfill_pct": 60,
+      "dump_pct": 30,
+      "recycle_compost_pct": 8,
+      "source": "World Bank What a Waste 2.0; ASEAN waste management summary; Vietnam government national waste plan 2021."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 25.0,
+      "low": 16.0,
+      "high": 35.0,
+      "source": "FAO GLEAM: Vietnam pigs ~28 M (#3 globally for pig density), cattle ~6 M, poultry ~500 M. High pig density → significant manure load. Scaled at 0.4 kg odt/pig/day × 365.",
+      "notes": "Vietnam has one of the highest pig-to-land ratios globally. Intensive pig farming in Red River and Mekong Deltas creates concentrated wet-waste streams. AD uptake growing but limited. Biogas from pig farms government-supported."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.25,
+      "low": 0.12,
+      "high": 0.45,
+      "source": "Estimated: Vietnam population 98 M × ~15% centralized WWTP coverage × 0.06 kg dry/cap/day × 365. Low WWTP coverage is documented.",
+      "notes": "Very low centralized sewage treatment coverage. Rapid urbanization creating demand but infrastructure lagging."
+    },
+
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT: Vietnam moderate-to-high fertilizer use in delta rice cultivation. Some N surplus in intensive cropping but not as extreme as China.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+
+    "notes": "Vietnam's Mekong Delta is one of the world's most concentrated rice straw producing areas — a high-priority target for bio-oil sequestration (Charm-type) or dedicated BECCS. High pig density in deltas creates concentrated wet-waste stream suitable for AD. Limited geologic CO2 storage identified onshore; offshore South China Sea sedimentary basins potential. Sourcing risk: open burning bans weakly enforced in rural areas."
+  },
+
+  {
+    "id": "MYS",
+    "name": "Malaysia",
+    "level": "country",
+    "parent": null,
+    "centroid": [109.7, 4.2],
+
+    "ag_residues_odt_mt": {
+      "value": 55.0,
+      "low": 38.0,
+      "high": 72.0,
+      "source": "MDPI Sustainability 2019 (Oil palm biomass Malaysia): 51.19 Mt palm biomass available in 2017 (fronds, trunks, EFB, mesocarp fibre, PKS). IntechOpen Oil Palm Wastes Malaysia. Rice residues ~2 Mt. Total ag gross ~55–75 Mt; 40% recoverable = ~22–30 Mt, but palm residues at-mill recoverable ~70% → effective recoverable 38–72 Mt.",
+      "notes": "Malaysia is the #2 global palm oil producer. Palm residues (EFB, fronds, mesocarp fibre, palm kernel shell) concentrated at ~450 palm oil mills in Peninsular Malaysia + Sabah/Sarawak. EFB ~14% of FFB weight. POME (wet) significant. RSPOcertified supply chains have best traceability. Residues compete with biocomposite/boiler fuel uses."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 12.0,
+      "low": 6.0,
+      "high": 20.0,
+      "source": "FAO FRA 2020: Malaysia roundwood ~25 Mm3/yr; FAO AP Forestry Commission: Malaysia one of top-3 logging residue producers in Asia-Pacific. Processing residues from major wood products export sector.",
+      "notes": "Sabah and Sarawak have significant logging residue but deforestation concerns and FLEGT VPA compliance risk. Plantation forestry (acacia) residues more sustainable. Peninsular Malaysia mostly plantation/secondary."
+    },
+
+    "msw_total_mt": {
+      "value": 12.0,
+      "low": 10.0,
+      "high": 15.0,
+      "source": "World Bank What a Waste 2.0 Malaysia country data; MDPI Sustainability 2019 Malaysia MSW review.",
+      "notes": "Kuala Lumpur generates ~3800 t/day. Growing with affluence and urbanization."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "Malaysia MSW composition: food waste ~45–55%. World Bank What a Waste 2.0.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 70,
+      "dump_pct": 15,
+      "recycle_compost_pct": 15,
+      "source": "World Bank What a Waste 2.0; Malaysia National Solid Waste Management Department. WtE aspirational but not yet operational at scale as of 2022."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 10.0,
+      "low": 6.0,
+      "high": 15.0,
+      "source": "FAO GLEAM: Malaysia pigs ~2.5 M, cattle ~0.8 M, poultry ~300 M (major broiler exporter). Scaled manure factors.",
+      "notes": "Poultry and pig manure dominant. Biogas capture from POME (palm oil mill effluent) classified under ag residue stream as it is process waste not livestock manure."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.18,
+      "low": 0.10,
+      "high": 0.30,
+      "source": "Estimated: Malaysia 33 M pop × ~65% WWTP coverage × 0.06 kg dry/cap/day × 365.",
+      "notes": "Relatively high WWTP coverage for the region. IWK (Indah Water Konsortium) manages most peninsular WWTP."
+    },
+
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT: Malaysia moderate fertilizer use. Palm plantations receive significant fertilizer but soil status not in excess nationally. Peatland drainage creates different carbon accounting issue.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+
+    "notes": "Malaysia's feedstock case is almost entirely about palm oil — concentrated at mills, high density, good traceability in RSPO-certified supply chains. EFB co-firing already practiced; BECCS retrofit at palm oil industrial clusters feasible. POME is significant wet feedstock for AD+CCS. Peatland context creates sensitivity around any land use change or residue management practices. Sourcing risk: uncertified palm residues from smallholder plots."
+  },
+
+  {
+    "id": "PHL",
+    "name": "Philippines",
+    "level": "country",
+    "parent": null,
+    "centroid": [122.0, 12.9],
+
+    "ag_residues_odt_mt": {
+      "value": 18.0,
+      "low": 11.0,
+      "high": 25.0,
+      "source": "Rice straw: 10.68 Mt/yr (Straw as renewable energy source India/Thailand/Philippines, ScienceDirect doi:10.1016/j.biombioe.2009.01.014). Sugarcane bagasse: ~5 Mt (Philippines #13 sugar producer, ~2 Mt/yr sugar). Coconut shell/husk: ~4 Mt. Total gross ~22 Mt; recoverable ~40–50% = ~11–25 Mt.",
+      "notes": "Rice straw dominant. Philippines is a top coconut producer — shell/husk residues are dense and concentrated at processing facilities. Sugarcane in Negros/Cebu. Significant rice straw burning despite regulations."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.0,
+      "high": 8.0,
+      "source": "FAO FRA 2020: Philippines roundwood ~5 Mm3/yr, mostly plantation (falcata, gemelina). Logging ban on natural forests. Slade et al. 2014 estimates.",
+      "notes": "Very limited natural forest logging (ban in place). Plantation residues from falcata and bamboo. Modest forestry residue supply."
+    },
+
+    "msw_total_mt": {
+      "value": 15.0,
+      "low": 12.0,
+      "high": 18.0,
+      "source": "World Bank What a Waste 2.0; ASEAN waste summary: Philippines ~14.66 Mt/yr. Growing with urbanization; Metro Manila ~9000 t/day.",
+      "notes": "Significant informal sector. Quezon City landfill (San Mateo) closure crisis. Open dumping remains common outside Metro Manila."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.60,
+      "source": "Philippines MSW composition: food waste ~60% (NSWMC data). World Bank What a Waste 2.0.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 50,
+      "dump_pct": 40,
+      "recycle_compost_pct": 9,
+      "source": "World Bank What a Waste 2.0; Philippines RA 9003 (Ecological Solid Waste Act) implementation data; open dumping still widespread."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 15.0,
+      "low": 9.0,
+      "high": 22.0,
+      "source": "FAO GLEAM: Philippines pigs ~12 M, cattle ~2.6 M, carabao ~3 M, poultry ~175 M. Scaled dry matter manure factors.",
+      "notes": "Pig and poultry farming widespread. Laguna de Bay watershed has significant manure water quality issues. AD uptake growing in commercial farms."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.15,
+      "low": 0.07,
+      "high": 0.28,
+      "source": "Estimated: Philippines 115 M pop × ~10% formal WWTP coverage × 0.06 kg dry/cap/day × 365.",
+      "notes": "Very low centralized sewage treatment. Manila Bay rehabilitation driving investment. Most human waste via septic tanks."
+    },
+
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO FAOSTAT: Philippines relatively low fertilizer intensity per ha for most crops. Soil P deficiency common in upland areas. Nutrient return from biomass burial would be beneficial.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "Philippines feedstocks are diffuse across ~7000 islands, creating logistics challenges for centralized BECCS. Bio-oil sequestration (Charm) or distributed biochar more suitable for diffuse rice straw. Coconut processing clusters (Davao, Quezon) offer concentrated feedstock. Limited domestic CO2 storage identified. Sourcing risk: weak enforcement of burn bans."
+  },
+
+  {
+    "id": "MMR",
+    "name": "Myanmar",
+    "level": "country",
+    "parent": null,
+    "centroid": [95.9, 19.2],
+
+    "ag_residues_odt_mt": {
+      "value": 20.0,
+      "low": 12.0,
+      "high": 30.0,
+      "source": "Myanmar paddy production ~28.9 Mt in 2014 (IOP Science biomass burning study); FAOSTAT 2022 ~26 Mt paddy × RPR 1.0 × 0.4 = ~10 Mt rice straw recoverable. Pulses, sesame, sugarcane add ~8–12 Mt. Rice husk ~5.78 Mt (from 28.9 Mt paddy × 0.2 husk ratio). Total gross ~35–45 Mt; recoverable ~12–30 Mt.",
+      "notes": "Myanmar is a major rice exporter. Crop residue burning is widespread and relatively unregulated. Political instability (post-2021 coup) severely disrupts data collection and enforcement — all estimates carry high uncertainty. IOP Science cropland biomass burning study flags Myanmar as major burner."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 8.0,
+      "low": 3.0,
+      "high": 15.0,
+      "source": "FAO FRA 2020: Myanmar roundwood ~30 Mm3/yr; historically significant teak exporter. Processing residues from sawmills.",
+      "notes": "Teak and hardwood logging has been major industry. Post-2021 coup, illegal logging increased significantly with weakened enforcement. Sourcing integrity very high risk — Forest Stewardship Council suspended operations. Not recommended for certified supply chains without verification."
+    },
+
+    "msw_total_mt": {
+      "value": 5.5,
+      "low": 4.0,
+      "high": 7.5,
+      "source": "World Bank What a Waste 2.0 Myanmar country data; ADB urban development data. Yangon generates ~2500 t/day.",
+      "notes": "Predominantly open dumping. Very limited formal collection outside major cities."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "Estimated from LMIC SE Asia profiles; Myanmar food waste fraction likely >60% given low income levels and food-dominant consumption patterns. World Bank What a Waste 2.0 regional profiles.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 20,
+      "dump_pct": 75,
+      "recycle_compost_pct": 5,
+      "source": "World Bank What a Waste 2.0; ADB 2021 Myanmar waste data; open dumping dominant. Post-coup governance collapse has worsened waste management."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 18.0,
+      "low": 10.0,
+      "high": 28.0,
+      "source": "FAO GLEAM: Myanmar cattle ~13 M, pigs ~3 M, poultry ~110 M. Scaled dry-matter manure. Significant buffalo population used in farming.",
+      "notes": "Largely subsistence livestock. Manure mainly used as farm fuel or fertilizer directly. Low biogas uptake."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.12,
+      "source": "Estimated: Myanmar 56 M pop × ~5% formal WWTP coverage × 0.06 kg dry/cap/day × 365. Very limited sewage infrastructure.",
+      "notes": "Almost no centralized wastewater treatment. Political instability has halted infrastructure investment."
+    },
+
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO FAOSTAT: Myanmar low fertilizer use per ha; soil nutrients depleted in intensively farmed delta zones but no national surplus. Nutrient return pathways beneficial.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "CRITICAL SOURCING RISK: Post-2021 military coup has severely degraded governance, enforcement of burning regulations, and data reliability. Forestry residues from Myanmar should not be used without strong chain-of-custody verification. Ag residues (rice straw) are abundant and predominantly wasted/burned but political and logistical barriers to organized collection are severe. BiCRS pathway assessment requires political stabilization as a prerequisite."
+  },
+
+  {
+    "id": "KHM",
+    "name": "Cambodia",
+    "level": "country",
+    "parent": null,
+    "centroid": [104.9, 12.6],
+
+    "ag_residues_odt_mt": {
+      "value": 6.0,
+      "low": 3.5,
+      "high": 9.0,
+      "source": "Theoretical Bioenergy Potential Cambodia (ECP 2010 conference): rice residues ~8.6 Mt/yr. CGIAR Mekong rice straw study 2022. FAOSTAT: Cambodia paddy ~10.5 Mt/yr × RPR 1.0 × 0.4 = ~4.2 Mt rice straw recoverable; rice husk ~2.1 Mt. Cassava adds ~1.5 Mt.",
+      "notes": "Rice straw and husk dominant. Tonle Sap floodplain is high-density rice area. Near-100% of rice straw currently burned or left in field — near-zero current recovery. Rice husk used in some brick kilns and small power plants."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.0,
+      "high": 5.0,
+      "source": "FAO FRA 2020: Cambodia roundwood ~10 Mm3/yr; deforestation rate high. Theoretical Bioenergy Cambodia/Laos (ECP 2010): 1.4 Mtoe biomass incl. forestry.",
+      "notes": "Cambodia has one of the highest deforestation rates in Asia. Logging residues exist but sourcing integrity extremely poor — rampant illegal logging. Not recommended for BiCRS without verified supply chain."
+    },
+
+    "msw_total_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "World Bank What a Waste 2.0 Cambodia; Phnom Penh generates ~2800 t/day from 2M population at 0.9 kg/cap/day. National scaled from urban population fraction.",
+      "notes": "Mostly informal collection and open dumping. Phnom Penh has semi-formal collection; provincial towns minimal."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "World Bank What a Waste 2.0 SE Asia LMIC profiles; high food waste fraction in low-income country context.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 30,
+      "dump_pct": 65,
+      "recycle_compost_pct": 5,
+      "source": "World Bank What a Waste 2.0; ADB Cambodia waste assessments."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 5.5,
+      "low": 3.0,
+      "high": 8.0,
+      "source": "FAO GLEAM: Cambodia cattle ~3.5 M, pigs ~2.5 M, poultry ~36 M. Scaled dry-matter manure. Significant buffalo and oxen population.",
+      "notes": "Largely subsistence agriculture. Manure used directly as fertilizer. Very limited AD infrastructure."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.03,
+      "low": 0.01,
+      "high": 0.07,
+      "source": "Estimated: Cambodia 17 M pop × ~5% WWTP coverage × 0.06 kg dry/cap/day × 365.",
+      "notes": "Minimal centralized wastewater treatment outside Phnom Penh."
+    },
+
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO FAOSTAT: Cambodia very low fertilizer use per ha. Nutrient-poor soils in many upland areas. Biomass burial / biochar would benefit soils.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "Small country but high per-capita rice biomass potential relative to population. Near-zero current residue recovery. Political environment more stable than Myanmar but governance of forest resources remains weak. Sourcing risk for forestry residues: very high. Geologic storage poorly characterized. Distributed bio-oil or biochar pathways most appropriate given diffuse feedstock and weak infrastructure."
+  },
+
+  {
+    "id": "JPN",
+    "name": "Japan",
+    "level": "country",
+    "parent": null,
+    "centroid": [138.3, 36.2],
+
+    "ag_residues_odt_mt": {
+      "value": 12.0,
+      "low": 8.0,
+      "high": 17.0,
+      "source": "FAOSTAT 2022: Japan rice paddy ~7.6 Mt × RPR 1.0 + wheat/barley ~1.3 Mt × RPR 1.2. Sugarcane (Okinawa) ~1.5 Mt. Total gross ~15 Mt; 40% recoverable = ~12 Mt. Japan MAFF biomass utilization data.",
+      "notes": "Japan has high biomass utilization rates already (rice straw returned to soil, used in livestock bedding). Actual freely-available recoverable fraction may be lower than 40% cap. Biomass Town Plans cover most municipalities. Limited marginal supply for additional BiCRS."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 18.0,
+      "low": 10.0,
+      "high": 28.0,
+      "source": "FAO FRA 2020: Japan roundwood ~30 Mm3/yr; Japan Forestry Agency data: logging + processing residues ~5–8 Mm3/yr. Cascade Forest Products study. Much forestry biomass already used for pellets/chips.",
+      "notes": "Japan is a major wood pellet importer AND domestic forestry residue producer. Domestic residues compete with imported biomass for existing bioenergy capacity. Cedar/cypress plantations overstocked — thinning residues abundant. High-cost logistics in mountainous terrain."
+    },
+
+    "msw_total_mt": {
+      "value": 40.3,
+      "low": 38.0,
+      "high": 43.0,
+      "source": "Japan Ministry of Environment FY2022 press release: total MSW generation 40,340,000 t = 40.34 Mt. Authoritative official data.",
+      "notes": "Declining trend from ~50 Mt in 2000. High incineration rate."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.45,
+      "source": "Japan MSW composition: kitchen waste ~30%, paper ~30%, wood ~5%. Biogenic fraction ~45–50% of MSW. Japan Ministry of Environment waste characterization studies.",
+      "notes": "Lower than SE Asia LMICs due to more plastics/packaging in consumer waste stream."
+    },
+    "msw_treatment": {
+      "wte_pct": 72,
+      "landfill_pct": 8,
+      "dump_pct": 0,
+      "recycle_compost_pct": 20,
+      "source": "Japan Ministry of Environment FY2022: incineration ~72%, recycling ~20%, landfill ~8%. 1,016 incineration plants as of March 2023."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 8.0,
+      "high": 17.0,
+      "source": "Japan MAFF livestock statistics: cattle ~3.8 M, pigs ~9.2 M, poultry ~320 M. Scaled dry-matter manure factors. IEA biogas Japan data.",
+      "notes": "Japan has comprehensive livestock manure regulations (Livestock Waste Act 1999). Most manure composted or land-applied. AD+biogas uptake growing with energy price incentives."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 2.2,
+      "low": 1.8,
+      "high": 2.8,
+      "source": "Japan Ministry of Land, Infrastructure, Transport and Tourism: ~92% sewage treatment coverage; Japan 125 M pop × 0.92 × 0.055 kg dry/cap/day × 365 = ~2.3 Mt/yr. Japan sewage sludge utilization report 2020.",
+      "notes": "Japan has very high WWTP coverage and advanced sludge management. Sewage sludge currently used for construction material, fertilizer, and some energy recovery. AD+CCS potential at large treatment plants. High-quality, concentrated, well-characterized feedstock."
+    },
+
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT: Japan fertilizer use moderate per ha; declining with rural depopulation. Some N surplus in intensive livestock areas (Hokkaido). Not at extreme excess level.",
+
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+
+    "notes": "Japan is the highest-priority WtE+CCS opportunity in Asia-Pacific: 1,016 incineration plants already processing 72% of MSW (~29 Mt/yr), many in dense urban clusters. Retrofitting CCS on large existing incinerators (esp. Tokyo/Osaka metro areas) is the highest-leverage near-term pathway. Several Japanese utilities studying BECCS. Very high data quality and regulatory framework — low sourcing risk. High cost context limits competitiveness vs. cheaper regions."
+  },
+
+  {
+    "id": "KOR",
+    "name": "South Korea",
+    "level": "country",
+    "parent": null,
+    "centroid": [127.8, 36.5],
+
+    "ag_residues_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "FAOSTAT 2022: South Korea rice paddy ~3.5 Mt × RPR 1.0; barley, wheat small volumes. Total gross ~6–8 Mt crop residues; 40% recoverable = ~5–8 Mt. Korea RDA agricultural biomass studies.",
+      "notes": "South Korea's agricultural land is limited and mostly in rice. High residue-return-to-soil practices. Limited incremental supply for BiCRS. Greenhouse vegetable production generates some biomass waste."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.0,
+      "low": 2.5,
+      "high": 9.0,
+      "source": "FAO FRA 2020: South Korea roundwood ~7 Mm3/yr; Korea Forest Service data; forest thinning program generates residues. Korea imports >90% of wood pellets for bioenergy (most from US/Canada/SEA).",
+      "notes": "South Korea has aggressive renewable biomass targets but relies heavily on imported biomass. Domestic supply limited but thinning residues from reforestation programs are real. Quality domestic supply small."
+    },
+
+    "msw_total_mt": {
+      "value": 18.0,
+      "low": 15.0,
+      "high": 22.0,
+      "source": "World Bank What a Waste 2.0; Sensoneo Global Waste Index 2025; South Korea has world's highest recycling rate (~54%). MOE Korea annual waste statistics.",
+      "notes": "South Korea's waste management is among world's best — 54% recycling, volume-based waste fee system. Very limited landfilling. WtE incineration significant."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.45,
+      "source": "Korea MOE MSW composition: kitchen waste separately collected (~30%), paper ~25%. Combined biogenic ~45%. High recycling rates reduce residual organic content.",
+      "notes": "Korea mandates food waste separate collection — most food waste composted or AD, not in residual MSW. Residual stream has lower biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 25,
+      "landfill_pct": 15,
+      "dump_pct": 0,
+      "recycle_compost_pct": 60,
+      "source": "Korea MOE waste statistics; Sensoneo Global Waste Index 2025; 54% recycling rate cited. WtE significant in major metro areas."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 8.0,
+      "high": 16.0,
+      "source": "ScienceDirect MDPI 2025 (livestock manure Korea): 49–56 Mt/yr wet manure → ~15 Mt dry matter at 30% DM. Korea has high-density pig and poultry operations.",
+      "notes": "Korea generates ~50 Mt/yr wet manure; 70% composted. MDPI Process 2025 review: significant pivot from composting to solid fuel and biochar production being studied. Dense livestock operations in Chungcheong/Gyeonggi provinces."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.35,
+      "low": 0.25,
+      "high": 0.50,
+      "source": "Korea MOE: ~95% sewage treatment coverage; Korea 52 M pop × 0.95 × 0.018 kg dry/cap/day × 365. Note: Korean sludge generation per capita lower than Japan due to advanced treatment.",
+      "notes": "High-quality WWTP infrastructure. Sewage sludge formerly ocean-dumped (banned 2013) — now mostly incinerated, composted, or land-applied. AD potential growing."
+    },
+
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FAO FAOSTAT: South Korea shows N and P surplus on cropland due to high livestock density per agricultural area. IFA NUE Backgrounder: Korea NUE moderate-low. MDPI studies confirm manure nutrient surplus in intensive livestock zones.",
+
+    "dominant_feedstock": "manure_wet",
+    "feedstock_density": "concentrated",
+
+    "notes": "South Korea's primary BiCRS opportunity is WtE+CCS retrofit (significant incineration capacity in Seoul/Busan) and AD+CCS from concentrated livestock operations. Agricultural feedstock supply is limited — Korea imports most biomass. Excess nutrient status supports biomass burial where geologic storage is absent. World-class waste management infrastructure and regulatory framework — very low sourcing risk. High-cost economy."
+  },
+
+  {
+    "id": "PAK",
+    "name": "Pakistan",
+    "level": "country",
+    "parent": null,
+    "centroid": [69.3, 30.4],
+
+    "ag_residues_odt_mt": {
+      "value": 55.0,
+      "low": 35.0,
+      "high": 75.0,
+      "source": "FAOSTAT 2022: Pakistan wheat ~27 Mt × RPR 1.3 = 35 Mt straw; rice ~9 Mt × RPR 1.0 = 9 Mt; sugarcane ~88 Mt × bagasse ratio 0.30 = ~26 Mt bagasse; cotton ~4 Mt × RPR 2.0 = ~8 Mt. Gross ~78 Mt; 40% recoverable = ~31 Mt. Add concentrated bagasse: ~55 Mt midpoint. SAARC Energy Centre crop residue study 2021.",
+      "notes": "Pakistan has massive sugarcane crop (Sindh/Punjab) — bagasse concentrated at mills. Wheat straw in Punjab also burns severely — IOP cropland burning study flags Pakistan as major burner globally. Recoverable heavily constrained by existing uses (fodder, brick kilns). Punjab wheat straw burning analogous to Indian situation."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.0,
+      "low": 1.5,
+      "high": 6.0,
+      "source": "FAO FRA 2020: Pakistan forest cover <5% of land; roundwood ~3 Mm3/yr. Limited industrial forestry. KPK/FATA conifer forests have some residues but access constrained.",
+      "notes": "Very limited commercial forestry. Forest degradation/deforestation ongoing. Biomass energy from wood primarily as fuelwood, not industrial residues."
+    },
+
+    "msw_total_mt": {
+      "value": 30.0,
+      "low": 22.0,
+      "high": 40.0,
+      "source": "World Bank What a Waste 2.0 Pakistan; SAARCENERGY waste data. Pakistan population ~230 M growing rapidly; urban waste growing fast. Estimates 1640 Mt 'managed' in WB database context unclear — likely cumulative/different unit; direct estimate: 230 M × 0.4 kg/day × 365 = ~33 Mt/yr.",
+      "notes": "Very limited formal waste collection infrastructure outside Karachi/Lahore. Open dumping dominant. Almost no WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.62,
+      "source": "World Bank What a Waste 2.0 South Asia; high food waste fraction for low-income country. Pakistan urban organic waste ~55–65%.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 20,
+      "dump_pct": 75,
+      "recycle_compost_pct": 5,
+      "source": "World Bank What a Waste 2.0; Pakistan SWM reports. Open dumping overwhelmingly dominant."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 80.0,
+      "low": 55.0,
+      "high": 110.0,
+      "source": "FAO GLEAM: Pakistan cattle ~51 M (incl. buffalo ~42 M), small ruminants ~180 M, poultry ~1.5 B. Very large livestock sector for land area. Scaled at 0.4 kg odt/cattle-eq/day. Pakistan Economic Survey livestock data.",
+      "notes": "Pakistan has one of the world's highest livestock densities. Buffalo dominant species. Most manure dried as dung cakes for cooking fuel (rural energy) — competing use. Biogas penetration increasing but still minor. Wet manure from large dairies near Lahore/Karachi is more accessible."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.4,
+      "low": 0.2,
+      "high": 0.8,
+      "source": "Estimated: Pakistan 230 M pop × ~10% formal WWTP × 0.06 kg dry/cap/day × 365. Mostly untreated open drains.",
+      "notes": "Sewage treatment coverage extremely low — most cities discharge untreated sewage. Karachi WWTP projects ongoing. Data highly uncertain."
+    },
+
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT: Pakistan moderate fertilizer use; significant nutrient deficit in rainfed upland areas; Punjab intensively farmed areas moderate surplus. Overall moderate nationally.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "mixed",
+
+    "notes": "Pakistan has large biomass flows but very weak infrastructure and regulatory enforcement. Sugarcane bagasse at mills is the highest-quality concentrated feedstock — BECCS at sugar mill clusters feasible. Wheat straw burning in Punjab is a major air quality issue. Animal manure huge in volume but mostly used as cooking fuel — competing use limits BiCRS. High-risk sourcing environment; political instability adds uncertainty. Water stress limits agricultural productivity growth."
+  },
+
+  {
+    "id": "BGD",
+    "name": "Bangladesh",
+    "level": "country",
+    "parent": null,
+    "centroid": [90.4, 23.7],
+
+    "ag_residues_odt_mt": {
+      "value": 30.0,
+      "low": 18.0,
+      "high": 42.0,
+      "source": "FAOSTAT 2022: Bangladesh rice paddy ~56 Mt (one of world's top rice producers per land area) × RPR 1.0 = 56 Mt straw gross; jute ~1.8 Mt × RPR 2.5 = 4.5 Mt jute stalks; wheat ~1.2 Mt. Total gross ~65 Mt; recoverable 40% × 65 = ~26 Mt. Plus jute stalks more recoverable → ~30 Mt midpoint. SAARC residue study.",
+      "notes": "Bangladesh produces ~56 Mt paddy/yr from a very small land area (~15.6 Mha) — extremely high rice yield per ha. Jute stalks are a distinctive and abundant residue with concentrated processing. Most rice straw used as fodder/roof thatch/cooking fuel — competing uses limit BiCRS recoverable. Very dense rural population makes collection logistically difficult."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.5,
+      "high": 3.5,
+      "source": "FAO FRA 2020: Bangladesh forest cover ~11%; roundwood ~7 Mm3/yr mostly fuelwood. Sundarbans mangrove limited commercial logging. Plantation bamboo and homestead trees some residues.",
+      "notes": "Very limited commercial forestry. Sundarbans off-limits. Bamboo and homestead tree residues underquantified. Mostly fuelwood, not industrial residues."
+    },
+
+    "msw_total_mt": {
+      "value": 14.0,
+      "low": 10.0,
+      "high": 18.0,
+      "source": "World Bank What a Waste 2.0 Bangladesh; Dhaka city alone ~4500 t/day. National scale: 170 M pop × ~0.25 kg/cap/day (low income) × 365 = ~15.5 Mt. Literature cites 1370 Mt 'managed' — likely different unit context.",
+      "notes": "Dhaka is one of world's most waste-challenged megacities. Overwhelmingly open dumping. Informal waste pickers play major role."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "Bangladesh MSW composition: food waste ~65% (very high even by LMIC standards). CEGIS/World Bank studies. Low-income country with high food waste fraction.",
+      "notes": "High biogenic fraction makes Bangladesh MSW a good AD/WtE feedstock despite poor collection."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 15,
+      "dump_pct": 80,
+      "recycle_compost_pct": 5,
+      "source": "World Bank What a Waste 2.0; ADB Bangladesh waste assessments. Open dumping overwhelmingly dominant. Amin Bazar landfill Dhaka is primary formal site."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 30.0,
+      "low": 18.0,
+      "high": 42.0,
+      "source": "FAO GLEAM: Bangladesh cattle ~24 M, goats ~28 M, poultry ~330 M. High livestock density per land area. Scaled dry-matter manure. Bangladesh Livestock Research Institute data.",
+      "notes": "Livestock ubiquitous in rural Bangladesh. Manure widely used as cooking fuel (dung cakes) in rural areas — major competing use. Energy Sustainability Society study: almost all rural households use biomass (incl. dung) as primary energy."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.12,
+      "low": 0.05,
+      "high": 0.25,
+      "source": "Estimated: Bangladesh 170 M pop × ~5% formal WWTP × 0.06 kg dry/cap/day × 365. Dhaka has some WWTP capacity; rest minimal.",
+      "notes": "Extremely limited formal sewage treatment. Fecal sludge management is the main challenge."
+    },
+
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT: Bangladesh moderate-high fertilizer use in intensive rice cultivation; delta soil historically nutrient-rich from flooding but intensification causing local depletion/surplus patchwork.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "Bangladesh is remarkable for the density of rice biomass per land area (among world's highest). Despite limited land, total residues are substantial. Diffuse smallholder farming, very high population density, and competing uses for residues (fodder, fuel) severely limit BiCRS-accessible supply. Climate vulnerability (flooding) creates urgency for carbon removal but also complicates logistics. Jute stalks at processing mills are a distinctive concentrated feedstock opportunity. High sourcing risk in general due to weak governance and competing fuel uses."
+  },
+
+  {
+    "id": "AUS",
+    "name": "Australia",
+    "level": "country",
+    "parent": null,
+    "centroid": [133.8, -25.7],
+
+    "ag_residues_odt_mt": {
+      "value": 40.0,
+      "low": 25.0,
+      "high": 60.0,
+      "source": "Crawford et al. 2016 (GCB Bioenergy): lignocellulosic biomass ~80 Mt/yr total potential; crop stubble 27.7 Mt/yr dominant. Sugarcane bagasse Queensland ~10 Mt. DCCEEW National Waste Report 2020; Queensland Govt Australian Biomass for Bioenergy Assessment dataset (QLD open data portal). Recoverable fraction applied.",
+      "notes": "Wheat straw dominant in WA/SA/Victoria/NSW — highly diffuse. Sugarcane bagasse concentrated in Queensland coastal strip (Mackay to Cairns). Cotton gin trash in NSW/QLD. Total gross ~80 Mt; sustainably recoverable ~40–60 Mt including crop stubble retention constraints."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 12.0,
+      "low": 6.0,
+      "high": 20.0,
+      "source": "Crawford et al. 2016: forest plantations 10.9 Mt/yr; native forest logging residues additional. FAO FRA 2020 Australia roundwood ~30 Mm3/yr. Tasmania and WA dominant.",
+      "notes": "Plantation forestry (pine/eucalyptus) in Vic/SA/WA/Qld/Tas generates logging and processing residues. Native forest logging highly contested politically. Plantation residues are primary trackable supply. Bioenergy Association NZ/Australia reports."
+    },
+
+    "msw_total_mt": {
+      "value": 14.0,
+      "low": 12.5,
+      "high": 16.0,
+      "source": "DCCEEW National Waste Resource Recovery Report 2024: 14 Mt MSW generated in 2020-21 from households + LGA. Cross-check DCCEEW 2020 National Waste Report.",
+      "notes": "High per-capita generation (~550 kg/cap/yr). 60% recycling rate. No WtE at scale (aspirational). Landfill dominant disposal."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "DCCEEW waste composition: food waste ~35%, garden organics ~20%, timber ~5% of MSW → biogenic ~55–60%. Australian Bureau of Statistics waste composition.",
+      "notes": "Higher food + garden organic fraction than EU averages due to suburban garden culture."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 40,
+      "dump_pct": 0,
+      "recycle_compost_pct": 60,
+      "source": "DCCEEW National Waste Report 2020/2024: ~60% recovery rate; ~40% to landfill. No operational WtE as of 2022 (several projects proposed). All formal managed sites — no open dumping."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 35.0,
+      "low": 22.0,
+      "high": 50.0,
+      "source": "FAO GLEAM: Australia cattle ~27 M, sheep ~74 M, pigs ~2.3 M, poultry ~100 M. Very large extensive pastoral sector. Scaled dry-matter manure. Australia has large open-range cattle sector — manure highly dispersed.",
+      "notes": "Australia's pastoral sector is enormous but feedlots concentrate manure. Intensive livestock operations (dairy in Vic/NSW, feedlots in NSW/QLD) provide concentrated AD feedstock. Open-range beef cattle manure is very diffuse — not BiCRS-accessible. Dairy manure most accessible: ~1 M dairy cattle in SE Australia."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.40,
+      "low": 0.30,
+      "high": 0.55,
+      "source": "Australia 26 M pop × ~95% WWTP × 0.048 kg dry/cap/day × 365 = ~0.43 Mt/yr. Water Services Association Australia biosolids data.",
+      "notes": "High WWTP coverage. Biosolids mostly land-applied or landfilled. Several large treatment plants in Sydney/Melbourne/Brisbane suitable for AD+CCS. Water Corporation WA and Sydney Water are large operators."
+    },
+
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO FAOSTAT: Australia generally nutrient-poor soils (ancient, highly weathered). Low to moderate fertilizer use per ha nationally. Phosphorus often limiting nutrient — nutrient return from biomass processing highly beneficial.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "Australia has favorable conditions for BiCRS: good geologic CO2 storage options (Bass Strait, offshore WA, Cooper Basin), significant but diffuse ag biomass, and no-WtE gap creating opportunity. Wheat straw diffuse → bio-oil or biochar; sugarcane bagasse concentrated at QLD mills → BECCS best fit. Low nutrient soils support biochar co-benefits. High-quality data and regulatory environment — low sourcing risk. Low population but high per-land biomass potential. Charm and other bio-oil operators have identified Australia as a target market."
+  },
+
+  {
+    "id": "NZL",
+    "name": "New Zealand",
+    "level": "country",
+    "parent": null,
+    "centroid": [172.5, -41.3],
+
+    "ag_residues_odt_mt": {
+      "value": 3.5,
+      "low": 1.5,
+      "high": 6.0,
+      "source": "FAOSTAT 2022: NZ wheat/barley ~0.8 Mt, kiwifruit/horticulture residues small. Pastoral dominated — hay residues. NZ MPI Biomass Transport Analysis; Bioenergy Association NZ residual biomass fuel projections 2021.",
+      "notes": "New Zealand is predominantly pastoral (dairy, sheep, beef) — crop residues minimal. Orchard prunings and horticultural waste are niche. Primary ag residue is from grain cropping in Canterbury/Marlborough. Small total. Most biomass is pasture (not residue)."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.5,
+      "low": 2.5,
+      "high": 7.5,
+      "source": "NZ MPI Biomass Transport Analysis; Bioenergy Association NZ 2021: woody residues from Pinus radiata harvest cycles. FAO FRA 2020: NZ roundwood ~18 Mm3/yr. Logging residues (tops, branches) = ~25% of harvested volume = ~4.5 Mm3 ≈ 2.5 Mt odt.",
+      "notes": "New Zealand has large Pinus radiata plantation forests (Hawke's Bay, Bay of Plenty, Nelson, Northland). Logging slash (residues) is a significant and growing supply — currently mostly burned on-site or left. Bioenergy Association NZ projects growing availability through 2050 as plantations harvested."
+    },
+
+    "msw_total_mt": {
+      "value": 3.8,
+      "low": 3.2,
+      "high": 4.5,
+      "source": "ScienceDirect MSW WtE NZ 2021; OECD waste statistics: NZ >600 kg/capita/yr MSW to landfill (OECD highest); total ~4 Mt/yr. NZ Ministry for Environment waste statistics.",
+      "notes": "New Zealand has no WtE incineration — all MSW to landfill. Highest per-capita landfilling rate in OECD. This is a significant gap and policy issue."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "NZ Ministry for Environment waste composition: food waste ~40%, garden waste ~15%, wood/paper ~15% → biogenic ~55%. NZ WtE processing assessment 2021.",
+      "notes": "High organic fraction with garden and food waste."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 100,
+      "dump_pct": 0,
+      "recycle_compost_pct": 0,
+      "source": "OECD waste statistics; NZ Ministry for Environment: 100% of residual waste goes to engineered landfills. No WtE as of 2022. Some composting outside this figure.",
+      "notes": "The 100% landfill figure excludes separately collected recycling/composting streams. This is residual MSW treatment only."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 7.0,
+      "high": 18.0,
+      "source": "FAO GLEAM: NZ dairy cattle ~6.5 M, beef cattle ~3.8 M, sheep ~6 M, deer ~1 M. Large dairy herd per capita. Scaled dry matter manure. NZ Dairy statistics.",
+      "notes": "New Zealand has extremely high livestock density per land area (especially dairy). Dairy shed effluent and feedpad manure are concentrated wet wastes. Most manure pasture-deposited (difficult to collect). Dairy effluent at farm irrigation ponds is the most tractable concentrated stream. NZ nitrogen losses to waterways are a major environmental issue — manure management improvement valuable co-benefit."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.06,
+      "low": 0.04,
+      "high": 0.09,
+      "source": "Estimated: NZ 5 M pop × ~95% WWTP × 0.035 kg dry/cap/day × 365. NZ Water NZ biosolids survey.",
+      "notes": "High WWTP coverage. Biosolids mostly land-applied. Small total volume given small population."
+    },
+
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FAO FAOSTAT; NZ Ministry for Environment: intensive dairying has created significant N and P surpluses in Canterbury/Waikato/Southland. Freshwater nitrogen limits are a major policy issue. Excess nutrients in dairy regions favor biomass burial or removal over nutrient-returning pathways.",
+
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+
+    "notes": "New Zealand's primary BiCRS opportunities: (1) forestry logging residues from Pinus radiata harvest — woody, dry, suitable for BECCS or bio-oil; (2) dairy manure wet waste — AD+CCS feasible at large farms. The complete absence of WtE is a gap — MSW entirely to landfill with methane emissions; WtE+CCS would be transformative but NZ has political resistance to incineration. Geologic CO2 storage options present (Taranaki basin, offshore). Small total scale."
+  },
+
+  {
+    "id": "NPL",
+    "name": "Nepal",
+    "level": "country",
+    "parent": null,
+    "centroid": [83.9, 28.4],
+
+    "ag_residues_odt_mt": {
+      "value": 7.0,
+      "low": 4.0,
+      "high": 11.0,
+      "source": "FAOSTAT 2022: Nepal rice paddy ~5.6 Mt × RPR 1.0 = 5.6 Mt; wheat ~2.1 Mt × RPR 1.3 = 2.7 Mt; maize ~2.8 Mt × RPR 1.0 = 2.8 Mt. Total gross ~13 Mt; 40% recoverable = ~5.2 Mt. Add sugarcane ~3.8 Mt × 0.3 bagasse ratio = 1.1 Mt bagasse. Total ~7 Mt midpoint.",
+      "notes": "Nepal has significant rice-wheat-maize rotation in Terai (southern plains). Crop residues widely used for fodder and fuel. SAARC rice-wheat burning issue extends to Nepal Terai. Mountain terrain limits residue collection in hills/mountains."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.0,
+      "high": 5.0,
+      "source": "FAO FRA 2020: Nepal roundwood ~14 Mm3/yr (mostly fuelwood); ICIMOD forest data; community forestry programs. Processing residues from saw mills in Terai.",
+      "notes": "Nepal has extensive community forestry (1.9 Mha under Community Forest User Groups). Logging residues from community and leasehold forests. Largely subsistence timber use — commercial residue supply limited. Sal, pine, and mixed hardwood species."
+    },
+
+    "msw_total_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "ADB Solid Waste Management Nepal: ~1,435 t/day (2014 data); more recent municipality data ~3,023 t/day (scaled to 2022). ADB 2020 assessment. World Bank Nepal SWM report 2021.",
+      "notes": "Rapid growth in MSW generation with urbanization. Kathmandu Valley critical waste management challenge. Open dumping widespread outside Kathmandu."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "World Bank What a Waste 2.0 South Asia LMIC profiles; Nepal MSW composition studies: food waste ~60–70% organic fraction typical.",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 25,
+      "dump_pct": 70,
+      "recycle_compost_pct": 5,
+      "source": "World Bank What a Waste 2.0; ADB Nepal SWM assessment 2020; open dumping overwhelmingly dominant outside Kathmandu."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "FAO GLEAM: Nepal cattle ~7 M, buffalo ~5 M, goats ~12 M, poultry ~60 M. High livestock-to-population ratio. Nepal DLS (Dept. of Livestock) statistics. Scaled dry-matter manure.",
+      "notes": "Nepal has very high livestock density relative to land area. Buffalo dominant. Manure widely used for cooking (biogas adoption: ~500,000 household biogas plants — highest penetration rate in Asia per capita). BSP Nepal (Biogas Support Program) is notable success story."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.04,
+      "low": 0.02,
+      "high": 0.09,
+      "source": "Estimated: Nepal 30 M pop × ~7% formal WWTP × 0.06 kg dry/cap/day × 365. Kathmandu valley has some WWTP capacity but severely undersized.",
+      "notes": "Very limited formal WWTP. Bagmati river pollution from untreated sewage is major issue. Fecal sludge management NGO programs active."
+    },
+
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO FAOSTAT: Nepal low fertilizer use per ha nationally (affordability constraints). Soil P and N deficient in many hill/mountain areas. Terai has moderate use. Nutrient return pathways (biochar, direct manure use) highly beneficial.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "Nepal is a small market with diffuse, high-altitude biomass. The success of household biogas from manure (500k+ plants) shows the model works — scaling AD is more relevant than large BECCS. Limited geologic CO2 storage identified. Mountainous terrain is prohibitive for centralized logistics. Most appropriate BiCRS pathway given geography: distributed biochar or small-scale AD. Sourcing risk: moderate (weak regulatory capacity but community forestry governance relatively good). Note: high altitude/terrain limits collection efficiency."
+  },
+
+  {
+    "id": "LKA",
+    "name": "Sri Lanka",
+    "level": "country",
+    "parent": null,
+    "centroid": [80.7, 7.9],
+
+    "ag_residues_odt_mt": {
+      "value": 5.5,
+      "low": 3.0,
+      "high": 8.5,
+      "source": "FAOSTAT 2022: Sri Lanka rice paddy ~2.7 Mt × RPR 1.0 = 2.7 Mt; sugarcane ~1.0 Mt × bagasse 0.30 = 0.3 Mt; tea prunings ~0.5 Mt; coconut husks ~2 Mt dry. Total gross ~7 Mt; 40% recoverable = ~3 Mt plus concentrated tea/coconut residues → ~5.5 Mt.",
+      "notes": "Sri Lanka distinctive for tea pruning waste (concentrated at estates) and coconut husk/shell (concentrated at processing facilities). Rice straw in North-Central dry zone. Tea residues ~0.5 Mt/yr from estate processing — high-density concentrated feedstock. Rubber wood also available from replanting cycles."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.7,
+      "high": 3.0,
+      "source": "FAO FRA 2020: Sri Lanka roundwood ~7 Mm3/yr mostly fuelwood. Plantation forestry (rubber, teak, eucalyptus) some processing residues. Limited commercial timber logging.",
+      "notes": "Natural forest logging banned or heavily restricted. Rubber plantation replanting generates woody residues (rubber wood). Teak plantations in NCP. Limited industrial forestry residues."
+    },
+
+    "msw_total_mt": {
+      "value": 3.3,
+      "low": 2.5,
+      "high": 4.5,
+      "source": "Mongabay 2026 (open dumping Sri Lanka): 8000–10000 t/day = ~3.3 Mt/yr. World Bank What a Waste 2.0 Sri Lanka data. Colombo ~500 t/day.",
+      "notes": "Sri Lanka faces severe waste management crisis: 260+ open dumpsites including 20 large ones. Meethotamulla dumpsite collapse 2017 killed 32 people. Government shifting to composting/WtE/landfill mix but progress slow."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.63,
+      "source": "Sri Lanka MSW composition: food waste ~60% (CEA/ADB studies). World Bank What a Waste 2.0 South Asia.",
+      "notes": "High food waste fraction typical of South Asian LMIC."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 15,
+      "dump_pct": 80,
+      "recycle_compost_pct": 5,
+      "source": "Mongabay 2026; World Bank What a Waste 2.0; Sri Lanka CEA (Central Environmental Authority). Open dumping overwhelmingly dominant — 260+ open sites."
+    },
+
+    "animal_manure_odt_mt": {
+      "value": 5.0,
+      "low": 3.0,
+      "high": 7.5,
+      "source": "FAO GLEAM: Sri Lanka cattle ~1.5 M, buffalo ~0.4 M, pigs ~0.1 M, poultry ~30 M. Scaled dry-matter manure factors. Sri Lanka Livestock Statistics.",
+      "notes": "Relatively limited intensive livestock. Dairy development ongoing in NCP. Most manure from smallholder farming, diffuse."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.06,
+      "low": 0.03,
+      "high": 0.12,
+      "source": "Estimated: Sri Lanka 22 M pop × ~15% formal WWTP coverage × 0.06 kg dry/cap/day × 365.",
+      "notes": "Very limited WWTP coverage. Colombo municipal WWTP is primary. Ongoing ADB-funded expansion. Fecal sludge management programs active."
+    },
+
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO FAOSTAT: Sri Lanka low fertilizer use per ha nationally (2022 fertilizer ban crisis severely disrupted agriculture). Soils often nutrient-deficient especially in Dry Zone. Organic matter return highly valued.",
+
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+
+    "notes": "Sri Lanka faces a unique context: the 2022 organic farming mandate/fertilizer crisis demonstrated the sensitivity of food systems to input changes — nutrient return from any BiCRS pathway is politically important. Tea estate residues and coconut processing residues are the most concentrated and tractable feedstocks. Open dumping crisis makes MSW collection/treatment a near-term priority regardless of BiCRS. Limited geologic CO2 storage identified onshore. Sourcing risk: moderate governance capacity, improving environmental regulation."
+  }
+]

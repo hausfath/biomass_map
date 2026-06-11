@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiCRS Atlas — Feedstock, Storage & Best-Use Map</title>
+  <link rel="stylesheet" href="vendor/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sidebar: controls -->
+  <aside id="sidebar">
+    <header class="brand">
+      <div class="brand-mark">BiCRS</div>
+      <div class="brand-text">
+        <h1>BiCRS Atlas</h1>
+        <p>Feedstock · Storage · Best-use of biomass</p>
+      </div>
+    </header>
+
+    <div class="panel-scroll">
+      <section class="control-group">
+        <h2>Map mode</h2>
+        <div class="seg" id="mode-seg">
+          <button class="seg-btn active" data-mode="feedstock">Feedstock supply</button>
+          <button class="seg-btn" data-mode="recommendation">Best-use recommendation</button>
+        </div>
+      </section>
+
+      <section class="control-group" id="feedstock-controls">
+        <h2>Feedstock layer</h2>
+        <select id="feedstock-select">
+          <option value="ag_residues_odt_mt">Agricultural residues</option>
+          <option value="forestry_residues_odt_mt">Forestry residues</option>
+          <option value="msw_biogenic_mt">Municipal solid waste (biogenic)</option>
+          <option value="animal_manure_odt_mt">Animal manure</option>
+          <option value="human_wwtp_odt_mt">Human / WWTP biosolids</option>
+        </select>
+        <p class="hint" id="feedstock-hint"></p>
+      </section>
+
+      <section class="control-group">
+        <h2>Overlays</h2>
+        <label class="chk"><input type="checkbox" id="ov-facilities" /> <span class="sw sw-fac"></span> Retrofit-candidate facilities</label>
+        <label class="chk"><input type="checkbox" id="ov-sites" /> <span class="sw sw-site"></span> CO₂ storage — projects</label>
+        <label class="chk"><input type="checkbox" id="ov-basins" /> <span class="sw sw-basin"></span> CO₂ storage — basin potential</label>
+      </section>
+
+      <section class="control-group">
+        <h2 id="legend-title">Legend</h2>
+        <div id="legend"></div>
+      </section>
+
+      <section class="control-group">
+        <button class="link-btn" id="open-method">Methodology &amp; sources ›</button>
+      </section>
+    </div>
+
+    <footer class="side-foot">
+      <div class="stat"><span id="stat-cdr">—</span><label>Gt CO₂/yr global CDR potential</label></div>
+      <div class="disclaimer">Internal strategy tool · estimates carry uncertainty — see methodology.</div>
+    </footer>
+  </aside>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Detail panel (slides in on click) -->
+  <aside id="detail" class="hidden">
+    <button class="detail-close" id="detail-close">×</button>
+    <div id="detail-body"></div>
+  </aside>
+
+  <!-- Methodology modal -->
+  <div id="method-modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="detail-close" id="method-close">×</button>
+      <div id="method-body"></div>
+    </div>
+  </div>
+
+  <!-- Hover tooltip -->
+  <div id="hovertip" class="hovertip hidden"></div>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="../data/geo/geometry.js"></script>
+  <script src="data_bundle.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

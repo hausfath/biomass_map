@@ -1,0 +1,1986 @@
+[
+  {
+    "id": "DEU",
+    "name": "Germany",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      10.45,
+      51.17
+    ],
+    "ag_residues_odt_mt": {
+      "value": 24.0,
+      "low": 18.0,
+      "high": 30.0,
+      "source": "Garc\u00eda-Condado et al. 2019 (GCB Bioenergy): EU28 total 419 Mt \u00d7 Germany ~14% share; cross-checked against Wietschel et al. 2013 (Applied Energy): Germany average 60.8 Tg/yr gross \u00d7 ~40% recoverable",
+      "notes": "Gross crop residue production ~60 Mt odt/yr; recoverable fraction ~40% (cereal straw) leaving 24 Mt. Major crops: winter wheat, barley, rye, rapeseed, maize stover."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 10.0,
+      "low": 7.0,
+      "high": 14.0,
+      "source": "Thr\u00e4n et al. 2016 (Bioresource Technology): Germany technical biomass potential from wood industry and forestry; Eurostat roundwood 72 Mm\u00b3/yr 2023; logging residue factor ~0.14 odt per m\u00b3",
+      "notes": "Germany is largest roundwood producer in EU. High existing utilization (~75%) constrains additional residues. Includes logging residues and processing residues from sawmills and pulp mills."
+    },
+    "msw_total_mt": {
+      "value": 50.0,
+      "low": 48.0,
+      "high": 52.0,
+      "source": "Eurostat env_wasmun 2022; ~606 kg/capita \u00d7 83M population",
+      "notes": "Near 50 Mt total; Germany has among highest MSW rates in EU at 606 kg/capita."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "SCHEMA.md EU default; Eurostat waste composition data; EU biogenic fraction ~0.50",
+      "notes": "Food + garden waste dominant biogenic fractions; paper partially biogenic."
+    },
+    "msw_treatment": {
+      "wte_pct": 35,
+      "landfill_pct": 1,
+      "recycle_compost_pct": 64,
+      "dump_pct": 0,
+      "source": "Eurostat env_wasmun 2022; CEWEP 2022 municipal waste treatment report; Germany leads EU in recycling/composting at 69% (some sources show ~64% recycle+compost, ~35% WtE)"
+    },
+    "animal_manure_odt_mt": {
+      "value": 18.0,
+      "low": 14.0,
+      "high": 22.0,
+      "source": "Holm-Nielsen et al. 2009; JRC biogas potential dataset (jrc-10076-10002); Germany accounts for ~53% of EU biogas production, livestock density data. EU 1.4 Gt wet manure/yr; Germany share ~13% \u00d7 dry matter fraction ~10%",
+      "notes": "Germany has >9000 biogas plants, most in EU. Cattle + pig slurry dominant. Dry-matter basis ~10-12% of wet weight."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.9,
+      "low": 0.7,
+      "high": 1.1,
+      "source": "Eurostat/EEA sewage sludge data; EU total ~9-10 Mt dry matter/yr; Germany share ~10% of EU population with high treatment coverage",
+      "notes": "Germany generates ~800-900 kt dry sewage sludge/yr. Increasing incineration due to phosphorus recovery regulations."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer use data; Germany has some intensive livestock zones (Bavaria, Lower Saxony) with localized excess, but overall national status is moderate; Nitrates Directive compliance improving",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Germany has Europe's largest biogas sector. Significant existing AD infrastructure. Forestry residues already highly utilized. Priority residues: cereal straw, rapeseed, manure for existing biogas."
+  },
+  {
+    "id": "FRA",
+    "name": "France",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      2.35,
+      46.23
+    ],
+    "ag_residues_odt_mt": {
+      "value": 34.0,
+      "low": 25.0,
+      "high": 43.0,
+      "source": "Garc\u00eda-Condado et al. 2019 (GCB Bioenergy): France 84 Mt/yr gross crop residues, ~40% recoverable = 33.6 Mt; JRC Brief JRC109294",
+      "notes": "France is #1 EU crop residue producer. 84 Mt gross, 40% recoverable = ~34 Mt odt. Cereals 70-75% of residues (wheat dominant). Oilseeds (rapeseed, sunflower) also significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 6.0,
+      "low": 4.0,
+      "high": 9.0,
+      "source": "Eurostat forestry statistics; France roundwood production ~48 Mm\u00b3/yr 2023; logging residue factor ~0.12-0.15 odt/m\u00b3; Gasparatos & Stromberg 2019 spatial forest biomass assessment",
+      "notes": "France has substantial forest cover (~31% of land area) but lower harvest intensity than Nordic countries. Processing residues from sawmills significant."
+    },
+    "msw_total_mt": {
+      "value": 36.6,
+      "low": 35.0,
+      "high": 38.0,
+      "source": "Eurostat env_wasmun 2022; ~535 kg/capita \u00d7 68.4M population",
+      "notes": "~36.6 Mt total MSW 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average; Eurostat waste composition",
+      "notes": "EU standard biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 34,
+      "landfill_pct": 22,
+      "recycle_compost_pct": 44,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat env_wasmun 2022"
+    },
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 9.0,
+      "high": 16.0,
+      "source": "JRC biogas manure dataset; EU total manure 1.4 Gt wet; France ~8-9% share of EU livestock; dry matter conversion",
+      "notes": "France has large cattle sector (dairy + beef). Wet manure ~120 Mt/yr \u00d7 ~10% DM = ~12 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.85,
+      "low": 0.65,
+      "high": 1.05,
+      "source": "EEA/Eurostat sludge data; EU ~9-10 Mt dry/yr; France ~9% share",
+      "notes": "High WWTP coverage. ~850 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer use; Nitrates Directive implementation; Brittany region has localized excess from intensive pig/poultry but national average moderate",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Largest EU crop residue base. Brittany has excess nutrients (pig density). Good candidate for BECCS if storage available (Jurassic/Paris Basin). Forestry sector large but residues already utilized for heat."
+  },
+  {
+    "id": "ITA",
+    "name": "Italy",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      12.57,
+      41.87
+    ],
+    "ag_residues_odt_mt": {
+      "value": 14.0,
+      "low": 10.0,
+      "high": 18.0,
+      "source": "Garc\u00eda-Condado et al. 2019: Italy in top 7 EU residue producers; JRC 2018 brief. Italy ~8-9% of EU28 419 Mt total = ~34-38 Mt gross \u00d7 40% = ~14 Mt recoverable",
+      "notes": "Maize stover dominant in Po Valley (Pianura Padana). Wheat straw in center/south. Olive/vine prunings significant (~2-3 Mt additional). Prunings excluded from main estimate but noted."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.0,
+      "low": 2.0,
+      "high": 4.5,
+      "source": "Biomass resources and costs EU countries (Ericsson & Werner 2011 Biomass Bioenergy); Italy harvesting costs highest in EU (74 \u20ac/Mg) limiting technical availability",
+      "notes": "Italy has large forest area but steep terrain limits mechanized harvesting. Low mobilization rate. Processing residues from wood industry moderate."
+    },
+    "msw_total_mt": {
+      "value": 29.3,
+      "low": 28.0,
+      "high": 31.0,
+      "source": "Eurostat env_wasmun 2022; ~486 kg/capita \u00d7 60.2M population",
+      "notes": "~29 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.52,
+      "source": "EU average; Italian waste composition data; high organic fraction due to Mediterranean diet",
+      "notes": "Slightly above EU average biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 18,
+      "landfill_pct": 20,
+      "recycle_compost_pct": 62,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat env_wasmun 2022; Italy has high recycling rate"
+    },
+    "animal_manure_odt_mt": {
+      "value": 9.0,
+      "low": 7.0,
+      "high": 12.0,
+      "source": "JRC biogas manure dataset; FAO livestock Italy; Po Valley intensive pig/cattle sector",
+      "notes": "Po Valley has intensive pig (suino) and dairy cattle. Wet manure ~90 Mt \u00d7 10% DM. Padania region has localized excess nutrients."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.7,
+      "low": 0.55,
+      "high": 0.9,
+      "source": "EEA sludge data; Italy ~7% of EU population, good WWTP coverage in north",
+      "notes": "Southern Italy has lower WWTP coverage reducing total."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "Po Valley has localized excess (nitrates derogation areas); national average moderate; south Mediterranean-type low-input farming",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Po Valley is highest-density ag residue zone in Italy. Significant olive/vine pruning residues not captured in main estimate. Strong WtE sector in north."
+  },
+  {
+    "id": "ESP",
+    "name": "Spain",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      -3.75,
+      40.42
+    ],
+    "ag_residues_odt_mt": {
+      "value": 15.0,
+      "low": 11.0,
+      "high": 20.0,
+      "source": "Garc\u00eda-Condado et al. 2019: Spain top 7 EU producer; JRC brief. Spain ~9-10% of EU28 total = ~38-42 Mt gross \u00d7 40% = ~15-17 Mt recoverable. Nature/Sci Reports 2026: bioenergy potential of straw residues from southern Spain",
+      "notes": "Diverse: cereal straw (central meseta), sunflower/rapeseed, olive prunings (Andaluc\u00eda), vine prunings. Olive prunings ~4-5 Mt additional but moisture/collection challenges."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.5,
+      "high": 6.0,
+      "source": "S2BIOM project; Ericsson & Werner 2011; Spain has large forested area but moderate harvest intensity and high wildfire risk reducing sustainable residue removal",
+      "notes": "Eucalyptus plantations in Galicia/Asturias contribute pulpwood residues. Moderate logging residue potential limited by steep/remote terrain."
+    },
+    "msw_total_mt": {
+      "value": 22.7,
+      "low": 21.5,
+      "high": 24.0,
+      "source": "Eurostat env_wasmun 2022; ~482 kg/capita \u00d7 47.1M population",
+      "notes": "~22.7 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average; Spanish waste composition",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 10,
+      "landfill_pct": 54,
+      "recycle_compost_pct": 36,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Spain relatively low WtE, higher landfill share vs NW Europe"
+    },
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 9.0,
+      "high": 16.0,
+      "source": "JRC biogas manure dataset; Spain has large pig sector (2nd largest EU pork producer); 31% slurry lagoon use (EEA/Eurostat livestock)",
+      "notes": "Catalonia and Aragon have intensive pig production with excess nutrients. Large dairy cattle sector also significant."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.6,
+      "low": 0.45,
+      "high": 0.8,
+      "source": "EEA sludge data; Spain ~6% EU population",
+      "notes": "~600 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "Catalonia/Aragon pig zones = localized excess; Meseta generally low-input; national average moderate",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Diffuse landscape, high transport costs for residue collection. Olive prunings and vine cuttings are distributed point sources. WtE penetration low \u2014 landfill dominant. Potential for bio-oil/biochar for diffuse residues."
+  },
+  {
+    "id": "POL",
+    "name": "Poland",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      19.14,
+      51.92
+    ],
+    "ag_residues_odt_mt": {
+      "value": 18.0,
+      "low": 13.0,
+      "high": 23.0,
+      "source": "Garc\u00eda-Condado et al. 2019: Poland 3rd/4th largest EU28 residue producer; JRC 2018 brief. Poland ~10-11% of EU28 419 Mt = ~42-46 Mt gross \u00d7 40% = ~17-18 Mt recoverable",
+      "notes": "Cereals dominant: winter wheat, rye (Poland is main EU rye producer), triticale, barley. Rapeseed significant. Gross ~45 Mt odt/yr \u00d7 40% = 18 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.5,
+      "high": 7.0,
+      "source": "Eurostat forestry statistics; Poland significant roundwood producer; S2BIOM; forest cover ~31% of land area",
+      "notes": "Large state-managed forests (Lasy Pa\u0144stwowe). Significant pine/spruce logging residues. Processing residues from wood industry also substantial."
+    },
+    "msw_total_mt": {
+      "value": 13.9,
+      "low": 13.0,
+      "high": 15.0,
+      "source": "Eurostat env_wasmun 2022; ~364 kg/capita \u00d7 38.2M population",
+      "notes": "Lower per-capita generation than EU average."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 12,
+      "landfill_pct": 40,
+      "recycle_compost_pct": 48,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Poland expanding WtE capacity"
+    },
+    "animal_manure_odt_mt": {
+      "value": 10.0,
+      "low": 7.5,
+      "high": 13.0,
+      "source": "JRC biogas manure dataset; Poland ~7.5% EU manure N (dairy cattle dominant, EEA livestock 2020); FAO livestock Poland",
+      "notes": "Large dairy cattle and pig sector. Growing biogas sector. Wet manure ~100 Mt \u00d7 10% DM."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.5,
+      "low": 0.38,
+      "high": 0.65,
+      "source": "EEA sludge data; Poland ~5% EU population; WWTP coverage improving but below NW Europe average",
+      "notes": "~500 kt dry matter/yr. Increasing with EU UWWTD compliance."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Poland has moderate fertilizer intensity; Nitrates Directive compliance improving; no systematic excess comparable to NL/DK",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Large contiguous arable plains enable concentrated collection. Poland #1 EU rye producer. Growing biogas sector. Coal-heavy energy system creates political tension for biomass pathways."
+  },
+  {
+    "id": "ROU",
+    "name": "Romania",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      24.97,
+      45.94
+    ],
+    "ag_residues_odt_mt": {
+      "value": 14.0,
+      "low": 10.0,
+      "high": 18.0,
+      "source": "Garc\u00eda-Condado et al. 2019: Romania 4th largest EU producer due to maize dominance; JRC brief. Romania ~8-9% of EU28 total = ~34-38 Mt gross \u00d7 40% = ~14 Mt recoverable",
+      "notes": "Maize stover dominant (Romania largest EU maize producer). Wheat straw also significant. High variability due to drought years. Danube Plain concentration."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.5,
+      "high": 6.0,
+      "source": "Eurostat forestry statistics; Romania significant forest cover ~30%; FAO FRA 2020; significant illegal logging limits sustainable residue estimates",
+      "notes": "Carpathian forests are significant. Legal harvest ~20 Mm\u00b3/yr but actual higher. Processing residues from wood industry notable."
+    },
+    "msw_total_mt": {
+      "value": 5.8,
+      "low": 5.4,
+      "high": 6.2,
+      "source": "Eurostat env_wasmun 2022; ~303 kg/capita \u00d7 19.2M population",
+      "notes": "Lowest per-capita MSW generation in EU. Official figures likely undercount informal sector."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "World Bank What a Waste 2.0; Romania has higher organic fraction in waste stream consistent with lower-income country profile",
+      "notes": "Higher biogenic fraction due to larger food waste share."
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 70,
+      "recycle_compost_pct": 29,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Romania has very high landfill rate, facing EU infringement"
+    },
+    "animal_manure_odt_mt": {
+      "value": 7.0,
+      "low": 5.0,
+      "high": 9.5,
+      "source": "FAO livestock Romania; JRC manure dataset; large cattle + pig sector, some subsistence farming",
+      "notes": "Romania has large but fragmented livestock sector. Many small farms complicate manure collection. Wet manure ~70 Mt \u00d7 10% DM."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.15,
+      "low": 0.1,
+      "high": 0.22,
+      "source": "EEA wastewater data; Romania has lowest WWTP connection rate in EU (~60%); Eurostat urban wastewater",
+      "notes": "Low WWTP coverage severely limits sludge volumes. Only ~150 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer use per ha; Romania has below-EU-average fertilizer intensity; nutrient depletion in some soils is a concern",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "High landfill rate creates opportunity for WtE+CCS upgrade. Maize stover is dominant feedstock \u2014 excellent BECCS candidate if storage identified. Low WWTP coverage is a major infrastructure gap."
+  },
+  {
+    "id": "NLD",
+    "name": "Netherlands",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      5.29,
+      52.13
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "S2BIOM project; Eurostat crop production Netherlands; small arable area (1.8 Mha) dominated by vegetables/potatoes/sugar beet; JRC brief",
+      "notes": "Limited cereal area. Potato haulm, sugar beet tops, and vegetable residues are main streams. High-value horticultural residues often composted/AD."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.2,
+      "high": 0.5,
+      "source": "Eurostat forestry statistics; Netherlands has minimal commercial forest (360 kha); mostly small-scale parks/windbreaks",
+      "notes": "Negligible logging residues. Mainly wood processing waste imported. Urban wood waste more significant."
+    },
+    "msw_total_mt": {
+      "value": 8.1,
+      "low": 7.7,
+      "high": 8.5,
+      "source": "Eurostat env_wasmun 2022; ~473 kg/capita \u00d7 17.2M population",
+      "notes": "~8.1 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average; Dutch waste composition data",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 51,
+      "landfill_pct": 1,
+      "recycle_compost_pct": 48,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Netherlands has very high WtE rate, near-zero landfill"
+    },
+    "animal_manure_odt_mt": {
+      "value": 8.0,
+      "low": 6.0,
+      "high": 10.0,
+      "source": "JRC biogas manure dataset; Netherlands has highest livestock density in EU per ha; ~40% slurry lagoon use (EEA); Nitrates Directive chronic derogation",
+      "notes": "Extreme livestock density: 100M+ chickens, 12M pigs, 4M cattle in 3.5 Mha. Total wet manure ~80 Mt \u00d7 10% DM = 8 Mt odt. Massive phosphate/nitrogen surplus."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.22,
+      "low": 0.17,
+      "high": 0.28,
+      "source": "EEA sludge data; Netherlands ~2.2% EU population but near 100% WWTP coverage; primarily incinerated for P recovery",
+      "notes": "~220 kt dry matter. Most sludge mono-incinerated (phosphorus recovery). Negligible agricultural application."
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FAO fertilizer data; Nitrates Directive chronic derogation expiring; highest N emissions in EU from agriculture (EEA); systematic manure surplus exceeding 170 kg N/ha limit",
+    "dominant_feedstock": "manure_wet",
+    "feedstock_density": "concentrated",
+    "notes": "EXCESS nutrient status \u2014 biomass burial/removal pathways strongly favored. Manure is the primary feedstock concern. High WtE rate means MSW pipeline largely committed. Vaulted-type biomass waste injection ideal. Government actively reducing livestock numbers (stikstofcrisis)."
+  },
+  {
+    "id": "BEL",
+    "name": "Belgium",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      4.47,
+      50.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.0,
+      "low": 1.4,
+      "high": 2.8,
+      "source": "S2BIOM project; Eurostat crop production Belgium; small arable area ~850 kha; wheat, maize, sugar beet, potatoes dominant crops",
+      "notes": "Sugar beet leaves, wheat straw, maize stover. Small absolute volumes due to country size."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.3,
+      "high": 0.8,
+      "source": "Eurostat forestry statistics; Belgium ~23% forest cover (700 kha); Ardennes beech/oak forests",
+      "notes": "Ardennes forest generates modest logging residues. Some processing residues from wood industry."
+    },
+    "msw_total_mt": {
+      "value": 7.9,
+      "low": 7.5,
+      "high": 8.3,
+      "source": "Eurostat env_wasmun 2022; ~690 kg/capita \u00d7 11.4M population",
+      "notes": "High per-capita generation (4th in EU). ~7.9 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average; Belgian waste composition",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 35,
+      "landfill_pct": 5,
+      "recycle_compost_pct": 60,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Belgium has high recycling rate"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.5,
+      "low": 3.5,
+      "high": 6.0,
+      "source": "JRC biogas manure dataset; FAO livestock Belgium/Flanders; Flanders has extreme livestock density similar to Netherlands; Nitrates Directive compliance issues",
+      "notes": "Flanders (northern Belgium) has intensive pig/poultry. Wallonia more extensive cattle. Total wet manure ~45 Mt \u00d7 10% DM. Low emission application mandatory in Flanders."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.13,
+      "low": 0.1,
+      "high": 0.17,
+      "source": "EEA sludge data; Belgium ~1.3% EU population, near full WWTP coverage",
+      "notes": "~130 kt dry matter/yr."
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "Flanders systematic nitrogen/phosphorus surplus; Nitrates Directive chronic violations; MAP (Manure Action Plan) successive rounds; Flanders comparable to Netherlands in nutrient excess",
+    "dominant_feedstock": "manure_wet",
+    "feedstock_density": "concentrated",
+    "notes": "EXCESS nutrient status (Flanders). Small country but very high feedstock density for manure. WtE infrastructure well-developed. Good candidate for AD+CCS or biomass waste injection."
+  },
+  {
+    "id": "CZE",
+    "name": "Czechia",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      15.47,
+      49.82
+    ],
+    "ag_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.5,
+      "high": 7.0,
+      "source": "S2BIOM project D5.3; Eurostat crop production Czechia; ~3.5 Mha arable land; wheat, barley, rapeseed, maize dominant crops",
+      "notes": "Cereal straw (wheat, barley) dominant. Rapeseed straw significant. Gross ~12-13 Mt \u00d7 40% = ~5 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "Eurostat forestry statistics; Czechia ~34% forest cover; major bark beetle crisis 2018-2022 created large salvage harvest volumes; FAO FRA 2020",
+      "notes": "Massive bark beetle (Ips typographus) outbreak drove unusually high harvest 2018-2022, generating large residue volumes. Spruce monocultures being replaced. Processing residues from wood industry significant."
+    },
+    "msw_total_mt": {
+      "value": 5.2,
+      "low": 4.8,
+      "high": 5.6,
+      "source": "Eurostat env_wasmun 2022; ~490 kg/capita (estimated) \u00d7 10.7M population; Czechia data not in all Eurostat tables",
+      "notes": "Estimated ~5 Mt total. Some Eurostat tables show n/a for CZE 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 22,
+      "landfill_pct": 43,
+      "recycle_compost_pct": 35,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Czechia expanding WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "FAO livestock Czechia; JRC manure dataset; cattle and pig farming concentrated",
+      "notes": "~35 Mt wet manure \u00d7 10% DM = 3.5 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.15,
+      "low": 0.11,
+      "high": 0.2,
+      "source": "EEA sludge data; Czechia ~1% EU population, good WWTP coverage",
+      "notes": "~150 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Czechia moderate fertilizer intensity; some intensive livestock zones but no systematic excess",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Bark beetle crisis 2018-2022 created unusual residue surplus now declining. Transitioning to mixed forest will reduce future spruce residue volumes. Growing WtE sector."
+  },
+  {
+    "id": "GRC",
+    "name": "Greece",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      21.82,
+      39.07
+    ],
+    "ag_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.0,
+      "high": 6.0,
+      "source": "S2BIOM project; Eurostat crop production Greece; ~3.6 Mha arable; cotton stalks, wheat straw, olive prunings, corn stover, tobacco residues",
+      "notes": "Cotton stalks are significant (Greece is main EU cotton producer). Olive prunings add ~1-1.5 Mt. Wheat straw in Thessaly/Macedonia. Gross ~11 Mt \u00d7 40% = ~4.5 Mt."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.8,
+      "high": 2.5,
+      "source": "Eurostat forestry statistics; Greece ~67% forested/shrubland but low commercial harvest; high wildfire risk discourages residue mobilization",
+      "notes": "Most forest is maquis/phrygana scrubland with low commercial value. Actual logging residues limited. Wildfire risk means leaving residues increases fire hazard."
+    },
+    "msw_total_mt": {
+      "value": 5.6,
+      "low": 5.2,
+      "high": 6.0,
+      "source": "Eurostat env_wasmun 2022; ~519 kg/capita \u00d7 10.7M population",
+      "notes": "~5.6 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.52,
+      "source": "EU average; Greek waste composition; high organic fraction (Mediterranean diet)",
+      "notes": "Slightly elevated biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 80,
+      "recycle_compost_pct": 20,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Greece has near-zero WtE, very high landfill rate facing EU infringement"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "FAO livestock Greece; sheep/goat dominant (largest in EU per capita), plus cattle and pigs",
+      "notes": "Greece has large small-ruminant sector (sheep + goats) \u2014 9M+ head. Extensive grazing reduces manure concentration. Difficult to collect."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.12,
+      "low": 0.08,
+      "high": 0.17,
+      "source": "EEA sludge data; Greece ~1% EU population; WWTP coverage improving but incomplete on islands",
+      "notes": "~120 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer use; Mediterranean low-intensity farming; extensive grazing; well below EU average fertilizer use per ha",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "High landfill rate creates MSW opportunity but no WtE infrastructure. Diffuse ag residues (cotton, olives) favor bio-oil/biochar. Island geography complicates logistics. No viable geologic storage identified nearby."
+  },
+  {
+    "id": "PRT",
+    "name": "Portugal",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      -8.22,
+      39.4
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.6,
+      "high": 3.5,
+      "source": "S2BIOM project; Eurostat crop production Portugal; ~1.9 Mha arable; wheat, maize, olive prunings, vine cuttings",
+      "notes": "Olive prunings (~0.5 Mt) and vine cuttings significant alongside cereal straw. Eucalyptus plantations generate separate woody stream counted under forestry."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "Ericsson & Werner 2011 (lowest harvesting cost in EU 27 \u20ac/Mg for Portugal); S2BIOM; eucalyptus plantations dominant in central Portugal",
+      "notes": "Eucalyptus (Eucalyptus globulus) plantations for pulp generate significant processing residues. Lowest harvesting cost in EU. Wildfire risk creates urgency for residue removal (fire fuel reduction co-benefit)."
+    },
+    "msw_total_mt": {
+      "value": 5.2,
+      "low": 4.8,
+      "high": 5.6,
+      "source": "Eurostat env_wasmun 2022; ~508 kg/capita \u00d7 10.3M population",
+      "notes": "~5.2 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 20,
+      "landfill_pct": 42,
+      "recycle_compost_pct": 38,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "FAO livestock Portugal; JRC manure dataset; moderate-intensity livestock",
+      "notes": "Cattle (dairy + beef) and pig farming. Wet manure ~25 Mt \u00d7 10% DM."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.1,
+      "low": 0.07,
+      "high": 0.14,
+      "source": "EEA sludge data; Portugal ~1% EU population",
+      "notes": "~100 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer data; Portugal below EU average fertilizer intensity; Mediterranean low-input farming; soils often nutrient-poor",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Eucalyptus processing residues and wildfire-risk forest fuels are key opportunity. BECCS via Portucel/Navigator pulp mills potentially viable. Wildfire co-benefit from residue mobilization is strong policy hook."
+  },
+  {
+    "id": "SWE",
+    "name": "Sweden",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      18.64,
+      60.13
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "Eurostat crop production Sweden; ~2.6 Mha arable; cereal straw (wheat, barley, oats, rapeseed); S2BIOM project Sweden NUTS3 data",
+      "notes": "Limited arable land relative to forest. Cereal straw dominant. Some used as fodder/bedding \u2014 competing use reduces recoverable fraction."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 9.5,
+      "low": 7.0,
+      "high": 13.0,
+      "source": "Karlsson et al. 2026 (GCB Bioenergy): Sweden total biomass surplus 5.75 Mt DM plus additional potential; Sk\u00f6ldberg et al. 2020 (Forest Biomass Availability Springer): unutilized 13.7 TWh/yr logging residues; Eurostat roundwood 71.8 Mm\u00b3/yr 2023",
+      "notes": "Sweden is Europe's 2nd largest roundwood producer. Logging residues (GROT - grenar och toppar) = branches/tops. Large mill processing residues (bark, sawdust). High existing utilization for district heating. Sustainable additional potential ~9-10 Mt odt/yr."
+    },
+    "msw_total_mt": {
+      "value": 4.0,
+      "low": 3.7,
+      "high": 4.3,
+      "source": "Eurostat env_wasmun 2022; ~395 kg/capita \u00d7 10.2M population",
+      "notes": "~4 Mt total 2022. Low per-capita MSW despite high income \u2014 strong waste prevention/recycling culture."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average; Swedish waste composition data",
+      "notes": "Standard fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 50,
+      "landfill_pct": 1,
+      "recycle_compost_pct": 49,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Avfall Sverige statistics 2022; Sweden imports waste for WtE. Near-zero landfill."
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "FAO livestock Sweden; JRC manure dataset; predominantly cattle (dairy), some pigs",
+      "notes": "~25 Mt wet manure \u00d7 10% DM = 2.5 Mt odt. Extensive rather than intensive farming."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.18,
+      "low": 0.13,
+      "high": 0.24,
+      "source": "EEA sludge data; Sweden ~1% EU population, near 100% WWTP coverage; Stockholm Exergi BECCS project context",
+      "notes": "~180 kt dry matter/yr. Stockholm Exergi (KVV8) captures CO2 from biomass combustion including sludge."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer use; Sweden extensive farming, low fertilizer intensity; nutrient-poor soils in many forest areas",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Forestry is the dominant feedstock. Stockholm Exergi already operating BECCS (CCS on biogenic WtE). Sweden has existing BECCS infrastructure and deep geologic storage (Sleipner proximity). Leading BiCRS nation in Europe."
+  },
+  {
+    "id": "HUN",
+    "name": "Hungary",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      19.5,
+      47.16
+    ],
+    "ag_residues_odt_mt": {
+      "value": 7.0,
+      "low": 5.0,
+      "high": 9.5,
+      "source": "Garc\u00eda-Condado et al. 2019: Hungary in top EU maize residue producers; S2BIOM; Eurostat crop production. Hungary ~4.5 Mha arable; maize, wheat, sunflower, rapeseed. Gross ~17 Mt \u00d7 40% = ~7 Mt.",
+      "notes": "Maize stover dominant (Hungary major EU maize producer in Danube basin). Wheat straw also significant. High variability between drought and wet years."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "Eurostat forestry statistics; Hungary ~22% forest cover; FAO FRA 2020; mainly oak and beech with some pine",
+      "notes": "Moderate forest sector. Growing utilization for biomass energy. Processing residues from wood panel/furniture industry."
+    },
+    "msw_total_mt": {
+      "value": 3.9,
+      "low": 3.6,
+      "high": 4.2,
+      "source": "Eurostat env_wasmun 2022; ~407 kg/capita \u00d7 9.7M population",
+      "notes": "~3.9 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 8,
+      "landfill_pct": 54,
+      "recycle_compost_pct": 38,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Hungary still heavily landfill-dependent"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.0,
+      "low": 3.0,
+      "high": 5.5,
+      "source": "FAO livestock Hungary; JRC manure dataset; cattle, pig, poultry sector",
+      "notes": "Wet manure ~40 Mt \u00d7 10% DM = 4 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.12,
+      "low": 0.08,
+      "high": 0.17,
+      "source": "EEA sludge data; Hungary ~1% EU population; WWTP coverage ~90%",
+      "notes": "~120 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Hungary moderate fertilizer use; some intensive livestock areas but not systematic excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Great Plain (Alf\u00f6ld) provides concentrated maize and wheat residue base. High landfill rate is infrastructure gap. Danube Plain proximity to potential storage basins."
+  },
+  {
+    "id": "AUT",
+    "name": "Austria",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      14.55,
+      47.52
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.8,
+      "low": 2.0,
+      "high": 3.8,
+      "source": "S2BIOM project; Eurostat crop production Austria; ~1.4 Mha arable; wheat, maize, barley, rapeseed dominant",
+      "notes": "Relatively small arable area due to mountainous terrain. Cereal straw and maize stover main streams. Gross ~7 Mt \u00d7 40% = ~2.8 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.0,
+      "high": 6.0,
+      "source": "Eurostat forestry statistics; Austria ~47% forest cover; roundwood ~20 Mm\u00b3/yr; Austria is major forest country per capita; Gasparatos 2019 spatial assessment",
+      "notes": "Austria has strong forestry sector (47% land area forested). Spruce/pine logging residues. Significant wood processing residues (sawmills, particleboard). High existing utilization for biomass district heating."
+    },
+    "msw_total_mt": {
+      "value": 7.4,
+      "low": 7.0,
+      "high": 7.8,
+      "source": "Eurostat env_wasmun 2022; ~803 kg/capita \u00d7 9.1M population \u2014 highest per-capita in EU",
+      "notes": "~7.4 Mt total 2022. Austria generates most MSW per capita in EU (803 kg). May reflect tourism sector waste."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average; Austrian waste composition",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 38,
+      "landfill_pct": 3,
+      "recycle_compost_pct": 59,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Austria near-zero landfill, high WtE and recycling"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "FAO livestock Austria; JRC manure dataset; cattle (dairy + beef) dominant, mountainous pastoral farming",
+      "notes": "Extensive mountain farming with cattle. Wet manure ~25 Mt \u00d7 10% DM = 2.5 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.1,
+      "low": 0.07,
+      "high": 0.14,
+      "source": "EEA sludge data; Austria ~0.9% EU population, near 100% WWTP coverage",
+      "notes": "~100 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Austria moderate intensity farming; alpine grazing is low-intensity; no systematic excess",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Forestry is the dominant sector. Austria already a major biomass energy user. High per-capita MSW is notable \u2014 tourism influence. Near-zero landfill shows mature waste management."
+  },
+  {
+    "id": "DNK",
+    "name": "Denmark",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      10.02,
+      56.26
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 4.5,
+      "source": "S2BIOM project; Eurostat crop production Denmark; ~2.6 Mha arable (63% of land area); cereals dominant (winter wheat, barley), rapeseed, sugar beet",
+      "notes": "Very high arable land fraction (63% of national territory). Wheat/barley straw dominant. Sugar beet leaves significant. Gross ~9 Mt \u00d7 40% = ~3.5 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "Eurostat forestry statistics; Denmark ~14% forest cover; mostly beech and conifer plantations; low overall forest area",
+      "notes": "Limited forest resource. Some processing residues from wood industry. Orsted co-firing uses imported biomass \u2014 domestic forestry residues minor."
+    },
+    "msw_total_mt": {
+      "value": 4.7,
+      "low": 4.4,
+      "high": 5.0,
+      "source": "Eurostat env_wasmun 2022; ~802 kg/capita \u00d7 5.8M population \u2014 2nd highest in EU",
+      "notes": "~4.7 Mt total 2022. High per-capita generation (2nd in EU after Austria)."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average; Danish waste composition",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 52,
+      "landfill_pct": 2,
+      "recycle_compost_pct": 46,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Waste Incineration Nordic Countries 2024; Denmark has highest WtE share in EU"
+    },
+    "animal_manure_odt_mt": {
+      "value": 6.0,
+      "low": 4.5,
+      "high": 8.0,
+      "source": "JRC biogas manure dataset; Denmark has intensive pig industry (~13M pigs, 2\u00d7 human population); Nitrates Directive chronic compliance issues; EEA livestock data",
+      "notes": "Extreme pig density: ~13M pigs in 5.8M population country. Total wet manure ~60 Mt \u00d7 10% DM = 6 Mt odt. Manure surplus area designation widespread."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.08,
+      "low": 0.06,
+      "high": 0.11,
+      "source": "EEA sludge data; Denmark ~0.6% EU population, near 100% WWTP coverage",
+      "notes": "~80 kt dry matter/yr."
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "Nitrates Directive compliance; Denmark has systematic N/P surplus from pig density; Action Programme under NVZ; one of highest livestock N loads per ha in EU",
+    "dominant_feedstock": "manure_wet",
+    "feedstock_density": "concentrated",
+    "notes": "EXCESS nutrient status. Highest WtE share in EU \u2014 MSW pipeline already committed (Orsted Kalundborg etc.). Manure is primary uncaptured stream. Biogas already large but scaling AD+CCS has strong economics. Excellent North Sea CO2 storage access."
+  },
+  {
+    "id": "FIN",
+    "name": "Finland",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      25.75,
+      61.92
+    ],
+    "ag_residues_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "S2BIOM project; Eurostat crop production Finland; ~2.2 Mha arable; barley, oats, wheat, rapeseed; cold climate limits yields",
+      "notes": "Limited by northern climate. Cereal straw and oat/barley residues. Short growing season limits residue quality. Gross ~4-5 Mt \u00d7 35% = ~1.5 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 9.0,
+      "low": 6.5,
+      "high": 12.0,
+      "source": "IEA Bioenergy Task 31/43; Asikainen et al. IEA Bioenergy 2015: Finland logging residues 2.2 Mm\u00b3/yr; consumption of forest residues 7-8 Mm\u00b3/yr 2013-2018; Eurostat roundwood 63.5 Mm\u00b3/yr 2023; conversion 0.25 odt/m\u00b3 solid wood equivalent",
+      "notes": "Finland is Europe's 3rd largest roundwood producer. Massive forest industry (UPM, Stora Enso, Mets\u00e4 Group). Logging residues (GROT) + stumps + mill by-products. High existing utilization for heat/power. Sustainable additional mobilization possible ~9 Mt odt/yr."
+    },
+    "msw_total_mt": {
+      "value": 2.9,
+      "low": 2.7,
+      "high": 3.1,
+      "source": "Eurostat env_wasmun 2022; ~522 kg/capita \u00d7 5.6M population",
+      "notes": "~2.9 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 58,
+      "landfill_pct": 24,
+      "recycle_compost_pct": 18,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Waste Incineration Nordic Countries 2024; Finland high WtE, notable landfill share remaining"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.0,
+      "low": 1.4,
+      "high": 2.8,
+      "source": "FAO livestock Finland; cattle and pig farming; relatively low livestock density vs. NW Europe",
+      "notes": "Wet manure ~20 Mt \u00d7 10% DM = 2 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.08,
+      "low": 0.06,
+      "high": 0.11,
+      "source": "EEA sludge data; Finland ~0.5% EU population, near 100% WWTP coverage",
+      "notes": "~80 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer use; Nordic extensive farming; forest soils nutrient-poor; below EU average fertilizer intensity",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Forestry overwhelmingly dominant. Large pulp/paper/sawmill sector (UPM, Stora Enso, Mets\u00e4, Sappi) as retrofit BECCS candidates. High WtE share for MSW already. Baltic/North Sea storage proximity excellent."
+  },
+  {
+    "id": "IRL",
+    "name": "Ireland",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      -8.24,
+      53.41
+    ],
+    "ag_residues_odt_mt": {
+      "value": 1.2,
+      "low": 0.8,
+      "high": 1.8,
+      "source": "S2BIOM project; Eurostat crop production Ireland; ~1.0 Mha arable; barley, wheat, oats dominant. 2020 UK biomass survey used as regional proxy (6.3 Mt technical UK; Ireland ~10% proportional)",
+      "notes": "Small arable area dominated by grassland. Cereal straw modest. Some baled straw potential. Many Irish farms are dairy/beef pastoral with minimal arable residues."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.7,
+      "low": 0.4,
+      "high": 1.1,
+      "source": "Coillte forest service Ireland; Eurostat forestry statistics; Ireland forest cover ~11% and growing; Sitka spruce plantations",
+      "notes": "Sitka spruce plantation forests reaching harvest maturity. Growing residue stream. Processing residues from new mills. Low current utilization \u2014 significant upside."
+    },
+    "msw_total_mt": {
+      "value": 2.6,
+      "low": 2.3,
+      "high": 2.9,
+      "source": "Eurostat env_wasmun 2022; n/a in some tables; estimated ~520 kg/capita \u00d7 5.1M population",
+      "notes": "Eurostat shows n/a for Ireland in some 2022 tables. Estimate based on EU average per capita \u00d7 population."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 20,
+      "landfill_pct": 38,
+      "recycle_compost_pct": 42,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; EPA Ireland waste statistics 2022"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 4.8,
+      "source": "FAO livestock Ireland; intensive dairy cattle sector (post-milk quota expansion); JRC manure dataset",
+      "notes": "Ireland has very high cattle density (~7M cattle in 7M ha). Predominantly dairy since milk quota abolition 2015. Wet manure ~35 Mt \u00d7 10% DM = 3.5 Mt odt. Nitrates Directive compliance challenge."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.1,
+      "source": "EEA sludge data; Ireland ~0.5% EU population",
+      "notes": "~70 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "Nitrates Directive compliance; Ireland has Nitrates Action Programme; some zones exceed 170 kg N/ha from dairy intensification",
+    "dominant_feedstock": "manure_wet",
+    "feedstock_density": "diffuse",
+    "notes": "Dairy cattle manure is dominant wet feedstock. Growing forestry sector offers future woody stream. Diffuse agricultural landscape. Limited geologic storage identified \u2014 biomass burial possible if nutrients allow. No WtE+CCS currently."
+  },
+  {
+    "id": "BGR",
+    "name": "Bulgaria",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      25.49,
+      42.73
+    ],
+    "ag_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.5,
+      "high": 7.0,
+      "source": "S2BIOM project; Eurostat crop production Bulgaria; ~3.5 Mha arable; wheat, sunflower, maize, barley dominant",
+      "notes": "Significant crop area. Wheat straw and sunflower stalks dominant. High variability. Some informal burning of residues in field. Gross ~12 Mt \u00d7 40% = ~5 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.0,
+      "low": 1.3,
+      "high": 3.0,
+      "source": "Eurostat forestry statistics; Bulgaria ~36% forest cover; FAO FRA 2020; beech and conifer forests in mountains",
+      "notes": "Mountain forests (Balkans, Rhodopes) with moderate commercial harvest. Significant processing residues from wood industry. Growing bioenergy sector."
+    },
+    "msw_total_mt": {
+      "value": 3.4,
+      "low": 3.1,
+      "high": 3.7,
+      "source": "Eurostat env_wasmun 2022; ~488 kg/capita \u00d7 6.9M population",
+      "notes": "~3.4 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "World Bank What a Waste 2.0; Bulgaria higher organic fraction consistent with lower-income profile",
+      "notes": "Slightly elevated biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 2,
+      "landfill_pct": 67,
+      "recycle_compost_pct": 31,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Bulgaria high landfill rate facing EU infringement proceedings"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.0,
+      "low": 2.0,
+      "high": 4.5,
+      "source": "FAO livestock Bulgaria; cattle, sheep, pig, poultry sector; declining livestock post-1990",
+      "notes": "Large sheep/goat sector traditionally. Wet manure ~30 Mt \u00d7 10% DM. Fragmented farming reduces collection efficiency."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.06,
+      "low": 0.04,
+      "high": 0.09,
+      "source": "EEA sludge data; Bulgaria ~0.6% EU population; low WWTP coverage (~67%)",
+      "notes": "~60 kt dry matter/yr. Low WWTP coverage limits sludge volumes."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer use; Bulgaria below EU average fertilizer intensity; some soil nutrient depletion from post-communist farm restructuring",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "High landfill rate creates MSW opportunity. Field burning of residues common \u2014 collection infrastructure needed. Low fertilizer use = biomass removal favored. Limited WtE infrastructure."
+  },
+  {
+    "id": "HRV",
+    "name": "Croatia",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      16.44,
+      45.1
+    ],
+    "ag_residues_odt_mt": {
+      "value": 1.8,
+      "low": 1.2,
+      "high": 2.5,
+      "source": "S2BIOM project; Eurostat crop production Croatia; ~1.5 Mha arable; maize, wheat, soybean, sunflower",
+      "notes": "Slavonia region has concentrated maize/wheat production. Gross ~4-5 Mt \u00d7 40% = ~1.8 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "Eurostat forestry statistics; Croatia ~37% forest cover; Croatian Forests Ltd state enterprise; oak and beech dominant",
+      "notes": "Croatian Forests (H\u0160) manages ~80% of state forests. Moderate harvest intensity. Processing residues from wood industry in Slavonia."
+    },
+    "msw_total_mt": {
+      "value": 1.9,
+      "low": 1.7,
+      "high": 2.1,
+      "source": "Eurostat env_wasmun 2022; ~478 kg/capita \u00d7 3.9M population",
+      "notes": "~1.9 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.52,
+      "source": "EU average; slightly higher organic fraction in Balkan context",
+      "notes": "Slightly above average."
+    },
+    "msw_treatment": {
+      "wte_pct": 3,
+      "landfill_pct": 62,
+      "recycle_compost_pct": 35,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Croatia predominantly landfill, one WtE plant planned for Zagreb"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "FAO livestock Croatia; mixed cattle/pig/poultry sector",
+      "notes": "Wet manure ~15 Mt \u00d7 10% DM = 1.5 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.04,
+      "low": 0.03,
+      "high": 0.06,
+      "source": "EEA sludge data; Croatia ~0.4% EU population; WWTP coverage ~65%, improving",
+      "notes": "~40 kt dry matter/yr. Low WWTP coverage limits sludge."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer data; Croatia below EU average fertilizer intensity; traditional mixed farming",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Small country, moderate residue base. Slavonia eastern region has concentrated ag residues. High landfill rate is infrastructure gap."
+  },
+  {
+    "id": "SVK",
+    "name": "Slovakia",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      19.7,
+      48.67
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.7,
+      "high": 3.5,
+      "source": "S2BIOM project; Eurostat crop production Slovakia; ~1.4 Mha arable; wheat, barley, maize, rapeseed, sugar beet",
+      "notes": "Cereals dominant in Danube lowlands. Gross ~6 Mt \u00d7 40% = ~2.5 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.7,
+      "high": 3.5,
+      "source": "Eurostat forestry statistics; Slovakia ~41% forest cover; spruce/beech/fir; significant bark beetle impacts similar to Czechia",
+      "notes": "Mountain forests (Tatras, Carpathians). Bark beetle crisis also affected Slovakia. Processing residues from wood/furniture industry."
+    },
+    "msw_total_mt": {
+      "value": 2.6,
+      "low": 2.4,
+      "high": 2.8,
+      "source": "Eurostat env_wasmun 2022; ~478 kg/capita \u00d7 5.5M population",
+      "notes": "~2.6 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 10,
+      "landfill_pct": 56,
+      "recycle_compost_pct": 34,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.0,
+      "low": 1.4,
+      "high": 2.8,
+      "source": "FAO livestock Slovakia; cattle, pig farming",
+      "notes": "Wet manure ~20 Mt \u00d7 10% DM = 2 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.1,
+      "source": "EEA sludge data; Slovakia ~0.5% EU population",
+      "notes": "~70 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Slovakia moderate intensity farming",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Mixed ag/forestry resource base. Danube lowlands for ag residues; Carpathian forests for woody. Wood processing is significant industry."
+  },
+  {
+    "id": "LTU",
+    "name": "Lithuania",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      23.88,
+      55.17
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "S2BIOM project; Eurostat crop production Lithuania; ~2.9 Mha arable (45% of territory); wheat, rye, barley, rapeseed, sugar beet",
+      "notes": "Substantial arable land relative to country size. Cereal straw dominant. Rapeseed straw significant. Gross ~6 Mt \u00d7 40% = ~2.5 Mt."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.7,
+      "high": 3.5,
+      "source": "IEA Bioenergy Nordic/Baltic assessment: Lithuania forest fuel potential ~1.4 Mm\u00b3; Bioenergy technologies Baltic ScienceDirect 2020; Eurostat forestry",
+      "notes": "~33% forest cover. Pine/spruce/birch mix. Growing bioenergy use. Processing residues from wood panel/furniture industry (IKEA supply chain significant)."
+    },
+    "msw_total_mt": {
+      "value": 1.3,
+      "low": 1.2,
+      "high": 1.4,
+      "source": "Eurostat env_wasmun 2022; ~465 kg/capita \u00d7 2.8M population",
+      "notes": "~1.3 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 18,
+      "landfill_pct": 45,
+      "recycle_compost_pct": 37,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Kaunas WtE plant significant"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.0,
+      "low": 1.4,
+      "high": 2.8,
+      "source": "FAO livestock Lithuania; dairy cattle dominant; JRC manure dataset",
+      "notes": "Wet manure ~20 Mt \u00d7 10% DM = 2 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.04,
+      "low": 0.03,
+      "high": 0.06,
+      "source": "EEA sludge data; Lithuania ~0.3% EU population",
+      "notes": "~40 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Lithuania moderate farming intensity; improving practices post-EU accession",
+    "dominant_feedstock": "mixed",
+    "feedstock_density": "concentrated",
+    "notes": "Balanced ag+forestry resource base. Growing bioenergy sector. Baltic Sea proximity for potential offshore storage. IKEA supply chain drives certified forest management."
+  },
+  {
+    "id": "SVN",
+    "name": "Slovenia",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      14.99,
+      46.15
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.3,
+      "high": 0.8,
+      "source": "S2BIOM project; Eurostat crop production Slovenia; ~170 kha arable; maize, wheat, hops dominant; mountainous terrain limits arable",
+      "notes": "Very small arable area due to alpine/karst terrain. Maize stover and wheat straw modest."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.2,
+      "low": 0.8,
+      "high": 1.8,
+      "source": "Eurostat forestry statistics; Slovenia ~58% forest cover \u2014 highest in EU after Finland; active forest management",
+      "notes": "Highest forest cover in EU outside Nordics. Beech/fir/spruce forests. Significant processing residues. Wood industry important export sector."
+    },
+    "msw_total_mt": {
+      "value": 1.0,
+      "low": 0.9,
+      "high": 1.1,
+      "source": "Eurostat env_wasmun 2022; ~487 kg/capita \u00d7 2.1M population",
+      "notes": "~1 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 25,
+      "landfill_pct": 35,
+      "recycle_compost_pct": 40,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.7,
+      "low": 0.5,
+      "high": 1.0,
+      "source": "FAO livestock Slovenia; mostly cattle (dairy + beef) in alpine meadows",
+      "notes": "Wet manure ~7 Mt \u00d7 10% DM = 0.7 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.025,
+      "low": 0.018,
+      "high": 0.035,
+      "source": "EEA sludge data; Slovenia ~0.2% EU population",
+      "notes": "~25 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer data; Slovenia mixed farming, below EU average intensity; alpine grazing extensive",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Forestry is dominant. High forest cover creates significant but already heavily utilized woody biomass resource."
+  },
+  {
+    "id": "LVA",
+    "name": "Latvia",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      24.6,
+      56.88
+    ],
+    "ag_residues_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "S2BIOM project; Eurostat crop production Latvia; ~1.8 Mha arable; cereals (wheat, rye, barley, oats), rapeseed, potatoes",
+      "notes": "Moderate arable area. Cereal straw dominant. Gross ~4 Mt \u00d7 35% = ~1.5 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "Bioenergy technologies Baltic ScienceDirect 2020: Latvia forest fuel potential ~24 TWh/yr technically available; Eurostat forestry; Latvia ~52% forest cover",
+      "notes": "Very high forest cover (52%). Pine/spruce/birch. Forest fuels are major energy source (92.4% of renewables from biomass). High existing utilization but substantial additional potential."
+    },
+    "msw_total_mt": {
+      "value": 0.9,
+      "low": 0.8,
+      "high": 1.0,
+      "source": "Eurostat env_wasmun 2022; ~464 kg/capita \u00d7 1.85M population",
+      "notes": "~0.9 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 72,
+      "recycle_compost_pct": 28,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Latvia near zero WtE, predominantly landfill"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.2,
+      "low": 0.8,
+      "high": 1.8,
+      "source": "FAO livestock Latvia; cattle (dairy) and pig farming",
+      "notes": "Wet manure ~12 Mt \u00d7 10% DM = 1.2 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.025,
+      "low": 0.018,
+      "high": 0.035,
+      "source": "EEA sludge data; Latvia ~0.2% EU population",
+      "notes": "~25 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer data; Latvia low-intensity farming; extensive land abandonment since 1990s",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Forest dominant. High landfill rate is major gap. Near Baltic Sea for potential offshore storage. Biomass already ~92% of renewables \u2014 strong cultural/industrial alignment."
+  },
+  {
+    "id": "EST",
+    "name": "Estonia",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      25.01,
+      58.6
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "S2BIOM project; Eurostat crop production Estonia; ~820 kha arable; cereals (barley, wheat, rye), rapeseed, potatoes",
+      "notes": "Small arable area. Cereal straw dominant. Gross ~2 Mt \u00d7 40% = ~0.8 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.8,
+      "low": 2.0,
+      "high": 4.0,
+      "source": "Bioenergy technologies Baltic 2020: Estonia ~6.2 Mm\u00b3/yr available forest fuel (moderate scenario) = ~13.5 TWh/yr; primary supply biomass 12 TWh 2010; Eurostat forestry; Estonia ~52% forest cover",
+      "notes": "Very high forest cover. Pine/spruce/birch. Growing harvest with infrastructure development. Potential 300 kha additional agricultural land for energy forestry."
+    },
+    "msw_total_mt": {
+      "value": 0.58,
+      "low": 0.53,
+      "high": 0.63,
+      "source": "Eurostat env_wasmun 2022; ~373 kg/capita \u00d7 1.56M population",
+      "notes": "~0.58 Mt total 2022."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 18,
+      "landfill_pct": 50,
+      "recycle_compost_pct": 32,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.7,
+      "low": 0.5,
+      "high": 1.0,
+      "source": "FAO livestock Estonia; cattle and pig farming",
+      "notes": "Wet manure ~7 Mt \u00d7 10% DM = 0.7 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.015,
+      "low": 0.01,
+      "high": 0.022,
+      "source": "EEA sludge data; Estonia ~0.15% EU population",
+      "notes": "~15 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer data; Estonia extensive farming, significant land abandonment; low input intensity",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Small but forest-rich country. Biomass energy well-developed. High landfill rate being addressed. Baltic Sea proximity for storage."
+  },
+  {
+    "id": "LUX",
+    "name": "Luxembourg",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      6.13,
+      49.81
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.12,
+      "low": 0.08,
+      "high": 0.18,
+      "source": "S2BIOM project; Eurostat crop production Luxembourg; ~130 kha arable; cereals (wheat, barley), rapeseed, hay",
+      "notes": "Very small arable area. Gross ~0.3 Mt \u00d7 40% = ~0.12 Mt. Negligible scale for BiCRS strategy."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.15,
+      "low": 0.1,
+      "high": 0.22,
+      "source": "Eurostat forestry statistics; Luxembourg ~34% forest cover; ~87 kha forest; mostly beech and oak; Ardennes continuation",
+      "notes": "Small absolute forest area. Processing residues from wood industry minor."
+    },
+    "msw_total_mt": {
+      "value": 0.45,
+      "low": 0.42,
+      "high": 0.48,
+      "source": "Eurostat env_wasmun 2022; ~721 kg/capita \u00d7 0.64M population \u2014 3rd highest in EU",
+      "notes": "~0.45 Mt total 2022. High per-capita due to cross-border workers and transit economy."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU average",
+      "notes": "Standard EU biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 40,
+      "landfill_pct": 5,
+      "recycle_compost_pct": 55,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Luxembourg high recycling culture"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.2,
+      "low": 0.14,
+      "high": 0.28,
+      "source": "FAO livestock Luxembourg; mostly dairy cattle; small country",
+      "notes": "Wet manure ~2 Mt \u00d7 10% DM = 0.2 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.008,
+      "low": 0.005,
+      "high": 0.012,
+      "source": "EEA sludge data; Luxembourg ~0.06% EU population",
+      "notes": "~8 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Luxembourg moderate intensity farming; Moselle Valley viticulture",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Tiny biomass base. MSW is the most significant per-capita feedstock. Not a strategically significant standalone BiCRS site; aggregate with Belgium or cross-border projects."
+  },
+  {
+    "id": "CYP",
+    "name": "Cyprus",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      33.43,
+      35.13
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.1,
+      "low": 0.06,
+      "high": 0.16,
+      "source": "S2BIOM project; Eurostat crop production Cyprus; ~130 kha arable; cereals (wheat, barley), citrus, potatoes, grapes",
+      "notes": "Small island, limited arable. Cereal straw modest. Citrus prunings add small amount. Gross ~0.25 Mt \u00d7 40% = ~0.1 Mt."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.09,
+      "source": "Eurostat forestry statistics; Cyprus ~18% forest cover but mostly protected state forest; very limited commercial harvest",
+      "notes": "Troodos mountain forests largely protected. Commercial forestry negligible."
+    },
+    "msw_total_mt": {
+      "value": 0.79,
+      "low": 0.73,
+      "high": 0.85,
+      "source": "Eurostat env_wasmun 2022; ~673 kg/capita \u00d7 1.17M population \u2014 5th highest in EU",
+      "notes": "~0.79 Mt total 2022. Elevated per-capita due to tourism sector waste."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "Mediterranean diet drives higher organic fraction; World Bank What a Waste 2.0 proxy",
+      "notes": "Higher biogenic fraction due to food waste in tourist economy."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 75,
+      "recycle_compost_pct": 25,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Cyprus heavily landfill-dependent, facing EU infringement"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.15,
+      "low": 0.1,
+      "high": 0.22,
+      "source": "FAO livestock Cyprus; mostly sheep, goats, poultry, some cattle",
+      "notes": "Wet manure ~1.5 Mt \u00d7 10% DM = 0.15 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.008,
+      "low": 0.005,
+      "high": 0.012,
+      "source": "EEA sludge data; Cyprus ~0.1% EU population; good WWTP coverage in urban areas",
+      "notes": "~8 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer data; Mediterranean extensive farming; below EU average fertilizer use",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Island geography limits biomass logistics. MSW most concentrated stream. No viable geologic storage identified. High landfill rate is critical gap. Not a priority standalone BiCRS site."
+  },
+  {
+    "id": "MLT",
+    "name": "Malta",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      14.38,
+      35.94
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.02,
+      "low": 0.01,
+      "high": 0.04,
+      "source": "Eurostat crop production Malta; ~12 kha arable \u2014 smallest arable area in EU; vegetables, potatoes, wine grapes",
+      "notes": "Negligible. Malta has almost no commercial crop residues."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.005,
+      "low": 0.002,
+      "high": 0.01,
+      "source": "Eurostat forestry statistics; Malta <1% forest cover; mostly urban parks",
+      "notes": "No commercial forestry."
+    },
+    "msw_total_mt": {
+      "value": 0.31,
+      "low": 0.28,
+      "high": 0.34,
+      "source": "Eurostat env_wasmun 2022; ~618 kg/capita \u00d7 0.50M population",
+      "notes": "~0.31 Mt total 2022. Tourism-inflated per-capita figure."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "Mediterranean profile; higher food waste fraction",
+      "notes": "Tourist economy inflates food waste biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 5,
+      "landfill_pct": 75,
+      "recycle_compost_pct": 20,
+      "dump_pct": 0,
+      "source": "CEWEP 2022; Eurostat 2022; Malta largely landfill-dependent, limited WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.08,
+      "source": "FAO livestock Malta; small poultry and pig sector",
+      "notes": "Minimal livestock."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.004,
+      "low": 0.002,
+      "high": 0.006,
+      "source": "EEA sludge data; Malta ~0.05% EU population",
+      "notes": "~4 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "Limited agriculture; not a significant nutrient-status country for BiCRS purposes",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Minimal biomass resources \u2014 smallest EU member state by land area. MSW is the only relevant feedstock. Island geometry rules out most pathways. Not a standalone BiCRS site."
+  },
+  {
+    "id": "GBR",
+    "name": "United Kingdom",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      -3.44,
+      55.38
+    ],
+    "ag_residues_odt_mt": {
+      "value": 6.3,
+      "low": 4.5,
+      "high": 9.0,
+      "source": "UK Dept for Energy Security/DESNZ 2020 Biomass Survey: theoretical potential 24.98 Mt DM, technical potential 6.3 Mt DM; UK Biomass Strategy 2023",
+      "notes": "UK 2020 agricultural departments survey gives 6.3 Mt DM technical potential. Cereal straw (wheat, barley, oats) dominant. Some oilseed rape. Scotland and East England concentrated."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.3,
+      "high": 0.9,
+      "source": "UK Biomass Survey 2020: theoretical 1.4 Mt DM, technical 0.5 Mt DM; Forestry Commission GB statistics",
+      "notes": "Limited domestic forest compared to biomass demand. Drax and other large BECCS plants rely heavily on imported wood pellets (US SE, Baltic). Domestic residue potential modest."
+    },
+    "msw_total_mt": {
+      "value": 25.7,
+      "low": 24.5,
+      "high": 27.0,
+      "source": "DEFRA UK Statistics on Waste 2022: households 25.691 Mt; total municipal ~27-28 Mt including commercial fraction",
+      "notes": "Household waste ~25.7 Mt 2022; ~44.1% recycled per WRAP/DEFRA."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "IPCC/Kaplan; UK waste composition surveys; slightly above EU average due to food waste fraction",
+      "notes": "UK biogenic fraction ~0.55 based on composition surveys."
+    },
+    "msw_treatment": {
+      "wte_pct": 50,
+      "landfill_pct": 6,
+      "recycle_compost_pct": 44,
+      "dump_pct": 0,
+      "source": "DEFRA/UK statistics on waste 2023-24: incineration 50.2%, landfill 5.5%, recycling 44.1% of local authority waste"
+    },
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 9.0,
+      "high": 16.0,
+      "source": "FAO livestock UK; JRC manure dataset proxy (UK ~same scale as Ireland+NI livestock); cattle (dairy+beef), sheep, pigs",
+      "notes": "Large cattle and sheep sector. Wet manure ~120 Mt \u00d7 10% DM = 12 Mt odt. Includes N. Ireland intensive dairy."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 1.0,
+      "low": 0.8,
+      "high": 1.25,
+      "source": "EEA/ENDS Europe data; UK ~1.0 Mt dry sewage sludge/yr pre-Brexit; Eurostat EU-15 historical data shows UK similar to Germany",
+      "notes": "UK among top EU/EEA sludge producers alongside Germany, France, Spain. ~1.0 Mt dry/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "DEFRA nutrient management data; UK has Nitrate Vulnerable Zones but national average moderate; Somerset Levels etc. localized issues",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Drax Power Station is Europe's largest BECCS project (imports wood pellets \u2014 not domestic residues). UK has world-leading WtE+CCS policy framework. Domestic ag residues modest relative to large population. North Sea CO2 storage (Acorn, Viking, HyNet) excellent."
+  },
+  {
+    "id": "NOR",
+    "name": "Norway",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      8.47,
+      60.47
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "S2BIOM project; Eurostat/FAO Norway crop data; ~930 kha arable; cereals (barley, oats, wheat), hay/silage dominant",
+      "notes": "Limited arable area in harsh climate. Most farming is grass-based livestock. Cereal straw potential modest. Gross ~2 Mt \u00d7 40% = ~0.8 Mt."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.0,
+      "high": 6.5,
+      "source": "SINTEF Norway BiCRS assessment: sustainably available biomass 1-13 Mt CO2 removals potential; FAO FRA 2020 Norway roundwood ~10 Mm\u00b3/yr; Biomes/CarbonGap Norway tracker 2026",
+      "notes": "Norway has large productive boreal forests. Spruce/pine logging residues. Processing residues from Norske Skog, Borregaard etc. High existing utilization for pellets export and domestic heat."
+    },
+    "msw_total_mt": {
+      "value": 2.2,
+      "low": 2.0,
+      "high": 2.4,
+      "source": "SSB Norway waste statistics; Norway generates ~450-480 kg/capita \u00d7 5.4M population; EEA Norway waste data 2022",
+      "notes": "~2.2 Mt total 2022. Norway imports waste from UK/Ireland for WtE \u2014 domestic waste insufficient for existing capacity."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU/EEA average proxy; Norwegian waste composition data",
+      "notes": "Standard biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 52,
+      "landfill_pct": 6,
+      "recycle_compost_pct": 42,
+      "dump_pct": 0,
+      "source": "SSB Norway avfallshandtering; Incineration economy Norway ScienceDirect 2024; Norway ~28% incineration in 2023 data but accounting differs"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "FAO livestock Norway; mostly cattle (dairy), sheep/goats in mountain regions",
+      "notes": "Wet manure ~15 Mt \u00d7 10% DM = 1.5 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.1,
+      "source": "EEA sludge data; Norway ~0.5% EU/EEA population, near 100% WWTP coverage",
+      "notes": "~70 kt dry matter/yr."
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO fertilizer data; Norway extensive farming; high cost of N fertilizer discourages overuse; marine nutrients dominate coastal areas",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Norway is strategically critical for BiCRS: Sleipner (1996) and Northern Lights storage, world-class offshore CO2 infrastructure. Forestry residues are the primary feedstock. Oslo WtE (Klemetsrud/Fortum) is key BECCS site. Strong government support."
+  },
+  {
+    "id": "CHE",
+    "name": "Switzerland",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      8.23,
+      46.82
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "S2BIOM proxy; Swiss Federal Office for Agriculture; ~1.1 Mha arable; cereals (wheat, barley), maize, sugar beet, potatoes",
+      "notes": "Limited arable land (mountainous). Cereal straw and maize stover. Gross ~2 Mt \u00d7 40% = ~0.8 Mt recoverable."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "Swiss Federal Office for the Environment (BAFU); Switzerland ~31% forest cover; ~5 Mm\u00b3/yr roundwood harvest; S2BIOM proxy",
+      "notes": "Switzerland has sustainable forest management with high processing residues. Saw timber, pulpwood, energy wood well-developed. Wood is major energy source (district heating)."
+    },
+    "msw_total_mt": {
+      "value": 6.0,
+      "low": 5.7,
+      "high": 6.3,
+      "source": "Swiss Federal Statistics Office; ~671 kg/capita \u00d7 8.8M population; BAFU waste statistics 2022",
+      "notes": "~6 Mt total 2022. Zero landfill (banned since 2000). ~50% recycled, ~50% incinerated."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.5,
+      "source": "EU/Swiss average; Swiss waste composition studies",
+      "notes": "Standard biogenic fraction."
+    },
+    "msw_treatment": {
+      "wte_pct": 50,
+      "landfill_pct": 0,
+      "recycle_compost_pct": 50,
+      "dump_pct": 0,
+      "source": "BAFU Switzerland; Cleantech-Alps report; Switzerland 100% WtE+recycling, zero landfill since 2000"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.8,
+      "low": 1.3,
+      "high": 2.5,
+      "source": "FAO livestock Switzerland; mostly cattle (dairy) in alpine pastures; pig farming in lowlands",
+      "notes": "Wet manure ~18 Mt \u00d7 10% DM = 1.8 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.09,
+      "low": 0.07,
+      "high": 0.12,
+      "source": "EEA proxy; Switzerland ~0.7% EU/EEA population; near 100% WWTP coverage",
+      "notes": "~90 kt dry matter/yr."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "Swiss federal agricultural data; moderate intensity farming; alpine extensive grazing; nitrogen surplus issues in some lowland cantons",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Zero landfill, 100% WtE+recycling \u2014 existing WtE infrastructure (KVA plants) are excellent BECCS retrofit candidates. No geologic CO2 storage within Switzerland \u2014 would need cross-border pipeline. Biomass already heavily utilized for district heating."
+  },
+  {
+    "id": "UKR",
+    "name": "Ukraine",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      31.17,
+      49.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 44.0,
+      "low": 30.0,
+      "high": 58.0,
+      "source": "SAF Ukraine / biomass energy review; Ukraine crop residue theoretical potential >111 Mt/yr (wheat, barley, maize, sunflower); accessible dry mass wheat ~9.6 Mt (2024 baseline scenario); recoverable ~40% of theoretical = ~44 Mt. War disruption (2022-) creates high uncertainty.",
+      "notes": "Ukraine is among world's top crop residue producers. Theoretical 111 Mt/yr \u00d7 40% = ~44 Mt recoverable. Major crops: winter wheat, sunflower stalks, maize stover, barley. War since Feb 2022 severely disrupts harvests and logistics. Wide uncertainty range reflects wartime conditions."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.5,
+      "high": 6.0,
+      "source": "FAO FRA 2020 Ukraine; S2BIOM EU neighborhood coverage; Ukraine ~16% forest cover; Carpathian and Polesia forests",
+      "notes": "Significant forests in Carpathians and northern Polesia. War-related harvest disruption 2022-. Pre-war logging residues estimated at ~4 Mt odt/yr."
+    },
+    "msw_total_mt": {
+      "value": 10.5,
+      "low": 7.0,
+      "high": 14.0,
+      "source": "World Bank What a Waste 2.0 (2018): Ukraine ~14 Mt/yr pre-war; population displacement and war reduce 2022-2025 estimates significantly; calc: ~0.4 Mt/yr reduction per 1M displaced persons",
+      "notes": "Pre-war ~14 Mt/yr. Population fell from ~44M to ~37M by 2023 due to war displacement. Estimated ~10-11 Mt 2022. Very high uncertainty. Predominantly landfilled."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.58,
+      "source": "World Bank What a Waste 2.0; Ukraine similar to Eastern European profile with higher organic fraction",
+      "notes": "Higher biogenic fraction consistent with lower-income Eastern European profile."
+    },
+    "msw_treatment": {
+      "wte_pct": 2,
+      "landfill_pct": 85,
+      "recycle_compost_pct": 13,
+      "dump_pct": 0,
+      "source": "World Bank What a Waste 2.0 2018; Zerowaste Ukraine; predominantly landfill/dump disposal"
+    },
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 8.0,
+      "high": 17.0,
+      "source": "FAO livestock Ukraine pre-war; Ukraine had ~3.8M cattle, 6M pigs, 200M poultry pre-2022; wartime livestock losses significant",
+      "notes": "Pre-war ~120 Mt wet manure \u00d7 10% DM = ~12 Mt odt. War has reduced livestock numbers substantially. Wide uncertainty range."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.2,
+      "low": 0.12,
+      "high": 0.3,
+      "source": "Proxy estimate: Ukraine ~40M population pre-war \u00d7 5 kg dry sludge/capita/yr (lower than EU due to WWTP coverage ~70%); war disruption",
+      "notes": "WWTP coverage partial pre-war (~70%). War infrastructure damage reduces actual output further."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Ukraine had moderate fertilizer use on black soil (chernozem) belt; disruption since 2022 reduces inputs",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Ukraine has among largest ag residue potential in Europe (chernozem belt). All estimates highly uncertain due to ongoing war (Feb 2022-). Post-war reconstruction could enable major BiCRS development. Proximity to potential Black Sea or Dnieper-Donets basin storage. Data should be reviewed annually."
+  },
+  {
+    "id": "SRB",
+    "name": "Serbia",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      21.01,
+      44.02
+    ],
+    "ag_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.5,
+      "high": 7.0,
+      "source": "SAF/Jefferson Institute biomass Serbia: 12.5 Mt annual biomass, 9 Mt (72%) agricultural; ~9 Mt \u00d7 55% recoverable (higher fraction for Balkan context) = ~5 Mt. Wheat, maize, sunflower, soy dominant.",
+      "notes": "Serbia biomass study: 9 Mt/yr agricultural biomass total. Major crops in Vojvodina plain: maize, wheat, sunflower, soybean. Vojvodina is one of most productive agricultural regions in Balkans."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "Jefferson Institute Serbia biomass: ~3.5 Mt total biomass from forestry; 30-40% recoverable fraction; FAO FRA proxy",
+      "notes": "~30% forest cover. Beech/oak/pine in Dinaric highlands. Processing residues from wood industry (furniture export)."
+    },
+    "msw_total_mt": {
+      "value": 2.95,
+      "low": 2.7,
+      "high": 3.2,
+      "source": "World Bank Serbia Municipal Waste Situational Analysis 2023; Serbia 2022: 2.95 Mt municipal waste, 473 kg/capita",
+      "notes": "~2.95 Mt total 2022. Official figures; actual may be higher with informal sector."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.58,
+      "source": "World Bank What a Waste 2.0 Balkan profile; higher organic fraction",
+      "notes": "Higher biogenic fraction consistent with regional profile."
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 80,
+      "recycle_compost_pct": 15,
+      "dump_pct": 5,
+      "source": "World Bank Serbia Situational Analysis 2023: 79.4% landfilled, 15.4% recycled, no WtE; some illegal dumping"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.0,
+      "low": 3.0,
+      "high": 5.5,
+      "source": "FAO livestock Serbia; ~1.2M cattle, 3M pigs, 17M poultry; JRC Europe neighborhood data",
+      "notes": "Significant pig and cattle sector. Wet manure ~40 Mt \u00d7 10% DM = 4 Mt odt."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.1,
+      "source": "EEA proxy; Serbia ~7M population, WWTP coverage ~50%; EU accession process improving infrastructure",
+      "notes": "~70 kt dry matter/yr. Low WWTP coverage limits sludge volumes."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Serbia moderate fertilizer use; Vojvodina intensive but not at NL/DK excess levels",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Vojvodina province is a concentrated agricultural powerhouse (maize, wheat, sunflower, soy). Serbia has significant biomass energy plans under EU accession process. No WtE infrastructure. High landfill rate = large methane avoidance opportunity if waste managed. Danube corridor potential for CO2 transport."
+  }
+]

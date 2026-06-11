@@ -1,0 +1,3291 @@
+[
+  {
+    "id": "USA",
+    "name": "United States",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      -98.5,
+      39.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 180.0,
+      "low": 140.0,
+      "high": 230.0,
+      "source": "DOE 2023 Billion-Ton Report ch.5; USDA NASS crop production 2022; ~40% sustainable recoverable fraction applied to gross residue",
+      "notes": "Corn stover ~110 Mt gross \u2192 ~44 Mt recoverable; wheat straw ~60 Mt gross \u2192 ~24 Mt; sorghum, soybeans, other cereals ~112 Mt recoverable total. Gross ~450 Mt; 40% recoverable cap per Slade et al. 2014."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 45.0,
+      "low": 30.0,
+      "high": 65.0,
+      "source": "DOE 2023 Billion-Ton Report ch.4 (logging residues ~19 Mt at $40/dt; mill/wood waste additional ~26 Mt); USFS Timber Products Output reports",
+      "notes": "Logging residues (tops, limbs, unmerchantable material) + primary mill residues (sawdust, chips, bark). Southeast and Pacific NW dominate."
+    },
+    "msw_total_mt": {
+      "value": 265.0,
+      "low": 255.0,
+      "high": 275.0,
+      "source": "US EPA Advancing Sustainable Materials Management: Facts and Figures 2018 (292 Mt short tons = 265 Mt metric); EPA 2020 update",
+      "notes": "292 million short tons (2018) = ~265 Mt metric. Post-2020 estimates ~270 Mt metric."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "EIA/Kaplan 2009; EPA waste characterization studies; thesis \u00a71.3",
+      "notes": "Paper/paperboard ~23%, yard trimmings ~13%, food ~15%, wood ~8% = ~59-63% biogenic by mass."
+    },
+    "msw_treatment": {
+      "wte_pct": 12,
+      "landfill_pct": 50,
+      "dump_pct": 0,
+      "recycle_compost_pct": 32,
+      "other_pct": 6,
+      "source": "US EPA Facts and Figures 2018: landfill 50%, WtE 11.8%, recycling 23.6%, composting 8.5%, other food mgmt 6.1%"
+    },
+    "animal_manure_odt_mt": {
+      "value": 106.0,
+      "low": 80.0,
+      "high": 140.0,
+      "source": "USDA/DOE estimate: 106 Mt dry from animal manure at AFOs/CAFOs (ERS 2018); total wet ~1.1 billion short tons; dry matter ~15-20% of wet",
+      "notes": "Cattle dominate (~80%); swine and poultry remainder. Only manure at concentrated facilities recoverable; pasture manure excluded."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 7.1,
+      "low": 6.0,
+      "high": 8.5,
+      "source": "EPA biosolids estimates 2020; USGS wastewater; 7.1-7.9 Mt dry weight/yr (2010-2020 range per ScienceDirect 2024 study)",
+      "notes": "Sewage sludge dry solids from ~16,000 POTWs. Most land-applied or landfilled; ~30% digested anaerobically."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer use statistics; USDA ERS fertilizer use surveys \u2014 US avg ~110 kg N/ha, moderate vs. China/NL excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Corn Belt (IA, IL, NE, MN, IN, OH, KS, SD) dominates ag residues. Southeast (GA, AL, NC, SC, MS, AR) + Pacific NW (OR, WA) dominate forestry residues. MSW concentrated in coastal metros. Sanity check: ag 180 + forestry 45 = 225 Mt country-level recoverable; state sum ~220-230 Mt (consistent after rounding)."
+  },
+  {
+    "id": "CAN",
+    "name": "Canada",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      -96.0,
+      56.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 19.0,
+      "low": 14.0,
+      "high": 28.0,
+      "source": "Natural Resources Canada / REAP-Canada: up to 48 Mt gross ag residues nationally; ~40% recoverable = ~19 Mt. FAOSTAT 2022 crop production cross-check.",
+      "notes": "Wheat straw (Prairies) ~10 Mt recoverable; canola straw ~4 Mt; corn stover (Ontario/Quebec) ~3 Mt; barley/oats ~2 Mt. Saskatchewan, Alberta, Manitoba dominate."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 21.0,
+      "low": 14.0,
+      "high": 30.0,
+      "source": "Barrette et al. 2018 (NRCan): 21 million ODT/yr logging residues in managed forests; CER 2023 bioenergy snapshot",
+      "notes": "Logging residues across managed forest; BC, Ontario, Quebec, Alberta major contributors. Mill residues largely already used by forest industry."
+    },
+    "msw_total_mt": {
+      "value": 35.0,
+      "low": 32.0,
+      "high": 38.0,
+      "source": "Statistics Canada / Environment and Climate Change Canada: 35.5 Mt (2018), ~36 Mt (2020); Fraser Institute MSW report",
+      "notes": "~0.94 kg/capita/day (2018 Stats Can). Treatment: ~28% diverted (recycling/composting), ~72% landfilled; minimal WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "Canadian waste composition studies; World Bank What a Waste 2.0 high-income country norms; slightly lower than US due to less paper",
+      "notes": "Food waste ~30%, yard/garden ~10%, paper ~20%, wood ~5% = ~55-60% biogenic estimate."
+    },
+    "msw_treatment": {
+      "wte_pct": 4,
+      "landfill_pct": 72,
+      "dump_pct": 0,
+      "recycle_compost_pct": 24,
+      "other_pct": 0,
+      "source": "Statistics Canada solid waste diversion and disposal indicators 2020; minimal WtE capacity (~4% from Burnaby, Peel, Metro Vancouver)"
+    },
+    "animal_manure_odt_mt": {
+      "value": 29.0,
+      "low": 22.0,
+      "high": 38.0,
+      "source": "Statistics Canada 2006/2008: 180 Mt wet manure; Qian et al. 2022 (ScienceDirect): 146 Mt wet; dry matter fraction ~18-20% \u2192 ~26-29 Mt dry",
+      "notes": "Beef cattle dominant (38% of wet total). Alberta, Saskatchewan, Ontario, Quebec main provinces. Pasture manure not recoverable."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.66,
+      "low": 0.5,
+      "high": 0.85,
+      "source": "Canadian biosolids literature (Frontiers 2021); per capita scaling from US: Canada ~11% US population \u00d7 7.1 Mt = 0.78 Mt; literature cites 660,000 dry t/yr",
+      "notes": "Sewage sludge dry solids. Majority land-applied (~40%) or landfilled (~40%); small fraction incinerated or composted."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT fertilizer data; Canadian prairies moderate N use ~75 kg/ha avg; not excess",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Large land area, diffuse feedstocks. Prairies dominate ag residues; BC/Ontario/Quebec dominate forestry. Low population density limits MSW concentration."
+  },
+  {
+    "id": "MEX",
+    "name": "Mexico",
+    "level": "country",
+    "parent": null,
+    "centroid": [
+      -102.0,
+      24.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 30.0,
+      "low": 22.0,
+      "high": 40.0,
+      "source": "Tauro et al. 2018 (Renewable Energy): 75.7 Mt gross from 20 crops; Islas-Samperio et al. 2021: 87.9 Mt gross, 37.5 Mt available. Applied 40% recoverable cap.",
+      "notes": "Maize straw/stover ~43% of total; sorghum ~26%; sugarcane tops+bagasse ~18%; wheat ~6%. Jalisco, Sinaloa, Veracruz, Tamaulipas dominant states."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 6.0,
+      "low": 4.0,
+      "high": 9.0,
+      "source": "Masera et al. 2006 (Biomass & Bioenergy); FAO FRA 2020 Mexico roundwood production ~55 Mm3 \u2192 residue ratio ~0.3 \u2192 ~5-7 Mt; Islas-Samperio 2021 cross-check",
+      "notes": "Limited commercial forestry relative to land area. Chihuahua, Durango, Jalisco, Michoac\u00e1n main timber states. Much logging informal/small-scale."
+    },
+    "msw_total_mt": {
+      "value": 42.0,
+      "low": 38.0,
+      "high": 46.0,
+      "source": "SEMARNAT Basic Diagnosis 2020: 120,128 t/day \u00d7 365 = ~43.8 Mt/yr; World Bank What a Waste 2.0 ~53 Mt (2016, includes some industrial); adjusted to ~42 Mt MSW proper",
+      "notes": "Per capita ~0.94 kg/capita/day (SEMARNAT 2020). Majority landfilled (~65%) or open dumped (~20%); minimal formal WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.68,
+      "source": "World Bank What a Waste 2.0: upper-middle income Latin America ~60-70% biogenic; Mexico food waste high (~40-50% of MSW)",
+      "notes": "High organic/food waste fraction typical of middle-income country. Food ~45%, yard ~8%, paper ~15% = ~68% biogenic estimate."
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 65,
+      "dump_pct": 20,
+      "recycle_compost_pct": 10,
+      "other_pct": 4,
+      "source": "SEMARNAT 2020; World Bank What a Waste 2.0; incineration negligible; significant open dumping in rural areas"
+    },
+    "animal_manure_odt_mt": {
+      "value": 22.0,
+      "low": 16.0,
+      "high": 30.0,
+      "source": "FAO FAOSTAT livestock heads 2021 \u00d7 excretion factors (IPCC Tier 1); Mexico ~35M cattle, ~20M pigs, ~550M poultry \u2192 wet manure ~120 Mt \u2192 ~18-22 Mt dry",
+      "notes": "Beef/dairy cattle dominant. Jalisco leading livestock state. Much manure in open/pastoral systems, not recoverable. Estimate confined systems only."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "calc: Mexico population ~130M \u00d7 6 g dry sludge/capita/day (low-income WWTP norm, ~40% population served) = ~0.11 Mt; upper estimate with full coverage ~0.8 Mt; literature range",
+      "notes": "Wastewater treatment coverage ~60% urban, ~20% rural. Sludge often improperly managed or land-applied without treatment."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO FAOSTAT fertilizer data; Mexico avg ~65 kg N/ha; moderate, not excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Maize and sorghum stover dominant feedstock. High organic MSW fraction. Limited geologic storage options currently mapped. Significant open dumping \u2014 MSW biogenic flux notable."
+  },
+  {
+    "id": "US-Alabama",
+    "name": "Alabama",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -86.8,
+      32.8
+    ],
+    "ag_residues_odt_mt": {
+      "value": 1.8,
+      "low": 1.2,
+      "high": 2.6,
+      "source": "DOE 2023 Billion-Ton Report ch.5; USDA NASS 2022 Alabama crop production (corn, cotton, soybeans, peanuts, sorghum); 40% recoverable fraction",
+      "notes": "Cotton gin trash + corn stover + soybean residue dominant. Limited row-crop area relative to SE average."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.5,
+      "low": 3.5,
+      "high": 8.0,
+      "source": "DOE 2023 Billion-Ton Report ch.4; USFS Timber Products Output 2020; SE logging residue study (Oxford J. Forestry 2019): 16.5 Mt for 12-state South \u2192 Alabama ~10% share",
+      "notes": "Alabama is major timber state \u2014 pine plantations, active harvest. Logging tops/limbs + mill residues. Net exporter of biomass."
+    },
+    "msw_total_mt": {
+      "value": 5.8,
+      "low": 5.0,
+      "high": 6.6,
+      "source": "EPA state MSW data; Alabama per capita ~1.3 t/yr \u00d7 5M pop = ~6.5 Mt short tons; adjusted metric",
+      "notes": "Higher per capita than national avg; limited recycling infrastructure."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average applied; EPA waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 82,
+      "dump_pct": 0,
+      "recycle_compost_pct": 18,
+      "source": "EPA state data; no WtE facilities in Alabama"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS 2022 livestock census; Alabama large broiler/poultry industry; dry matter calc from IPCC Tier 1 excretion factors",
+      "notes": "Broiler chickens dominant (>300M birds); significant dry manure resource. Also beef cattle."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.12,
+      "low": 0.08,
+      "high": 0.18,
+      "source": "calc: 5M pop \u00d7 6.5 g DS/capita/day \u00d7 365 / 1e6",
+      "notes": "Sewage sludge dry solids estimate"
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS fertilizer data; Alabama avg N use ~85 kg/ha cropland",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Strong forestry residue base; growing poultry manure resource. Proximity to Gulf Coast storage sites favorable for BECCS."
+  },
+  {
+    "id": "US-Alaska",
+    "name": "Alaska",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -153.0,
+      64.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.1,
+      "source": "USDA NASS Alaska: minimal commercial crop production; hay, barley, potatoes only; DOE BT Report negligible contribution",
+      "notes": "Negligible row-crop agriculture. Mostly forage/hay residues."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.8,
+      "high": 3.0,
+      "source": "USFS Alaska Region Timber Harvest data; logging activity much reduced from 1990s peak; Tongass NF residues + state lands",
+      "notes": "Large forest area but low harvest intensity. Spruce beetle kill adds dead wood. Logistics/access major constraint."
+    },
+    "msw_total_mt": {
+      "value": 0.85,
+      "low": 0.7,
+      "high": 1.0,
+      "source": "calc: Alaska 0.73M pop \u00d7 1.27 t/yr per capita (US avg) = ~0.93 Mt; adjusted downward for lower consumption",
+      "notes": "Remote communities make collection difficult. High landfill rate."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 90,
+      "dump_pct": 5,
+      "recycle_compost_pct": 5,
+      "source": "Alaska DEC solid waste data; remote communities use open burning/dump"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.1,
+      "source": "USDA NASS Alaska: minimal confined livestock",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.02,
+      "low": 0.01,
+      "high": 0.03,
+      "source": "calc: 0.73M pop \u00d7 6.5 g DS/capita/day \u00d7 365 / 1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; minimal fertilizer use in Alaska",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Extremely logistically challenging. Large potential forest resource largely inaccessible. No geologic storage assessed nearby."
+  },
+  {
+    "id": "US-Arizona",
+    "name": "Arizona",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -111.7,
+      34.3
+    ],
+    "ag_residues_odt_mt": {
+      "value": 1.2,
+      "low": 0.8,
+      "high": 1.8,
+      "source": "USDA NASS 2022 Arizona: cotton, alfalfa, durum wheat, sorghum; DOE BT Report county data; 40% recoverable",
+      "notes": "Cotton gin trash + wheat straw dominant. Irrigated desert agriculture."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.4,
+      "high": 1.5,
+      "source": "USFS Southwestern Region; Arizona State Land Dept; forest thinning residues (fire risk reduction programs) dominant",
+      "notes": "Commercial timber limited. Forest restoration/thinning residues from ponderosa pine important."
+    },
+    "msw_total_mt": {
+      "value": 8.5,
+      "low": 7.5,
+      "high": 9.5,
+      "source": "ADEQ solid waste data; 7.3M pop \u00d7 1.27 t/yr",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 75,
+      "dump_pct": 0,
+      "recycle_compost_pct": 25,
+      "source": "ADEQ; no WtE in Arizona"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.2,
+      "low": 0.8,
+      "high": 1.8,
+      "source": "USDA NASS: Arizona cattle feedlots, dairy significant; IPCC Tier 1 dry matter calc",
+      "notes": "Large dairy and beef feedlot operations near Yuma, Phoenix metro."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.17,
+      "low": 0.12,
+      "high": 0.24,
+      "source": "calc: 7.3M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS fertilizer data; irrigated agriculture moderate fertilizer use",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Water scarcity limits agriculture expansion. Feedlot manure concentrated near Yuma/Phoenix."
+  },
+  {
+    "id": "US-Arkansas",
+    "name": "Arkansas",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -92.4,
+      34.8
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.8,
+      "low": 2.8,
+      "high": 5.2,
+      "source": "USDA NASS 2022 Arkansas: rice (largest US producer), soybeans, cotton, corn, wheat; DOE BT Report; 40% recoverable",
+      "notes": "Rice straw dominant (~2 Mt recoverable); soybean stubble, wheat straw, cotton gin trash also significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.8,
+      "high": 5.5,
+      "source": "USFS Timber Products Output; SE logging study (12-state South ~16.5 Mt); Arkansas ~8% share estimate; DOE BT Report",
+      "notes": "Active pine timber industry in Ouachita/Ozark NFs. Logging residues significant."
+    },
+    "msw_total_mt": {
+      "value": 3.7,
+      "low": 3.2,
+      "high": 4.2,
+      "source": "calc: 3.0M pop \u00d7 1.27 t/yr",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 80,
+      "dump_pct": 0,
+      "recycle_compost_pct": 20,
+      "source": "ADEQ analog; Arkansas DEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.2,
+      "low": 2.2,
+      "high": 4.5,
+      "source": "USDA NASS: Arkansas large broiler industry (>1B birds); swine; beef. IPCC Tier 1 factors.",
+      "notes": "Poultry litter is major biomass resource in NW Arkansas (Tyson Foods hub)."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.1,
+      "source": "calc: 3.0M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; NW Arkansas nutrient surplus documented from poultry litter over-application; Illinois River watershed impairment",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "NW Arkansas poultry litter nutrient excess favors biomass removal pathways. Rice straw is underutilized resource (often burned in field)."
+  },
+  {
+    "id": "US-California",
+    "name": "California",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -119.4,
+      37.2
+    ],
+    "ag_residues_odt_mt": {
+      "value": 8.5,
+      "low": 6.0,
+      "high": 12.0,
+      "source": "CARB/CEC biomass estimates; USDA NASS 2022 CA crop production; UC Davis biomass studies; DOE BT Report; 40% recoverable",
+      "notes": "Rice straw (Sacramento Valley, ~1.5 Mt), almond/orchard prunings (~1.5 Mt), cotton gin trash, wheat straw, vegetable residues, vineyard prunings. Very diverse feedstock mix."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.0,
+      "high": 7.0,
+      "source": "USFS Pacific SW Region; CEC Bioenergy Action Plan; CARB forest residue estimates; post-wildfire salvage not included",
+      "notes": "Sierra Nevada thinning residues, Coast Range logging. Fire risk reduction programs generate large thinning residues. Logistics challenge in steep terrain."
+    },
+    "msw_total_mt": {
+      "value": 42.0,
+      "low": 38.0,
+      "high": 46.0,
+      "source": "CalRecycle 2022: ~40 Mt solid waste disposed + diverted; 39.2M pop \u00d7 1.17 t/yr (below national avg due to strong recycling programs)",
+      "notes": "Strong AB 341/1826 mandates. High diversion rate ~40%."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "CalRecycle waste characterization studies",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 3,
+      "landfill_pct": 57,
+      "dump_pct": 0,
+      "recycle_compost_pct": 40,
+      "source": "CalRecycle 2022 annual report; 3 WtE facilities (SE Los Angeles, Stanislaus, Covanta)"
+    },
+    "animal_manure_odt_mt": {
+      "value": 5.5,
+      "low": 4.0,
+      "high": 7.5,
+      "source": "USDA NASS 2022: CA largest dairy state (~1.7M cows); plus beef, poultry. IPCC Tier 1 factors.",
+      "notes": "Dairy manure in San Joaquin Valley largest single source. PFAS concerns noted. AD+CCS pathway relevant."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.88,
+      "low": 0.65,
+      "high": 1.1,
+      "source": "calc: 39.2M \u00d7 6.5 g DS/d \u00d7 365/1e6; SWRCB biosolids data",
+      "notes": "CA produces ~0.9 Mt biosolids/yr dry; mostly land-applied or landfilled."
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; San Joaquin Valley documented N surplus; dairy manure nutrient loading issues",
+    "dominant_feedstock": "mixed",
+    "feedstock_density": "concentrated",
+    "notes": "Highly diverse feedstock mix. Large dairy manure concentrated in San Joaquin Valley. Orchard residues significant and often open-burned. CARB regulations drive biomass utilization. Large MSW stream in LA/Bay Area metros."
+  },
+  {
+    "id": "US-Colorado",
+    "name": "Colorado",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -105.5,
+      39.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.2,
+      "low": 1.5,
+      "high": 3.2,
+      "source": "USDA NASS 2022 CO: wheat, corn, sorghum, sugar beets; DOE BT Report; 40% recoverable",
+      "notes": "Wheat straw (eastern plains) + corn stover dominant. Sugar beet tops significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.9,
+      "low": 0.5,
+      "high": 1.5,
+      "source": "USFS Rocky Mountain Region; CO State Forest Service; thinning residues from fire-prone ponderosa/lodgepole pine forests",
+      "notes": "Mountain pine beetle kill creates large dead wood resource but access/logistics challenging."
+    },
+    "msw_total_mt": {
+      "value": 6.5,
+      "low": 5.8,
+      "high": 7.3,
+      "source": "calc: 5.8M pop \u00d7 1.22 t/yr",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 72,
+      "dump_pct": 0,
+      "recycle_compost_pct": 28,
+      "source": "CO DPHE solid waste data; no commercial WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "USDA NASS: large cattle feedlots eastern CO; also dairy, hogs. IPCC Tier 1.",
+      "notes": "Feedlot cattle manure concentrated in Weld, Yuma, Logan counties."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.14,
+      "low": 0.1,
+      "high": 0.19,
+      "source": "calc: 5.8M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; eastern plains dryland farming moderate N; feedlot areas locally excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Denver Front Range metro largest MSW source. Feedlot manure on eastern plains concentrated."
+  },
+  {
+    "id": "US-Connecticut",
+    "name": "Connecticut",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -72.7,
+      41.6
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.1,
+      "low": 0.05,
+      "high": 0.18,
+      "source": "USDA NASS: minimal crop area; mostly tobacco, vegetables, sweet corn; DOE BT Report negligible",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.15,
+      "high": 0.5,
+      "source": "USFS NE Region; CT DEEP forestry; low harvest intensity but significant wood waste from urban tree care",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 4.5,
+      "low": 4.0,
+      "high": 5.0,
+      "source": "CT DEEP solid waste data; 3.6M pop \u00d7 1.35 t/yr (higher per capita, dense urban)",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 60,
+      "landfill_pct": 25,
+      "dump_pct": 0,
+      "recycle_compost_pct": 15,
+      "source": "CT DEEP: 5 WtE facilities handle majority of waste; CT is highest WtE state by % in US"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.1,
+      "source": "USDA NASS: minimal livestock",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.09,
+      "low": 0.06,
+      "high": 0.12,
+      "source": "calc: 3.6M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "Minimal agricultural land; USDA ERS",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Highest WtE utilization rate in US. MSW + biogenic fraction is primary feedstock of interest. Strong WtE+CCS pathway candidate."
+  },
+  {
+    "id": "US-Delaware",
+    "name": "Delaware",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -75.5,
+      39.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.4,
+      "low": 0.25,
+      "high": 0.6,
+      "source": "USDA NASS: corn, soybeans, wheat; small state; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.08,
+      "low": 0.04,
+      "high": 0.15,
+      "source": "USFS NE Region; minimal commercial forestry",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 1.0,
+      "low": 0.85,
+      "high": 1.2,
+      "source": "calc: 1.0M pop \u00d7 1.27 t/yr",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 70,
+      "dump_pct": 0,
+      "recycle_compost_pct": 30,
+      "source": "DE DNREC solid waste data"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.4,
+      "low": 0.25,
+      "high": 0.6,
+      "source": "USDA NASS: Delmarva poultry industry; broiler chickens per capita highest in nation",
+      "notes": "Poultry litter nutrient surplus documented in Chesapeake Bay watershed."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.024,
+      "low": 0.016,
+      "high": 0.033,
+      "source": "calc: 1.0M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "Chesapeake Bay Program nutrient trading data; documented N/P excess from poultry operations",
+    "dominant_feedstock": "manure_wet",
+    "feedstock_density": "concentrated",
+    "notes": "Delmarva Peninsula poultry litter is dominant biomass resource; nutrient excess favors removal pathways."
+  },
+  {
+    "id": "US-Florida",
+    "name": "Florida",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -81.5,
+      27.8
+    ],
+    "ag_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.2,
+      "high": 6.5,
+      "source": "USDA NASS 2022 FL: sugarcane (largest US producer ~2Mt bagasse/tops), citrus, vegetables, peanuts; 40% recoverable",
+      "notes": "Sugarcane bagasse + tops dominant (~2-3 Mt recoverable). Citrus waste separately managed. South Florida concentrated."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "USFS SE Region; FL pine timber industry; logging residues + mill waste",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 28.0,
+      "low": 25.0,
+      "high": 31.0,
+      "source": "FDEP solid waste annual report 2021: ~28 Mt; 22.6M pop \u00d7 1.27 t/yr",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average; FDEP waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 28,
+      "landfill_pct": 58,
+      "dump_pct": 0,
+      "recycle_compost_pct": 14,
+      "source": "FDEP: 12 WtE facilities; FL has 3rd highest WtE capacity in US"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "USDA NASS: dairy, beef cattle, poultry; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.54,
+      "low": 0.38,
+      "high": 0.72,
+      "source": "calc: 22.6M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FL DEP nutrient TMDL reports; Everglades/Lake Okeechobee P loading from sugarcane",
+    "dominant_feedstock": "mixed",
+    "feedstock_density": "concentrated",
+    "notes": "Large MSW stream from tourism/population; sugarcane bagasse concentrated in S. Florida; WtE+CCS opportunity in Miami/Broward. Nutrient excess from ag."
+  },
+  {
+    "id": "US-Georgia",
+    "name": "Georgia",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -83.4,
+      32.7
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.2,
+      "low": 2.2,
+      "high": 4.5,
+      "source": "USDA NASS 2022: corn, cotton, peanuts, soybeans, wheat; 40% recoverable",
+      "notes": "Cotton gin trash + corn stover + peanut shells/vines + soybean stubble."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 7.5,
+      "low": 5.0,
+      "high": 10.0,
+      "source": "Georgia Forestry Commission 2021 biomass assessment: >9 Mt unutilized forestry biomass/yr; logging residues (tops/limbs) >5 Mt/yr; GA is #1 commercial timberland state",
+      "notes": "Georgia leads US in commercial timberland area. Pine plantations + hardwood. Major wood pellet export state."
+    },
+    "msw_total_mt": {
+      "value": 13.0,
+      "low": 11.5,
+      "high": 14.5,
+      "source": "calc: 10.9M pop \u00d7 1.27 t/yr; GAEPD solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 5,
+      "landfill_pct": 78,
+      "dump_pct": 0,
+      "recycle_compost_pct": 17,
+      "source": "GAEPD; Covanta Fulton County WtE plant"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.5,
+      "low": 3.2,
+      "high": 6.2,
+      "source": "USDA NASS: Georgia #1 broiler state; massive poultry industry; IPCC Tier 1",
+      "notes": "Poultry litter major concentrated resource; also broiler integrators concentrated in N Georgia."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.26,
+      "low": 0.18,
+      "high": 0.35,
+      "source": "calc: 10.9M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "UGA Extension; poultry litter nutrient surplus in N Georgia documented; phosphorus runoff issues",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Top forestry residue state in Southeast. Poultry litter major concentrated manure resource. Savannah/Brunswick port area proximity to offshore storage relevant."
+  },
+  {
+    "id": "US-Hawaii",
+    "name": "Hawaii",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -157.8,
+      21.3
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.15,
+      "high": 0.5,
+      "source": "USDA NASS: sugarcane phased out; macadamia nuts, pineapple, coffee residues; University of Hawaii bioenergy studies",
+      "notes": "Sugarcane largely ended 2016; macadamia shells/husks now primary."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.2,
+      "low": 0.08,
+      "high": 0.4,
+      "source": "DLNR forestry; invasive species removal (albizia, etc.) adds significant residue stream",
+      "notes": "Invasive tree removal adds significant biomass."
+    },
+    "msw_total_mt": {
+      "value": 1.8,
+      "low": 1.5,
+      "high": 2.1,
+      "source": "calc: 1.44M pop \u00d7 1.27 t/yr; Hawaii DoH solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "Higher food waste fraction typical of Hawaii; local waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 60,
+      "landfill_pct": 28,
+      "dump_pct": 0,
+      "recycle_compost_pct": 12,
+      "source": "Covanta H-POWER Honolulu WtE (combusts ~1 Mt/yr); dominant treatment method on Oahu"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.08,
+      "source": "USDA NASS: limited livestock",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.034,
+      "low": 0.022,
+      "high": 0.047,
+      "source": "calc: 1.44M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; tropical soils, limited N fertilizer use in current ag",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "H-POWER WtE dominant. Island isolation makes carbon transport for CCS very difficult \u2014 no nearby geologic storage. High WtE fraction but sequestration pathway logistically challenging."
+  },
+  {
+    "id": "US-Idaho",
+    "name": "Idaho",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -114.5,
+      44.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "USDA NASS 2022: wheat (large), potatoes, barley, sugar beets, corn; 40% recoverable",
+      "notes": "Wheat straw dominant (Snake River Plain); potato processing waste also significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.8,
+      "low": 1.0,
+      "high": 2.8,
+      "source": "USFS Northern/Intermountain Regions; Idaho Dept of Lands; logging + mill residues",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 2.3,
+      "low": 2.0,
+      "high": 2.7,
+      "source": "calc: 1.9M pop \u00d7 1.27 t/yr",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 78,
+      "dump_pct": 0,
+      "recycle_compost_pct": 22,
+      "source": "IDEQ solid waste data; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.8,
+      "low": 1.2,
+      "high": 2.5,
+      "source": "USDA NASS: large dairy industry (Twin Falls), beef cattle, sheep; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.045,
+      "low": 0.03,
+      "high": 0.062,
+      "source": "calc: 1.9M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; irrigated ag moderate N; dairy areas locally excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Wheat straw and dairy manure co-dominant. Snake River Plain dairy concentrated. Proximity to Snake River Plain geothermal/basalt for storage investigation."
+  },
+  {
+    "id": "US-Illinois",
+    "name": "Illinois",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -89.2,
+      40.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 20.0,
+      "low": 14.0,
+      "high": 27.0,
+      "source": "DOE 2023 Billion-Ton Report ch.5; USDA NASS 2022: IL #2 corn/soy state; corn stover ~16 Mt gross \u2192 ~6.4 Mt recoverable + wheat + soy = ~20 Mt total; ORNL state estimates",
+      "notes": "Corn stover dominant (~80%); soybean stubble ~15%; small grains remainder. 40% recoverable cap. IL produces ~2.3 B bu corn/yr."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.4,
+      "low": 0.2,
+      "high": 0.7,
+      "source": "USFS NE Region; IL DNR; limited commercial forestry; Shawnee NF logging minimal",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 16.0,
+      "low": 14.5,
+      "high": 17.5,
+      "source": "calc: 12.6M pop \u00d7 1.27 t/yr; IEPA solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 4,
+      "landfill_pct": 69,
+      "dump_pct": 0,
+      "recycle_compost_pct": 27,
+      "source": "IEPA; Wheelabrator Robbins + one other WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS: large swine industry, dairy, beef; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.3,
+      "low": 0.21,
+      "high": 0.41,
+      "source": "calc: 12.6M \u00d7 6.5 g DS/d \u00d7 365/1e6; MWRD Chicago significant",
+      "notes": "Chicago MWRD biosolids program is one of largest in US (Milorganite)."
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; IL corn belt high N input; documented tile drainage N loading to Mississippi",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Top-tier corn stover state. ADM Decatur CCS project (biogenic CO2 injection) operational \u2014 existing BECCS infrastructure. Proximity to Illinois Basin saline aquifer storage."
+  },
+  {
+    "id": "US-Indiana",
+    "name": "Indiana",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -86.3,
+      40.3
+    ],
+    "ag_residues_odt_mt": {
+      "value": 12.0,
+      "low": 8.5,
+      "high": 16.0,
+      "source": "DOE 2023 Billion-Ton Report; USDA NASS 2022: IN #5 corn/soy state; ORNL corn stover projections ~8.5 Mt at 2030; total with wheat/soy ~12 Mt; 40% recoverable",
+      "notes": "Corn stover dominant; soybeans, wheat also contributing. Dense cropping, high residue density per county."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.3,
+      "high": 0.9,
+      "source": "USFS NE Region; IN DNR; Hoosier NF; limited commercial forestry",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 8.4,
+      "low": 7.5,
+      "high": 9.4,
+      "source": "calc: 6.8M pop \u00d7 1.27 t/yr; IDEM solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 3,
+      "landfill_pct": 70,
+      "dump_pct": 0,
+      "recycle_compost_pct": 27,
+      "source": "IDEM; Indianapolis Covanta WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.8,
+      "low": 2.7,
+      "high": 5.2,
+      "source": "USDA NASS: large hog/swine, poultry, dairy; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.16,
+      "low": 0.11,
+      "high": 0.22,
+      "source": "calc: 6.8M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; high N input corn belt; documented tile drainage nutrient loading",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "High-density corn belt state. Corn stover and swine manure both significant. Illinois Basin storage access favorable."
+  },
+  {
+    "id": "US-Iowa",
+    "name": "Iowa",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -93.1,
+      42.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 27.0,
+      "low": 20.0,
+      "high": 35.0,
+      "source": "DOE 2023 Billion-Ton Report ch.5; ORNL corn stover supply: Iowa ~31 Mt projection for 2030 at mature market; current ~24-27 Mt; USDA NASS 2022: IA #1 corn state ~2.5B bu; 40% recoverable",
+      "notes": "Iowa is #1 state for corn stover. ~22 Mt corn stover gross recoverable + wheat straw + soy residue. Among top 3 states nationally."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.15,
+      "high": 0.5,
+      "source": "USFS NE Region; Iowa DNR; minimal commercial forestry",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 4.0,
+      "low": 3.5,
+      "high": 4.6,
+      "source": "calc: 3.2M pop \u00d7 1.27 t/yr; Iowa DNR solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 72,
+      "dump_pct": 0,
+      "recycle_compost_pct": 28,
+      "source": "Iowa DNR; no WtE facilities"
+    },
+    "animal_manure_odt_mt": {
+      "value": 10.5,
+      "low": 7.5,
+      "high": 14.0,
+      "source": "USDA NASS 2022: Iowa #1 hog state (~25M hogs); large dairy and beef; IPCC Tier 1 factors. Iowa State Univ extension manure mgmt data.",
+      "notes": "Hog confinement manure is major resource. AD potential large. Nutrient runoff into Iowa rivers documented."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.076,
+      "low": 0.052,
+      "high": 0.104,
+      "source": "calc: 3.2M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "Iowa Nutrient Reduction Strategy; documented excess N/P from both crop and hog operations; Des Moines Water Works nitrate issues",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Top US state for corn stover AND swine manure. Extremely high feedstock density per km2. Proximity to Illinois Basin and mid-continent saline aquifer storage excellent BECCS opportunity."
+  },
+  {
+    "id": "US-Kansas",
+    "name": "Kansas",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -98.4,
+      38.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 14.0,
+      "low": 10.0,
+      "high": 19.0,
+      "source": "DOE 2023 Billion-Ton Report ch.5; USDA NASS 2022: KS #1 wheat state ~300M bu/yr + large corn/sorghum; 40% recoverable fraction",
+      "notes": "Wheat straw dominant (~8 Mt recoverable); corn stover (~4 Mt); sorghum stubble (~2 Mt). KS is top wheat straw state."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.15,
+      "low": 0.08,
+      "high": 0.25,
+      "source": "USFS; minimal commercial forestry in Kansas; riparian woodlands only",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 3.6,
+      "low": 3.1,
+      "high": 4.1,
+      "source": "calc: 2.94M pop \u00d7 1.27 t/yr; KDHE solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 74,
+      "dump_pct": 0,
+      "recycle_compost_pct": 26,
+      "source": "KDHE; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 5.5,
+      "low": 4.0,
+      "high": 7.5,
+      "source": "USDA NASS: Kansas large beef feedlot state (#2 cattle on feed); hogs; IPCC Tier 1",
+      "notes": "Beef feedlot manure highly concentrated in SW Kansas (Liberal, Dodge City areas)."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.048,
+      "high": 0.096,
+      "source": "calc: 2.94M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; KS wheat belt lower N intensity than corn belt; feedlot areas locally excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Wheat straw + beef feedlot manure dominant resources. Very flat terrain favorable for large-scale collection. Hugoton gas field area has existing CO2 infrastructure."
+  },
+  {
+    "id": "US-Kentucky",
+    "name": "Kentucky",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -84.9,
+      37.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS 2022: corn, soybeans, tobacco, wheat, hay; 40% recoverable",
+      "notes": "Corn stover + soybean stubble dominant; tobacco residues minor."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "USFS SE Region; KY Division of Forestry; hardwood logging (oak, hickory, poplar) + Appalachian forest",
+      "notes": "Eastern KY Appalachian forests significant logging residue source."
+    },
+    "msw_total_mt": {
+      "value": 5.6,
+      "low": 5.0,
+      "high": 6.3,
+      "source": "calc: 4.5M pop \u00d7 1.27 t/yr; KYDEP solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 74,
+      "dump_pct": 0,
+      "recycle_compost_pct": 26,
+      "source": "KYDEP; no commercial WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.2,
+      "low": 1.5,
+      "high": 3.2,
+      "source": "USDA NASS: beef cattle, poultry, hogs; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.107,
+      "low": 0.073,
+      "high": 0.147,
+      "source": "calc: 4.5M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; moderate N use; Appalachian soils often low fertility",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Mixed ag/forestry state. Illinois Basin coal beds underlie western KY \u2014 potentially favorable for CO2 storage."
+  },
+  {
+    "id": "US-Louisiana",
+    "name": "Louisiana",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -91.8,
+      31.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.2,
+      "low": 2.2,
+      "high": 4.5,
+      "source": "USDA NASS 2022: sugarcane (#2 state), rice, soybeans, cotton, corn; 40% recoverable",
+      "notes": "Sugarcane bagasse + tops (~1.5 Mt recoverable); rice straw (~0.8 Mt); soybean/cotton residues."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.2,
+      "high": 5.0,
+      "source": "USFS SE Region; LA Forestry Commission; pine timber industry + bottomland hardwood",
+      "notes": "Active pine timber industry in northern LA."
+    },
+    "msw_total_mt": {
+      "value": 5.8,
+      "low": 5.1,
+      "high": 6.5,
+      "source": "calc: 4.6M pop \u00d7 1.27 t/yr; LA DEQ data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 79,
+      "dump_pct": 0,
+      "recycle_compost_pct": 21,
+      "source": "LA DEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "USDA NASS: cattle, poultry, swine; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.109,
+      "low": 0.075,
+      "high": 0.15,
+      "source": "calc: 4.6M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; Mississippi delta agriculture moderate-high N",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Gulf Coast location \u2014 proximity to large offshore saline aquifer storage excellent. Sugarcane processing concentrated in S. Louisiana (Cargill, ASA, etc.)."
+  },
+  {
+    "id": "US-Maine",
+    "name": "Maine",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -69.2,
+      45.4
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.15,
+      "high": 0.5,
+      "source": "USDA NASS: potatoes, blueberries, hay; minimal row crop; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.0,
+      "low": 1.8,
+      "high": 4.5,
+      "source": "USFS NE Region; Maine Forest Service; active logging + large pulp/paper industry; Biomass Power Supply Chain study",
+      "notes": "Largest forested fraction of any state east of Mississippi. Spruce-fir logging residues significant. Wood chips for pulp dominant current use."
+    },
+    "msw_total_mt": {
+      "value": 1.65,
+      "low": 1.4,
+      "high": 1.9,
+      "source": "calc: 1.37M pop \u00d7 1.27 t/yr; ME DEP solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 45,
+      "landfill_pct": 40,
+      "dump_pct": 0,
+      "recycle_compost_pct": 15,
+      "source": "ME DEP; Penobscot Energy Recovery (Orrington) + Covanta Maine; high WtE rate for rural state"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.15,
+      "low": 0.09,
+      "high": 0.22,
+      "source": "USDA NASS: dairy, poultry; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.033,
+      "low": 0.022,
+      "high": 0.045,
+      "source": "calc: 1.37M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; thin soils, low fertilizer intensity in Maine forests and farms",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Major forestry state; existing pulp/paper mills potential BECCS retrofit candidates. Logging residue supply drops significantly at low prices (PMC study)."
+  },
+  {
+    "id": "US-Maryland",
+    "name": "Maryland",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -76.6,
+      39.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "USDA NASS: corn, soybeans, wheat, tobacco; small state; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.4,
+      "low": 0.2,
+      "high": 0.7,
+      "source": "MD DNR; limited commercial forestry; urban wood waste significant",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 7.4,
+      "low": 6.6,
+      "high": 8.2,
+      "source": "calc: 6.2M pop \u00d7 1.27 t/yr; MDE solid waste data; includes DC suburbs",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 23,
+      "landfill_pct": 55,
+      "dump_pct": 0,
+      "recycle_compost_pct": 22,
+      "source": "MDE; Covanta Montgomery, Covanta BRESCO (Baltimore), Wheelabrator Harford \u2014 4 WtE facilities"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.9,
+      "low": 0.6,
+      "high": 1.3,
+      "source": "USDA NASS: Delmarva poultry, dairy; IPCC Tier 1; Chesapeake Bay nutrient issues",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.147,
+      "low": 0.102,
+      "high": 0.202,
+      "source": "calc: 6.2M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "Chesapeake Bay Program; MD Eastern Shore documented N/P excess from poultry; nutrient trading program active",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Baltimore WtE+CCS potential (BRESCO). Chesapeake Bay nutrient constraints favor biomass removal. Dense suburban MSW stream."
+  },
+  {
+    "id": "US-Massachusetts",
+    "name": "Massachusetts",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -71.5,
+      42.2
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.12,
+      "low": 0.06,
+      "high": 0.2,
+      "source": "USDA NASS: cranberries, vegetables, greenhouse; minimal row crop",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.6,
+      "low": 0.3,
+      "high": 1.0,
+      "source": "MA DCR forestry; urban tree care + limited commercial logging; wood chip demand from biomass power (Greenfield, Palmer)",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 8.5,
+      "low": 7.8,
+      "high": 9.3,
+      "source": "calc: 7.0M pop \u00d7 1.27 t/yr; MassDEP solid waste data 2021",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "MassDEP waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 40,
+      "landfill_pct": 35,
+      "dump_pct": 0,
+      "recycle_compost_pct": 25,
+      "source": "MassDEP; 5 WtE facilities (Covanta Haverhill, SEMASS, Springfield, Wheelabrator Millbury, Wheelabrator North Andover)"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.08,
+      "low": 0.05,
+      "high": 0.13,
+      "source": "USDA NASS: dairy, poultry small-scale; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.166,
+      "low": 0.116,
+      "high": 0.228,
+      "source": "calc: 7.0M \u00d7 6.5 g DS/d \u00d7 365/1e6; MWRA data",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; minimal agriculture; forest nutrient cycling dominant",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "High WtE utilization. Boston metro large MSW stream. WtE+CCS candidate. Offshore wind development may colocate with offshore CO2 injection."
+  },
+  {
+    "id": "US-Michigan",
+    "name": "Michigan",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -84.5,
+      44.3
+    ],
+    "ag_residues_odt_mt": {
+      "value": 8.0,
+      "low": 5.8,
+      "high": 11.0,
+      "source": "USDA NASS 2022: MI large corn/soy state + sugar beets, dry beans, wheat; DOE BT Report; 40% recoverable",
+      "notes": "Corn stover + soybean stubble dominant; sugar beet tops/pulp also significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "USFS NE/NC Region; MI DNR; active hardwood and softwood logging in Upper Peninsula; mill residues",
+      "notes": "Upper Peninsula logging significant. Lower Peninsula has lower forest density."
+    },
+    "msw_total_mt": {
+      "value": 12.5,
+      "low": 11.2,
+      "high": 13.8,
+      "source": "calc: 10.0M pop \u00d7 1.27 t/yr; EGLE solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 73,
+      "dump_pct": 0,
+      "recycle_compost_pct": 27,
+      "source": "EGLE; no commercial WtE in Michigan"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.0,
+      "low": 2.2,
+      "high": 4.2,
+      "source": "USDA NASS: large dairy (2M cows), beef, swine, poultry; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.238,
+      "low": 0.166,
+      "high": 0.327,
+      "source": "calc: 10.0M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; W Michigan documented nutrient runoff; dairy manure loading in watersheds",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Corn belt extension state. Large dairy base. Michigan Basin geological structure potential for CO2 storage (studied by MGCS)."
+  },
+  {
+    "id": "US-Minnesota",
+    "name": "Minnesota",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -94.3,
+      46.4
+    ],
+    "ag_residues_odt_mt": {
+      "value": 18.0,
+      "low": 13.0,
+      "high": 24.0,
+      "source": "DOE 2023 Billion-Ton Report; ORNL corn stover projections: MN ~18.6 Mt at 2030; current ~15-18 Mt; USDA NASS: MN large corn/soy + wheat, sugar beets; 40% recoverable",
+      "notes": "Corn stover dominant (~14 Mt recoverable); wheat straw (~2 Mt NW MN); soybean stubble; sugar beet tops. #4 corn residue state."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.8,
+      "low": 1.8,
+      "high": 4.2,
+      "source": "USFS NC Region; MN DNR; active logging in N Minnesota (Boundary Waters area excluded); aspen, spruce-fir logging",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 6.8,
+      "low": 6.1,
+      "high": 7.6,
+      "source": "calc: 5.7M pop \u00d7 1.27 t/yr; MPCA solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 28,
+      "landfill_pct": 47,
+      "dump_pct": 0,
+      "recycle_compost_pct": 25,
+      "source": "MPCA; Hennepin Energy Recovery Center + multiple county WtE; MN has high WtE use for Midwest"
+    },
+    "animal_manure_odt_mt": {
+      "value": 5.5,
+      "low": 4.0,
+      "high": 7.5,
+      "source": "USDA NASS: large hog (7M head), dairy (450k cows), beef; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.135,
+      "low": 0.094,
+      "high": 0.186,
+      "source": "calc: 5.7M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "MPCA nutrient reports; documented N loading to Minnesota River/Mississippi; hog manure surplus areas",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Major corn stover state. Twin Cities metro has significant WtE capacity. Mt Simon saline aquifer access from Illinois Basin extends to southern MN."
+  },
+  {
+    "id": "US-Mississippi",
+    "name": "Mississippi",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -89.7,
+      32.7
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS 2022: cotton, soybeans, rice, corn, sorghum; 40% recoverable",
+      "notes": "Cotton gin trash + soybean stubble + rice straw + corn stover. Delta region concentrated."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.2,
+      "high": 7.0,
+      "source": "USFS SE Region; MS Forestry Commission; active pine timber; identified as net biomass exporter in logging residue studies",
+      "notes": "Major timber state; pine plantation logging + mill residues."
+    },
+    "msw_total_mt": {
+      "value": 3.7,
+      "low": 3.2,
+      "high": 4.2,
+      "source": "calc: 2.96M pop \u00d7 1.27 t/yr; MS DEQ data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 83,
+      "dump_pct": 0,
+      "recycle_compost_pct": 17,
+      "source": "MS DEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.0,
+      "low": 2.2,
+      "high": 4.2,
+      "source": "USDA NASS: large broiler/poultry industry, beef cattle; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.048,
+      "high": 0.096,
+      "source": "calc: 2.96M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; moderate fertilizer intensity; delta ag moderate N",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Strong forestry base. Gulf Coast proximity excellent for CCS. Pine plantation biomass expandable."
+  },
+  {
+    "id": "US-Missouri",
+    "name": "Missouri",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -92.3,
+      38.4
+    ],
+    "ag_residues_odt_mt": {
+      "value": 8.5,
+      "low": 6.0,
+      "high": 12.0,
+      "source": "USDA NASS 2022: corn, soybeans, wheat, sorghum; DOE BT Report; 40% recoverable",
+      "notes": "Corn stover + soybean stubble dominant; wheat straw also significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.9,
+      "high": 2.3,
+      "source": "USFS NC Region; MO Dept of Conservation; Ozark hardwood logging",
+      "notes": "Ozark Plateau hardwood logging residues."
+    },
+    "msw_total_mt": {
+      "value": 7.8,
+      "low": 7.0,
+      "high": 8.7,
+      "source": "calc: 6.2M pop \u00d7 1.27 t/yr; MoDNR solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 72,
+      "dump_pct": 0,
+      "recycle_compost_pct": 28,
+      "source": "MoDNR; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.5,
+      "low": 3.2,
+      "high": 6.2,
+      "source": "USDA NASS: large hog, beef, poultry; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.147,
+      "low": 0.102,
+      "high": 0.202,
+      "source": "calc: 6.2M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; SW Missouri hog/poultry nutrient surplus documented; Lake Taneycomo/Table Rock nutrient issues",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Corn belt southern fringe + Ozark forestry. Illinois Basin storage accessible in S Missouri."
+  },
+  {
+    "id": "US-Montana",
+    "name": "Montana",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -110.4,
+      47.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS 2022: MT large wheat state (#3 nationally), barley, canola; 40% recoverable",
+      "notes": "Wheat straw dominant (~3 Mt recoverable). Very large area but sparse \u2014 logistically diffuse."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.8,
+      "high": 2.5,
+      "source": "USFS Northern Region; MT DNRC; logging activity declined from peak; forest thinning programs add residues",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 1.3,
+      "low": 1.1,
+      "high": 1.5,
+      "source": "calc: 1.08M pop \u00d7 1.27 t/yr; MT DEQ data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 82,
+      "dump_pct": 0,
+      "recycle_compost_pct": 18,
+      "source": "MT DEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.8,
+      "low": 1.2,
+      "high": 2.5,
+      "source": "USDA NASS: large beef cattle state, sheep; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.026,
+      "low": 0.018,
+      "high": 0.036,
+      "source": "calc: 1.08M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; dryland wheat low to moderate N; rangelands low fertilizer",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Extremely sparse population and feedstock. Large wheat straw resource but very diffuse. Williston Basin (Bakken) depleted reservoirs potential CO2 storage."
+  },
+  {
+    "id": "US-Nebraska",
+    "name": "Nebraska",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -99.9,
+      41.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 19.0,
+      "low": 14.0,
+      "high": 25.0,
+      "source": "DOE 2023 Billion-Ton Report; ORNL corn stover: NE ~18.7 Mt projection for 2030; USDA NASS 2022: NE #3 corn state ~1.8B bu; wheat, sorghum additional; 40% recoverable",
+      "notes": "Corn stover dominant (~16 Mt recoverable); wheat straw (~2 Mt W Nebraska); sorghum stubble (~1 Mt). #3 state for corn stover."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.1,
+      "low": 0.05,
+      "high": 0.18,
+      "source": "USFS; minimal commercial forestry; riparian woodland only",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 2.4,
+      "low": 2.1,
+      "high": 2.8,
+      "source": "calc: 2.0M pop \u00d7 1.27 t/yr; NDEQ solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 74,
+      "dump_pct": 0,
+      "recycle_compost_pct": 26,
+      "source": "NDEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 9.0,
+      "low": 6.5,
+      "high": 12.0,
+      "source": "USDA NASS: NE #1 cattle on feed state; also large hog; IPCC Tier 1. Nebraska Extension manure data.",
+      "notes": "Massive beef feedlot industry (Lexington, Grand Island, North Platte). Cattle feedlot manure highly concentrated."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.048,
+      "low": 0.033,
+      "high": 0.066,
+      "source": "calc: 2.0M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; Nebraska corn belt high N input; Ogallala aquifer nitrate contamination documented; feedlot areas excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Top-tier corn stover + beef feedlot state. Extremely high ag residue + manure density in Platte River corridor. Williston/Powder River Basin storage access in W Nebraska."
+  },
+  {
+    "id": "US-Nevada",
+    "name": "Nevada",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -116.4,
+      39.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.15,
+      "high": 0.5,
+      "source": "USDA NASS: alfalfa dominant; minimal row crop; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.2,
+      "low": 0.08,
+      "high": 0.4,
+      "source": "USFS Intermountain Region; forest thinning (pi\u00f1on-juniper); minimal commercial timber",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 3.8,
+      "low": 3.3,
+      "high": 4.3,
+      "source": "calc: 3.1M pop \u00d7 1.27 t/yr (elevated by Las Vegas tourism/hospitality); NDEP solid waste data",
+      "notes": "Las Vegas tourism inflates per capita."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 74,
+      "dump_pct": 0,
+      "recycle_compost_pct": 26,
+      "source": "NDEP; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.15,
+      "low": 0.08,
+      "high": 0.25,
+      "source": "USDA NASS: minimal livestock (arid state)",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.074,
+      "low": 0.051,
+      "high": 0.101,
+      "source": "calc: 3.1M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; desert state, minimal agricultural nutrient loading",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Las Vegas MSW stream concentrated. Minimal ag/forestry. No nearby geologic storage well-characterized."
+  },
+  {
+    "id": "US-New_Hampshire",
+    "name": "New Hampshire",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -71.6,
+      43.7
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.1,
+      "source": "USDA NASS: minimal row crop; apples, dairy, vegetables",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.25,
+      "high": 0.8,
+      "source": "NH DRED/Division of Forests; active logging; hardwood + softwood; Laidlaw Energy biomass plant (Berlin)",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 1.6,
+      "low": 1.4,
+      "high": 1.9,
+      "source": "calc: 1.4M pop \u00d7 1.27 t/yr; NHDES solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 35,
+      "landfill_pct": 48,
+      "dump_pct": 0,
+      "recycle_compost_pct": 17,
+      "source": "NHDES; Wheelabrator Concord (Penacook) + regional WtE use"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.09,
+      "source": "USDA NASS: dairy, poultry; small state",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.033,
+      "low": 0.023,
+      "high": 0.046,
+      "source": "calc: 1.4M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; forested state, minimal ag fertilizer",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": ""
+  },
+  {
+    "id": "US-New_Jersey",
+    "name": "New Jersey",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -74.5,
+      40.1
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.15,
+      "high": 0.5,
+      "source": "USDA NASS: NJ small crop area; corn, soybeans, cranberries, vegetables; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.25,
+      "low": 0.12,
+      "high": 0.45,
+      "source": "NJ Forest Service; Pine Barrens wood waste + urban tree care",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 11.5,
+      "low": 10.4,
+      "high": 12.7,
+      "source": "calc: 9.3M pop \u00d7 1.27 t/yr; NJDEP solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 35,
+      "landfill_pct": 40,
+      "dump_pct": 0,
+      "recycle_compost_pct": 25,
+      "source": "NJDEP; 5 WtE facilities (Wheelabrator Gloucester, Essex, Ocean; Covanta Union, Hudson)"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.1,
+      "low": 0.06,
+      "high": 0.16,
+      "source": "USDA NASS: minimal livestock; some poultry/dairy",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.221,
+      "low": 0.154,
+      "high": 0.304,
+      "source": "calc: 9.3M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "Dense suburban/urban state; minimal agricultural fertilizer",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "High WtE utilization; dense MSW stream. NY Harbor proximity. No major geologic storage nearby."
+  },
+  {
+    "id": "US-New_Mexico",
+    "name": "New Mexico",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -106.1,
+      34.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.6,
+      "low": 0.35,
+      "high": 0.95,
+      "source": "USDA NASS: wheat, pecans, hay, cotton, sorghum; arid state; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.4,
+      "low": 0.2,
+      "high": 0.7,
+      "source": "USFS SW Region; NM Forestry Division; ponderosa pine thinning + forest restoration residues",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 2.6,
+      "low": 2.2,
+      "high": 3.0,
+      "source": "calc: 2.12M pop \u00d7 1.27 t/yr; NMED solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 79,
+      "dump_pct": 0,
+      "recycle_compost_pct": 21,
+      "source": "NMED; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.5,
+      "low": 1.0,
+      "high": 2.2,
+      "source": "USDA NASS: large dairy industry (Portales, Roswell area); beef cattle; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.05,
+      "low": 0.035,
+      "high": 0.069,
+      "source": "calc: 2.12M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; arid soils, limited intensive agriculture",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Permian Basin proximity (SE NM) for CO2 storage. Dairy concentrated near Roswell/Portales."
+  },
+  {
+    "id": "US-New_York",
+    "name": "New York",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -75.5,
+      43.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "USDA NASS 2022: corn, soybeans, cabbage, onions, apples, hay; 40% recoverable",
+      "notes": "Corn stover + soybean stubble dominant in W NY (Finger Lakes); apple/orchard prunings also significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.9,
+      "high": 2.4,
+      "source": "NYSDEC Division of Lands and Forests; Adirondack/Catskill hardwood + softwood logging; urban wood waste NY metro",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 24.0,
+      "low": 21.8,
+      "high": 26.3,
+      "source": "calc: 19.3M pop \u00d7 1.27 t/yr; NYSDEC solid waste data 2021",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average; NYSDEC waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 18,
+      "landfill_pct": 48,
+      "dump_pct": 0,
+      "recycle_compost_pct": 34,
+      "source": "NYSDEC; Covanta Niagara, Babylon, Hempstead; Wheelabrator Saugus (border); several others; high recycling in NYC"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.8,
+      "low": 1.2,
+      "high": 2.5,
+      "source": "USDA NASS: large dairy state (~580k cows), poultry; IPCC Tier 1",
+      "notes": "Western NY dairy concentrated (Finger Lakes, St. Lawrence Valley)."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.458,
+      "low": 0.321,
+      "high": 0.63,
+      "source": "calc: 19.3M \u00d7 6.5 g DS/d \u00d7 365/1e6; NYC DEP large biosolids production",
+      "notes": "NYC WRRF + Newtown Creek major biosolids producers. NY state total among highest."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; NY moderate N use; dairy areas locally excess",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "NYC large MSW stream; WtE+CCS opportunity at Hempstead/Babylon. Large biosolids from NYC WRRF. Appalachian Basin deep saline aquifer potential for upstate CO2 storage."
+  },
+  {
+    "id": "US-North_Carolina",
+    "name": "North Carolina",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -79.4,
+      35.6
+    ],
+    "ag_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.2,
+      "high": 6.2,
+      "source": "USDA NASS 2022: tobacco, sweet potatoes, soybeans, corn, wheat, hogs; 40% recoverable",
+      "notes": "Corn stover + soybean stubble + tobacco stems + wheat straw."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.5,
+      "low": 3.5,
+      "high": 8.0,
+      "source": "USFS SE Region; NCFS; NC #2 timber state in Southeast; active pine + hardwood logging; SE logging study 12-state share",
+      "notes": "Active pine plantation and piedmont hardwood logging. Major wood pellet export industry developing."
+    },
+    "msw_total_mt": {
+      "value": 13.3,
+      "low": 11.9,
+      "high": 14.7,
+      "source": "calc: 10.7M pop \u00d7 1.27 t/yr; NCDEQ solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 3,
+      "landfill_pct": 76,
+      "dump_pct": 0,
+      "recycle_compost_pct": 21,
+      "source": "NCDEQ; Covanta Stanly County; limited WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 7.5,
+      "low": 5.5,
+      "high": 10.0,
+      "source": "USDA NASS: NC #2 hog state (~9M hogs); #2 broiler state; large poultry. IPCC Tier 1. NC Pork Council data.",
+      "notes": "Hog lagoon waste (Duplin/Sampson counties) is dominant wet feedstock. Anaerobic lagoons \u2014 methane avoidance + injection opportunity."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.254,
+      "low": 0.178,
+      "high": 0.349,
+      "source": "calc: 10.7M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "NC DEQ nutrient TMDL; Neuse/Cape Fear Rivers documented N/P excess from hog/poultry; lagoon spills documented",
+    "dominant_feedstock": "mixed",
+    "feedstock_density": "concentrated",
+    "notes": "Largest hog manure concentration in eastern US (Duplin/Sampson). Vaulted-type biomass injection highly applicable. Forestry residues strong. Atlantic coast potential offshore storage."
+  },
+  {
+    "id": "US-North_Dakota",
+    "name": "North Dakota",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -100.5,
+      47.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 8.5,
+      "low": 6.0,
+      "high": 12.0,
+      "source": "USDA NASS 2022: ND #1 wheat, #1 sunflower, large canola, barley, corn; DOE BT Report; 40% recoverable",
+      "notes": "Wheat straw dominant (~5 Mt recoverable); canola straw (~1.5 Mt); barley straw (~0.8 Mt); sunflower stalks (~0.7 Mt). Very high residue per km2 for plains state."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.08,
+      "low": 0.04,
+      "high": 0.14,
+      "source": "USFS; minimal commercial forestry; riparian/shelterbelt only",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 0.95,
+      "low": 0.82,
+      "high": 1.09,
+      "source": "calc: 0.78M pop \u00d7 1.27 t/yr; ND DEQ data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 80,
+      "dump_pct": 0,
+      "recycle_compost_pct": 20,
+      "source": "ND DEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.0,
+      "low": 1.4,
+      "high": 2.8,
+      "source": "USDA NASS: beef cattle, hogs, dairy; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.019,
+      "low": 0.013,
+      "high": 0.026,
+      "source": "calc: 0.78M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; ND prairie soils moderate N requirement; less excess than corn belt",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Williston Basin (Bakken) depleted oil/gas reservoirs potential CO2 storage. Wheat straw very diffuse across large area."
+  },
+  {
+    "id": "US-Ohio",
+    "name": "Ohio",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -82.8,
+      40.4
+    ],
+    "ag_residues_odt_mt": {
+      "value": 13.0,
+      "low": 9.5,
+      "high": 17.5,
+      "source": "DOE 2023 Billion-Ton Report; USDA NASS 2022: OH large corn/soy state + wheat; ORNL estimates; 40% recoverable",
+      "notes": "Corn stover + soybean stubble dominant; wheat straw also significant. High-intensity cropping state."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.3,
+      "source": "USFS NE Region; OH DNR; SE Ohio hardwood (Appalachian) logging",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 14.6,
+      "low": 13.2,
+      "high": 16.1,
+      "source": "calc: 11.8M pop \u00d7 1.27 t/yr; Ohio EPA solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 5,
+      "landfill_pct": 67,
+      "dump_pct": 0,
+      "recycle_compost_pct": 28,
+      "source": "Ohio EPA; Covanta Marion + Montgomery; limited WtE relative to state size"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.5,
+      "low": 3.2,
+      "high": 6.2,
+      "source": "USDA NASS: large dairy, hog, poultry; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.28,
+      "low": 0.196,
+      "high": 0.385,
+      "source": "calc: 11.8M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; Lake Erie HABs documented from NW Ohio agricultural N/P runoff; tile drainage excess",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Strong corn belt state. Illinois/Michigan Basin storage access. Lake Erie nutrient issues favor residue removal pathways."
+  },
+  {
+    "id": "US-Oklahoma",
+    "name": "Oklahoma",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -97.5,
+      35.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 5.5,
+      "low": 4.0,
+      "high": 7.5,
+      "source": "USDA NASS 2022: OK large wheat state, sorghum, cotton, hay, soybeans; 40% recoverable",
+      "notes": "Wheat straw dominant (~3.5 Mt recoverable); sorghum stubble (~1 Mt); cotton gin trash (~0.5 Mt)."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.2,
+      "low": 0.7,
+      "high": 1.9,
+      "source": "USFS Southern Region; OK Forestry Services; SE Oklahoma pine/oak logging",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 4.9,
+      "low": 4.3,
+      "high": 5.5,
+      "source": "calc: 4.0M pop \u00d7 1.27 t/yr; ODEQ solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 77,
+      "dump_pct": 0,
+      "recycle_compost_pct": 23,
+      "source": "ODEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.5,
+      "low": 3.2,
+      "high": 6.2,
+      "source": "USDA NASS: large poultry (NE OK Cherokee Strip), beef cattle, hogs; IPCC Tier 1",
+      "notes": "NE Oklahoma (Delaware, Adair, Cherokee counties) significant poultry litter surplus \u2014 Illinois River nutrient impairment."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.095,
+      "low": 0.066,
+      "high": 0.131,
+      "source": "calc: 4.0M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; NE Oklahoma poultry litter excess; Illinois River nutrient TMDL",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Anadarko Basin (W Oklahoma) excellent CO2 storage potential. Wheat straw + poultry manure dominant resources."
+  },
+  {
+    "id": "US-Oregon",
+    "name": "Oregon",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -120.5,
+      43.8
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "USDA NASS 2022: wheat (Willamette, Columbia Plateau), hay, grass seed, hops, hazelnuts; 40% recoverable",
+      "notes": "Wheat straw (E Oregon) + grass seed straw (Willamette Valley) dominant. Grass seed straw formerly open-burned, now restricted \u2014 major biomass opportunity."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.5,
+      "low": 3.5,
+      "high": 8.0,
+      "source": "USFS Pacific NW Region; OR Dept of Forestry; logging utilization study (USFS 2011-2015); Washington state comparison: OR similar or larger scale",
+      "notes": "Douglas-fir, hemlock, pine logging on private and federal lands. Major wood products state. Mill residues largely used. Logging slash/tops primary opportunity."
+    },
+    "msw_total_mt": {
+      "value": 5.1,
+      "low": 4.6,
+      "high": 5.7,
+      "source": "calc: 4.2M pop \u00d7 1.27 t/yr; Oregon DEQ solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average; OR DEQ waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 68,
+      "dump_pct": 0,
+      "recycle_compost_pct": 32,
+      "source": "Oregon DEQ; no WtE; strong composting programs"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.2,
+      "low": 0.8,
+      "high": 1.7,
+      "source": "USDA NASS: dairy, beef cattle, poultry; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.1,
+      "low": 0.07,
+      "high": 0.137,
+      "source": "calc: 4.2M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; Willamette Valley moderate N; E Oregon dryland lower",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Major forestry state (Pacific NW). Grass seed straw former open-burn issue creates large biomass removal opportunity. No major CO2 storage basins well-characterized in OR."
+  },
+  {
+    "id": "US-Pennsylvania",
+    "name": "Pennsylvania",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -77.2,
+      40.9
+    ],
+    "ag_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.2,
+      "high": 6.2,
+      "source": "USDA NASS 2022: corn, soybeans, wheat, mushrooms (largest US producer), hay; 40% recoverable",
+      "notes": "Corn stover + soybean stubble dominant (central PA); wheat straw (SE PA)."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "USFS NE Region; PA Bureau of Forestry; Allegheny/Pocono hardwood logging; significant mill residues",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 16.5,
+      "low": 14.9,
+      "high": 18.2,
+      "source": "calc: 13.0M pop \u00d7 1.27 t/yr; PA DEP solid waste data; PA also receives significant out-of-state waste",
+      "notes": "PA is net importer of waste from NY/NJ."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average; PA DEP waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 18,
+      "landfill_pct": 55,
+      "dump_pct": 0,
+      "recycle_compost_pct": 27,
+      "source": "PA DEP; Covanta Chester, Harrisburg, Lancaster; York + others; several WtE facilities"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS: large dairy (#4 state, 450k cows), poultry (Lancaster County hub), hogs; IPCC Tier 1",
+      "notes": "Chesapeake Bay nutrient issues from Lancaster/York County poultry and dairy."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.309,
+      "low": 0.216,
+      "high": 0.425,
+      "source": "calc: 13.0M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "Chesapeake Bay Program; Lancaster/York Counties documented P excess; nutrient trading active",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Chesapeake Bay nutrient constraints favor biomass removal. Appalachian Basin (Marcellus) deep saline aquifers well-studied for CO2 storage. WtE+CCS candidate at Chester facility."
+  },
+  {
+    "id": "US-Rhode_Island",
+    "name": "Rhode Island",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -71.5,
+      41.7
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.03,
+      "low": 0.01,
+      "high": 0.06,
+      "source": "USDA NASS: minimal; turf grass, nursery, vegetables",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.1,
+      "source": "RI DEM Forestry; minimal commercial logging; urban wood waste",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 1.3,
+      "low": 1.1,
+      "high": 1.5,
+      "source": "calc: 1.1M pop \u00d7 1.27 t/yr; RI DEM solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 60,
+      "landfill_pct": 20,
+      "dump_pct": 0,
+      "recycle_compost_pct": 20,
+      "source": "RI DEM; Covanta Pawtucket (RIRRC) \u2014 major WtE serving SE New England"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.015,
+      "low": 0.008,
+      "high": 0.025,
+      "source": "USDA NASS: negligible livestock",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.026,
+      "low": 0.018,
+      "high": 0.036,
+      "source": "calc: 1.1M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "Minimal agriculture; USDA ERS",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "High WtE fraction. Smallest state; negligible ag/forestry. Narragansett Bay offshore CO2 storage not characterized."
+  },
+  {
+    "id": "US-South_Carolina",
+    "name": "South Carolina",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -80.9,
+      33.8
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "USDA NASS 2022: tobacco, cotton, soybeans, corn, peaches; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.5,
+      "low": 3.0,
+      "high": 6.5,
+      "source": "USFS SE Region; SC Forestry Commission; active pine plantation logging; SE logging study share",
+      "notes": "Active pine timber industry statewide. Wood pellet exports growing."
+    },
+    "msw_total_mt": {
+      "value": 6.5,
+      "low": 5.8,
+      "high": 7.2,
+      "source": "calc: 5.3M pop \u00d7 1.27 t/yr; SCDHEC solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 76,
+      "dump_pct": 0,
+      "recycle_compost_pct": 24,
+      "source": "SCDHEC; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS: large broiler industry, hogs; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.126,
+      "low": 0.088,
+      "high": 0.173,
+      "source": "calc: 5.3M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; SC moderate fertilizer intensity; coastal plain soils",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Strong forestry base. Atlantic coast potential offshore storage. Savannah River Site proximity (DOE facility) with potential CCS infrastructure."
+  },
+  {
+    "id": "US-South_Dakota",
+    "name": "South Dakota",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -99.9,
+      44.4
+    ],
+    "ag_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.5,
+      "high": 7.0,
+      "source": "USDA NASS 2022: SD large corn (Corn Belt edge), wheat, soybeans, sunflower, sorghum; DOE BT Report; 40% recoverable",
+      "notes": "Corn stover (E South Dakota) + wheat straw + soybean stubble. High corn expansion in recent years."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.3,
+      "low": 0.15,
+      "high": 0.5,
+      "source": "USFS; Black Hills National Forest thinning/logging; limited",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 1.1,
+      "low": 0.95,
+      "high": 1.3,
+      "source": "calc: 0.91M pop \u00d7 1.27 t/yr; SD DANR data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 79,
+      "dump_pct": 0,
+      "recycle_compost_pct": 21,
+      "source": "SD DANR; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "USDA NASS: large beef cattle, hog, dairy; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.022,
+      "low": 0.015,
+      "high": 0.03,
+      "source": "calc: 0.91M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; E SD corn belt moderate-high N; W SD rangeland low",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Eastern SD corn/soy high residue density. Central/western SD rangeland beef. Wind River Basin proximity for potential CO2 storage."
+  },
+  {
+    "id": "US-Tennessee",
+    "name": "Tennessee",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -86.3,
+      35.9
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.0,
+      "low": 2.1,
+      "high": 4.2,
+      "source": "USDA NASS 2022: corn, soybeans, cotton, tobacco, wheat; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "USFS SE Region; TN Forestry Division; hardwood (oak-hickory) + pine logging; Great Smoky/Cumberland Plateau",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 8.4,
+      "low": 7.5,
+      "high": 9.4,
+      "source": "calc: 7.0M pop \u00d7 1.27 t/yr; TDEC solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 74,
+      "dump_pct": 0,
+      "recycle_compost_pct": 26,
+      "source": "TDEC; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "USDA NASS: beef cattle, dairy, poultry, hogs; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.166,
+      "low": 0.116,
+      "high": 0.228,
+      "source": "calc: 7.0M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; TN Valley moderate N; some excess in poultry areas",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Illinois Basin extends into W Tennessee for CO2 storage. Mixed ag/forestry state."
+  },
+  {
+    "id": "US-Texas",
+    "name": "Texas",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -99.3,
+      31.2
+    ],
+    "ag_residues_odt_mt": {
+      "value": 18.0,
+      "low": 13.0,
+      "high": 24.0,
+      "source": "USDA NASS 2022: TX largest agricultural state \u2014 cotton (#1 nationally), sorghum (#1), corn, wheat, hay, rice, sugarcane; 40% recoverable",
+      "notes": "Cotton gin trash + sorghum stubble + corn stover + wheat straw + sugarcane bagasse. Very diverse; cotton lint residue significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.0,
+      "low": 2.0,
+      "high": 4.5,
+      "source": "USFS SE/Southern Regions; TX A&M Forest Service; E Texas pine (Pineywoods) + post oak; active pine logging",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 36.0,
+      "low": 32.5,
+      "high": 39.5,
+      "source": "calc: 30.5M pop \u00d7 1.27 t/yr; TCEQ solid waste data 2022",
+      "notes": "Second-largest MSW stream in US. Dallas/Fort Worth, Houston, San Antonio major generators."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average; TCEQ waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 81,
+      "dump_pct": 0,
+      "recycle_compost_pct": 18,
+      "source": "TCEQ; minimal WtE (only Southeastern Integrated Waste Management Facility); overwhelmingly landfill"
+    },
+    "animal_manure_odt_mt": {
+      "value": 14.0,
+      "low": 10.0,
+      "high": 19.0,
+      "source": "USDA NASS: TX #1 cattle state (~13M), large poultry, hogs, dairy; IPCC Tier 1. Texas A&M manure management data.",
+      "notes": "Beef feedlots in Texas Panhandle (Amarillo, Lubbock) very concentrated. Manure management major issue."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.725,
+      "low": 0.507,
+      "high": 0.997,
+      "source": "calc: 30.5M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; Texas Panhandle feedlot areas excess; rest of state moderate",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Largest animal manure + ag residue state by mass. Gulf Coast proximity = excellent CO2 storage (offshore + onshore saline). Permian Basin depleted reservoirs available. High-priority BECCS state."
+  },
+  {
+    "id": "US-Utah",
+    "name": "Utah",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -111.5,
+      39.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "USDA NASS: hay, wheat, barley, corn; arid irrigated ag; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.25,
+      "high": 0.85,
+      "source": "USFS Intermountain Region; UT DLD; forest thinning (spruce-fir, ponderosa) + limited logging",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 3.8,
+      "low": 3.3,
+      "high": 4.3,
+      "source": "calc: 3.3M pop \u00d7 1.27 t/yr; Utah DEQ solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 76,
+      "dump_pct": 0,
+      "recycle_compost_pct": 24,
+      "source": "Utah DEQ; no commercial WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "USDA NASS: dairy, beef, poultry (Cache Valley); IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.078,
+      "low": 0.055,
+      "high": 0.108,
+      "source": "calc: 3.3M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; arid state; irrigated ag moderate but limited area",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Uinta Basin potential CO2 storage. Salt Lake City MSW concentrated. Moderate overall feedstock base."
+  },
+  {
+    "id": "US-Vermont",
+    "name": "Vermont",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -72.7,
+      44.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.15,
+      "low": 0.08,
+      "high": 0.25,
+      "source": "USDA NASS: hay, corn silage, maple syrup, vegetables; minimal export residues; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.4,
+      "high": 1.3,
+      "source": "VT Dept of Forests; hardwood logging (maple, beech, birch) + softwood; active wood products industry",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 0.78,
+      "low": 0.67,
+      "high": 0.9,
+      "source": "calc: 0.64M pop \u00d7 1.27 t/yr; VT DEC solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 30,
+      "landfill_pct": 40,
+      "dump_pct": 0,
+      "recycle_compost_pct": 30,
+      "source": "VT DEC; Covanta (Burlington MCRR) + McNeil biomass plant; strong organics diversion"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.3,
+      "low": 0.2,
+      "high": 0.45,
+      "source": "USDA NASS: dairy state (per capita); IPCC Tier 1",
+      "notes": "Lake Champlain nutrient loading from dairy documented."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.015,
+      "low": 0.01,
+      "high": 0.021,
+      "source": "calc: 0.64M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; Lake Champlain nutrient TMDL; dairy manure loading documented",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Small state; forest/dairy based. McNeil biomass plant Burlington potential BECCS retrofit. No nearby storage."
+  },
+  {
+    "id": "US-Virginia",
+    "name": "Virginia",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -78.7,
+      37.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 2.8,
+      "low": 2.0,
+      "high": 4.0,
+      "source": "USDA NASS 2022: tobacco, soybeans, corn, wheat, hay; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.0,
+      "low": 2.0,
+      "high": 4.5,
+      "source": "USFS SE Region; VA DOF; hardwood (Appalachian) + pine (Piedmont) logging; active biomass sector",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 10.6,
+      "low": 9.5,
+      "high": 11.7,
+      "source": "calc: 8.7M pop \u00d7 1.27 t/yr; VADEQ solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 30,
+      "landfill_pct": 45,
+      "dump_pct": 0,
+      "recycle_compost_pct": 25,
+      "source": "VADEQ; Covanta Alexandria, Fairfax, Portsmouth; Hampton Roads; multiple WtE facilities"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "USDA NASS: poultry (Shenandoah Valley hub), dairy, beef, hogs; IPCC Tier 1",
+      "notes": "Shenandoah Valley poultry nutrient excess, Chesapeake Bay tributary."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.207,
+      "low": 0.145,
+      "high": 0.285,
+      "source": "calc: 8.7M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "Chesapeake Bay Program; Shenandoah Valley poultry excess documented; nutrient trading active",
+    "dominant_feedstock": "mixed",
+    "feedstock_density": "diffuse",
+    "notes": "Strong WtE fleet (DC suburbs). Chesapeake Bay nutrient constraints favor biomass removal. Appalachian Basin saline aquifer storage potential."
+  },
+  {
+    "id": "US-Washington",
+    "name": "Washington",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -120.5,
+      47.4
+    ],
+    "ag_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 4.8,
+      "source": "USDA NASS 2022: wheat (Palouse), apples (#1 nationally), hops, hay, potatoes; 40% recoverable",
+      "notes": "Wheat straw (E Washington Palouse) ~2.5 Mt recoverable; apple/orchard prunings ~0.5 Mt; potato waste minor."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.5,
+      "low": 3.5,
+      "high": 8.0,
+      "source": "WA Dept Natural Resources; USFS Pacific NW Region; logging utilization study: WA 5.8 Mt bone dry from thinnings, mill residues, land clearing (55% of PNW total = 10.6 Mt)",
+      "notes": "Douglas-fir, hemlock, cedar, pine. Active private and state land logging. Mill residues largely used by pulp/paper. Logging slash main opportunity."
+    },
+    "msw_total_mt": {
+      "value": 9.4,
+      "low": 8.5,
+      "high": 10.4,
+      "source": "calc: 7.7M pop \u00d7 1.27 t/yr; Ecology (WA) solid waste data 2021",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average; WA Ecology waste characterization",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 62,
+      "dump_pct": 0,
+      "recycle_compost_pct": 38,
+      "source": "WA Ecology; no WtE; strong composting/recycling (Seattle)"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.0,
+      "low": 1.4,
+      "high": 2.8,
+      "source": "USDA NASS: dairy (Yakima Valley), beef, poultry; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.183,
+      "low": 0.128,
+      "high": 0.252,
+      "source": "calc: 7.7M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "USDA ERS; Yakima Valley dairy moderate excess; rest of state moderate-low",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Major Pacific NW forestry state. Palouse wheat straw significant. No major CO2 storage basins well-characterized in WA \u2014 Columbia Basalt Group basalt injection studied (Wallula pilot)."
+  },
+  {
+    "id": "US-West_Virginia",
+    "name": "West Virginia",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -80.5,
+      38.6
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.4,
+      "low": 0.25,
+      "high": 0.65,
+      "source": "USDA NASS: hay, corn, soybeans, apples; limited cropland; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.0,
+      "low": 1.2,
+      "high": 3.2,
+      "source": "USFS NE Region; WV Division of Forestry; Appalachian hardwood (oak, maple, cherry, black walnut) logging",
+      "notes": "WV heavily forested; logging active for high-value hardwood. Residues include tops/limbs and sawmill waste."
+    },
+    "msw_total_mt": {
+      "value": 2.3,
+      "low": 2.0,
+      "high": 2.6,
+      "source": "calc: 1.79M pop \u00d7 1.27 t/yr; WVDEP solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 76,
+      "dump_pct": 0,
+      "recycle_compost_pct": 24,
+      "source": "WVDEP; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.5,
+      "low": 0.3,
+      "high": 0.75,
+      "source": "USDA NASS: poultry, cattle; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.043,
+      "low": 0.03,
+      "high": 0.059,
+      "source": "calc: 1.79M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; WV minimal intensive agriculture; Appalachian soils generally low fertility",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "diffuse",
+    "notes": "Appalachian hardwood logging residues primary resource. Appalachian Basin (Devonian shale / deep saline) CO2 storage potential."
+  },
+  {
+    "id": "US-Wisconsin",
+    "name": "Wisconsin",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -89.6,
+      44.5
+    ],
+    "ag_residues_odt_mt": {
+      "value": 8.5,
+      "low": 6.0,
+      "high": 12.0,
+      "source": "USDA NASS 2022: WI large corn/soy state + cranberries, vegetables, hay; DOE BT Report; 40% recoverable",
+      "notes": "Corn stover + soybean stubble dominant; hay residues. Corn Belt northern fringe."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.5,
+      "high": 6.0,
+      "source": "USFS NC Region; WI DNR; identified as net biomass exporter in logging residue studies; active logging in N Wisconsin (aspen, mixed hardwood, spruce-fir)",
+      "notes": "Northern Wisconsin logging active. Several existing biomass power plants."
+    },
+    "msw_total_mt": {
+      "value": 7.3,
+      "low": 6.5,
+      "high": 8.1,
+      "source": "calc: 5.9M pop \u00d7 1.27 t/yr; WDNR solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 10,
+      "landfill_pct": 63,
+      "dump_pct": 0,
+      "recycle_compost_pct": 27,
+      "source": "WDNR; Covanta Westlawn (Green Bay) + others; moderate WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 6.5,
+      "low": 4.8,
+      "high": 9.0,
+      "source": "USDA NASS: WI #1 dairy state (1.27M cows); also hogs, beef, poultry; IPCC Tier 1. UW Extension manure data.",
+      "notes": "Dairy manure dominant and very concentrated in SW Wisconsin dairy belt. Major AD opportunity."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.14,
+      "low": 0.098,
+      "high": 0.193,
+      "source": "calc: 5.9M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "USDA ERS; Green Bay/Lake Winnebago documented P excess; Wisconsin river nutrient issues from dairy",
+    "dominant_feedstock": "mixed",
+    "feedstock_density": "diffuse",
+    "notes": "Top dairy state; manure + corn stover + forestry all significant. Michigan Basin CO2 storage accessible. Net biomass exporter per logging residue study."
+  },
+  {
+    "id": "US-Wyoming",
+    "name": "Wyoming",
+    "level": "subnational",
+    "parent": "USA",
+    "centroid": [
+      -107.5,
+      43.0
+    ],
+    "ag_residues_odt_mt": {
+      "value": 0.6,
+      "low": 0.35,
+      "high": 1.0,
+      "source": "USDA NASS: hay, wheat, barley, sugar beets; 40% recoverable",
+      "notes": ""
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.4,
+      "low": 0.2,
+      "high": 0.7,
+      "source": "USFS Rocky Mountain Region; WY State Forestry; pine logging + thinning; mountain pine beetle salvage",
+      "notes": ""
+    },
+    "msw_total_mt": {
+      "value": 0.72,
+      "low": 0.62,
+      "high": 0.83,
+      "source": "calc: 0.58M pop \u00d7 1.27 t/yr; WY DEQ solid waste data",
+      "notes": ""
+    },
+    "msw_biogenic_frac": {
+      "value": 0.61,
+      "source": "US national average",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 84,
+      "dump_pct": 0,
+      "recycle_compost_pct": 16,
+      "source": "WY DEQ; no WtE"
+    },
+    "animal_manure_odt_mt": {
+      "value": 0.8,
+      "low": 0.5,
+      "high": 1.2,
+      "source": "USDA NASS: beef cattle, sheep; IPCC Tier 1",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.014,
+      "low": 0.009,
+      "high": 0.019,
+      "source": "calc: 0.58M \u00d7 6.5 g DS/d \u00d7 365/1e6",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "USDA ERS; Wyoming range lands, minimal fertilizer use",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Powder River Basin depleted coal beds + Rock Springs Uplift saline aquifers \u2014 among best CO2 storage in US. Minimal feedstock relative to storage potential."
+  }
+]

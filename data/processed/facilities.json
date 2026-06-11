@@ -1,0 +1,1005 @@
+[
+  {
+    "name": "Drax Power Station",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 53.7358,
+    "lon": -0.9964,
+    "capacity_note": "2,640 MWe biomass (4 units); world's largest biomass power station",
+    "est_biogenic_co2_mtpa": {
+      "value": 12.0,
+      "low": 10.0,
+      "high": 14.0
+    },
+    "retrofit_score": "high",
+    "operator": "Drax Group plc",
+    "source": "Drax Group annual report 2023; UK Government DCO approval Jan 2024; IEA Bioenergy",
+    "notes": "EXISTING BECCS PROJECT (anchor). DCO approved Jan 2024 for BECCS retrofit. Targets ~8 Mt CO2/yr capture from 2 units. MHI KS-21 post-combustion solvent capture. CO2 storage: Northern Endurance Partnership (North Sea Endurance reservoir). CfD agreed 2025 (strike price £109.90/MWh). UK's single largest biogenic CO2 point source."
+  },
+  {
+    "name": "Stockholm Exergi KVV8",
+    "type": "bioenergy",
+    "country": "SWE",
+    "lat": 59.3523,
+    "lon": 18.103,
+    "capacity_note": "135 MWe / 330 MWth biomass CHP",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.8,
+      "low": 0.7,
+      "high": 0.9
+    },
+    "retrofit_score": "high",
+    "operator": "Stockholm Exergi AB",
+    "source": "Stockholm Exergi company reports; Capsol Technologies announcement; EU Innovation Fund award",
+    "notes": "EXISTING BECCS PROJECT (anchor). FID taken March 2025; under construction; target operational 2028. Capsol post-combustion capture. CO2 storage: Northern Lights (North Sea). Microsoft offtake: 3.33 Mt over contract. EU Innovation Fund: €180M. First large-scale BECCS project at FID globally."
+  },
+  {
+    "name": "Ørsted Asnæs Power Station",
+    "type": "bioenergy",
+    "country": "DNK",
+    "lat": 55.6613,
+    "lon": 11.0789,
+    "capacity_note": "~25 MWe / 129 MWth biomass CHP (Unit 6); historic 1,057 MWe now mostly decommissioned",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.28,
+      "low": 0.22,
+      "high": 0.35
+    },
+    "retrofit_score": "high",
+    "operator": "Ørsted A/S",
+    "source": "Ørsted press releases; Aker Carbon Capture contract announcement; Northern Lights agreement",
+    "notes": "EXISTING BECCS PROJECT (anchor). Aker CC 'Just Catch' units under construction (5 units across Asnæs + Avedøre). Target: capture starts 2025, full 280 kt/yr by 2026. CO2 storage: Northern Lights. Part of Ørsted Kalundborg Hub. Aker contract >€200M covering both stations."
+  },
+  {
+    "name": "Ørsted Avedøre Power Station",
+    "type": "bioenergy",
+    "country": "DNK",
+    "lat": 55.6028,
+    "lon": 12.4793,
+    "capacity_note": "793 MWe / 918 MWth total; straw-fired unit ~100 MW is phase-1 CCS target",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.4,
+      "low": 0.3,
+      "high": 0.55
+    },
+    "retrofit_score": "high",
+    "operator": "Ørsted A/S",
+    "source": "Ørsted press releases; Aker Carbon Capture contract; Northern Lights agreement; Wikipedia Avedøre Power Station",
+    "notes": "EXISTING BECCS PROJECT (anchor). Aker CC 'Just Catch' targeting straw unit first (~0.15 Mt/yr phase 1). Wood pellet units (large) could follow. Storage: Northern Lights. Combined Asnæs+Avedøre target: 0.43 Mt/yr. Avedøre total biogenic CO2 higher than phase-1 target — est. includes all biomass units."
+  },
+  {
+    "name": "Hafslund Celsio Klemetsrud",
+    "type": "wte",
+    "country": "NOR",
+    "lat": 59.857,
+    "lon": 10.816,
+    "capacity_note": "193 MWth input; ~21 MWe + major district heating; 315,000–350,000 t/yr MSW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.2,
+      "low": 0.16,
+      "high": 0.25
+    },
+    "retrofit_score": "high",
+    "operator": "Hafslund Celsio AS (Hafslund Eco 60%, Infranode 20%, HitecVision 20%)",
+    "source": "CCS Norway capture factsheet; Hafslund Celsio press release Jan 2025; Northern Lights Longship project",
+    "notes": "EXISTING BECCS PROJECT (anchor). FID Jan 2025. SLB Capturi + Aker 'Just Catch 400' (400 kt/yr design; 350 kt contracted). CO2 storage: Northern Lights. Operational target Q3 2029. Norway's largest WtE plant. Part of Longship alongside Heidelberg Brevik cement. Total capture 0.35 Mt/yr (~50% biogenic = 0.175 Mt CDR); value here is biogenic fraction only."
+  },
+  {
+    "name": "ADM Decatur (ICCS) — Ethanol CCS",
+    "type": "ethanol",
+    "country": "USA",
+    "lat": 39.8403,
+    "lon": -88.9548,
+    "capacity_note": "350 million gal/yr (1,325 ML/yr) corn ethanol; ~1 Mt CO2/yr injection design",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.0,
+      "low": 0.5,
+      "high": 1.27
+    },
+    "retrofit_score": "high",
+    "operator": "Archer Daniels Midland Company (ADM)",
+    "source": "MIT Sequestration Projects database; EESI article; Bioenergy International; EPA Class VI permit; NETL project reports",
+    "notes": "EXISTING BECCS PROJECT (anchor). Operational since April 2017 (Illinois Industrial CCS Project). World's first commercial BECCS at a biofuel facility. Mt. Simon Sandstone storage ~2 km depth. Actual injection ~0.52 Mt/yr vs 1 Mt/yr design — persistent underperformance. CO2 leak in 2024 (3,000–8,000 t into unauthorized formation); injections restarted Aug 2025. FRONTIER FLAG: corn ethanol excluded per Frontier thesis. Super6 Carbon MOU with ADM to use this well for third-party biogenic CO2 aggregation."
+  },
+  {
+    "name": "Arbor — Biomass CHP BECCS",
+    "type": "bioenergy",
+    "country": "USA",
+    "lat": 30.22,
+    "lon": -93.22,
+    "capacity_note": "~18–25 MWe oxy-combustion (supercritical CO2 turbine); pre-commercial demo",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.06,
+      "low": 0.03,
+      "high": 0.12
+    },
+    "retrofit_score": "high",
+    "operator": "Arbor Energy",
+    "source": "Frontier Climate portfolio page; Microsoft offtake announcement; Bioenergy International",
+    "notes": "EXISTING BECCS PROJECT (anchor). Near Lake Charles, Louisiana. Oxy-combustion technology (SpaceX rocket engine heritage); CO2 captured inherently in cycle (>99%). Waste biomass fuel (timber thinnings). $55M raised; $41M Frontier offtake (116 kt over 2028–2030); Microsoft 25 kt starting 2027. Pre-commercial — full scale not yet published. Storage partner not yet announced. Location is approximate (Lake Charles area)."
+  },
+  {
+    "name": "Super6 Carbon Hub / ADM Decatur",
+    "type": "biogas_ad",
+    "country": "USA",
+    "lat": 39.834,
+    "lon": -88.956,
+    "capacity_note": "CO2 aggregation platform; targets megatonne scale by 2030",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.5,
+      "low": 0.1,
+      "high": 1.5
+    },
+    "retrofit_score": "high",
+    "operator": "Super6 Carbon",
+    "source": "Super6 Carbon website; ADM+Super6 MOU press release Oct 2025; Mangrove Systems MRV partnership",
+    "notes": "EXISTING BECCS PROJECT (anchor). Not a single point source — CO2 aggregation platform collecting biogenic CO2 from ethanol plants, biogas, landfill gas, pulp mills. First delivery 2027. Uses ADM's existing EPA Class VI well (Mt. Simon Sandstone) at Decatur for storage. ADM holds minority equity stake. MRV partner: Mangrove Systems. Lat/lon = ADM Decatur hub co-location."
+  },
+  {
+    "name": "CO280 Solutions — US Gulf Coast Pulp Mill",
+    "type": "pulp_paper",
+    "country": "USA",
+    "lat": 30.5,
+    "lon": -90.5,
+    "capacity_note": "Large kraft pulp mill (identity commercially confidential); recovery boiler CO2 capture",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.6,
+      "low": 0.4,
+      "high": 1.0
+    },
+    "retrofit_score": "high",
+    "operator": "CO280 Solutions Inc. (Vancouver BC) with undisclosed mill operator",
+    "source": "CO280/SLB Capturi pilot completion press release 2024; ESG Today (Microsoft 3.7 Mt deal); PR Newswire",
+    "notes": "EXISTING BECCS PROJECT (anchor). Pilot completed Q3 2024 (4,000+ hrs, 95% capture efficiency). SLB Capturi liquid amine on recovery boiler stack. FEED contract awarded for full-scale. Microsoft signed deal for 3.7 Mt CO2 removal. Exact mill identity and location undisclosed commercially — lat/lon is centroid for US Gulf Coast region. Pipeline of >10 projects across US Gulf Coast and Canada."
+  },
+  {
+    "name": "Future Biogas Moor Bioenergy",
+    "type": "biogas_ad",
+    "country": "GBR",
+    "lat": 52.92,
+    "lon": -0.5,
+    "capacity_note": ">100 GWh/yr biomethane; agricultural AD",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.014,
+      "low": 0.01,
+      "high": 0.02
+    },
+    "retrofit_score": "medium",
+    "operator": "Future Biogas Ltd (backed by 3i Infrastructure)",
+    "source": "Future Biogas website; Data Center Dynamics CO2 capture announcement; AstraZeneca offtake",
+    "notes": "EXISTING BECCS PROJECT (anchor — INEOS/Future Biogas referenced in thesis likely refers to this or similar UK biogas+CCS project). CO2 capture OPERATIONAL at Moor Bioenergy, Gonerby Moor, Lincolnshire — first unsubsidised UK biomethane plant with CO2 capture. Currently ~14,000 t/yr CO2 sold for food/beverage use (not geological storage). AstraZeneca biomethane offtake. For full BECCS, geological storage step needed. Small scale — proof of concept."
+  },
+  {
+    "name": "Lynemouth Power Station",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 55.204,
+    "lon": -1.521,
+    "capacity_note": "420 MWe biomass (converted from coal 2018); ~1.8 Mt wood pellets/yr",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.7,
+      "low": 2.5,
+      "high": 3.0
+    },
+    "retrofit_score": "high",
+    "operator": "EP UK Investments Ltd (EPH group)",
+    "source": "Wikipedia Lynemouth Power Station; Decerna LCA BECCS study; NS Energy Power Plant Profile",
+    "notes": "BECCS retrofit proposed. LCA shows -1,017 kg CO2e/MWh potential. UK government passed over Lynemouth for initial BECCS support rounds; operator continues lobbying post-2027 (when ROC subsidies expire). Second largest UK biomass source after Drax. Near North Sea storage potential."
+  },
+  {
+    "name": "MGT Teesside (Tees Renewable Energy Plant)",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 54.599,
+    "lon": -1.149,
+    "capacity_note": "299 MWe; world's largest new-build dedicated pellet biomass plant",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.0,
+      "low": 1.8,
+      "high": 2.2
+    },
+    "retrofit_score": "medium",
+    "operator": "MGT Teesside Ltd; O&M by px Group",
+    "source": "Wikipedia Tees Renewable Energy Plant; NS Energy; px Group O&M contract 2025",
+    "notes": "No confirmed CCS plans as of 2026. Excellent location for future BECCS: Teesside industrial cluster adjacent to Net Zero Teesside / HyNet project, with North Sea CO2 storage access. CCS-ready location."
+  },
+  {
+    "name": "Vattenfall Uppsala Biomass CHP",
+    "type": "bioenergy",
+    "country": "SWE",
+    "lat": 59.858,
+    "lon": 17.645,
+    "capacity_note": "~110 MWth district heating; wood chips / recycled biomass",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.4,
+      "low": 0.3,
+      "high": 0.5
+    },
+    "retrofit_score": "medium",
+    "operator": "Vattenfall AB",
+    "source": "Vattenfall powerplants.vattenfall.com; Vattenfall CCS evaluation roadmap",
+    "notes": "Under active CCS evaluation by Vattenfall (Uppsala named as priority candidate alongside Jordbro and Nyköping). CCS options include permanent storage (BECCS) or CCU for aviation fuel. Part of Vattenfall's 'Fossil Freedom' roadmap."
+  },
+  {
+    "name": "Alholmens Kraft Power Station",
+    "type": "bioenergy",
+    "country": "FIN",
+    "lat": 63.702,
+    "lon": 22.71,
+    "capacity_note": "265 MWe + ~400 MWth process heat; world's largest biomass-fired CFB boiler (500 MWth)",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.7,
+      "low": 1.5,
+      "high": 2.0
+    },
+    "retrofit_score": "medium",
+    "operator": "Oy Alholmens Kraft Ab (co-owned by Pohjolan Voima, UPM-Kymmene)",
+    "source": "Wikipedia Alholmens Kraft; NS Energy; plant operational records",
+    "notes": "No confirmed CCS plans. Multi-fuel plant (forest residues primary, peat, coal reserve). Biomass fraction ~70–80%. Finland exploring BECCS under REPowerEU. Large biogenic CO2 source adjacent to major UPM-Kymmene pulp mill — potential cluster BECCS."
+  },
+  {
+    "name": "Sendai Port Biomass Power Plant",
+    "type": "bioenergy",
+    "country": "JPN",
+    "lat": 38.268,
+    "lon": 141.031,
+    "capacity_note": "112 MWe; wood pellets and wood chips (domestic + imported)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.6,
+      "high": 0.8
+    },
+    "retrofit_score": "low",
+    "operator": "Sendai-Ko Biomass Power GK (Sumitomo Corporation lead; Tokyo Gas, Hokuriku Electric co-investors)",
+    "source": "Sumitomo Corporation press release Nov 2025; Bioenergy International",
+    "notes": "Commercial operations began November 2025. One of Japan's largest dedicated biomass plants. ~800,000 MWh/yr generation. Japan BECCS policy developing under GX transformation roadmap, but no individual plant CCS confirmed. Offshore CO2 storage limited in Japan."
+  },
+  {
+    "name": "Dangjin Bio-1 Biomass Power Plant",
+    "type": "bioenergy",
+    "country": "KOR",
+    "lat": 36.889,
+    "lon": 126.638,
+    "capacity_note": "105 MWe CFB; Asia's largest biomass plant when commissioned 2015",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.65,
+      "low": 0.6,
+      "high": 0.7
+    },
+    "retrofit_score": "low",
+    "operator": "GS EPS Co. Ltd (GS Holdings 70%, OQ SAOC 30%)",
+    "source": "NS Energy Dangjin Bio-1; GEM Wiki; Korean RPS reports",
+    "notes": "Wood pellets, wood chips, palm kernel shells (PKS). No CCS plans. South Korea has large biomass fleet under RPS but no active BECCS projects."
+  },
+  {
+    "name": "Gunsan Biomass (Hanwha Energy)",
+    "type": "bioenergy",
+    "country": "KOR",
+    "lat": 35.984,
+    "lon": 126.715,
+    "capacity_note": "123 MWe biomass (converting; total plant 222 MWe)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.8,
+      "low": 0.7,
+      "high": 1.0
+    },
+    "retrofit_score": "low",
+    "operator": "Hanwha Energy Corp",
+    "source": "GEM Wiki Gunsan power station; Korean energy ministry RPS records",
+    "notes": "Unit 1 converting to 100% biomass by end 2026. Wood pellets, wood chips, dried sewage sludge. No CCS plans. South Korea offshore CO2 storage potential exists but no transport infrastructure."
+  },
+  {
+    "name": "Metsä Fibre Äänekoski Bioproduct Mill",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 62.6,
+    "lon": 25.7,
+    "capacity_note": "1,300 kt/yr pulp (800 SW + 500 HW); world-scale kraft bioproduct mill",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.1,
+      "low": 0.9,
+      "high": 1.3
+    },
+    "retrofit_score": "high",
+    "operator": "Metsä Fibre (Metsä Group)",
+    "source": "Metsä Group press releases; Andritz CCS concept study Jun 2024; Metsä/Fortum joint study",
+    "notes": "Andritz ANDRITZ C-Capture amine module concept study ordered June 2024 for 600,000 t CO2/yr capture. Metsä/Fortum joint study targets 4.2 Mt/yr capture across Äänekoski + Kemi combined. Metsä Group stated 12 Mt/yr biogenic CO2 potential across all mills. Prime BECCS retrofit candidate — recovery boiler largest point source."
+  },
+  {
+    "name": "Metsä Fibre Kemi Bioproduct Mill",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 65.7,
+    "lon": 24.6,
+    "capacity_note": "~1,500 kt/yr pulp (new greenfield opened 2023, Finland's largest industrial investment ~€2.1B)",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.3,
+      "low": 1.0,
+      "high": 1.6
+    },
+    "retrofit_score": "high",
+    "operator": "Metsä Fibre (Metsä Group)",
+    "source": "Metsä Group Kemi inauguration 2023; Andritz CCS concept study Jun 2024; Bioenergy International",
+    "notes": "Newest and largest pulp mill in Finland (opened 2023). Same CCS concept study as Äänekoski — Andritz module, 4.2 Mt/yr joint target. Proximity to Bothnian Sea potential storage or transport to North Sea via Norway. High retrofit score due to new construction (CCS-ready design possible)."
+  },
+  {
+    "name": "SCA Östrand Pulp Mill",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 62.4,
+    "lon": 17.3,
+    "capacity_note": "900 kt/yr NBSK pulp (one of Sweden's largest)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.85,
+      "low": 0.7,
+      "high": 1.0
+    },
+    "retrofit_score": "medium",
+    "operator": "SCA (Svenska Cellulosa Aktiebolaget)",
+    "source": "SCA company website; SCA Östrand pulp mill description; pulp BECCS literature (Springer 2019)",
+    "notes": "No active CCS plans as of 2024. Biorefinery adjacent concept studied 2019. Large recovery boiler is prime BECCS candidate. SCA owns vast Nordic forest landholdings — potential integrated forestry-to-BECCS chain."
+  },
+  {
+    "name": "Södra Cell Värö Pulp Mill",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 57.3,
+    "lon": 12.3,
+    "capacity_note": "760 kt/yr NBSK pulp",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.55,
+      "high": 0.85
+    },
+    "retrofit_score": "high",
+    "operator": "Södra (Södra Skogsägarna)",
+    "source": "Södra company website; Njord Carbon JV announcement (Södra + Equinor + Verdane 2023); Forest Industries Sweden",
+    "notes": "Part of Njord Carbon BECCS initiative (JV with Equinor + Verdane, established 2023). Feasibility/pre-commercial stage targeting multi-Mt/yr across all three Södra mills. One of three Södra mills in scope. High retrofit score due to active BECCS JV."
+  },
+  {
+    "name": "Södra Cell Mönsterås Pulp Mill",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 57.0,
+    "lon": 16.4,
+    "capacity_note": "750 kt/yr NBSK pulp",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.55,
+      "high": 0.85
+    },
+    "retrofit_score": "high",
+    "operator": "Södra (Södra Skogsägarna)",
+    "source": "Södra company website; Njord Carbon JV announcement 2023; Bioenergy International",
+    "notes": "Part of Njord Carbon BECCS initiative. Same JV as Södra Cell Värö. Three Södra mills combined biogenic CO2 ~1.8 Mt/yr — among highest-priority Nordic BECCS retrofit cluster."
+  },
+  {
+    "name": "Södra Cell Mörrum Pulp Mill",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 56.2,
+    "lon": 14.8,
+    "capacity_note": "470 kt/yr (300 kt paper pulp + 170 kt dissolving pulp)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.4,
+      "low": 0.3,
+      "high": 0.5
+    },
+    "retrofit_score": "high",
+    "operator": "Södra (Södra Skogsägarna)",
+    "source": "Södra company website; Njord Carbon JV announcement 2023",
+    "notes": "Part of Njord Carbon BECCS initiative. Smaller of the three Södra mills but in scope."
+  },
+  {
+    "name": "Stora Enso Skutskär Pulp Mill",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 60.6,
+    "lon": 17.4,
+    "capacity_note": "545 kt/yr (fluff/SW/HW kraft pulp)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.5,
+      "low": 0.4,
+      "high": 0.6
+    },
+    "retrofit_score": "high",
+    "operator": "Stora Enso Oyj",
+    "source": "Bioenergy International Skutskär pilot; EU Horizon 2020 ACCSESS project; Stora Enso press release",
+    "notes": "World's first-ever CCS pilot on a kraft recovery boiler flue gas — enzymatic capture technology (CO2 Solutions by Saipem / Prospin Rotary Packed Bed), 2 t CO2/day pilot, EU ACCSESS Horizon 2020 project. Active pilot. High retrofit score for early mover on recovery boiler capture."
+  },
+  {
+    "name": "West Fraser Hinton Pulp Mill",
+    "type": "pulp_paper",
+    "country": "CAN",
+    "lat": 53.4,
+    "lon": -117.6,
+    "capacity_note": "~250 kt/yr unbleached kraft pulp + co-located biomass energy facility",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.3,
+      "low": 1.0,
+      "high": 1.5
+    },
+    "retrofit_score": "high",
+    "operator": "West Fraser Timber Co. Ltd",
+    "source": "Emissions Reduction Alberta (ERA) grant announcement ($3.25M ERA / $11.8M total); Vault 44.01 project page",
+    "notes": "Active BECCS FEED study funded by ERA Alberta. Project partners: Vault 44.01 + TorchLight + West Fraser. Target: 1.3 Mt CO2/yr permanent geological storage. High CO2 figure reflects recovery boiler + biomass energy boiler combined. One of most advanced Canadian pulp BECCS projects."
+  },
+  {
+    "name": "Mercer Peace River Pulp Mill",
+    "type": "pulp_paper",
+    "country": "CAN",
+    "lat": 56.2,
+    "lon": -117.3,
+    "capacity_note": "~305 kt/yr NBSK pulp",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.28,
+      "low": 0.22,
+      "high": 0.35
+    },
+    "retrofit_score": "high",
+    "operator": "Mercer International Inc.",
+    "source": "Svante + Mercer Pre-FEED announcement Apr 2025; Bioenergy International; Paper Age",
+    "notes": "Svante solid-sorbent CO2 capture demo unit on recovery boiler flue gas started Dec 2025. Pre-FEED Phase 2 underway (Apr 2025). Using waste heat for sorbent regeneration. Active CCS development — second most advanced Canadian pulp CCS project."
+  },
+  {
+    "name": "Canfor Intercontinental Pulp Mill",
+    "type": "pulp_paper",
+    "country": "CAN",
+    "lat": 53.9,
+    "lon": -122.8,
+    "capacity_note": "353 kt/yr NBSK pulp, Prince George BC",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.33,
+      "low": 0.25,
+      "high": 0.4
+    },
+    "retrofit_score": "medium",
+    "operator": "Canfor Pulp Products Inc.",
+    "source": "Paper World mill database; Canfor corporate reports; BC BECCS industry discussions",
+    "notes": "No announced CCS. BC-wide BECCS discussions ongoing. Prince George cluster (also Canfor Northwood and Al-Pac nearby) offers potential for shared CO2 transport infrastructure."
+  },
+  {
+    "name": "Georgia-Pacific Alabama River Cellulose",
+    "type": "pulp_paper",
+    "country": "USA",
+    "lat": 31.7,
+    "lon": -87.7,
+    "capacity_note": "~700–1,000 kt/yr (post-2027 expansion target; $800M modernization 2025–2027)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.9,
+      "low": 0.7,
+      "high": 1.1
+    },
+    "retrofit_score": "medium",
+    "operator": "GP Cellulose (Georgia-Pacific / Koch Industries)",
+    "source": "Wood Central $800M modernization announcement 2025; GP Cellulose mill database",
+    "notes": "Largest US softwood pulp mill post-expansion. Major US South kraft mill — prime BECCS candidate given proximity to Gulf Coast CO2 storage (Mississippi/Alabama geology). No CCS announced."
+  },
+  {
+    "name": "International Paper Eastover Mill",
+    "type": "pulp_paper",
+    "country": "USA",
+    "lat": 33.9,
+    "lon": -80.7,
+    "capacity_note": "~750 kt/yr market + fluff pulp, Eastover, South Carolina",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.55,
+      "high": 0.85
+    },
+    "retrofit_score": "medium",
+    "operator": "International Paper Company",
+    "source": "International Paper SEC filings; company mill profiles; calc: ~0.9 t CO2/adt × 750 kt/yr",
+    "notes": "Large US South kraft pulp mill. No CCS announced. IP completed strategic capacity reductions in 2023. Proximity to southeastern US saline aquifers (Southeast US storage basin)."
+  },
+  {
+    "name": "Suzano Cerrado Pulp Mill",
+    "type": "pulp_paper",
+    "country": "BRA",
+    "lat": -20.4,
+    "lon": -54.5,
+    "capacity_note": "2,550 kt/yr eucalyptus kraft pulp; world's largest single production line",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.3,
+      "low": 1.9,
+      "high": 2.6
+    },
+    "retrofit_score": "medium",
+    "operator": "Suzano S.A.",
+    "source": "Suzano investor relations; Fast Markets Cerrado startup 2024; Andritz mill delivery 2024",
+    "notes": "Ribas do Rio Pardo, Mato Grosso do Sul. World's largest single pulp production line, operational 2024. No BECCS/CCS plans despite being world's largest single biogenic CO2 point source from pulp. Suzano is world's largest pulp producer (~14.5 Mt/yr total capacity). Brazilian onshore CO2 storage geology is limited — key constraint for BECCS."
+  },
+  {
+    "name": "Suzano Três Lagoas / Horizonte Complex",
+    "type": "pulp_paper",
+    "country": "BRA",
+    "lat": -20.8,
+    "lon": -51.7,
+    "capacity_note": "3,250 kt/yr combined (two production lines), Três Lagoas, Mato Grosso do Sul",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.8,
+      "low": 2.3,
+      "high": 3.2
+    },
+    "retrofit_score": "medium",
+    "operator": "Suzano S.A.",
+    "source": "Suzano investor relations; Três Lagoas industrial complex reports; calc: ~0.87 t CO2/adt × 3,250 kt",
+    "notes": "Três Lagoas is the world's largest pulp-producing municipality. Combined 3.25 Mt/yr capacity on two lines makes this the largest single-site biogenic CO2 cluster globally after considering both lines. No CCS. Brazilian storage geology constrains BECCS viability."
+  },
+  {
+    "name": "Klabin Puma Unit (Ortigueira)",
+    "type": "pulp_paper",
+    "country": "BRA",
+    "lat": -24.2,
+    "lon": -50.9,
+    "capacity_note": "1,500 kt/yr (1,100 kt HW eucalyptus + 400 kt SW pine); integrated pulp+paper+fluff",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.3,
+      "low": 1.0,
+      "high": 1.6
+    },
+    "retrofit_score": "medium",
+    "operator": "Klabin S.A.",
+    "source": "Klabin investor relations; Andritz Puma mill reference; Klabin Puma II inauguration 2023",
+    "notes": "Ortigueira, Paraná. Two production lines (Puma I + Puma II). No BECCS/CCS announced. Paraná state has some potential for deep geological storage but not yet assessed at scale."
+  },
+  {
+    "name": "APP Sinar Mas OKI Pulp Mill",
+    "type": "pulp_paper",
+    "country": "IDN",
+    "lat": -3.5,
+    "lon": 105.4,
+    "capacity_note": "2,800 kt/yr BHK pulp; Air Sugihan, South Sumatra",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.4,
+      "low": 2.0,
+      "high": 2.8
+    },
+    "retrofit_score": "low",
+    "operator": "PT OKI Pulp & Paper (APP Sinar Mas / Sinar Mas Group)",
+    "source": "Valmet OKI mill delivery reference; Wikipedia OKI Pulp; APP Sinar Mas sustainability reports",
+    "notes": "Financed by China Development Bank ($2.6B). APP has 2060 net-zero target but no CCS/BECCS announced. Indonesia lacks CO2 storage infrastructure — low retrofit score despite massive biogenic CO2 source. RSPO and deforestation controversy limits Frontier attractiveness."
+  },
+  {
+    "name": "RAPP Pangkalan Kerinci (APRIL Group)",
+    "type": "pulp_paper",
+    "country": "IDN",
+    "lat": 0.2,
+    "lon": 102.1,
+    "capacity_note": "~4,000 kt/yr BHK pulp (APRIL website figure); expansion to 5,800 kt pending",
+    "est_biogenic_co2_mtpa": {
+      "value": 3.0,
+      "low": 2.5,
+      "high": 4.0
+    },
+    "retrofit_score": "low",
+    "operator": "PT Riau Andalan Pulp and Paper (APRIL Group / Royal Golden Eagle)",
+    "source": "APRIL Group operations page; Wikipedia RAPP; Eco-Business expansion report",
+    "notes": "Pangkalan Kerinci, Riau. World's single largest pulp mill by capacity if expansion approved. No CCS. Capacity figures vary widely (2.8–4.0 Mt across sources; 4.0 Mt from APRIL directly). Indonesia CO2 storage infrastructure absent. Deforestation controversy. High biogenic CO2 but very low retrofit score for these reasons."
+  },
+  {
+    "name": "Raízen Costa Pinto Bioenergy Complex",
+    "type": "ethanol",
+    "country": "BRA",
+    "lat": -22.83,
+    "lon": -47.65,
+    "capacity_note": "~8 Mt sugarcane crushed/yr; ~680 ML/yr ethanol; includes first 2G cellulosic ethanol plant",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.65,
+      "low": 0.55,
+      "high": 0.75
+    },
+    "retrofit_score": "high",
+    "operator": "Raízen S.A. (Shell / Cosan JV)",
+    "source": "Raízen investor relations; Industry About Costa Pinto; Raízen 2G ethanol expansion",
+    "notes": "Piracicaba, São Paulo. Houses Raízen's first 2G cellulosic ethanol plant (now ~82 ML/yr). Fermentation CO2 is near-pure stream (~99%) — highly capturable. Brazil sugarcane ethanol NOT excluded by Frontier (unlike corn ethanol). No CCS. Brazilian saline storage geology is limited but coastal sites exist."
+  },
+  {
+    "name": "Raízen Bonfim Bioenergy Complex",
+    "type": "ethanol",
+    "country": "BRA",
+    "lat": -21.35,
+    "lon": -48.25,
+    "capacity_note": "~7.5 Mt sugarcane/yr; ~640 ML/yr ethanol; world's largest 2G ethanol plant (82 ML/yr, opened May 2024)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.61,
+      "low": 0.5,
+      "high": 0.72
+    },
+    "retrofit_score": "high",
+    "operator": "Raízen S.A.",
+    "source": "Bloomberg Línea Bonfim 2G inauguration May 2024; Raízen investor relations; Bioenergy International",
+    "notes": "Guariba, São Paulo. World's largest 2G (cellulosic) ethanol plant opened May 2024. Also has biogas plant from vinasse/filter cake. Fermentation CO2 stream is pure — ideal for capture. Not excluded by Frontier (sugarcane)."
+  },
+  {
+    "name": "São Martinho Pradópolis (Usina São Martinho)",
+    "type": "ethanol",
+    "country": "BRA",
+    "lat": -21.37,
+    "lon": -48.07,
+    "capacity_note": "~10 Mt sugarcane/yr; ~850 ML/yr ethanol; world's largest single sugarcane mill",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.82,
+      "low": 0.7,
+      "high": 0.95
+    },
+    "retrofit_score": "high",
+    "operator": "São Martinho S.A.",
+    "source": "Bonsucro certification (largest sugar-ethanol plant globally); São Martinho BNDES filing",
+    "notes": "Pradópolis, São Paulo. World's largest single sugarcane-to-ethanol mill by crushing capacity. Bonsucro certified. Fermentation CO2 is pure stream. Not excluded by Frontier. No CCS announced. Highest-priority Brazilian sugarcane BECCS retrofit candidate by volume."
+  },
+  {
+    "name": "São Martinho Boa Vista",
+    "type": "ethanol",
+    "country": "BRA",
+    "lat": -18.01,
+    "lon": -50.45,
+    "capacity_note": "~8 Mt sugarcane/yr + corn ethanol flex (~200 ML/yr corn); Quirinópolis, Goiás",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.65,
+      "low": 0.55,
+      "high": 0.75
+    },
+    "retrofit_score": "medium",
+    "operator": "São Martinho S.A.",
+    "source": "São Martinho investor relations; BNDES reports; São Martinho annual report",
+    "notes": "Quirinópolis, Goiás. Pure ethanol mill (no sugar). Also installed corn ethanol flex capacity (~200 ML/yr corn). Sugarcane portion not excluded by Frontier; corn portion flagged. Combined CO2 figure is for sugarcane fermentation only."
+  },
+  {
+    "name": "Green Plains Wood River (Advantage Nebraska CCS)",
+    "type": "ethanol",
+    "country": "USA",
+    "lat": 40.82,
+    "lon": -98.6,
+    "capacity_note": "454 ML/yr (120 Mgal/yr) corn ethanol; operational CCS",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.44,
+      "low": 0.38,
+      "high": 0.5
+    },
+    "retrofit_score": "high",
+    "operator": "Green Plains Inc.",
+    "source": "Green Plains investor press releases; Carbon Herald Advantage Nebraska activation 2025; Ethanol Producer Magazine",
+    "notes": "EXISTING BECCS PROJECT (operational 2025). Part of Advantage Nebraska CCS — three Nebraska plants combined capture ~800,000 t CO2/yr. CO2 transported via Trailblazer pipeline to Tallgrass carbon storage hub, southeast Wyoming. FRONTIER FLAG: corn ethanol — excluded per Frontier thesis. Listed for completeness as operational BECCS example."
+  },
+  {
+    "name": "Green Plains Central City (Advantage Nebraska CCS)",
+    "type": "ethanol",
+    "country": "USA",
+    "lat": 41.12,
+    "lon": -98.0,
+    "capacity_note": "454 ML/yr (120 Mgal/yr) corn ethanol; operational CCS",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.44,
+      "low": 0.38,
+      "high": 0.5
+    },
+    "retrofit_score": "high",
+    "operator": "Green Plains Inc.",
+    "source": "Green Plains investor press releases; Carbon Herald 2025; Ethanol Producer Magazine",
+    "notes": "EXISTING BECCS PROJECT (operational 2025). Advantage Nebraska CCS. FRONTIER FLAG: corn ethanol excluded per Frontier thesis."
+  },
+  {
+    "name": "POET Chancellor Biorefining",
+    "type": "ethanol",
+    "country": "USA",
+    "lat": 43.39,
+    "lon": -96.99,
+    "capacity_note": "473 ML/yr (125 Mgal/yr) corn ethanol; POET's largest single plant",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.45,
+      "low": 0.4,
+      "high": 0.52
+    },
+    "retrofit_score": "medium",
+    "operator": "POET LLC",
+    "source": "POET.com Chancellor plant page; South Dakota Searchlight CCS pipeline reporting",
+    "notes": "Chancellor, South Dakota. POET's largest single facility. POET participated in Summit Carbon Solutions CO2 pipeline project (cancelled/paused 2024). Fermentation CO2 is pure stream. FRONTIER FLAG: corn ethanol excluded per Frontier thesis."
+  },
+  {
+    "name": "Alto Ingredients Pekin Complex (former ICP)",
+    "type": "ethanol",
+    "country": "USA",
+    "lat": 40.57,
+    "lon": -89.64,
+    "capacity_note": "~719 ML/yr combined (dry mill 341 ML + wet mill 379 ML); Illinois River location",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.69,
+      "low": 0.6,
+      "high": 0.8
+    },
+    "retrofit_score": "medium",
+    "operator": "Alto Ingredients, Inc. (formerly Pacific Ethanol)",
+    "source": "Alto Ingredients acquisition press release; Illinois Corn Processing / US Grains Council",
+    "notes": "Pekin, Tazewell County, Illinois. Two adjacent plants on Illinois River. Illinois Basin geology = Mt. Simon Sandstone storage (same as ADM Decatur). Strong BECCS candidate due to proximity to CO2 storage infrastructure and adjacency to ADM. FRONTIER FLAG: corn ethanol excluded per Frontier thesis."
+  },
+  {
+    "name": "Amager Bakke (CopenHill)",
+    "type": "wte",
+    "country": "DNK",
+    "lat": 55.684,
+    "lon": 12.62,
+    "capacity_note": "0–63 MWe flexible + 157–247 MW district heat; 400,000–600,000 t/yr MSW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.2,
+      "low": 0.15,
+      "high": 0.28
+    },
+    "retrofit_score": "medium",
+    "operator": "ARC – Amager Resource Center (5-municipality JV)",
+    "source": "Wikipedia Amager Bakke; Power Technology; LCA study PMC 2022",
+    "notes": "Iconic ski-slope architecture on roof. CCS pilot operational since 2021 (Denmark's first). ARC ambition: 500,000 t CO2/yr. Found ineligible for national CCS funding in 2022. Full-scale development uncertain pending new funding mechanism. Biogenic fraction of MSW ~50% (EU average)."
+  },
+  {
+    "name": "AEB Amsterdam Waste-to-Energy",
+    "type": "wte",
+    "country": "NLD",
+    "lat": 52.396,
+    "lon": 4.834,
+    "capacity_note": "~1,400,000 t/yr MSW; ~110–170 MWe (6 incineration lines)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.8,
+      "low": 0.65,
+      "high": 0.95
+    },
+    "retrofit_score": "medium",
+    "operator": "AEB Amsterdam (City of Amsterdam; under sale process 2024)",
+    "source": "AEB Amsterdam company website; CEWEP Netherlands WtE data; Power Technology",
+    "notes": "Amsterdam Australiëhaven industrial port area. Largest WtE plant in Netherlands by waste throughput. No confirmed CCS plans as of 2026; financial difficulties hampered investment. City sale process may change operator. Biogenic fraction ~50% (EU MSW average)."
+  },
+  {
+    "name": "AVR Rozenburg Waste-to-Energy",
+    "type": "wte",
+    "country": "NLD",
+    "lat": 51.896,
+    "lon": 4.099,
+    "capacity_note": "108 MWe; ~1,300,000 t/yr MSW; Rotterdam port area",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.55,
+      "high": 0.85
+    },
+    "retrofit_score": "high",
+    "operator": "AVR Afvalverwerking BV",
+    "source": "Power Technology AVR Rozenburg; AVR company website; De Ingenieur CO2 capture article",
+    "notes": "CCS PLANS ACTIVE — target ~800,000 t CO2/yr total capture (biogenic + fossil). Large-scale CO2 capture installation announced. Plant suffered major fire Sep 2023; restored to service 2024. CHP operation (electricity + district heat for Rotterdam). Biogenic fraction ~50%; biogenic CDR component ~0.4 Mt/yr of the 0.8 Mt total."
+  },
+  {
+    "name": "AVR Duiven Waste-to-Energy",
+    "type": "wte",
+    "country": "NLD",
+    "lat": 51.941,
+    "lon": 6.032,
+    "capacity_note": "30 MWe; ~400,000 t/yr MSW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.12,
+      "low": 0.09,
+      "high": 0.16
+    },
+    "retrofit_score": "high",
+    "operator": "AVR Afvalverwerking BV",
+    "source": "Power Technology AVR Duiven; De Ingenieur CO2 storage article",
+    "notes": "CCS OPERATIONAL — 60,000 t CO2/yr capture system commissioned ~2022–2023. First large-scale CCS on a Dutch WtE plant. Smaller facility but proof of concept for AVR's larger Rozenburg ambitions. CO2 currently used/stored (details pending verification)."
+  },
+  {
+    "name": "Twence Hengelo Waste-to-Energy",
+    "type": "wte",
+    "country": "NLD",
+    "lat": 52.261,
+    "lon": 6.776,
+    "capacity_note": "40 MWe (2 × 20 MW); ~1,000,000 t/yr MSW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.4,
+      "low": 0.3,
+      "high": 0.55
+    },
+    "retrofit_score": "high",
+    "operator": "Twence BV (public waste authority)",
+    "source": "Twence website CO2 capture news; SLB Capturi / JPT article; De Ingenieur",
+    "notes": "CCS OPERATIONAL — SLB Capturi modular plant capturing 100,000 t CO2/yr, commissioned ~2022–2023. CO2 sold to horticulture and food & beverage. Scale-up to full large-scale under evaluation. Netherlands WtE sector is most advanced globally for CCS deployment."
+  },
+  {
+    "name": "EEW Rothensee Magdeburg",
+    "type": "wte",
+    "country": "DEU",
+    "lat": 52.163,
+    "lon": 11.643,
+    "capacity_note": "~80–100 MWe; ~975,000 t/yr non-hazardous + industrial waste + sludge",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.3,
+      "low": 0.22,
+      "high": 0.38
+    },
+    "retrofit_score": "medium",
+    "operator": "EEW Energy from Waste GmbH",
+    "source": "EEW company website Rothensee/Magdeburg; EEW portrait; new block addition 2024",
+    "notes": "Magdeburg, Saxony-Anhalt. New processing block added 2024. EEW is Germany's largest WtE operator (18 plants). No CCS at individual plants confirmed. Germany exploring CCS but WtE sector lags Netherlands."
+  },
+  {
+    "name": "EEW Helmstedt TRV",
+    "type": "wte",
+    "country": "DEU",
+    "lat": 52.172,
+    "lon": 10.98,
+    "capacity_note": "~32 MWe; 525,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.17,
+      "low": 0.13,
+      "high": 0.22
+    },
+    "retrofit_score": "low",
+    "operator": "EEW Energy from Waste Helmstedt GmbH",
+    "source": "EEW Helmstedt TRV plant page; EEW annual data",
+    "notes": "Büddenstedt near Helmstedt, Lower Saxony. No CCS confirmed."
+  },
+  {
+    "name": "Reno-Nord Aalborg",
+    "type": "wte",
+    "country": "DNK",
+    "lat": 57.057,
+    "lon": 9.89,
+    "capacity_note": "~18 MWe; 43 MW district heat; ~160,000 t/yr MSW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.055,
+      "low": 0.04,
+      "high": 0.075
+    },
+    "retrofit_score": "medium",
+    "operator": "I/S Reno Nord (municipal JV, Aalborg area)",
+    "source": "Babcock case study Reno-Nord; Denmark CCS tender program reporting",
+    "notes": "One of largest CO2 point sources in Jutland. Candidate in Denmark's CCS tender program (not confirmed winner as of 2026). Denmark has active national CCS support program — WtE plants are prime targets."
+  },
+  {
+    "name": "Edmonton EcoPark Energy Recovery Facility",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 51.613,
+    "lon": -0.04,
+    "capacity_note": "~70 MWe (new plant); 700,000 t/yr MSW; North London",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.2,
+      "low": 0.15,
+      "high": 0.28
+    },
+    "retrofit_score": "medium",
+    "operator": "North London Waste Authority (NLWA); construction by Acciona",
+    "source": "NLWA planning documents; Letsrecycle.com CCS planning reports",
+    "notes": "New plant (delayed to ~2027 completion). Being built CCS-infrastructure-ready. NLWA confirmed CCS retrofitting planned post-2030. UK's largest MSW EfW by waste throughput when complete. Biogenic fraction ~55% (UK MSW typical)."
+  },
+  {
+    "name": "Shenzhen East (Dongbu) WtE Plant",
+    "type": "wte",
+    "country": "CHN",
+    "lat": 22.672,
+    "lon": 114.294,
+    "capacity_note": "165 MWe; 5,000–5,600 t/day MSW (~2 Mt/yr); world's largest WtE by throughput",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.65,
+      "low": 0.5,
+      "high": 0.82
+    },
+    "retrofit_score": "low",
+    "operator": "Shenzhen Energy Environmental Engineering Co. (Shenzhen Energy Group)",
+    "source": "NS Energy Shenzhen East; Shenzhen Energy company reports; Wikipedia Shenzhen Energy",
+    "notes": "Longgang District, Shenzhen. World's largest WtE by waste throughput (~2 Mt/yr). Circular ring architectural design, rooftop PV (44,000 m²). Generates ~550M kWh/yr. No CCS. China has WtE fleet of ~1,000+ plants nationally — low individual retrofit score due to absence of CCS infrastructure and policy in WtE sector."
+  },
+  {
+    "name": "TuasOne Waste-to-Energy Plant",
+    "type": "wte",
+    "country": "SGP",
+    "lat": 1.291,
+    "lon": 103.638,
+    "capacity_note": "120 MWe; 3,600 t/day MSW (~1.3 Mt/yr); Singapore's newest and most land-efficient WtE",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.35,
+      "low": 0.27,
+      "high": 0.44
+    },
+    "retrofit_score": "low",
+    "operator": "TuasOne Pte Ltd (JV: Mitsubishi Heavy Industries 50%+; 25-year NEA concession)",
+    "source": "NEA Singapore TuasOne announcement; GEM Wiki TuasOne; MHI press release",
+    "notes": "Tuas, southwest Singapore. Newest plant (2021), most land-efficient WtE design. NEA operates multiple WtE plants on Tuas reclaimed land. Singapore exploring CCS broadly under National CCS Roadmap but no WtE-specific plans confirmed. Limited geological storage options nearby."
+  },
+  {
+    "name": "Nature Energy Korskro Biogas Plant",
+    "type": "biogas_ad",
+    "country": "DNK",
+    "lat": 55.37,
+    "lon": 8.73,
+    "capacity_note": "22 million Nm3/yr biomethane (~220 GWh/yr); Denmark's largest single biogas plant",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.026,
+      "low": 0.019,
+      "high": 0.033
+    },
+    "retrofit_score": "medium",
+    "operator": "Nature Energy (Shell; acquired by Shell 2023)",
+    "source": "UABIO Korskro report; Bioenergy International Korskro inauguration; WBA case study; IEA Bioenergy Task 37",
+    "notes": "Near Esbjerg, South Jutland. Processes ~500,000 t/yr biomass (75% animal manure). Shell acquisition of Nature Energy (2023) for ~$2B. IEA Bioenergy Task 37 flagged Korskro as CO2 recovery demonstration candidate. CO2 stream from upgrading is small (~26,000 t/yr) but site is strategic in Denmark CCS development. Denmark has 13 Nature Energy plants (Shell) in total — aggregate ~0.12 Mt CO2/yr capturable."
+  },
+  {
+    "name": "Verbio Schwedt Biomethane Complex",
+    "type": "biogas_ad",
+    "country": "DEU",
+    "lat": 53.06,
+    "lon": 14.27,
+    "capacity_note": "~620 GWh/yr biomethane + 227 ML/yr bioethanol from straw + distillation slop",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.29,
+      "low": 0.22,
+      "high": 0.36
+    },
+    "retrofit_score": "medium",
+    "operator": "Verbio SE",
+    "source": "Verbio SE Schwedt plant page; CNG Europe straw biomethane article; Verbio annual report",
+    "notes": "Schwedt/Oder, Brandenburg (PCK refinery site). World's first industrial straw-to-biomethane plant (operational 2014). Two 30 MW biomethane plants + 16.5 MW straw-to-biogas. Also produces 180,000 t/yr bioethanol. Combined CO2 stream: ~74 kt from upgrading + ~217 kt from ethanol fermentation = ~291 kt/yr. Strong integration case for co-located CCS. Advanced biofuels — not excluded by Frontier."
+  },
+  {
+    "name": "Aemetis Keyes Dairy Digester Cluster",
+    "type": "biogas_ad",
+    "country": "USA",
+    "lat": 37.55,
+    "lon": -120.92,
+    "capacity_note": "550,000 MMBtu/yr RNG (2025); scaling to 1.6M MMBtu/yr; 12 dairy digesters, central upgrading",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.034,
+      "low": 0.025,
+      "high": 0.045
+    },
+    "retrofit_score": "low",
+    "operator": "Aemetis Inc.",
+    "source": "Aemetis press release Dec 2024; Inside Climate News dairy digester investigation Dec 2023",
+    "notes": "Keyes/Modesto, Stanislaus County, California. 12 digesters with 36-mile pipeline, central upgrading at Keyes ethanol plant. RNG-CONCERN FLAG: California dairy RNG lifecycle benefits rely on methane avoidance counterfactual — may overstate net climate benefit per thesis and Inside Climate News investigation. CO2 from upgrading is small. Frontier exclusion concern: RNG variant."
+  },
+  {
+    "name": "UPM Paso de los Toros Pulp Mill",
+    "type": "pulp_paper",
+    "country": "URY",
+    "lat": -32.8,
+    "lon": -56.5,
+    "capacity_note": "2,100 kt/yr eucalyptus kraft pulp; opened 2023; Uruguay's largest industrial investment",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.8,
+      "low": 1.5,
+      "high": 2.1
+    },
+    "retrofit_score": "medium",
+    "operator": "UPM Fibres (UPM-Kymmene)",
+    "source": "UPM Pulp Paso de los Toros page; UPM investor relations; Bioenergy International UPM Uruguay",
+    "notes": "Paso de los Toros, Uruguay (center of country). Opened 2023. World-scale eucalyptus pulp mill ($3B investment). No BECCS/CCS announced. Uruguay lacks CO2 storage infrastructure. UPM has active sustainability programs but no CCS roadmap for this facility. High biogenic CO2 source in Southern Cone."
+  },
+  {
+    "name": "Suzano Aracruz Pulp Mill",
+    "type": "pulp_paper",
+    "country": "BRA",
+    "lat": -19.8,
+    "lon": -40.3,
+    "capacity_note": "2,340 kt/yr eucalyptus kraft pulp; Espírito Santo coast",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.0,
+      "low": 1.7,
+      "high": 2.3
+    },
+    "retrofit_score": "medium",
+    "operator": "Suzano S.A. (formerly Fibria)",
+    "source": "Suzano investor relations; Fibria/Suzano merger documentation; calc: ~0.87 t CO2/adt × 2,340 kt",
+    "notes": "Aracruz, Espírito Santo — coastal location with potential for offshore CO2 transport. Formerly Fibria's flagship mill. No BECCS/CCS plans. Third largest Suzano site. Coastal location is slightly more favorable for CO2 transport than inland Cerrado/Três Lagoas mills."
+  },
+  {
+    "name": "Mercer Celgar Pulp Mill",
+    "type": "pulp_paper",
+    "country": "CAN",
+    "lat": 49.3,
+    "lon": -117.7,
+    "capacity_note": "520 kt/yr NBSK pulp; Castlegar, British Columbia",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.48,
+      "low": 0.38,
+      "high": 0.58
+    },
+    "retrofit_score": "medium",
+    "operator": "Mercer International Inc.",
+    "source": "Mercer International annual report; Mercer Celgar mill description",
+    "notes": "Castlegar, BC. No announced BECCS. Mercer is more active on CCS at Peace River (Alberta) than Celgar (BC). BC lacks the CO2 storage infrastructure that Alberta offers."
+  }
+]

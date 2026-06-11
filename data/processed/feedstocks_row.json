@@ -1,0 +1,1890 @@
+[
+  {
+    "id": "BRA",
+    "name": "Brazil",
+    "level": "country",
+    "parent": null,
+    "centroid": [-51.9, -14.2],
+    "ag_residues_odt_mt": {
+      "value": 220.0,
+      "low": 160.0,
+      "high": 280.0,
+      "source": "Soccol et al. (2011) Waste Biomass Valor; ScienceDirect pii/S0961953415300805; calc: FAOSTAT 2022 sugarcane ~680 Mt × 0.25 bagasse ratio + straw, soy ~130 Mt × 1.5 RPR, maize ~115 Mt × 1.0 RPR, × 40% recoverable",
+      "notes": "Sugarcane bagasse (~80–90 Mt odt) is world's largest single-feedstock residue stream; also soy straw, maize stover. Technical biomass potential 92–122 Mt already cited by multiple studies; upper bound includes tops/trash. Some bagasse already used in ethanol cogeneration."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 35.0,
+      "low": 22.0,
+      "high": 50.0,
+      "source": "ScienceDirect pii/S0360544221024919: 20 Mt forest residues + 15 Mt wood industry residues/yr from planted forests; FAO FRA 2020 Brazil roundwood ~270 Mm3/yr",
+      "notes": "Dominated by eucalyptus plantations (~10 Mha) and pine. Brazil is world's 2nd largest pulp producer. Residues = bark, branches, processing waste. Native forest logging residues excluded (governance risk)."
+    },
+    "msw_total_mt": {
+      "value": 82.0,
+      "low": 76.0,
+      "high": 88.0,
+      "source": "GNPW Group citing ABRELPE 2022: 81.8 Mt generated, 76.1 Mt collected",
+      "notes": "~61% to sanitary landfill, ~39% open dumps; WtE near zero (<0.1%). Rapidly growing urban waste stream."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.62,
+      "source": "PubMed 25323146 (2014 Brazil study): 51.5% biogenic in major cities; ABRELPE compositional surveys show ~55–65% organic+paper",
+      "notes": "LMIC cities trend higher organic fraction; 0.62 midpoint estimate"
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 61,
+      "dump_pct": 39,
+      "recycle_compost_pct": 2,
+      "source": "ABRELPE 2022 national solid waste report; PMC9838418"
+    },
+    "animal_manure_odt_mt": {
+      "value": 180.0,
+      "low": 120.0,
+      "high": 250.0,
+      "source": "calc: FAO 2022 cattle herd 176.4M head × ~24 kg fresh manure/head/day × 365 × ~12% dry matter = ~170 Mt odt/yr cattle alone; plus swine 32.6M + poultry 889M; ScienceDirect pii/S0961953420301884",
+      "notes": "Fresh manure ~1,545 Mt/yr total; dry matter ~12–15% for cattle = ~185–232 Mt odt. Recoverable fraction (confined systems) lower ~30–40%. Value represents technical recoverable. Brazil has world's largest cattle herd."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 1.2,
+      "low": 0.7,
+      "high": 1.8,
+      "source": "calc: population ~215M × ~35% sewage treatment coverage × ~25 g dry sludge/person/day × 365 / 1e9",
+      "notes": "Low sewage treatment coverage outside major cities limits recoverable sludge. Improving but significant gap remains."
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer use 2022; cerrado soils naturally low-nutrient but heavy fertilizer input on soy/maize; mixed status",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "World-class BiCRS candidate. Sugarcane bagasse already concentrated at ~400 ethanol mills; ideal for BECCS retrofit. Large cattle manure base suits biomass waste injection. Governance adequate in major producing states (São Paulo, Mato Grosso); weaker in frontier Amazon zones — sourcing from deforestation-linked areas must be excluded."
+  },
+  {
+    "id": "ARG",
+    "name": "Argentina",
+    "level": "country",
+    "parent": null,
+    "centroid": [-63.6, -38.4],
+    "ag_residues_odt_mt": {
+      "value": 65.0,
+      "low": 45.0,
+      "high": 85.0,
+      "source": "calc: FAOSTAT 2022/23 soy ~48 Mt × 1.5 RPR + maize ~60 Mt × 1.0 RPR + wheat ~17 Mt × 1.3 RPR + sunflower ~4 Mt × 2.0 RPR = ~174 Mt gross × 40% recoverable; FAO BEFS; PMC11255045 citing Argentina 51 Mt odt from planted forest + crop residues",
+      "notes": "Pampas soy/maize/wheat belt is extremely concentrated — ideal for logistics. Sunflower straw significant in Buenos Aires province. Some residues already used for feedlot bedding."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 4.5,
+      "low": 2.5,
+      "high": 7.0,
+      "source": "FAO FRA 2020; PMC11255045 citing Argentina forest plantation residues; calc: roundwood ~14 Mm3/yr × 0.25 residue fraction × 0.5 t/m3",
+      "notes": "Modest planted forest sector (pine/eucalyptus in Mesopotamia, Patagonia). Native Chaco forest logging excluded."
+    },
+    "msw_total_mt": {
+      "value": 20.0,
+      "low": 17.0,
+      "high": 23.0,
+      "source": "World Bank What a Waste 2.0 (2018): Argentina ~1.15 kg/cap/day × 45M population; IADB LAC solid waste report",
+      "notes": "~80% to sanitary landfill, ~10% open dump, minimal WtE, ~10% recycling/informal. Buenos Aires generates ~6 Mt/yr alone."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.58,
+      "source": "IADB LAC waste composition surveys; typical upper-MIC: ~55–62% organic+paper",
+      "notes": "Argentina is upper-middle income; somewhat lower biogenic fraction than poorer LMIC neighbors"
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 80,
+      "dump_pct": 10,
+      "recycle_compost_pct": 10,
+      "source": "IADB Solid Waste Management in Latin America and the Caribbean (2015); World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 55.0,
+      "low": 35.0,
+      "high": 75.0,
+      "source": "calc: FAO 2022 cattle ~52M head × 24 kg/day × 365 × 12% DM = ~55 Mt odt/yr; ScienceDirect pii/S0959652617312696",
+      "notes": "6th largest cattle herd globally. Feedlot concentration growing in Buenos Aires province — increasing manure collectability."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.35,
+      "low": 0.20,
+      "high": 0.50,
+      "source": "calc: 45M pop × ~55% treatment rate × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Relatively high treatment coverage for region"
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO fertilizer data; Pampas soils naturally fertile, moderate external inputs",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Pampas grain belt is one of world's most concentrated residue zones. Good governance, functioning agricultural regulation. Key risk: soy expansion pressure on Chaco — must verify sourcing excludes conversion areas."
+  },
+  {
+    "id": "COL",
+    "name": "Colombia",
+    "level": "country",
+    "parent": null,
+    "centroid": [-74.3, 4.6],
+    "ag_residues_odt_mt": {
+      "value": 18.0,
+      "low": 12.0,
+      "high": 25.0,
+      "source": "calc: FAOSTAT 2022 sugarcane ~23 Mt × 0.25 bagasse + coffee husks + rice + palm residues; PMC11074129; IRENA LAC 2023 event",
+      "notes": "Sugarcane bagasse ~6 Mt/yr (PMC11255045); oil palm residues (EFB) growing; rice straw Tolima valley. Coffee pulp/husks significant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.0,
+      "low": 1.5,
+      "high": 5.0,
+      "source": "FAO FRA 2020 Colombia; calc: industrial roundwood ~2 Mm3/yr × residue fraction; plantation sector modest",
+      "notes": "Forest sector relatively small vs. Brazil. Some rubber and eucalyptus plantations. Governance risk: illegal logging in Amazonian zones."
+    },
+    "msw_total_mt": {
+      "value": 14.0,
+      "low": 12.0,
+      "high": 16.0,
+      "source": "Springer article doi:10.1007/s10163-023-01868-5; multiple sources citing 14 Mt in 2018 at 0.77 kg/cap/day",
+      "notes": "83% to landfill, ~17% recycled (largely informal). No WtE operational. 61.5% organic fraction."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "Wasteaware Colombia study: 61.5% organic + ~6% paper ≈ 0.67; rounded to 0.65",
+      "notes": "High organic content typical of tropical LMIC"
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 83,
+      "dump_pct": 5,
+      "recycle_compost_pct": 12,
+      "source": "Springer Wasteaware Colombia (2023); IADB LAC waste report"
+    },
+    "animal_manure_odt_mt": {
+      "value": 22.0,
+      "low": 14.0,
+      "high": 30.0,
+      "source": "calc: FAO 2022 cattle ~26M head × 24 kg/day × 365 × 12% DM + pigs + poultry",
+      "notes": "Significant cattle herd. Llanos region extensive grazing limits collectability."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.18,
+      "low": 0.10,
+      "high": 0.28,
+      "source": "calc: 52M pop × ~40% treatment rate × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Wastewater treatment coverage improving but still below 50% nationally"
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO; mixed — coffee regions moderate, cerrado-adjacent areas low",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Governance: functional but variable by region. Amazon/Pacific zones have weak regulatory enforcement — sourcing risk. Coffee and sugarcane residues are concentrated at processing facilities and represent best near-term BiCRS feedstock."
+  },
+  {
+    "id": "CHL",
+    "name": "Chile",
+    "level": "country",
+    "parent": null,
+    "centroid": [-71.5, -35.7],
+    "ag_residues_odt_mt": {
+      "value": 6.0,
+      "low": 4.0,
+      "high": 9.0,
+      "source": "PMC11255045: Chile ag residues 7.97 Mt/yr (beet 2.50, wheat 1.80, corn 1.50, potato 1.10); × 40–75% recoverable fraction",
+      "notes": "Small agricultural sector relative to forestry. Wheat and corn straw dominant. Vineyards generate pomace but volumes modest."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 12.0,
+      "low": 8.0,
+      "high": 18.0,
+      "source": "FAO FRA 2020; Chile planted forest ~3.0 Mha radiata pine + eucalyptus; calc: ~30 Mm3/yr roundwood × 30% residue fraction × 0.45 t/m3",
+      "notes": "Chile is a major global pulp exporter (CMPC, Arauco). Very high-quality concentrated forestry residue stream. Bark, slash, processing waste well-characterized. Strong candidate for BECCS."
+    },
+    "msw_total_mt": {
+      "value": 9.5,
+      "low": 8.0,
+      "high": 11.0,
+      "source": "World Bank WaW 2.0; IADB LAC: Chile ~1.1 kg/cap/day × 19M pop",
+      "notes": ">80% to sanitary landfill; minimal open dump; recycling ~10%. No operational WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "IADB LAC waste composition surveys; Chile upper-MIC with lower organic fraction than poorer neighbors",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 83,
+      "dump_pct": 5,
+      "recycle_compost_pct": 12,
+      "source": "IADB LAC solid waste report; World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 5.0,
+      "low": 3.0,
+      "high": 8.0,
+      "source": "calc: FAO 2022 cattle ~3.5M + poultry ~77M + swine ~3M; standard excretion factors",
+      "notes": "Relatively small livestock sector"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.12,
+      "low": 0.08,
+      "high": 0.18,
+      "source": "calc: 19M pop × ~70% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "One of highest WWTP coverage rates in South America"
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO; central valley intensive agriculture with moderate fertilizer use",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Strong governance, rule of law. Forestry residues from radiata pine pulp mills (Arauco, CMPC) are world-class concentrated feedstock. Excellent BiCRS candidate if storage available. Proximity to Andean basins for geological storage uncertain — key gap."
+  },
+  {
+    "id": "PER",
+    "name": "Peru",
+    "level": "country",
+    "parent": null,
+    "centroid": [-75.0, -9.2],
+    "ag_residues_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "PMC11255045: Peru total biomass 272 Mt (256 firewood + 16 residues); sugarcane bagasse 8.48 Mt/yr; calc: rice, asparagus, potato, maize residues added",
+      "notes": "Sugarcane bagasse from coastal valleys dominant concentrated feedstock. Amazon region has large woody biomass but logging governance very weak."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.5,
+      "low": 1.5,
+      "high": 6.0,
+      "source": "FAO FRA 2020 Peru; calc: formal roundwood harvest ~2 Mm3/yr × residue fraction; vast informal/illegal logging not counted",
+      "notes": "Massive forest area (70M ha) but legal logging sector small. Governance risk: illegal Amazon logging dominant — Frontier should NOT source from Peru's forest sector without strict certification."
+    },
+    "msw_total_mt": {
+      "value": 9.0,
+      "low": 7.5,
+      "high": 11.0,
+      "source": "World Bank WaW 2.0; calc: ~33M pop × 0.75 kg/cap/day",
+      "notes": "~60% to landfill, ~30% open dump, ~10% recycling (largely informal). Lima generates ~3 Mt/yr."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.64,
+      "source": "World Bank WaW 2.0 regional; LMIC tropical city composition ~60–68% organic+paper",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 60,
+      "dump_pct": 30,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0; IADB LAC"
+    },
+    "animal_manure_odt_mt": {
+      "value": 10.0,
+      "low": 6.0,
+      "high": 15.0,
+      "source": "calc: FAO 2022 cattle ~5.8M + llamas/alpacas ~5M + poultry ~150M; standard excretion factors",
+      "notes": "Camelid (llama/alpaca) manure significant in highlands but very diffuse"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.10,
+      "low": 0.06,
+      "high": 0.16,
+      "source": "calc: 33M pop × ~35% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Low WWTP coverage outside Lima"
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; Andean soils generally low-nutrient; Amazon soils nutrient-poor (oxisols)",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Governance risk: significant illegal logging; weak environmental enforcement in Amazon. Coastal ag residues (sugarcane, asparagus) are governable. Frontier should flag forestry sourcing from Peru as high-risk."
+  },
+  {
+    "id": "URY",
+    "name": "Uruguay",
+    "level": "country",
+    "parent": null,
+    "centroid": [-55.8, -32.5],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "PMC11255045: rice husks 0.20 Mt, wheat straw 0.26 Mt, sunflower husks 0.04 Mt; calc: soy ~3 Mt × 1.5 RPR + barley + additional crops × 40% recoverable",
+      "notes": "Small but highly productive agricultural sector. Rice and soy dominant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.0,
+      "low": 1.0,
+      "high": 3.5,
+      "source": "FAO FRA 2020; Uruguay planted forest ~1.1 Mha eucalyptus/pine; UPM Fray Bentos and Montes del Plata pulp mills active",
+      "notes": "Rapidly expanding eucalyptus plantation sector. UPM2 (Paso de los Toros) opened 2023 — one of world's largest pulp mills. Concentrated, well-governed residue stream. Strong BiCRS candidate."
+    },
+    "msw_total_mt": {
+      "value": 1.5,
+      "low": 1.2,
+      "high": 1.9,
+      "source": "World Bank WaW 2.0; calc: 3.5M pop × 1.1 kg/cap/day",
+      "notes": "Mostly sanitary landfill. Strong environmental governance."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "World Bank WaW 2.0; upper-MIC profile",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 80,
+      "dump_pct": 5,
+      "recycle_compost_pct": 15,
+      "source": "World Bank WaW 2.0; IADB LAC"
+    },
+    "animal_manure_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "calc: FAO 2022 cattle ~11.4M head (world-leading per capita) × 24 kg/day × 365 × 12% DM",
+      "notes": "Very high cattle density relative to population. Extensive pastoral system limits collectability."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.03,
+      "low": 0.02,
+      "high": 0.05,
+      "source": "calc: 3.5M pop × 70% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO; Pampas soils fertile, moderate fertilizer use",
+    "dominant_feedstock": "forestry_woody",
+    "feedstock_density": "concentrated",
+    "notes": "Excellent governance, transparent regulation. UPM pulp mills are textbook BECCS retrofit candidates. Small country but very high biomass/capita ratio. High-priority Frontier prospect."
+  },
+  {
+    "id": "PRY",
+    "name": "Paraguay",
+    "level": "country",
+    "parent": null,
+    "centroid": [-58.4, -23.4],
+    "ag_residues_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "calc: FAOSTAT 2022 soy ~10 Mt × 1.5 RPR + maize ~5 Mt × 1.0 RPR + wheat ~1 Mt + sugarcane ~5 Mt × 0.25 × 40% recoverable",
+      "notes": "Paraguay is major soy exporter relative to its size. Eastern Chaco soy expansion a governance concern."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.8,
+      "high": 3.0,
+      "source": "FAO FRA 2020 Paraguay; calc: roundwood ~7 Mm3/yr mostly native forest × partial residue fraction",
+      "notes": "High deforestation rate in Chaco and Atlantic Forest fragments. Forest governance very weak — Frontier must NOT source forestry residues from Paraguay without strict certification. High risk."
+    },
+    "msw_total_mt": {
+      "value": 1.5,
+      "low": 1.1,
+      "high": 2.0,
+      "source": "World Bank WaW 2.0; calc: 7.4M pop × 0.55 kg/cap/day",
+      "notes": "Significant open dumping. Asunción generates bulk of formal waste."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.68,
+      "source": "World Bank WaW 2.0 LMIC regional; Paraguay LMIC profile",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 40,
+      "dump_pct": 50,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0; IADB"
+    },
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 7.0,
+      "high": 17.0,
+      "source": "calc: FAO 2022 cattle ~13.5M head × 24 kg/day × 365 × 12% DM",
+      "notes": "Large cattle herd relative to population. Mostly extensive — low collectability."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.04,
+      "low": 0.02,
+      "high": 0.07,
+      "source": "calc: 7.4M pop × ~15% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Very low WWTP coverage"
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; eastern soils moderate but Chaco soils poor",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Paraguay has one of highest deforestation rates in South America. Forest sourcing prohibited without certification. Ag residues from soy sector marginally acceptable if certified deforestation-free."
+  },
+  {
+    "id": "BOL",
+    "name": "Bolivia",
+    "level": "country",
+    "parent": null,
+    "centroid": [-64.7, -16.7],
+    "ag_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.0,
+      "high": 8.0,
+      "source": "calc: FAOSTAT 2022 soy ~3.5 Mt + sugarcane ~7 Mt × 0.25 bagasse + maize + sunflower × 40% recoverable; IRENA LAC",
+      "notes": "Santa Cruz lowlands are main production zone. Soy and sugarcane residues concentrated there."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.0,
+      "low": 0.4,
+      "high": 2.0,
+      "source": "FAO FRA 2020 Bolivia; small formal logging sector vs. large forest area",
+      "notes": "GOVERNANCE RISK: Bolivia has extremely high deforestation rate. Legal forest sector small. Forest residues not recommended for sourcing without strict certification."
+    },
+    "msw_total_mt": {
+      "value": 2.2,
+      "low": 1.7,
+      "high": 2.8,
+      "source": "World Bank WaW 2.0; ScienceDirect pii/S0921344920305498; calc: 12M pop × 0.50 kg/cap/day",
+      "notes": "Mix of landfill and open dump. La Paz/Santa Cruz generate majority."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.68,
+      "source": "World Bank WaW 2.0 LMIC; Bolivian waste composition largely organic",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 35,
+      "dump_pct": 55,
+      "recycle_compost_pct": 10,
+      "source": "ScienceDirect pii/S0921344920305498; World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 7.0,
+      "low": 4.0,
+      "high": 10.0,
+      "source": "calc: FAO 2022 cattle ~9M + llamas/alpacas ~2M + poultry; standard excretion factors",
+      "notes": "Extensive systems; low collectability"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.09,
+      "source": "calc: 12M pop × ~20% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Very low WWTP coverage"
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; Andean soils generally nutrient-poor",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Among highest deforestation rates globally. Frontier should not source forestry biomass. Ag residues from Santa Cruz soy belt are the only governable option."
+  },
+  {
+    "id": "ECU",
+    "name": "Ecuador",
+    "level": "country",
+    "parent": null,
+    "centroid": [-78.2, -1.8],
+    "ag_residues_odt_mt": {
+      "value": 7.0,
+      "low": 4.5,
+      "high": 10.0,
+      "source": "PMC11255045: Ecuador total ag residues 18.23 Mt/yr gross; sugarcane bagasse 1.47 Mt; × 40% recoverable = ~7 Mt; also bananas, oil palm, rice, cacao residues",
+      "notes": "Banana rachis/pseudostems significant but high moisture (~90%). Oil palm EFB growing. Coastal zone concentrated."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.8,
+      "low": 0.3,
+      "high": 1.5,
+      "source": "PMC11255045: Ecuador forestry residues 0.22 Mt/yr; FAO FRA 2020",
+      "notes": "Small formal forestry sector. Amazon logging governance weak."
+    },
+    "msw_total_mt": {
+      "value": 5.0,
+      "low": 4.0,
+      "high": 6.5,
+      "source": "World Bank WaW 2.0; calc: 18M pop × 0.74 kg/cap/day",
+      "notes": "~70% to landfill; ~15% open dump; ~15% recycling/informal"
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "World Bank WaW 2.0 regional; LMIC tropical",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 70,
+      "dump_pct": 15,
+      "recycle_compost_pct": 15,
+      "source": "World Bank WaW 2.0; IADB LAC"
+    },
+    "animal_manure_odt_mt": {
+      "value": 6.0,
+      "low": 3.5,
+      "high": 9.0,
+      "source": "calc: FAO 2022 cattle ~4.5M + poultry; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.04,
+      "high": 0.11,
+      "source": "calc: 18M pop × ~30% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; Andean/Amazonian soils generally nutrient-poor",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Moderate governance. Amazon deforestation risk for forestry. Coastal ag residues (banana, palm, sugarcane) best option."
+  },
+  {
+    "id": "CUB",
+    "name": "Cuba",
+    "level": "country",
+    "parent": null,
+    "centroid": [-79.5, 22.0],
+    "ag_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.5,
+      "high": 6.0,
+      "source": "calc: FAOSTAT 2022 sugarcane ~15 Mt × 0.25 bagasse + rice + citrus residues × 40% recoverable; IRENA Caribbean",
+      "notes": "Sugarcane bagasse historically dominant; production has declined from peak. Some bagasse already used in sugar mill cogeneration."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.2,
+      "high": 1.0,
+      "source": "FAO FRA 2020 Cuba; calc: small formal logging sector",
+      "notes": "Modest forest sector"
+    },
+    "msw_total_mt": {
+      "value": 3.0,
+      "low": 2.3,
+      "high": 3.8,
+      "source": "World Bank WaW 2.0; calc: 11.3M pop × 0.72 kg/cap/day",
+      "notes": "Mostly open dump / rudimentary landfill. Near-zero WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "World Bank WaW 2.0 LMIC regional estimate",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 30,
+      "dump_pct": 60,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0 regional; Cuba-specific data limited"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "calc: FAO 2022 cattle ~3.7M + poultry; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.08,
+      "source": "calc: 11.3M pop × ~30% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO; Cuban soils moderate fertility",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "GOVERNANCE/POLITICAL RISK: US sanctions and political isolation severely limit international investment. Frontier cannot currently operate here. Data included for completeness only. Sugarcane mill infrastructure exists but badly deteriorated."
+  },
+  {
+    "id": "GTM",
+    "name": "Guatemala",
+    "level": "country",
+    "parent": null,
+    "centroid": [-90.2, 15.8],
+    "ag_residues_odt_mt": {
+      "value": 5.5,
+      "low": 3.5,
+      "high": 8.0,
+      "source": "calc: FAOSTAT 2022 sugarcane ~32 Mt × 0.25 bagasse + palm oil residues + maize + banana × 40% recoverable",
+      "notes": "Sugarcane bagasse (~4 Mt) and oil palm EFB dominant. Pacific coastal plain highly concentrated production zone."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.2,
+      "high": 1.0,
+      "source": "FAO FRA 2020 Guatemala; small formal forestry sector",
+      "notes": "Significant forest area but mostly in Petén (illegal logging governance weak). Formal sector tiny."
+    },
+    "msw_total_mt": {
+      "value": 3.8,
+      "low": 3.0,
+      "high": 4.8,
+      "source": "World Bank WaW 2.0; calc: 17.5M pop × 0.60 kg/cap/day; PMC9850929",
+      "notes": "Heavy open burning and open dumping. Guatemala City generates ~40% of national total."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.68,
+      "source": "World Bank WaW 2.0 LMIC; PMC9850929 Guatemala waste composition study",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 25,
+      "dump_pct": 65,
+      "recycle_compost_pct": 10,
+      "source": "PMC9850929; World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 3.5,
+      "low": 2.0,
+      "high": 5.5,
+      "source": "calc: FAO 2022 cattle ~3M + poultry ~40M; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.04,
+      "low": 0.02,
+      "high": 0.07,
+      "source": "calc: 17.5M pop × ~10% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Very low WWTP coverage"
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; highland soils variable; lowland plantation soils moderate",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "GOVERNANCE RISK: Weak rule of law, significant land conflict in Petén and indigenous territories. Sugarcane residues from Pacific coast mills are most tractable feedstock. Frontier should proceed cautiously — land rights verification essential."
+  },
+  {
+    "id": "NGA",
+    "name": "Nigeria",
+    "level": "country",
+    "parent": null,
+    "centroid": [8.7, 9.1],
+    "ag_residues_odt_mt": {
+      "value": 40.0,
+      "low": 25.0,
+      "high": 60.0,
+      "source": "PMC10988974 (Nigeria GIS study); MDPI 2079-9276/9/8/92: ~80 Mt gross residues (cassava, maize, oil palm, plantain, rice, sorghum), 0.8 EJ technical; West Africa total 402 Mt biomass with Nigeria leading; × ~50% recoverable",
+      "notes": "Top contributors: cassava, maize, sorghum, millet, rice straw, oil palm EFB. Very large resource but extremely diffuse — North-East has highest potential but lowest infrastructure."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.0,
+      "low": 1.5,
+      "high": 6.0,
+      "source": "FAO FRA 2020 Nigeria; calc: formal roundwood ~6 Mm3/yr × residue fraction; plus plantation sector",
+      "notes": "Formal forestry sector heavily degraded. Significant illegal logging. GOVERNANCE RISK: forest sourcing not recommended."
+    },
+    "msw_total_mt": {
+      "value": 32.0,
+      "low": 25.0,
+      "high": 42.0,
+      "source": "World Bank WaW 2.0; Statista MSW Africa 2016; calc: 220M pop × 0.40 kg/cap/day; Africa top-3 generator",
+      "notes": "Lagos alone generates ~10 Mt/yr. Mostly open dump/minimal collection outside major cities. Near-zero formal treatment."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.68,
+      "source": "World Bank WaW 2.0; Africa avg 57% organic + ~13% paper; typical LMIC",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 10,
+      "dump_pct": 80,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0; PMC8723766"
+    },
+    "animal_manure_odt_mt": {
+      "value": 30.0,
+      "low": 18.0,
+      "high": 45.0,
+      "source": "calc: FAO 2022 cattle ~21M + goats ~75M + sheep ~43M + poultry ~170M; standard excretion factors × 12% DM",
+      "notes": "Extensive pastoral systems — very low collectability. Feedlot sector tiny."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.10,
+      "low": 0.05,
+      "high": 0.18,
+      "source": "calc: 220M pop × ~3% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Near-negligible formal sewage treatment nationally"
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; tropical leached soils, generally low fertility; moderate fertilizer use in south",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Weak regulatory environment, land tenure insecurity, armed conflict in Northeast. Large resource but very low current BiCRS viability. Frontier would NOT currently pursue. Data included for future scenario planning. Bio-oil/biochar most plausible pathway if governance improves — concentrated facilities absent."
+  },
+  {
+    "id": "ETH",
+    "name": "Ethiopia",
+    "level": "country",
+    "parent": null,
+    "centroid": [40.5, 9.1],
+    "ag_residues_odt_mt": {
+      "value": 55.0,
+      "low": 43.0,
+      "high": 73.0,
+      "source": "PMC9941997: gross 69,569–105,522 kt/yr; recoverable 42,621–72,194 kt/yr (avg 57,744 kt); based on 2020-21 CSA crop statistics; maize 36%, sorghum 29%, teff 7% of recoverable",
+      "notes": "Best-characterized dataset in Africa for this study. Recoverable fraction 61–68% of gross. Large resource — teff, maize, sorghum straw dominant."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.0,
+      "low": 0.8,
+      "high": 4.0,
+      "source": "FAO FRA 2020 Ethiopia; calc: formal roundwood harvest small; Ethiopia has lost most forest cover",
+      "notes": "GOVERNANCE RISK: Rapid deforestation, ongoing armed conflict (Tigray, Amhara). Forest sourcing not viable."
+    },
+    "msw_total_mt": {
+      "value": 9.0,
+      "low": 7.0,
+      "high": 12.0,
+      "source": "World Bank WaW 2.0; calc: 125M pop × 0.20 kg/cap/day (very low-income)",
+      "notes": "Very low formal waste collection. Addis Ababa generates ~1.5 Mt/yr. Near-total open dumping outside Addis."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.72,
+      "source": "World Bank WaW 2.0; LIC profile: ~65–75% organic+paper",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 5,
+      "dump_pct": 90,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0; PMC8723766"
+    },
+    "animal_manure_odt_mt": {
+      "value": 40.0,
+      "low": 25.0,
+      "high": 58.0,
+      "source": "calc: FAO 2022 cattle ~65M (world's 5th largest herd) + goats ~30M + sheep ~40M + donkeys ~7M; standard excretion factors × 12% DM",
+      "notes": "Enormous herd but near-100% extensive pastoral. Virtually uncollectable at scale. Critical note: dung currently used as cooking fuel — removal would harm households."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.04,
+      "low": 0.02,
+      "high": 0.08,
+      "source": "calc: 125M pop × ~2% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; highly degraded soils; chronic nutrient deficit — residue removal would worsen food security",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Armed conflict (ongoing Tigray/Amhara crises), extremely weak infrastructure, food security concerns. Frontier would NOT currently pursue BiCRS here. Large theoretical resource noted for long-term scenario. Residue removal competes with animal feed and cooking fuel — social cost very high."
+  },
+  {
+    "id": "ZAF",
+    "name": "South Africa",
+    "level": "country",
+    "parent": null,
+    "centroid": [25.1, -29.0],
+    "ag_residues_odt_mt": {
+      "value": 12.0,
+      "low": 7.0,
+      "high": 18.0,
+      "source": "ScienceDirect pii/S0961953416302124: maize + wheat residues 104–238 PJ sustainable; calc: ~12 Mt odt midpoint; FAOSTAT 2022 maize ~15 Mt + wheat ~2 Mt + sugarcane ~22 Mt × residue ratios × 40% recoverable",
+      "notes": "Maize stover dominant (Free State, Limpopo). Sugarcane residues (KwaZulu-Natal) concentrated. Some bagasse already used in mill cogeneration."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 3.5,
+      "low": 2.0,
+      "high": 5.5,
+      "source": "FAO FRA 2020; calc: South Africa plantation forests ~1.3 Mha (eucalyptus, pine, wattle); Sappi/Mondi mills active; roundwood ~17 Mm3/yr × 25% residue × 0.45 t/m3",
+      "notes": "Sappi and Mondi are major pulp producers. Well-organized plantation forestry. Governance strong. BECCS retrofit candidate."
+    },
+    "msw_total_mt": {
+      "value": 18.0,
+      "low": 14.0,
+      "high": 22.0,
+      "source": "World Bank WaW 2.0; Africa MSW Statista 2016 (ZAF top-3); calc: 60M pop × 0.82 kg/cap/day",
+      "notes": "~90% to landfill; minimal WtE; ~10% recycling (largely informal). Johannesburg/Cape Town generate ~8 Mt/yr combined."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.60,
+      "source": "World Bank WaW 2.0; South Africa upper-MIC profile; ~55–65% organic+paper",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 90,
+      "dump_pct": 5,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0; South Africa DFFE waste statistics"
+    },
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 7.0,
+      "high": 18.0,
+      "source": "calc: FAO 2022 cattle ~13.5M + poultry ~180M + pigs ~1.5M; standard excretion factors",
+      "notes": "Significant commercial poultry and dairy sectors provide concentrated manure streams"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.20,
+      "low": 0.12,
+      "high": 0.30,
+      "source": "calc: 60M pop × ~55% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Relatively high WWTP coverage for sub-Saharan Africa"
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO; commercial farming zones moderate-to-high input; smallholder zones low",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Best governance framework in sub-Saharan Africa. Strong rule of law, functioning land rights, environmental regulation. Sappi/Mondi pulp mills are viable BECCS retrofit candidates. Key constraint: geological storage location unclear — Karoo Basin assessed but uncertain. High-priority for Frontier scouting."
+  },
+  {
+    "id": "EGY",
+    "name": "Egypt",
+    "level": "country",
+    "parent": null,
+    "centroid": [30.8, 26.8],
+    "ag_residues_odt_mt": {
+      "value": 16.0,
+      "low": 11.0,
+      "high": 22.0,
+      "source": "Multiple sources: total crop residues 25.91–28.46 Mt/yr (2017–2021) with rice straw 63.75% of 12.33 Mt dry = ~7.9 Mt rice straw; total dry residue ~12–16 Mt recoverable; MDPI 2079-9276/14/8/131",
+      "notes": "Rice straw is signature feedstock — 3–4 Mt burned annually in fields (major air pollution problem). Other: maize stover, cotton stalks, sugarcane tops. Nile Delta concentration excellent for logistics."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.1,
+      "low": 0.05,
+      "high": 0.2,
+      "source": "FAO FRA 2020; Egypt has negligible natural forest; small plantation sector",
+      "notes": "Desert country — essentially no forestry residues"
+    },
+    "msw_total_mt": {
+      "value": 25.0,
+      "low": 20.0,
+      "high": 30.0,
+      "source": "World Bank WaW 2.0; Africa top-3 generator; calc: 105M pop × 0.65 kg/cap/day",
+      "notes": "Cairo alone ~15 Mt/yr. Mix of landfill and open dump. Zabbaleen informal sector recovers significant organic fraction."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.62,
+      "source": "World Bank WaW 2.0 LMIC/MENA; Egypt MSW ~55–65% organic+paper",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 50,
+      "dump_pct": 40,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0; Egyptian waste reports"
+    },
+    "animal_manure_odt_mt": {
+      "value": 20.0,
+      "low": 13.0,
+      "high": 28.0,
+      "source": "calc: FAO 2022 cattle ~4.3M + buffalo ~4M + sheep ~6M + goats ~5M + poultry ~90M; standard excretion factors × 12% DM",
+      "notes": "Buffalo significant alongside cattle. Nile Delta intensive livestock systems have collectability."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.35,
+      "low": 0.20,
+      "high": 0.50,
+      "source": "calc: 105M pop × ~45% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Improving WWTP coverage; major cities well-served"
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FAO; Nile Delta intensive agriculture with heavy fertilizer use; one of highest application rates in region",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "Rice straw burning is major air quality crisis — policy push for alternatives. Concentrated Nile Delta ag zone suits logistical aggregation. Governance: moderate — functional state institutions but autocratic. No large-scale BiCRS currently. Good candidate for bio-oil or biomass burial given storage uncertainty."
+  },
+  {
+    "id": "KEN",
+    "name": "Kenya",
+    "level": "country",
+    "parent": null,
+    "centroid": [37.9, 0.0],
+    "ag_residues_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "calc: FAOSTAT 2022 maize ~4 Mt × 1.0 RPR + sugarcane ~6 Mt × 0.25 bagasse + tea prunings + wheat + coffee husks × 40% recoverable; regional benchmarks from IRENA Africa 2023",
+      "notes": "Maize stover and sugarcane bagasse dominant. Tea prunings from highlands. Coffee residues. Rift Valley concentrated ag zones."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.7,
+      "high": 2.8,
+      "source": "FAO FRA 2020 Kenya; calc: commercial forestry ~170k ha; formal roundwood ~2 Mm3/yr",
+      "notes": "Kenya Forests Act provides legal framework. Some governance capacity but enforcement variable."
+    },
+    "msw_total_mt": {
+      "value": 6.5,
+      "low": 5.0,
+      "high": 8.5,
+      "source": "World Bank WaW 2.0; calc: 56M pop × 0.32 kg/cap/day; Nairobi ~1.5 Mt/yr",
+      "notes": "Mostly open dump/minimal landfill. Nairobi Kabira WtE project planned (AfDB). ~10% formal collection in rural areas."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.70,
+      "source": "World Bank WaW 2.0 LIC Africa; Kenya ~65–75% organic+paper",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 10,
+      "dump_pct": 85,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0; AfDB Kabira project docs"
+    },
+    "animal_manure_odt_mt": {
+      "value": 18.0,
+      "low": 10.0,
+      "high": 28.0,
+      "source": "calc: FAO 2022 cattle ~17M + goats ~30M + sheep ~20M + poultry ~40M; standard excretion factors",
+      "notes": "Large pastoral herds; low collectability except peri-urban dairy"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.06,
+      "low": 0.03,
+      "high": 0.11,
+      "source": "calc: 56M pop × ~8% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; highly degraded soils; chronic nutrient deficit in smallholder zones",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE NOTE: Improving institutional framework but enforcement weak outside Nairobi. Land rights contested in many areas. Frontier would need careful FPIC and land rights verification. Not currently a priority for BiCRS but monitoring."
+  },
+  {
+    "id": "TZA",
+    "name": "Tanzania",
+    "level": "country",
+    "parent": null,
+    "centroid": [34.9, -6.4],
+    "ag_residues_odt_mt": {
+      "value": 9.0,
+      "low": 5.5,
+      "high": 14.0,
+      "source": "Springer chapter on Tanzania biomass: ~135 PJ/yr from selected crops ÷ ~15 GJ/t odt ≈ 9 Mt; FAOSTAT 2022 maize ~6.5 Mt + cassava ~8 Mt + rice + sisal × residue ratios × 40%",
+      "notes": "Maize stover, cassava stems, rice straw, sisal waste dominant. Sisal is Tanzania-specific concentrated residue stream (Tanga region)."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.0,
+      "low": 0.8,
+      "high": 4.0,
+      "source": "FAO FRA 2020 Tanzania; calc: formal roundwood ~3 Mm3/yr; plantation teak/pine",
+      "notes": "GOVERNANCE RISK: Illegal charcoal/logging widespread. Formal plantation sector small but functional."
+    },
+    "msw_total_mt": {
+      "value": 5.5,
+      "low": 4.0,
+      "high": 7.5,
+      "source": "World Bank WaW 2.0; calc: 65M pop × 0.23 kg/cap/day",
+      "notes": "Very low formal collection. Near-total open dumping. Dar es Salaam ~1.5 Mt/yr."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.72,
+      "source": "World Bank WaW 2.0 LIC Africa",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 5,
+      "dump_pct": 90,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 22.0,
+      "low": 13.0,
+      "high": 32.0,
+      "source": "calc: FAO 2022 cattle ~28M + goats ~16M + sheep ~8M + poultry ~75M; standard excretion factors",
+      "notes": "Very large pastoral cattle herd; near-zero collectability"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.04,
+      "low": 0.02,
+      "high": 0.07,
+      "source": "calc: 65M pop × ~3% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; highly degraded soils across most of country",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Weak regulatory institutions, land rights insecurity. Large theoretical resource but not BiCRS-viable near-term. Frontier flag: do not pursue currently."
+  },
+  {
+    "id": "GHA",
+    "name": "Ghana",
+    "level": "country",
+    "parent": null,
+    "centroid": [-1.0, 7.9],
+    "ag_residues_odt_mt": {
+      "value": 10.0,
+      "low": 6.5,
+      "high": 15.0,
+      "source": "ScienceDirect pii/S0959652623004985: theoretical 28.92 Mt, technical 17.24 Mt; West Africa study: Ghana 2nd highest energy potential after Nigeria; × 40–58% recoverable",
+      "notes": "Cassava stalks, maize stover, cocoa husks, rice straw dominant. Volta region concentrated production."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.7,
+      "high": 3.0,
+      "source": "FAO FRA 2020 Ghana; calc: roundwood ~4 Mm3/yr × residue fraction",
+      "notes": "GOVERNANCE RISK: Significant illegal logging (galamsey/logging nexus). Some plantation sector. Forest sourcing high-risk."
+    },
+    "msw_total_mt": {
+      "value": 4.5,
+      "low": 3.5,
+      "high": 6.0,
+      "source": "World Bank WaW 2.0; calc: 33M pop × 0.37 kg/cap/day; Accra ~1.5 Mt/yr",
+      "notes": "Mix of landfill and open dump. Gasification plant planned (Morocco/South Africa/Ghana cluster noted in one source)."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.68,
+      "source": "World Bank WaW 2.0 LIC West Africa",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 30,
+      "dump_pct": 60,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 5.0,
+      "low": 3.0,
+      "high": 8.0,
+      "source": "calc: FAO 2022 cattle ~1.8M + goats ~8M + sheep ~5M + poultry ~80M; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.08,
+      "source": "calc: 33M pop × ~8% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; tropical leached soils",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE NOTE: Better governance than most West Africa neighbors but still variable. Cocoa residues well-organized at processing level. Not near-term BiCRS priority for Frontier."
+  },
+  {
+    "id": "MAR",
+    "name": "Morocco",
+    "level": "country",
+    "parent": null,
+    "centroid": [-7.1, 31.8],
+    "ag_residues_odt_mt": {
+      "value": 7.0,
+      "low": 4.5,
+      "high": 10.0,
+      "source": "calc: FAOSTAT 2022 wheat ~4 Mt + barley ~2.5 Mt + sugarcane ~2.5 Mt + olive residues ~0.8 Mt × RPR × 40% recoverable; regional benchmarks",
+      "notes": "Cereal straw (wheat/barley) dominant in plains. Olive pomace concentrated at mills. Sugar beet tops in Gharb plain. Relatively modest total."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.0,
+      "low": 0.5,
+      "high": 2.0,
+      "source": "FAO FRA 2020 Morocco; calc: argan + cork oak + eucalyptus plantations; formal logging modest",
+      "notes": "Limited commercial forest sector. Cork oak managed but residues modest."
+    },
+    "msw_total_mt": {
+      "value": 7.5,
+      "low": 6.0,
+      "high": 9.5,
+      "source": "World Bank WaW 2.0; calc: 37M pop × 0.55 kg/cap/day; Casablanca ~2 Mt/yr",
+      "notes": "Improving solid waste infrastructure. ~70% sanitary landfill, ~20% open dump, minimal WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "World Bank WaW 2.0 LMIC MENA; ~60–68% organic+paper",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 70,
+      "dump_pct": 20,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0; Morocco Plan National des Déchets"
+    },
+    "animal_manure_odt_mt": {
+      "value": 10.0,
+      "low": 6.0,
+      "high": 15.0,
+      "source": "calc: FAO 2022 cattle ~3M + sheep ~20M + goats ~6M + poultry ~170M; standard excretion factors",
+      "notes": "Large sheep herd but extensively pastured — low collectability"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.10,
+      "low": 0.06,
+      "high": 0.16,
+      "source": "calc: 37M pop × ~35% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; semi-arid soils generally low-moderate fertility",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Strongest governance in North Africa (World Bank governance indicators). Morocco has climate ambition and functional environmental regulation. Modest biomass resource but viable governance for BiCRS scouting. Olive pomace concentrated at mill level."
+  },
+  {
+    "id": "SDN",
+    "name": "Sudan",
+    "level": "country",
+    "parent": null,
+    "centroid": [30.2, 15.6],
+    "ag_residues_odt_mt": {
+      "value": 10.0,
+      "low": 5.0,
+      "high": 16.0,
+      "source": "calc: FAOSTAT 2022 sorghum ~5 Mt + millet ~2 Mt + sugarcane ~8 Mt × 0.25 bagasse + sesame + groundnut × RPR × 40% recoverable",
+      "notes": "Sorghum straw and sugarcane bagasse dominant. Gezira scheme concentrated irrigated agriculture."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.0,
+      "low": 0.3,
+      "high": 2.5,
+      "source": "FAO FRA 2020 Sudan; heavy deforestation documented",
+      "notes": "GOVERNANCE RISK: Sudan has experienced severe forest loss. Active civil war since 2023. Forest sourcing completely unviable."
+    },
+    "msw_total_mt": {
+      "value": 5.5,
+      "low": 4.0,
+      "high": 8.0,
+      "source": "World Bank WaW 2.0; calc: 46M pop × 0.33 kg/cap/day",
+      "notes": "Near-total open dumping. Formal waste management collapsed in conflict areas."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.70,
+      "source": "World Bank WaW 2.0 LIC Africa/MENA",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 10,
+      "dump_pct": 85,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 30.0,
+      "low": 18.0,
+      "high": 45.0,
+      "source": "calc: FAO 2022 cattle ~31M + sheep ~41M + goats ~32M + camels ~4.5M; standard excretion factors",
+      "notes": "One of Africa's largest pastoral herds. Near-zero collectability."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.03,
+      "low": 0.01,
+      "high": 0.06,
+      "source": "calc: 46M pop × ~3% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; arid/semi-arid degraded soils",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Active civil war (2023–present), collapsing state institutions, humanitarian crisis. Frontier must NOT engage. Data included for long-term scenario only."
+  },
+  {
+    "id": "UGA",
+    "name": "Uganda",
+    "level": "country",
+    "parent": null,
+    "centroid": [32.3, 1.4],
+    "ag_residues_odt_mt": {
+      "value": 7.0,
+      "low": 4.0,
+      "high": 11.0,
+      "source": "calc: FAOSTAT 2022 maize ~3 Mt + plantain/banana ~4 Mt (stalk/peel) + sugarcane ~5 Mt × 0.25 + cassava + coffee husks × RPR × 40% recoverable; PMC6916656 biochar Uganda",
+      "notes": "Banana/plantain pseudostem significant wet residue. Coffee husks concentrated at washing stations. Sugar industry in Jinja/Kampala corridor."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.0,
+      "low": 0.4,
+      "high": 2.0,
+      "source": "FAO FRA 2020 Uganda; calc: commercial forestry modest; significant illegal charcoal",
+      "notes": "GOVERNANCE RISK: Significant deforestation for charcoal. Formal timber sector small."
+    },
+    "msw_total_mt": {
+      "value": 3.0,
+      "low": 2.2,
+      "high": 4.2,
+      "source": "World Bank WaW 2.0; calc: 48M pop × 0.17 kg/cap/day",
+      "notes": "Very low formal collection. Kampala generates majority. Near-total open dumping."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.72,
+      "source": "World Bank WaW 2.0 LIC Africa",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 8,
+      "dump_pct": 87,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0; PMC8723766"
+    },
+    "animal_manure_odt_mt": {
+      "value": 10.0,
+      "low": 6.0,
+      "high": 15.0,
+      "source": "calc: FAO 2022 cattle ~14M + goats ~15M + sheep ~3.5M + poultry ~50M; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.03,
+      "low": 0.01,
+      "high": 0.05,
+      "source": "calc: 48M pop × ~3% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; heavily degraded soils, chronic nutrient deficit",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Variable institutions, land rights insecurity. Sugar industry at Kakira/Kinyara represents best near-term concentrated feedstock. Frontier should not pursue at scale currently."
+  },
+  {
+    "id": "MOZ",
+    "name": "Mozambique",
+    "level": "country",
+    "parent": null,
+    "centroid": [35.5, -17.3],
+    "ag_residues_odt_mt": {
+      "value": 5.5,
+      "low": 3.0,
+      "high": 9.0,
+      "source": "calc: FAOSTAT 2022 cassava ~10 Mt + maize ~2 Mt + sugarcane ~5 Mt × 0.25 + sesame + cotton × RPR × 40% recoverable; IRENA Africa note: Mozambique biomass caters 32% energy demand",
+      "notes": "Sugarcane residues concentrated at Marromeu and Maragra mills. Cassava stalks diffuse."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.0,
+      "low": 0.8,
+      "high": 4.0,
+      "source": "FAO FRA 2020 Mozambique; calc: formal roundwood ~15 Mm3/yr (much illegal) × formal sector residue fraction",
+      "notes": "GOVERNANCE RISK: Very high illegal logging (miombo woodland). Asian buyer chain documented. Forest sourcing not viable without strict certification."
+    },
+    "msw_total_mt": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.5,
+      "source": "World Bank WaW 2.0; calc: 33M pop × 0.21 kg/cap/day",
+      "notes": "Near-total open dumping. Maputo generates bulk."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.72,
+      "source": "World Bank WaW 2.0 LIC Africa",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 5,
+      "dump_pct": 90,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 5.0,
+      "low": 2.5,
+      "high": 8.0,
+      "source": "calc: FAO 2022 cattle ~1.4M + goats ~5M + pigs + poultry; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.02,
+      "low": 0.01,
+      "high": 0.04,
+      "source": "calc: 33M pop × ~3% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; severely degraded soils, chronic nutrient deficit",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Weak institutions, ongoing insurgency in Cabo Delgado (LNG region). Sugarcane mills (Marromeu) represent only viable concentrated feedstock. Frontier should not pursue at scale."
+  },
+  {
+    "id": "CIV",
+    "name": "Côte d'Ivoire",
+    "level": "country",
+    "parent": null,
+    "centroid": [-5.6, 7.5],
+    "ag_residues_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "calc: FAOSTAT 2022 cocoa ~2.2 Mt (world's largest producer) × 1.0 pod husk RPR + palm oil ~2 Mt EFB + cassava + maize + rice × RPR × 40% recoverable",
+      "notes": "Cocoa pod husks and oil palm EFB are large, semi-concentrated residue streams (processing mills). West Africa cocoa dominance makes CIV unique feedstock profile."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.5,
+      "low": 0.5,
+      "high": 3.0,
+      "source": "FAO FRA 2020 CIV; calc: plantation + formal logging; massive historical deforestation",
+      "notes": "GOVERNANCE RISK: CIV has lost >90% of original forest cover to cocoa expansion. Remaining forest governance weak. Do not source forestry residues."
+    },
+    "msw_total_mt": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 5.0,
+      "source": "World Bank WaW 2.0; calc: 27M pop × 0.36 kg/cap/day",
+      "notes": "Abidjan generates majority. Mix of landfill and open dump."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.68,
+      "source": "World Bank WaW 2.0 LIC West Africa",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 35,
+      "dump_pct": 55,
+      "recycle_compost_pct": 10,
+      "source": "World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 4.0,
+      "low": 2.0,
+      "high": 6.5,
+      "source": "calc: FAO 2022 cattle ~1.5M + goats/sheep + poultry; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.03,
+      "low": 0.01,
+      "high": 0.05,
+      "source": "calc: 27M pop × ~5% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; forest soils depleted by continuous cocoa; low natural fertility",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "concentrated",
+    "notes": "GOVERNANCE RISK: Historically contested land rights (stranger farmer issue), weak environmental enforcement. Cocoa and palm processing mills provide concentrated residue access points. Not near-term BiCRS priority for Frontier but unique feedstock profile."
+  },
+  {
+    "id": "AGO",
+    "name": "Angola",
+    "level": "country",
+    "parent": null,
+    "centroid": [17.9, -11.2],
+    "ag_residues_odt_mt": {
+      "value": 4.0,
+      "low": 2.0,
+      "high": 7.0,
+      "source": "calc: FAOSTAT 2022 cassava ~10 Mt × 0.4 RPR + maize ~2 Mt + sorghum + sugarcane × RPR × 40% recoverable",
+      "notes": "Cassava dominant but very diffuse subsistence production. Sugarcane sector small but concentrated."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 1.0,
+      "low": 0.3,
+      "high": 2.5,
+      "source": "FAO FRA 2020 Angola; large forest area but near-total logging collapse",
+      "notes": "GOVERNANCE RISK: Post-civil war recovery; logging governance extremely weak."
+    },
+    "msw_total_mt": {
+      "value": 3.8,
+      "low": 2.8,
+      "high": 5.2,
+      "source": "World Bank WaW 2.0; calc: 34M pop × 0.31 kg/cap/day",
+      "notes": "Luanda (8M pop) generates majority. Near-total open dumping."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.70,
+      "source": "World Bank WaW 2.0 LIC Africa",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 8,
+      "dump_pct": 87,
+      "recycle_compost_pct": 5,
+      "source": "World Bank WaW 2.0"
+    },
+    "animal_manure_odt_mt": {
+      "value": 5.0,
+      "low": 2.5,
+      "high": 8.0,
+      "source": "calc: FAO 2022 cattle ~4.5M + goats/sheep + poultry; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.03,
+      "low": 0.01,
+      "high": 0.05,
+      "source": "calc: 34M pop × ~4% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; degraded soils; chronic nutrient deficit",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Weak institutions outside Luanda, oil-dependent economy with limited environmental capacity. Frontier should not pursue currently."
+  },
+  {
+    "id": "RUS",
+    "name": "Russia",
+    "level": "country",
+    "parent": null,
+    "centroid": [95.0, 60.0],
+    "ag_residues_odt_mt": {
+      "value": 90.0,
+      "low": 65.0,
+      "high": 120.0,
+      "source": "Renewable & Sustainable Energy Reviews vol.81 p625 (2018): Russia total technical bioenergy potential 2225 PJ; crop residues 42% = ~934 PJ ÷ ~10.5 GJ/t odt ≈ 89 Mt; USDA: 2022/23 wheat 92 Mt total × 1.3 RPR + sunflower ~17 Mt × 2.0 RPR + barley + maize × 40% recoverable",
+      "notes": "Wheat and sunflower straw dominant (South + Volga federal districts hold ~50% of potential). Maize stover growing with Black Sea expansion. Half of potential in southernmost districts with best logistics."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 65.0,
+      "low": 40.0,
+      "high": 95.0,
+      "source": "Renewable & Sustainable Energy Reviews vol.81 p625 (2018): forestry residues 23% of 2225 PJ = ~512 PJ ÷ ~8 GJ/t odt ≈ 64 Mt; FAO FRA 2020 Russia roundwood harvest ~230 Mm3/yr; ScienceDirect pii/S1364032115004566 solid bioenergy Russia",
+      "notes": "Boreal logging residues vast but highly dispersed. West Siberia most accessible. Wood pellet export sector (4 Mt/yr) demonstrates some commercial harvesting capacity. Infrastructure (roads) major constraint in Siberian interior."
+    },
+    "msw_total_mt": {
+      "value": 65.0,
+      "low": 55.0,
+      "high": 75.0,
+      "source": "E3S Conferences 2023: 49.9–58.4 Mt 2010–2018; 2019 figure ~70 Mt; State environmental report 2018; Wikipedia Russia waste management",
+      "notes": "~90% to landfill; ~3% WtE (Moscow/Saint Petersburg only); ~5–7% recycling. Food waste ~34% of composition."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "Springer doi:10.1007/s13762-021-03542-5; Russia MSW: food ~34% + paper/cardboard ~25% = ~59%; adjusted for dry weight basis to 0.55",
+      "notes": "Upper-MIC transitional economy profile"
+    },
+    "msw_treatment": {
+      "wte_pct": 3,
+      "landfill_pct": 87,
+      "dump_pct": 5,
+      "recycle_compost_pct": 5,
+      "source": "Wikipedia Russia waste management; E3S Conferences 2023; IFC MSW Russia study"
+    },
+    "animal_manure_odt_mt": {
+      "value": 55.0,
+      "low": 35.0,
+      "high": 80.0,
+      "source": "Renewable & Sustainable Energy Reviews vol.81 p625 (2018): livestock waste 9% of 2225 PJ ≈ 200 PJ; cattle waste cited at 98.5 Mt fresh → ~12 Mt odt cattle alone; calc: FAO 2022 cattle ~18M + pigs ~23M + poultry ~590M × excretion × DM factors",
+      "notes": "Large industrial poultry and pig sectors (Cherkizovo, Miratorg) provide concentrated manure streams. Dairy sector significant."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.70,
+      "low": 0.45,
+      "high": 1.0,
+      "source": "calc: 145M pop × ~75% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Reasonably high WWTP coverage in urban areas"
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO; Black Earth (chernozem) zone excess nutrients historically; Siberian soils low; mixed national picture",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GEOPOLITICAL RISK: Russia-Ukraine war (2022–present) and Western sanctions make investment essentially impossible for Frontier and most Western BiCRS buyers. Data included for long-term scenario planning. Enormous theoretical resource (ag + forestry combined ~155 Mt odt/yr midpoint). Wheat/sunflower belt in south has logistical concentration comparable to Pampas. If geopolitical situation changes, very high BiCRS potential."
+  },
+  {
+    "id": "TUR",
+    "name": "Turkey",
+    "level": "country",
+    "parent": null,
+    "centroid": [35.2, 38.9],
+    "ag_residues_odt_mt": {
+      "value": 30.0,
+      "low": 20.0,
+      "high": 45.0,
+      "source": "ScienceDirect pii/S0360544222006739: total 522,875 kt dry mass arable crops; 43 Mt/yr total residues produced, ~28% (12 Mt) unused; earlier study: 53–68 Mt produced × 40–60% recoverable; midpoint ~30 Mt",
+      "notes": "Wheat straw dominant (highest energy contribution). Barley, hazelnut shells, cotton stalks, sunflower straw, olive prunings also significant. Some residues (hazelnut) already exported as biomass pellets."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.0,
+      "high": 8.0,
+      "source": "FAO FRA 2020 Turkey; calc: roundwood ~22 Mm3/yr × 25% residue × 0.45 t/m3; plantation sector growing",
+      "notes": "Significant plantation forestry (black pine, eucalyptus). Logging residues concentrated in Black Sea and Aegean regions."
+    },
+    "msw_total_mt": {
+      "value": 32.0,
+      "low": 27.0,
+      "high": 37.0,
+      "source": "EEA Turkey municipal waste factsheet 2025; Wikipedia Turkey waste management; ~30 Mt/yr figure cited widely for recent years",
+      "notes": "~81% landfill (2021 EEA); <1% WtE; ~17% recycling/composting. Turkey has goal to expand WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.58,
+      "source": "ScienceDirect pii/S0921344919300928: Turkey MSW composition studies; organic ~30% + paper ~12% + textiles ~5% = ~47–60% biogenic",
+      "notes": "Middle-income country; transitional composition"
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 81,
+      "dump_pct": 3,
+      "recycle_compost_pct": 15,
+      "source": "EEA Turkey municipal waste factsheet 2025; ScienceDirect pii/S0921344919300928"
+    },
+    "animal_manure_odt_mt": {
+      "value": 30.0,
+      "low": 20.0,
+      "high": 42.0,
+      "source": "calc: FAO 2022 cattle ~17M + sheep ~43M + goats ~11M + poultry ~330M; standard excretion factors × 12% DM; PMC10998781",
+      "notes": "Large sheep herd mostly pastoral. Cattle and poultry have some concentrated systems."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.35,
+      "low": 0.22,
+      "high": 0.50,
+      "source": "calc: 85M pop × ~60% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Improving WWTP coverage; Istanbul well-served"
+    },
+    "nutrient_status": "moderate",
+    "nutrient_status_source": "FAO; central Anatolian plateau moderate; coastal regions higher input",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Good governance, EU candidate status provides regulatory alignment. Significant biomass resource with existing biomass pellet export sector (hazelnut to EU). Strong candidate for Frontier scouting. Wheat belt in Central Anatolia and Black Sea region hazelnut zone offer concentrated collection points."
+  },
+  {
+    "id": "SAU",
+    "name": "Saudi Arabia",
+    "level": "country",
+    "parent": null,
+    "centroid": [44.6, 23.9],
+    "ag_residues_odt_mt": {
+      "value": 2.5,
+      "low": 1.2,
+      "high": 4.5,
+      "source": "Springer doi:10.1007/s13369-025-10976-3; calc: FAOSTAT 2022 wheat ~1 Mt + dates ~1.7 Mt (fronds/pits) + vegetables + alfalfa × RPR × 40% recoverable",
+      "notes": "Date palm fronds significant but diffuse. Wheat straw from Madinah/Qassim region. Very limited ag sector overall (desert nation, water-constrained)."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.1,
+      "low": 0.05,
+      "high": 0.2,
+      "source": "FAO FRA 2020; essentially no commercial forest",
+      "notes": "Desert nation — negligible forestry"
+    },
+    "msw_total_mt": {
+      "value": 16.0,
+      "low": 13.0,
+      "high": 19.0,
+      "source": "EcoMENA; multiple reviews citing ~15–16 Mt at 1.39 kg/cap/day × ~32M pop (2017); article:10.1177/0734242X211068236",
+      "notes": "~65% to sanitary landfill; ~25% open dump; ~8% recycling; WtE emerging (Jeddah pilots). Organic fraction ~40%."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.55,
+      "source": "EcoMENA; Saudi MSW: organic ~40% + paper ~20% = ~60%; adjusted for dry weight to 0.55",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 65,
+      "dump_pct": 25,
+      "recycle_compost_pct": 9,
+      "source": "EcoMENA; article 10.1177/0734242X211068236; Saudi Vision 2030 waste targets"
+    },
+    "animal_manure_odt_mt": {
+      "value": 12.0,
+      "low": 7.0,
+      "high": 18.0,
+      "source": "calc: FAO 2022 sheep ~9M + goats ~4M + cattle ~0.5M + camels ~0.5M + poultry ~200M; standard excretion factors",
+      "notes": "Large industrial poultry sector (Al-Watania, Fakieh) concentrated in Riyadh/Jeddah regions."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.18,
+      "low": 0.12,
+      "high": 0.26,
+      "source": "calc: 35M pop × ~60% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "High urban coverage; rural areas minimal"
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; desert soils; very low organic matter",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Biomass resource very limited for a large economy. MSW and poultry manure are best concentrated feedstocks. Saudi Vision 2030 includes waste-to-energy ambitions. Governance: strong state capacity but autocratic. Climate-aligned investment interest growing. No domestic storage options known — CCS would require offshore or EOR in oilfields."
+  },
+  {
+    "id": "IRN",
+    "name": "Iran",
+    "level": "country",
+    "parent": null,
+    "centroid": [53.7, 32.4],
+    "ag_residues_odt_mt": {
+      "value": 18.0,
+      "low": 11.0,
+      "high": 26.0,
+      "source": "ScienceDirect pii/S1364032113001731: total agricultural residues ~25–28 Mt/yr range for Iran; Khuzestan province alone 5.5 Mt theoretical; calc: FAOSTAT 2022 wheat ~13 Mt + rice ~2 Mt + sugarcane ~7 Mt + barley + cotton × RPR × 40% recoverable",
+      "notes": "Wheat straw dominant (Khuzestan, Isfahan, Khorasan). Rice straw (Caspian coast). Sugarcane bagasse in Khuzestan concentrated at mills. Significant open burning of rice straw."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 2.0,
+      "low": 1.0,
+      "high": 4.0,
+      "source": "FAO FRA 2020 Iran; calc: Hyrcanian forests + plantation sector; roundwood ~4 Mm3/yr",
+      "notes": "Hyrcanian forests (UNESCO) — sourcing from there must be excluded. Commercial plantation forestry modest."
+    },
+    "msw_total_mt": {
+      "value": 18.0,
+      "low": 15.0,
+      "high": 22.0,
+      "source": "EcoMENA Middle East waste data; calc: 87M pop × 0.57 kg/cap/day; Tehran alone ~4 Mt/yr",
+      "notes": "Mix of sanitary landfill and open dump. Tehran has WtE project under development. Organic fraction high (~55%)."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.62,
+      "source": "MENA regional benchmarks; Iran LMIC organic-rich waste",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 1,
+      "landfill_pct": 55,
+      "dump_pct": 35,
+      "recycle_compost_pct": 9,
+      "source": "EcoMENA; biosaline.org doi:10.1177/0734242X211068236"
+    },
+    "animal_manure_odt_mt": {
+      "value": 30.0,
+      "low": 18.0,
+      "high": 42.0,
+      "source": "calc: FAO 2022 cattle ~9M + sheep ~50M + goats ~25M + poultry ~500M; standard excretion factors × 12% DM",
+      "notes": "Large sheep/goat herds, mostly extensive. Industrial poultry sector growing."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.25,
+      "low": 0.15,
+      "high": 0.38,
+      "source": "calc: 87M pop × ~40% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; arid/semi-arid soils generally low organic matter and nutrients",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GEOPOLITICAL RISK: US/EU sanctions severely restrict international investment. Frontier cannot currently operate here. Large theoretical resource noted for scenario planning. Sugarcane mills in Khuzestan represent best concentrated feedstock."
+  },
+  {
+    "id": "IRQ",
+    "name": "Iraq",
+    "level": "country",
+    "parent": null,
+    "centroid": [43.7, 33.2],
+    "ag_residues_odt_mt": {
+      "value": 5.0,
+      "low": 3.0,
+      "high": 8.0,
+      "source": "calc: FAOSTAT 2022 wheat ~4 Mt + barley ~1 Mt + rice ~0.4 Mt + dates ~0.7 Mt × RPR × 40% recoverable",
+      "notes": "Wheat and barley straw dominant. Date palm fronds. Tigris-Euphrates agricultural zone concentrated."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.1,
+      "low": 0.05,
+      "high": 0.2,
+      "source": "FAO FRA 2020; Iraq has negligible natural forest; date palm plantations",
+      "notes": "Essentially no commercial forestry"
+    },
+    "msw_total_mt": {
+      "value": 8.0,
+      "low": 6.0,
+      "high": 11.0,
+      "source": "JICA Iraq SWM study; calc: 42M pop × 0.52 kg/cap/day; Bagdad ~3 Mt/yr",
+      "notes": "Primarily open dumping. Formal waste management collapsed in conflict areas. Baghdad improving."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.65,
+      "source": "MENA regional benchmarks; Iraq LMIC-MIC transitional",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 30,
+      "dump_pct": 65,
+      "recycle_compost_pct": 5,
+      "source": "JICA Iraq SWM study (openjicareport.jica.go.jp)"
+    },
+    "animal_manure_odt_mt": {
+      "value": 8.0,
+      "low": 5.0,
+      "high": 12.0,
+      "source": "calc: FAO 2022 cattle ~2.8M + sheep ~6.5M + goats ~2M + poultry ~90M; standard excretion factors",
+      "notes": ""
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.08,
+      "low": 0.04,
+      "high": 0.14,
+      "source": "calc: 42M pop × ~25% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; arid soils, salinization widespread in Mesopotamian plains",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "GOVERNANCE RISK: Post-conflict state, ongoing instability in parts of country, militia/corruption issues. Limited near-term BiCRS viability. Wheat/barley straw noted for long-term scenario only."
+  },
+  {
+    "id": "KAZ",
+    "name": "Kazakhstan",
+    "level": "country",
+    "parent": null,
+    "centroid": [67.0, 48.0],
+    "ag_residues_odt_mt": {
+      "value": 22.0,
+      "low": 14.0,
+      "high": 32.0,
+      "source": "calc: FAOSTAT 2022 wheat ~18 Mt × 1.3 RPR + barley ~3 Mt × 1.2 + sunflower ~2 Mt × 2.0 + cotton residues × 40% recoverable; IEA Bioenergy Task 40",
+      "notes": "Kazakh steppe wheat belt (North Kazakhstan, Kostanay, Akmola) is world's largest contiguous dryland wheat zone. Enormous straw resource but very low population density and infrastructure — logistics highly challenging."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.5,
+      "low": 0.2,
+      "high": 1.2,
+      "source": "FAO FRA 2020 Kazakhstan; small forest area (mostly saxaul/scrub); some plantation",
+      "notes": "Negligible commercial forestry"
+    },
+    "msw_total_mt": {
+      "value": 4.5,
+      "low": 3.5,
+      "high": 5.8,
+      "source": "Wikipedia KAZ waste; Astana Times 2019; calc: 19M pop × 0.65 kg/cap/day; 4.3 Mt cited for 2018",
+      "notes": "Near-total open dumping (~97%). Some recycling (3–5%). No WtE."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.58,
+      "source": "MDPI Energies 2024 KAZ MSW composition study: food waste ~45% + paper ~15% = ~60%; adjusted 0.58",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 0,
+      "landfill_pct": 3,
+      "dump_pct": 93,
+      "recycle_compost_pct": 4,
+      "source": "Wikipedia KAZ waste management; Astana Times 2019; MDPI su17198696"
+    },
+    "animal_manure_odt_mt": {
+      "value": 18.0,
+      "low": 10.0,
+      "high": 27.0,
+      "source": "calc: FAO 2022 cattle ~7.5M + sheep ~18M + horses ~3M + camels ~0.2M + poultry ~40M; standard excretion factors",
+      "notes": "Large pastoral herds; very low collectability outside industrial zones"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.08,
+      "low": 0.05,
+      "high": 0.13,
+      "source": "calc: 19M pop × ~55% treatment (Almaty/Nur-Sultan well-served) × 25 g DS/person/day × 365 / 1e9",
+      "notes": ""
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; steppe soils naturally low fertility; extensive dryland farming",
+    "dominant_feedstock": "ag_dry",
+    "feedstock_density": "diffuse",
+    "notes": "Enormous wheat straw resource but infrastructure extremely sparse. No CCS storage sites identified. Governance: moderate (authoritarian but functional state). Biomass burial (no storage needed) may be most viable pathway if governance/logistics improve. Very long-term scenario."
+  },
+  {
+    "id": "ISR",
+    "name": "Israel",
+    "level": "country",
+    "parent": null,
+    "centroid": [34.9, 31.5],
+    "ag_residues_odt_mt": {
+      "value": 1.0,
+      "low": 0.5,
+      "high": 1.8,
+      "source": "calc: FAOSTAT 2022 wheat ~0.7 Mt + citrus ~1 Mt + vegetables + cotton + olive prunings × RPR × 40% recoverable",
+      "notes": "Very small total ag sector. Citrus and olive prunings. Cotton ginning waste. Modest resource."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.1,
+      "low": 0.05,
+      "high": 0.2,
+      "source": "FAO FRA 2020; KKL-JNF planted forests small total area",
+      "notes": "Very small planted forest sector"
+    },
+    "msw_total_mt": {
+      "value": 5.8,
+      "low": 5.0,
+      "high": 6.8,
+      "source": "World Bank WaW 2.0; OECD data; calc: 9.3M pop × 1.70 kg/cap/day (high-income rate)",
+      "notes": "~70% to landfill; ~24% recycling/composting; ~5% WtE (Hiriya plant). Israel has EU-comparable waste stats."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.52,
+      "source": "OECD-comparable; Israel HIC composition; ~30% food + ~25% paper = ~55%; adjusted 0.52",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 5,
+      "landfill_pct": 70,
+      "dump_pct": 0,
+      "recycle_compost_pct": 25,
+      "source": "World Bank WaW 2.0; Israel EMA annual report"
+    },
+    "animal_manure_odt_mt": {
+      "value": 2.5,
+      "low": 1.5,
+      "high": 4.0,
+      "source": "calc: FAO 2022 cattle ~0.4M + poultry ~55M + pigs (limited); intensive livestock systems",
+      "notes": "Very intensive confined livestock systems — high collectability relative to herd size"
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.10,
+      "source": "calc: 9.3M pop × ~90% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Among world's highest WWTP coverage and water reuse rates"
+    },
+    "nutrient_status": "excess",
+    "nutrient_status_source": "FAO; intensive agriculture with very high fertilizer use; Mediterranean coastal soils high-input",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Strong governance, high-tech. Small country, limited biomass resource but excellent institutional capacity. Hiriya WtE complex near Tel Aviv is potential BiCRS site. Geologic storage uncertain — Mediterranean offshore or Jordan Rift Valley options unclear. More relevant as technology hub than feedstock source."
+  },
+  {
+    "id": "ARE",
+    "name": "United Arab Emirates",
+    "level": "country",
+    "parent": null,
+    "centroid": [54.0, 24.0],
+    "ag_residues_odt_mt": {
+      "value": 0.4,
+      "low": 0.15,
+      "high": 0.8,
+      "source": "calc: FAOSTAT 2022 dates ~0.9 Mt (fronds/pits) + vegetables + feed crops × RPR × 40% recoverable",
+      "notes": "Date palm fronds only significant residue. Very limited agriculture in desert environment."
+    },
+    "forestry_residues_odt_mt": {
+      "value": 0.05,
+      "low": 0.02,
+      "high": 0.1,
+      "source": "FAO FRA 2020; UAE has negligible natural forest; mangrove plantings only",
+      "notes": "Negligible"
+    },
+    "msw_total_mt": {
+      "value": 6.5,
+      "low": 5.5,
+      "high": 8.0,
+      "source": "EcoMENA Middle East; calc: 10M pop × 1.78 kg/cap/day (very high-income, high waste rate); biosaline.org MENA study",
+      "notes": "Dubai/Abu Dhabi WtE plants operational (Sharjah). ~35% WtE, ~50% landfill, ~15% recycling. Most advanced waste infrastructure in Middle East."
+    },
+    "msw_biogenic_frac": {
+      "value": 0.48,
+      "source": "EcoMENA; UAE HIC-MIC profile; ~25% food + ~22% paper = ~47%; rounded 0.48",
+      "notes": ""
+    },
+    "msw_treatment": {
+      "wte_pct": 35,
+      "landfill_pct": 50,
+      "dump_pct": 0,
+      "recycle_compost_pct": 15,
+      "source": "EcoMENA; Sharjah WtE plant data; Dubai Municipality waste reports"
+    },
+    "animal_manure_odt_mt": {
+      "value": 1.0,
+      "low": 0.5,
+      "high": 1.8,
+      "source": "calc: FAO 2022 camels ~0.1M + goats/sheep ~2M + poultry ~20M; standard excretion factors",
+      "notes": "Small pastoral/zoo livestock. Concentrated poultry in Al Ain."
+    },
+    "human_wwtp_odt_mt": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.08,
+      "source": "calc: 10M pop × ~90% treatment × 25 g DS/person/day × 365 / 1e9",
+      "notes": "Near-universal WWTP coverage"
+    },
+    "nutrient_status": "low",
+    "nutrient_status_source": "FAO; desert soils; very low natural fertility",
+    "dominant_feedstock": "msw",
+    "feedstock_density": "concentrated",
+    "notes": "Very limited biomass resource but strong state capacity, high investment appetite, and existing WtE (Sharjah). UAE is interested in CCS (ADNOC CCUS hubs). WtE + CCS on existing Sharjah/Dubai plants is most viable BiCRS pathway. Small scale nationally but high symbolic/political importance. UAE hosts COP28 — climate ambition high."
+  }
+]
