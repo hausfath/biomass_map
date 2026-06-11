@@ -34,9 +34,16 @@ Also set `storage_access = "poor"` regardless of distance if the only nearby bas
 low-confidence (this captures Sub-Saharan Africa cratons, Deccan basalts, etc.).
 
 ## Step 2 — retrofit availability
-For each region, find facilities in the same country (match facility.country to region
-country: for US states, country="USA"). `has_retrofit` = any facility with retrofit_score
-in {high, medium}. Capture the best matching facility name + type for the rationale.
+Match retrofittable **existing** facilities to the region by actual location:
+- **US states**: facilities physically inside the state (point-in-polygon on lat/lon), so an
+  anchor appears only where a facility really exists — not a country-wide match.
+- **countries**: facilities whose `country` == region id.
+
+Exclude greenfield / developer / aggregation-hub entries (`existing == false`) — e.g. Arbor
+(greenfield new-build) and Super6 (CO₂ aggregation platform) are not facilities one can
+retrofit, so they never anchor. The `anchor` is the best existing facility in the region (any
+score, preferring pulp_paper/bioenergy), or **none** → UI shows "none mapped". `has_retrofit`
+and `has_pp_or_bioenergy` (score in {high, medium}) drive the BECCS-pulp&paper branch.
 
 ## Step 3 — decision tree (apply in order; first match wins)
 Use region fields: `dominant_feedstock` (ag_dry|forestry_woody|msw|manure_wet|mixed),

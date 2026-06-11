@@ -27,6 +27,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 FEEDSTOCKS_PATH = os.path.join(PROC, "feedstocks.json")
 STORAGE_PATH = os.path.join(PROC, "storage.json")
 FACILITIES_PATH = os.path.join(PROC, "facilities.json")
+US_STATES_PATH = os.path.join(ROOT, "data", "geo", "us_states_raw.geojson")
 OUT_PATH = os.path.join(PROC, "recommendations.json")
 
 # --------------------------------------------------------------------------
@@ -252,15 +253,93 @@ def compute_storage_access(centroid, country, storage):
 # --------------------------------------------------------------------------
 # Step 2 -- retrofit availability
 # --------------------------------------------------------------------------
-def compute_retrofit(country, facilities):
-    """
-    has_retrofit = any facility in same country with retrofit_score in {high, medium}.
-    Returns (has_retrofit, anchor_name, anchor_type, has_pp_or_bioenergy).
-    Prefers the highest-scoring facility, favoring pulp_paper/bioenergy for the anchor.
-    """
-    matches = [f for f in facilities if f.get("country") == country]
-    qualifying = [f for f in matches if f.get("retrofit_score") in ("high", "medium")]
+# --- Point-in-polygon (ray casting) for assigning facilities to US states ---
+def _point_in_ring(x, y, ring):
+    inside = False
+    n = len(ring)
+    j = n - 1
+    for i in range(n):
+        xi, yi = ring[i][0], ring[i][1]
+        xj, yj = ring[j][0], ring[j][1]
+        if ((yi > y) != (yj > y)) and (x < (xj - xi) * (y - yi) / (yj - yi + 1e-300) + xi):
+            inside = not inside
+        j = i
+    return inside
 
+
+def _point_in_polygon(x, y, rings):
+    """rings = [exterior, hole1, ...]; inside exterior and outside all holes."""
+    if not rings or not _point_in_ring(x, y, rings[0]):
+        return False
+    for hole in rings[1:]:
+        if _point_in_ring(x, y, hole):
+            return False
+    return True
+
+
+def _point_in_geometry(x, y, geom):
+    t = geom.get("type")
+    if t == "Polygon":
+        return _point_in_polygon(x, y, geom["coordinates"])
+    if t == "MultiPolygon":
+        return any(_point_in_polygon(x, y, poly) for poly in geom["coordinates"])
+    return False
+
+
+def load_us_states():
+    """Returns [(state_id, geometry), ...] with ids matching feedstock ids (US-<Name>)."""
+    with open(US_STATES_PATH) as f:
+        gj = json.load(f)
+    out = []
+    for feat in gj["features"]:
+        nm = feat["properties"].get("name")
+        out.append(("US-" + nm.replace(" ", "_"), feat["geometry"]))
+    return out
+
+
+def annotate_facility_states(facilities, states):
+    """Tag each US facility with the state it physically sits in (point-in-polygon)."""
+    for f in facilities:
+        f["_state"] = None
+        if f.get("country") != "USA":
+            continue
+        lon, lat = f.get("lon"), f.get("lat")
+        if lon is None or lat is None:
+            continue
+        for sid, geom in states:
+            if _point_in_geometry(lon, lat, geom):
+                f["_state"] = sid
+                break
+
+
+def compute_retrofit(region, facilities):
+    """
+    Match retrofittable EXISTING facilities to the region.
+      - US states: facilities physically located in that state (point-in-polygon), so an
+        anchor only appears where a facility actually exists -- not a country-wide match.
+      - countries: facilities whose `country` == region id.
+    Excludes greenfield / developer / aggregation-hub entries (`existing == False`),
+    e.g. Arbor (greenfield new-build) and Super6 (CO2 aggregation platform): these are not
+    existing facilities one can retrofit.
+
+    Returns (has_retrofit, anchor_name, anchor_type, has_pp_or_bioenergy).
+      anchor   = best EXISTING facility in the region (any score), preferring pulp_paper /
+                 bioenergy then higher score; None if none -> UI shows "none mapped".
+      has_retrofit / has_pp_or_bioenergy are keyed on score in {high, medium} and drive the
+      BECCS-pulp&paper branch.
+    """
+    is_us_state = region.get("level") == "subnational" and region.get("parent") == "USA"
+    if is_us_state:
+        sid = region.get("id")
+        in_region = [f for f in facilities if f.get("_state") == sid]
+    else:
+        rid = region.get("id")
+        in_region = [f for f in facilities if f.get("country") == rid]
+
+    # Only existing physical facilities can be retrofit anchors.
+    existing = [f for f in in_region if f.get("existing", True)]
+
+    qualifying = [f for f in existing if f.get("retrofit_score") in ("high", "medium")]
     has_retrofit = len(qualifying) > 0
     has_pp_or_bioenergy = any(
         f.get("type") in ("pulp_paper", "bioenergy") for f in qualifying
@@ -268,14 +347,14 @@ def compute_retrofit(country, facilities):
 
     anchor_name = None
     anchor_type = None
-    if qualifying:
+    if existing:
         score_rank = {"high": 0, "medium": 1, "low": 2}
         # Prefer pulp_paper/bioenergy, then higher retrofit score.
         def keyfn(f):
             pref = 0 if f.get("type") in ("pulp_paper", "bioenergy") else 1
             return (pref, score_rank.get(f.get("retrofit_score"), 3))
 
-        best = sorted(qualifying, key=keyfn)[0]
+        best = sorted(existing, key=keyfn)[0]
         anchor_name = best.get("name")
         anchor_type = best.get("type")
 
@@ -542,6 +621,9 @@ def build():
     with open(FACILITIES_PATH) as f:
         facilities = json.load(f)
 
+    # Tag US facilities with the state they sit in, so state anchors match by location.
+    annotate_facility_states(facilities, load_us_states())
+
     records = []
     for region in feedstocks:
         centroid = region.get("centroid")
@@ -552,7 +634,7 @@ def build():
             centroid, country, storage
         )
         # Step 2
-        has_retrofit, anchor_name, anchor_type, has_pp_be = compute_retrofit(country, facilities)
+        has_retrofit, anchor_name, anchor_type, has_pp_be = compute_retrofit(region, facilities)
         # Step 3
         rec_key, runner_key = decide(region, storage_access, has_retrofit, has_pp_be)
 

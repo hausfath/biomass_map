@@ -80,12 +80,18 @@ regions toward burial / bio-oil.
 Existing biogenic-CO₂ point sources that could be retrofitted with capture — pulp & paper
 mills, waste-to-energy plants, bioenergy stations, ethanol plants, biogas/AD. Includes the
 BiCRS projects named in the thesis (Stockholm Exergi, Ørsted, CO280, Hafslund Celsio, Drax,
-ADM, Arbor, Super6, Future Biogas). `est_biogenic_co2_mtpa` and a `retrofit_score`
-(high/medium/low) capture scale and retrofit attractiveness. Sources: IEA Bioenergy, company
-reports, Global CCS Institute, CEWEP (European WtE), industry registries.
+ADM, etc.). `est_biogenic_co2_mtpa` and a `retrofit_score` (high/medium/low) capture scale and
+retrofit attractiveness. Sources: IEA Bioenergy, company reports, Global CCS Institute, CEWEP
+(European WtE), industry registries.
 
 Retrofits are "low-hanging fruit" for near-term BECCS (thesis §2.3): existing biomass logistics
 and combustion/grid infrastructure reduce execution risk.
+
+**Retrofit anchors** shown in a region's recommendation are matched by actual location — US
+states use point-in-polygon, so a state shows an anchor only if a facility physically sits in it
+(most show "none mapped"). Greenfield developers and aggregation hubs (e.g. Arbor, a greenfield
+new-build; Super6, a CO₂ aggregation platform) are flagged `existing: false` and never serve as
+anchors, since they are not existing facilities one can retrofit.
 
 ---
 

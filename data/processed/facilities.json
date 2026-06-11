@@ -116,7 +116,8 @@
     "retrofit_score": "high",
     "operator": "Arbor Energy",
     "source": "Frontier Climate portfolio page; Microsoft offtake announcement; Bioenergy International",
-    "notes": "EXISTING BECCS PROJECT (anchor). Near Lake Charles, Louisiana. Oxy-combustion technology (SpaceX rocket engine heritage); CO2 captured inherently in cycle (>99%). Waste biomass fuel (timber thinnings). $55M raised; $41M Frontier offtake (116 kt over 2028–2030); Microsoft 25 kt starting 2027. Pre-commercial — full scale not yet published. Storage partner not yet announced. Location is approximate (Lake Charles area)."
+    "notes": "EXISTING BECCS PROJECT (anchor). Near Lake Charles, Louisiana. Oxy-combustion technology (SpaceX rocket engine heritage); CO2 captured inherently in cycle (>99%). Waste biomass fuel (timber thinnings). $55M raised; $41M Frontier offtake (116 kt over 2028–2030); Microsoft 25 kt starting 2027. Pre-commercial — full scale not yet published. Storage partner not yet announced. Location is approximate (Lake Charles area).",
+    "existing": false
   },
   {
     "name": "Super6 Carbon Hub / ADM Decatur",
@@ -133,7 +134,8 @@
     "retrofit_score": "high",
     "operator": "Super6 Carbon",
     "source": "Super6 Carbon website; ADM+Super6 MOU press release Oct 2025; Mangrove Systems MRV partnership",
-    "notes": "EXISTING BECCS PROJECT (anchor). Not a single point source — CO2 aggregation platform collecting biogenic CO2 from ethanol plants, biogas, landfill gas, pulp mills. First delivery 2027. Uses ADM's existing EPA Class VI well (Mt. Simon Sandstone) at Decatur for storage. ADM holds minority equity stake. MRV partner: Mangrove Systems. Lat/lon = ADM Decatur hub co-location."
+    "notes": "EXISTING BECCS PROJECT (anchor). Not a single point source — CO2 aggregation platform collecting biogenic CO2 from ethanol plants, biogas, landfill gas, pulp mills. First delivery 2027. Uses ADM's existing EPA Class VI well (Mt. Simon Sandstone) at Decatur for storage. ADM holds minority equity stake. MRV partner: Mangrove Systems. Lat/lon = ADM Decatur hub co-location.",
+    "existing": false
   },
   {
     "name": "CO280 Solutions — US Gulf Coast Pulp Mill",
