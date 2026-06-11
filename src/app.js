@@ -490,7 +490,8 @@
       <ul>
         <li>Wet wastes (manure, biosolids) → <b>injection</b> (near storage) or <b>AD+CCS</b> — never combustion.</li>
         <li>Concentrated woody/dry residues near storage with a retrofit anchor → <b>BECCS</b> (top-preferred: ~80% efficiency + energy).</li>
-        <li>Diffuse ag residues far from storage → <b>bio-oil</b> (Charm roving model) or <b>biochar</b>.</li>
+        <li>Dry/diffuse residues with <i>proximate</i> geologic storage → <b>Vaulted-style injection</b> (>90% efficiency, cheaper on balance than bio-oil; Frontier is bullish here).</li>
+        <li>Dry residues <i>far</i> from storage → <b>bio-oil</b> (Charm roving model) — pyrolysis densifies the carbon so it's cheaper to haul to distant wells — or <b>biochar</b>.</li>
         <li>No viable storage + excess nutrients → <b>biomass burial</b> (durability still being validated).</li>
         <li>Concentrated municipal waste → <b>WtE + CCS</b>.</li>
       </ul>

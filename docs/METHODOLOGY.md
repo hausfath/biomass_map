@@ -111,9 +111,22 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 1. **Wet manure** → injection (storage near) else AD+CCS — *never combustion*.
 2. **MSW** → WtE+CCS (storage near) else burial.
 3. **Woody / concentrated dry ag** → BECCS (pulp & paper retrofit if anchor present) where
-   storage is good/moderate; if storage poor → burial (excess nutrients) or bio-oil.
-4. **Diffuse dry ag** → bio-oil (Charm roving model) or biochar; burial if poor storage + excess nutrients.
+   storage is good/moderate; if storage poor → burial (excess nutrients) or bio-oil. Where
+   storage is proximate, **injection** is the runner-up (it beats bio-oil there — see below).
+4. **Diffuse dry ag** → **injection where geologic storage is proximate** (good access), else
+   bio-oil (Charm roving model) where wells are distant, or biochar; burial if poor storage +
+   excess nutrients.
 5. **Mixed / fallback** → BECCS (good storage + retrofit), burial (poor storage), else BECCS.
+
+#### Injection vs. bio-oil for dry residues
+Frontier is bullish on Vaulted-style slurry injection: it handles the same dry crop residues
+as bio-oil, has higher CDR efficiency (>90% vs. ~45%), and is cheaper on balance — so where
+geologic storage (injection wells) is **proximate** it is preferred over bio-oil. Bio-oil's
+advantage is only at distance: pyrolysis densifies the carbon (less-carbon-dense raw biomass is
+expensive to haul), so it wins when wells are far. The engine therefore routes dry-residue
+removal to **injection at good storage access** and **bio-oil at moderate/poor access**. In
+excess-nutrient regions where injection leads, **burial** is surfaced as the alternative rather
+than bio-oil, since bio-oil returns nutrients to soils that are already in surplus.
 
 ### Storage proximity
 Combines two signals and takes the more favorable: (a) haversine distance from region centroid

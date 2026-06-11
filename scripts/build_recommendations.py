@@ -291,6 +291,15 @@ def decide(region, storage_access, has_retrofit, has_pp_or_bioenergy):
     nutrient = region.get("nutrient_status")
     near = storage_access in ("good", "moderate")
 
+    # Preferred distributed-removal pathway for DRY biomass, set by storage proximity.
+    # Frontier is bullish on Vaulted-style slurry injection: it handles the same dry
+    # residues as bio-oil, has higher CDR efficiency (>90% vs ~45%), and is cheaper on
+    # balance -- so where geologic storage (injection wells) is PROXIMATE it beats bio-oil.
+    # Bio-oil's edge is only at distance: pyrolysis densifies the carbon, making the
+    # less-carbon-dense raw biomass cheaper to haul to far-off wells. So:
+    #   good storage (proximate) -> injection ;  moderate/poor (distant) -> bio-oil.
+    dry_removal = "injection" if storage_access == "good" else "bio_oil"
+
     # 1. wet manure
     if dom == "manure_wet":
         if near:
@@ -306,9 +315,10 @@ def decide(region, storage_access, has_retrofit, has_pp_or_bioenergy):
     # 3. forestry_woody OR (ag_dry & concentrated)
     if dom == "forestry_woody" or (dom == "ag_dry" and density == "concentrated"):
         if storage_access == "good":
+            # BECCS leads; injection is the proximate-storage runner-up (beats bio-oil here).
             if has_retrofit and has_pp_or_bioenergy:
-                return "beccs_pp", "bio_oil"
-            return "beccs", "bio_oil"
+                return "beccs_pp", dry_removal
+            return "beccs", dry_removal
         elif storage_access == "moderate":
             return "beccs", "bio_oil"
         else:  # poor
@@ -319,7 +329,8 @@ def decide(region, storage_access, has_retrofit, has_pp_or_bioenergy):
     # 4. ag_dry & diffuse
     if dom == "ag_dry" and density != "concentrated":
         if storage_access == "good":
-            return "bio_oil", "beccs"
+            # Diffuse crop residues with proximate wells -> injection over bio-oil.
+            return dry_removal, "bio_oil"
         elif nutrient == "excess" and storage_access == "poor":
             return "burial", "bio_oil"
         return "bio_oil", "biochar"
@@ -372,16 +383,18 @@ def cdr_potential_mtpa(region, pathway_key):
     wwtp = num(region.get("human_wwtp_odt_mt"))
     msw = num(region.get("msw_total_mt"))
     biofrac = num(region.get("msw_biogenic_frac"), default=0.5)
+    dom = region.get("dominant_feedstock")
 
-    if pathway_key in ("wte_ccs",):
-        # msw_total * biogenic_frac * ~1.0 tCO2/t * eff
+    # Feedstock basis is set by the region's dominant feedstock, not the pathway:
+    # injection now serves dry crop residues too, so it must draw on ag+forestry there
+    # (not manure). WtE always operates on the biogenic MSW stream.
+    if pathway_key == "wte_ccs" or dom == "msw":
         return round(msw * biofrac * 1.0 * eff, 1)
 
-    if pathway_key in ("injection", "ad_ccs"):
-        # wet-waste pathways: manure (+ human/wwtp) odt * 1.47 * eff
+    if dom == "manure_wet":
         return round((manure + wwtp) * ODT_TO_CO2 * eff, 1)
 
-    # ag/forestry/mixed dry pathways (beccs, beccs_pp, bio_oil, burial, biochar)
+    # dry biomass regions (ag / forestry / mixed) -> ag+forestry residues
     return round((ag + forestry) * ODT_TO_CO2 * eff, 1)
 
 
@@ -429,8 +442,15 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
         return (f"{base} -> WtE + CCS captures biogenic CO2 from municipal waste already being "
                 f"combusted ({eff_pct}% CDR efficiency, energy co-product).")
     if rec_key == "injection":
-        return (f"{base} -> wet wastes are unsuited to combustion (thesis sec 2.2); waste injection "
-                f"delivers >{eff_pct - 1}% CDR efficiency with PFAS-destruction co-benefit.")
+        if dom == "manure_wet":
+            return (f"{base} -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style "
+                    f"slurry injection delivers >{eff_pct - 1}% CDR efficiency with PFAS-destruction "
+                    f"co-benefit.")
+        return (f"{base} -> with proximate geologic storage, Vaulted-style slurry injection is "
+                f"cheaper on balance than bio-oil for these residues and removes more carbon "
+                f"(>{eff_pct - 1}% CDR efficiency): raw biomass is injected at nearby wells rather "
+                f"than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as "
+                f"wells get more distant.")
     if rec_key == "ad_ccs":
         return (f"{base} -> wet feedstock far from storage favors anaerobic digestion + CCS "
                 f"({eff_pct}% CDR efficiency, low-carbon fuel co-product); never combustion.")
@@ -540,9 +560,11 @@ def build():
         # carries surplus nutrients, high-removal pathways (incl. biomass burial) are
         # tolerable/favoured, so burial is surfaced as the alternative for dry-biomass
         # removal recommendations even when BECCS/bio-oil leads on storage grounds.
+        # Injection is included: where it leads in an excess-nutrient region, burial is a
+        # more coherent alternative than bio-oil, which *returns* nutrients to soils.
         nutrient_alt = False
         if (region.get("nutrient_status") == "excess"
-                and rec_key in ("beccs", "beccs_pp", "bio_oil")
+                and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
                 and runner_key != "burial"):
             runner_key = "burial"
             nutrient_alt = True

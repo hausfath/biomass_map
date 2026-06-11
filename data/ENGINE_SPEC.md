@@ -43,6 +43,12 @@ Use region fields: `dominant_feedstock` (ag_dry|forestry_woody|msw|manure_wet|mi
 `feedstock_density` (concentrated|diffuse), `nutrient_status` (low|moderate|excess),
 plus `storage_access` and `has_retrofit`.
 
+# Preferred distributed-removal pathway for DRY biomass, by storage proximity.
+# Frontier is bullish on Vaulted-style injection: same dry residues as bio-oil, higher CDR
+# efficiency (>90% vs ~45%), cheaper on balance -> wins where wells are PROXIMATE. Bio-oil's
+# pyrolysis densifies carbon, so it only wins at distance (cheaper to haul dense product).
+dry_removal = "injection" if storage_access == "good" else "bio_oil"
+
 ```
 1. dominant_feedstock == "manure_wet"  → injection if storage_access in (good,moderate)
                                           else ad_ccs
@@ -52,14 +58,15 @@ plus `storage_access` and `has_retrofit`.
      IF storage_access == "good":
          recommended = beccs_pp if has_retrofit and a pulp_paper/bioenergy facility exists
                        else beccs
-         runner_up   = bio_oil
+         runner_up   = dry_removal      # injection (proximate) beats bio-oil as the alt
      ELIF storage_access == "moderate":
          recommended = beccs ; runner_up = bio_oil
      ELSE (poor storage):
          IF nutrient_status == "excess": recommended = burial ; runner_up = bio_oil
          ELSE:                           recommended = bio_oil ; runner_up = biochar
 4. dominant_feedstock == "ag_dry" & diffuse:
-     IF storage_access == "good": recommended = bio_oil ; runner_up = beccs
+     IF storage_access == "good": recommended = dry_removal ; runner_up = bio_oil
+                                  # = injection at good storage; bio-oil as fallback alt
      ELIF nutrient_status == "excess" and storage_access=="poor":
                                    recommended = burial ; runner_up = bio_oil
      ELSE:                         recommended = bio_oil ; runner_up = biochar
@@ -68,6 +75,10 @@ plus `storage_access` and `has_retrofit`.
      ELIF storage_access == "poor": recommended = burial ; runner_up = bio_oil
      ELSE: recommended = beccs ; runner_up = bio_oil
 ```
+
+After the tree: in excess-nutrient regions where the lead pathway is beccs/beccs_pp/bio_oil/
+**injection**, set runner_up = burial (a removal-consistent alternative; bio-oil would return
+nutrients to already-surplus soils).
 
 ## Step 4 — KPI score (for ranking/coloring; 0–100)
 Encode the thesis KPI priority: CDR efficiency FIRST, then emissions-avoiding co-product,
@@ -81,10 +92,11 @@ score = 60 * cdr_efficiency
 Round to integer.
 
 ## Step 5 — CDR potential
-`cdr_potential_mtpa` for the recommended pathway:
-- For ag/forestry/mixed dry pathways: (ag_residues + forestry_residues, Mt odt) × 1.47 × cdr_efficiency
-- For msw/wte: msw_total × msw_biogenic_frac × ~1.0 tCO2/t × cdr_efficiency
-- For manure/injection: animal_manure (+human_wwtp) odt × 1.47 × cdr_efficiency
+`cdr_potential_mtpa` — feedstock basis is set by the region's **dominant feedstock**, not the
+pathway (injection now serves dry crop residues too, so it must draw on ag+forestry there):
+- dominant == msw (or pathway == wte_ccs): msw_total × msw_biogenic_frac × ~1.0 tCO2/t × cdr_efficiency
+- dominant == manure_wet: animal_manure (+human_wwtp) odt × 1.47 × cdr_efficiency
+- otherwise (dry: ag/forestry/mixed): (ag_residues + forestry_residues, Mt odt) × 1.47 × cdr_efficiency
 Give value only (best estimate); note assumptions in rationale.
 
 ## Output record
