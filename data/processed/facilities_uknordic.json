@@ -1,0 +1,801 @@
+[
+  {
+    "name": "Evero Ince Bio Power (InBECCS)",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 53.278,
+    "lon": -2.845,
+    "capacity_note": "21.5 MWe waste-wood biomass; 170,000 t/yr waste wood",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.12,
+      "low": 0.09,
+      "high": 0.15
+    },
+    "retrofit_score": "high",
+    "operator": "Evero Energy (Infracapital)",
+    "source": "Evero Energy press releases 2024-2025; Bioenergy Insight Magazine; UK HyNet Track 1 deliverability assessment Oct 2024",
+    "notes": "ACTIVE BECCS PROJECT. UK government-approved for HyNet Track 1 CCS retrofit. InBECCS project: 250,000 t CO2/yr capture planned, target operational 2030. CCS via HyNet North West pipeline to Liverpool Bay storage. One of UK's first commercial-scale BECCS plants."
+  },
+  {
+    "name": "Evero Mersey Bio Energy (BECCS)",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 53.362,
+    "lon": -2.717,
+    "capacity_note": "20.9 MWe waste-wood biomass; ~150,000 t/yr waste wood",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.11,
+      "low": 0.08,
+      "high": 0.14
+    },
+    "retrofit_score": "high",
+    "operator": "Evero Energy (Infracapital)",
+    "source": "Evero Energy press releases 2024; Energy Voice report Oct 2024; Chester Standard report",
+    "notes": "HyNet Track 1 expansion candidate alongside Ince. Located near Widnes, Cheshire. Both Mersey and Ince plants together process >300,000 t/yr waste wood. CCS retrofit under development through HyNet."
+  },
+  {
+    "name": "Kent Renewable Energy (Sandwich CHP)",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 51.272,
+    "lon": 1.338,
+    "capacity_note": "28.1 MWe / 25 MWth biomass CHP; ~210 GWh/yr",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.16,
+      "low": 0.12,
+      "high": 0.2
+    },
+    "retrofit_score": "medium",
+    "operator": "Greenvolt Group (acquired KREL ~2024)",
+    "source": "Kent Renewable Energy Ltd website; Greenvolt acquisition announcement 2024; Bioenergy International; power-technology.com profile",
+    "notes": "Biomass CHP burning wood chips and agricultural biomass. ~210.8 GWh generated in 2023. Saves ~45,000 t CO2/yr on fossil displacement basis. Located in Pfizer industrial area, Sandwich, Kent. Greenvolt acquisition completed ~Oct 2024."
+  },
+  {
+    "name": "Margam Green Energy (Port Talbot)",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 51.583,
+    "lon": -3.756,
+    "capacity_note": "40 MWe waste-wood biomass; 250,000 t/yr waste wood",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.22,
+      "low": 0.17,
+      "high": 0.27
+    },
+    "retrofit_score": "medium",
+    "operator": "Greencoat Capital (acquired from Glennmont Partners)",
+    "source": "Margam Green Energy website; Generandi/Greencoat acquisition report; Babcock & Wilcox Vølund case study",
+    "notes": "£160M waste-wood-fired power station; operational since 2019. Processes contaminated waste wood including C&D waste without pre-treatment. Powers ~75,000 homes. O&M by Babcock & Wilcox Vølund. Adjacent to Port Talbot Steelworks site — decarbonisation cluster potential."
+  },
+  {
+    "name": "Sleaford Renewable Energy Plant",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 52.9996,
+    "lon": -0.3824,
+    "capacity_note": "38.5 MWe straw-fired biomass; ~240,000 t/yr straw",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.21,
+      "low": 0.16,
+      "high": 0.26
+    },
+    "retrofit_score": "medium",
+    "operator": "Greencoat Capital / Schroders Greencoat (BWSC O&M)",
+    "source": "Global Energy Monitor Sleaford REP entry; power-technology.com profile; BWSC reference page; electricityproduction.uk",
+    "notes": "Agricultural straw-fired power station. Commissioned September 2014. Located at Eslaford Park, North Kesteven, Lincolnshire. BWSC operates under 15-yr agreement. Straw sourced within 50-mile radius."
+  },
+  {
+    "name": "Snetterton Renewable Energy Plant",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 52.467,
+    "lon": 0.943,
+    "capacity_note": "44.2 MWe straw/biomass; ~300,000 t straw per year",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.24,
+      "low": 0.19,
+      "high": 0.3
+    },
+    "retrofit_score": "medium",
+    "operator": "BWSC / PensionDanmark / Copenhagen Infrastructure Partners",
+    "source": "power-technology.com Snetterton profile; PensionDanmark press release; IPP Journal project record",
+    "notes": "44.9 MWe straw-fired biomass plant in Breckland District, Norfolk. Commissioned April 2017. BWSC owner/operator. Saves ~300,000 t CO2 fossil displacement. Part of same UK straw-to-power cluster as Sleaford and Brigg."
+  },
+  {
+    "name": "Brigg Renewable Energy Plant",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 53.538,
+    "lon": -0.498,
+    "capacity_note": "40 MWe straw-fired biomass; 240,000 t/yr wheat straw",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.22,
+      "low": 0.17,
+      "high": 0.27
+    },
+    "retrofit_score": "medium",
+    "operator": "BWSC North Lincs Ltd (JV: BWSC / PensionDanmark / CIP)",
+    "source": "power-technology.com Brigg Biomass profile; BWSC reference; Renewables Now news 2016; New Civil Engineer",
+    "notes": "Straw-fired 40 MWe power station at Glanford Vale Business Park, Scawby Brook, near Brigg, North Lincolnshire. Built on former British Sugar factory site. Commissioned early 2016. 240,000 t/yr wheat straw from within 50-mile radius. 15-yr BWSC O&M contract."
+  },
+  {
+    "name": "Wilton 10 (Sembcorp Teesside Biomass)",
+    "type": "bioenergy",
+    "country": "GBR",
+    "lat": 54.568,
+    "lon": -1.121,
+    "capacity_note": "30 MWe / 10 MWth biomass CHP; 300,000 t/yr wood waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.17,
+      "low": 0.13,
+      "high": 0.21
+    },
+    "retrofit_score": "medium",
+    "operator": "Sembcorp Utilities UK",
+    "source": "Wikipedia: Wilton power stations; power-technology.com Wilton 10 profile; Sembcorp press release 2007",
+    "notes": "UK's first large-scale commercial wood-to-energy plant (opened Nov 2007). Burns 300,000 t/yr sustainable wood, sawmill waste and wood offcuts. Located within Wilton petrochemical complex — industrial CCS cluster opportunity (HyNet or Teesside cluster). Steam output piped to wider Wilton complex."
+  },
+  {
+    "name": "SELCHP (South East London CHP)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 51.484,
+    "lon": -0.024,
+    "capacity_note": "35 MWe EfW; 460,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.21,
+      "low": 0.15,
+      "high": 0.27
+    },
+    "retrofit_score": "medium",
+    "operator": "Veolia Environmental Services",
+    "source": "Wikipedia: SELCHP; Veolia UK press release (25 years, 2019); SELCHP.com; Southwark Council website",
+    "notes": "Opened November 1994; one of London's longest-operating EfW plants. Processes 460,000 t/yr; 35 MWe steam turbine. Located at Spa Road, Bermondsey/Deptford. Provides district heating. Biogenic fraction of MSW ~50% (EU average, Eurostat); ~0.21 Mt biogenic CO2/yr estimated (calc: 460,000 t × 0.5 biogenic × 0.9 combustion efficiency × ~1 tCO2/t biogenic waste)."
+  },
+  {
+    "name": "Cory Riverside 1 (Belvedere EfW)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 51.492,
+    "lon": 0.141,
+    "capacity_note": "66 MWe EfW; 750,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.35,
+      "low": 0.26,
+      "high": 0.44
+    },
+    "retrofit_score": "high",
+    "operator": "Cory Group",
+    "source": "Cory Group website; power-technology.com Riverside RRF project; WSP case study; Cory sustainability emissions page",
+    "notes": "One of Europe's largest single-site EfW plants. 750,000 t/yr capacity; 66 MWe. Cory Decarbonisation Project targets 1.4 Mt CO2 savings/yr from Riverside 1+2 by 2030 via CCS. Adjacent Riverside 2 (650,000 t, 61 MWe) under construction 2026. CCS pathway through Thames Estuary or East Coast cluster."
+  },
+  {
+    "name": "Lakeside EfW (Colnbrook)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 51.488,
+    "lon": -0.519,
+    "capacity_note": "37 MWe EfW; 450,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.21,
+      "low": 0.16,
+      "high": 0.26
+    },
+    "retrofit_score": "medium",
+    "operator": "Lakeside EfW Ltd (JV: Grundon / Viridor)",
+    "source": "Wikipedia: Lakeside EfW; Viridor website; Global Energy Monitor Lakeside EfW entry; Wikiwaste Lakeside EfW",
+    "notes": "JV between Grundon Waste Management and Viridor. Located in Colnbrook, Slough near Heathrow. 450,000 t/yr permitted; 37 MWe. Biogenic CO2 estimated at 50% of combustion CO2 (EU MSW biogenic fraction)."
+  },
+  {
+    "name": "Viridor Runcorn EfW",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 53.329,
+    "lon": -2.712,
+    "capacity_note": "~100 MWe total EfW (Phase 1+2); 1,100,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.52,
+      "low": 0.39,
+      "high": 0.65
+    },
+    "retrofit_score": "high",
+    "operator": "Viridor (Pennon Group) / INEOS ChlorVinyls",
+    "source": "Viridor Runcorn EfW website; Letsrecycle.com capacity extension news; Keppel Seghers Phase 1 commissioning release; Global Energy Monitor Runcorn EfW entry; Viridor CCS project page",
+    "notes": "UK's largest single-site EfW facility by waste throughput. 1.1 Mt/yr; Phase 1: 425,000 t, 35 MWe + 51 MWth steam. Powers ~211,000 homes equivalent. Viridor actively developing CCS retrofit — Runcorn CCS Project on company website. HyNet North West cluster proximity makes this a high-priority CCS candidate."
+  },
+  {
+    "name": "Severnside Energy Recovery Centre (Avonmouth)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 51.521,
+    "lon": -2.701,
+    "capacity_note": "37 MWe EfW; 400,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.19,
+      "low": 0.14,
+      "high": 0.24
+    },
+    "retrofit_score": "medium",
+    "operator": "SUEZ (West London Energy Recovery Ltd)",
+    "source": "Wikiwaste Severnside ERC; SUEZ UK blog; Global Energy Monitor Avonmouth ERF; PRIVA case study",
+    "notes": "Waste primarily delivered by rail from West London and Bristol areas. Located adjacent to Seabank Power Station, Avonmouth industrial area. 400,000 t/yr; 37 MWe. Potential future CCS linkage to Portbury/Avonmouth CO2 logistics."
+  },
+  {
+    "name": "Beddington EfW (Sutton, South London)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 51.373,
+    "lon": -0.157,
+    "capacity_note": "26 MWe EfW; 382,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.18,
+      "low": 0.13,
+      "high": 0.22
+    },
+    "retrofit_score": "medium",
+    "operator": "Viridor (Pennon Group)",
+    "source": "Viridor Beddington ERF website; Wikiwaste Beddington EfW; Letsrecycle.com EA permit expansion",
+    "notes": "Serves South London Waste Partnership (Croydon, Kingston, Merton, Richmond, Sutton). 25-yr PPP contract signed Nov 2014. 2 lines, Martin Reverse Acting Grate. Operational Jan 2020. Capacity increased to 382,286 t/yr under EA permit variation."
+  },
+  {
+    "name": "Ferrybridge Multifuel 1 (FM1)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 53.717,
+    "lon": -1.281,
+    "capacity_note": "68 MWe multifuel EfW; ~700,000 t/yr",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.33,
+      "low": 0.25,
+      "high": 0.41
+    },
+    "retrofit_score": "high",
+    "operator": "enfinium (formerly Wheelabrator / SSE)",
+    "source": "Wikiwaste FM1; Global Energy Monitor Ferrybridge Multifuel 1; power-technology.com FM1 project; enfinium company website",
+    "notes": "68 MWe, commissioned 2015. Located on site of former Ferrybridge C coal power station, Knottingley, West Yorkshire. Adjacent to FM2. Combined FM1+FM2 capacity 1.35 Mt/yr — largest residual waste EfW site in UK. Former coal infrastructure and grid connection aids CCS viability."
+  },
+  {
+    "name": "Ferrybridge Multifuel 2 (FM2)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 53.718,
+    "lon": -1.279,
+    "capacity_note": "67.8 MWe multifuel EfW; 566,000 t/yr",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.27,
+      "low": 0.2,
+      "high": 0.34
+    },
+    "retrofit_score": "high",
+    "operator": "enfinium",
+    "source": "Wikiwaste FM2; Global Energy Monitor Ferrybridge Multifuel 2; Letsrecycle.com FM2 fully operational 2019",
+    "notes": "67.8 MWe, 566,000 t/yr, fully operational December 2019. Adjacent to FM1 on Ferrybridge site. Combined FM1+FM2 represents ~0.6 Mt biogenic CO2/yr — a top-tier UK cluster CCS opportunity."
+  },
+  {
+    "name": "Javelin Park EfW (Gloucestershire)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 51.779,
+    "lon": -2.245,
+    "capacity_note": "17.4 MWe gross / 14.5 MWe net EfW; 190,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.09,
+      "low": 0.07,
+      "high": 0.11
+    },
+    "retrofit_score": "low",
+    "operator": "FCC Environment UK (formerly Urbaser/UBB)",
+    "source": "Wikipedia: Gloucestershire EfW; Wikiwaste Javelin Park EfW; Gloucestershire County Council; FCC Environment UK website",
+    "notes": "25-yr contract with Gloucestershire County Council (awarded Dec 2011). Fully operational January 2020. 190,000 t/yr; 17.4 MWe gross. FCC Servicios Medio Ambiente acquired Urbaser's UK affiliate June 2024 — now FCC Environment UK. Smaller plant, lower CCS priority."
+  },
+  {
+    "name": "Newhurst Energy Recovery Facility (Shepshed)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 52.76,
+    "lon": -1.303,
+    "capacity_note": "42 MWe EfW; 350,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.17,
+      "low": 0.13,
+      "high": 0.21
+    },
+    "retrofit_score": "medium",
+    "operator": "Encyclis (formerly Covanta Europe)",
+    "source": "Encyclis press release full operations; Global Energy Monitor Newhurst ERF; Newhursterf.co.uk; HZI reference Newhurst; Biffa press release Jan 2022",
+    "notes": "42 MWe, 350,000 t/yr. Located near Shepshed, Leicestershire. Full operations commenced 2025 after 3-yr construction/commissioning. Operated by Encyclis. Kanadevia Inova (HZI) technology. UK East Midlands location — potential Humber CCS cluster linkage."
+  },
+  {
+    "name": "Protos Energy Recovery Facility (Cheshire)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 53.267,
+    "lon": -2.821,
+    "capacity_note": "49.9 MWe EfW; 400,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.19,
+      "low": 0.14,
+      "high": 0.24
+    },
+    "retrofit_score": "high",
+    "operator": "Encyclis (formerly Covanta/EQT)",
+    "source": "Protos ERF website; Green Investment Group Financial Close press release 2020; Kanadevia Inova press release; Global Energy Monitor Protos EfW",
+    "notes": "49.9 MWe; 400,000 t/yr; within Protos strategic energy hub near Ellesmere Port. Commissioning phase 2024-2025. Encyclis acquired plant 2025. Kanadevia Inova green-lit to build UK's first full-scale carbon capture facility at Protos — making this a HIGH-priority BECCS site. HyNet proximity for CO2 transport."
+  },
+  {
+    "name": "Rookery South ERF (Stewartby, Bedfordshire)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 52.04,
+    "lon": -0.48,
+    "capacity_note": "60+ MWe EfW; 545,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.26,
+      "low": 0.19,
+      "high": 0.32
+    },
+    "retrofit_score": "medium",
+    "operator": "Encyclis / Covanta (Veolia 20% stake)",
+    "source": "Covanta/Reworldwaste press release Jan 2022; Kanadevia Inova handover release; Global Energy Monitor Rookery South; Central Bedfordshire Council",
+    "notes": "60+ MWe; 545,000 t/yr. Located in former brickworks at Stewartby, Bedfordshire. Operational since January 2022. JV: Covanta/EQT 80%, Veolia 20%."
+  },
+  {
+    "name": "Earls Gate Energy Centre (Grangemouth, Scotland)",
+    "type": "wte",
+    "country": "GBR",
+    "lat": 56.007,
+    "lon": -3.691,
+    "capacity_note": "22 MWe / 33 MWth EfW; 216,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.1,
+      "low": 0.08,
+      "high": 0.13
+    },
+    "retrofit_score": "medium",
+    "operator": "Encyclis / Brockwell Energy (HZI operates)",
+    "source": "EUWID Recycling; Earls Gate Energy Centre website; Green Investment Group 2018 announcement; Brockwell Energy project page",
+    "notes": "216,000 t/yr; 22 MWe. Fully operational June 2024 after delays. Scotland's first major EfW plant. Located in Grangemouth petrochemical/industrial cluster — potential Acorn CCS pathway (Caledonian Clean Energy project / St Fergus). Co-owned Encyclis/Brockwell; HZI operates."
+  },
+  {
+    "name": "Sysav Malmö Waste-to-Energy Plant",
+    "type": "wte",
+    "country": "SWE",
+    "lat": 55.611,
+    "lon": 12.988,
+    "capacity_note": "~100 MWth district heat; 600,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.28,
+      "low": 0.21,
+      "high": 0.35
+    },
+    "retrofit_score": "high",
+    "operator": "SYSAV (14 Skåne municipalities)",
+    "source": "Wikipedia: SYSAV waste-to-energy plant; NIB financing article; Waste Today; Friotherm case study (heat pump); Nordic Investment Bank",
+    "notes": "Treats ~600,000 t/yr waste from southern Skåne province. Covers ~60% of Malmö district heating. Also known as Sjölunda facility. 2019 total waste received: 887,100 t; 1,464,700 MWh heat + 189,500 MWh electricity. Sweden has active CCS policy for WtE (LULUCF framework); Sysav is a leading candidate."
+  },
+  {
+    "name": "Renova Sävenäs WtE (Göteborg)",
+    "type": "wte",
+    "country": "SWE",
+    "lat": 57.713,
+    "lon": 11.985,
+    "capacity_note": "42 MWe / ~400 MWth district heat; ~70 t/hr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.3,
+      "low": 0.22,
+      "high": 0.38
+    },
+    "retrofit_score": "high",
+    "operator": "Renova AB (Göteborg municipal JV)",
+    "source": "Global Energy Monitor Sävenäs WtE; Renova facilities page; Smart City Sweden Renova profile; CTC-N Renova efficient waste recovery",
+    "notes": "Annual production: 1,506 GWh district heat + 279 GWh electricity (2018). ~70 t/hr waste throughput. 60% of electricity labelled biofuel origin. Provides ~1/3 of Göteborg heat demand. Active CCS interest in Swedish WtE sector; Göteborg location near port infrastructure for CO2 shipping."
+  },
+  {
+    "name": "Filbornaverket WtE (Helsingborg)",
+    "type": "wte",
+    "country": "SWE",
+    "lat": 56.063,
+    "lon": 12.736,
+    "capacity_note": "18 MWe / 72 MWth EfW CHP; 220,000 t/yr waste",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.1,
+      "low": 0.08,
+      "high": 0.13
+    },
+    "retrofit_score": "high",
+    "operator": "Öresundskraft AB",
+    "source": "Smart City Sweden Filborna CHP profile; CTC-N Filborna; Bioenergy International: Öresundskraft SEK 228M CCS grant; power-technology.com Helsingborg WtE profile",
+    "notes": "72 MWth / 18 MWe, 220,000 t/yr. Commissioned 2013. Supplies ~60% of Helsingborg district heating baseload. Öresundskraft secured SEK 228M Swedish Energy Agency grant for Filbornaverket CCS project — ACTIVE CCS development. Biogenic CO2 capture target ~100,000 t/yr."
+  },
+  {
+    "name": "Högdalen WtE (Stockholm)",
+    "type": "wte",
+    "country": "SWE",
+    "lat": 59.274,
+    "lon": 18.038,
+    "capacity_note": "~200 MWth district heat; 700,000 t/yr waste capacity",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.33,
+      "low": 0.25,
+      "high": 0.41
+    },
+    "retrofit_score": "high",
+    "operator": "Stockholm Exergi AB",
+    "source": "Smart City Sweden: Waste incineration at Högdalenverket; Waste incineration in Nordic countries (Norden 2024); Stockholm Exergi corporate reports",
+    "notes": "Stockholm Exergi also operates KVV8 (already in database). Högdalen is a separate WtE facility receiving ~700,000 t/yr capacity; multiple lines. Major biogenic CO2 source co-located with Stockholm Exergi's BECCS programme — strong CCS synergy."
+  },
+  {
+    "name": "Tammervoima WtE (Tampere, Finland)",
+    "type": "wte",
+    "country": "FIN",
+    "lat": 61.464,
+    "lon": 23.746,
+    "capacity_note": "58.5 MWth / ~20 MWe EfW; 160,000 t/yr MSW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.08,
+      "low": 0.06,
+      "high": 0.1
+    },
+    "retrofit_score": "medium",
+    "operator": "Tammervoima Oy (Tampereen Energia subsidiary)",
+    "source": "Tammervoima plant website; HZI Steinmüller reference Tampere; Valmet automation case study; Tampere waste-to-energy PDF 2018",
+    "notes": "Operational since January 2016. 160,000 t/yr MSW; 310 GWh heat + 90 GWh electricity annually. Address: Hyötyvoimankuja 1, 33680 Tampere. Covers 15% of Tampere heating/electricity consumption. Separate from Naistenlahti biomass CHP (different facility)."
+  },
+  {
+    "name": "Helen Vuosaari Bioenergy Plant (Helsinki)",
+    "type": "bioenergy",
+    "country": "FIN",
+    "lat": 60.207,
+    "lon": 25.131,
+    "capacity_note": "260 MWth biomass heat-only; forest chips",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.45,
+      "low": 0.35,
+      "high": 0.55
+    },
+    "retrofit_score": "high",
+    "operator": "Helen Oy (City of Helsinki)",
+    "source": "Helen press releases 2018, 2022; Bioenergy International 2019; Global Energy Monitor Vuosaari power station; e-architect Helsinki profile",
+    "notes": "260 MW forest-chip biomass heating plant; produces ~25% of Helsinki district heat. Heat-only (no electricity currently, CHP conversion technically feasible per Helen). Reduces Helsinki CO2 by ~700,000 t/yr vs coal. Commissioned Dec 2022 (full production). Helen targets carbon neutrality by 2030. CO2 estimated: calc from 260 MWth × ~8,000 hrs × ~0.2 tCO2/MWh_biomass."
+  },
+  {
+    "name": "Statkraft Heimdal WtE (Trondheim)",
+    "type": "wte",
+    "country": "NOR",
+    "lat": 63.382,
+    "lon": 10.354,
+    "capacity_note": "40 MWth WtE; ~220,000 t/yr MSW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.22,
+      "low": 0.17,
+      "high": 0.28
+    },
+    "retrofit_score": "high",
+    "operator": "Statkraft Varme AS",
+    "source": "Industry About Trondheim Heimdal; Aker Carbon Capture pre-FEED press release; SLB Capturi; IEA Bioenergy full-scale WtE CCS in Norway (2025)",
+    "notes": "Provides >30% of Trondheim municipal heating demand. Aker Carbon Capture (now SLB Capturi) awarded pre-FEED for CO2 capture at 220,000 t CO2/yr. Active BECCS/WtE-CCS development. Norway has strong CCS policy and Northern Lights CO2 storage infrastructure."
+  },
+  {
+    "name": "Fynsværket (Odense, Denmark)",
+    "type": "bioenergy",
+    "country": "DNK",
+    "lat": 55.397,
+    "lon": 10.324,
+    "capacity_note": "35 MWe / 85 MWth biomass CHP (Unit 8 straw); overall site ~421 MW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.19,
+      "low": 0.14,
+      "high": 0.24
+    },
+    "retrofit_score": "medium",
+    "operator": "Fjernvarme Fyn A/S",
+    "source": "Wikipedia: Fyn Power Station; Global Energy Monitor Fyns power station; power-technology.com Fynsværket 8 profile; Bioenergy International Andritz EcoFluid 2021",
+    "notes": "Fynsværket 8 (straw biomass): 35 MWe / 85 MWth. Straw from local farmers. Andritz EcoFluid biomass boiler (new Bio Blok 2 project). Remaining units converted to biomass/waste. Odense is Denmark's 3rd largest city. CO2 estimate covers straw-fired unit; total site biogenic CO2 larger."
+  },
+  {
+    "name": "Studstrupværket (Aarhus, Denmark)",
+    "type": "bioenergy",
+    "country": "DNK",
+    "lat": 56.237,
+    "lon": 10.283,
+    "capacity_note": "700 MWe biomass CHP (converted from coal 2016)",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.8,
+      "low": 1.4,
+      "high": 2.2
+    },
+    "retrofit_score": "high",
+    "operator": "Ørsted A/S (since Studstrup)",
+    "source": "Wikipedia: Studstrup Power Station; Biomass Magazine 2016; State of Green; Canadian Biomass Magazine; Global Energy Monitor Studstrup",
+    "notes": "One of the world's largest biomass CHP plants — 700 MWe converted from coal to wood pellets Oct 2016. District heating for ~106,000 homes; electricity for ~230,000 homes. Annual wood pellet consumption ~1.6 Mt. Saves ~310,000 t fossil CO2/yr. High-value BECCS target — biogenic CO2 ~1.8 Mt/yr estimated. Note: Ørsted Avedøre already in database, this is Studstrup separately."
+  },
+  {
+    "name": "Borregaard Sarpsborg (Biorefinery / Sulphite Pulp)",
+    "type": "pulp_paper",
+    "country": "NOR",
+    "lat": 59.288,
+    "lon": 11.113,
+    "capacity_note": "~168,000 t/yr specialty cellulose; 1M solid m³/yr wood input; bioethanol + lignin + vanillin",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.25,
+      "low": 0.18,
+      "high": 0.32
+    },
+    "retrofit_score": "medium",
+    "operator": "Borregaard ASA",
+    "source": "Borregaard Wikipedia; ETIP Bioenergy factsheet Borregaard; Borregaard CDP 2023 climate change submission; Borregaard annual report 2023",
+    "notes": "World's most advanced biorefinery — sulphite process (not kraft). Produces specialty cellulose, lignin biopolymers, bioethanol (20M L/yr), vanillin. EU ETS covered. Uses 94% of wood feedstock. High-concentration CO2 in recovery boiler flue gas. Norway's Northern Lights storage proximity makes CCS attractive. Not a standard kraft mill — distinct chemical signature."
+  },
+  {
+    "name": "Billerud Gruvön Mill (Grums, Sweden)",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 59.34,
+    "lon": 13.115,
+    "capacity_note": "~550,000 t/yr packaging board + market pulp; KM7 machine 550,000 t/yr",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.55,
+      "low": 0.4,
+      "high": 0.7
+    },
+    "retrofit_score": "high",
+    "operator": "Billerud AB",
+    "source": "Billerud Gruvön mill page; Google Maps coordinates 59.3401, 13.1149; packaging-gateway.com Gruvön expansion; Billerud Annual & Sustainability Report 2022; ANDRITZ flue gas treatment 2023",
+    "notes": "One of Europe's leading fluting/liner/liquid packaging board mills. ~30 km west of Karlstad, Värmland. New soda recovery boiler expanded capacity. Black liquor recovery boiler is dominant CO2 source (~75% of mill CO2). Billerud has active decarbonisation programme. New ANDRITZ flue gas precipitator for recovery boiler. CO2 estimated: calc from 550,000 t pulp × ~1.0 t biogenic CO2/t pulp (Frontiers 2026 European average)."
+  },
+  {
+    "name": "Billerud Skärblacka Mill (Norrköping)",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 58.582,
+    "lon": 16.02,
+    "capacity_note": "~460,000 t/yr kraft paper (MG kraft, sack paper, fluting)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.46,
+      "low": 0.34,
+      "high": 0.58
+    },
+    "retrofit_score": "high",
+    "operator": "Billerud AB",
+    "source": "Billerud Skärblacka mill page; Wikipedia: Billerud; euwid-paper.com PM10 startup; Billerud production units overview",
+    "notes": "Specialises in white MG/MF kraft paper, brown sack paper, fluting. 460,000 t/yr. Located just outside Norrköping, Östergötland. PM10 paper machine started. Two laboratories for food and medical packaging R&D. CO2 estimate: calc from 460,000 t × ~1.0 tCO2/t."
+  },
+  {
+    "name": "Billerud Frövi/Rockhammar Mill",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 59.63,
+    "lon": 15.394,
+    "capacity_note": "~500,000 t/yr cartonboard + liquid packaging board",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.5,
+      "low": 0.37,
+      "high": 0.63
+    },
+    "retrofit_score": "high",
+    "operator": "Billerud AB",
+    "source": "Billerud Frövi/Rockhammar mill page; Billerud Wikipedia; euwid-paper.com Frövi SP4 recovery boiler 2023 (SEK 2.6B investment)",
+    "notes": "~30 km north of Örebro, Västmanland. Produces cartonboard for luxury/consumer goods and liquid packaging. New SP4 recovery boiler inaugurated Sep 2023 (SEK 2.6B). Expanded pulp capacity enables higher CO2 capture potential. CO2 estimated: calc 500,000 t × ~1.0 tCO2/t."
+  },
+  {
+    "name": "SCA Obbola Mill (Umeå)",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 63.706,
+    "lon": 20.316,
+    "capacity_note": "725,000 t/yr kraftliner; world's largest kraftliner machine",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.73,
+      "low": 0.55,
+      "high": 0.91
+    },
+    "retrofit_score": "high",
+    "operator": "SCA (Svenska Cellulosa AB)",
+    "source": "SCA Obbola mill page; PULPAPERnews: world's largest kraftliner machine 2023; AFRY project page; Valmet lime kiln reference SCA Obbola",
+    "notes": "Integrated kraftliner mill just outside Umeå, Västerbotten. New world's largest kraftliner machine commissioned 2023. 100% fossil-free lime kiln (Valmet). Baltic Sea deep-water harbour. ~725,000 t/yr production — generates very large biogenic CO2 stream from recovery boiler. High CCS retrofit attractiveness."
+  },
+  {
+    "name": "SCA Munksund Mill (Piteå)",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 65.321,
+    "lon": 21.514,
+    "capacity_note": "410,000 t/yr kraft paper (white + brown packaging paper)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.41,
+      "low": 0.3,
+      "high": 0.51
+    },
+    "retrofit_score": "high",
+    "operator": "SCA (Svenska Cellulosa AB)",
+    "source": "SCA Munksund page; SCA Munksund expansion packaging-gateway.com; Valmet fossil-free lime kiln reference SCA Munksund",
+    "notes": "410,000 t/yr white/brown kraft packaging paper. Located in Piteå, Norrbotten. Adjacent to Smurfit Kappa Piteå — potential shared CCS infrastructure in Piteå port area. Valmet delivered fossil-free lime kiln. Uses spruce/pine from sustainably managed forests in Northern Sweden."
+  },
+  {
+    "name": "Smurfit Westrock Piteå (Kraftliner Mill)",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 65.314,
+    "lon": 21.445,
+    "capacity_note": "700,000 t/yr kraftliner (Europe's largest); sulphate mill with 3 pulp lines + 2 PMs",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.53,
+      "high": 0.88
+    },
+    "retrofit_score": "high",
+    "operator": "Smurfit Westrock (formerly Smurfit Kappa)",
+    "source": "Smurfit Kappa Piteå mill page; Wikidata Q47156448 coordinates 65°18'55.8N 21°26'40E; Wagenborg case study; Valmet rebuild 2019; packaging-gateway.com upgrades",
+    "notes": "Europe's largest kraftliner producer; 700,000 t/yr. Mill at Kolugnsvägen 30, 941 86 Piteå. Two softwood pulp lines, one hardwood line with bleach plant, recycled fibre line, two PMs. 90% exported. Active sustainability drive (combustion/cooking upgrades). Piteå port enables CO2 shipping. ~510 employees."
+  },
+  {
+    "name": "Holmen Braviken Paper Mill (Norrköping)",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 58.637,
+    "lon": 16.56,
+    "capacity_note": "605,000 t/yr newsprint/SC paper (mechanical pulp); 2 paper machines",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.3,
+      "low": 0.22,
+      "high": 0.38
+    },
+    "retrofit_score": "medium",
+    "operator": "Holmen AB",
+    "source": "Holmen Braviken mill page; Wikipedia: Braviken Paper Mill; Andritz rebuild completion June 2025; Valmet wash press 2023",
+    "notes": "605,000 t/yr printing/writing paper on Bråviken bay, outside Norrköping. 100% fresh wood fibre. Two PMs. Deepwater harbour. Mechanical pulp process (TMP) — lower biogenic CO2 per tonne than kraft mills (no recovery boiler), but large scale still significant. CO2 estimate is lower per tonne (~0.5 tCO2/t vs ~1.0 for kraft). Recently rebuilt PM for efficiency and flexibility (ANDRITZ June 2025)."
+  },
+  {
+    "name": "Holmen Iggesund Mill (Iggesund, Sweden)",
+    "type": "pulp_paper",
+    "country": "SWE",
+    "lat": 61.638,
+    "lon": 17.11,
+    "capacity_note": "~200,000 t/yr premium paperboard (Invercote); integrated chemical pulp mill",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.2,
+      "low": 0.15,
+      "high": 0.25
+    },
+    "retrofit_score": "medium",
+    "operator": "Holmen AB (Iggesund Paperboard)",
+    "source": "Holmen Iggesund mill page; iggesund.com about/locations; Wikipedia: Holmen Iggesund; euwid-paper.com cartonboard expansion 2023",
+    "notes": "World-class kraft-based premium paperboard mill (Invercote) dating to 1685. Located on Hälsingland coast, Baltic Sea. ~200,000 t/yr premium board. Integrated bleached kraft pulp mill with recovery boiler. Holmen has active low-carbon agenda. Baltic Sea location enables CO2 ship transport."
+  },
+  {
+    "name": "UPM Kaukas Pulp Mill (Lappeenranta)",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 61.04,
+    "lon": 28.16,
+    "capacity_note": "700,000 t/yr bleached softwood kraft pulp (two lines)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.53,
+      "high": 0.88
+    },
+    "retrofit_score": "high",
+    "operator": "UPM-Kymmene Oyj (UPM Pulp division)",
+    "source": "UPM Pulp Kaukas page; UPM press release Kaukas investment; UPM global operations map entry; Wikimapia Kaukas paper mill",
+    "notes": "On shore of Lake Saimaa, Lappeenranta, SE Finland. Integrated site: pulp mill + magazine paper mill + sawmill + UPM Lappeenranta biorefinery (HVO diesel). 700,000 t/yr two-line kraft mill. Recovery boiler generates dominant biogenic CO2 stream. UPM committed to carbon neutrality — CCS interest rising."
+  },
+  {
+    "name": "UPM Kymi Pulp Mill (Kouvola)",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 60.879,
+    "lon": 26.713,
+    "capacity_note": "870,000 t/yr bleached softwood + birch kraft pulp (expanded 2016)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.87,
+      "low": 0.65,
+      "high": 1.09
+    },
+    "retrofit_score": "high",
+    "operator": "UPM-Kymmene Oyj (UPM Pulp division)",
+    "source": "UPM Pulp Kymi page; UPM press release Kymi expansion Jan 2016; GlobeNewswire Kymi opening; ANDRITZ pulp drying world record",
+    "notes": "870,000 t/yr (expanded 2016; €160M investment). Located in Kuusankoski, Kouvola along River Kymi, SE Finland. Integrated with paper mill. ANDRITZ pulp drying plant achieved world record throughput. One of the largest single-site kraft pulp mills in Europe — major biogenic CO2 point source. UPM temporarily curtailed production Aug 2024 (market conditions)."
+  },
+  {
+    "name": "UPM Pietarsaari Pulp Mill (Jakobstad)",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 63.683,
+    "lon": 22.696,
+    "capacity_note": "800,000 t/yr bleached softwood + birch kraft pulp",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.8,
+      "low": 0.6,
+      "high": 1.0
+    },
+    "retrofit_score": "high",
+    "operator": "UPM-Kymmene Oyj (UPM Pulp division)",
+    "source": "UPM Pulp Pietarsaari page; UPM biochemicals global operations map (location 87); UPM ABB reference story",
+    "notes": "Gulf of Bothnia, western Finland (Jakobstad/Pietarsaari). 800,000 t/yr — co-located with Alholma sawmill and Alholmens Kraft power plant (already in database). Integrated industrial cluster. Softwood and birch pulp. Recovery boiler generates large concentrated biogenic CO2 stream ideal for CCS."
+  },
+  {
+    "name": "Stora Enso Oulu Mill",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 65.017,
+    "lon": 25.466,
+    "capacity_note": "750,000 t/yr consumer board + kraftliner + softwood pulp (by 2027)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.75,
+      "low": 0.56,
+      "high": 0.94
+    },
+    "retrofit_score": "high",
+    "operator": "Stora Enso Oyj",
+    "source": "Stora Enso Oulu mill page; packaging-gateway.com Oulu new board line; Packaging Europe €1.1B investment article; Stora Enso press release Aug 2025 inauguration; ANDRITZ Stora Enso Oulu",
+    "notes": "Deep-sea harbour at Oulu, northern Finland. €1.1B investment in consumer packaging board line (inaugurated Aug 2025). Target 750,000 t/yr by 2027 (folding boxboard + kraftliner + softwood pulp). 90% CO2 reduction claimed for new board line vs old coal process. Large recovery boiler remains dominant biogenic CO2 source."
+  },
+  {
+    "name": "Stora Enso Imatra Mills (Kaukopää + Tainionkoski)",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 61.249,
+    "lon": 28.857,
+    "capacity_note": "~1,000,000 t/yr consumer packaging board + pulp (combined two units)",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.0,
+      "low": 0.75,
+      "high": 1.25
+    },
+    "retrofit_score": "high",
+    "operator": "Stora Enso Oyj",
+    "source": "Stora Enso Imatra mill page; Paper360 May 2019; Stora Enso Wikipedia; Wikimapia Stora Enso Imatra Paper Mill; coords ~61.249, 28.857 (Imatra city)",
+    "notes": "Two integrated production units (Kaukopää + Tainionkoski) in Imatra, E Finland near Russian border. ~1 Mt/yr liquid packaging board and consumer packaging board. One of the world's largest LPB producers. 90%+ exported. Two recovery boilers — large concentrated biogenic CO2 point source."
+  },
+  {
+    "name": "Stora Enso Sunila Mill (Kotka)",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 60.461,
+    "lon": 26.952,
+    "capacity_note": "370,000 t/yr bleached softwood kraft pulp; lignin extraction biorefinery",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.37,
+      "low": 0.28,
+      "high": 0.46
+    },
+    "retrofit_score": "high",
+    "operator": "Stora Enso Oyj",
+    "source": "Stora Enso Sunila mill investment press release 2013; IEA Bioenergy Sunila biorefinery; Stora Enso Wikipedia; bioenergy-news.com Sunila",
+    "notes": "370,000 t/yr bleached softwood kraft pulp. Located at Sunila, near Kotka, S Finland. €32M biorefinery investment to extract lignin from black liquor — replaces up to 90% of natural gas with lignin. Lignin extraction reduces recovery boiler load slightly but still major biogenic CO2 source."
+  },
+  {
+    "name": "Metsä Fibre Rauma Pulp Mill",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 61.129,
+    "lon": 21.495,
+    "capacity_note": "650,000 t/yr bleached softwood kraft pulp (Metsä Strong brand)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.65,
+      "low": 0.49,
+      "high": 0.81
+    },
+    "retrofit_score": "high",
+    "operator": "Metsä Fibre Oy (Metsä Group)",
+    "source": "Metsä Fibre Rauma mill page; paperage.com Joutseno restart Dec 2025; metsagroup.com pulp production overview",
+    "notes": "ECF bleached softwood pulp (Metsä Strong); 650,000 t/yr. Produces biochemicals and bioenergy alongside pulp. Rauma port enables CO2 ship export. One of four Metsä Fibre Finnish mills. Production temporarily curtailed 2025 (market conditions) but core asset."
+  },
+  {
+    "name": "Metsä Fibre Joutseno Pulp Mill",
+    "type": "pulp_paper",
+    "country": "FIN",
+    "lat": 61.118,
+    "lon": 28.502,
+    "capacity_note": "690,000 t/yr bleached softwood kraft pulp",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.69,
+      "low": 0.52,
+      "high": 0.86
+    },
+    "retrofit_score": "high",
+    "operator": "Metsä Fibre Oy (Metsä Group)",
+    "source": "Metsä Fibre Joutseno mill page; paperage.com Joutseno restart Dec 2025; coordinates: Haukilahdentie 27, Joutseno ~61.118, 28.502",
+    "notes": "690,000 t/yr. Located in Joutseno (Lappeenranta municipality), SE Finland on Lake Saimaa shores, 20 km N of Lappeenranta. Restarted Dec 2025 after temporary shutdown. Co-located with Metsä Board BCTMP mill. Recovery boiler dominant biogenic CO2 source."
+  }
+]

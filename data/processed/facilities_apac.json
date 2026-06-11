@@ -1,0 +1,920 @@
+[
+  {
+    "name": "Shanghai Laogang WtE Phase I+II",
+    "type": "wte",
+    "country": "CHN",
+    "lat": 31.029,
+    "lon": 121.843,
+    "capacity_note": "6,000 t/d total (8 × 750 t/d grates); 210 MW gross",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.2,
+      "low": 0.9,
+      "high": 1.5
+    },
+    "retrofit_score": "high",
+    "operator": "Shanghai Laogang Renewable Energy Co. (MHIEC/Shanghai Environment Group)",
+    "source": "MHI press release 2017; Recycling International 2019; GEM Shanghai Laogang power station",
+    "notes": "World's largest WtE by throughput capacity; biogenic fraction ~50% of MSW; concentrated flue stack amenable to post-combustion capture. Weak regional CO2 storage pipeline; regulatory pathway uncertain (thesis sourcing risk flag for East Asia).",
+    "existing": true
+  },
+  {
+    "name": "Shenzhen Bao'an Energy Ecological Park",
+    "type": "wte",
+    "country": "CHN",
+    "lat": 22.765,
+    "lon": 113.866,
+    "capacity_note": "~9,000 t/d (5 lines × ~1,800 t/d); 135 MW (Baoan III alone); ~3 Mt/yr throughput",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.05,
+      "low": 0.8,
+      "high": 1.3
+    },
+    "retrofit_score": "high",
+    "operator": "Keppel Seghers / Shenzhen Greenland Environmental Group",
+    "source": "Keppel Seghers factsheet; Power Technology Baoan III profile; GEM Guangdong Shenzhen Bao'an power station",
+    "notes": "Five-line complex in Songgang, Bao'an District. Largest single WtE campus outside Laogang. Biogenic fraction ~50% MSW. Sourcing risk as for all East Asia facilities.",
+    "existing": true
+  },
+  {
+    "name": "Guangzhou Likeng WtE (Phase I + II)",
+    "type": "wte",
+    "country": "CHN",
+    "lat": 23.27,
+    "lon": 113.29,
+    "capacity_note": "~3,290 t/d combined (Phase I 1,040 t/d + Phase II 2,250 t/d); 40+ MW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.38,
+      "low": 0.28,
+      "high": 0.48
+    },
+    "retrofit_score": "medium",
+    "operator": "Guangzhou Environment Group / Babcock & Wilcox (Phase II technology)",
+    "source": "Dong thesis (WTERT 2020); B&W case study Likeng II; IPEN case study 2015",
+    "notes": "Located Baiyun District, Guangzhou. Phase I operational since 2006. Combined among the larger plants in Guangdong. Biogenic ~50%. Weak storage/regulatory context.",
+    "existing": true
+  },
+  {
+    "name": "Beijing Asuwei WtE Plant",
+    "type": "wte",
+    "country": "CHN",
+    "lat": 40.2,
+    "lon": 116.42,
+    "capacity_note": "3,000 t/d; ~420 GWh/yr electricity generation",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.35,
+      "low": 0.26,
+      "high": 0.44
+    },
+    "retrofit_score": "medium",
+    "operator": "Beijing Energy Holding (subsidiary)",
+    "source": "Power Technology Beijing Asuwei profile; Beijing government waste facility data 2023; Lu Li Columbia thesis",
+    "notes": "Located Xiaotangshan, Changping District, Beijing. Commissioned Sep 2019. Processes Changping and north-city waste. Biogenic ~50% of MSW. Coordinates are centroid of Xiaotangshan town; exact facility at approx 40.20°N 116.42°E based on Changping district location.",
+    "existing": true
+  },
+  {
+    "name": "Hangzhou Linjiang WtE Complex",
+    "type": "wte",
+    "country": "CHN",
+    "lat": 30.28,
+    "lon": 120.3,
+    "capacity_note": "~2 Mt/yr throughput across 10 incineration plants; >1 billion kWh/yr",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.55,
+      "low": 0.4,
+      "high": 0.7
+    },
+    "retrofit_score": "medium",
+    "operator": "Hangzhou Linjiang Environmental Energy Co., Ltd.",
+    "source": "Xinhua / China.org.cn June 2026; Dong thesis WTERT 2020",
+    "notes": "Hangzhou manages a city-wide WtE network; the Jiufeng facility is the central anchor. Coordinates approximate for Hangzhou east urban/industrial zone. Biogenic ~50% of processed MSW.",
+    "existing": true
+  },
+  {
+    "name": "Chengdu Wanxing WtE Plant",
+    "type": "wte",
+    "country": "CHN",
+    "lat": 30.62,
+    "lon": 104.07,
+    "capacity_note": "est. 2,000 t/d; 50 MW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.22,
+      "low": 0.16,
+      "high": 0.28
+    },
+    "retrofit_score": "low",
+    "operator": "Chengdu Xingrong Environment Co. (SZ listed)",
+    "source": "WEF 2019 article on Chengdu WtE expansion; Columbia thesis Lu Li; calc: 2,000 t/d × 365 × 0.5 biogenic × 44/12 × 0.35 carbon fraction",
+    "notes": "Sichuan province; capacity note and CO2 estimate are approximations—facility-level public data limited. Biogenic ~50% MSW assumed. Weak storage/regulatory context.",
+    "existing": true
+  },
+  {
+    "name": "Tokyo Shin-Koto Incineration Plant",
+    "type": "wte",
+    "country": "JPN",
+    "lat": 35.63,
+    "lon": 139.84,
+    "capacity_note": "1,800 t/d; 50 MW; Japan's largest single WtE facility",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.18,
+      "low": 0.13,
+      "high": 0.23
+    },
+    "retrofit_score": "medium",
+    "operator": "Clean Authority of Tokyo (Tokyo23-ward union)",
+    "source": "Fuji Electric case study; Clean Authority of Tokyo official site; GEM Shinkoto power station",
+    "notes": "Located 3-1-1 Yumenoshima, Koto-ku, Tokyo. Biogenic fraction of Japanese MSW ~50%. Japan has no operational geological CO2 storage; retrofit would require offshore storage development.",
+    "existing": true
+  },
+  {
+    "name": "Osaka Maishima WtE Facility",
+    "type": "wte",
+    "country": "JPN",
+    "lat": 34.665,
+    "lon": 135.407,
+    "capacity_note": "300,000 t/yr MSW; 32 MW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.06,
+      "low": 0.04,
+      "high": 0.08
+    },
+    "retrofit_score": "low",
+    "operator": "City of Osaka (Hitachi Zosen design/operate)",
+    "source": "Power Technology Maishima profile; Industry About Osaka Maishima; GEM Maishima power station",
+    "notes": "Iconic architecture by Friedensreich Hundertwasser. Commissioned 2001. Smaller scale; retrofit score low due to modest size and urban location constraints.",
+    "existing": true
+  },
+  {
+    "name": "Yokohama Tsurumi Incineration Plant",
+    "type": "wte",
+    "country": "JPN",
+    "lat": 35.49,
+    "lon": 139.67,
+    "capacity_note": "900 t/d; 22 MW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.09,
+      "low": 0.07,
+      "high": 0.12
+    },
+    "retrofit_score": "medium",
+    "operator": "City of Yokohama",
+    "source": "Japan MOE waste management report; Power Engineering MHI upgrade article 2024",
+    "notes": "Yokohama operates multiple WtE plants; Tsurumi (Minato) cited at 900 t/d, 22 MW. MHI unit performing upgrades as of 2024. Biogenic ~50% Japanese MSW.",
+    "existing": true
+  },
+  {
+    "name": "Seoul Mapo Resource Recovery Facility",
+    "type": "wte",
+    "country": "KOR",
+    "lat": 37.566,
+    "lon": 126.896,
+    "capacity_note": "750 t/d design capacity (3 × 250 t/d); processes ~600 t/d avg",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.09
+    },
+    "retrofit_score": "low",
+    "operator": "Seoul Metropolitan Government",
+    "source": "Seoul Solution Mapo Resource Recovery Facility article; Korea Times 2020",
+    "notes": "Located Sangam-dong, Mapo District. Serves five central Seoul districts. Small scale; low retrofit score. One of four Seoul WtE plants.",
+    "existing": true
+  },
+  {
+    "name": "Incheon Sudokwon WtE Plant",
+    "type": "wte",
+    "country": "KOR",
+    "lat": 37.57,
+    "lon": 126.63,
+    "capacity_note": "est. 1,000–2,000 t/d; exact capacity not publicly confirmed",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.12,
+      "low": 0.08,
+      "high": 0.18
+    },
+    "retrofit_score": "medium",
+    "operator": "Korea Environment Corporation (KECO) / Incheon city",
+    "source": "Korea Times 2020; Korea Herald 2024; calc estimate based on scale comparison with Seoul plants",
+    "notes": "Incheon hosts large landfill and waste treatment complex serving greater Seoul metro area. Capacity estimate uncertain; marked as medium confidence. Biogenic ~50% Korean MSW.",
+    "existing": true
+  },
+  {
+    "name": "Taipei Beitou Refuse Incineration Plant",
+    "type": "wte",
+    "country": "TWN",
+    "lat": 25.108,
+    "lon": 121.498,
+    "capacity_note": "1,800 t/d",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.18,
+      "low": 0.13,
+      "high": 0.23
+    },
+    "retrofit_score": "medium",
+    "operator": "Taipei City Government (Dept. of Environmental Protection)",
+    "source": "Wikipedia Beitou Refuse Incineration Plant; GEM Beitou Refuse incinerator power station; Taiwan EMA data",
+    "notes": "Located Zhoumei Borough, Beitou District. Taiwan operates dense network of WtE plants; Beitou is among the largest. Biogenic ~50% MSW. Taiwan has nascent CCS regulatory framework.",
+    "existing": true
+  },
+  {
+    "name": "Kaohsiung Central District WtE Plant",
+    "type": "wte",
+    "country": "TWN",
+    "lat": 22.637,
+    "lon": 120.265,
+    "capacity_note": "est. 1,350 t/d (one of four Kaohsiung plants; combined 5,400 t/d)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.14,
+      "low": 0.1,
+      "high": 0.18
+    },
+    "retrofit_score": "medium",
+    "operator": "Kaohsiung City Government",
+    "source": "Resources MDPI 2019 — Kaohsiung WtE operational efficiencies analysis; Taiwan EMA data; calc: 1,350 t/d × 365 × 0.5 biogenic × ~0.57 CO2 per t MSW",
+    "notes": "Kaohsiung operates four WtE plants (Central, South, Renwu, Gangshan) with combined 5,400 t/d. Entry represents the Central District plant as the largest. Biogenic ~50% MSW.",
+    "existing": true
+  },
+  {
+    "name": "East Rockingham Waste-to-Energy",
+    "type": "wte",
+    "country": "AUS",
+    "lat": -32.28,
+    "lon": 115.74,
+    "capacity_note": "300,000+ t/yr; 29 MW",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.055,
+      "low": 0.04,
+      "high": 0.07
+    },
+    "retrofit_score": "medium",
+    "operator": "East Rockingham Waste to Energy Pty Ltd (Phoenix Energy / Acciona)",
+    "source": "ERWTE website; ARENA project page; Wikipedia East Rockingham WtE",
+    "notes": "26 Office Rd, East Rockingham, Kwinana Industrial Area. Australia's first operating large-scale WtE plant. 29 MW; biogenic ~40% Australian MSW. Adjacent to Kwinana Industrial Area—potential industrial CCS cluster with proximity to offshore basins.",
+    "existing": true
+  },
+  {
+    "name": "Avertas Energy Kwinana WtE (formerly Kwinana EfW)",
+    "type": "wte",
+    "country": "AUS",
+    "lat": -32.24,
+    "lon": 115.76,
+    "capacity_note": "400,000 t/yr; 36 MW (planned/under development)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.07,
+      "low": 0.05,
+      "high": 0.09
+    },
+    "retrofit_score": "medium",
+    "operator": "Avertas Energy",
+    "source": "Minister for Industry media release; Energy Magazine WA WtE article; CEFC case study",
+    "notes": "Located Kwinana, 4.5 km from East Rockingham plant. $113M government funding committed. Biogenic ~40% Australian MSW. Development status as of 2026 not fully confirmed—listed as planned.",
+    "existing": false
+  },
+  {
+    "name": "APP Indah Kiat Perawang Pulp Mill",
+    "type": "pulp_paper",
+    "country": "IDN",
+    "lat": 0.634,
+    "lon": 101.657,
+    "capacity_note": "~1.9 Mt/yr pulp + paper; one of the world's largest single-site pulp mills",
+    "est_biogenic_co2_mtpa": {
+      "value": 3.5,
+      "low": 2.5,
+      "high": 4.5
+    },
+    "retrofit_score": "high",
+    "operator": "PT Indah Kiat Pulp & Paper Tbk (APP Sinar Mas)",
+    "source": "Indah Kiat company website; Papermart APP profile; GEM mill records",
+    "notes": "Jl. Raya Minas–Perawang Km 26, Siak Regency, Riau. Black liquor combustion in kraft recovery boilers is the primary large biogenic CO2 point source. Emissions estimate based on industry benchmarks (~1.8 tCO2/t pulp for recovery boiler + biomass boiler combined). Storage risk: Sumatra has limited proximate geological storage; thesis sourcing-risk flag applies.",
+    "existing": true
+  },
+  {
+    "name": "APP Indah Kiat Serang Paper Mill",
+    "type": "pulp_paper",
+    "country": "IDN",
+    "lat": -6.18,
+    "lon": 106.13,
+    "capacity_note": "est. 500,000 t/yr paper; printing/writing focus",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.8,
+      "low": 0.55,
+      "high": 1.1
+    },
+    "retrofit_score": "medium",
+    "operator": "PT Indah Kiat Pulp & Paper Tbk (APP Sinar Mas)",
+    "source": "Indah Kiat company website; APP sustainability report 2018",
+    "notes": "Jl. Raya Serang Km 76, Kragilan, Serang, Banten (West Java). Integrated paper mill. Lower kraft-pulp fraction than Perawang means lower biogenic CO2 intensity; estimate is partial (biomass boilers + some recovery boiler contribution).",
+    "existing": true
+  },
+  {
+    "name": "Tjiwi Kimia Paper Mill (APP)",
+    "type": "pulp_paper",
+    "country": "IDN",
+    "lat": -7.563,
+    "lon": 112.626,
+    "capacity_note": "~1.2 Mt/yr paper + board; ~320,000 t/yr stationery converting",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.5,
+      "low": 1.1,
+      "high": 2.0
+    },
+    "retrofit_score": "medium",
+    "operator": "PT Pabrik Kertas Tjiwi Kimia Tbk (APP Sinar Mas)",
+    "source": "Tjiwi Kimia company profile; GEM Tjiwi Kimia Paper Mill power station; Paperindex Indonesia listing",
+    "notes": "Jl. Raya Surabaya–Mojokerto Km 44, Tarik, Sidoarjo, East Java. Large integrated mill; biomass and black liquor combustion. GEM lists on-site power station at 300+ MW.",
+    "existing": true
+  },
+  {
+    "name": "Nine Dragons Paper Dongguan Mill",
+    "type": "pulp_paper",
+    "country": "CHN",
+    "lat": 22.97,
+    "lon": 113.83,
+    "capacity_note": "5.85 Mt/yr (16 paper machines); world's largest single-site containerboard complex",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.5,
+      "low": 1.8,
+      "high": 3.2
+    },
+    "retrofit_score": "medium",
+    "operator": "Nine Dragons Paper (Holdings) Limited",
+    "source": "Nine Dragons Dongguan Base page; Wikipedia Nine Dragons Paper Holdings; GEM Lee & Man Paper power station (comparable facility cross-check)",
+    "notes": "Songshan Lake Hi-Tech Zone, Dongguan, Guangdong. Primarily uses recycled fibre (OCC) rather than virgin kraft pulp, so biogenic CO2 is lower intensity than kraft mills but still large in absolute terms due to biomass/gas boilers and massive steam demand. CO2 estimate is conservative. Weak storage pipeline—Guangdong offshore basins in early development.",
+    "existing": true
+  },
+  {
+    "name": "Sun Paper Group Yanzhou Mill",
+    "type": "pulp_paper",
+    "country": "CHN",
+    "lat": 35.55,
+    "lon": 116.82,
+    "capacity_note": "4.6 Mt/yr total group capacity; Yanzhou headquarters mill is largest site",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.8,
+      "low": 1.2,
+      "high": 2.4
+    },
+    "retrofit_score": "medium",
+    "operator": "Shandong Sun Holdings Group Co., Ltd.",
+    "source": "Paperindex Sun Paper profile; company website description; GEM records",
+    "notes": "Yanzhou District, Jining, Shandong Province. Integrated forestry-pulp-paper; virgin kraft pulp component drives biogenic CO2 via recovery boilers. Large captive power plant burns biomass/black liquor. Shandong coal province—CO2 transport infrastructure being developed.",
+    "existing": true
+  },
+  {
+    "name": "Chenming Paper Shouguang (Meilun) Mill",
+    "type": "pulp_paper",
+    "country": "CHN",
+    "lat": 36.88,
+    "lon": 118.74,
+    "capacity_note": ">400,000 t/yr bleached kraft pulp; total group >11 Mt/yr paper",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.4,
+      "low": 1.0,
+      "high": 1.8
+    },
+    "retrofit_score": "medium",
+    "operator": "Chenming Paper Holdings Ltd.",
+    "source": "Wikipedia Chenming Paper; GEM Chenming Mill Shouguang Meilun Paper Mill captive power station (545 MW on-site); Papermart top China mills",
+    "notes": "Shouguang City, Weifang, Shandong. 545 MW captive power station on-site—large concentrated CO2 source. GEM lists this as operating. Biogenic CO2 from black liquor recovery boilers and biomass combustion.",
+    "existing": true
+  },
+  {
+    "name": "Lee & Man Paper Dongguan Mill",
+    "type": "pulp_paper",
+    "country": "CHN",
+    "lat": 22.92,
+    "lon": 113.77,
+    "capacity_note": "est. large containerboard mill; 216 MW on-site power station",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.9,
+      "low": 0.65,
+      "high": 1.2
+    },
+    "retrofit_score": "medium",
+    "operator": "Lee & Man Paper Manufacturing Ltd.",
+    "source": "GEM Lee & Man Paper power station; Fisher & Co. semi-chemical pulp analysis; chinapulppaper.com",
+    "notes": "He Xi Industrial Park, Hongmei Town, Dongguan, Guangdong. GEM lists ≥216 MW on-site power station. Primarily recycled fibre; biogenic CO2 from biomass boilers and waste heat recovery. Estimate conservative.",
+    "existing": true
+  },
+  {
+    "name": "Nippon Paper Ishinomaki Mill",
+    "type": "pulp_paper",
+    "country": "JPN",
+    "lat": 38.43,
+    "lon": 141.3,
+    "capacity_note": "643,000 t/yr woodpulp; 370,000 t/yr DIP; ~1.1 Mt/yr paper",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.2,
+      "low": 0.9,
+      "high": 1.6
+    },
+    "retrofit_score": "high",
+    "operator": "Nippon Paper Industries Co., Ltd.",
+    "source": "Andritz Nippon Paper spectrum article; Nippon Paper Group domestic mills page; GEM Ishinomaki Mill power station",
+    "notes": "Ishinomaki City, Miyagi Prefecture. Large kraft pulp mill with integrated recovery boilers — concentrated biogenic CO2. Japan government has CCS roadmap targeting offshore geological storage.",
+    "existing": true
+  },
+  {
+    "name": "Oji Paper Tomakomai Mill",
+    "type": "pulp_paper",
+    "country": "JPN",
+    "lat": 42.63,
+    "lon": 141.61,
+    "capacity_note": ">1 Mt/yr paper (11 machines); world's largest newsprint mill",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.4,
+      "low": 1.0,
+      "high": 1.8
+    },
+    "retrofit_score": "high",
+    "operator": "Oji Paper Co., Ltd. (Oji Holdings)",
+    "source": "Oji Paper Andritz profile; Wikimapia Oji Paper Tomakomai Mill; GEM Tomakomai power station",
+    "notes": "Oji-machi 2-chome, Tomakomai, Hokkaido. Operational since 1910; now world's largest newsprint mill. Large recovery boilers and biomass power plant on-site. Tomakomai has Japan's only operating CCS pilot (METI/JCCS) — high retrofit strategic value.",
+    "existing": true
+  },
+  {
+    "name": "Nippon Paper Yatsushiro Mill",
+    "type": "pulp_paper",
+    "country": "JPN",
+    "lat": 32.5,
+    "lon": 130.61,
+    "capacity_note": "est. 400,000–600,000 t/yr pulp and paper",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.55,
+      "low": 0.4,
+      "high": 0.72
+    },
+    "retrofit_score": "medium",
+    "operator": "Nippon Paper Industries Co., Ltd.",
+    "source": "Nippon Paper Group domestic mills page; Andritz Nippon Paper spectrum",
+    "notes": "Yatsushiro City, Kumamoto Prefecture, Kyushu. One of Nippon Paper's integrated kraft mills. Capacity estimate approximate — Nippon Paper does not publish per-mill capacity publicly.",
+    "existing": true
+  },
+  {
+    "name": "Daio Paper Mishima Mill",
+    "type": "pulp_paper",
+    "country": "JPN",
+    "lat": 33.97,
+    "lon": 133.19,
+    "capacity_note": "~2.1 Mt/yr paper + board; ~8% of Japan's total production",
+    "est_biogenic_co2_mtpa": {
+      "value": 1.1,
+      "low": 0.8,
+      "high": 1.4
+    },
+    "retrofit_score": "high",
+    "operator": "Daio Paper Corporation",
+    "source": "Daio Paper key locations page; GEM Daio Mishima Mill power station; JSTAGE Mishima Mill article",
+    "notes": "Coastal Seto Inland Sea location, Ehime Prefecture. 1.6 million m² site. In-house kraft pulp production with recovery boilers. Daio has stated plans for biomass/waste power co-firing. Concentrated CO2 at recovery boiler stack — high retrofit score.",
+    "existing": true
+  },
+  {
+    "name": "ITC Bhadrachalam Paperboards & Specialty Papers",
+    "type": "pulp_paper",
+    "country": "IND",
+    "lat": 17.67,
+    "lon": 80.89,
+    "capacity_note": "1,400 t/d pulp (~511,000 t/yr); India's largest wood-based paper mill",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.95,
+      "low": 0.7,
+      "high": 1.25
+    },
+    "retrofit_score": "medium",
+    "operator": "ITC Limited — Paperboards & Specialty Papers Division",
+    "source": "Pulp and Paper Times article — capacity upgrade to 1,400 t/d; ITC PSPD website; Wikimapia ITC PSPD BCM; latitude.to coordinates confirmed",
+    "notes": "Sarapaka village, Bhadradri Kothagudem district, Telangana. India's largest wood-based paper plant. Kraft recovery boilers are primary biogenic CO2 source. India has nascent CCS regulatory framework; Deccan Traps basalt and Gondwana coal seams as potential storage. Medium retrofit score reflecting policy uncertainty.",
+    "existing": true
+  },
+  {
+    "name": "JK Paper Mills Rayagada (JKPM)",
+    "type": "pulp_paper",
+    "country": "IND",
+    "lat": 19.25,
+    "lon": 83.56,
+    "capacity_note": "215,000 t/yr pulp; 165,000 t/yr paper",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.38,
+      "low": 0.27,
+      "high": 0.5
+    },
+    "retrofit_score": "medium",
+    "operator": "JK Paper Ltd.",
+    "source": "JK Paper company website; Indiamart JKPM profile; Rayagada coordinates from latlong.net; capacity from scribd JK Paper report",
+    "notes": "Jaykaypur, Rayagada District, Odisha. Kraft process with recovery boilers. JK Paper recently invested ~Rs 1,775 crore in expansion. Biogenic CO2 from recovery boiler black liquor combustion.",
+    "existing": true
+  },
+  {
+    "name": "Tamil Nadu Newsprint & Papers Ltd (TNPL) Kagithapuram",
+    "type": "pulp_paper",
+    "country": "IND",
+    "lat": 11.05,
+    "lon": 77.998,
+    "capacity_note": "est. 400,000 t/yr paper; bagasse-based pulp",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.35,
+      "low": 0.25,
+      "high": 0.46
+    },
+    "retrofit_score": "medium",
+    "operator": "Tamil Nadu Newsprint and Papers Limited (Government of Tamil Nadu)",
+    "source": "Wikipedia TNPL; latitude.to TNPL coordinates (11.0488°N, 77.9977°E); TNPL company website",
+    "notes": "Kagithapuram, Karur District, Tamil Nadu. World's largest bagasse-based pulp mill — biogenic CO2 from bagasse combustion in recovery/biomass boilers. Cauvery River dependency noted. State government operator.",
+    "existing": true
+  },
+  {
+    "name": "West Coast Paper Mills Dandeli",
+    "type": "pulp_paper",
+    "country": "IND",
+    "lat": 15.25,
+    "lon": 74.62,
+    "capacity_note": "est. 200,000+ t/yr paper; 240 acres integrated mill",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.28,
+      "low": 0.2,
+      "high": 0.37
+    },
+    "retrofit_score": "low",
+    "operator": "West Coast Paper Mills Ltd. (WCPM)",
+    "source": "Westcoast Paper website; Paperindex WCPM profile; Mappls coordinates for Dandeli mill at ~15.25°N 74.62°E",
+    "notes": "Bangur Nagar, Dandeli, Uttara Kannada, Karnataka. Established 1955; wood-based integrated kraft mill. Remote location; low retrofit score due to infrastructure constraints and lack of proximate CO2 storage.",
+    "existing": true
+  },
+  {
+    "name": "Opal Australian Paper Maryvale Mill",
+    "type": "pulp_paper",
+    "country": "AUS",
+    "lat": -38.185,
+    "lon": 146.448,
+    "capacity_note": "550,000 t/yr paper (5 machines); 3 pulp mills on-site",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.7,
+      "low": 0.5,
+      "high": 0.9
+    },
+    "retrofit_score": "high",
+    "operator": "Opal Australian Paper (Nippon Paper Industries majority owner)",
+    "source": "Wikipedia Australian Paper; Opal company website; Latrobe Council buffer report; Maryvale EfW infrastructure pipeline",
+    "notes": "Maryvale, Latrobe Valley, Victoria — operating since 1937. Australia's largest and only remaining integrated kraft pulp+paper mill. Recovery boilers and biomass boilers are large concentrated biogenic CO2 sources. Maryvale EfW facility (Veolia) also co-located. Gippsland has potential offshore storage in Bass Strait; high retrofit score.",
+    "existing": true
+  },
+  {
+    "name": "Visy Tumut Kraft Mill",
+    "type": "pulp_paper",
+    "country": "AUS",
+    "lat": -35.32,
+    "lon": 148.17,
+    "capacity_note": "680,000 t/yr kraft paper; built 2001, expanded 2010+2015",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.75,
+      "low": 0.55,
+      "high": 0.95
+    },
+    "retrofit_score": "high",
+    "operator": "Visy Industries",
+    "source": "Visy Tumut Kraft Mill page; Tumut mill environmental approvals; Waze maps address 436 Gadara Rd Tumut confirmed town location",
+    "notes": "Gadara Road, Tumut, NSW. Pine plantation-based kraft mill. Uses radiata pine from Softwood forests. Recovery boilers are primary biogenic CO2 point source. Potential storage in Gunnedah Basin or offshore Otway. High retrofit score: single-site large source, private operator with sustainability commitments.",
+    "existing": true
+  },
+  {
+    "name": "Oji Fibre Solutions Kinleith Mill",
+    "type": "pulp_paper",
+    "country": "NZL",
+    "lat": -38.274,
+    "lon": 175.886,
+    "capacity_note": "265,000 t/yr bleached kraft pulp; paper ceased Jun 2025 — pulp-only now",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.45,
+      "low": 0.33,
+      "high": 0.58
+    },
+    "retrofit_score": "medium",
+    "operator": "Oji Fibre Solutions (NZ) Ltd. (Oji Holdings, Japan)",
+    "source": "Wikipedia Kinleith Mill; WorkSafe NZ major hazard facility public info; Engineering NZ heritage record; coordinates -38.2745, 175.8855 from heritage records",
+    "notes": "Kinleith, 7 km south of Tokoroa, South Waikato. Kraft recovery boilers are principal biogenic CO2 source. New Zealand has Taranaki offshore storage potential and government CCS policy emerging. Paper production cessation (2025) reduces overall throughput but pulp line continues.",
+    "existing": true
+  },
+  {
+    "name": "Pan Pac Forest Products Whirinaki Pulp Mill",
+    "type": "pulp_paper",
+    "country": "NZL",
+    "lat": -39.381,
+    "lon": 176.888,
+    "capacity_note": "220,000 t/yr BCTMP pulp (850 t/d)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.22,
+      "low": 0.16,
+      "high": 0.29
+    },
+    "retrofit_score": "medium",
+    "operator": "Pan Pac Forest Products Ltd. (Oji Holdings majority)",
+    "source": "Industry About Pan Pac Whirinaki; Pan Pac company website; Wikipedia Pan Pac Forest Products; coordinates -39.381035, 176.888235 confirmed",
+    "notes": "1161 SH2 Wairoa Road, Whirinaki, 20 km north of Napier, Hawke's Bay. BCTMP (bleached chemi-thermomechanical pulp) process — lower biogenic CO2 than kraft but still significant biomass combustion for steam. Bark and wood waste boilers are CO2 source.",
+    "existing": true
+  },
+  {
+    "name": "Phoenix Pulp & Paper Khon Kaen",
+    "type": "pulp_paper",
+    "country": "THA",
+    "lat": 16.77,
+    "lon": 102.59,
+    "capacity_note": "~200,000–240,000 t/yr pulp (kenaf, bamboo, eucalyptus)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.28,
+      "low": 0.2,
+      "high": 0.37
+    },
+    "retrofit_score": "low",
+    "operator": "Phoenix Pulp and Paper PCL",
+    "source": "Kompass Thailand Phoenix Pulp & Paper listing; WRM Thailand pulp industry article; Oxford Business Group Thailand paper sector",
+    "notes": "99 Moo 3, Kut Nam Sai, Nam Phong, Khon Kaen 40310. Uses non-wood fibres (kenaf, bamboo). Black liquor recovery boiler is biogenic CO2 source. Weak storage and policy context for Thailand.",
+    "existing": true
+  },
+  {
+    "name": "Vietnam Lee & Man Paper Hau Giang",
+    "type": "pulp_paper",
+    "country": "VNM",
+    "lat": 9.93,
+    "lon": 105.72,
+    "capacity_note": "420,000 t/yr packaging paper; on-site power station",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.38,
+      "low": 0.27,
+      "high": 0.50
+    },
+    "retrofit_score": "low",
+    "operator": "Vietnam Lee & Man Paper Manufacturing Ltd.",
+    "source": "VietnamPlus Lee & Man article; GEM Hau Giang Lee & Man power station; Supercargotransport mill profile",
+    "notes": "Phu Huu A Industrial Zone, Mai Dam Town, Chau Thanh District, Hau Giang Province. GEM lists associated power station. Primarily recovered paper feedstock; biogenic CO2 from biomass boilers. Vietnam has no operational CO2 storage; regulatory framework absent — thesis sourcing risk flag applies strongly.",
+    "existing": true
+  },
+  {
+    "name": "Kanda Biomass Power Plant",
+    "type": "bioenergy",
+    "country": "JPN",
+    "lat": 33.78,
+    "lon": 130.97,
+    "capacity_note": "75 MW; 100% wood biomass; commissioned Jun 2021",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.41,
+      "low": 0.32,
+      "high": 0.51
+    },
+    "retrofit_score": "high",
+    "operator": "Kanda Biomass Energy K.K. (Renova 60%, Sumitomo Forestry, Veolia Japan, Kyuden Mirai Energy, Mihara Group)",
+    "source": "Renova press release 2021; Power Technology Kanda-machi profile; Bioenergy International financial close article",
+    "notes": "Kanda-machi, Miyako-gun, Fukuoka Prefecture, Kyushu. 100% wood biomass (imported woodchips + domestic). Concentrated single-stack ~0.41 Mt CO2/yr. Japan's FIT regime supports biomass; CCS retrofit would benefit from METI CCUS roadmap. Coordinates approximate for Kanda-machi.",
+    "existing": true
+  },
+  {
+    "name": "Omaezakikou Biomass Power Plant",
+    "type": "bioenergy",
+    "country": "JPN",
+    "lat": 34.61,
+    "lon": 138.21,
+    "capacity_note": "75 MW (74.95 MW); ~530 GWh/yr; wood pellets + PKS; commissioned Jan 2025",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.41,
+      "low": 0.32,
+      "high": 0.51
+    },
+    "retrofit_score": "high",
+    "operator": "Omaezakikou Biomass Energy K.K. (Renova 38%, Chubu Electric 34%, Mitsubishi Electric Credit 18%, Suzuyo Shoji 10%)",
+    "source": "Renova Omaezakikou page; NSEnergy Business project profile; Japan Energy Hub COD announcement; Renewables Now article Jan 2025",
+    "notes": "Port of Omaezaki, Omaezaki City, Shizuoka Prefecture; 53,000 m² harbourside site. New plant (2025). Concentrated biogenic CO2 from dedicated biomass combustion. High retrofit score: new infrastructure, utility-grade operator.",
+    "existing": true
+  },
+  {
+    "name": "Yufutsu Energy Centre (Tomakomai Biomass)",
+    "type": "bioenergy",
+    "country": "JPN",
+    "lat": 42.62,
+    "lon": 141.64,
+    "capacity_note": "74.95 MW; imported woodchips + PKS + Hokkaido domestic biomass; commissioned Feb 2023",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.41,
+      "low": 0.32,
+      "high": 0.51
+    },
+    "retrofit_score": "high",
+    "operator": "Yufutsu Energy Centre K.K. (Sojitz Corporation + Nippon Paper Industries JV)",
+    "source": "Sojitz news release Feb 2023; Bioenergy News article; Power Technology Tomatoh Biomass profile",
+    "notes": "Tomakomai, Hokkaido — same industrial zone as Japan's only CCS pilot (Tomakomai CCS Demonstration Project, JCCS). Strategic location for BECCS given existing CO2 transport/storage infrastructure. Sojitz / Nippon Paper JV.",
+    "existing": true
+  },
+  {
+    "name": "Hibikinada Biomass Power Station",
+    "type": "bioenergy",
+    "country": "JPN",
+    "lat": 33.9,
+    "lon": 130.76,
+    "capacity_note": "112 MW; transitioning coal/biomass co-fire → 100% biomass",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.35,
+      "low": 0.25,
+      "high": 0.55
+    },
+    "retrofit_score": "medium",
+    "operator": "Daiwa House Industry Co., Ltd. (acquired from Orix / Hokuzai Transport)",
+    "source": "GEM Hibikinida Biomass power station; Argus Media Hibikinada conversion article; Wakaten Hibikinada sustainable industrial article",
+    "notes": "Wakamatsu, Kitakyushu, Fukuoka, Kyushu. Commissioned Dec 2018. Converting from coal co-fire to 100% biomass (timing uncertain per Argus). Biogenic CO2 fraction varies with fuel mix; range reflects 50–100% biomass. Kitakyushu is a designated green-industrial city — favourable policy environment.",
+    "existing": true
+  },
+  {
+    "name": "Soma Biomass Power Plant (M.Setek Soma / Soma Energy Park)",
+    "type": "bioenergy",
+    "country": "JPN",
+    "lat": 37.8,
+    "lon": 141.0,
+    "capacity_note": "112 MW; coal+biomass co-fire; commissioned Mar 2018",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.28,
+      "low": 0.2,
+      "high": 0.40
+    },
+    "retrofit_score": "medium",
+    "operator": "M.Setek Co., Ltd. / Orix Corporation (Soma Energy Park)",
+    "source": "GEM Soma Coal-Biomass power station; Power Technology Soma Biomass profile",
+    "notes": "Soma City, Fukushima Prefecture, Tohoku. 112 MW co-fire plant. Biogenic share estimated 25–50% of total CO2 (co-firing ratio uncertain). CO2 range reflects uncertainty in biomass fraction. Tohoku offshore storage potential under study.",
+    "existing": true
+  },
+  {
+    "name": "Yeongdong Biomass Power Plant (Eco Power)",
+    "type": "bioenergy",
+    "country": "KOR",
+    "lat": 37.739,
+    "lon": 128.981,
+    "capacity_note": "325 MW total (200 MW Unit 1 + 125 MW Unit 2); Korea's first full coal-to-biomass conversion",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.87,
+      "low": 0.65,
+      "high": 1.1
+    },
+    "retrofit_score": "high",
+    "operator": "Korea South-East Power Co., Ltd. (KOSEP / KEPCO subsidiary)",
+    "source": "GEM Yongdong power station; Power Technology Yeongdong Biomass profile; Doosan Enerbility conversion scope document; coordinates 37.738780, 128.980811 verified",
+    "notes": "99 YeomJeon-gil, Gangdong-myon, Gangneung-si, Gangwon Province. Largest biomass conversion project in Korea; 100% wood pellet firing since ~2020. Concentrated single-site biogenic CO2. Korea's Carbon Neutrality Act and CCUS roadmap — high retrofit strategic value.",
+    "existing": true
+  },
+  {
+    "name": "SGC Green Power (Gunsan Biomass)",
+    "type": "bioenergy",
+    "country": "KOR",
+    "lat": 35.98,
+    "lon": 126.73,
+    "capacity_note": "100 MW; also known as S1 Gunsan / SMG Biomass; wood pellet fired",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.27,
+      "low": 0.2,
+      "high": 0.34
+    },
+    "retrofit_score": "medium",
+    "operator": "SGC Green Power Co., Ltd. (SGC Energy group)",
+    "source": "GEM SGC Green Power power station; Power Technology Gunsan Biomass profile; GEM Gunsan power station",
+    "notes": "Gunsan (Gunsan-si), North Jeolla Province. Dedicated wood pellet biomass plant. 100 MW. Note: task brief flags 'Gunsan Biomass (Hanwha Energy)' as already in facilities.json — this is the SGC Green Power separate unit. Verify deduplication against Hanwha plant; if same facility, discard.",
+    "existing": true
+  },
+  {
+    "name": "Rocky Point Sugar Mill Cogeneration",
+    "type": "bioenergy",
+    "country": "AUS",
+    "lat": -27.76,
+    "lon": 153.27,
+    "capacity_note": "30 MW bagasse cogeneration; >120,000 t/yr bagasse fuel",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.08,
+      "low": 0.06,
+      "high": 0.11
+    },
+    "retrofit_score": "low",
+    "operator": "Stanwell Corporation / Rocky Point Sugar",
+    "source": "Power Technology Rocky Point case study; World of Renewables Rocky Point; OSTI bagasse/green waste article",
+    "notes": "Woongoolba, near Beenleigh, SE Queensland. Bagasse + municipal green waste co-fire. When built was Australia's largest biomass plant. Small scale; low retrofit score. Sugarcane bagasse is biogenic CO2 source.",
+    "existing": true
+  },
+  {
+    "name": "Tableland Green Energy Power Plant",
+    "type": "bioenergy",
+    "country": "AUS",
+    "lat": -17.1,
+    "lon": 145.45,
+    "capacity_note": "24 MW bagasse cogeneration; Arriga, Shire of Mareeba",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.065,
+      "low": 0.047,
+      "high": 0.084
+    },
+    "retrofit_score": "low",
+    "operator": "MSF Sugar (Tableland Mill)",
+    "source": "MSF Sugar Tableland Green Energy page; database.earth Queensland biomass plants listing",
+    "notes": "Arriga, Mareeba Shire, Far North Queensland. Bagasse-fired cogen attached to Tableland sugar mill. Small scale; remote location — low retrofit score. Biogenic CO2 from bagasse combustion.",
+    "existing": true
+  },
+  {
+    "name": "Nippon Paper Kushiro Mill",
+    "type": "pulp_paper",
+    "country": "JPN",
+    "lat": 42.98,
+    "lon": 144.4,
+    "capacity_note": "52,000 t/yr kraft paper (post-conversion); pulp mill on-site",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.15,
+      "low": 0.1,
+      "high": 0.2
+    },
+    "retrofit_score": "medium",
+    "operator": "Nippon Paper Industries Co., Ltd.",
+    "source": "Nippon Paper Industries Kushiro kraft project press release 2012; Pulpapernews.com Kushiro kraft project 2019; Nippon Paper mills page",
+    "notes": "Kushiro City, Hokkaido. Converted to kraft paper production (~2019). Smaller than Tomakomai/Ishinomaki but contributes biogenic CO2 through recovery boilers. Hokkaido offshore storage potential.",
+    "existing": true
+  },
+  {
+    "name": "APRIL Kerinci Kanan Mill (RAPP Line 2+)",
+    "type": "pulp_paper",
+    "country": "IDN",
+    "lat": 0.19,
+    "lon": 101.96,
+    "capacity_note": "est. additional pulp lines at RAPP complex beyond Pangkalan Kerinci (in facilities.json); total RAPP site >3 Mt/yr",
+    "est_biogenic_co2_mtpa": {
+      "value": 2.0,
+      "low": 1.5,
+      "high": 2.6
+    },
+    "retrofit_score": "high",
+    "operator": "APRIL Group (RGE Group)",
+    "source": "APRIL sustainability reports; RAPP Pangkalan Kerinci expansion announcements; Banktrack OKI cross-reference for scale",
+    "notes": "Pangkalan Kerinci, Pelalawan Regency, Riau. The RAPP complex is one of the world's largest single-site pulp mills with multiple production lines. This entry captures the scale beyond the single line already in facilities.json ('RAPP Pangkalan Kerinci'). Combined site biogenic CO2 from multiple recovery boilers is very large. Verify against existing entry to ensure net-new scope only.",
+    "existing": true
+  },
+  {
+    "name": "Double A (ADVANCE AGRO) Tha Tum Mill",
+    "type": "pulp_paper",
+    "country": "THA",
+    "lat": 14.83,
+    "lon": 102.05,
+    "capacity_note": "est. 600,000 t/yr pulp + 600,000 t/yr paper (group capacity); large integrated site in Tha Tum",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.75,
+      "low": 0.55,
+      "high": 1.0
+    },
+    "retrofit_score": "low",
+    "operator": "Double A (1991) Public Co., Ltd. (ADVANCE AGRO group)",
+    "source": "Oxford Business Group Thailand paper report; Bangkok Post SCG Paper article; Double A company data cross-reference",
+    "notes": "Tha Tum District, Surin Province, Northeast Thailand. Uses ASEAN first planted 'tree-free' pulp from farm trees; kraft process. Recovery boiler is biogenic CO2 source. Thailand has no CO2 storage policy; weak retrofit context.",
+    "existing": true
+  },
+  {
+    "name": "Maryvale Energy-from-Waste Facility (Veolia)",
+    "type": "wte",
+    "country": "AUS",
+    "lat": -38.185,
+    "lon": 146.45,
+    "capacity_note": "est. 200,000–250,000 t/yr industrial/commercial waste; planned",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.05,
+      "low": 0.03,
+      "high": 0.07
+    },
+    "retrofit_score": "medium",
+    "operator": "Veolia Australia",
+    "source": "Veolia ANZ Maryvale EfW page; Infrastructure Pipeline Maryvale EfW entry; GEM Maryvale EfW power station",
+    "notes": "Co-located with Opal Maryvale pulp mill, Latrobe Valley. Takes industrial waste from mill and region. Planned/under development as of 2024. Biogenic fraction of industrial waste stream uncertain—estimate conservative. High co-location value for shared CCS infrastructure with Opal mill.",
+    "existing": false
+  },
+  {
+    "name": "Oji Paper Nichinan Mill",
+    "type": "pulp_paper",
+    "country": "JPN",
+    "lat": 31.6,
+    "lon": 131.38,
+    "capacity_note": "200,000 t/yr fine paper (7 machines); two KP lines; 3,600 t/yr specialty coated paper",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.28,
+      "low": 0.2,
+      "high": 0.37
+    },
+    "retrofit_score": "medium",
+    "operator": "Oji Paper Co., Ltd. (Oji Holdings)",
+    "source": "Andritz Oji Paper profile; JSTAGE Pulp and Paper Japan mills listing; Daio Paper key locations cross-reference for Miyazaki Prefecture mills",
+    "notes": "Nichinan City, Miyazaki Prefecture, Kyushu. Kraft pulping (KP) lines drive biogenic CO2 via recovery boilers. Moderate scale; Kyushu offshore storage potential (west coast and Tsushima basin).",
+    "existing": true
+  },
+  {
+    "name": "Winstone Pulp International Karioi Mill",
+    "type": "pulp_paper",
+    "country": "NZL",
+    "lat": -39.43,
+    "lon": 175.39,
+    "capacity_note": "est. 100,000–130,000 t/yr mechanical pulp (TMP/CTMP)",
+    "est_biogenic_co2_mtpa": {
+      "value": 0.12,
+      "low": 0.08,
+      "high": 0.17
+    },
+    "retrofit_score": "low",
+    "operator": "Winstone Pulp International Ltd. (Carter Holt Harvey / Oji legacy)",
+    "source": "Te Ara NZ Encyclopedia manufacturing article; Engineering NZ heritage records; NZ industry about Winstone Pulp page",
+    "notes": "Karioi, near Ohakune, Ruapehu district, North Island NZ. Mechanical pulp (TMP) process — electricity-intensive, biomass boilers for steam only. Smaller biogenic CO2 than kraft mills. Remote location reduces retrofit attractiveness.",
+    "existing": true
+  }
+]
