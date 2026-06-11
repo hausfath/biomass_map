@@ -96,6 +96,24 @@
     .addAttribution("Geometry: Natural Earth · Data: see Methodology")
     .addTo(map);
 
+  // ---- Dedicated panes + renderers ----
+  // The choropleth and the point overlays live in SEPARATE SVG panes so that
+  // bringToFront() on a hovered polygon can never cover the markers (which would
+  // otherwise swallow their hover/click events). Overlays sit above the choropleth.
+  map.createPane("choroPane");
+  map.getPane("choroPane").style.zIndex = 410;
+  const choroRenderer = L.svg({ pane: "choroPane" });
+
+  // Basins are large, translucent circles -> their own pane BELOW the point markers,
+  // so they never swallow clicks meant for the small site/facility markers on top.
+  map.createPane("basinPane");
+  map.getPane("basinPane").style.zIndex = 450;
+  const basinRenderer = L.svg({ pane: "basinPane" });
+
+  map.createPane("ovPane");
+  map.getPane("ovPane").style.zIndex = 470;
+  const ovRenderer = L.svg({ pane: "ovPane" });
+
   // ---- Choropleth value accessors ----
   function feedValue(rec, key) {
     if (!rec) return null;
@@ -151,6 +169,7 @@
   // ---- Choropleth layer ----
   let geoLayer = L.geoJSON(combined, {
     style: styleFeature,
+    renderer: choroRenderer,
     onEachFeature: function (feature, layer) {
       layer.on({
         mouseover: function (e) { highlight(e.target); showHoverTip(e, feature); },
@@ -205,6 +224,7 @@
     const meta = FAC_META[f.type] || { label: f.type, color: "#e0b020" };
     L.circleMarker([f.lat, f.lon], {
       radius: r, fillColor: meta.color, color: "#0e1419", weight: 1, fillOpacity: 0.85,
+      renderer: ovRenderer,
     }).bindPopup(facilityPopup(f, meta), { maxWidth: 280 }).addTo(facilityLayer);
   });
 
@@ -216,6 +236,7 @@
     const op = s.status === "operational" ? 0.9 : s.status === "construction" ? 0.6 : 0.35;
     L.circleMarker([s.lat, s.lon], {
       radius: r, fillColor: "#46b3ff", color: "#eafffb", weight: 1.2, fillOpacity: op,
+      renderer: ovRenderer,
     }).bindPopup(sitePopup(s), { maxWidth: 280 }).addTo(siteLayer);
   });
 
@@ -229,6 +250,7 @@
     L.circleMarker([s.lat, s.lon], {
       radius: r, fillColor: "#7aa6ff", color: "#6f93c9", weight: 1,
       fillOpacity: confOp, opacity: confLine,
+      renderer: basinRenderer,
     }).bindPopup(basinPopup(s), { maxWidth: 280 }).addTo(basinLayer);
   });
 
