@@ -151,6 +151,14 @@ Gulf Coast / Illinois basins despite world-class in-country storage).
 
 Global summed CDR potential across recommended pathways ≈ **2.9 Gtpa**, within the thesis range.
 
+### Per-region ranked options
+Each region also carries a full **best-to-worst ranking** of the pathways applicable to its
+dominant feedstock (wet feedstocks exclude combustion, etc.), with region-specific advantages
+and disadvantages generated from storage access, feedstock density, nutrient status, and
+retrofit availability. The recommended and runner-up pathways are pinned at the top; the rest
+are ordered by a fit score (intrinsic KPI score plus local modifiers). This drives the ranked
+list shown in the "Best use" layer's detail panel.
+
 ### Frontier exclusions (flagged, never recommended)
 - **Purpose-grown energy crops** — land-use competition; thesis sourcing principles.
 - **RNG + CCS** — complex; Frontier not pursuing offtakes (thesis §3.4). AD/manure regions flagged.

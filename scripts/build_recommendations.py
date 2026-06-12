@@ -94,6 +94,66 @@ PATHWAYS = {
     },
 }
 
+# Static advantages / disadvantages per pathway (region-specific ones appended later).
+PATHWAY_PROFILE = {
+    "beccs": {
+        "pros": ["High CDR efficiency (~80%)",
+                 "Energy co-product (heat/electricity) displaces fossil emissions",
+                 "Low durability risk; Frontier's most-preferred pathway"],
+        "cons": ["Capital-intensive; works best at large scale",
+                 "Not very modular — hard to deploy in distributed settings"],
+    },
+    "beccs_pp": {
+        "pros": ["Retrofits an existing pulp & paper mill — low execution risk, near-term",
+                 "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+                 "Leverages existing biomass logistics + grid connection"],
+        "cons": ["Requires an existing mill to retrofit",
+                 "Capture capex on flue gas"],
+    },
+    "wte_ccs": {
+        "pros": ["Captures biogenic CO2 from municipal waste already being combusted",
+                 "Energy co-product; handles MSW at urban scale"],
+        "cons": ["Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
+                 "Urban siting and public-acceptance hurdles"],
+    },
+    "injection": {
+        "pros": ["Very high CDR efficiency (>90%)",
+                 "Cheaper on balance than bio-oil where wells are near",
+                 "PFAS destruction; disposes problematic wet wastes"],
+        "cons": ["No emissions-avoiding co-product",
+                 "Hauling bulky, less-carbon-dense biomass is costly if wells are far"],
+    },
+    "bio_oil": {
+        "pros": ["Modular and distributed (Charm-style roving model)",
+                 "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+                 "Returns biochar and nutrients to fields",
+                 "Low durability risk"],
+        "cons": ["Lower CDR efficiency (~45%)",
+                 "Higher $/t than injection where storage is proximate"],
+    },
+    "burial": {
+        "pros": ["Very high CDR efficiency (>90%)",
+                 "Simple and low-cost; needs no geologic CO2 storage",
+                 "Works for distributed biomass"],
+        "cons": ["Durability still being validated (Frontier prepurchase, not offtake)",
+                 "No emissions-avoiding co-product; nutrient-export risk with ag residues"],
+    },
+    "ad_ccs": {
+        "pros": ["Suits wet feedstock; mature technology",
+                 "Returns nutrients to fields",
+                 "Low-carbon fuel co-product"],
+        "cons": ["Low CDR efficiency (~30-44%)",
+                 "Carbon split between fuel and CDR streams; RNG coupling is complex "
+                 "(Frontier not pursuing offtakes)"],
+    },
+    "biochar": {
+        "pros": ["Returns nutrients to soils, improving yields",
+                 "Distributed and storage-independent; simple and near-term"],
+        "cons": ["Low CDR efficiency (~30%)",
+                 "Durability and verification questions; Frontier's lower-preference pathway"],
+    },
+}
+
 # Caveats / flags text (spec)
 BURIAL_CAVEAT = (
     "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); "
@@ -478,6 +538,130 @@ def cdr_potential_mtpa(region, pathway_key):
 
 
 # --------------------------------------------------------------------------
+# Ranked best->worst CDR options per region (with region-specific pros/cons)
+# --------------------------------------------------------------------------
+def applicable_pathways(dom, has_pp_be):
+    """Pathways that physically suit the region's dominant feedstock."""
+    if dom == "manure_wet":
+        return ["injection", "ad_ccs", "biochar"]          # wet: never combustion
+    if dom == "msw":
+        return ["wte_ccs", "burial", "biochar"]
+    # dry: ag_dry / forestry_woody / mixed
+    dry = ["beccs", "injection", "bio_oil", "burial", "biochar"]
+    if has_pp_be:
+        dry.insert(1, "beccs_pp")
+    return dry
+
+
+def fit_score(region, pathway, storage_access, has_pp_be):
+    """Region-fit score for ranking: intrinsic KPI score + local modifiers."""
+    p = PATHWAYS[pathway]
+    score = kpi_score(pathway, storage_access)
+    density = region.get("feedstock_density")
+    nutrient = region.get("nutrient_status")
+    centralized = pathway in ("beccs", "beccs_pp", "wte_ccs")
+    distributed = pathway in ("bio_oil", "biochar", "burial")
+
+    if density == "diffuse" and centralized:
+        score -= 10
+    if density == "diffuse" and distributed:
+        score += 4
+    if p["needs_geologic_storage"]:
+        if storage_access == "good":
+            score += 4
+        elif storage_access == "moderate":
+            score -= 5
+    if nutrient == "excess":
+        if pathway in ("bio_oil", "biochar", "ad_ccs"):
+            score -= 8
+        elif pathway in ("burial", "injection"):
+            score += 4
+    if pathway == "beccs_pp":
+        score += 8 if has_pp_be else -50
+    return score
+
+
+def region_pros_cons(region, pathway, storage_access, nearest_km, has_pp_be, anchor):
+    """Static profile pros/cons plus region-specific modifiers."""
+    prof = PATHWAY_PROFILE[pathway]
+    pros = list(prof["pros"])
+    cons = list(prof["cons"])
+    p = PATHWAYS[pathway]
+    density = region.get("feedstock_density")
+    nutrient = region.get("nutrient_status")
+
+    if p["needs_geologic_storage"]:
+        if storage_access == "good":
+            pros.append("Proximate geologic storage here"
+                        + (f" (~{nearest_km} km)" if nearest_km else ""))
+        elif storage_access == "moderate":
+            cons.append("Geologic storage only moderately accessible — transport adds cost")
+        else:
+            cons.append("Geologic storage is poor/absent here — a major constraint")
+
+    if density == "diffuse":
+        if pathway in ("beccs", "beccs_pp", "wte_ccs"):
+            cons.append("Local biomass is diffuse — hauling to a central plant is costly")
+        elif pathway in ("bio_oil", "biochar", "burial"):
+            pros.append("Suits the region's diffuse, distributed biomass")
+    elif density == "concentrated" and pathway in ("beccs", "beccs_pp", "wte_ccs"):
+        pros.append("Biomass is concentrated — supports a central facility")
+
+    if nutrient == "excess":
+        if pathway in ("bio_oil", "biochar", "ad_ccs"):
+            # Nutrient return is a liability here, not a benefit: drop any nutrient pro.
+            pros = [x for x in pros if "nutrient" not in x.lower()]
+            cons.append("Returns nutrients to soils already in surplus here")
+        elif pathway in ("burial", "injection"):
+            pros.append("Removes carbon and nutrients from an over-fertilized landscape")
+
+    if pathway == "beccs_pp":
+        if has_pp_be and anchor:
+            pros.append(f"Existing mill to retrofit: {anchor}")
+        else:
+            cons.append("No existing pulp/bioenergy mill in-region to retrofit")
+
+    return pros[:4], cons[:4]
+
+
+def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
+                 has_pp_be, anchor):
+    """Ordered best->worst list of applicable pathways with pros/cons + fit badge."""
+    dom = region.get("dominant_feedstock")
+    apps = applicable_pathways(dom, has_pp_be)
+    for k in (rec_key, runner_key):          # always include the engine's picks
+        if k not in apps:
+            apps.append(k)
+
+    scores = {a: fit_score(region, a, storage_access, has_pp_be) for a in apps}
+    rest = sorted((a for a in apps if a not in (rec_key, runner_key)),
+                  key=lambda a: -scores[a])
+    order = [rec_key, runner_key] + rest
+
+    ranked = []
+    for a in order:
+        if a == rec_key:
+            badge = "Recommended"
+        elif a == runner_key:
+            badge = "Runner-up"
+        else:
+            sc = scores.get(a, 0)
+            badge = "Strong fit" if sc >= 60 else ("Possible" if sc >= 45 else "Poor fit")
+        pros, cons = region_pros_cons(region, a, storage_access, nearest_km,
+                                      has_pp_be, anchor)
+        ranked.append({
+            "key": a,
+            "label": PATHWAYS[a]["label"],
+            "badge": badge,
+            "cdr_efficiency": PATHWAYS[a]["cdr_efficiency"],
+            "cost_band": PATHWAYS[a]["cost_band"],
+            "pros": pros,
+            "cons": cons,
+        })
+    return ranked
+
+
+# --------------------------------------------------------------------------
 # Rationale + caveats + flags
 # --------------------------------------------------------------------------
 def build_rationale(region, rec_key, storage_access, nearest_km,
@@ -663,6 +847,11 @@ def build():
             region, rec_key, runner_key, only_low_conf, anchor_type, nutrient_alt
         )
 
+        anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
+        ranked = build_ranked(
+            region, rec_key, runner_key, storage_access, nearest_km, has_pp_be, anchor_str
+        )
+
         rec = {
             "id": region.get("id"),
             "name": region.get("name"),
@@ -677,12 +866,11 @@ def build():
             "storage_access": storage_access,
             "nearest_storage_km": nearest_km,
             "has_retrofit": has_retrofit,
-            "anchor_facility": (
-                f"{anchor_name} ({anchor_type})" if anchor_name else None
-            ),
+            "anchor_facility": anchor_str,
             "rationale": rationale,
             "caveats": caveats,
             "flags": flags,
+            "ranked": ranked,
         }
         records.append(rec)
 

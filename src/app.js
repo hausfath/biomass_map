@@ -296,11 +296,74 @@
     let html = `<div class="d-region">${feed && feed.level === "subnational" ? "US state" : "Country"}</div>
       <div class="d-name">${name}</div>`;
 
-    if (rec) html += recCard(rec);
-    if (feed) html += feedSection(feed);
+    if (state.mode === "feedstock") {
+      // Feedstock supply layer: bar chart of each feedstock's potential + sources table.
+      if (feed) html += feedstockBarChart(feed);
+      if (feed) html += feedSection(feed);
+      else if (rec) html += recCard(rec);
+    } else {
+      // Best-use layer: recommendation box + ranked best->worst CDR options w/ pros & cons.
+      if (rec) html += recCard(rec) + rankedList(rec);
+      else if (feed) html += feedSection(feed);
+    }
 
     detailBody.innerHTML = html;
     detail.classList.remove("hidden");
+  }
+
+  // Biogenic CO2 potential embodied in each feedstock stream (Mt CO2/yr), for the bar chart.
+  function feedstockBarChart(feed) {
+    const fval = o => (o && o.value != null ? o.value : 0);
+    const frac = fval(feed.msw_biogenic_frac) || 0.5;
+    const items = [
+      ["Agricultural residues", fval(feed.ag_residues_odt_mt) * 1.47, "#6fbf73"],
+      ["Forestry residues", fval(feed.forestry_residues_odt_mt) * 1.47, "#2f8f57"],
+      ["MSW (biogenic)", fval(feed.msw_total_mt) * frac * 1.0, "#c0556b"],
+      ["Animal manure", fval(feed.animal_manure_odt_mt) * 1.47, "#b07d3a"],
+      ["Human / WWTP", fval(feed.human_wwtp_odt_mt) * 1.47, "#9b59d0"],
+    ].filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]);
+
+    if (!items.length) return "";
+    const max = items[0][1];
+    const total = items.reduce((s, x) => s + x[1], 0);
+    let html = `<div class="chart-card">
+      <div class="chart-title">Biogenic CO₂ potential by feedstock</div>
+      <div class="chart-sub">Carbon embodied in each waste stream · Mt CO₂/yr · actual CDR depends on pathway efficiency</div>`;
+    items.forEach(([label, val, color]) => {
+      const pct = Math.max(2, (val / max) * 100);
+      html += `<div class="bar-row">
+        <div class="bar-label">${label}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
+        <div class="bar-val">${fmt(val)}</div>
+      </div>`;
+    });
+    html += `<div class="chart-total">Total embodied biogenic CO₂: <b>${fmt(total)} Mt CO₂/yr</b></div></div>`;
+    return html;
+  }
+
+  // Ranked best->worst CDR pathways for the region, with region-specific pros & cons.
+  function rankedList(rec) {
+    if (!rec.ranked || !rec.ranked.length) return "";
+    const badgeClass = b => "rk-" + b.toLowerCase().replace(/[^a-z]+/g, "");
+    let html = `<div class="d-sec-title">CDR options ranked — best to worst here</div>`;
+    rec.ranked.forEach((p, i) => {
+      const color = (PATH_META[p.key] || {}).color || "#888";
+      const pros = (p.pros || []).map(x => `<li>${x}</li>`).join("");
+      const cons = (p.cons || []).map(x => `<li>${x}</li>`).join("");
+      html += `<div class="rank-item">
+        <div class="rank-head">
+          <span class="rank-num" style="background:${color}">${i + 1}</span>
+          <span class="rank-name">${p.label}</span>
+          <span class="rank-badge ${badgeClass(p.badge)}">${p.badge}</span>
+        </div>
+        <div class="rank-meta">${Math.round(p.cdr_efficiency * 100)}% CDR efficiency · ${p.cost_band}</div>
+        <div class="rank-pc">
+          <ul class="pc-pros">${pros}</ul>
+          <ul class="pc-cons">${cons}</ul>
+        </div>
+      </div>`;
+    });
+    return html;
   }
 
   function recCard(rec) {
@@ -498,6 +561,10 @@
       <p><b>Frontier exclusions</b> (flagged, never recommended): purpose-grown energy crops,
       RNG+CCS, and corn-ethanol+CCS. National recommendations for large, heterogeneous countries
       are rollups — the optimal pathway is local, so US cells are shown at state resolution.</p>
+      <p>Clicking a region shows different detail per layer: in <b>Feedstock supply</b> mode, a
+      bar chart of the biogenic CO₂ embodied in each waste stream plus the cited tonnage table;
+      in <b>Best use</b> mode, the recommended pathway plus a ranked best-to-worst list of every
+      applicable CDR option with region-specific advantages and disadvantages.</p>
 
       <h3>Caveats</h3>
       <p>Tonnages are modelled estimates, not measured inventories; ranges reflect cross-source
