@@ -76,12 +76,16 @@
     .addTo(map);
 
   // Panes: choropleth (canvas, fast for 3,100+ polygons) below basins below point markers.
+  // Point overlays use SVG, not canvas: a canvas element captures pointer events across its
+  // whole area, so an overlay canvas would swallow clicks meant for the counties beneath it
+  // (gaps in an SVG pane are pointer-transparent, so county clicks fall through). This matches
+  // the global map's behaviour.
   map.createPane("choroPane"); map.getPane("choroPane").style.zIndex = 410;
   const choroRenderer = L.canvas({ pane: "choroPane" });
   map.createPane("basinPane"); map.getPane("basinPane").style.zIndex = 430;
   const basinRenderer = L.svg({ pane: "basinPane" });
   map.createPane("ovPane"); map.getPane("ovPane").style.zIndex = 470;
-  const ovRenderer = L.canvas({ pane: "ovPane" });
+  const ovRenderer = L.svg({ pane: "ovPane" });
 
   // ---- Choropleth value accessors ----
   function feedValue(rec, key) {
@@ -218,15 +222,13 @@
     }).bindPopup(wellPopup(w), { maxWidth: 280 }).addTo(layer);
   });
 
+  // Basins are broad visual context, drawn non-interactive so clicks fall through to the
+  // county beneath (which would otherwise be unreachable under a large basin polygon). The
+  // county detail panel already names the storage formation the county sits in.
   const basinLayer = L.geoJSON(window.GEO_US_BASINS, {
     renderer: basinRenderer,
+    interactive: false,
     style: { fillColor: "#7aa6ff", color: "#6f93c9", weight: 1, fillOpacity: 0.16, opacity: 0.5 },
-    onEachFeature: (f, layer) => {
-      const p = f.properties;
-      layer.bindPopup(`<b>${p.name}</b><br>Saline storage formation · ${cap1(p.confidence)}
-        ${p.partnership ? "<br>RCSP: " + p.partnership : ""}
-        <div class="pop-src">Source: NETL NATCARB Atlas (saline)</div>`, { maxWidth: 280 });
-    },
   });
 
   function facilityPopup(f, meta) {
