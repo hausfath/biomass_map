@@ -67,6 +67,7 @@
     mode: "feedstock",
     feedstock: "ag_residues_odt_mt",
     breaks: [],
+    openRegion: null,   // {id, name} of the region whose detail panel is open, if any
   };
 
   // ---- Build combined geometry: countries + subnational cells ----
@@ -298,6 +299,7 @@
   function openDetail(id, name) {
     const rec = recById[id];
     const feed = feedById[id];
+    state.openRegion = { id: id, name: name };
     if (!rec && !feed) {
       detailBody.innerHTML = `<div class="d-region">Region</div><div class="d-name">${name}</div>
         <p class="rationale">No BiCRS data compiled for this region yet. Coverage spans major
@@ -441,7 +443,18 @@
       manure_wet: "Wet manure", mixed: "Mixed" })[d] || d || "—";
   }
 
-  document.getElementById("detail-close").onclick = () => detail.classList.add("hidden");
+  // Re-render the open detail panel (e.g. after a mode/feedstock change) so its
+  // mode-specific content stays in sync with the map.
+  function refreshDetail() {
+    if (state.openRegion && !detail.classList.contains("hidden")) {
+      openDetail(state.openRegion.id, state.openRegion.name);
+    }
+  }
+
+  document.getElementById("detail-close").onclick = () => {
+    detail.classList.add("hidden");
+    state.openRegion = null;
+  };
 
   // ---- Legend ----
   const legend = document.getElementById("legend");
@@ -493,6 +506,7 @@
       state.mode = btn.dataset.mode;
       feedControls.style.display = state.mode === "feedstock" ? "" : "none";
       redrawChoropleth();
+      refreshDetail();
     };
   });
 
@@ -500,6 +514,7 @@
     state.feedstock = feedSelect.value;
     feedHint.textContent = FEEDSTOCK_HINTS[state.feedstock] || "";
     redrawChoropleth();
+    refreshDetail();
   };
 
   document.getElementById("ov-facilities").onchange = e => toggleLayer(facilityLayer, e.target.checked);

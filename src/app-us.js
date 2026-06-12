@@ -54,7 +54,7 @@
   const feedById = index(FEED), recById = index(RECS);
   function index(arr) { const m = {}; arr.forEach(r => { m[r.id] = r; }); return m; }
 
-  const state = { mode: "feedstock", feedstock: "ag", breaks: [] };
+  const state = { mode: "feedstock", feedstock: "ag", breaks: [], openRegion: null };
 
   // ---- Combined geometry (counties only) ----
   const combined = { type: "FeatureCollection", features: [] };
@@ -250,6 +250,7 @@
   const detailBody = document.getElementById("detail-body");
 
   function openDetail(id, name) {
+    state.openRegion = { id: id, name: name };
     const rec = recById[id], feed = feedById[id];
     let html = `<div class="d-region">US county</div><div class="d-name">${name}</div>`;
     if (!rec && !feed) { html += `<p class="rationale">No data for this county.</p>`;
@@ -404,7 +405,18 @@
       manure_wet: "Wet manure", mixed: "Mixed" })[d] || d || "—";
   }
 
-  document.getElementById("detail-close").onclick = () => detail.classList.add("hidden");
+  // Re-render the open detail panel (e.g. after a mode/feedstock change) so its
+  // mode-specific content stays in sync with the map.
+  function refreshDetail() {
+    if (state.openRegion && !detail.classList.contains("hidden")) {
+      openDetail(state.openRegion.id, state.openRegion.name);
+    }
+  }
+
+  document.getElementById("detail-close").onclick = () => {
+    detail.classList.add("hidden");
+    state.openRegion = null;
+  };
 
   // ---- Legend ----
   const legend = document.getElementById("legend");
@@ -451,12 +463,14 @@
       state.mode = btn.dataset.mode;
       feedControls.style.display = state.mode === "feedstock" ? "" : "none";
       redrawChoropleth();
+      refreshDetail();
     };
   });
   feedSelect.onchange = () => {
     state.feedstock = feedSelect.value;
     feedHint.textContent = FEEDSTOCK_HINTS[state.feedstock] || "";
     redrawChoropleth();
+    refreshDetail();
   };
 
   document.getElementById("ov-facilities").onchange = e => toggleLayer(facilityLayer, e.target.checked);
