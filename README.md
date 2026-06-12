@@ -34,7 +34,10 @@ data/processed/*.json                 # feedstocks, storage, facilities, recomme
 data/SCHEMA.md, data/ENGINE_SPEC.md   # data + engine specs
 scripts/*.py                          # build pipeline (see docs/METHODOLOGY.md §7)
 docs/METHODOLOGY.md                   # sources, assumptions, formulas, caveats
+docs/RECOMMENDATION_LOGIC.md          # flow chart of the decision tree (Mermaid)
 PLAN.md                               # project plan
 ```
 
-See `docs/METHODOLOGY.md` for data sources, the recommendation logic, and caveats.
+See `docs/METHODOLOGY.md` for data sources and caveats, and
+[`docs/RECOMMENDATION_LOGIC.md`](docs/RECOMMENDATION_LOGIC.md) for a flow chart of the
+best-use decision tree.
