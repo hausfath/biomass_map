@@ -87,7 +87,7 @@
     center: [25, 12],
     zoom: 2,
     minZoom: 2,
-    maxZoom: 7,
+    maxZoom: 8,
     worldCopyJump: true,
     zoomControl: true,
     attributionControl: false,

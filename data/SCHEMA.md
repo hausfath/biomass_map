@@ -96,6 +96,17 @@ thesis (Stockholm Exergi, Orsted, CO280, Celsio, Charm, Vaulted, Arbor, ADM, Sup
 then large pulp & paper mills, WtE plants, ethanol plants, and bioenergy stations by region.
 Aim for breadth across regions, not exhaustive within one.
 
+### `est_biogenic_co2_mtpa` — conversion guide (use the fuel throughput, not nameplate MW)
+Estimate from the **actual annual fuel consumed** (as-received), not from nameplate MW × an
+assumed capacity factor (many biomass plants are peaking/seasonal). Approximate factors,
+**tCO₂ per tonne of as-received fuel**:
+- Waste wood / wood chips (~25–40% moisture): **~1.4** · Wood pellets (dry): **~1.6**
+- Cereal straw (~15% moisture): **~1.35** · Bagasse (~50% moisture): **~0.85**
+- MSW (WtE): ~1.0 tCO₂/t total × biogenic fraction (~0.5–0.6).
+Worked check: a plant burning 170,000 t/yr waste wood → 170,000 × 1.4 ≈ **0.24 Mtpa** biogenic
+CO₂ (consistent with an announced ~250 kt/yr capture target). Prefer a published capture figure
+when one exists.
+
 ---
 
 ## Citation rules

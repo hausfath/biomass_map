@@ -1625,14 +1625,14 @@
     "lon": -91.62,
     "capacity_note": "205 MWe biomass; 90,000 t/yr wood pellets; converted from coal 2014; North America's largest 100% biomass plant",
     "est_biogenic_co2_mtpa": {
-      "value": 1.28,
-      "low": 1.05,
-      "high": 1.5
+      "value": 0.14,
+      "low": 0.1,
+      "high": 0.2
     },
     "retrofit_score": "medium",
     "operator": "Ontario Power Generation (OPG)",
     "source": "OPG Atikokan biomass page; Atikokan GS Wikipedia; EDI Weekly largest NA biomass plant; Canadian Biomass Magazine conversion story",
-    "notes": "Atikokan, Thunder Bay District, ON. Converted from coal to 100% biomass 2014 ($170M). 15 biomass burners. 90,000 t/yr wood pellets (largest industrial wood pellet consumer in Canada). Capacity factor lower than coal (~40–50%) due to intermittent operation/dispatch. calc based on 205 MW × ~6,200 hr/yr × ~1.0 t CO2/MWhe. Ontario lacks CO2 storage — major constraint for BECCS. Approved for additional 5 years of operation. Remote NW Ontario location."
+    "notes": "Atikokan, Thunder Bay District, ON. Converted from coal to 100% biomass 2014 ($170M). 15 biomass burners. 90,000 t/yr wood pellets (largest industrial wood pellet consumer in Canada). Capacity factor lower than coal (~40–50%) due to intermittent operation/dispatch. calc based on 205 MW × ~6,200 hr/yr × ~1.0 t CO2/MWhe. Ontario lacks CO2 storage — major constraint for BECCS. Approved for additional 5 years of operation. Remote NW Ontario location. [CO2 basis: 90 kt/yr wood pellets x ~1.6 tCO2/t; low-capacity-factor peaking plant (prior estimate assumed continuous run off 205 MWe nameplate).]"
   },
   {
     "name": "Kruger Biomass Cogeneration — Brompton & Wayagamack",
@@ -1846,14 +1846,14 @@
     "lon": -2.845,
     "capacity_note": "21.5 MWe waste-wood biomass; 170,000 t/yr waste wood",
     "est_biogenic_co2_mtpa": {
-      "value": 0.12,
-      "low": 0.09,
-      "high": 0.15
+      "value": 0.25,
+      "low": 0.23,
+      "high": 0.26
     },
     "retrofit_score": "high",
     "operator": "Evero Energy (Infracapital)",
     "source": "Evero Energy press releases 2024-2025; Bioenergy Insight Magazine; UK HyNet Track 1 deliverability assessment Oct 2024",
-    "notes": "ACTIVE BECCS PROJECT. UK government-approved for HyNet Track 1 CCS retrofit. InBECCS project: 250,000 t CO2/yr capture planned, target operational 2030. CCS via HyNet North West pipeline to Liverpool Bay storage. One of UK's first commercial-scale BECCS plants."
+    "notes": "ACTIVE BECCS PROJECT. UK government-approved for HyNet Track 1 CCS retrofit. InBECCS project: 250,000 t CO2/yr capture planned, target operational 2030. CCS via HyNet North West pipeline to Liverpool Bay storage. One of UK's first commercial-scale BECCS plants. [CO2 basis: 170 kt/yr waste wood x ~1.4 tCO2/t; matches announced 250 kt/yr capture.]"
   },
   {
     "name": "Evero Mersey Bio Energy (BECCS)",
@@ -1863,14 +1863,14 @@
     "lon": -2.717,
     "capacity_note": "20.9 MWe waste-wood biomass; ~150,000 t/yr waste wood",
     "est_biogenic_co2_mtpa": {
-      "value": 0.11,
-      "low": 0.08,
-      "high": 0.14
+      "value": 0.2,
+      "low": 0.18,
+      "high": 0.21
     },
     "retrofit_score": "high",
     "operator": "Evero Energy (Infracapital)",
     "source": "Evero Energy press releases 2024; Energy Voice report Oct 2024; Chester Standard report",
-    "notes": "HyNet Track 1 expansion candidate alongside Ince. Located near Widnes, Cheshire. Both Mersey and Ince plants together process >300,000 t/yr waste wood. CCS retrofit under development through HyNet."
+    "notes": "HyNet Track 1 expansion candidate alongside Ince. Located near Widnes, Cheshire. Both Mersey and Ince plants together process >300,000 t/yr waste wood. CCS retrofit under development through HyNet. [CO2 basis: 150 kt/yr waste wood x ~1.4 tCO2/t; matches announced 200 kt/yr capture.]"
   },
   {
     "name": "Kent Renewable Energy (Sandwich CHP)",
@@ -1897,14 +1897,14 @@
     "lon": -3.756,
     "capacity_note": "40 MWe waste-wood biomass; 250,000 t/yr waste wood",
     "est_biogenic_co2_mtpa": {
-      "value": 0.22,
-      "low": 0.17,
-      "high": 0.27
+      "value": 0.35,
+      "low": 0.3,
+      "high": 0.38
     },
     "retrofit_score": "medium",
     "operator": "Greencoat Capital (acquired from Glennmont Partners)",
     "source": "Margam Green Energy website; Generandi/Greencoat acquisition report; Babcock & Wilcox Vølund case study",
-    "notes": "£160M waste-wood-fired power station; operational since 2019. Processes contaminated waste wood including C&D waste without pre-treatment. Powers ~75,000 homes. O&M by Babcock & Wilcox Vølund. Adjacent to Port Talbot Steelworks site — decarbonisation cluster potential."
+    "notes": "£160M waste-wood-fired power station; operational since 2019. Processes contaminated waste wood including C&D waste without pre-treatment. Powers ~75,000 homes. O&M by Babcock & Wilcox Vølund. Adjacent to Port Talbot Steelworks site — decarbonisation cluster potential. [CO2 basis: 250 kt/yr waste wood x ~1.4 tCO2/t.]"
   },
   {
     "name": "Sleaford Renewable Energy Plant",
@@ -1914,14 +1914,14 @@
     "lon": -0.3824,
     "capacity_note": "38.5 MWe straw-fired biomass; ~240,000 t/yr straw",
     "est_biogenic_co2_mtpa": {
-      "value": 0.21,
-      "low": 0.16,
-      "high": 0.26
+      "value": 0.32,
+      "low": 0.28,
+      "high": 0.35
     },
     "retrofit_score": "medium",
     "operator": "Greencoat Capital / Schroders Greencoat (BWSC O&M)",
     "source": "Global Energy Monitor Sleaford REP entry; power-technology.com profile; BWSC reference page; electricityproduction.uk",
-    "notes": "Agricultural straw-fired power station. Commissioned September 2014. Located at Eslaford Park, North Kesteven, Lincolnshire. BWSC operates under 15-yr agreement. Straw sourced within 50-mile radius."
+    "notes": "Agricultural straw-fired power station. Commissioned September 2014. Located at Eslaford Park, North Kesteven, Lincolnshire. BWSC operates under 15-yr agreement. Straw sourced within 50-mile radius. [CO2 basis: 240 kt/yr straw x ~1.35 tCO2/t.]"
   },
   {
     "name": "Snetterton Renewable Energy Plant",
@@ -1948,14 +1948,14 @@
     "lon": -0.498,
     "capacity_note": "40 MWe straw-fired biomass; 240,000 t/yr wheat straw",
     "est_biogenic_co2_mtpa": {
-      "value": 0.22,
-      "low": 0.17,
-      "high": 0.27
+      "value": 0.32,
+      "low": 0.28,
+      "high": 0.35
     },
     "retrofit_score": "medium",
     "operator": "BWSC North Lincs Ltd (JV: BWSC / PensionDanmark / CIP)",
     "source": "power-technology.com Brigg Biomass profile; BWSC reference; Renewables Now news 2016; New Civil Engineer",
-    "notes": "Straw-fired 40 MWe power station at Glanford Vale Business Park, Scawby Brook, near Brigg, North Lincolnshire. Built on former British Sugar factory site. Commissioned early 2016. 240,000 t/yr wheat straw from within 50-mile radius. 15-yr BWSC O&M contract."
+    "notes": "Straw-fired 40 MWe power station at Glanford Vale Business Park, Scawby Brook, near Brigg, North Lincolnshire. Built on former British Sugar factory site. Commissioned early 2016. 240,000 t/yr wheat straw from within 50-mile radius. 15-yr BWSC O&M contract. [CO2 basis: 240 kt/yr wheat straw x ~1.35 tCO2/t.]"
   },
   {
     "name": "Wilton 10 (Sembcorp Teesside Biomass)",
@@ -1965,14 +1965,14 @@
     "lon": -1.121,
     "capacity_note": "30 MWe / 10 MWth biomass CHP; 300,000 t/yr wood waste",
     "est_biogenic_co2_mtpa": {
-      "value": 0.17,
-      "low": 0.13,
-      "high": 0.21
+      "value": 0.4,
+      "low": 0.34,
+      "high": 0.44
     },
     "retrofit_score": "medium",
     "operator": "Sembcorp Utilities UK",
     "source": "Wikipedia: Wilton power stations; power-technology.com Wilton 10 profile; Sembcorp press release 2007",
-    "notes": "UK's first large-scale commercial wood-to-energy plant (opened Nov 2007). Burns 300,000 t/yr sustainable wood, sawmill waste and wood offcuts. Located within Wilton petrochemical complex — industrial CCS cluster opportunity (HyNet or Teesside cluster). Steam output piped to wider Wilton complex."
+    "notes": "UK's first large-scale commercial wood-to-energy plant (opened Nov 2007). Burns 300,000 t/yr sustainable wood, sawmill waste and wood offcuts. Located within Wilton petrochemical complex — industrial CCS cluster opportunity (HyNet or Teesside cluster). Steam output piped to wider Wilton complex. [CO2 basis: 300 kt/yr wood waste x ~1.35 tCO2/t.]"
   },
   {
     "name": "SELCHP (South East London CHP)",
@@ -4373,14 +4373,14 @@
     "lon": 153.27,
     "capacity_note": "30 MW bagasse cogeneration; >120,000 t/yr bagasse fuel",
     "est_biogenic_co2_mtpa": {
-      "value": 0.08,
-      "low": 0.06,
-      "high": 0.11
+      "value": 0.1,
+      "low": 0.08,
+      "high": 0.12
     },
     "retrofit_score": "low",
     "operator": "Stanwell Corporation / Rocky Point Sugar",
     "source": "Power Technology Rocky Point case study; World of Renewables Rocky Point; OSTI bagasse/green waste article",
-    "notes": "Woongoolba, near Beenleigh, SE Queensland. Bagasse + municipal green waste co-fire. When built was Australia's largest biomass plant. Small scale; low retrofit score. Sugarcane bagasse is biogenic CO2 source.",
+    "notes": "Woongoolba, near Beenleigh, SE Queensland. Bagasse + municipal green waste co-fire. When built was Australia's largest biomass plant. Small scale; low retrofit score. Sugarcane bagasse is biogenic CO2 source. [CO2 basis: 120 kt/yr bagasse x ~0.85 tCO2/t (high moisture).]",
     "existing": true
   },
   {
