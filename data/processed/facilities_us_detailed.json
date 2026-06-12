@@ -1,0 +1,4034 @@
+[
+ {
+  "name": "Rayonier Performance Fibers Llc, Jesup Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 31.6582,
+  "lon": -81.8407,
+  "capacity_note": "2,185,833 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 2.1858
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Alabama River Cellulose, Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 31.5801,
+  "lon": -87.4901,
+  "capacity_note": "2,128,098 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 2.1281
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "WestRock Coated Board, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 32.175,
+  "lon": -85.0311,
+  "capacity_note": "1,806,213 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.8062
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Packaging Corporation of America",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "TN",
+  "lat": 35.0442,
+  "lon": -88.2652,
+  "capacity_note": "1,690,897 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.6909
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Sylvamo Eastover Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "SC",
+  "lat": 33.8872,
+  "lon": -80.6397,
+  "capacity_note": "1,661,111 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.6611
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "International Paper - Georgetown Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "SC",
+  "lat": 33.3642,
+  "lon": -79.3033,
+  "capacity_note": "1,626,418 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.6264
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Graphic Packaging International - Texarkana Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "TX",
+  "lat": 33.2644,
+  "lon": -94.0696,
+  "capacity_note": "1,552,704 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.5527
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "International Paper-Riegelwood",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "NC",
+  "lat": 34.3528,
+  "lon": -78.2028,
+  "capacity_note": "1,542,775 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.5428
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Brunswick Cellulose, Inc.",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 31.1731,
+  "lon": -81.5192,
+  "capacity_note": "1,524,129 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.5241
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "WestRock Virginia, Covington",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.7997,
+  "lon": -79.9946,
+  "capacity_note": "1,523,702 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.5237
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Clearwater Paper Corp",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "ID",
+  "lat": 46.4279,
+  "lon": -116.9673,
+  "capacity_note": "1,516,117 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.5161
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Domtar Aw Llc Ashdown Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AR",
+  "lat": 33.6427,
+  "lon": -94.1005,
+  "capacity_note": "1,483,984 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.484
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "International Paper - Mansfield Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "LA",
+  "lat": 32.1566,
+  "lon": -93.5599,
+  "capacity_note": "1,462,887 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.4629
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Westrock Texas, L.P.",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "TX",
+  "lat": 30.3387,
+  "lon": -94.0663,
+  "capacity_note": "1,462,040 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.462
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Graphic Packaging International - Augusta",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 33.3286,
+  "lon": -81.9537,
+  "capacity_note": "1,445,142 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.4451
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Leaf River Cellulose Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MS",
+  "lat": 31.2444,
+  "lon": -89.0454,
+  "capacity_note": "1,437,851 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.4379
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "International Paper-Prattville Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 32.4167,
+  "lon": -86.4667,
+  "capacity_note": "1,404,075 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.4041
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Graphic Packaging International",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.7718,
+  "lon": -83.6275,
+  "capacity_note": "1,369,334 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.3693
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Packaging Corporation Of America",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "LA",
+  "lat": 30.8627,
+  "lon": -93.3751,
+  "capacity_note": "1,368,720 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.3687
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "International Paper - Columbus Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MS",
+  "lat": 33.3608,
+  "lon": -88.458,
+  "capacity_note": "1,366,016 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.366
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Georgia-Pacific Cedar Springs Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 31.1639,
+  "lon": -85.0974,
+  "capacity_note": "1,333,889 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.3339
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "International Paper - Bogalusa Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "LA",
+  "lat": 30.7766,
+  "lon": -89.8577,
+  "capacity_note": "1,308,758 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.3088
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Sappi North America, Inc. - Somerset Operations",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "ME",
+  "lat": 44.7076,
+  "lon": -69.6413,
+  "capacity_note": "1,272,457 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2725
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "International Paper ROME LINERBOARD MILL",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 34.2535,
+  "lon": -85.329,
+  "capacity_note": "1,263,907 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2639
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Georgia-Pacific Naheola Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 32.2418,
+  "lon": -88.0172,
+  "capacity_note": "1,263,159 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2632
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "International Paper Savanna Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.1039,
+  "lon": -81.1231,
+  "capacity_note": "1,261,534 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2615
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Domtar Paper Co Llc Hawesville Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "KY",
+  "lat": 37.8948,
+  "lon": -86.6858,
+  "capacity_note": "1,259,522 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2595
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Domtar Paper Company LLC - Plymouth",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.8628,
+  "lon": -76.7831,
+  "capacity_note": "1,249,100 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2491
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "International Paper - Valliant Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "OK",
+  "lat": 33.9984,
+  "lon": -95.1115,
+  "capacity_note": "1,243,451 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2435
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "GRAPHIC PACKAGING INTERNATIONAL LLC, West Monroe Mill Plant 31",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "LA",
+  "lat": 32.4869,
+  "lon": -92.1517,
+  "capacity_note": "1,216,201 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2162
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "International Paper - Pensacola Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.6054,
+  "lon": -87.3229,
+  "capacity_note": "1,207,115 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.2071
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Nippon Dynawave Packaging",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WA",
+  "lat": 46.1227,
+  "lon": -122.974,
+  "capacity_note": "1,197,529 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1975
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "WestRock CP, LLC - Florence Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.1519,
+  "lon": -79.5587,
+  "capacity_note": "1,175,378 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1754
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "International Paper - Red River Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "LA",
+  "lat": 31.9053,
+  "lon": -93.1736,
+  "capacity_note": "1,168,984 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.169
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Foley Cellulose, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.0693,
+  "lon": -83.5261,
+  "capacity_note": "1,151,378 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1514
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "International Paper - Pine Hill Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 31.9697,
+  "lon": -87.4807,
+  "capacity_note": "1,149,868 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1499
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "WestRock CP, LLC - Fernandina Beach Mill (Formerly Smurfit-Stone)",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.6764,
+  "lon": -81.4579,
+  "capacity_note": "1,139,913 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1399
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Westrock Longview Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WA",
+  "lat": 46.1075,
+  "lon": -122.9266,
+  "capacity_note": "1,129,402 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1294
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Sappi Cloquet Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MN",
+  "lat": 46.7239,
+  "lon": -92.4316,
+  "capacity_note": "1,108,261 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1083
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Packaging Corp. Of America",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 30.6949,
+  "lon": -83.3044,
+  "capacity_note": "1,099,901 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0999
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Westrock Cp, Llc - Hodge Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "LA",
+  "lat": 32.2766,
+  "lon": -92.7274,
+  "capacity_note": "1,088,398 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0884
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Evergreen Packaging-Pine Bluff",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AR",
+  "lat": 34.2216,
+  "lon": -91.9074,
+  "capacity_note": "1,084,185 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0842
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "West Rock Mill Company, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 32.4538,
+  "lon": -87.9771,
+  "capacity_note": "1,065,645 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0656
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Billerud Escanaba LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MI",
+  "lat": 45.8048,
+  "lon": -87.0898,
+  "capacity_note": "1,039,819 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0398
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "International Paper - Flint River Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.2539,
+  "lon": -84.0684,
+  "capacity_note": "1,025,428 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0254
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Georgia Pacific Monticello Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MS",
+  "lat": 31.6215,
+  "lon": -90.0794,
+  "capacity_note": "1,022,782 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0228
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "New Hope Power Company",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "FL",
+  "lat": 26.5767,
+  "lon": -80.7467,
+  "capacity_note": "996,999 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.997
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "International Paper-Port Wentworth",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.1582,
+  "lon": -81.1592,
+  "capacity_note": "996,130 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9961
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "WestRock CP, LLC - West Point Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.5392,
+  "lon": -76.8053,
+  "capacity_note": "989,932 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9899
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Marlboro Paper Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.605,
+  "lon": -79.785,
+  "capacity_note": "979,627 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9796
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Billerud Quinnesec LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MI",
+  "lat": 45.7952,
+  "lon": -87.9576,
+  "capacity_note": "958,938 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9589
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Palm Beach Renewable Energy Park (PBREP)",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 26.7864,
+  "lon": -80.1388,
+  "capacity_note": "955,141 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9551
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "International Paper - Orange Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "TX",
+  "lat": 30.2202,
+  "lon": -93.7416,
+  "capacity_note": "880,100 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.8801
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "New-Indy Catawba LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.8456,
+  "lon": -80.8942,
+  "capacity_note": "872,964 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.873
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Boise White Paper Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MN",
+  "lat": 48.606,
+  "lon": -93.4071,
+  "capacity_note": "789,087 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7891
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "ND Paper Inc - Rumford Division",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "ME",
+  "lat": 44.5508,
+  "lon": -70.5411,
+  "capacity_note": "781,805 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7818
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Georgia-Pacific Brewton Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 31.0795,
+  "lon": -87.1153,
+  "capacity_note": "781,081 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7811
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Woodland Pulp Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "ME",
+  "lat": 45.1569,
+  "lon": -67.4047,
+  "capacity_note": "756,450 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7565
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "International Paper-Riverdale Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 32.425,
+  "lon": -86.8694,
+  "capacity_note": "743,776 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7438
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Pixelle Specialty Solutions",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.8717,
+  "lon": -76.8664,
+  "capacity_note": "724,811 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7248
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Boise White Paper Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 31.4923,
+  "lon": -87.8988,
+  "capacity_note": "714,644 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7146
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Albany Green Energy",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "GA",
+  "lat": 31.4431,
+  "lon": -84.1186,
+  "capacity_note": "694,420 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6944
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "WestRock Kraft Paper, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "NC",
+  "lat": 36.4769,
+  "lon": -77.6414,
+  "capacity_note": "667,738 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6677
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "WestRock CP, LLC--Hopewell Mill (Formerly RockTenn)",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.302,
+  "lon": -77.2644,
+  "capacity_note": "654,472 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6545
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Resolute Forest Product - Coosa Pines Operation",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 33.3278,
+  "lon": -86.3583,
+  "capacity_note": "644,564 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6446
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "International Paper - New Bern Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.2081,
+  "lon": -77.1242,
+  "capacity_note": "643,155 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6432
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "International Paper - Vicksburg Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MS",
+  "lat": 32.5278,
+  "lon": -90.7722,
+  "capacity_note": "622,968 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.623
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "GEORGIA PACIFIC Palatka LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "FL",
+  "lat": 29.6811,
+  "lon": -81.6802,
+  "capacity_note": "612,503 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6125
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Ogden Martin Sys Of Fairfax",
+  "type": "wte",
+  "country": "USA",
+  "state": "VA",
+  "lat": 38.6954,
+  "lon": -77.2407,
+  "capacity_note": "605,686 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6057
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Semass Partnership Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "MA",
+  "lat": 41.8054,
+  "lon": -70.7826,
+  "capacity_note": "599,114 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5991
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "International Paper-Franklin Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "VA",
+  "lat": 36.6803,
+  "lon": -76.9128,
+  "capacity_note": "596,830 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5968
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "WestRock CP, LLC - Stevenson Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AL",
+  "lat": 34.8645,
+  "lon": -85.7878,
+  "capacity_note": "583,858 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5839
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "WestRock Tacoma Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WA",
+  "lat": 47.2638,
+  "lon": -122.4253,
+  "capacity_note": "563,024 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.563
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Green Bay Packaging/Ark Kraft",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AR",
+  "lat": 35.0974,
+  "lon": -92.7385,
+  "capacity_note": "546,790 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5468
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Pixelle Specialty Solutions LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "OH",
+  "lat": 39.3265,
+  "lon": -82.9744,
+  "capacity_note": "538,852 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5389
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Reworld Hempstead",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 40.7384,
+  "lon": -73.5935,
+  "capacity_note": "517,964 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.518
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Interstate Paper LLC dba DSSmith Riceboro",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 31.742,
+  "lon": -81.4067,
+  "capacity_note": "516,897 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5169
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Clearwater Paper Corp-Cypress Bend Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AR",
+  "lat": 33.7058,
+  "lon": -91.2404,
+  "capacity_note": "500,717 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5007
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Port Townsend Paper Corp",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WA",
+  "lat": 48.0938,
+  "lon": -122.7968,
+  "capacity_note": "491,477 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4915
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Wauna Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "OR",
+  "lat": 46.157,
+  "lon": -123.4078,
+  "capacity_note": "490,208 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4902
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Delaware Valley Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.8275,
+  "lon": -75.3873,
+  "capacity_note": "482,825 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4828
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Cascade Pacific Pulp Halsey Pulp Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "OR",
+  "lat": 44.3822,
+  "lon": -123.1596,
+  "capacity_note": "473,217 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4732
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Essex County Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 40.7381,
+  "lon": -74.1266,
+  "capacity_note": "469,505 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4695
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Craven County Wood Energy",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.1285,
+  "lon": -77.17,
+  "capacity_note": "467,803 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4678
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "WestRock Charleston Kraft, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "SC",
+  "lat": 32.8994,
+  "lon": -79.9694,
+  "capacity_note": "464,350 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4643
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Wheelabrator Westchester Lp",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 41.2771,
+  "lon": -73.9424,
+  "capacity_note": "451,661 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4517
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Kettle Falls Generating Station",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "WA",
+  "lat": 48.6146,
+  "lon": -118.1015,
+  "capacity_note": "442,112 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4421
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "International Paper - Springfield Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "OR",
+  "lat": 44.0552,
+  "lon": -122.953,
+  "capacity_note": "439,536 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4395
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "RAYONIER PERFORMANCE FIBERS LLC Fernandina Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.6624,
+  "lon": -81.4711,
+  "capacity_note": "434,871 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4349
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Deerhaven Renewable",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "FL",
+  "lat": 29.7586,
+  "lon": -82.3883,
+  "capacity_note": "433,122 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4331
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Covanta Honolulu Resource Recovery Venture (H-Power)",
+  "type": "wte",
+  "country": "USA",
+  "state": "HI",
+  "lat": 21.304,
+  "lon": -158.1043,
+  "capacity_note": "426,206 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4262
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Wheelabrator South Broward, Inc - Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "FL",
+  "lat": 26.0698,
+  "lon": -80.2056,
+  "capacity_note": "423,665 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4237
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Covanta Energy",
+  "type": "wte",
+  "country": "USA",
+  "state": "IN",
+  "lat": 39.7337,
+  "lon": -86.1888,
+  "capacity_note": "421,377 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4214
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Wheelabrator Bridgeport L.P.",
+  "type": "wte",
+  "country": "USA",
+  "state": "CT",
+  "lat": 41.1625,
+  "lon": -73.2075,
+  "capacity_note": "413,935 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4139
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Rothschild Biomass Cogeneration Plant",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.8884,
+  "lon": -89.6258,
+  "capacity_note": "410,556 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4106
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Roseburg Forest Products - Dillard",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "OR",
+  "lat": 43.0896,
+  "lon": -123.4144,
+  "capacity_note": "387,821 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3878
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321113"
+ },
+ {
+  "name": "Wheelabrator Baltimore Lp",
+  "type": "wte",
+  "country": "USA",
+  "state": "MD",
+  "lat": 39.2635,
+  "lon": -76.6239,
+  "capacity_note": "378,177 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3782
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Georgia-Pacific Toledo Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "OR",
+  "lat": 44.6145,
+  "lon": -123.9368,
+  "capacity_note": "373,897 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3739
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Domtar Paper Company, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.4908,
+  "lon": -78.6767,
+  "capacity_note": "372,470 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3725
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Reworld Niagara I, LLC",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.0839,
+  "lon": -79.0056,
+  "capacity_note": "370,346 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3703
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Sylvamo Ticonderoga Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.8914,
+  "lon": -73.3961,
+  "capacity_note": "356,130 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3561
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Hood Container of Louisiana, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "LA",
+  "lat": 30.7677,
+  "lon": -91.2763,
+  "capacity_note": "347,546 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3475
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Montgomery County Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "MD",
+  "lat": 39.2007,
+  "lon": -77.4564,
+  "capacity_note": "332,768 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3328
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Blue Ridge Paper Products LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.535,
+  "lon": -82.8411,
+  "capacity_note": "329,310 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3293
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Sonoco Products Co.",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.387,
+  "lon": -80.0663,
+  "capacity_note": "328,556 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3286
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Phoenix Paper Wickliffe LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "KY",
+  "lat": 36.9461,
+  "lon": -89.0792,
+  "capacity_note": "310,237 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3102
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Covanta Haverhill Inc",
+  "type": "wte",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.7654,
+  "lon": -71.124,
+  "capacity_note": "307,723 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3077
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Lee County Solid Waste Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "FL",
+  "lat": 26.6317,
+  "lon": -81.7614,
+  "capacity_note": "306,244 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3062
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Ahlstrom NA Specialty Solutions LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.2829,
+  "lon": -88.2518,
+  "capacity_note": "305,737 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3057
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Pinellas County Resource Recovery",
+  "type": "wte",
+  "country": "USA",
+  "state": "FL",
+  "lat": 27.8733,
+  "lon": -82.6741,
+  "capacity_note": "300,077 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3001
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Wheelabrator Millbury Inc",
+  "type": "wte",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.2207,
+  "lon": -71.7652,
+  "capacity_note": "291,001 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.291
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Green Power Solutions of Georgia, LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.5367,
+  "lon": -82.9105,
+  "capacity_note": "289,965 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.29
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Novo Biopower",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "AZ",
+  "lat": 34.504,
+  "lon": -110.3362,
+  "capacity_note": "289,566 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2896
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "Wheelabrator Falls",
+  "type": "wte",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.1627,
+  "lon": -74.7674,
+  "capacity_note": "284,895 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2849
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Packaging Corporation Of America-Tomahawk",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WI",
+  "lat": 45.4508,
+  "lon": -89.7403,
+  "capacity_note": "275,259 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2753
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Union County Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 40.6042,
+  "lon": -74.2825,
+  "capacity_note": "274,514 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2745
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Hillsborough County Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "FL",
+  "lat": 27.9547,
+  "lon": -82.3407,
+  "capacity_note": "267,629 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2676
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Hood Container Corporation",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "TN",
+  "lat": 36.0834,
+  "lon": -87.9364,
+  "capacity_note": "264,614 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2646
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Domtar A. W. Llc-Nekoosa",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.3143,
+  "lon": -89.8962,
+  "capacity_note": "262,573 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2626
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Bay Front",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "WI",
+  "lat": 46.5869,
+  "lon": -90.9017,
+  "capacity_note": "255,117 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2551
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Wheelabrator North Andover Inc.",
+  "type": "wte",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.7261,
+  "lon": -71.1222,
+  "capacity_note": "254,059 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2541
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Savannah River Nuclear Solutions Llc - Savannah River Site",
+  "type": "ethanol",
+  "country": "USA",
+  "state": "SC",
+  "lat": 33.3438,
+  "lon": -81.7412,
+  "capacity_note": "253,819 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2538
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "325180"
+ },
+ {
+  "name": "St Paul Cogeneration",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.943,
+  "lon": -93.0939,
+  "capacity_note": "252,337 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2523
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221330"
+ },
+ {
+  "name": "Greif Riverville Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.5098,
+  "lon": -78.9108,
+  "capacity_note": "243,537 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2435
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Lancaster Waste to Energy Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.0743,
+  "lon": -76.6409,
+  "capacity_note": "243,026 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.243
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Covanta Plymouth Renewable Energy Llc",
+  "type": "wte",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.0958,
+  "lon": -75.3106,
+  "capacity_note": "224,786 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2248
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Norbord South Carolina Inc.",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.3912,
+  "lon": -81.7975,
+  "capacity_note": "220,100 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2201
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Boise Paper",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WA",
+  "lat": 46.0973,
+  "lon": -118.9111,
+  "capacity_note": "219,269 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2193
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Packaging Corporation Of America",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "MI",
+  "lat": 44.2158,
+  "lon": -86.2904,
+  "capacity_note": "218,568 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2186
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "York County Resource Recovery",
+  "type": "wte",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.0017,
+  "lon": -76.7175,
+  "capacity_note": "204,264 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2043
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Hennepin Energy Recovery Center",
+  "type": "wte",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.9835,
+  "lon": -93.2804,
+  "capacity_note": "197,062 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1971
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Wheelabrator Saugus Inc.",
+  "type": "wte",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.4472,
+  "lon": -70.9805,
+  "capacity_note": "196,355 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1964
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Reworld Huntington",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 40.8817,
+  "lon": -73.2899,
+  "capacity_note": "195,861 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1959
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Pcsw Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "FL",
+  "lat": 28.3699,
+  "lon": -82.5599,
+  "capacity_note": "190,392 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1904
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Ingredion Incorporated",
+  "type": "ethanol",
+  "country": "USA",
+  "state": "NC",
+  "lat": 36.0325,
+  "lon": -80.2287,
+  "capacity_note": "188,726 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1887
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "311221"
+ },
+ {
+  "name": "Covanta Alexandria/Arlington, Inc",
+  "type": "wte",
+  "country": "USA",
+  "state": "VA",
+  "lat": 38.8014,
+  "lon": -77.1286,
+  "capacity_note": "183,544 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1835
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Camden Cnty Resource Recovery Assoc",
+  "type": "wte",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 39.9094,
+  "lon": -75.1167,
+  "capacity_note": "183,361 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1834
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Finch Paper Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.3085,
+  "lon": -73.6348,
+  "capacity_note": "181,770 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1818
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Onondaga Co Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.0048,
+  "lon": -76.1147,
+  "capacity_note": "180,617 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1806
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "L'Anse Warden Electric Company LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MI",
+  "lat": 46.7569,
+  "lon": -88.4559,
+  "capacity_note": "175,704 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1757
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221118"
+ },
+ {
+  "name": "Twin Rivers Pine Bluff LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "AR",
+  "lat": 34.2667,
+  "lon": -92.0334,
+  "capacity_note": "173,608 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1736
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Georgia-Pacific Gurdon Plywood/Lumber",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "AR",
+  "lat": 33.8906,
+  "lon": -93.1378,
+  "capacity_note": "167,781 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1678
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321212"
+ },
+ {
+  "name": "Ahlstrom Mosinee LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.7887,
+  "lon": -89.6943,
+  "capacity_note": "165,075 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1651
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Wheelabrator Portsmouth Inc.",
+  "type": "wte",
+  "country": "USA",
+  "state": "VA",
+  "lat": 36.8087,
+  "lon": -76.3035,
+  "capacity_note": "165,132 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1651
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Manitowoc",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.082,
+  "lon": -87.6558,
+  "capacity_note": "165,006 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.165
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "GP Big Island, LLC",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.534,
+  "lon": -79.357,
+  "capacity_note": "162,658 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1627
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Mckay Bay Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "FL",
+  "lat": 27.9493,
+  "lon": -82.421,
+  "capacity_note": "160,946 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1609
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Southeast Resource Recovery Facility (SERRF)",
+  "type": "wte",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.7582,
+  "lon": -118.2408,
+  "capacity_note": "155,570 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1556
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Viking Energy Of Mcbain, Llc",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MI",
+  "lat": 44.2041,
+  "lon": -85.2206,
+  "capacity_note": "154,392 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1544
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "Covanta Babylon, Inc.",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 40.7349,
+  "lon": -73.3836,
+  "capacity_note": "154,344 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1543
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Viking Energy Of Lincoln, Llc",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MI",
+  "lat": 44.6807,
+  "lon": -83.4199,
+  "capacity_note": "150,032 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.15
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "Weyerhaeuser NR- Columbia Falls",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MT",
+  "lat": 48.3789,
+  "lon": -114.2051,
+  "capacity_note": "149,322 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1493
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Domtar Paper Kingsport Mill",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "TN",
+  "lat": 36.548,
+  "lon": -82.5648,
+  "capacity_note": "147,102 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1471
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Susquehanna Resource Mgmt Complex",
+  "type": "wte",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.2443,
+  "lon": -76.8541,
+  "capacity_note": "146,244 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1462
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Norbord, Inc. (Huguley)",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "AL",
+  "lat": 32.8212,
+  "lon": -85.2283,
+  "capacity_note": "141,644 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1416
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Norbord Texas Jefferson Inc.",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.7776,
+  "lon": -94.3636,
+  "capacity_note": "140,795 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1408
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Pratt Industries Mill Div Conyers",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "GA",
+  "lat": 33.6604,
+  "lon": -83.989,
+  "capacity_note": "138,500 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1385
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322130"
+ },
+ {
+  "name": "Huntsville Solid Waste Disposal Authorit",
+  "type": "wte",
+  "country": "USA",
+  "state": "AL",
+  "lat": 34.6698,
+  "lon": -86.6128,
+  "capacity_note": "134,991 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.135
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "POET Biorefining-Chancellor",
+  "type": "ethanol",
+  "country": "USA",
+  "state": "SD",
+  "lat": 43.3702,
+  "lon": -96.9581,
+  "capacity_note": "132,285 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1323
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "325193"
+ },
+ {
+  "name": "City of Spokane Waste-to-Energy",
+  "type": "wte",
+  "country": "USA",
+  "state": "WA",
+  "lat": 47.6285,
+  "lon": -117.4994,
+  "capacity_note": "131,530 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1315
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Southeastern Ct Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "CT",
+  "lat": 41.4756,
+  "lon": -72.0688,
+  "capacity_note": "131,401 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1314
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Red Wing Plant",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.5661,
+  "lon": -92.5289,
+  "capacity_note": "127,840 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1278
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Jeld-Wen, Inc.",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.7639,
+  "lon": -76.4162,
+  "capacity_note": "125,714 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1257
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Covanta Bristol, Inc",
+  "type": "wte",
+  "country": "USA",
+  "state": "CT",
+  "lat": 41.6497,
+  "lon": -72.9098,
+  "capacity_note": "123,882 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1239
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Covanta WBH",
+  "type": "wte",
+  "country": "USA",
+  "state": "OK",
+  "lat": 36.1322,
+  "lon": -96.0174,
+  "capacity_note": "121,943 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1219
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Boise Cascade Wood Products - Florien Operations",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "LA",
+  "lat": 31.4565,
+  "lon": -93.4597,
+  "capacity_note": "121,413 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1214
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321212"
+ },
+ {
+  "name": "ReEnergy Black River LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "NY",
+  "lat": 44.0361,
+  "lon": -75.7712,
+  "capacity_note": "118,648 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1186
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "Hibbard Energy Center",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MN",
+  "lat": 46.7356,
+  "lon": -92.1531,
+  "capacity_note": "117,310 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1173
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221330"
+ },
+ {
+  "name": "Virginia City Hybrid Energy Center",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "VA",
+  "lat": 36.9161,
+  "lon": -82.3381,
+  "capacity_note": "117,258 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1173
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Covanta Stanislaus Inc.",
+  "type": "wte",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.3854,
+  "lon": -121.1409,
+  "capacity_note": "116,645 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1166
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Adm Corn Processing",
+  "type": "ethanol",
+  "country": "USA",
+  "state": "IA",
+  "lat": 41.8196,
+  "lon": -90.2122,
+  "capacity_note": "114,184 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1142
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "311221"
+ },
+ {
+  "name": "Kronospan, LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "AL",
+  "lat": 33.6103,
+  "lon": -85.9742,
+  "capacity_note": "108,910 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1089
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Norbord Texas Nacogdoches, Inc.",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "TX",
+  "lat": 31.5782,
+  "lon": -94.6522,
+  "capacity_note": "103,522 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1035
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "University Of Missouri Mu Power Plant",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MO",
+  "lat": 38.946,
+  "lon": -92.3333,
+  "capacity_note": "102,704 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1027
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "611310"
+ },
+ {
+  "name": "Puente Hills Landfill And Energy Recovery",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.0249,
+  "lon": -118.0325,
+  "capacity_note": "102,033 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.102
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Nd Otm Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "ME",
+  "lat": 44.9174,
+  "lon": -68.6365,
+  "capacity_note": "101,031 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.101
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322110"
+ },
+ {
+  "name": "Covanta Lake Ii Inc",
+  "type": "wte",
+  "country": "USA",
+  "state": "FL",
+  "lat": 28.7397,
+  "lon": -81.8894,
+  "capacity_note": "100,617 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1006
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "French Island",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.8298,
+  "lon": -91.26,
+  "capacity_note": "99,613 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0996
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Wheelabrator Lisbon Inc.",
+  "type": "wte",
+  "country": "USA",
+  "state": "CT",
+  "lat": 41.5695,
+  "lon": -72.0448,
+  "capacity_note": "97,517 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0975
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Eagle Valley Clean Energy",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "CO",
+  "lat": 39.6468,
+  "lon": -106.9403,
+  "capacity_note": "96,323 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0963
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "Kent County Waste To Energy Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.9492,
+  "lon": -85.6939,
+  "capacity_note": "94,225 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0942
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Key City/Wilmarth Plant",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.1962,
+  "lon": -94.0034,
+  "capacity_note": "93,810 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0938
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Georgia Pacific Wood Products LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.4389,
+  "lon": -84.7708,
+  "capacity_note": "90,551 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0906
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321212"
+ },
+ {
+  "name": "Boise Cascade Wood Products - Oakdale Operations",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "LA",
+  "lat": 30.7844,
+  "lon": -92.6769,
+  "capacity_note": "87,666 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0877
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321212"
+ },
+ {
+  "name": "West Fraser, Inc. (Bemidji)",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MN",
+  "lat": 47.511,
+  "lon": -95.0819,
+  "capacity_note": "85,800 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0858
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Wheelabrator Gloucester Company, L.P.",
+  "type": "wte",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 39.8739,
+  "lon": -75.1387,
+  "capacity_note": "83,029 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.083
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Georgia Pacific Plywood",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MS",
+  "lat": 31.8413,
+  "lon": -89.4695,
+  "capacity_note": "82,366 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0824
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321212"
+ },
+ {
+  "name": "Wheelabrator Concord Company Lp",
+  "type": "wte",
+  "country": "USA",
+  "state": "NH",
+  "lat": 43.2868,
+  "lon": -71.5761,
+  "capacity_note": "79,154 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0792
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Orchard Ridge Landfill & Mrf",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.149,
+  "lon": -88.1221,
+  "capacity_note": "77,331 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0773
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Islip Mcarthur Resource Recovery Facil",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 40.7864,
+  "lon": -73.1058,
+  "capacity_note": "76,034 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.076
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Louisiana Pacific Corporation Jasper OSB Mill",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "TX",
+  "lat": 30.9085,
+  "lon": -93.921,
+  "capacity_note": "75,817 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0758
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Northside",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.4172,
+  "lon": -81.5525,
+  "capacity_note": "73,178 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0732
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "King George Landfill Inc - Wm",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 38.2775,
+  "lon": -77.3143,
+  "capacity_note": "73,145 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0731
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Regional Waste Systems Incorporated",
+  "type": "wte",
+  "country": "USA",
+  "state": "ME",
+  "lat": 43.6557,
+  "lon": -70.3341,
+  "capacity_note": "72,364 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0724
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Olmsted Waste-To-Energy Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.0265,
+  "lon": -92.4291,
+  "capacity_note": "69,351 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0694
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Wheelabrator Hudson Falls Llc",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.3057,
+  "lon": -73.5916,
+  "capacity_note": "64,479 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0645
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Covanta Marion, Inc",
+  "type": "wte",
+  "country": "USA",
+  "state": "OR",
+  "lat": 45.048,
+  "lon": -122.9622,
+  "capacity_note": "62,610 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0626
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "TES Filer City Station",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MI",
+  "lat": 44.217,
+  "lon": -86.2906,
+  "capacity_note": "60,126 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0601
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "King Cnty Solid Wst Cedar Hills Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WA",
+  "lat": 47.4626,
+  "lon": -122.046,
+  "capacity_note": "56,525 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0565
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Hibbing Public Utilities Commission",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MN",
+  "lat": 47.4297,
+  "lon": -92.9353,
+  "capacity_note": "53,143 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0531
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "EGGER Wood Products, LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.7407,
+  "lon": -80.3433,
+  "capacity_note": "52,028 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.052
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Georgia-Pacific Broadway Llc",
+  "type": "pulp_paper",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.4937,
+  "lon": -88.0299,
+  "capacity_note": "51,480 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0515
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "322120"
+ },
+ {
+  "name": "Waste Management Disposal Services Of Oregon",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OR",
+  "lat": 45.6336,
+  "lon": -120.2189,
+  "capacity_note": "49,634 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0496
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Metro Methane Recovery Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IA",
+  "lat": 41.5989,
+  "lon": -93.3548,
+  "capacity_note": "48,662 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0487
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Monarch Hill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 26.2875,
+  "lon": -80.1514,
+  "capacity_note": "47,169 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0472
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Arauco North America",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "MI",
+  "lat": 44.5985,
+  "lon": -84.6865,
+  "capacity_note": "47,105 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0471
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Pine Tree Acres Inc",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.7649,
+  "lon": -82.7465,
+  "capacity_note": "46,939 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0469
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "University of New Hampshire",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "NH",
+  "lat": 43.1362,
+  "lon": -70.9379,
+  "capacity_note": "44,366 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0444
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "611310"
+ },
+ {
+  "name": "Martinez Renewable Fuel Facility",
+  "type": "ethanol",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.0251,
+  "lon": -122.0639,
+  "capacity_note": "43,096 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0431
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "325199"
+ },
+ {
+  "name": "High Acres Landfill & Recycling Center",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.0869,
+  "lon": -77.3873,
+  "capacity_note": "41,877 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0419
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Hamakua Energy, LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "HI",
+  "lat": 20.0941,
+  "lon": -155.471,
+  "capacity_note": "41,825 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0418
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "WM of NH - TREE (Turnkey Landfill)",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NH",
+  "lat": 43.2731,
+  "lon": -70.9903,
+  "capacity_note": "40,970 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.041
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Kiefer Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.5173,
+  "lon": -121.1958,
+  "capacity_note": "40,518 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0405
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Altamont Landfill & Resource Recovery Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.7231,
+  "lon": -121.6821,
+  "capacity_note": "37,806 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0378
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Clarion Boards/Clarion Plt",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.2331,
+  "lon": -79.4167,
+  "capacity_note": "37,262 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0373
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321219"
+ },
+ {
+  "name": "Dutchess Co Resource Recovery Facility",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 41.6468,
+  "lon": -73.9414,
+  "capacity_note": "36,963 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.037
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Pixley Cogen Partners, LLC",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "CA",
+  "lat": 36.0008,
+  "lon": -119.3022,
+  "capacity_note": "35,130 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0351
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221112"
+ },
+ {
+  "name": "Metro Recycling and Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.849,
+  "lon": -88.0699,
+  "capacity_note": "34,460 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0345
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Riga/Mill Seat Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.0642,
+  "lon": -77.9329,
+  "capacity_note": "33,179 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0332
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Weyerhaeuser Raymond Lumbermill",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "WA",
+  "lat": 46.6879,
+  "lon": -123.7368,
+  "capacity_note": "32,795 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0328
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321113"
+ },
+ {
+  "name": "Emerald People's Utility District",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "OR",
+  "lat": 43.9599,
+  "lon": -122.998,
+  "capacity_note": "32,636 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0326
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "Liberty Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 40.8837,
+  "lon": -86.7045,
+  "capacity_note": "32,639 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0326
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Douglas County Recycling Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NE",
+  "lat": 41.3815,
+  "lon": -96.2526,
+  "capacity_note": "30,805 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0308
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Dry Creek Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OR",
+  "lat": 42.4416,
+  "lon": -122.7514,
+  "capacity_note": "30,533 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0305
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Superior Landfill & Recycling Center",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.0134,
+  "lon": -81.2577,
+  "capacity_note": "30,539 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0305
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Pope/Douglas Solid Waste Management",
+  "type": "wte",
+  "country": "USA",
+  "state": "MN",
+  "lat": 45.8686,
+  "lon": -95.3722,
+  "capacity_note": "30,323 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0303
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "UGID Broad Mountain LLC/Hegins",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.6696,
+  "lon": -76.3807,
+  "capacity_note": "29,868 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0299
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221117"
+ },
+ {
+  "name": "J.E.D. Solid Waste Management Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 28.0609,
+  "lon": -81.0952,
+  "capacity_note": "29,491 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0295
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Murphy Plywood",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "OR",
+  "lat": 42.4265,
+  "lon": -123.1642,
+  "capacity_note": "29,355 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0294
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321212"
+ },
+ {
+  "name": "WM of IL - Greene Valley RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.7339,
+  "lon": -88.0848,
+  "capacity_note": "29,269 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0293
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Middle Peninsula Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.5217,
+  "lon": -76.6246,
+  "capacity_note": "29,163 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0292
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Rolling Meadows Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "KS",
+  "lat": 39.1841,
+  "lon": -95.7198,
+  "capacity_note": "28,482 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0285
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Clinton County Regional Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 44.6906,
+  "lon": -73.5943,
+  "capacity_note": "27,563 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0276
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "River Birch Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "LA",
+  "lat": 29.9364,
+  "lon": -90.2666,
+  "capacity_note": "26,800 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0268
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Oswego Co Energy Recovery Fac",
+  "type": "wte",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.3492,
+  "lon": -76.4256,
+  "capacity_note": "26,492 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0265
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562213"
+ },
+ {
+  "name": "Hampton/Nasa Steam Plant",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.1006,
+  "lon": -76.3907,
+  "capacity_note": "26,346 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0263
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "221330"
+ },
+ {
+  "name": "Calabasas Sanitary Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.1413,
+  "lon": -118.7114,
+  "capacity_note": "26,088 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0261
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Pheasant Run Recycling and Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.5828,
+  "lon": -88.0439,
+  "capacity_note": "25,926 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0259
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Waste Management Of New York, Llc",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.5831,
+  "lon": -78.4871,
+  "capacity_note": "25,879 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0259
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Settlers Hill Rdf/Midway Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.8708,
+  "lon": -88.2889,
+  "capacity_note": "25,455 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0255
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Arden Ldfl",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.2084,
+  "lon": -80.2648,
+  "capacity_note": "24,376 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0244
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Suny At Binghamton",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.088,
+  "lon": -75.9709,
+  "capacity_note": "24,439 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0244
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "611310"
+ },
+ {
+  "name": "Waste Management Of Wisconsin, Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.1744,
+  "lon": -87.8294,
+  "capacity_note": "24,231 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0242
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Symrise",
+  "type": "ethanol",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.3801,
+  "lon": -81.6643,
+  "capacity_note": "23,175 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0232
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "325199"
+ },
+ {
+  "name": "West Fraser Angelina",
+  "type": "bioenergy",
+  "country": "USA",
+  "state": "TX",
+  "lat": 31.292,
+  "lon": -94.6273,
+  "capacity_note": "23,213 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0232
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "321113"
+ },
+ {
+  "name": "Earthmovers Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 41.6918,
+  "lon": -86.0014,
+  "capacity_note": "19,002 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.019
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Cid Recycling & Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.6446,
+  "lon": -87.5748,
+  "capacity_note": "15,803 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0158
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Westside Recycling and Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.7128,
+  "lon": -97.5308,
+  "capacity_note": "13,667 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0137
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Lake Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 42.1055,
+  "lon": -87.8119,
+  "capacity_note": "13,053 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0131
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Deercroft Recycling And Disposal Facility (Rdf)",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 41.6514,
+  "lon": -86.9034,
+  "capacity_note": "11,539 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0115
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Tazewell Recycling & Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 40.6754,
+  "lon": -89.505,
+  "capacity_note": "9,300 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0093
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ },
+ {
+  "name": "Southbridge Recycling & Disposal Park",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.1052,
+  "lon": -72.0319,
+  "capacity_note": "6,137 t biogenic CO2/yr (GHGRP 2023)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0061
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
+  "naics": "562212"
+ }
+]

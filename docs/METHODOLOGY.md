@@ -202,6 +202,8 @@ list shown in the "Best use" layer's detail panel.
 ## 7. Reproducing the data pipeline
 
 ```
+scripts/engine_core.py           # SHARED decision logic (pathways, decide(), kpi_score,
+                                 # ranking, rationale) — imported by both engines below
 scripts/build_geo.py             # slim Natural Earth geometry -> data/geo/geometry.js
                                  # (regional feedstock + storage + facilities JSON compiled by subagents)
 scripts/merge_validate.py        # merge regional feedstock files -> feedstocks.json; sanity checks
@@ -211,3 +213,55 @@ scripts/bundle_data.py           # bundle processed JSON -> src/data_bundle.js (
 
 Then open `src/index.html` directly in any browser.
 Data schema: `data/SCHEMA.md`. Engine spec: `data/ENGINE_SPEC.md`.
+
+---
+
+## 8. US county-level detail map (`src/us.html`)
+
+A separate, finer-grained view of the United States (~3,144 counties), UI-consistent with the
+global Atlas and built to eventually drop in as a tab. It shares the decision framework via
+`scripts/engine_core.py`; only the *inputs* are recomputed at county granularity.
+
+**Pipeline** (`scripts/us/`): `download_raw.sh` stages the public sources, then `build_all.sh` runs
+`build_county_geo.py` → `build_basin_geo.py` → `build_county_feedstocks.py` →
+`build_us_infrastructure.py` → `build_us_recommendations.py` → `bundle_us.py`. Open `src/us.html`.
+
+**County feedstocks** — "Billion-Ton state totals, spatially disaggregated to counties." Each
+feedstock's within-state distribution comes from authoritative county data, then is scaled so a
+state's counties sum to that state's existing global-tool total (anchored to the DOE 2023
+Billion-Ton Report + USDA NASS):
+- *Ag residues*: USDA Census of Agriculture 2022 county crop production (corn, wheat, soy, sorghum,
+  barley, oats, rice, cotton, sugarcane) × residue-to-product ratios × ~40% recoverable fraction.
+- *Manure*: USDA Census of Ag 2022 county livestock inventory × relative manure (volatile-solids) weights.
+- *MSW & WWTP biosolids*: Census Vintage-2023 county population × per-capita allocation of state totals.
+- *Forestry*: state forestry-residue total allocated to counties by woodland acreage (Census of Ag).
+  This is the weakest layer — farm-woodland under-represents non-farm timberland (national forests,
+  industrial timberland), so within-state county placement of forestry is approximate; ag and manure
+  are the high-confidence county layers. State totals are always preserved.
+
+**Storage basins (actual polygons)** — NETL NATCARB Atlas assessed saline storage formations
+(`NATCARB_Saline_Poly_v1502`, 349 assessed/non-duplicate formations), reprojected from Lambert
+Azimuthal Equal-Area to WGS84, simplified, and rounded. A county whose centroid falls inside a
+formation has storage on-site.
+
+**Wells** — operational geologic sequestration (EPA GHGRP 2023 Subpart RR reporters), Class VI
+permits (issued / draft / pending, curated from the EPA Class VI Data Repository, current to 2026),
+and curated Class V biomass-injection / bio-oil projects (Vaulted Deep, Charm Industrial).
+
+**Biogenic point sources & WWTPs** — facility-level biogenic CO₂ from EPA GHGRP 2023 (pulp & paper,
+bioenergy, waste-to-energy, landfill gas, ethanol), kept where biogenic CO₂ ≥ 25 kt/yr or biomass
+dominates; large WWTPs are NPDES "major" POTWs (≥ 1 MGD) from EPA FRS.
+
+**County engine upgrades** (`build_us_recommendations.py`) over the global inputs:
+- *Transport distance*: inside-a-basin = storage on-site (good); else great-circle to the nearest
+  basin boundary AND nearest Class VI / operational well; graded good < 100 km, moderate < 300 km
+  (tighter than the global 500/1000 km). These are great-circle screening distances, not routed.
+- *Feedstock density*: real residue density (tCO₂/km²) **and** an 80 km haul-radius supply sum decide
+  whether biomass is concentrated enough (density ≥ 120 tCO₂/km² and ≥ 0.75 Mt CO₂/yr within reach)
+  to anchor a central BECCS/pulp plant; otherwise diffuse → favours injection/bio-oil.
+- *Low-supply guard*: counties below ~0.02 Mt CO₂/yr total recoverable supply are flagged (rendered
+  muted, recommendation indicative only) rather than forced into a pathway.
+
+**Sanity**: county ag + forestry + manure totals reconcile to the global tool's US state sums
+(ag ≈ 257 Mt, forestry ≈ 99 Mt, manure ≈ 143 Mt odt/yr). Raw source files live under
+`data/geo/us_raw/` (gitignored; re-fetch with `download_raw.sh`).

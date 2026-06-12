@@ -23,6 +23,17 @@ offline — all data is bundled as JavaScript.
 Deep-link views via URL hash, e.g.
 `index.html#mode=recommendation&ov=sites,basins&region=USA`.
 
+## US county detail map (in development)
+
+A separate, finer-grained view — **`src/us.html`** — resolves the United States to ~3,144
+**counties**, with the geologic storage resource drawn as **actual basin polygons** (NETL NATCARB
+saline formations), granular biogenic point sources (EPA GHGRP), large WWTPs, and all existing +
+proposed **Class VI** wells plus curated **Class V** injection projects. It shares the recommendation
+engine with the global map (`scripts/engine_core.py`) but recomputes storage access (distance to
+basin edge / nearest well) and feedstock density (tCO₂/km² + 80 km haul-radius supply) per county.
+Built and tested standalone for now; designed to drop in as a tab later. Build with
+`scripts/us/download_raw.sh` then `scripts/us/build_all.sh`; see `docs/METHODOLOGY.md` §8.
+
 ## Layout
 
 ```

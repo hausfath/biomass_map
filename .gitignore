@@ -12,3 +12,6 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# US county map — large raw source downloads (re-fetch with scripts/us/download_raw.sh)
+data/geo/us_raw/
