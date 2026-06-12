@@ -61,17 +61,21 @@ injection, WtE+CCS) from storage-independent ones (bio-oil, burial, biochar).
 
 - **Projects** (`kind: site`): operational/under-construction/planned dedicated geologic
   storage and large CCS-with-storage projects — Sleipner, Snøhvit, Northern Lights, Quest,
-  ADM Decatur (Illinois), Gorgon, Sinopec Qilu, Tomakomai, Porthos, Greensand, etc.
-  Source: Global CCS Institute Facilities Database / Status Report (2023–24).
+  ADM Decatur (Illinois), Gorgon, Sinopec Qilu, Tomakomai, Porthos, Greensand, Ravenna (Eni,
+  Italy), Petrobras Santos pre-salt (Brazil — the world's largest CO₂ injection), the UK North
+  Sea clusters (Endurance, HyNet/Liverpool Bay, Viking), Kasawari (Malaysia), Tangguh
+  (Indonesia), Ras Laffan (Qatar), and more. Source: Global CCS Institute Status Report (2024),
+  IEA CCUS database, company announcements.
 - **Basins** (`kind: basin`): basin-level theoretical capacity (Gt) graded by confidence
   (high/medium/low). Sources: US DOE NATCARB / NETL Carbon Storage Atlas, EU CO2StoP,
   CO2CRC (Australia), and regional storage assessments.
 
 Basin capacities are theoretical and require site appraisal before they can be relied upon.
-Large-biomass regions with **poor** storage — Sub-Saharan Africa (cratons), interior India
-(low-permeability Deccan basalts), much of Southeast Asia — are deliberately represented with
-low-confidence/low-capacity entries so the map surfaces the storage gap that pushes those
-regions toward burial / bio-oil.
+Storage access is still **poor** in large-biomass regions such as Sub-Saharan Africa (cratons)
+and interior India (low-permeability Deccan basalts), pushing them toward burial / bio-oil.
+Parts of Southeast Asia and offshore Brazil that once looked storage-limited now host real
+offshore CCS projects (e.g. Tangguh, Kasawari, Santos pre-salt), so those regions shift toward
+geologic pathways where the biomass is also accessible.
 
 ---
 

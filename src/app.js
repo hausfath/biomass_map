@@ -180,11 +180,20 @@
     },
   }).addTo(map);
 
+  // Track the single hovered feature. We deliberately do NOT call bringToFront() here:
+  // re-inserting the path's DOM node mid-hover causes Leaflet to drop the following
+  // mouseout, which left borders stuck-highlighted until the next mouseover. Resetting any
+  // previously hovered layer on each mouseover is a second guard against stuck highlights.
+  let hoveredLayer = null;
   function highlight(layer) {
+    if (hoveredLayer && hoveredLayer !== layer) geoLayer.resetStyle(hoveredLayer);
+    hoveredLayer = layer;
     layer.setStyle({ weight: 1.8, color: "#eafffb" });
-    layer.bringToFront();
   }
-  function unhighlight(layer) { geoLayer.resetStyle(layer); }
+  function unhighlight(layer) {
+    geoLayer.resetStyle(layer);
+    if (hoveredLayer === layer) hoveredLayer = null;
+  }
 
   function redrawChoropleth() {
     if (state.mode === "feedstock") recomputeBreaks();
