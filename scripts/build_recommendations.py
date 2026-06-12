@@ -742,13 +742,10 @@ def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
     flags = []
     dom = region.get("dominant_feedstock")
 
-    # Excess-nutrient alternative caveat
-    if nutrient_alt:
-        caveats.append(
-            "Excess nutrient status: high-removal pathways (including biomass burial) are "
-            "tolerable or favoured here since nutrient export is less of a constraint "
-            "(thesis sec 2.2, China example) -- burial surfaced as the alternative."
-        )
+    # Note: burial-related explainer caveats (excess-nutrient rationale, burial durability)
+    # are intentionally omitted -- the internal Frontier audience already knows them. The
+    # durability trade-off still appears in the ranked-options pros/cons. Frontier-exclusion
+    # flags (corn-ethanol, RNG, purpose-grown) are retained below.
 
     # National-rollup caveat for large heterogeneous countries
     if region.get("level") == "country" and region.get("id") in LARGE_HETEROGENEOUS:
@@ -758,10 +755,6 @@ def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
             "National rollup -- feedstock type/density, storage access, and nutrient status "
             "vary substantially sub-nationally; the optimal pathway is local." + extra
         )
-
-    # Burial durability caveat (mandatory whenever burial is recommended OR runner-up)
-    if rec_key == "burial" or runner_key == "burial":
-        caveats.append(BURIAL_CAVEAT)
 
     # Storage-confidence caveat
     if only_low_conf:
@@ -774,10 +767,12 @@ def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
     if rec_key == "ad_ccs" or runner_key == "ad_ccs" or dom == "manure_wet":
         flags.append(RNG_FLAG)
 
-    # Corn-ethanol / purpose-grown exclusions: surface where ethanol anchors or
-    # corn-heavy ag stories could tempt the wrong pathway.
+    # Corn-ethanol exclusion: a US phenomenon. Scope to US regions so we do NOT mislabel
+    # sugarcane ethanol (Brazil/Argentina/Colombia) or wheat ethanol (UK) -- which Frontier
+    # does not exclude -- as corn ethanol.
     notes = (region.get("notes") or "").lower()
-    if "ethanol" in notes or "corn" in notes or anchor_type == "ethanol":
+    country = region_country(region)
+    if country == "USA" and (anchor_type == "ethanol" or "corn" in notes):
         flags.append(
             "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal "
             "additionality, thesis exclusions); not recommended despite local ethanol capacity."

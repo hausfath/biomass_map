@@ -711,10 +711,7 @@
     "has_retrofit": true,
     "anchor_facility": "Domtar Ashdown Pulp & Paper Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~603 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -839,10 +836,7 @@
     "has_retrofit": false,
     "anchor_facility": "Aemetis Keyes Dairy Digester Cluster (biogas_ad)",
     "rationale": "Concentrated mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~1631 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -1052,9 +1046,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1381 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -1123,10 +1115,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~1158 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "RNG+CCS is complex; Frontier not pursuing offtakes (thesis sec 3.4)."
     ],
@@ -1215,10 +1204,7 @@
     "has_retrofit": true,
     "anchor_facility": "International Paper Pensacola (Cantonment) Mill (pulp_paper)",
     "rationale": "Concentrated mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~1132 km) with a retrofittable pulp_paper anchor (International Paper Pensacola (Cantonment) Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -1339,10 +1325,7 @@
     "has_retrofit": true,
     "anchor_facility": "Packaging Corp of America Valdosta Containerboard Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~908 km) with a retrofittable pulp_paper anchor (Packaging Corp of America Valdosta Containerboard Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -1467,9 +1450,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~5084 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -1662,10 +1643,7 @@
     "has_retrofit": true,
     "anchor_facility": "ADM Decatur (ICCS) — Ethanol CCS (ethanol)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~28 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -1774,10 +1752,7 @@
     "has_retrofit": false,
     "anchor_facility": "Reworld (Covanta) Indianapolis Resource Recovery (wte)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~231 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -1886,10 +1861,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~423 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -2455,9 +2427,7 @@
     "has_retrofit": true,
     "anchor_facility": "Wheelabrator (WIN Waste) Baltimore WTE (wte)",
     "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~1064 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -2527,9 +2497,7 @@
     "has_retrofit": true,
     "anchor_facility": "Reworld (Covanta) SEMASS (wte)",
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1485 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -2598,10 +2566,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~617 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -2710,10 +2675,7 @@
     "has_retrofit": true,
     "anchor_facility": "Sappi Cloquet Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~597 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -2964,10 +2926,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~310 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -3182,10 +3141,7 @@
     "has_retrofit": true,
     "anchor_facility": "Green Plains Wood River (Advantage Nebraska CCS) (ethanol)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~688 km) with a retrofittable ethanol anchor (Green Plains Wood River (Advantage Nebraska CCS)) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -3291,9 +3247,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1459 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -3468,9 +3422,7 @@
     "has_retrofit": true,
     "anchor_facility": "Reworld (Covanta) Essex Newark WTE (wte)",
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1230 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -3645,9 +3597,7 @@
     "has_retrofit": true,
     "anchor_facility": "Reworld (Covanta) Hempstead WTE (wte)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~1174 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -3716,10 +3666,7 @@
     "has_retrofit": true,
     "anchor_facility": "Domtar Plymouth Pulp Mill (pulp_paper)",
     "rationale": "Concentrated mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~950 km) with a retrofittable pulp_paper anchor (Domtar Plymouth Pulp Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -3946,10 +3893,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~527 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -4058,10 +4002,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~676 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -4274,10 +4215,7 @@
     "has_retrofit": false,
     "anchor_facility": "Pixelle Specialty Solutions Spring Grove Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~1002 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -4384,9 +4322,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1481 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -5147,10 +5083,7 @@
     "has_retrofit": true,
     "anchor_facility": "Smurfit WestRock Covington Paperboard Mill (pulp_paper)",
     "rationale": "Diffuse mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~923 km) with a retrofittable pulp_paper anchor (Smurfit WestRock Covington Paperboard Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -5487,10 +5420,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Diffuse mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~521 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
     ],
@@ -6400,10 +6330,7 @@
     "has_retrofit": true,
     "anchor_facility": "AVR Rozenburg Waste-to-Energy (wte)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~89 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "RNG+CCS is complex; Frontier not pursuing offtakes (thesis sec 3.4)."
     ],
@@ -6492,10 +6419,7 @@
     "has_retrofit": true,
     "anchor_facility": "Indaver Doel / SLECO Waste-to-Energy (wte)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~170 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "RNG+CCS is complex; Frontier not pursuing offtakes (thesis sec 3.4)."
     ],
@@ -7262,10 +7186,7 @@
     "has_retrofit": true,
     "anchor_facility": "Ørsted Asnæs Power Station (bioenergy)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~287 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "RNG+CCS is complex; Frontier not pursuing offtakes (thesis sec 3.4)."
     ],
@@ -8279,9 +8200,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~286 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -8350,9 +8269,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, low nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -8438,9 +8355,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -8526,12 +8441,8 @@
     "has_retrofit": true,
     "anchor_facility": "Drax Power Station (bioenergy)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~348 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
-    "flags": [
-      "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
-    ],
+    "caveats": [],
+    "flags": [],
     "ranked": [
       {
         "key": "wte_ccs",
@@ -8719,9 +8630,7 @@
     "has_retrofit": true,
     "anchor_facility": "KEZO Hinwil Waste-to-Energy (Kehrichtverwertung Zürcher Oberland) (wte)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~652 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -8999,9 +8908,7 @@
     "anchor_facility": "Nine Dragons Paper Dongguan Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~478 km) with a retrofittable pulp_paper anchor (Nine Dragons Paper Dongguan Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
+      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local."
     ],
     "flags": [],
     "ranked": [
@@ -9124,9 +9031,7 @@
     "anchor_facility": "ITC Bhadrachalam Paperboards & Specialty Papers (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~532 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
+      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local."
     ],
     "flags": [],
     "ranked": [
@@ -10007,9 +9912,7 @@
     "has_retrofit": true,
     "anchor_facility": "Nippon Paper Ishinomaki Mill (pulp_paper)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~764 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -10078,10 +9981,7 @@
     "has_retrofit": true,
     "anchor_facility": "Yeongdong Biomass Power Plant (Eco Power) (bioenergy)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, moderate geologic storage access (~723 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
-    "caveats": [
-      "Excess nutrient status: high-removal pathways (including biomass burial) are tolerable or favoured here since nutrient export is less of a constraint (thesis sec 2.2, China example) -- burial surfaced as the alternative.",
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [
       "RNG+CCS is complex; Frontier not pursuing offtakes (thesis sec 3.4)."
     ],
@@ -10506,9 +10406,7 @@
     "has_retrofit": true,
     "anchor_facility": "Oji Fibre Solutions Kinleith Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, excess nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -10850,9 +10748,7 @@
     "caveats": [
       "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local."
     ],
-    "flags": [
-      "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
-    ],
+    "flags": [],
     "ranked": [
       {
         "key": "beccs",
@@ -10974,9 +10870,7 @@
     "anchor_facility": "Ledesma Ingenio Sugar/Ethanol Mill (ethanol)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
-    "flags": [
-      "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
-    ],
+    "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
@@ -11080,9 +10974,7 @@
     "anchor_facility": "Incauca Sugar Mill & Bioethanol Plant (ethanol)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
-    "flags": [
-      "Corn-ethanol+CCS excluded by Frontier (food/land competition, marginal additionality, thesis exclusions); not recommended despite local ethanol capacity."
-    ],
+    "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
@@ -12401,9 +12293,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -13676,9 +13566,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~462 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -14065,9 +13953,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, excess nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
@@ -14154,9 +14040,7 @@
     "has_retrofit": false,
     "anchor_facility": null,
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~82 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
-    "caveats": [
-      "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-    ],
+    "caveats": [],
     "flags": [],
     "ranked": [
       {
