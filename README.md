@@ -34,6 +34,17 @@ basin edge / nearest well) and feedstock density (tCO₂/km² + 80 km haul-radiu
 Built and tested standalone for now; designed to drop in as a tab later. Build with
 `scripts/us/download_raw.sh` then `scripts/us/build_all.sh`; see `docs/METHODOLOGY.md` §8.
 
+## EU subnational map (in development)
+
+A second detail view — **`src/eu.html`** — resolves Europe (EU-27 + UK + Norway) to **NUTS-2**
+regions (~290), with the geologic storage resource drawn as **actual formation polygons** (JRC
+CO2StoP), curated biogenic point sources, large WWTPs (EEA UWWTD), and named CO₂ storage projects /
+hubs (Northern Lights, Porthos, Aramis, Greensand, Acorn, …) — the region-appropriate substitute for
+the US Class V/VI well layers. Regional biomass comes from the JRC ENSPRESO NUTS-2 database, scaled to
+the global tool's country totals. It shares the same recommendation engine (`scripts/engine_core.py`)
+with storage/density inputs tuned for NUTS-2. Build with `scripts/eu/download_raw.sh` then
+`scripts/eu/build_all.sh`; see `docs/METHODOLOGY.md` §9.
+
 ## Layout
 
 ```

@@ -15,3 +15,6 @@ venv/
 
 # US county map — large raw source downloads (re-fetch with scripts/us/download_raw.sh)
 data/geo/us_raw/
+
+# EU NUTS-2 map — large raw source downloads (re-fetch with scripts/eu/download_raw.sh)
+data/geo/eu_raw/

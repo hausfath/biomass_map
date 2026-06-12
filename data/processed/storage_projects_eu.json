@@ -1,0 +1,182 @@
+[
+ {
+  "name": "Greensand CCS (Denmark)",
+  "country": "DNK",
+  "status": "operational",
+  "storage_type": "depleted_og",
+  "capacity_mtpa": 0.4,
+  "lat": 55.85,
+  "lon": 5.45,
+  "source": "CATF CCS in Europe Nov 2025; IOGP Europe CO2 Storage Map May 2025"
+ },
+ {
+  "name": "Northern Lights CCS (Phase 1)",
+  "country": "NOR",
+  "status": "operational",
+  "storage_type": "saline",
+  "capacity_mtpa": 1.5,
+  "lat": 60.65,
+  "lon": 3.15,
+  "source": "TotalEnergies press releases 2024-2025; Equinor Northern Lights project page; ClearBlue Markets Aug 2025; norlights.com"
+ },
+ {
+  "name": "Ravenna CCS Phase 1 (Eni/Snam, Adriatic)",
+  "country": "ITA",
+  "status": "operational",
+  "storage_type": "depleted_og",
+  "capacity_mtpa": 0.025,
+  "lat": 44.52,
+  "lon": 12.55,
+  "source": "Eni/Snam press release Sep 2024; Offshore Magazine Oct 2024 (offshore CO2 injection underway); CCSA case study 2024; OnePetro OMC-2025-675 (first 8 months of operations)"
+ },
+ {
+  "name": "Sleipner CO2 Storage",
+  "country": "NOR",
+  "status": "operational",
+  "storage_type": "saline",
+  "capacity_mtpa": 1.0,
+  "lat": 58.37,
+  "lon": 1.9,
+  "source": "Global CCS Institute Facilities Database 2023; IEEFA Norway Sleipner & Snøhvit CCS report Jun 2023"
+ },
+ {
+  "name": "Snøhvit CO2 Storage",
+  "country": "NOR",
+  "status": "operational",
+  "storage_type": "saline",
+  "capacity_mtpa": 0.7,
+  "lat": 71.6,
+  "lon": 20.4,
+  "source": "Global CCS Institute Facilities Database 2023; IEEFA Norway CCS report Jun 2023; Lessons Learned 14 years CCS Operations (GHGT 2012)"
+ },
+ {
+  "name": "Acorn CCS (Scotland / North Sea)",
+  "country": "GBR",
+  "status": "planned",
+  "storage_type": "saline",
+  "capacity_mtpa": 10.0,
+  "lat": 57.5,
+  "lon": -1.8,
+  "source": "UK Government Track-2 CCS funding Jun 2025; Energy Voice Jun 2025; IOGP Europe CO2 Storage Map May 2025; Blackridge Research Acorn profile 2026"
+ },
+ {
+  "name": "Aramis CCS (Netherlands / North Sea)",
+  "country": "NLD",
+  "status": "planned",
+  "storage_type": "depleted_og",
+  "capacity_mtpa": 5.0,
+  "lat": 52.7,
+  "lon": 4.0,
+  "source": "Aramis CCS website aramis-ccs.com; OGCI CCUS Hub profile; Carbon Herald 2024"
+ },
+ {
+  "name": "Bifrost / Project Greensand expansion",
+  "country": "DNK",
+  "status": "planned",
+  "lat": 56.0,
+  "lon": 4.8,
+  "storage_type": "depleted_og",
+  "source": "INEOS/Wintershall — Danish North Sea",
+  "capacity_mtpa": null
+ },
+ {
+  "name": "Bifrost CCS Phase 1 (TotalEnergies/DUC, Harald West & Dagny, Denmark)",
+  "country": "DNK",
+  "status": "planned",
+  "storage_type": "depleted_og",
+  "capacity_mtpa": 5.0,
+  "lat": 56.5,
+  "lon": 4.1,
+  "source": "Bifrost CCS website bifrost-ccs.com; TotalEnergies Bifrost press releases 2024-2025; EUDP funding announcement; Enerdata Dec 2024; EU PCI designation"
+ },
+ {
+  "name": "Callisto Mediterranean CCS (Ravenna cluster)",
+  "country": "ITA",
+  "status": "planned",
+  "lat": 44.4,
+  "lon": 12.4,
+  "storage_type": "depleted_og",
+  "source": "Eni/Snam",
+  "capacity_mtpa": null
+ },
+ {
+  "name": "Equinor Smeaheia CO2 Storage (North Sea, Norway)",
+  "country": "NOR",
+  "status": "planned",
+  "storage_type": "saline",
+  "capacity_mtpa": 20.0,
+  "lat": 60.7,
+  "lon": 3.7,
+  "source": "Equinor Smeaheia project page; OGJ Apr 2022 (license awarded); Offshore Magazine 2024 (two appraisal wells drilled late 2024); Equinor award press release Apr 2022"
+ },
+ {
+  "name": "Liverpool Bay CCS / HyNet T&S (Eni, Irish Sea)",
+  "country": "GBR",
+  "status": "construction",
+  "storage_type": "depleted_og",
+  "capacity_mtpa": 4.5,
+  "lat": 53.45,
+  "lon": -3.95,
+  "source": "Eni FID press release Apr 2025; SPE JPT Apr 2025; Liverpool Bay T&S website liverpoolbay-ts.co.uk; UK government Jun 2025 (£21.7B over 25 years for Track-1 clusters)"
+ },
+ {
+  "name": "Northern Endurance Partnership / Endurance (East Coast Cluster, UK)",
+  "country": "GBR",
+  "status": "construction",
+  "storage_type": "saline",
+  "capacity_mtpa": 4.0,
+  "lat": 53.95,
+  "lon": 0.85,
+  "source": "NEP press release Dec 2024 (FID / financial close); Offshore Magazine Dec 2024; UK government CCS announcement Jun 2025 (£9.4B capital budget); East Coast Cluster website"
+ },
+ {
+  "name": "Northern Lights CCS Phase 2 Expansion (Norway)",
+  "country": "NOR",
+  "status": "planned",
+  "storage_type": "saline",
+  "capacity_mtpa": 3.5,
+  "lat": 60.65,
+  "lon": 3.47,
+  "source": "TotalEnergies Phase 2 announcement Mar 2025; Northern Lights website; Equinor Smeaheia page"
+ },
+ {
+  "name": "Porthos CCS (Netherlands)",
+  "country": "NLD",
+  "status": "construction",
+  "storage_type": "depleted_og",
+  "capacity_mtpa": 2.5,
+  "lat": 52.0,
+  "lon": 4.0,
+  "source": "Porthos project website porthosco2.nl; Offshore Energy news Jan 2025; IOGP Europe CO2 Storage Map Mar 2024"
+ },
+ {
+  "name": "Prinos CO2 Storage (Greece)",
+  "country": "GRC",
+  "status": "construction",
+  "lat": 40.85,
+  "lon": 24.3,
+  "storage_type": "depleted_og",
+  "source": "Energean — North Aegean",
+  "capacity_mtpa": null
+ },
+ {
+  "name": "Pycasso (SW France/Spain)",
+  "country": "FRA",
+  "status": "planned",
+  "lat": 43.4,
+  "lon": -0.8,
+  "storage_type": "depleted_og",
+  "source": "Teréga/regional CCS",
+  "capacity_mtpa": null
+ },
+ {
+  "name": "Viking CCS (Harbour Energy / bp, Southern North Sea)",
+  "country": "GBR",
+  "status": "planned",
+  "storage_type": "depleted_og",
+  "capacity_mtpa": 10.0,
+  "lat": 53.7,
+  "lon": 3.0,
+  "source": "Harbour Energy Viking CCS website; Energy Voice 2024; New Civil Engineer Apr 2025 (DCO granted); Global CCS Institute Status Report 2024; Viking CCS independently verified 300 Mt storage capacity"
+ }
+]

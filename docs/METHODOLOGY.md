@@ -265,3 +265,52 @@ dominates; large WWTPs are NPDES "major" POTWs (≥ 1 MGD) from EPA FRS.
 **Sanity**: county ag + forestry + manure totals reconcile to the global tool's US state sums
 (ag ≈ 257 Mt, forestry ≈ 99 Mt, manure ≈ 143 Mt odt/yr). Raw source files live under
 `data/geo/us_raw/` (gitignored; re-fetch with `download_raw.sh`).
+
+---
+
+## 9. EU subnational (NUTS-2) detail map (`src/eu.html`)
+
+A standalone European companion to the US county map, at **NUTS-2** resolution (~290 regions across
+EU-27 + UK + Norway), UI-consistent and built to drop in as a tab. It shares the decision framework via
+`scripts/engine_core.py` (imported unchanged); only the inputs are computed at NUTS-2 granularity.
+
+**Pipeline** (`scripts/eu/`): `download_raw.sh` stages the public sources, then `build_all.sh` runs
+`build_nuts_geo.py` → `build_storage_geo.py` → `build_nuts_feedstocks.py` → `build_eu_infrastructure.py`
+→ `build_eu_recommendations.py` → `bundle_eu.py`. Open `src/eu.html`.
+
+**NUTS-2 feedstocks** — "ENSPRESO NUTS-2 distribution, scaled to country totals." Each feedstock's
+within-country distribution comes from the JRC **ENSPRESO** NUTS-2 biomass database (ag residues =
+`MINBIOAGRW`; forestry = forest-residue `MINBIOFRSR` + secondary-wood `MINBIOWOOW`; manure = biogas
+feedstock `MINBIOGAS`); MSW & biosolids are allocated by NUTS-2 population (Eurostat
+`demo_r_pjanaggr3`, 2023 with 2019 fallback for the UK). Each region is then scaled so a country's
+NUTS-2 regions sum **exactly** to that country's total already in the global tool (all 29 countries
+present). Purpose-grown energy/biofuel crops (`MINBIOCRP*`, `MINBIOLIQ*`, `MINBIORPS*`) are excluded
+(Frontier exclusions). ENSPRESO is NUTS v2013; regions recoded since (mainly France's 2016 reform) are
+remapped via ENSPRESO's own "NUTS2 conversion" sheet; ~33 still-unmatched regions fall back to
+population allocation of their country total (documented per-record in the `source` field).
+
+**CO₂ storage (actual polygons)** — the EU **CO2StoP** database (JRC/SETIS) open-format KML
+`StorageUnits_March13.kml`: 325 assessed saline-aquifer / hydrocarbon-field storage units, parsed to
+WGS84 polygons. A region whose centroid falls inside a unit has storage on-site.
+
+**Storage projects / hubs** (the "wells" equivalent — Europe has no Class V/VI) — the operational and
+planned named projects already in the global tool (Northern Lights, Porthos, Aramis, Greensand, Acorn,
+Ravenna, Endurance, HyNet, Sleipner, Snøhvit, …) plus a few curated additions, each with status.
+
+**Biogenic point sources & WWTPs** — the curated European biogenic-CO₂ facilities already in the global
+tool (126: pulp & paper, WtE, bioenergy, biogas/AD), with biogenic-CO₂ estimated from capacity (EU ETS
+zero-rates sustainable biomass, so there is no clean reported biogenic column — the weakest layer,
+expandable via E-PRTR). Large WWTPs are ≥150,000-PE plants from the EEA/EMODnet **UWWTD** (Waterbase).
+
+**NUTS-2 engine upgrades** (`build_eu_recommendations.py`): storage access — inside-a-formation =
+on-site, else great-circle to the nearest CO2StoP formation boundary AND nearest storage project,
+graded **good < 150 km, moderate < 400 km** (wider than the US, for NUTS-2 scale + offshore-dominant
+storage); feedstock density from residue tCO₂/km² (≥ 90 → concentrated; no haul-radius sum, as NUTS-2
+regions are large). The manure → AD+CCS preference fires automatically via `HIGH_AD_PENETRATION` (most
+European countries) once each region's `parent` is its ISO3.
+
+**Sanity**: all 29 countries × 4 streams reconcile exactly to the global tool's totals; pathway mix is
+geographically coherent (Scandinavia/forestry → BECCS; Po Valley/NL manure → AD+CCS; urban → WtE+CCS;
+remote N. Sweden far from storage → bio-oil). Much EU storage is offshore, so inland regions read
+`poor` legitimately. Raw sources live under `data/geo/eu_raw/` (gitignored; re-fetch with
+`download_raw.sh`).
