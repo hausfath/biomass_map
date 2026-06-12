@@ -14,10 +14,11 @@ Write to the file path given in your task prompt. Top-level = JSON array of obje
 
 ```json
 {
-  "id": "USA",                      // ISO3 for countries; "US-California" for US states
+  "id": "USA",                      // ISO3 for countries; subnational uses a 2-letter prefix:
+                                    //   US-California, CA-Alberta, IN-Punjab, CN-Shandong
   "name": "United States",
   "level": "country",               // "country" | "subnational"
-  "parent": null,                   // null for countries; "USA" for US states
+  "parent": null,                   // null for countries; ISO3 for subnational (USA/CAN/IND/CHN)
   "centroid": [lon, lat],           // approx, for point fallback / labels
 
   "ag_residues_odt_mt": {           // agricultural residues, Mt oven-dry-tons/yr (recoverable)

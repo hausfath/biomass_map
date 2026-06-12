@@ -9,7 +9,8 @@ def load(name):
         return json.load(f)
 
 # --- Merge feedstocks ---
-regions = ["feedstocks_na.json", "feedstocks_eu.json", "feedstocks_asia.json", "feedstocks_row.json"]
+regions = ["feedstocks_na.json", "feedstocks_eu.json", "feedstocks_asia.json", "feedstocks_row.json",
+           "feedstocks_can_sub.json", "feedstocks_ind_sub.json", "feedstocks_chn_sub.json"]
 feed = []
 ids = set()
 dupes = []

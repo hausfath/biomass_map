@@ -69,13 +69,16 @@
     breaks: [],
   };
 
-  // ---- Build combined geometry: countries (minus USA) + US states ----
+  // ---- Build combined geometry: countries + subnational cells ----
+  // Countries we map sub-nationally are drawn at province/state resolution instead of as a
+  // single national polygon (matches the engine's subnational recommendation cells).
+  const SUBNATIONAL_COUNTRIES = new Set(["USA", "CAN", "IND", "CHN"]);
   const combined = { type: "FeatureCollection", features: [] };
   (window.GEO_COUNTRIES.features || []).forEach(f => {
-    if (f.properties.iso_a3 === "USA") return; // draw US at state resolution
+    if (SUBNATIONAL_COUNTRIES.has(f.properties.iso_a3)) return;
     combined.features.push(tag(f, f.properties.iso_a3, f.properties.name));
   });
-  (window.GEO_US_STATES.features || []).forEach(f => {
+  (window.GEO_SUBNATIONAL.features || []).forEach(f => {
     combined.features.push(tag(f, f.properties.id, f.properties.name));
   });
   function tag(f, id, name) {
@@ -302,7 +305,10 @@
       detail.classList.remove("hidden");
       return;
     }
-    let html = `<div class="d-region">${feed && feed.level === "subnational" ? "US state" : "Country"}</div>
+    const subnatLabel = { USA: "US state", CAN: "Canadian province", IND: "Indian state", CHN: "Chinese province" };
+    const regionKind = (feed && feed.level === "subnational")
+      ? (subnatLabel[feed.parent] || "Subnational region") : "Country";
+    let html = `<div class="d-region">${regionKind}</div>
       <div class="d-name">${name}</div>`;
 
     if (state.mode === "feedstock") {
@@ -509,7 +515,9 @@
   document.getElementById("method-body").innerHTML = methodologyHTML();
 
   // ---- Global stat ----
-  const totalCdr = RECS.reduce((s, r) => s + (r.cdr_potential_mtpa || 0), 0);
+  // Exclude country rollups superseded by their own subnational cells (avoid double-count).
+  const totalCdr = RECS.reduce(
+    (s, r) => s + (r.superseded_by_subnational ? 0 : (r.cdr_potential_mtpa || 0)), 0);
   document.getElementById("stat-cdr").textContent = (totalCdr / 1000).toFixed(1);
 
   // ---- Helpers ----

@@ -27,7 +27,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 FEEDSTOCKS_PATH = os.path.join(PROC, "feedstocks.json")
 STORAGE_PATH = os.path.join(PROC, "storage.json")
 FACILITIES_PATH = os.path.join(PROC, "facilities.json")
-US_STATES_PATH = os.path.join(ROOT, "data", "geo", "us_states_raw.geojson")
+SUBNATIONAL_PATH = os.path.join(ROOT, "data", "geo", "subnational.json")
 OUT_PATH = os.path.join(PROC, "recommendations.json")
 
 # --------------------------------------------------------------------------
@@ -358,27 +358,31 @@ def _point_in_geometry(x, y, geom):
     return False
 
 
-def load_us_states():
-    """Returns [(state_id, geometry), ...] with ids matching feedstock ids (US-<Name>)."""
-    with open(US_STATES_PATH) as f:
+def load_subnational():
+    """Returns [(id, geometry, country_iso3), ...] for all subnational regions we analyse
+    (US states + Canada/India/China provinces); ids match the feedstock ids."""
+    with open(SUBNATIONAL_PATH) as f:
         gj = json.load(f)
-    out = []
-    for feat in gj["features"]:
-        nm = feat["properties"].get("name")
-        out.append(("US-" + nm.replace(" ", "_"), feat["geometry"]))
-    return out
+    return [(feat["properties"]["id"], feat["geometry"], feat["properties"]["country"])
+            for feat in gj["features"]]
 
 
-def annotate_facility_states(facilities, states):
-    """Tag each US facility with the state it physically sits in (point-in-polygon)."""
+def annotate_facility_states(facilities, subnational):
+    """Tag each facility with the subnational region it sits in (point-in-polygon), restricted
+    to regions in the facility's own country so a facility only matches its own country's
+    provinces/states."""
+    by_country = {}
+    for sid, geom, iso in subnational:
+        by_country.setdefault(iso, []).append((sid, geom))
     for f in facilities:
         f["_state"] = None
-        if f.get("country") != "USA":
+        regions = by_country.get(f.get("country"))
+        if not regions:
             continue
         lon, lat = f.get("lon"), f.get("lat")
         if lon is None or lat is None:
             continue
-        for sid, geom in states:
+        for sid, geom in regions:
             if _point_in_geometry(lon, lat, geom):
                 f["_state"] = sid
                 break
@@ -400,8 +404,7 @@ def compute_retrofit(region, facilities):
       has_retrofit / has_pp_or_bioenergy are keyed on score in {high, medium} and drive the
       BECCS-pulp&paper branch.
     """
-    is_us_state = region.get("level") == "subnational" and region.get("parent") == "USA"
-    if is_us_state:
+    if region.get("level") == "subnational":
         sid = region.get("id")
         in_region = [f for f in facilities if f.get("_state") == sid]
     else:
@@ -759,6 +762,8 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
 # Large, internally heterogeneous countries: a single national recommendation is a
 # rollup and masks strong sub-national variation in feedstock, storage, and nutrients.
 LARGE_HETEROGENEOUS = {"USA", "CHN", "IND", "RUS", "BRA", "CAN", "AUS"}
+# Subset for which we actually map subnational cells (so the caveat can point users there).
+HAS_SUBNATIONAL = {"USA", "CAN", "IND", "CHN"}
 
 
 def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
@@ -774,8 +779,8 @@ def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
 
     # National-rollup caveat for large heterogeneous countries
     if region.get("level") == "country" and region.get("id") in LARGE_HETEROGENEOUS:
-        extra = (" See US state-level cells for spatially-resolved recommendations."
-                 if region.get("id") == "USA" else "")
+        extra = (" See the subnational (state/province) cells for spatially-resolved recommendations."
+                 if region.get("id") in HAS_SUBNATIONAL else "")
         caveats.append(
             "National rollup -- feedstock type/density, storage access, and nutrient status "
             "vary substantially sub-nationally; the optimal pathway is local." + extra
@@ -825,7 +830,7 @@ def build():
         facilities = json.load(f)
 
     # Tag US facilities with the state they sit in, so state anchors match by location.
-    annotate_facility_states(facilities, load_us_states())
+    annotate_facility_states(facilities, load_subnational())
 
     records = []
     for region in feedstocks:
@@ -871,9 +876,16 @@ def build():
             region, rec_key, runner_key, storage_access, nearest_km, has_pp_be, anchor_str
         )
 
+        # Country rollups for countries we also map sub-nationally are redundant with their
+        # subnational cells; flag them so global sums don't double-count.
+        superseded = (region.get("level") == "country"
+                      and region.get("id") in HAS_SUBNATIONAL)
+
         rec = {
             "id": region.get("id"),
             "name": region.get("name"),
+            "level": region.get("level"),
+            "superseded_by_subnational": superseded,
             "recommended": rec_key,
             "recommended_label": PATHWAYS[rec_key]["label"],
             "runner_up": runner_key,
@@ -901,7 +913,9 @@ def build():
 
 def print_summary(records):
     by_path = Counter(r["recommended"] for r in records)
-    total_cdr = sum(r["cdr_potential_mtpa"] or 0 for r in records)
+    # Exclude country rollups that are superseded by their own subnational cells.
+    total_cdr = sum(r["cdr_potential_mtpa"] or 0
+                    for r in records if not r.get("superseded_by_subnational"))
 
     print(f"\nWrote {len(records)} recommendation records to {OUT_PATH}\n")
     print("Regions per recommended pathway:")

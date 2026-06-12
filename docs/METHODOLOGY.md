@@ -15,13 +15,21 @@ storage, nutrient status, and the presence of retrofittable facilities.
 
 - **Global, country-level** for all layers (82 countries carry feedstock data — every major
   biomass-producing economy).
-- **Subnational (US states)** where rich open data exists, via the DOE Billion-Ton Report.
+- **Subnational** resolution for the four largest, most internally heterogeneous biomass
+  countries: **US states** (DOE Billion-Ton Report), **Canadian provinces** (StatCan / NRCan),
+  **Indian states** (MNRE biomass atlas / Hiloidhari et al.), and **Chinese provinces** (NBS
+  Statistical Yearbook / Guo et al. 2023). These are drawn as province/state cells instead of a
+  single national polygon, since the optimal pathway varies strongly within them (e.g. coastal
+  vs. interior China, the Punjab stubble belt vs. southern India, BC forestry vs. Prairie ag).
+- The national rollup record for these four still exists (reachable by deep-link) but is flagged
+  `superseded_by_subnational` and excluded from the global CDR total to avoid double-counting.
 - Regions without compiled data render grey ("no data"); the long tail of small economies is
   not yet populated. This is deliberate — coverage follows data availability, and the thesis
   concentrates accessible waste biomass in the US, Europe, China, and Southeast Asia.
 
-Geometry: Natural Earth 1:110m admin-0 countries + US states GeoJSON, slimmed to
-`{id, name}` and bundled as JS (`data/geo/geometry.js`) so the page runs offline.
+Geometry: Natural Earth 1:50m admin-0 countries + admin-1 provinces/states (US, Canada, India,
+China), slimmed to `{id, name}` and bundled as JS (`data/geo/geometry.js`) so the page runs
+offline.
 
 ---
 
