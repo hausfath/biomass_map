@@ -34,7 +34,7 @@ Ranked roughly most→least preferred per Frontier KPIs:
 3. **Biomass waste injection** (Vaulted) — CDR eff >90%, for wet wastes (manure, human/WWTP). PFAS destruction co-benefit.
 4. **Bio-oil sequestration** (Charm) — CDR eff ~45%, distributed/modular, returns biochar+nutrients. For diffuse ag residues far from storage.
 5. **Biomass burial** (Kodama, Graphyte) — CDR eff >90%, simple/low-cost, no storage needed. For regions w/o geologic storage + ample/excess nutrients. Durability still open.
-6. **Anaerobic digestion + CCS** — ~30–44%, wet/distributed. (RNG variant explicitly *not* pursued by Frontier — flag, don't recommend.)
+6. **Anaerobic digestion + CCS** — ~30–44%, wet/distributed. Viable offtake option; preferred over injection for manure in mature-AD regions (e.g. Europe) since it retrofits existing biogas plants. (RNG+CCS no longer a Frontier exclusion.)
 7. **Biochar** — CDR eff ~30%, returns nutrients. Distributed. Lower preference.
 
 ## 4. KPI / recommendation framework (encode the thesis logic)
@@ -137,4 +137,4 @@ Per region, annual quantities (Mt oven-dry-tons/yr) + derived CDR potential:
 - Global ag + forestry residue CDR potential should land ~2–5 Gtpa (thesis §1.3).
 - MSW CDR potential ~500–700 Mtpa midcentury.
 - Most accessible waste biomass concentrated in US, Europe, China, SE Asia.
-- Flag, don't recommend: purpose-grown crops, RNG+CCS, corn ethanol (Frontier exclusions).
+- Flag, don't recommend: purpose-grown crops, corn ethanol (Frontier exclusions). RNG+CCS is no longer excluded.

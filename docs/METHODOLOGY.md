@@ -114,7 +114,9 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 | Biochar | 30% | ~$100–200 | nutrients |
 
 ### Logic (first match wins)
-1. **Wet manure** → injection (storage near) else AD+CCS — *never combustion*.
+1. **Wet manure** → AD+CCS where manure already flows to anaerobic digesters (mature-AD
+   countries, e.g. Europe — it retrofits existing biogas plants); otherwise injection (storage
+   near) else AD+CCS. *Never combustion.*
 2. **MSW** → WtE+CCS (storage near) else burial.
 3. **Woody / concentrated dry ag** → BECCS (pulp & paper retrofit if anchor present) where
    storage is good/moderate; if storage poor → burial (excess nutrients) or bio-oil. Where
@@ -161,7 +163,9 @@ list shown in the "Best use" layer's detail panel.
 
 ### Frontier exclusions (flagged, never recommended)
 - **Purpose-grown energy crops** — land-use competition; thesis sourcing principles.
-- **RNG + CCS** — complex; Frontier not pursuing offtakes (thesis §3.4). AD/manure regions flagged.
+- **RNG + CCS / AD + CCS** — *no longer excluded.* Frontier is open to it as an offtake option,
+  and it is preferred over injection for manure in mature-AD regions (e.g. Europe). Its partial
+  CDR (carbon split between RNG fuel and storage) is surfaced in the ranked-options cons.
 - **Corn-ethanol + CCS** — food/land competition, marginal additionality; flagged where local
   ethanol capacity exists (US corn belt). (Brazilian sugarcane ethanol is *not* excluded.)
 - **Burial** carries a mandatory durability caveat (Isometric 2024 protocol projects 1,000-yr;

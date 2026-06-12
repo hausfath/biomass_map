@@ -57,8 +57,12 @@ plus `storage_access` and `has_retrofit`.
 dry_removal = "injection" if storage_access == "good" else "bio_oil"
 
 ```
-1. dominant_feedstock == "manure_wet"  → injection if storage_access in (good,moderate)
-                                          else ad_ccs
+1. dominant_feedstock == "manure_wet":
+     IF manure_ad_preferred (country has a mature AD sector, e.g. Europe):
+         → ad_ccs (retrofits existing biogas plants), runner-up = injection (near) else biochar
+     ELSE (e.g. US, on-farm AD uncommon):
+         → injection if storage_access in (good,moderate) else ad_ccs
+   (RNG+CCS / AD+CCS is no longer a Frontier exclusion — it is a viable offtake option.)
 2. dominant_feedstock == "msw"         → wte_ccs if storage_access in (good,moderate)
                                           else burial
 3. dominant_feedstock in (forestry_woody) OR (ag_dry & concentrated):
@@ -125,10 +129,13 @@ Give value only (best estimate); note assumptions in rationale.
 ```
 
 ## Frontier exclusions (set in `flags`, never recommend)
-- Never recommend purpose-grown crops, RNG+CCS, or corn-ethanol+CCS.
-- If a region's biomass story leans on these, add a flag noting the exclusion + thesis reason.
-- For burial recommendations, ALWAYS add caveat: "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); Frontier pursuing via prepurchase not offtake."
-- For AD/biogas-heavy regions, add flag "RNG+CCS is complex; Frontier not pursuing offtakes (thesis §3.4)".
+- Never recommend purpose-grown crops or corn-ethanol+CCS.
+- Corn-ethanol flag is scoped to US regions (corn ethanol is a US phenomenon; do NOT flag
+  sugarcane ethanol in Brazil/Argentina/Colombia or UK wheat ethanol).
+- RNG+CCS / AD+CCS is NOT excluded — it is a viable offtake option (and preferred over
+  injection for manure in mature-AD regions). No RNG exclusion flag.
+- Burial- and excess-nutrient explainer caveats are omitted (internal audience already knows
+  them); the burial durability trade-off still appears in the ranked-options cons.
 
 The script must print a summary: count of regions per recommended pathway, and global
 CDR potential summed across recommended pathways. Validate output is parseable JSON.

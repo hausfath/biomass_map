@@ -141,10 +141,9 @@ PATHWAY_PROFILE = {
     "ad_ccs": {
         "pros": ["Suits wet feedstock; mature technology",
                  "Returns nutrients to fields",
-                 "Low-carbon fuel co-product"],
+                 "RNG co-product displaces fossil gas; viable offtake option"],
         "cons": ["Low CDR efficiency (~30-44%)",
-                 "Carbon split between fuel and CDR streams; RNG coupling is complex "
-                 "(Frontier not pursuing offtakes)"],
+                 "Carbon is split between the RNG (fuel) and CDR streams, capping CDR"],
     },
     "biochar": {
         "pros": ["Returns nutrients to soils, improving yields",
@@ -159,7 +158,20 @@ BURIAL_CAVEAT = (
     "Durability still being validated (Isometric 2024 protocol projects 1,000-yr); "
     "Frontier pursuing via prepurchase not offtake."
 )
-RNG_FLAG = "RNG+CCS is complex; Frontier not pursuing offtakes (thesis sec 3.4)."
+
+# Countries with mature anaerobic-digestion sectors, where most manure is already routed to
+# digesters. There, AD+CCS retrofits existing biogas infrastructure and is preferred over
+# biomass injection for wet-manure feedstock. (Elsewhere -- e.g. the US, where on-farm AD is
+# uncommon -- injection remains the lead for manure.)
+HIGH_AD_PENETRATION = {
+    "DEU", "DNK", "NLD", "BEL", "ITA", "AUT", "FRA", "GBR", "IRL", "CZE",
+    "SWE", "FIN", "CHE", "POL", "SVK", "HUN", "LUX", "ESP",
+}
+
+
+def manure_ad_preferred(region):
+    """True where mature AD infrastructure makes AD+CCS the lead manure pathway."""
+    return region_country(region) in HIGH_AD_PENETRATION
 
 
 # --------------------------------------------------------------------------
@@ -441,6 +453,11 @@ def decide(region, storage_access, has_retrofit, has_pp_or_bioenergy):
 
     # 1. wet manure
     if dom == "manure_wet":
+        # Where manure already flows to anaerobic digesters (e.g. Europe), AD+CCS retrofits
+        # that existing infrastructure and is preferred over injection.
+        if manure_ad_preferred(region):
+            return "ad_ccs", ("injection" if near else "biochar")
+        # Otherwise (e.g. the US, where on-farm AD is uncommon): injection leads near storage.
         if near:
             return "injection", "ad_ccs"
         return "ad_ccs", "biochar"
@@ -621,6 +638,9 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, has_pp_be, anc
         else:
             cons.append("No existing pulp/bioenergy mill in-region to retrofit")
 
+    if pathway == "ad_ccs" and manure_ad_preferred(region):
+        pros.insert(0, "Manure is already digested here — AD+CCS retrofits existing biogas plants")
+
     return pros[:4], cons[:4]
 
 
@@ -715,8 +735,13 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
                 f"than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as "
                 f"wells get more distant.")
     if rec_key == "ad_ccs":
-        return (f"{base} -> wet feedstock far from storage favors anaerobic digestion + CCS "
-                f"({eff_pct}% CDR efficiency, low-carbon fuel co-product); never combustion.")
+        if manure_ad_preferred(region):
+            return (f"{base} -> most manure here already flows to anaerobic digesters, so AD+CCS "
+                    f"retrofits existing biogas infrastructure ({eff_pct}% CDR efficiency) and is "
+                    f"preferred over injection; the RNG co-product displaces fossil gas. A viable "
+                    f"offtake option (no longer a Frontier exclusion).")
+        return (f"{base} -> wet feedstock favors anaerobic digestion + CCS ({eff_pct}% CDR "
+                f"efficiency, RNG co-product that displaces fossil gas); never combustion.")
     if rec_key == "bio_oil":
         return (f"{base} -> diffuse residues distant from concentrated storage favor modular "
                 f"bio-oil sequestration (Charm-style roving model, ~{eff_pct}% CDR efficiency) "
@@ -763,9 +788,8 @@ def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
             "settings); treated as no viable storage pending appraisal."
         )
 
-    # AD / biogas RNG flag
-    if rec_key == "ad_ccs" or runner_key == "ad_ccs" or dom == "manure_wet":
-        flags.append(RNG_FLAG)
+    # (RNG+CCS / AD+CCS is no longer flagged as excluded -- Frontier is open to it as an
+    #  offtake option. Its partial-CDR trade-off is surfaced in the ranked-options cons.)
 
     # Corn-ethanol exclusion: a US phenomenon. Scope to US regions so we do NOT mislabel
     # sugarcane ethanol (Brazil/Argentina/Colombia) or wheat ethanol (UK) -- which Frontier

@@ -551,16 +551,17 @@
       co-product › other co-benefits</b> — modulated by feedstock moisture/density, storage proximity,
       nutrient status, and retrofit availability:</p>
       <ul>
-        <li>Wet wastes (manure, biosolids) → <b>injection</b> (near storage) or <b>AD+CCS</b> — never combustion.</li>
+        <li>Wet wastes (manure, biosolids) → <b>injection</b> (near storage) or <b>AD+CCS</b> — never combustion. Where manure already flows to digesters (e.g. Europe), <b>AD+CCS</b> is preferred over injection as it retrofits existing biogas plants.</li>
         <li>Concentrated woody/dry residues near storage with a retrofit anchor → <b>BECCS</b> (top-preferred: ~80% efficiency + energy).</li>
         <li>Dry/diffuse residues with <i>proximate</i> geologic storage → <b>Vaulted-style injection</b> (>90% efficiency, cheaper on balance than bio-oil; Frontier is bullish here).</li>
         <li>Dry residues <i>far</i> from storage → <b>bio-oil</b> (Charm roving model) — pyrolysis densifies the carbon so it's cheaper to haul to distant wells — or <b>biochar</b>.</li>
         <li>No viable storage + excess nutrients → <b>biomass burial</b> (durability still being validated).</li>
         <li>Concentrated municipal waste → <b>WtE + CCS</b>.</li>
       </ul>
-      <p><b>Frontier exclusions</b> (flagged, never recommended): purpose-grown energy crops,
-      RNG+CCS, and corn-ethanol+CCS. National recommendations for large, heterogeneous countries
-      are rollups — the optimal pathway is local, so US cells are shown at state resolution.</p>
+      <p><b>Frontier exclusions</b> (flagged, never recommended): purpose-grown energy crops
+      and corn-ethanol+CCS. (RNG+CCS / AD+CCS is no longer excluded — it is a viable offtake
+      option.) National recommendations for large, heterogeneous countries are rollups — the
+      optimal pathway is local, so US cells are shown at state resolution.</p>
       <p>Clicking a region shows different detail per layer: in <b>Feedstock supply</b> mode, a
       bar chart of the biogenic CO₂ embodied in each waste stream plus the cited tonnage table;
       in <b>Best use</b> mode, the recommended pathway plus a ranked best-to-worst list of every
