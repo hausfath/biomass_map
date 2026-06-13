@@ -216,15 +216,17 @@ Data schema: `data/SCHEMA.md`. Engine spec: `data/ENGINE_SPEC.md`.
 
 ---
 
-## 8. US county-level detail map (`src/us.html`)
+## 8. US county-level scope
 
-A separate, finer-grained view of the United States (~3,144 counties), UI-consistent with the
-global Atlas and built to eventually drop in as a tab. It shares the decision framework via
-`scripts/engine_core.py`; only the *inputs* are recomputed at county granularity.
+The **US scope** of the integrated Atlas (`src/index.html` → Region scope: **US**) resolves the
+United States to ~3,140 counties. It shares the decision framework via `scripts/engine_core.py`;
+only the *inputs* are recomputed at county granularity. (Originally a standalone `us.html`; now a
+lazy-loaded scope within the single app.)
 
 **Pipeline** (`scripts/us/`): `download_raw.sh` stages the public sources, then `build_all.sh` runs
 `build_county_geo.py` → `build_basin_geo.py` → `build_county_feedstocks.py` →
-`build_us_infrastructure.py` → `build_us_recommendations.py` → `bundle_us.py`. Open `src/us.html`.
+`build_us_infrastructure.py` → `build_us_recommendations.py` → `bundle_us.py`. View via the US scope
+in `src/index.html`.
 
 **County feedstocks** — "Billion-Ton state totals, spatially disaggregated to counties." Each
 feedstock's within-state distribution comes from authoritative county data, then is scaled so a
@@ -268,15 +270,16 @@ dominates; large WWTPs are NPDES "major" POTWs (≥ 1 MGD) from EPA FRS.
 
 ---
 
-## 9. EU subnational (NUTS-2) detail map (`src/eu.html`)
+## 9. EU subnational (NUTS-2) scope
 
-A standalone European companion to the US county map, at **NUTS-2** resolution (~290 regions across
-EU-27 + UK + Norway), UI-consistent and built to drop in as a tab. It shares the decision framework via
+The **Europe scope** of the integrated Atlas (`src/index.html` → Region scope: **Europe**) resolves
+to ~290 NUTS-2 regions (EU-27 + UK + Norway). It shares the decision framework via
 `scripts/engine_core.py` (imported unchanged); only the inputs are computed at NUTS-2 granularity.
+(Originally a standalone `eu.html`; now a lazy-loaded scope within the single app.)
 
 **Pipeline** (`scripts/eu/`): `download_raw.sh` stages the public sources, then `build_all.sh` runs
 `build_nuts_geo.py` → `build_storage_geo.py` → `build_nuts_feedstocks.py` → `build_eu_infrastructure.py`
-→ `build_eu_recommendations.py` → `bundle_eu.py`. Open `src/eu.html`.
+→ `build_eu_recommendations.py` → `bundle_eu.py`. View via the Europe scope in `src/index.html`.
 
 **NUTS-2 feedstocks** — "ENSPRESO NUTS-2 distribution, scaled to country totals." Each feedstock's
 within-country distribution comes from the JRC **ENSPRESO** NUTS-2 biomass database (ag residues =

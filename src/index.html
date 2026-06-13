@@ -20,6 +20,16 @@
 
     <div class="panel-scroll">
       <section class="control-group">
+        <h2>Region scope</h2>
+        <div class="seg" id="scope-seg">
+          <button class="seg-btn active" data-scope="global">Global</button>
+          <button class="seg-btn" data-scope="us">US</button>
+          <button class="seg-btn" data-scope="eu">Europe</button>
+        </div>
+        <p class="hint" id="scope-hint"></p>
+      </section>
+
+      <section class="control-group">
         <h2>Map mode</h2>
         <div class="seg" id="mode-seg">
           <button class="seg-btn active" data-mode="feedstock">Feedstock supply</button>
@@ -30,20 +40,18 @@
       <section class="control-group" id="feedstock-controls">
         <h2>Feedstock layer</h2>
         <select id="feedstock-select">
-          <option value="ag_residues_odt_mt">Agricultural residues</option>
-          <option value="forestry_residues_odt_mt">Forestry residues</option>
-          <option value="msw_biogenic_mt">Municipal solid waste (biogenic)</option>
-          <option value="animal_manure_odt_mt">Animal manure</option>
-          <option value="human_wwtp_odt_mt">Human / WWTP biosolids</option>
+          <option value="ag">Agricultural residues</option>
+          <option value="forestry">Forestry residues</option>
+          <option value="msw_biogenic">Municipal solid waste (biogenic)</option>
+          <option value="manure">Animal manure</option>
+          <option value="wwtp">Human / WWTP biosolids</option>
         </select>
         <p class="hint" id="feedstock-hint"></p>
       </section>
 
       <section class="control-group">
         <h2>Overlays</h2>
-        <label class="chk"><input type="checkbox" id="ov-facilities" /> <span class="sw sw-fac"></span> Retrofit-candidate facilities</label>
-        <label class="chk"><input type="checkbox" id="ov-sites" /> <span class="sw sw-site"></span> CO₂ storage — projects</label>
-        <label class="chk"><input type="checkbox" id="ov-basins" /> <span class="sw sw-basin"></span> CO₂ storage — basin potential</label>
+        <div id="overlay-list"></div>
       </section>
 
       <section class="control-group">
@@ -57,7 +65,7 @@
     </div>
 
     <footer class="side-foot">
-      <div class="stat"><span id="stat-cdr">—</span><label>Gt CO₂/yr global CDR potential</label></div>
+      <div class="stat"><span id="stat-cdr">—</span><label id="stat-label">Gt CO₂/yr global CDR potential</label></div>
       <div class="disclaimer">Internal strategy tool · estimates carry uncertainty — see methodology.</div>
     </footer>
   </aside>
@@ -83,6 +91,7 @@
   <div id="hovertip" class="hovertip hidden"></div>
 
   <script src="vendor/leaflet.js"></script>
+  <!-- Global scope preloaded; US/EU scope bundles are lazy-loaded by app.js on first switch. -->
   <script src="../data/geo/geometry.js"></script>
   <script src="data_bundle.js"></script>
   <script src="app.js"></script>

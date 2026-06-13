@@ -97,6 +97,19 @@ select {
 .sw-fac { background: #e0b020; border-radius: 50%; }
 .sw-site { background: #46b3ff; border-radius: 50%; }
 .sw-basin { background: rgba(120,170,255,.35); border: 1px solid #6f93c9; }
+/* US/EU detail-scope overlay swatches */
+.sw-wwtp  { background: #5bb0c7; border-radius: 50%; }
+.sw-proj  { background: #46b3ff; border-radius: 50%; }
+.sw-well6 { background: #46b3ff; }
+.sw-well5 { background: #c97be0; }
+.sw-form  { background: rgba(122,166,255,.5); border: 1px solid #6f93c9; }
+
+/* Region storage/density metrics grid (US/EU detail panels) */
+.d-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.d-metrics > div { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; }
+.d-metrics .k { color: var(--ink-3); font-size: 10px; text-transform: uppercase; letter-spacing: .04em; }
+.d-metrics .v { font-size: 13px; margin-top: 2px; }
+.lowsup { color: #e6c06a; }
 
 /* ---------- Legend ---------- */
 #legend { display: flex; flex-direction: column; gap: 5px; }
