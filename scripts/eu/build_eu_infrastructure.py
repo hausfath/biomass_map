@@ -62,7 +62,7 @@ def build_facilities():
             continue
         if not f.get("existing", True):
             continue   # drop greenfield/developer/hub entries (not retrofit anchors)
-        out.append({
+        rec = {
             "name": f.get("name"),
             "type": f.get("type"),
             "country": f.get("country"),
@@ -74,7 +74,11 @@ def build_facilities():
             "existing": True,
             "operator": f.get("operator", ""),
             "source": f.get("source", "global tool (company reports / E-PRTR / IEA Bioenergy)"),
-        })
+        }
+        # Preserve the AD-cluster coverage radius (regional clusters reach beyond the default).
+        if f.get("proc_radius_km"):
+            rec["proc_radius_km"] = f["proc_radius_km"]
+        out.append(rec)
     out.sort(key=lambda f: -((f.get("est_biogenic_co2_mtpa") or {}).get("value") or 0))
     return out
 

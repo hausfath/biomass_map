@@ -1053,43 +1053,26 @@
     "name": "Connecticut",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 1.5,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 2.5,
     "storage_access": "good",
     "nearest_storage_km": 1026,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1026 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1026 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~1026 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -1100,6 +1083,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -1172,23 +1172,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
-        "badge": "Possible",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
-        "pros": [
-          "Suits wet feedstock; mature technology",
-          "RNG co-product displaces fossil gas; viable offtake option",
-          "Proximate geologic storage here (~1000 km)"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR",
-          "Returns nutrients to soils already in surplus here"
         ]
       },
       {
@@ -1463,43 +1446,26 @@
     "name": "Hawaii",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 0.6,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 1.1,
     "storage_access": "good",
     "nearest_storage_km": 5084,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~5084 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~5084 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~5084 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -1510,6 +1476,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -3294,43 +3277,26 @@
     "name": "Nevada",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 1.3,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 2.1,
     "storage_access": "good",
     "nearest_storage_km": 1403,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1403 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1403 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~1403 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -3341,6 +3307,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -4333,6 +4316,24 @@
         ]
       },
       {
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225",
+        "pros": [
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
+          "Proximate geologic storage here (~750 km)"
+        ],
+        "cons": [
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
+          "Local biomass is diffuse — hauling to a central plant is costly"
+        ]
+      },
+      {
         "key": "beccs",
         "label": "BECCS (heat/electricity)",
         "badge": "Strong fit",
@@ -4391,43 +4392,26 @@
     "name": "Rhode Island",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 0.4,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 0.7,
     "storage_access": "good",
     "nearest_storage_km": 1111,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1111 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1111 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~1111 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -4438,6 +4422,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -4872,24 +4873,6 @@
         "cons": [
           "Lower CDR efficiency (~45%)",
           "Higher $/t than injection where storage is proximate"
-        ]
-      },
-      {
-        "key": "beccs_pp",
-        "label": "BECCS pulp & paper",
-        "badge": "Strong fit",
-        "cdr_efficiency": 0.8,
-        "cost_band": "$200-225",
-        "pros": [
-          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
-          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
-          "Leverages existing biomass logistics + grid connection",
-          "Proximate geologic storage here (~311 km)"
-        ],
-        "cons": [
-          "Requires an existing mill to retrofit",
-          "Capture capex on flue gas",
-          "Local biomass is diffuse — hauling to a central plant is costly"
         ]
       },
       {
@@ -7164,37 +7147,37 @@
     "name": "Austria",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "beccs",
-    "recommended_label": "BECCS (heat/electricity)",
+    "recommended": "beccs_pp",
+    "recommended_label": "BECCS pulp & paper",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
-    "cost_band": "$200-225 (to <$100 at scale)",
+    "cost_band": "$200-225",
     "cdr_potential_mtpa": 8.6,
     "storage_access": "good",
     "nearest_storage_km": 368,
-    "has_retrofit": false,
+    "has_retrofit": true,
     "anchor_facility": "Mondi Frantschach Kraft Pulp & Sack Paper Mill (pulp_paper)",
-    "rationale": "Concentrated woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~368 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~368 km) with a retrofittable pulp_paper anchor (Mondi Frantschach Kraft Pulp & Sack Paper Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "beccs",
-        "label": "BECCS (heat/electricity)",
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
         "badge": "Recommended",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225 (to <$100 at scale)",
+        "cost_band": "$200-225",
         "pros": [
-          "High CDR efficiency (~80%)",
-          "Energy co-product (heat/electricity) displaces fossil emissions",
-          "Low durability risk; Frontier's most-preferred pathway",
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
           "Proximate geologic storage here (~368 km)"
         ],
         "cons": [
-          "Capital-intensive; works best at large scale",
-          "Not very modular — hard to deploy in distributed settings"
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas"
         ]
       },
       {
@@ -7212,6 +7195,23 @@
         "cons": [
           "No emissions-avoiding co-product",
           "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~368 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
         ]
       },
       {
@@ -7477,7 +7477,7 @@
     "storage_access": "good",
     "nearest_storage_km": 284,
     "has_retrofit": false,
-    "anchor_facility": null,
+    "anchor_facility": "Ireland Biogas Cluster (biogas_ad)",
     "rationale": "Diffuse wet animal manure / biosolids, moderate nutrient status, good geologic storage access (nearest qualifying storage ~284 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
     "caveats": [],
     "flags": [],
@@ -7804,6 +7804,24 @@
         "cons": [
           "Lower CDR efficiency (~45%)",
           "Higher $/t than injection where storage is proximate"
+        ]
+      },
+      {
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225",
+        "pros": [
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
+          "Biomass is concentrated — supports a central facility"
+        ],
+        "cons": [
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
+          "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
       {
@@ -8282,43 +8300,26 @@
     "name": "Luxembourg",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 0.1,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 0.2,
     "storage_access": "good",
     "nearest_storage_km": 286,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~286 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~286 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~286 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -8329,6 +8330,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -8403,23 +8421,6 @@
         ]
       },
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Possible",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage is poor/absent here — a major constraint"
-        ]
-      },
-      {
         "key": "biochar",
         "label": "Biochar",
         "badge": "Poor fit",
@@ -8441,43 +8442,26 @@
     "name": "Malta",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 0.1,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 0.2,
     "storage_access": "moderate",
     "nearest_storage_km": 967,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~967 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~967 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage only moderately accessible — transport adds cost"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -8488,6 +8472,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -9415,6 +9416,24 @@
         ]
       },
       {
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225",
+        "pros": [
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
+          "Existing mill to retrofit: Phoenix Pulp & Paper Khon Kaen (pulp_paper)"
+        ],
+        "cons": [
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
+          "Geologic storage is poor/absent here — a major constraint"
+        ]
+      },
+      {
         "key": "beccs",
         "label": "BECCS (heat/electricity)",
         "badge": "Strong fit",
@@ -9520,6 +9539,24 @@
         "cons": [
           "Lower CDR efficiency (~45%)",
           "Higher $/t than injection where storage is proximate"
+        ]
+      },
+      {
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225",
+        "pros": [
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
+          "Biomass is concentrated — supports a central facility"
+        ],
+        "cons": [
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
+          "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
       {
@@ -10126,23 +10163,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
-        "pros": [
-          "Suits wet feedstock; mature technology",
-          "RNG co-product displaces fossil gas; viable offtake option"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR",
-          "Geologic storage only moderately accessible — transport adds cost",
-          "Returns nutrients to soils already in surplus here"
         ]
       },
       {
@@ -13558,6 +13578,25 @@
         ]
       },
       {
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225",
+        "pros": [
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
+          "Existing mill to retrofit: Ilim Bratsk Pulp & Paper Mill (pulp_paper)"
+        ],
+        "cons": [
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
+          "Geologic storage is poor/absent here — a major constraint",
+          "Local biomass is diffuse — hauling to a central plant is costly"
+        ]
+      },
+      {
         "key": "injection",
         "label": "Biomass waste injection",
         "badge": "Possible",
@@ -13724,43 +13763,26 @@
     "name": "Saudi Arabia",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 4.8,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 7.9,
     "storage_access": "good",
     "nearest_storage_km": 462,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~462 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~462 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~462 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -13771,6 +13793,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -14170,23 +14209,6 @@
         ]
       },
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Possible",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage is poor/absent here — a major constraint"
-        ]
-      },
-      {
         "key": "biochar",
         "label": "Biochar",
         "badge": "Poor fit",
@@ -14208,43 +14230,26 @@
     "name": "United Arab Emirates",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 1.7,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 2.8,
     "storage_access": "good",
     "nearest_storage_km": 43,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~43 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~43 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~43 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -14255,6 +14260,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -14855,43 +14877,26 @@
     "name": "Northwest Territories",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
     "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 1236,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1236 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1236 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~1236 km)"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Local biomass is diffuse — hauling to a central plant is costly"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -14903,6 +14908,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -15036,43 +15058,26 @@
     "name": "Nunavut",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
     "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 2140,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~2140 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~2140 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~2140 km)"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Local biomass is diffuse — hauling to a central plant is costly"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -15084,6 +15089,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -15574,43 +15596,26 @@
     "name": "Yukon",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
     "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 1608,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1608 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1608 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~1608 km)"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Local biomass is diffuse — hauling to a central plant is costly"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -15622,6 +15627,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -16189,43 +16211,26 @@
     "name": "Chandigarh",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 0.1,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 0.2,
     "storage_access": "moderate",
     "nearest_storage_km": 1653,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~1653 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~1653 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage only moderately accessible — transport adds cost"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -16236,6 +16241,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -16368,43 +16390,26 @@
     "name": "Dadra and Nagar Haveli and Daman and Diu",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 0.0,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 0.1,
     "storage_access": "moderate",
     "nearest_storage_km": 991,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~991 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~991 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage only moderately accessible — transport adds cost"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -16415,6 +16420,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -16439,43 +16461,26 @@
     "name": "Delhi",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 1.0,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 1.6,
     "storage_access": "moderate",
     "nearest_storage_km": 1429,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~1429 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~1429 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage only moderately accessible — transport adds cost"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -16486,6 +16491,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -16510,43 +16532,26 @@
     "name": "Goa",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
     "cdr_potential_mtpa": 0.1,
     "storage_access": "moderate",
     "nearest_storage_km": 802,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~802 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~802 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage only moderately accessible — transport adds cost",
-          "Local biomass is diffuse — hauling to a central plant is costly"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -16558,6 +16563,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -17173,6 +17195,25 @@
         ]
       },
       {
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225",
+        "pros": [
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
+          "Existing mill to retrofit: West Coast Paper Mills Dandeli (pulp_paper)"
+        ],
+        "cons": [
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
+          "Geologic storage only moderately accessible — transport adds cost",
+          "Local biomass is diffuse — hauling to a central plant is costly"
+        ]
+      },
+      {
         "key": "injection",
         "label": "Biomass waste injection",
         "badge": "Strong fit",
@@ -17341,8 +17382,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "ad_ccs",
-    "runner_up_label": "AD + CCS",
+    "runner_up": "biochar",
+    "runner_up_label": "Biochar",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -17373,26 +17414,9 @@
         ]
       },
       {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
-        "pros": [
-          "Suits wet feedstock; mature technology",
-          "Returns nutrients to fields",
-          "RNG co-product displaces fossil gas; viable offtake option"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR",
-          "Geologic storage only moderately accessible — transport adds cost"
-        ]
-      },
-      {
         "key": "biochar",
         "label": "Biochar",
-        "badge": "Poor fit",
+        "badge": "Runner-up",
         "cdr_efficiency": 0.3,
         "cost_band": "~$100-200",
         "pros": [
@@ -17412,43 +17436,26 @@
     "name": "Lakshadweep",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
     "cdr_potential_mtpa": 0.0,
     "storage_access": "moderate",
     "nearest_storage_km": 1129,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~1129 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~1129 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles",
-          "Geologic storage only moderately accessible — transport adds cost",
-          "Local biomass is diffuse — hauling to a central plant is costly"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -17460,6 +17467,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -18476,8 +18500,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "ad_ccs",
-    "runner_up_label": "AD + CCS",
+    "runner_up": "biochar",
+    "runner_up_label": "Biochar",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -18508,26 +18532,9 @@
         ]
       },
       {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
-        "pros": [
-          "Suits wet feedstock; mature technology",
-          "Returns nutrients to fields",
-          "RNG co-product displaces fossil gas; viable offtake option"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR",
-          "Geologic storage only moderately accessible — transport adds cost"
-        ]
-      },
-      {
         "key": "biochar",
         "label": "Biochar",
-        "badge": "Poor fit",
+        "badge": "Runner-up",
         "cdr_efficiency": 0.3,
         "cost_band": "~$100-200",
         "pros": [
@@ -19024,7 +19031,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1169,
     "has_retrofit": false,
-    "anchor_facility": null,
+    "anchor_facility": "India Biogas Cluster (biogas_ad)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, moderate geologic storage access (~1169 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
@@ -20453,9 +20460,9 @@
     "cdr_potential_mtpa": 41.7,
     "storage_access": "good",
     "nearest_storage_km": 575,
-    "has_retrofit": false,
-    "anchor_facility": null,
-    "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~575 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "has_retrofit": true,
+    "anchor_facility": "China Biogas Cluster (biogas_ad)",
+    "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~575 km) with a retrofittable biogas_ad anchor (China Biogas Cluster) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -22023,43 +22030,26 @@
     "name": "Tianjin",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 1.5,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 2.5,
     "storage_access": "good",
     "nearest_storage_km": 244,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~244 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~244 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~244 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -22070,6 +22060,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -22418,43 +22425,26 @@
     "name": "Zhejiang",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "wte_ccs",
-    "recommended_label": "WtE + CCS",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
-    "kpi_score": 58,
-    "cdr_efficiency": 0.55,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 4.1,
+    "recommended": "burial",
+    "recommended_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
+    "kpi_score": 54,
+    "cdr_efficiency": 0.9,
+    "cost_band": "<$100-150",
+    "cdr_potential_mtpa": 6.8,
     "storage_access": "good",
     "nearest_storage_km": 845,
     "has_retrofit": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~845 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
+    "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~845 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "wte_ccs",
-        "label": "WtE + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.55,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Captures biogenic CO2 from municipal waste already being combusted",
-          "Energy co-product; handles MSW at urban scale",
-          "Proximate geologic storage here (~845 km)",
-          "Biomass is concentrated — supports a central facility"
-        ],
-        "cons": [
-          "Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
-          "Urban siting and public-acceptance hurdles"
-        ]
-      },
-      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -22466,6 +22456,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
+          "Returns nutrients to soils already in surplus here"
         ]
       },
       {

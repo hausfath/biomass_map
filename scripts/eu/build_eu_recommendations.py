@@ -27,7 +27,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
 from engine_core import (
-    PATHWAYS, ODT_TO_CO2, num, haversine_km, _point_in_geometry,
+    PATHWAYS, ODT_TO_CO2, PROC_RADIUS_KM, AD_MIN_CAP_MTPA, num, haversine_km, _point_in_geometry,
     decide, kpi_score, cdr_potential_mtpa, build_ranked,
     build_rationale, build_caveats_flags,
 )
@@ -110,21 +110,46 @@ def annotate_facility_nuts(facilities, regions):
                 break
 
 
-def compute_retrofit_nuts(region_id, facilities):
-    in_region = [f for f in facilities if f.get("_nuts") == region_id and f.get("existing", True)]
-    qualifying = [f for f in in_region if f.get("retrofit_score") in ("high", "medium")]
-    has_retrofit = len(qualifying) > 0
-    has_pp_be = any(f.get("type") in ("pulp_paper", "bioenergy") for f in qualifying)
+def compute_avail_anchor(centroid, facilities):
+    """Retrofit availability for the gated pathways, by procurement radius from the NUTS-2
+    centroid: beccs_pp <- pulp & paper mill within ~150 km; wte_ccs <- WtE plant within ~50 km;
+    ad_ccs <- cumulative AD capacity within reach (discrete digesters ~15 km; regional AD
+    clusters carry their own coverage radius) >= AD_MIN_CAP. Returns
+    (avail, has_retrofit, anchor_name, anchor_type)."""
+    lon, lat = centroid[0], centroid[1]
+    avail = {"pp": False, "wte": False, "ad": False}
+    ad_cap = 0.0
+    cands = []
+    for f in facilities:
+        if not f.get("existing", True):
+            continue
+        flon, flat = f.get("lon"), f.get("lat")
+        if flon is None or flat is None:
+            continue
+        t = f.get("type")
+        d = haversine_km(lon, lat, flon, flat)
+        if t == "pulp_paper":
+            if d <= PROC_RADIUS_KM["pulp_paper"]:
+                avail["pp"] = True; cands.append((0, d, f))
+        elif t == "bioenergy":
+            if d <= PROC_RADIUS_KM["pulp_paper"]:
+                cands.append((0, d, f))
+        elif t == "wte":
+            if d <= PROC_RADIUS_KM["wte"]:
+                avail["wte"] = True; cands.append((1, d, f))
+        elif t == "biogas_ad":
+            rad = f.get("proc_radius_km") or PROC_RADIUS_KM["biogas_ad"]
+            if d <= rad:
+                ad_cap += (f.get("est_biogenic_co2_mtpa") or {}).get("value", 0) or 0
+                cands.append((2, d, f))
+    avail["ad"] = ad_cap >= AD_MIN_CAP_MTPA
+    has_retrofit = len(cands) > 0
     anchor_name = anchor_type = None
-    if in_region:
-        rank = {"high": 0, "medium": 1, "low": 2}
-
-        def keyfn(f):
-            pref = 0 if f.get("type") in ("pulp_paper", "bioenergy") else 1
-            return (pref, rank.get(f.get("retrofit_score"), 3))
-        best = sorted(in_region, key=keyfn)[0]
+    if cands:
+        cands.sort(key=lambda c: (c[0], c[1]))
+        best = cands[0][2]
         anchor_name, anchor_type = best.get("name"), best.get("type")
-    return has_retrofit, anchor_name, anchor_type, has_pp_be
+    return avail, has_retrofit, anchor_name, anchor_type
 
 
 def compute_storage_access_nuts(centroid, formations, projects):
@@ -193,7 +218,7 @@ def main():
     facilities = json.load(open(FACS))
     regions = json.load(open(NUTS))["features"]
 
-    annotate_facility_nuts(facilities, regions)
+    # (retrofit availability is radius-based from each NUTS-2 centroid — no point-in-polygon.)
 
     records = []
     for region in feeds:
@@ -205,10 +230,10 @@ def main():
         density = "concentrated" if dens_tco2_km2 >= DENS_THRESH else "diffuse"
         region["feedstock_density"] = density
 
-        has_retrofit, anchor_name, anchor_type, has_pp_be = compute_retrofit_nuts(
-            region["id"], facilities)
+        avail, has_retrofit, anchor_name, anchor_type = compute_avail_anchor(
+            region["centroid"], facilities)
 
-        rec_key, runner_key = decide(region, access, has_retrofit, has_pp_be)
+        rec_key, runner_key = decide(region, access, has_retrofit, avail)
 
         nutrient_alt = False
         if (region.get("nutrient_status") == "excess"
@@ -224,7 +249,7 @@ def main():
                                              anchor_type, nutrient_alt)
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         ranked = build_ranked(region, rec_key, runner_key, access, nearest_km,
-                              has_pp_be, anchor_str)
+                              avail, anchor_str)
 
         low_supply = co2_total(region) < MIN_SUPPLY_MT
         if low_supply:
@@ -255,7 +280,7 @@ def main():
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,
             "has_retrofit": has_retrofit,
-            "has_pp_be": has_pp_be,
+            "avail": avail,
             "anchor_facility": anchor_str,
             "low_supply": low_supply,
             "nutrient_status": region.get("nutrient_status"),

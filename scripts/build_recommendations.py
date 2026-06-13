@@ -224,9 +224,15 @@ def compute_retrofit(region, facilities):
 
     qualifying = [f for f in existing if f.get("retrofit_score") in ("high", "medium")]
     has_retrofit = len(qualifying) > 0
-    has_pp_or_bioenergy = any(
-        f.get("type") in ("pulp_paper", "bioenergy") for f in qualifying
-    )
+
+    # Per-type retrofit availability gates beccs_pp / wte_ccs / ad_ccs. At country/state
+    # resolution "within procurement radius" reduces to "a facility of that type exists in the
+    # region"; beccs_pp anchors on a pulp&paper mill specifically (bioenergy -> plain BECCS).
+    avail = {
+        "pp": any(f.get("type") == "pulp_paper" for f in existing),
+        "wte": any(f.get("type") == "wte" for f in existing),
+        "ad": any(f.get("type") == "biogas_ad" for f in existing),
+    }
 
     anchor_name = None
     anchor_type = None
@@ -241,7 +247,7 @@ def compute_retrofit(region, facilities):
         anchor_name = best.get("name")
         anchor_type = best.get("type")
 
-    return has_retrofit, anchor_name, anchor_type, has_pp_or_bioenergy
+    return has_retrofit, anchor_name, anchor_type, avail
 
 
 # --------------------------------------------------------------------------
@@ -268,9 +274,9 @@ def build():
             centroid, country, storage
         )
         # Step 2
-        has_retrofit, anchor_name, anchor_type, has_pp_be = compute_retrofit(region, facilities)
+        has_retrofit, anchor_name, anchor_type, avail = compute_retrofit(region, facilities)
         # Step 3
-        rec_key, runner_key = decide(region, storage_access, has_retrofit, has_pp_be)
+        rec_key, runner_key = decide(region, storage_access, has_retrofit, avail)
 
         # Excess-nutrient nuance (thesis sec 2.2, China example): where the ecosystem
         # carries surplus nutrients, high-removal pathways (incl. biomass burial) are
@@ -299,7 +305,7 @@ def build():
 
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         ranked = build_ranked(
-            region, rec_key, runner_key, storage_access, nearest_km, has_pp_be, anchor_str
+            region, rec_key, runner_key, storage_access, nearest_km, avail, anchor_str
         )
 
         # Country rollups for countries we also map sub-nationally are redundant with their

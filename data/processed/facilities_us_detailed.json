@@ -4030,5 +4030,3061 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "562212"
+ },
+ {
+  "name": "Conway County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "AR",
+  "lat": 35.262,
+  "lon": -92.703,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0371
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Navajo County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "AZ",
+  "lat": 35.399,
+  "lon": -110.322,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0101
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Maricopa County AD (5 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "AZ",
+  "lat": 33.348,
+  "lon": -112.493,
+  "capacity_note": "5 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.015
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Pinal County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "AZ",
+  "lat": 32.905,
+  "lon": -111.346,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0767
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Tulare County AD (57 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 36.22,
+  "lon": -118.802,
+  "capacity_note": "57 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2979
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Kern County AD (20 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 35.342,
+  "lon": -118.73,
+  "capacity_note": "20 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1397
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Stanislaus County AD (10 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.558,
+  "lon": -120.997,
+  "capacity_note": "10 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0317
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Merced County AD (24 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.189,
+  "lon": -120.721,
+  "capacity_note": "24 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0969
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Fresno County AD (7 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 36.758,
+  "lon": -119.648,
+  "capacity_note": "7 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0507
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Marin County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.07,
+  "lon": -122.722,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0009
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "San Joaquin County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.932,
+  "lon": -121.271,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0018
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Kings County AD (18 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 36.073,
+  "lon": -119.816,
+  "capacity_note": "18 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0926
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Madera County AD (7 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.217,
+  "lon": -119.764,
+  "capacity_note": "7 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0277
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Sacramento County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.449,
+  "lon": -121.342,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0078
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Prowers County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CO",
+  "lat": 37.956,
+  "lon": -102.392,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Weld County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "CO",
+  "lat": 40.554,
+  "lon": -104.393,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Gilchrist County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "FL",
+  "lat": 29.728,
+  "lon": -82.799,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Madison County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.443,
+  "lon": -83.474,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Okeechobee County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "FL",
+  "lat": 27.385,
+  "lon": -80.887,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Suwannee County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.198,
+  "lon": -82.991,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Alachua County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "FL",
+  "lat": 29.676,
+  "lon": -82.358,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Oglethorpe County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "GA",
+  "lat": 33.878,
+  "lon": -83.081,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Scott County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IA",
+  "lat": 41.639,
+  "lon": -90.619,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.008
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Iowa County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IA",
+  "lat": 41.686,
+  "lon": -92.064,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0408
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Sioux County AD (4 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IA",
+  "lat": 43.082,
+  "lon": -96.176,
+  "capacity_note": "4 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.012
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Marshall County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IA",
+  "lat": 42.036,
+  "lon": -92.999,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Lyon County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IA",
+  "lat": 43.381,
+  "lon": -96.21,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Fayette County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IA",
+  "lat": 42.863,
+  "lon": -91.844,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Jerome County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "ID",
+  "lat": 42.689,
+  "lon": -114.266,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.009
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Twin Falls County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "ID",
+  "lat": 42.354,
+  "lon": -114.669,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Gooding County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "ID",
+  "lat": 42.969,
+  "lon": -114.81,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0163
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Jefferson County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "ID",
+  "lat": 43.82,
+  "lon": -112.313,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Cassia County AD (4 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "ID",
+  "lat": 42.283,
+  "lon": -113.602,
+  "capacity_note": "4 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.012
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Knox County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IL",
+  "lat": 40.931,
+  "lon": -90.213,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0007
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "White County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IN",
+  "lat": 40.749,
+  "lon": -86.865,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0143
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Jasper County AD (7 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IN",
+  "lat": 41.021,
+  "lon": -87.116,
+  "capacity_note": "7 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0688
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Elkhart County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IN",
+  "lat": 41.598,
+  "lon": -85.859,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0186
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Marshall County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IN",
+  "lat": 41.325,
+  "lon": -86.262,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Huntington County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "IN",
+  "lat": 40.829,
+  "lon": -85.488,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Meade County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "KS",
+  "lat": 37.238,
+  "lon": -100.365,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Wichita County AD (6 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "KS",
+  "lat": 38.482,
+  "lon": -101.347,
+  "capacity_note": "6 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.018
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Thomas County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "KS",
+  "lat": 39.351,
+  "lon": -101.055,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Greeley County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "KS",
+  "lat": 38.481,
+  "lon": -101.806,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Gray County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "KS",
+  "lat": 37.738,
+  "lon": -100.437,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Seward County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "KS",
+  "lat": 37.193,
+  "lon": -100.851,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Taylor County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "KY",
+  "lat": 37.368,
+  "lon": -85.334,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Hampshire County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.343,
+  "lon": -72.658,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Franklin County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.583,
+  "lon": -72.583,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Essex County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.669,
+  "lon": -70.943,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0071
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Worcester County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.349,
+  "lon": -71.904,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Berkshire County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.374,
+  "lon": -73.207,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0012
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Hampden County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.134,
+  "lon": -72.634,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Worcester County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MD",
+  "lat": 38.213,
+  "lon": -75.332,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Prince George's County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MD",
+  "lat": 38.83,
+  "lon": -76.849,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Kennebec County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "ME",
+  "lat": 44.411,
+  "lon": -69.764,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Penobscot County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "ME",
+  "lat": 45.397,
+  "lon": -68.651,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Ottawa County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.96,
+  "lon": -85.998,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0046
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Barry County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.595,
+  "lon": -85.308,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Muskegon County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 43.291,
+  "lon": -86.152,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Allegan County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.591,
+  "lon": -85.891,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0096
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Shiawassee County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.954,
+  "lon": -84.146,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0067
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Ionia County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.945,
+  "lon": -85.074,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Montcalm County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 43.311,
+  "lon": -85.153,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Ingham County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.598,
+  "lon": -84.375,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0032
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Van Buren County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.252,
+  "lon": -86.02,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Lenawee County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MI",
+  "lat": 41.896,
+  "lon": -84.066,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Lincoln County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.413,
+  "lon": -96.267,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Stevens County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MN",
+  "lat": 45.586,
+  "lon": -96.0,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0459
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Mille Lacs County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MN",
+  "lat": 45.937,
+  "lon": -93.63,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0014
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Le Sueur County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.371,
+  "lon": -93.728,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0077
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Nicollet County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.351,
+  "lon": -94.246,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Chariton County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MO",
+  "lat": 39.515,
+  "lon": -92.965,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Boone County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MO",
+  "lat": 38.99,
+  "lon": -92.308,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Putnam County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MO",
+  "lat": 40.479,
+  "lon": -93.019,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Gentry County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MO",
+  "lat": 40.211,
+  "lon": -94.41,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Sullivan County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MO",
+  "lat": 40.21,
+  "lon": -93.11,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.009
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Mercer County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MO",
+  "lat": 40.422,
+  "lon": -93.57,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Jefferson Davis County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MS",
+  "lat": 31.569,
+  "lon": -89.827,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Jones County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MS",
+  "lat": 31.622,
+  "lon": -89.169,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0014
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Clay County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MS",
+  "lat": 33.657,
+  "lon": -88.786,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Scott County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MS",
+  "lat": 32.406,
+  "lon": -89.538,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Ravalli County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "MT",
+  "lat": 46.085,
+  "lon": -114.119,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0007
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Johnston County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.518,
+  "lon": -78.366,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0036
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Gaston County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.293,
+  "lon": -81.171,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Harnett County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.369,
+  "lon": -78.87,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0037
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Duplin County AD (5 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 34.931,
+  "lon": -77.931,
+  "capacity_note": "5 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.015
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Anson County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 34.974,
+  "lon": -80.1,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Yadkin County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 36.162,
+  "lon": -80.662,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.001
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Bladen County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 34.614,
+  "lon": -78.559,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Union County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 34.99,
+  "lon": -80.529,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Wilson County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.702,
+  "lon": -77.919,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Polk County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NE",
+  "lat": 41.189,
+  "lon": -97.567,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Butler County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NE",
+  "lat": 41.227,
+  "lon": -97.131,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Tioga County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.169,
+  "lon": -76.312,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0009
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Clinton County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 44.746,
+  "lon": -73.679,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Cayuga County AD (11 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.914,
+  "lon": -76.558,
+  "capacity_note": "11 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.03
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Wyoming County AD (7 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.701,
+  "lon": -78.222,
+  "capacity_note": "7 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0222
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Livingston County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.726,
+  "lon": -77.78,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0104
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Montgomery County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.902,
+  "lon": -74.441,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "St. Lawrence County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 44.498,
+  "lon": -75.065,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0154
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Ontario County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.853,
+  "lon": -77.308,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0085
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Genesee County AD (4 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.001,
+  "lon": -78.198,
+  "capacity_note": "4 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0144
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Steuben County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.27,
+  "lon": -77.383,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Chautauqua County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.228,
+  "lon": -79.367,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0067
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Jefferson County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 44.042,
+  "lon": -75.947,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0007
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Washington County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.312,
+  "lon": -73.43,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.002
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Williams County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OH",
+  "lat": 41.561,
+  "lon": -84.587,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0118
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Paulding County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OH",
+  "lat": 41.117,
+  "lon": -84.581,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Pickaway County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OH",
+  "lat": 39.642,
+  "lon": -83.024,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Greene County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OH",
+  "lat": 39.692,
+  "lon": -83.89,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Morrow County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OH",
+  "lat": 40.524,
+  "lon": -82.79,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0041
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Mercer County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OH",
+  "lat": 40.54,
+  "lon": -84.629,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Beaver County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OK",
+  "lat": 36.75,
+  "lon": -100.476,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Tillamook County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OR",
+  "lat": 45.463,
+  "lon": -123.711,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Lane County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OR",
+  "lat": 43.938,
+  "lon": -122.843,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Marion County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OR",
+  "lat": 44.906,
+  "lon": -122.59,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Yamhill County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OR",
+  "lat": 45.233,
+  "lon": -123.309,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Morrow County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "OR",
+  "lat": 45.419,
+  "lon": -119.585,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Indiana County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.652,
+  "lon": -79.089,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0037
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Chester County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.973,
+  "lon": -75.746,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Crawford County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.684,
+  "lon": -80.105,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0051
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Lancaster County AD (7 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.038,
+  "lon": -76.247,
+  "capacity_note": "7 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0166
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Somerset County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.971,
+  "lon": -79.027,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0025
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Potter County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.745,
+  "lon": -77.896,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0008
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Cumberland County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.162,
+  "lon": -77.268,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0044
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Snyder County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.772,
+  "lon": -77.067,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Mifflin County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.607,
+  "lon": -77.615,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Juniata County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.534,
+  "lon": -77.4,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0105
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Adams County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.871,
+  "lon": -77.216,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Berks County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.416,
+  "lon": -75.923,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Blair County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.481,
+  "lon": -78.35,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.001
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Northumberland County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.849,
+  "lon": -76.708,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0002
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Tioga County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.773,
+  "lon": -77.255,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Clinton County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.232,
+  "lon": -77.633,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0017
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Franklin County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.929,
+  "lon": -77.721,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Williamsburg County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "SC",
+  "lat": 33.622,
+  "lon": -79.728,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Sumter County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "SC",
+  "lat": 33.919,
+  "lon": -80.381,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Minnehaha County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "SD",
+  "lat": 43.675,
+  "lon": -96.791,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.009
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Hamlin County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "SD",
+  "lat": 44.674,
+  "lon": -97.188,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Lincoln County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "SD",
+  "lat": 43.278,
+  "lon": -96.721,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Turner County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "SD",
+  "lat": 43.311,
+  "lon": -97.149,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Grant County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "SD",
+  "lat": 45.172,
+  "lon": -96.77,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Hamilton County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 31.704,
+  "lon": -98.111,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Parmer County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 34.53,
+  "lon": -102.785,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0137
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Moore County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 35.837,
+  "lon": -101.893,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.009
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Hartley County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 35.84,
+  "lon": -102.603,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0409
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Dallam County AD (4 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 36.278,
+  "lon": -102.602,
+  "capacity_note": "4 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0305
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Erath County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.236,
+  "lon": -98.218,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Ochiltree County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 36.278,
+  "lon": -100.816,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Hopkins County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "TX",
+  "lat": 33.149,
+  "lon": -95.564,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Cache County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "UT",
+  "lat": 41.724,
+  "lon": -111.737,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Beaver County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "UT",
+  "lat": 38.358,
+  "lon": -113.231,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0127
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Sanpete County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "UT",
+  "lat": 39.373,
+  "lon": -111.576,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Weber County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "UT",
+  "lat": 41.271,
+  "lon": -111.915,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0014
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Pittsylvania County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "VA",
+  "lat": 36.82,
+  "lon": -79.397,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Addison County AD (5 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "VT",
+  "lat": 44.033,
+  "lon": -73.143,
+  "capacity_note": "5 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0198
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Orleans County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "VT",
+  "lat": 44.831,
+  "lon": -72.245,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0083
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Franklin County AD (4 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "VT",
+  "lat": 44.855,
+  "lon": -72.913,
+  "capacity_note": "4 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0132
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Windham County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "VT",
+  "lat": 42.987,
+  "lon": -72.713,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Whatcom County AD (4 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WA",
+  "lat": 48.823,
+  "lon": -121.752,
+  "capacity_note": "4 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.012
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Skagit County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WA",
+  "lat": 48.482,
+  "lon": -121.765,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Yakima County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WA",
+  "lat": 46.458,
+  "lon": -120.738,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0079
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Snohomish County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WA",
+  "lat": 48.047,
+  "lon": -121.717,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "King County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WA",
+  "lat": 47.492,
+  "lon": -121.833,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Clark County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.736,
+  "lon": -90.612,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.011
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "St. Croix County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 45.034,
+  "lon": -92.45,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0027
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Brown County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.453,
+  "lon": -88.004,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Dunn County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.946,
+  "lon": -91.896,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Wood County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.455,
+  "lon": -90.041,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0083
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Fond du Lac County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.754,
+  "lon": -88.489,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.009
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Dodge County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.416,
+  "lon": -88.709,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0046
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Kewaunee County AD (7 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.517,
+  "lon": -87.614,
+  "capacity_note": "7 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0462
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Calumet County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.082,
+  "lon": -88.218,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0155
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Dane County AD (5 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.066,
+  "lon": -89.417,
+  "capacity_note": "5 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0194
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Lafayette County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.66,
+  "lon": -90.132,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Burnett County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 45.863,
+  "lon": -92.367,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Portage County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.476,
+  "lon": -89.502,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0019
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Shawano County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.789,
+  "lon": -88.765,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0153
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Jackson County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.318,
+  "lon": -90.804,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Sheboygan County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.721,
+  "lon": -87.945,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Manitowoc County AD (2 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.12,
+  "lon": -87.809,
+  "capacity_note": "2 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.006
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Adams County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.972,
+  "lon": -89.773,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0246
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Green County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.679,
+  "lon": -89.602,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Rock County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.671,
+  "lon": -89.072,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Winnebago County AD (3 digesters)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.069,
+  "lon": -88.645,
+  "capacity_note": "3 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0338
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Door County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.923,
+  "lon": -87.333,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Green Lake County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.8,
+  "lon": -89.047,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Vernon County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.594,
+  "lon": -90.833,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Oconto County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WI",
+  "lat": 45.027,
+  "lon": -88.268,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Laramie County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WY",
+  "lat": 41.307,
+  "lon": -104.689,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Platte County AD (1 digester)",
+  "type": "biogas_ad",
+  "country": "USA",
+  "state": "WY",
+  "lat": 42.133,
+  "lon": -104.966,
+  "capacity_note": "1 livestock digester(s), cumulative",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.003
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "proc_radius_km": 15,
+  "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
  }
 ]

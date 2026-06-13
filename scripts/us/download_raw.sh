@@ -12,6 +12,10 @@ echo "NATCARB saline storage basin polygons ..."
 curl -sSL -o natcarb_saline_poly.zip "https://edx.netl.doe.gov/storage/f/edx/2022/05/2022-05-14T00:30:07.630Z/366fae1f-2ec4-47c9-8130-a391e1383c39/natcarb_saline_poly_shapefile.zip"
 mkdir -p natcarb_saline && (cd natcarb_saline && unzip -o ../natcarb_saline_poly.zip >/dev/null)
 
+echo "EPA AgSTAR livestock anaerobic digester database (for AD+CCS gating) ..."
+mkdir -p ../ad_raw
+curl -sSL -o ../ad_raw/agstar.xlsx "https://www.epa.gov/sites/default/files/2020-10/agstar-livestock-ad-database.xlsx"
+
 echo "USDA Census of Agriculture 2022 (QuickStats bulk) ..."
 curl -sSL -o qs.census2022.txt.gz "https://www.nass.usda.gov/datasets/qs.census2022.txt.gz"
 

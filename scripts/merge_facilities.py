@@ -8,7 +8,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 
 EXISTING = os.path.join(PROC, "facilities.json")
 REGION_FILES = ["facilities_na.json", "facilities_uknordic.json", "facilities_eu.json",
-                "facilities_apac.json", "facilities_row.json"]
+                "facilities_apac.json", "facilities_row.json", "facilities_ad.json"]
 VALID_TYPES = {"pulp_paper", "ethanol", "wte", "bioenergy", "biogas_ad"}
 
 

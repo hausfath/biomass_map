@@ -27,7 +27,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
 from engine_core import (
-    PATHWAYS, ODT_TO_CO2, num, haversine_km, _point_in_geometry,
+    PATHWAYS, ODT_TO_CO2, PROC_RADIUS_KM, AD_MIN_CAP_MTPA, num, haversine_km, _point_in_geometry,
     decide, kpi_score, cdr_potential_mtpa, build_ranked,
     build_rationale, build_caveats_flags,
 )
@@ -116,23 +116,45 @@ def annotate_facility_counties(facilities, counties):
                 break
 
 
-def compute_retrofit_county(fips, facilities):
-    """Biogenic point sources physically in the county -> retrofit anchor (mirrors the
-    global compute_retrofit, matched by _county)."""
-    in_region = [f for f in facilities if f.get("_county") == fips and f.get("existing", True)]
-    qualifying = [f for f in in_region if f.get("retrofit_score") in ("high", "medium")]
-    has_retrofit = len(qualifying) > 0
-    has_pp_be = any(f.get("type") in ("pulp_paper", "bioenergy") for f in qualifying)
+def compute_avail_anchor(centroid, facilities):
+    """Retrofit availability for the gated pathways, by procurement radius from the county
+    centroid: beccs_pp <- a pulp & paper mill within ~150 km; wte_ccs <- a WtE plant within
+    ~50 km; ad_ccs <- cumulative anaerobic-digestion capacity within ~15 km >= AD_MIN_CAP.
+    Returns (avail, has_retrofit, anchor_name, anchor_type)."""
+    lon, lat = centroid[0], centroid[1]
+    avail = {"pp": False, "wte": False, "ad": False}
+    ad_cap = 0.0
+    cands = []   # (pref, dist, facility) within its type radius -> retrofit anchor
+    for f in facilities:
+        if not f.get("existing", True):
+            continue
+        flon, flat = f.get("lon"), f.get("lat")
+        if flon is None or flat is None:
+            continue
+        t = f.get("type")
+        d = haversine_km(lon, lat, flon, flat)
+        if t == "pulp_paper":
+            if d <= PROC_RADIUS_KM["pulp_paper"]:
+                avail["pp"] = True; cands.append((0, d, f))
+        elif t == "bioenergy":          # supports plain BECCS (ungated) -> anchor only
+            if d <= PROC_RADIUS_KM["pulp_paper"]:
+                cands.append((0, d, f))
+        elif t == "wte":
+            if d <= PROC_RADIUS_KM["wte"]:
+                avail["wte"] = True; cands.append((1, d, f))
+        elif t == "biogas_ad":
+            rad = f.get("proc_radius_km") or PROC_RADIUS_KM["biogas_ad"]
+            if d <= rad:
+                ad_cap += (f.get("est_biogenic_co2_mtpa") or {}).get("value", 0) or 0
+                cands.append((2, d, f))
+    avail["ad"] = ad_cap >= AD_MIN_CAP_MTPA
+    has_retrofit = len(cands) > 0
     anchor_name = anchor_type = None
-    if in_region:
-        rank = {"high": 0, "medium": 1, "low": 2}
-
-        def keyfn(f):
-            pref = 0 if f.get("type") in ("pulp_paper", "bioenergy") else 1
-            return (pref, rank.get(f.get("retrofit_score"), 3))
-        best = sorted(in_region, key=keyfn)[0]
+    if cands:
+        cands.sort(key=lambda c: (c[0], c[1]))   # prefer pp/bioenergy, then wte, then ad; nearest
+        best = cands[0][2]
         anchor_name, anchor_type = best.get("name"), best.get("type")
-    return has_retrofit, anchor_name, anchor_type, has_pp_be
+    return avail, has_retrofit, anchor_name, anchor_type
 
 
 def compute_storage_access_county(centroid, basins, wells):
@@ -202,8 +224,8 @@ def main():
     wells = json.load(open(WELLS))
     facilities = json.load(open(FACS))
     counties = json.load(open(COUNTIES))["features"]
-
-    annotate_facility_counties(facilities, counties)
+    # (retrofit availability is now radius-based from each county centroid — no point-in-polygon
+    #  facility tagging needed.)
 
     # Precompute per-county dry-biomass CO2 + centroid for the haul-radius supply sum.
     cents = [(f["centroid"][0], f["centroid"][1], co2_dry(f)) for f in feeds]
@@ -234,10 +256,10 @@ def main():
                    else "diffuse")
         region["feedstock_density"] = density   # feed into shared decide()
 
-        has_retrofit, anchor_name, anchor_type, has_pp_be = compute_retrofit_county(
-            region["fips"], facilities)
+        avail, has_retrofit, anchor_name, anchor_type = compute_avail_anchor(
+            region["centroid"], facilities)
 
-        rec_key, runner_key = decide(region, access, has_retrofit, has_pp_be)
+        rec_key, runner_key = decide(region, access, has_retrofit, avail)
 
         nutrient_alt = False
         if (region.get("nutrient_status") == "excess"
@@ -253,7 +275,7 @@ def main():
                                              anchor_type, nutrient_alt)
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         ranked = build_ranked(region, rec_key, runner_key, access, nearest_km,
-                              has_pp_be, anchor_str)
+                              avail, anchor_str)
 
         low_supply = co2_total(region) < MIN_SUPPLY_MT
         if low_supply:
@@ -285,7 +307,7 @@ def main():
             "residue_density_tco2_km2": dens_tco2_km2,
             "haul_supply_mtco2": supply_mt,
             "has_retrofit": has_retrofit,
-            "has_pp_be": has_pp_be,
+            "avail": avail,
             "anchor_facility": anchor_str,
             "low_supply": low_supply,
             "nutrient_status": region.get("nutrient_status"),

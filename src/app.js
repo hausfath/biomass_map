@@ -114,9 +114,20 @@
         pros.push("Removes carbon and nutrients from an over-fertilized landscape");
       }
     }
+    // Retrofit-only pathways: mirror engine_core.region_pros_cons (avail = {pp,wte,ad}).
+    const av = rec.avail || { pp: true, wte: true, ad: true };
     if (key === "beccs_pp") {
-      if (rec.has_pp_be && rec.anchor_facility) pros.push("Existing mill to retrofit: " + rec.anchor_facility);
-      else cons.push("No existing pulp/bioenergy mill in-region to retrofit");
+      if (av.pp && rec.anchor_facility) pros.push("Existing mill to retrofit: " + rec.anchor_facility);
+      else if (av.pp) pros.push("Existing pulp/bioenergy mill within procurement range to retrofit");
+      else cons.push("No existing pulp & paper mill within range to retrofit");
+    }
+    if (key === "wte_ccs") {
+      if (av.wte && rec.anchor_facility) pros.push("Existing WtE plant to retrofit: " + rec.anchor_facility);
+      else if (!av.wte) cons.push("No existing waste-to-energy plant within range to retrofit");
+    }
+    if (key === "ad_ccs") {
+      if (av.ad) pros.push("Existing anaerobic-digestion capacity within range to retrofit");
+      else cons.push("No existing anaerobic-digestion capacity within range to retrofit");
     }
     return [pros.slice(0, 4), cons.slice(0, 4)];
   }

@@ -9,4 +9,4 @@ echo "2/5 storage formations ..."    ; python3 build_storage_geo.py
 echo "3/5 NUTS-2 feedstocks ..."     ; python3 build_nuts_feedstocks.py
 echo "4/5 infrastructure ..."        ; python3 build_eu_infrastructure.py
 echo "5/5 recommendations + bundle ."; python3 build_eu_recommendations.py && python3 bundle_eu.py
-echo "done — open src/eu.html in a browser."
+echo "done — open src/index.html (Europe scope) in a browser."

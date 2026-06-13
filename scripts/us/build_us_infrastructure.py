@@ -35,7 +35,14 @@ FAC_OUT = os.path.join(PROC, "facilities_us_detailed.json")
 WELLS_OUT = os.path.join(PROC, "wells_us.json")
 WWTP_OUT = os.path.join(PROC, "wwtps_us.json")
 
+COUNTIES = os.path.join(ROOT, "data", "geo", "us_counties.json")
+AD_XLSX = os.path.join(ROOT, "data", "geo", "ad_raw", "agstar.xlsx")
+
 BIO_MIN = 25000.0  # metric tons biogenic CO2/yr threshold for point sources
+# Capturable biogenic CO2 per (cu-ft/day) of biogas, Mtpa: ~total biogas carbon -> CO2
+# (biogas ~60% CH4 / 40% CO2; ~1.98 kg CO2 per m3 biogas).
+CFD_TO_MTPA = 0.0283168 * 365 * 1.98 / 1e9
+AD_DEFAULT_MTPA = 0.003   # per digester when biogas estimate is missing
 
 
 def naics_type(code):
@@ -227,9 +234,78 @@ def build_wwtps():
     return out
 
 
+def _norm_county(s):
+    s = (s or "").lower()
+    for suf in (" county", " parish", " borough", " census area", " municipality", " city and borough"):
+        if s.endswith(suf):
+            s = s[: -len(suf)]
+    s = s.replace("saint ", "st ").replace("ste ", "st ")
+    return "".join(ch for ch in s if ch.isalnum())
+
+
+def build_ad(counties):
+    """EPA AgSTAR livestock digesters -> per-county cumulative AD nodes (biogas_ad).
+
+    AgSTAR gives city/county/state (no lat/lon); we map each operational/construction
+    digester to its county centroid (us_counties.json) and aggregate capturable biogenic CO2
+    per county. ADs are individually small, so the county node carries the *cumulative*
+    capacity — what matters for an AD+CCS retrofit gate. Coverage radius = 15 km (wet-manure
+    haul is short)."""
+    if not os.path.exists(AD_XLSX):
+        print("  (AgSTAR file missing; skipping US AD)")
+        return []
+    # (state, normalized county) -> {centroid, fips, name}
+    idx = {}
+    for f in counties:
+        p = f["properties"]
+        idx[(p["state"], _norm_county(p["name"]))] = p
+    wb = openpyxl.load_workbook(AD_XLSX, read_only=True)
+    ws = wb["Operational and Construction"]
+    it = ws.iter_rows(values_only=True)
+    hdr = list(next(it))
+    ci = {h: i for i, h in enumerate(hdr)}
+    i_county, i_state = ci["County"], ci["State"]
+    i_biogas = ci.get("Biogas Generation Estimate (cu-ft/day)")
+    agg = {}   # fips -> {co2, n, props}
+    matched = unmatched = 0
+    for r in it:
+        if not r or r[0] is None:
+            continue
+        st, cty = r[i_state], r[i_county]
+        prop = idx.get((st, _norm_county(cty)))
+        if not prop:
+            unmatched += 1
+            continue
+        matched += 1
+        co2 = AD_DEFAULT_MTPA
+        bg = fnum(r[i_biogas]) if i_biogas is not None else None
+        if bg:
+            co2 = bg * CFD_TO_MTPA
+        fips = prop["fips"]
+        a = agg.setdefault(fips, {"co2": 0.0, "n": 0, "p": prop})
+        a["co2"] += co2
+        a["n"] += 1
+    out = []
+    for fips, a in agg.items():
+        p = a["p"]
+        out.append({
+            "name": f"{p['name']} County AD ({a['n']} digester{'s' if a['n'] != 1 else ''})",
+            "type": "biogas_ad", "country": "USA", "state": p["state"],
+            "lat": round(p["centroid"][1], 4), "lon": round(p["centroid"][0], 4),
+            "capacity_note": f"{a['n']} livestock digester(s), cumulative",
+            "est_biogenic_co2_mtpa": {"value": round(a["co2"], 4)},
+            "retrofit_score": "medium", "existing": True, "proc_radius_km": 15,
+            "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)",
+        })
+    print(f"  US AD: {matched} digesters matched, {unmatched} unmatched -> {len(out)} county AD nodes")
+    return out
+
+
 def main():
     wb = openpyxl.load_workbook(XLSX, read_only=True)
     facs = build_facilities(wb)
+    counties = json.load(open(COUNTIES))["features"]
+    facs += build_ad(counties)
     seq = build_sequestration_wells(wb)
     wwtps = build_wwtps()
 

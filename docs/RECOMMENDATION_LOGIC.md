@@ -17,8 +17,21 @@ After the tree, a post-step can swap the runner-up to biomass burial in excess-n
 | `feedstock_density` | concentrated · diffuse | feedstock data |
 | `storage_access` | good · moderate · poor | computed (see pre-step) |
 | `nutrient_status` | low · moderate · excess | feedstock data |
-| `has_pp_or_bioenergy` | true / false — an existing, retrofittable pulp-&-paper or bioenergy mill physically in the region | facilities (point-in-polygon) |
+| `avail.pp` | true / false — an existing pulp & paper mill within ~150 km (pulpwood haul radius) | facilities (radius) |
+| `avail.wte` | true / false — an existing waste-to-energy plant within ~50 km | facilities (radius) |
+| `avail.ad` | true / false — cumulative anaerobic-digestion capacity within reach (~15 km for discrete digesters; regional clusters carry their own radius) ≥ a small threshold | facilities (radius + cumulative) |
 | `manure_ad_preferred` | true / false — region is in a mature anaerobic-digestion country (e.g. Europe) | country list |
+
+### Retrofit-only gate
+**BECCS pulp & paper (`beccs_pp`), WtE+CCS (`wte_ccs`), and AD+CCS (`ad_ccs`) only make sense as
+retrofits of existing facilities today**, so each is recommendable — and only appears in the ranked
+options — where the region is within the procurement radius of an existing facility of that type
+(the `avail` flags). Outside the radius the tree falls back to a non-retrofit pathway (no mill →
+plain BECCS / injection; no WtE → burial; no AD → injection or biochar). Plain BECCS
+(heat/electricity) is **not** gated. At country scope the radius reduces to "a facility of that type
+exists in the country". Facility coverage for the gate: pulp & paper and WtE from the global +
+GHGRP/E-PRTR datasets; AD from EPA AgSTAR (US, county-aggregated) and EBA-based regional cumulative
+clusters (EU/global).
 
 ### Pre-step — storage access
 Take the **more favourable** of (a) great-circle distance from the region centroid to the
@@ -39,21 +52,21 @@ else **bio-oil** (pyrolysis densifies carbon, so bio-oil wins only when wells ar
 flowchart TD
     Start([Region]) --> DOM{dominant<br/>feedstock?}
 
-    %% ---------- 1. WET MANURE ----------
-    DOM -->|manure_wet| M{mature-AD<br/>country?}
-    M -->|yes e.g. Europe| Mad["AD + CCS<br/>runner: injection near / biochar"]
-    M -->|no| Mnear{storage<br/>near?}
-    Mnear -->|good or moderate| Minj["Injection<br/>runner: AD + CCS"]
-    Mnear -->|poor| Mad2["AD + CCS<br/>runner: biochar"]
+    %% ---------- 1. WET MANURE  (AD+CCS gated on nearby AD capacity) ----------
+    DOM -->|manure_wet| Mgate{AD capacity nearby?<br/>~15 km / regional cluster}
+    Mgate -->|yes + mature-AD country| Mad["AD + CCS<br/>runner: injection near / biochar"]
+    Mgate -->|storage near| Minj["Injection<br/>runner: AD+CCS if AD else biochar"]
+    Mgate -->|AD nearby, storage far| Mad2["AD + CCS<br/>runner: biochar"]
+    Mgate -->|no AD, storage far| Mbio["Biochar<br/>runner: injection"]
 
-    %% ---------- 2. MSW ----------
-    DOM -->|msw| Wnear{storage<br/>near?}
-    Wnear -->|good or moderate| Wwte["WtE + CCS<br/>runner: burial"]
-    Wnear -->|poor| Wbur["Biomass burial<br/>runner: bio-oil"]
+    %% ---------- 2. MSW  (WtE+CCS gated on a WtE plant within ~50 km) ----------
+    DOM -->|msw| Wnear{storage near AND<br/>WtE plant within ~50 km?}
+    Wnear -->|yes| Wwte["WtE + CCS<br/>runner: burial"]
+    Wnear -->|no| Wbur["Biomass burial<br/>runner: bio-oil"]
 
     %% ---------- 3. WOODY  OR  DRY-AG & CONCENTRATED ----------
     DOM -->|forestry_woody<br/>OR ag_dry & concentrated| Csa{storage<br/>access?}
-    Csa -->|good| Cmill{existing pulp/<br/>bioenergy mill?}
+    Csa -->|good| Cmill{pulp & paper mill<br/>within ~150 km?}
     Cmill -->|yes| Cpp["BECCS pulp & paper<br/>runner: injection"]
     Cmill -->|no| Cbe["BECCS<br/>runner: injection"]
     Csa -->|moderate| Cbe2["BECCS<br/>runner: bio-oil"]
@@ -74,7 +87,7 @@ flowchart TD
     Fsa -->|else| Fbe2["BECCS<br/>runner: bio-oil"]
 
     %% ---------- POST-STEP ----------
-    Mad & Minj & Mad2 & Wwte & Wbur & Cpp & Cbe & Cbe2 & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
+    Mad & Minj & Mad2 & Mbio & Wwte & Wbur & Cpp & Cbe & Cbe2 & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
     NUT -->|yes| Swap["swap runner-up to Biomass burial<br/>removal-consistent; bio-oil would<br/>return nutrients to surplus soils"]
     NUT -->|no| Keep["keep runner-up"]
     Swap --> Done([Recommended + runner-up])
@@ -82,8 +95,8 @@ flowchart TD
 
     classDef rec fill:#15967f,stroke:#0d5530,color:#eafffb;
     classDef q fill:#1c2730,stroke:#2a3742,color:#e8edf1;
-    class Mad,Minj,Mad2,Wwte,Wbur,Cpp,Cbe,Cbe2,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
-    class DOM,M,Mnear,Wnear,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
+    class Mad,Minj,Mad2,Mbio,Wwte,Wbur,Cpp,Cbe,Cbe2,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
+    class DOM,Mgate,Wnear,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
 ```
 
 ## Notes & exclusions

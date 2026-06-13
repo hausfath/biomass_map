@@ -10,4 +10,4 @@ echo "3/6 county feedstocks ..."      ; python3 build_county_feedstocks.py
 echo "4/6 infrastructure ..."         ; python3 build_us_infrastructure.py
 echo "5/6 county recommendations ..." ; python3 build_us_recommendations.py
 echo "6/6 bundle ..."                 ; python3 bundle_us.py
-echo "done — open src/us.html in a browser."
+echo "done — open src/index.html (US scope) in a browser."

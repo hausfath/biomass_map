@@ -34,6 +34,24 @@
   "source": "Wikipedia Lynemouth Power Station; Decerna LCA BECCS study; NS Energy Power Plant Profile"
  },
  {
+  "name": "German Biogas Cluster — Bavaria",
+  "type": "biogas_ad",
+  "country": "DEU",
+  "lat": 48.9,
+  "lon": 11.4,
+  "capacity_note": "~2,500 agricultural digesters (Bayern)",
+  "est_biogenic_co2_mtpa": {
+   "value": 2.4,
+   "low": 1.6,
+   "high": 3.5
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / German Biogas Association (Fachverband Biogas) — regional cumulative cluster",
+  "proc_radius_km": 120
+ },
+ {
   "name": "MGT Teesside (Tees Renewable Energy Plant)",
   "type": "bioenergy",
   "country": "GBR",
@@ -49,6 +67,24 @@
   "existing": true,
   "operator": "MGT Teesside Ltd; O&M by px Group",
   "source": "Wikipedia Tees Renewable Energy Plant; NS Energy; px Group O&M contract 2025"
+ },
+ {
+  "name": "German Biogas Cluster — Lower Saxony",
+  "type": "biogas_ad",
+  "country": "DEU",
+  "lat": 52.8,
+  "lon": 9.3,
+  "capacity_note": "~1,700 digesters (Niedersachsen)",
+  "est_biogenic_co2_mtpa": {
+   "value": 2.0,
+   "low": 1.3,
+   "high": 3.0
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / Fachverband Biogas — regional cumulative cluster",
+  "proc_radius_km": 120
  },
  {
   "name": "Studstrupværket (Aarhus, Denmark)",
@@ -102,6 +138,24 @@
   "source": "Metsä Group Kemi inauguration 2023; Andritz CCS concept study Jun 2024; Bioenergy International"
  },
  {
+  "name": "Italian Biogas Cluster — Lombardy",
+  "type": "biogas_ad",
+  "country": "ITA",
+  "lat": 45.4,
+  "lon": 9.7,
+  "capacity_note": "Po Valley agricultural AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.3,
+   "low": 0.8,
+   "high": 2.0
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "CIB / EBA — regional cumulative cluster",
+  "proc_radius_km": 100
+ },
+ {
   "name": "Metsä Fibre Äänekoski Bioproduct Mill",
   "type": "pulp_paper",
   "country": "FIN",
@@ -119,6 +173,24 @@
   "source": "Metsä Group press releases; Andritz CCS concept study Jun 2024; Metsä/Fortum joint study"
  },
  {
+  "name": "German Biogas Cluster — North Rhine-Westphalia",
+  "type": "biogas_ad",
+  "country": "DEU",
+  "lat": 51.5,
+  "lon": 7.6,
+  "capacity_note": "agricultural + co-digestion AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.1,
+   "low": 0.7,
+   "high": 1.7
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / Fachverband Biogas — regional cumulative cluster",
+  "proc_radius_km": 110
+ },
+ {
   "name": "Stora Enso Imatra Mills (Kaukopää + Tainionkoski)",
   "type": "pulp_paper",
   "country": "FIN",
@@ -134,6 +206,96 @@
   "existing": true,
   "operator": "Stora Enso Oyj",
   "source": "Stora Enso Imatra mill page; Paper360 May 2019; Stora Enso Wikipedia; Wikimapia Stora Enso Imatra Paper Mill; coords ~61.249, 28.857 (Imatra city)"
+ },
+ {
+  "name": "German Biogas Cluster — Baden-Württemberg",
+  "type": "biogas_ad",
+  "country": "DEU",
+  "lat": 48.6,
+  "lon": 9.1,
+  "capacity_note": "agricultural AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.0,
+   "low": 0.6,
+   "high": 1.6
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / Fachverband Biogas — regional cumulative cluster",
+  "proc_radius_km": 110
+ },
+ {
+  "name": "German Biogas Cluster — Schleswig-Holstein",
+  "type": "biogas_ad",
+  "country": "DEU",
+  "lat": 54.2,
+  "lon": 9.8,
+  "capacity_note": "agricultural AD / biomethane",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9,
+   "low": 0.5,
+   "high": 1.4
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / Fachverband Biogas — regional cumulative cluster",
+  "proc_radius_km": 100
+ },
+ {
+  "name": "German Biogas Cluster — Northeast (BB/MV)",
+  "type": "biogas_ad",
+  "country": "DEU",
+  "lat": 53.2,
+  "lon": 12.8,
+  "capacity_note": "agricultural AD (Brandenburg / Mecklenburg-Vorpommern)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9,
+   "low": 0.5,
+   "high": 1.4
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / Fachverband Biogas — regional cumulative cluster",
+  "proc_radius_km": 120
+ },
+ {
+  "name": "UK Biogas Cluster — England",
+  "type": "biogas_ad",
+  "country": "GBR",
+  "lat": 52.6,
+  "lon": -1.2,
+  "capacity_note": "~700 AD plants (agri + food waste + biomethane)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9,
+   "low": 0.6,
+   "high": 1.5
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "ADBA / EBA — national cumulative cluster",
+  "proc_radius_km": 200
+ },
+ {
+  "name": "Denmark Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "DNK",
+  "lat": 56.1,
+  "lon": 9.5,
+  "capacity_note": "large centralized manure biogas / biomethane",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.9,
+   "low": 0.6,
+   "high": 1.4
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "operator": "",
+  "source": "Danish Energy Agency / EBA — national cumulative cluster",
+  "proc_radius_km": 130
  },
  {
   "name": "UPM Kymi Pulp Mill (Kouvola)",
@@ -219,6 +381,42 @@
   "existing": true,
   "operator": "UPM-Kymmene Oyj (UPM Pulp division)",
   "source": "UPM Pulp Pietarsaari page; UPM biochemicals global operations map (location 87); UPM ABB reference story"
+ },
+ {
+  "name": "Italian Biogas Cluster — Emilia-Romagna",
+  "type": "biogas_ad",
+  "country": "ITA",
+  "lat": 44.7,
+  "lon": 11.1,
+  "capacity_note": "Po Valley agricultural AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.8,
+   "low": 0.5,
+   "high": 1.3
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "CIB / EBA — regional cumulative cluster",
+  "proc_radius_km": 100
+ },
+ {
+  "name": "Italian Biogas Cluster — Veneto/Piedmont",
+  "type": "biogas_ad",
+  "country": "ITA",
+  "lat": 45.3,
+  "lon": 10.5,
+  "capacity_note": "Po Valley agricultural AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.8,
+   "low": 0.5,
+   "high": 1.3
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "CIB / EBA — regional cumulative cluster",
+  "proc_radius_km": 120
  },
  {
   "name": "Stora Enso Oulu Mill",
@@ -372,6 +570,42 @@
   "existing": true,
   "operator": "UPM-Kymmene Oyj (UPM Pulp division)",
   "source": "UPM Pulp Kaukas page; UPM press release Kaukas investment; UPM global operations map entry; Wikimapia Kaukas paper mill"
+ },
+ {
+  "name": "France Biogas Cluster — West (Brittany/Pays de la Loire)",
+  "type": "biogas_ad",
+  "country": "FRA",
+  "lat": 47.9,
+  "lon": -1.4,
+  "capacity_note": "livestock AD + biomethane",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7,
+   "low": 0.4,
+   "high": 1.2
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / GRDF — regional cumulative cluster",
+  "proc_radius_km": 140
+ },
+ {
+  "name": "France Biogas Cluster — Northeast (Grand Est/Hauts-de-France)",
+  "type": "biogas_ad",
+  "country": "FRA",
+  "lat": 49.2,
+  "lon": 4.4,
+  "capacity_note": "agricultural AD + biomethane",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.7,
+   "low": 0.4,
+   "high": 1.2
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / GRDF — regional cumulative cluster",
+  "proc_radius_km": 150
  },
  {
   "name": "Metsä Fibre Joutseno Pulp Mill",
@@ -867,6 +1101,42 @@
   "source": "Heinzel Group expansion announcement; Andritz Pöls largest new paper machine (PM2 startup); Manufacturing Today Zellstoff Pöls; Heinzelpoels.com About us"
  },
  {
+  "name": "Netherlands Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "NLD",
+  "lat": 52.2,
+  "lon": 5.7,
+  "capacity_note": "manure + co-digestion AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4,
+   "low": 0.2,
+   "high": 0.7
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA — national cumulative cluster",
+  "proc_radius_km": 90
+ },
+ {
+  "name": "Czech Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "CZE",
+  "lat": 49.7,
+  "lon": 15.4,
+  "capacity_note": "~550 agricultural AD plants",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4,
+   "low": 0.2,
+   "high": 0.7
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA — national cumulative cluster",
+  "proc_radius_km": 120
+ },
+ {
   "name": "Stora Enso Sunila Mill (Kotka)",
   "type": "pulp_paper",
   "country": "FIN",
@@ -1139,6 +1409,24 @@
   "source": "Holmen Braviken mill page; Wikipedia: Braviken Paper Mill; Andritz rebuild completion June 2025; Valmet wash press 2023"
  },
  {
+  "name": "Poland Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "POL",
+  "lat": 52.1,
+  "lon": 19.4,
+  "capacity_note": "agricultural + utility AD (growing)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3,
+   "low": 0.15,
+   "high": 0.6
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA — national cumulative cluster",
+  "proc_radius_km": 180
+ },
+ {
   "name": "Verbio Schwedt Biomethane Complex",
   "type": "biogas_ad",
   "country": "DEU",
@@ -1307,6 +1595,42 @@
   "existing": true,
   "operator": "Borregaard ASA",
   "source": "Borregaard Wikipedia; ETIP Bioenergy factsheet Borregaard; Borregaard CDP 2023 climate change submission; Borregaard annual report 2023"
+ },
+ {
+  "name": "Sweden Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "SWE",
+  "lat": 58.4,
+  "lon": 13.8,
+  "capacity_note": "WWTP + co-digestion + farm AD (biomethane for transport)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.25,
+   "low": 0.15,
+   "high": 0.45
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / Energigas Sverige — national cumulative cluster",
+  "proc_radius_km": 200
+ },
+ {
+  "name": "Belgium Biogas Cluster (Flanders)",
+  "type": "biogas_ad",
+  "country": "BEL",
+  "lat": 51.0,
+  "lon": 4.3,
+  "capacity_note": "agri + industrial AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.25,
+   "low": 0.15,
+   "high": 0.45
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA — regional cumulative cluster",
+  "proc_radius_km": 80
  },
  {
   "name": "Snetterton Renewable Energy Plant",
@@ -1615,6 +1939,42 @@
   "source": "Fibre Excellence Provence mill page; EIB EUR 40M loan to Navigator Figueira da Foz (separate, used as comp); EUWID Tarascon secured article; Fibre Excellence €190M decarbonization investment plan 2027 ('Choose France')"
  },
  {
+  "name": "Austria Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "AUT",
+  "lat": 48.1,
+  "lon": 14.8,
+  "capacity_note": "agricultural AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2,
+   "low": 0.1,
+   "high": 0.4
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "operator": "",
+  "source": "EBA — national cumulative cluster",
+  "proc_radius_km": 130
+ },
+ {
+  "name": "Spain Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "ESP",
+  "lat": 41.5,
+  "lon": -1.0,
+  "capacity_note": "agri + landfill + WWTP AD (early-stage)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2,
+   "low": 0.1,
+   "high": 0.4
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "operator": "",
+  "source": "EBA / SEDIGAS — national cumulative cluster",
+  "proc_radius_km": 250
+ },
+ {
   "name": "Severnside Energy Recovery Centre (Avonmouth)",
   "type": "wte",
   "country": "GBR",
@@ -1921,6 +2281,24 @@
   "source": "Sappi Alfeld Mill page; Sappi Alfeld restructure consultation 2024; pulp-paperworld.com PM2 rebuild article"
  },
  {
+  "name": "Finland Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "FIN",
+  "lat": 61.0,
+  "lon": 25.0,
+  "capacity_note": "WWTP + farm AD",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.12,
+   "low": 0.06,
+   "high": 0.22
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "operator": "",
+  "source": "EBA — national cumulative cluster",
+  "proc_radius_km": 250
+ },
+ {
   "name": "ISVAG Wilrijk Antwerp Waste-to-Energy",
   "type": "wte",
   "country": "BEL",
@@ -2004,6 +2382,24 @@
   "existing": true,
   "operator": "ProNatura sp. z o.o. (REMONDIS group)",
   "source": "Power-Technology Bydgoszcz WtE profile; Termomeccanica WtE Bydgoszcz reference; MDPI Energy Efficiency Polish WtE analysis 2024"
+ },
+ {
+  "name": "Ireland Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "IRL",
+  "lat": 53.2,
+  "lon": -7.6,
+  "capacity_note": "farm AD (emerging)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1,
+   "low": 0.05,
+   "high": 0.2
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "operator": "",
+  "source": "EBA — national cumulative cluster",
+  "proc_radius_km": 130
  },
  {
   "name": "Javelin Park EfW (Gloucestershire)",

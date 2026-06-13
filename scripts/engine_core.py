@@ -156,6 +156,28 @@ LARGE_HETEROGENEOUS = {"USA", "CHN", "IND", "RUS", "BRA", "CAN", "AUS"}
 # Subset for which we actually map subnational cells (so the caveat can point users there).
 HAS_SUBNATIONAL = {"USA", "CAN", "IND", "CHN"}
 
+# --------------------------------------------------------------------------
+# Retrofit-only pathways. BECCS pulp&paper, WtE+CCS, and AD+CCS only make sense as
+# retrofits of existing facilities today, so they are recommendable (and only appear in
+# the ranked options) where the region is within the typical feedstock-procurement radius
+# of an existing facility of the matching type. Plain BECCS (heat/electricity) is NOT gated
+# — it can be greenfield. Radii are scope inputs; the scope engines compute the per-region
+# availability flags `avail = {"pp","wte","ad"}` and pass them to decide()/build_ranked().
+#   pulp_paper ~150 km (pulpwood haul ~80-93 mi); wte ~50 km (local/regional MSW catchment);
+#   biogas_ad ~15 km (wet-manure haul is short) for discrete digesters — regional AD clusters
+#   carry their own coverage radius reflecting the area of dense capacity they aggregate.
+PROC_RADIUS_KM = {"pulp_paper": 150.0, "wte": 50.0, "biogas_ad": 15.0}
+AD_MIN_CAP_MTPA = 0.01   # cumulative AD biogenic-CO2 capacity within reach to enable AD+CCS
+# pathway key -> avail flag it is gated on
+RETROFIT_GATE = {"beccs_pp": "pp", "wte_ccs": "wte", "ad_ccs": "ad"}
+
+
+def _avail(avail):
+    """Normalize the per-region retrofit-availability flags (default all available)."""
+    if avail is None:
+        return {"pp": True, "wte": True, "ad": True}
+    return {"pp": bool(avail.get("pp")), "wte": bool(avail.get("wte")), "ad": bool(avail.get("ad"))}
+
 
 def manure_ad_preferred(region):
     """True where mature AD infrastructure makes AD+CCS the lead manure pathway."""
@@ -234,11 +256,12 @@ def _point_in_geometry(x, y, geom):
 # --------------------------------------------------------------------------
 # Decision tree (first match wins)
 # --------------------------------------------------------------------------
-def decide(region, storage_access, has_retrofit, has_pp_or_bioenergy):
+def decide(region, storage_access, has_retrofit, avail=None):
     dom = region.get("dominant_feedstock")
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
     near = storage_access in ("good", "moderate")
+    av = _avail(avail)  # {pp, wte, ad}: is a retrofittable facility of each type within reach?
 
     # Preferred distributed-removal pathway for DRY biomass, set by storage proximity.
     # Frontier is bullish on Vaulted-style slurry injection: it handles the same dry
@@ -249,28 +272,31 @@ def decide(region, storage_access, has_retrofit, has_pp_or_bioenergy):
     #   good storage (proximate) -> injection ;  moderate/poor (distant) -> bio-oil.
     dry_removal = "injection" if storage_access == "good" else "bio_oil"
 
-    # 1. wet manure
+    # 1. wet manure. AD+CCS only where existing AD capacity is within reach (retrofit-only).
     if dom == "manure_wet":
-        # Where manure already flows to anaerobic digesters (e.g. Europe), AD+CCS retrofits
-        # that existing infrastructure and is preferred over injection.
-        if manure_ad_preferred(region):
+        # Where manure already flows to anaerobic digesters (e.g. Europe) AND there is AD
+        # capacity nearby to retrofit, AD+CCS retrofits that infrastructure and leads.
+        if av["ad"] and manure_ad_preferred(region):
             return "ad_ccs", ("injection" if near else "biochar")
-        # Otherwise (e.g. the US, where on-farm AD is uncommon): injection leads near storage.
+        # Otherwise injection leads near storage (US-style: on-farm AD uncommon / none nearby).
         if near:
-            return "injection", "ad_ccs"
-        return "ad_ccs", "biochar"
+            return "injection", ("ad_ccs" if av["ad"] else "biochar")
+        # Far from storage: AD+CCS only if there is AD to retrofit; else distributed biochar.
+        if av["ad"]:
+            return "ad_ccs", "biochar"
+        return "biochar", "injection"
 
-    # 2. MSW
+    # 2. MSW. WtE+CCS only where an existing WtE plant is within reach (retrofit-only).
     if dom == "msw":
-        if near:
+        if near and av["wte"]:
             return "wte_ccs", "burial"
         return "burial", "bio_oil"
 
     # 3. forestry_woody OR (ag_dry & concentrated)
     if dom == "forestry_woody" or (dom == "ag_dry" and density == "concentrated"):
         if storage_access == "good":
-            # BECCS leads; injection is the proximate-storage runner-up (beats bio-oil here).
-            if has_retrofit and has_pp_or_bioenergy:
+            # BECCS leads; pulp&paper retrofit only where an existing mill is within reach.
+            if av["pp"]:
                 return "beccs_pp", dry_removal
             return "beccs", dry_removal
         elif storage_access == "moderate":
@@ -355,21 +381,31 @@ def cdr_potential_mtpa(region, pathway_key):
 # --------------------------------------------------------------------------
 # Ranked best->worst CDR options per region (with region-specific pros/cons)
 # --------------------------------------------------------------------------
-def applicable_pathways(dom, has_pp_be):
-    """Pathways that physically suit the region's dominant feedstock."""
-    if dom == "manure_wet":
-        return ["injection", "ad_ccs", "biochar"]          # wet: never combustion
+def applicable_pathways(dom, avail=None):
+    """Pathways that physically suit the region's dominant feedstock. Retrofit-only pathways
+    (beccs_pp / wte_ccs / ad_ccs) are included only where an existing facility of that type is
+    within reach (avail flag set)."""
+    av = _avail(avail)
+    if dom == "manure_wet":                                # wet: never combustion
+        lst = ["injection", "biochar"]
+        if av["ad"]:
+            lst.insert(1, "ad_ccs")
+        return lst
     if dom == "msw":
-        return ["wte_ccs", "burial", "biochar"]
+        lst = ["burial", "biochar"]
+        if av["wte"]:
+            lst.insert(0, "wte_ccs")
+        return lst
     # dry: ag_dry / forestry_woody / mixed
     dry = ["beccs", "injection", "bio_oil", "burial", "biochar"]
-    if has_pp_be:
+    if av["pp"]:
         dry.insert(1, "beccs_pp")
     return dry
 
 
-def fit_score(region, pathway, storage_access, has_pp_be):
+def fit_score(region, pathway, storage_access, avail=None):
     """Region-fit score for ranking: intrinsic KPI score + local modifiers."""
+    av = _avail(avail)
     p = PATHWAYS[pathway]
     score = kpi_score(pathway, storage_access)
     density = region.get("feedstock_density")
@@ -392,11 +428,11 @@ def fit_score(region, pathway, storage_access, has_pp_be):
         elif pathway in ("burial", "injection"):
             score += 4
     if pathway == "beccs_pp":
-        score += 8 if has_pp_be else -50
+        score += 8 if av["pp"] else -50
     return score
 
 
-def region_pros_cons(region, pathway, storage_access, nearest_km, has_pp_be, anchor):
+def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor):
     """Static profile pros/cons plus region-specific modifiers."""
     prof = PATHWAY_PROFILE[pathway]
     pros = list(prof["pros"])
@@ -430,28 +466,40 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, has_pp_be, anc
         elif pathway in ("burial", "injection"):
             pros.append("Removes carbon and nutrients from an over-fertilized landscape")
 
+    av = _avail(avail)
     if pathway == "beccs_pp":
-        if has_pp_be and anchor:
+        if av["pp"] and anchor:
             pros.append(f"Existing mill to retrofit: {anchor}")
+        elif av["pp"]:
+            pros.append("Existing pulp/bioenergy mill within procurement range to retrofit")
         else:
-            cons.append("No existing pulp/bioenergy mill in-region to retrofit")
-
-    if pathway == "ad_ccs" and manure_ad_preferred(region):
-        pros.insert(0, "Manure is already digested here — AD+CCS retrofits existing biogas plants")
+            cons.append("No existing pulp & paper mill within range to retrofit")
+    if pathway == "wte_ccs":
+        if av["wte"] and anchor:
+            pros.append(f"Existing WtE plant to retrofit: {anchor}")
+        elif not av["wte"]:
+            cons.append("No existing waste-to-energy plant within range to retrofit")
+    if pathway == "ad_ccs":
+        if av["ad"] and manure_ad_preferred(region):
+            pros.insert(0, "Manure is already digested here — AD+CCS retrofits existing biogas plants")
+        elif av["ad"]:
+            pros.append("Existing anaerobic-digestion capacity within range to retrofit")
+        else:
+            cons.append("No existing anaerobic-digestion capacity within range to retrofit")
 
     return pros[:4], cons[:4]
 
 
 def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
-                 has_pp_be, anchor):
+                 avail, anchor):
     """Ordered best->worst list of applicable pathways with pros/cons + fit badge."""
     dom = region.get("dominant_feedstock")
-    apps = applicable_pathways(dom, has_pp_be)
+    apps = applicable_pathways(dom, avail)
     for k in (rec_key, runner_key):          # always include the engine's picks
         if k not in apps:
             apps.append(k)
 
-    scores = {a: fit_score(region, a, storage_access, has_pp_be) for a in apps}
+    scores = {a: fit_score(region, a, storage_access, avail) for a in apps}
     rest = sorted((a for a in apps if a not in (rec_key, runner_key)),
                   key=lambda a: -scores[a])
     order = [rec_key, runner_key] + rest
@@ -466,7 +514,7 @@ def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
             sc = scores.get(a, 0)
             badge = "Strong fit" if sc >= 60 else ("Possible" if sc >= 45 else "Poor fit")
         pros, cons = region_pros_cons(region, a, storage_access, nearest_km,
-                                      has_pp_be, anchor)
+                                      avail, anchor)
         ranked.append({
             "key": a,
             "label": PATHWAYS[a]["label"],

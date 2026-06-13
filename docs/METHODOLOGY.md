@@ -173,6 +173,26 @@ retrofit availability. The recommended and runner-up pathways are pinned at the 
 are ordered by a fit score (intrinsic KPI score plus local modifiers). This drives the ranked
 list shown in the "Best use" layer's detail panel.
 
+### Retrofit-only pathway gating
+**BECCS pulp & paper, WtE+CCS, and AD+CCS only make sense as retrofits of existing facilities
+today**, so each is recommendable — and only appears in a region's ranked options — where the region
+is within the typical **feedstock-procurement radius** of an existing facility of that type:
+- **pulp & paper → `beccs_pp`**: a pulp & paper mill within **~150 km** (pulpwood haul averages
+  ~80–93 mi). Bioenergy plants anchor plain BECCS (ungated), not `beccs_pp`.
+- **waste-to-energy → `wte_ccs`**: a WtE plant within **~50 km** (local/regional MSW catchment).
+- **anaerobic digestion → `ad_ccs`**: cumulative AD capacity within reach (**~15 km** for discrete
+  digesters; regional clusters carry their own coverage radius) above a small threshold — ADs are
+  individually small, so *cumulative regional capacity* is what matters for a retrofit.
+
+Outside the radius the engine falls back to a non-retrofit pathway (no mill → plain BECCS/injection;
+no WtE → biomass burial; no AD → injection or biochar). Plain BECCS (heat/electricity) is **not**
+gated. At country scope (global view) "within radius" reduces to "a facility of that type exists in
+the country". **Facility coverage for the gate:** pulp & paper and WtE from the global + EPA
+GHGRP / E-PRTR datasets; AD from **EPA AgSTAR** (US livestock digester database, mapped to counties
+and aggregated) and **EBA-based regional cumulative clusters** (EU & global biogas regions — German
+states, Po Valley, Denmark, France, etc.). Radii are tunable constants (`PROC_RADIUS_KM`) in
+`scripts/engine_core.py`.
+
 ### Frontier exclusions (flagged, never recommended)
 - **Purpose-grown energy crops** — land-use competition; thesis sourcing principles.
 - **RNG + CCS / AD + CCS** — *no longer excluded.* Frontier is open to it as an offtake option,
