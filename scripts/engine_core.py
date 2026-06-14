@@ -257,20 +257,25 @@ def _point_in_geometry(x, y, geom):
 # Decision tree (first match wins)
 # --------------------------------------------------------------------------
 # A non-MSW feedstock counts as "significant" (worth re-routing an MSW region to) if its CDR-
-# relevant CO2 potential is at least this fraction of the region's biogenic-MSW potential.
+# relevant CO2 potential is at least this fraction of the region's biogenic-MSW potential, OR
+# clears an absolute floor. The absolute floor matters for big cities: e.g. Los Angeles' MSW
+# dwarfs its human biosolids relatively (~5%), but ~0.3 Mt CO2/yr of biosolids is an ample
+# injection feedstock in absolute terms (this is exactly what Vaulted Deep injects in LA).
 SECONDARY_FRAC = 0.25
+SECONDARY_ABS_MTPA = 0.05   # CO2/yr — a feedstock this large is worth a pathway on its own
 
 
 def _secondary_dom(region):
     """For an MSW-dominant region with no WtE to retrofit: the next-significant feedstock to
-    recommend on, or None if MSW overwhelmingly dominates -> no good BiCRS option."""
+    recommend on (wet biosolids/manure or dry residues), or None if MSW overwhelmingly
+    dominates AND no non-MSW stream clears the absolute floor -> no good BiCRS option."""
     ag = num(region.get("ag_residues_odt_mt"))
     forestry = num(region.get("forestry_residues_odt_mt"))
     dry = (ag + forestry) * ODT_TO_CO2
     wet = (num(region.get("animal_manure_odt_mt")) + num(region.get("human_wwtp_odt_mt"))) * ODT_TO_CO2
     msw = num(region.get("msw_total_mt")) * num(region.get("msw_biogenic_frac"), 0.5)
     best = max(dry, wet)
-    if best <= 0 or best < SECONDARY_FRAC * msw:
+    if best <= 0 or (best < SECONDARY_FRAC * msw and best < SECONDARY_ABS_MTPA):
         return None
     if dry >= wet:
         return "forestry_woody" if forestry > ag else "ag_dry"
@@ -278,11 +283,13 @@ def _secondary_dom(region):
 
 
 def decide(region, storage_access, has_retrofit, avail=None):
+    """Returns (recommended, runner_up, effective_dom). `effective_dom` is the feedstock the
+    decision was actually made on; it differs from the region's dominant feedstock when an
+    MSW region with no WtE is re-routed to its next-significant feedstock (e.g. urban biosolids
+    -> injection). Downstream CDR/rationale/ranked should use effective_dom."""
     dom = region.get("dominant_feedstock")
-    density = region.get("feedstock_density")
-    nutrient = region.get("nutrient_status")
+    av = _avail(avail)
     near = storage_access in ("good", "moderate")
-    av = _avail(avail)  # {pp, wte, ad}: is a retrofittable facility of each type within reach?
 
     # MSW with no WtE plant to retrofit: municipal waste is landfilled here, not a standalone
     # removal feedstock. Re-evaluate on the region's next-significant feedstock; if there is no
@@ -290,8 +297,17 @@ def decide(region, storage_access, has_retrofit, avail=None):
     if dom == "msw" and not (near and av["wte"]):
         alt = _secondary_dom(region)
         if alt is None:
-            return "none", None
+            return "none", None, "msw"
         dom = alt  # decide on the secondary feedstock instead
+
+    rec, runner = _decide_for(region, storage_access, has_retrofit, av, dom)
+    return rec, runner, dom
+
+
+def _decide_for(region, storage_access, has_retrofit, av, dom):
+    density = region.get("feedstock_density")
+    nutrient = region.get("nutrient_status")
+    near = storage_access in ("good", "moderate")
 
     # Preferred distributed-removal pathway for DRY biomass, set by storage proximity.
     # Frontier is bullish on Vaulted-style slurry injection: it handles the same dry

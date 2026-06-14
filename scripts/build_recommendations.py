@@ -278,9 +278,12 @@ def build():
         # Step 2
         has_retrofit, anchor_name, anchor_type, avail = compute_retrofit(region, facilities)
         # Step 3
-        rec_key, runner_key = decide(region, storage_access, has_retrofit, avail)
+        rec_key, runner_key, eff_dom = decide(region, storage_access, has_retrofit, avail)
         no_option = (rec_key == "none")
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
+        # The decision may be made on a secondary feedstock (e.g. urban biosolids -> injection);
+        # use that effective feedstock for CDR / rationale / ranked options.
+        rregion = region if eff_dom == region.get("dominant_feedstock") else dict(region, dominant_feedstock=eff_dom)
 
         nutrient_alt = False
         if no_option:
@@ -301,12 +304,12 @@ def build():
             score = kpi_score(rec_key, storage_access)
             eff = PATHWAYS[rec_key]["cdr_efficiency"]
             cost = PATHWAYS[rec_key]["cost_band"]
-            cdr = cdr_potential_mtpa(region, rec_key)
+            cdr = cdr_potential_mtpa(rregion, rec_key)
             rec_label = PATHWAYS[rec_key]["label"]
             runner_label = PATHWAYS[runner_key]["label"]
-            rationale = build_rationale(region, rec_key, storage_access, nearest_km,
+            rationale = build_rationale(rregion, rec_key, storage_access, nearest_km,
                                         has_retrofit, anchor_name, anchor_type)
-            ranked = build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
+            ranked = build_ranked(rregion, rec_key, runner_key, storage_access, nearest_km,
                                   avail, anchor_str)
 
         caveats, flags = build_caveats_flags(

@@ -186,9 +186,14 @@ is within the typical **feedstock-procurement radius** of an existing facility o
 
 Outside the radius the engine falls back to a non-retrofit pathway (no mill → plain BECCS/injection;
 no AD → injection or biochar). For **MSW with no WtE plant in range**, municipal waste is landfilled
-rather than a removal feedstock, so the region is re-evaluated on its next-significant biomass
-(agricultural / forestry residues or manure ≥ 25% of the MSW potential); if there is no other
-significant feedstock, the result is **"no viable BiCRS pathway"** rather than a forced burial.
+rather than a removal feedstock, so the region is re-evaluated on its next-significant biomass —
+agricultural / forestry residues or **wet manure + human biosolids** — counted significant if it is
+≥ 25% of the MSW potential **or** clears an absolute floor (~0.05 Mt CO₂/yr). The absolute floor
+matters for big cities: e.g. Los Angeles' MSW dwarfs its biosolids relatively (~5%), but ~0.3 Mt
+CO₂/yr of biosolids is an ample injection feedstock (what Vaulted Deep injects in LA) → injection.
+Only if there is no other significant feedstock is the result **"no viable BiCRS pathway"** rather
+than a forced burial. The CDR potential, rationale, and ranked options then reflect that effective
+feedstock (e.g. biosolids), not the dominant MSW.
 Plain BECCS (heat/electricity) is **not**
 gated. At country scope (global view) "within radius" reduces to "a facility of that type exists in
 the country". **Facility coverage for the gate:** pulp & paper and WtE from the global + EPA

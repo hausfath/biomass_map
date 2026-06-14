@@ -1062,23 +1062,57 @@
     "name": "Connecticut",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "none",
-    "recommended_label": "No viable BiCRS pathway",
-    "runner_up": null,
-    "runner_up_label": null,
-    "kpi_score": null,
-    "cdr_efficiency": null,
-    "cost_band": null,
-    "cdr_potential_mtpa": 0.0,
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
+    "cdr_potential_mtpa": 0.5,
     "storage_access": "good",
     "nearest_storage_km": 1026,
     "has_retrofit": false,
-    "no_option": true,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
+    "rationale": "Concentrated woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1026 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
+      {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~1026 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~1026 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
       {
         "key": "burial",
         "label": "Biomass burial",
@@ -1093,6 +1127,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Poor fit",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -1449,13 +1500,13 @@
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
-    "cdr_potential_mtpa": 0.9,
+    "cdr_potential_mtpa": 0.6,
     "storage_access": "good",
     "nearest_storage_km": 5084,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~5084 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~5084 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -1507,6 +1558,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Poor fit",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -3314,13 +3382,13 @@
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
-    "cdr_potential_mtpa": 1.9,
+    "cdr_potential_mtpa": 0.6,
     "storage_access": "good",
     "nearest_storage_km": 1403,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1403 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1403 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -3372,6 +3440,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Poor fit",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -4450,23 +4535,57 @@
     "name": "Rhode Island",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "none",
-    "recommended_label": "No viable BiCRS pathway",
-    "runner_up": null,
-    "runner_up_label": null,
-    "kpi_score": null,
-    "cdr_efficiency": null,
-    "cost_band": null,
-    "cdr_potential_mtpa": 0.0,
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
+    "cdr_potential_mtpa": 0.1,
     "storage_access": "good",
     "nearest_storage_km": 1111,
     "has_retrofit": false,
-    "no_option": true,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
+    "rationale": "Concentrated woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1111 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
+      {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~1111 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~1111 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
       {
         "key": "burial",
         "label": "Biomass burial",
@@ -4481,6 +4600,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Poor fit",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -8384,13 +8520,13 @@
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
-    "cdr_potential_mtpa": 0.2,
+    "cdr_potential_mtpa": 0.3,
     "storage_access": "good",
     "nearest_storage_km": 286,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~286 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~286 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -8445,6 +8581,23 @@
         ]
       },
       {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Poor fit",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
+        ]
+      },
+      {
         "key": "biochar",
         "label": "Biochar",
         "badge": "Poor fit",
@@ -8479,7 +8632,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
+    "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -8514,22 +8667,6 @@
           "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
           "Geologic storage is poor/absent here — a major constraint"
         ]
-      },
-      {
-        "key": "burial",
-        "label": "Biomass burial",
-        "badge": "Possible",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
-        "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass"
-        ],
-        "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
       }
     ]
   },
@@ -8545,13 +8682,13 @@
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
-    "cdr_potential_mtpa": 0.2,
+    "cdr_potential_mtpa": 0.1,
     "storage_access": "moderate",
     "nearest_storage_km": 967,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~967 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
+    "rationale": "Concentrated wet animal manure / biosolids, moderate nutrient status, moderate geologic storage access (~967 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -8585,22 +8722,6 @@
         "cons": [
           "Low CDR efficiency (~30%)",
           "Durability and verification questions; Frontier's lower-preference pathway"
-        ]
-      },
-      {
-        "key": "burial",
-        "label": "Biomass burial",
-        "badge": "Possible",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
-        "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass"
-        ],
-        "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
         ]
       }
     ]
@@ -13915,13 +14036,13 @@
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
-    "cdr_potential_mtpa": 7.9,
+    "cdr_potential_mtpa": 16.1,
     "storage_access": "good",
     "nearest_storage_km": 462,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~462 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
+    "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, good geologic storage access (nearest qualifying storage ~462 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -13955,22 +14076,6 @@
         "cons": [
           "Low CDR efficiency (~30%)",
           "Durability and verification questions; Frontier's lower-preference pathway"
-        ]
-      },
-      {
-        "key": "burial",
-        "label": "Biomass burial",
-        "badge": "Possible",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
-        "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass"
-        ],
-        "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
         ]
       }
     ]
@@ -14314,13 +14419,13 @@
     "kpi_score": 33,
     "cdr_efficiency": 0.3,
     "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 0.9,
+    "cdr_potential_mtpa": 1.1,
     "storage_access": "poor",
     "nearest_storage_km": 1557,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, excess nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
+    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -14356,23 +14461,6 @@
           "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
           "Geologic storage is poor/absent here — a major constraint"
         ]
-      },
-      {
-        "key": "burial",
-        "label": "Biomass burial",
-        "badge": "Possible",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
-        "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass",
-          "Removes carbon and nutrients from an over-fertilized landscape"
-        ],
-        "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
       }
     ]
   },
@@ -14388,13 +14476,13 @@
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
-    "cdr_potential_mtpa": 2.8,
+    "cdr_potential_mtpa": 1.4,
     "storage_access": "good",
     "nearest_storage_km": 43,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~43 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
+    "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, good geologic storage access (nearest qualifying storage ~43 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -14428,22 +14516,6 @@
         "cons": [
           "Low CDR efficiency (~30%)",
           "Durability and verification questions; Frontier's lower-preference pathway"
-        ]
-      },
-      {
-        "key": "burial",
-        "label": "Biomass burial",
-        "badge": "Possible",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
-        "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass"
-        ],
-        "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
         ]
       }
     ]
@@ -15047,7 +15119,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1236 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1236 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -15101,6 +15173,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Possible",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -15774,7 +15863,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1608 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1608 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -15828,6 +15917,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Possible",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -16577,7 +16683,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~991 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~991 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -16614,6 +16720,23 @@
         "cons": [
           "Lower CDR efficiency (~45%)",
           "Higher $/t than injection where storage is proximate"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
+          "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
       {
@@ -16654,43 +16777,44 @@
     "name": "Delhi",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "none",
-    "recommended_label": "No viable BiCRS pathway",
-    "runner_up": null,
-    "runner_up_label": null,
-    "kpi_score": null,
-    "cdr_efficiency": null,
-    "cost_band": null,
-    "cdr_potential_mtpa": 0.0,
+    "recommended": "injection",
+    "recommended_label": "Biomass waste injection",
+    "runner_up": "biochar",
+    "runner_up_label": "Biochar",
+    "kpi_score": 69,
+    "cdr_efficiency": 0.9,
+    "cost_band": "$125-285",
+    "cdr_potential_mtpa": 0.3,
     "storage_access": "moderate",
     "nearest_storage_km": 1429,
     "has_retrofit": false,
-    "no_option": true,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
+    "rationale": "Concentrated wet animal manure / biosolids, moderate nutrient status, moderate geologic storage access (~1429 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "burial",
-        "label": "Biomass burial",
-        "badge": "Possible",
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
+        "cost_band": "$125-285",
         "pros": [
           "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass"
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes"
         ],
         "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
+          "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
       {
         "key": "biochar",
         "label": "Biochar",
-        "badge": "Poor fit",
+        "badge": "Runner-up",
         "cdr_efficiency": 0.3,
         "cost_band": "~$100-200",
         "pros": [
@@ -16716,13 +16840,13 @@
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
-    "cdr_potential_mtpa": 0.1,
+    "cdr_potential_mtpa": 0.2,
     "storage_access": "moderate",
     "nearest_storage_km": 802,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~802 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~802 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -16759,6 +16883,23 @@
         "cons": [
           "Lower CDR efficiency (~45%)",
           "Higher $/t than injection where storage is proximate"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
+          "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
       {
@@ -17653,7 +17794,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~1129 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~1129 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -17688,6 +17829,41 @@
         "cons": [
           "Low CDR efficiency (~30%)",
           "Durability and verification questions; Frontier's lower-preference pathway"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
+          "Geologic storage only moderately accessible — transport adds cost"
+        ]
+      },
+      {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Possible",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
+          "Geologic storage only moderately accessible — transport adds cost",
+          "Local biomass is diffuse — hauling to a central plant is costly"
         ]
       },
       {
@@ -22285,13 +22461,13 @@
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
-    "cdr_potential_mtpa": 2.2,
+    "cdr_potential_mtpa": 2.0,
     "storage_access": "good",
     "nearest_storage_km": 244,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~244 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~244 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -22343,6 +22519,23 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Poor fit",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -22701,13 +22894,13 @@
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
-    "cdr_potential_mtpa": 6.0,
+    "cdr_potential_mtpa": 17.1,
     "storage_access": "good",
     "nearest_storage_km": 845,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~845 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~845 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
@@ -22743,6 +22936,40 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Strong fit",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~845 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Poor fit",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
+        "pros": [
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
+        ],
+        "cons": [
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
+          "Returns nutrients to soils already in surplus here"
         ]
       },
       {
