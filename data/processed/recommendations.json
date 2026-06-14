@@ -15,6 +15,7 @@
     "storage_access": "good",
     "nearest_storage_km": 815,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "CO280 Solutions — US Gulf Coast Pulp Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~815 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [
@@ -145,6 +146,7 @@
     "storage_access": "good",
     "nearest_storage_km": 878,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "West Fraser Hinton Pulp Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~878 km) with a retrofittable pulp_paper anchor (West Fraser Hinton Pulp Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [
@@ -273,6 +275,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 840,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~840 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -381,6 +384,7 @@
     "storage_access": "good",
     "nearest_storage_km": 727,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Georgia-Pacific Alabama River Cellulose (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~727 km) with a retrofittable pulp_paper anchor (Georgia-Pacific Alabama River Cellulose) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -507,6 +511,7 @@
     "storage_access": "good",
     "nearest_storage_km": 2486,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~2486 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -615,6 +620,7 @@
     "storage_access": "good",
     "nearest_storage_km": 869,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~869 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -723,6 +729,7 @@
     "storage_access": "good",
     "nearest_storage_km": 603,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Domtar Ashdown Pulp & Paper Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~603 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -850,6 +857,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1631,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Aemetis Keyes Dairy Digester Cluster (biogas_ad)",
     "rationale": "Concentrated mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~1631 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -956,6 +964,7 @@
     "storage_access": "good",
     "nearest_storage_km": 841,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~841 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -1053,26 +1062,27 @@
     "name": "Connecticut",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 2.5,
+    "recommended": "none",
+    "recommended_label": "No viable BiCRS pathway",
+    "runner_up": null,
+    "runner_up_label": null,
+    "kpi_score": null,
+    "cdr_efficiency": null,
+    "cost_band": null,
+    "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 1026,
     "has_retrofit": false,
+    "no_option": true,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1026 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -1083,23 +1093,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -1135,6 +1128,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1000,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~1000 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
@@ -1207,6 +1201,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1132,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "International Paper Pensacola (Cantonment) Mill (pulp_paper)",
     "rationale": "Concentrated mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~1132 km) with a retrofittable pulp_paper anchor (International Paper Pensacola (Cantonment) Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -1330,6 +1325,7 @@
     "storage_access": "good",
     "nearest_storage_km": 908,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Packaging Corp of America Valdosta Containerboard Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~908 km) with a retrofittable pulp_paper anchor (Packaging Corp of America Valdosta Containerboard Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -1446,26 +1442,61 @@
     "name": "Hawaii",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 1.1,
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
+    "cdr_potential_mtpa": 0.9,
     "storage_access": "good",
     "nearest_storage_km": 5084,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~5084 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~5084 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~5084 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~5084 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -1476,23 +1507,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -1528,6 +1542,7 @@
     "storage_access": "good",
     "nearest_storage_km": 945,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Clearwater Paper Lewiston Pulp & Paperboard Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~945 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -1654,6 +1669,7 @@
     "storage_access": "good",
     "nearest_storage_km": 28,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "ADM Decatur (ICCS) — Ethanol CCS (ethanol)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~28 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -1765,6 +1781,7 @@
     "storage_access": "good",
     "nearest_storage_km": 231,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Reworld (Covanta) Indianapolis Resource Recovery (wte)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~231 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -1876,6 +1893,7 @@
     "storage_access": "good",
     "nearest_storage_km": 423,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~423 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -1984,6 +2002,7 @@
     "storage_access": "good",
     "nearest_storage_km": 819,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~819 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -2092,6 +2111,7 @@
     "storage_access": "good",
     "nearest_storage_km": 420,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~420 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -2200,6 +2220,7 @@
     "storage_access": "good",
     "nearest_storage_km": 251,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "CO280 Solutions — US Gulf Coast Pulp Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~251 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -2326,6 +2347,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1196,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Sappi Somerset Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1196 km) with a retrofittable pulp_paper anchor (Sappi Somerset Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -2452,6 +2474,7 @@
     "storage_access": "good",
     "nearest_storage_km": 934,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Wheelabrator (WIN Waste) Baltimore WTE (wte)",
     "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~934 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -2524,6 +2547,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1090,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Reworld (Covanta) SEMASS (wte)",
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1090 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -2595,6 +2619,7 @@
     "storage_access": "good",
     "nearest_storage_km": 82,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~82 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -2706,6 +2731,7 @@
     "storage_access": "good",
     "nearest_storage_km": 597,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Sappi Cloquet Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~597 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -2835,6 +2861,7 @@
     "storage_access": "good",
     "nearest_storage_km": 518,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "International Paper Vicksburg Containerboard Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~518 km) with a retrofittable pulp_paper anchor (International Paper Vicksburg Containerboard Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -2961,6 +2988,7 @@
     "storage_access": "good",
     "nearest_storage_km": 310,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~310 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -3072,6 +3100,7 @@
     "storage_access": "good",
     "nearest_storage_km": 568,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~568 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -3180,6 +3209,7 @@
     "storage_access": "good",
     "nearest_storage_km": 628,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Green Plains Wood River (Advantage Nebraska CCS) (ethanol)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~628 km) with a retrofittable ethanol anchor (Green Plains Wood River (Advantage Nebraska CCS)) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -3277,26 +3307,61 @@
     "name": "Nevada",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 2.1,
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
+    "cdr_potential_mtpa": 1.9,
     "storage_access": "good",
     "nearest_storage_km": 1403,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1403 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1403 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~1403 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~1403 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -3307,23 +3372,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -3359,6 +3407,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1033,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1033 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -3467,6 +3516,7 @@
     "storage_access": "good",
     "nearest_storage_km": 984,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Reworld (Covanta) Essex Newark WTE (wte)",
     "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~984 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -3538,6 +3588,7 @@
     "storage_access": "good",
     "nearest_storage_km": 441,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~441 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -3646,6 +3697,7 @@
     "storage_access": "good",
     "nearest_storage_km": 753,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Reworld (Covanta) Hempstead WTE (wte)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~753 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -3717,6 +3769,7 @@
     "storage_access": "good",
     "nearest_storage_km": 950,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Domtar Plymouth Pulp Mill (pulp_paper)",
     "rationale": "Concentrated mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~950 km) with a retrofittable pulp_paper anchor (Domtar Plymouth Pulp Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -3840,6 +3893,7 @@
     "storage_access": "good",
     "nearest_storage_km": 113,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~113 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -3948,6 +4002,7 @@
     "storage_access": "good",
     "nearest_storage_km": 527,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~527 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -4059,6 +4114,7 @@
     "storage_access": "good",
     "nearest_storage_km": 615,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~615 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -4168,6 +4224,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1114,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~1114 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -4276,6 +4333,7 @@
     "storage_access": "good",
     "nearest_storage_km": 750,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Pixelle Specialty Solutions Spring Grove Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~750 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -4392,26 +4450,27 @@
     "name": "Rhode Island",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 0.7,
+    "recommended": "none",
+    "recommended_label": "No viable BiCRS pathway",
+    "runner_up": null,
+    "runner_up_label": null,
+    "kpi_score": null,
+    "cdr_efficiency": null,
+    "cost_band": null,
+    "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 1111,
     "has_retrofit": false,
+    "no_option": true,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1111 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -4422,23 +4481,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -4474,6 +4516,7 @@
     "storage_access": "good",
     "nearest_storage_km": 960,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "International Paper Eastover Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~960 km) with a retrofittable pulp_paper anchor (International Paper Eastover Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -4600,6 +4643,7 @@
     "storage_access": "good",
     "nearest_storage_km": 333,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "POET Chancellor Biorefining (ethanol)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~333 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -4710,6 +4754,7 @@
     "storage_access": "good",
     "nearest_storage_km": 465,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Packaging Corp of America Counce Containerboard Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~465 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -4836,6 +4881,7 @@
     "storage_access": "good",
     "nearest_storage_km": 311,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Nacogdoches Biomass Power Plant (Austin Energy) (bioenergy)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~311 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -4944,6 +4990,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1107,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1107 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -5052,6 +5099,7 @@
     "storage_access": "good",
     "nearest_storage_km": 940,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~940 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -5160,6 +5208,7 @@
     "storage_access": "good",
     "nearest_storage_km": 923,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Smurfit WestRock Covington Paperboard Mill (pulp_paper)",
     "rationale": "Diffuse mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~923 km) with a retrofittable pulp_paper anchor (Smurfit WestRock Covington Paperboard Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -5287,6 +5336,7 @@
     "storage_access": "good",
     "nearest_storage_km": 754,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Spokane Waste-to-Energy Facility (wte)",
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~754 km) with a retrofittable wte anchor (Spokane Waste-to-Energy Facility) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -5395,6 +5445,7 @@
     "storage_access": "good",
     "nearest_storage_km": 741,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~741 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -5503,6 +5554,7 @@
     "storage_access": "good",
     "nearest_storage_km": 409,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse mixed biomass residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~409 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -5614,6 +5666,7 @@
     "storage_access": "good",
     "nearest_storage_km": 594,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~594 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -5722,6 +5775,7 @@
     "storage_access": "good",
     "nearest_storage_km": 455,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Mercer Stendal Kraft Pulp Mill (Zellstoff Stendal) (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~455 km) with a retrofittable pulp_paper anchor (Mercer Stendal Kraft Pulp Mill (Zellstoff Stendal)) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -5844,6 +5898,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 653,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Fibre Excellence Tarascon Pulp Mill (Provence) (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~653 km) with a retrofittable pulp_paper anchor (Fibre Excellence Tarascon Pulp Mill (Provence)) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -5968,6 +6023,7 @@
     "storage_access": "good",
     "nearest_storage_km": 295,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "A2A Brescia Lamarmora Waste-to-Energy (wte)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~295 km) with a retrofittable wte anchor (A2A Brescia Lamarmora Waste-to-Energy) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -6073,6 +6129,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1410,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Ence Navia Biofactory (Pulp Mill) (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -6200,6 +6257,7 @@
     "storage_access": "good",
     "nearest_storage_km": 460,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Mondi Świecie Containerboard & Pulp Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~460 km) with a retrofittable pulp_paper anchor (Mondi Świecie Containerboard & Pulp Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -6322,6 +6380,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 984,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, low nutrient status, moderate geologic storage access (~984 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -6428,6 +6487,7 @@
     "storage_access": "good",
     "nearest_storage_km": 89,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "AVR Rozenburg Waste-to-Energy (wte)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~89 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
     "caveats": [],
@@ -6501,6 +6561,7 @@
     "storage_access": "good",
     "nearest_storage_km": 170,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Indaver Doel / SLECO Waste-to-Energy (wte)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~170 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
     "caveats": [],
@@ -6574,6 +6635,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 629,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Mondi Štětí Pulp & Paper Mill (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, moderate nutrient status, moderate geologic storage access (~629 km) with a retrofittable pulp_paper anchor (Mondi Štětí Pulp & Paper Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -6698,6 +6760,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 978,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~978 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -6806,6 +6869,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1595,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Navigator Company Figueira da Foz Pulp & Paper Mill (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -6930,6 +6994,7 @@
     "storage_access": "good",
     "nearest_storage_km": 461,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Stockholm Exergi KVV8 (bioenergy)",
     "rationale": "Concentrated woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~461 km) with a retrofittable bioenergy anchor (Stockholm Exergi KVV8) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -7052,6 +7117,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 613,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~613 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -7158,6 +7224,7 @@
     "storage_access": "good",
     "nearest_storage_km": 368,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Mondi Frantschach Kraft Pulp & Sack Paper Mill (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~368 km) with a retrofittable pulp_paper anchor (Mondi Frantschach Kraft Pulp & Sack Paper Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -7280,6 +7347,7 @@
     "storage_access": "good",
     "nearest_storage_km": 287,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Ørsted Asnæs Power Station (bioenergy)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~287 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
     "caveats": [],
@@ -7353,6 +7421,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 793,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Metsä Fibre Äänekoski Bioproduct Mill (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, low nutrient status, moderate geologic storage access (~793 km) with a retrofittable pulp_paper anchor (Metsä Fibre Äänekoski Bioproduct Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -7477,6 +7546,7 @@
     "storage_access": "good",
     "nearest_storage_km": 284,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Ireland Biogas Cluster (biogas_ad)",
     "rationale": "Diffuse wet animal manure / biosolids, moderate nutrient status, good geologic storage access (nearest qualifying storage ~284 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
     "caveats": [],
@@ -7550,6 +7620,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1059,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -7658,6 +7729,7 @@
     "storage_access": "good",
     "nearest_storage_km": 314,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~314 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -7766,6 +7838,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 715,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Mondi SCP Ružomberok Pulp & Paper Mill (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, moderate nutrient status, moderate geologic storage access (~715 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -7890,6 +7963,7 @@
     "storage_access": "good",
     "nearest_storage_km": 381,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated mixed biomass residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~381 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -7995,6 +8069,7 @@
     "storage_access": "good",
     "nearest_storage_km": 263,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~263 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -8100,6 +8175,7 @@
     "storage_access": "good",
     "nearest_storage_km": 417,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~417 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -8205,6 +8281,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 510,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated woody forestry residues, low nutrient status, moderate geologic storage access (~510 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -8300,26 +8377,61 @@
     "name": "Luxembourg",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
     "cdr_potential_mtpa": 0.2,
     "storage_access": "good",
     "nearest_storage_km": 286,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~286 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~286 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~286 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~286 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -8330,23 +8442,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -8371,26 +8466,59 @@
     "name": "Cyprus",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 0.4,
+    "recommended": "biochar",
+    "recommended_label": "Biochar",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 33,
+    "cdr_efficiency": 0.3,
+    "cost_band": "~$100-200",
+    "cdr_potential_mtpa": 0.1,
     "storage_access": "poor",
     "nearest_storage_km": 1870,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "biochar",
+        "label": "Biochar",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.3,
+        "cost_band": "~$100-200",
+        "pros": [
+          "Returns nutrients to soils, improving yields",
+          "Distributed and storage-independent; simple and near-term"
+        ],
+        "cons": [
+          "Low CDR efficiency (~30%)",
+          "Durability and verification questions; Frontier's lower-preference pathway"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
+          "Geologic storage is poor/absent here — a major constraint"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -8401,38 +8529,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
-        ]
-      },
-      {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
         ]
       }
     ]
@@ -8442,26 +8538,59 @@
     "name": "Malta",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
+    "recommended": "injection",
+    "recommended_label": "Biomass waste injection",
+    "runner_up": "biochar",
+    "runner_up_label": "Biochar",
+    "kpi_score": 69,
     "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "cost_band": "$125-285",
     "cdr_potential_mtpa": 0.2,
     "storage_access": "moderate",
     "nearest_storage_km": 967,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~967 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~967 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
+          "Geologic storage only moderately accessible — transport adds cost"
+        ]
+      },
+      {
+        "key": "biochar",
+        "label": "Biochar",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.3,
+        "cost_band": "~$100-200",
+        "pros": [
+          "Returns nutrients to soils, improving yields",
+          "Distributed and storage-independent; simple and near-term"
+        ],
+        "cons": [
+          "Low CDR efficiency (~30%)",
+          "Durability and verification questions; Frontier's lower-preference pathway"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -8472,38 +8601,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
-        ]
-      },
-      {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
         ]
       }
     ]
@@ -8524,6 +8621,7 @@
     "storage_access": "good",
     "nearest_storage_km": 217,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Drax Power Station (bioenergy)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~217 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -8595,6 +8693,7 @@
     "storage_access": "good",
     "nearest_storage_km": 291,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Borregaard Sarpsborg (Biorefinery / Sulphite Pulp) (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~291 km) with a retrofittable pulp_paper anchor (Borregaard Sarpsborg (Biorefinery / Sulphite Pulp)) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -8717,6 +8816,7 @@
     "storage_access": "good",
     "nearest_storage_km": 422,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "KEZO Hinwil Waste-to-Energy (Kehrichtverwertung Zürcher Oberland) (wte)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~422 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -8788,6 +8888,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1180,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -8894,6 +8995,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 676,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~676 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -9000,6 +9102,7 @@
     "storage_access": "good",
     "nearest_storage_km": 478,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Nine Dragons Paper Dongguan Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~478 km) with a retrofittable pulp_paper anchor (Nine Dragons Paper Dongguan Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [
@@ -9125,6 +9228,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 532,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "ITC Bhadrachalam Paperboards & Specialty Papers (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~532 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
@@ -9256,6 +9360,7 @@
     "storage_access": "good",
     "nearest_storage_km": 651,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "APP Indah Kiat Perawang Pulp Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~651 km) with a retrofittable pulp_paper anchor (APP Indah Kiat Perawang Pulp Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -9378,6 +9483,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1609,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Phoenix Pulp & Paper Khon Kaen (pulp_paper)",
     "rationale": "Mixed dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -9501,6 +9607,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 927,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Vietnam Lee & Man Paper Hau Giang (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~927 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -9625,6 +9732,7 @@
     "storage_access": "good",
     "nearest_storage_km": 373,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~373 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -9730,6 +9838,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1204,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -9838,6 +9947,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1553,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -9946,6 +10056,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1226,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -10054,6 +10165,7 @@
     "storage_access": "good",
     "nearest_storage_km": 764,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Nippon Paper Ishinomaki Mill (pulp_paper)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~764 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -10125,6 +10237,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 723,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Yeongdong Biomass Power Plant (Eco Power) (bioenergy)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, moderate geologic storage access (~723 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
@@ -10198,6 +10311,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1590,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Mixed dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -10303,6 +10417,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1226,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -10411,6 +10526,7 @@
     "storage_access": "good",
     "nearest_storage_km": 679,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Opal Australian Paper Maryvale Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~679 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [
@@ -10539,6 +10655,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2064,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Oji Fibre Solutions Kinleith Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, excess nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
@@ -10668,6 +10785,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1346,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -10776,6 +10894,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 960,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~960 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -10884,6 +11003,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1457,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Suzano Cerrado Pulp Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~1457 km) with a retrofittable pulp_paper anchor (Suzano Cerrado Pulp Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [
@@ -11008,6 +11128,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2370,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Ledesma Ingenio Sugar/Ethanol Mill (ethanol)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11114,6 +11235,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 3353,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Incauca Sugar Mill & Bioethanol Plant (ethanol)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11222,6 +11344,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2881,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Arauco MAPA Complex (Horcones), Chile (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11346,6 +11469,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 3719,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11454,6 +11578,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1419,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "UPM Paso de los Toros Pulp Mill (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11578,6 +11703,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1471,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11686,6 +11812,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2337,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11794,6 +11921,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 3770,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -11902,6 +12030,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1561,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -12008,6 +12137,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1496,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -12114,6 +12244,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2205,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
@@ -12224,6 +12355,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1957,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
@@ -12334,6 +12466,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 6496,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Sappi Ngodwana Pulp & Paper Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -12458,6 +12591,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1830,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
     "caveats": [],
@@ -12566,6 +12700,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2997,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -12674,6 +12809,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 3782,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -12782,6 +12918,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2288,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -12890,6 +13027,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1040,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -12998,6 +13136,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2216,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -13106,6 +13245,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 3156,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -13214,6 +13354,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 4894,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -13322,6 +13463,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2462,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -13428,6 +13570,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 4666,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -13536,6 +13679,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2521,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Ilim Bratsk Pulp & Paper Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
@@ -13666,6 +13810,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1974,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "ISTAÇ Odayeri Waste-to-Energy Plant, Istanbul (wte)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -13763,26 +13908,59 @@
     "name": "Saudi Arabia",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
+    "recommended": "injection",
+    "recommended_label": "Biomass waste injection",
+    "runner_up": "biochar",
+    "runner_up_label": "Biochar",
+    "kpi_score": 69,
     "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "cost_band": "$125-285",
     "cdr_potential_mtpa": 7.9,
     "storage_access": "good",
     "nearest_storage_km": 462,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~462 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~462 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~462 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "biochar",
+        "label": "Biochar",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.3,
+        "cost_band": "~$100-200",
+        "pros": [
+          "Returns nutrients to soils, improving yields",
+          "Distributed and storage-independent; simple and near-term"
+        ],
+        "cons": [
+          "Low CDR efficiency (~30%)",
+          "Durability and verification questions; Frontier's lower-preference pathway"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -13793,38 +13971,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
-        ]
-      },
-      {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
         ]
       }
     ]
@@ -13845,6 +13991,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 747,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~747 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -13953,6 +14100,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 1047,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -14061,6 +14209,7 @@
     "storage_access": "poor",
     "nearest_storage_km": 2797,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -14158,26 +14307,60 @@
     "name": "Israel",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 2.7,
+    "recommended": "biochar",
+    "recommended_label": "Biochar",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 33,
+    "cdr_efficiency": 0.3,
+    "cost_band": "~$100-200",
+    "cdr_potential_mtpa": 0.9,
     "storage_access": "poor",
     "nearest_storage_km": 1557,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, excess nutrient status, poor/absent geologic storage access -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, excess nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "biochar",
+        "label": "Biochar",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.3,
+        "cost_band": "~$100-200",
+        "pros": [
+          "Distributed and storage-independent; simple and near-term"
+        ],
+        "cons": [
+          "Low CDR efficiency (~30%)",
+          "Durability and verification questions; Frontier's lower-preference pathway",
+          "Returns nutrients to soils already in surplus here"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Removes carbon and nutrients from an over-fertilized landscape"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far",
+          "Geologic storage is poor/absent here — a major constraint"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -14190,38 +14373,6 @@
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
         ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
-          "Returns nutrients to soils already in surplus here"
-        ]
-      },
-      {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Distributed and storage-independent; simple and near-term"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway",
-          "Returns nutrients to soils already in surplus here"
-        ]
       }
     ]
   },
@@ -14230,26 +14381,59 @@
     "name": "United Arab Emirates",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
+    "recommended": "injection",
+    "recommended_label": "Biomass waste injection",
+    "runner_up": "biochar",
+    "runner_up_label": "Biochar",
+    "kpi_score": 69,
     "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "cost_band": "$125-285",
     "cdr_potential_mtpa": 2.8,
     "storage_access": "good",
     "nearest_storage_km": 43,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~43 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~43 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~43 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "biochar",
+        "label": "Biochar",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.3,
+        "cost_band": "~$100-200",
+        "pros": [
+          "Returns nutrients to soils, improving yields",
+          "Distributed and storage-independent; simple and near-term"
+        ],
+        "cons": [
+          "Low CDR efficiency (~30%)",
+          "Durability and verification questions; Frontier's lower-preference pathway"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -14260,38 +14444,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
-        ]
-      },
-      {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
         ]
       }
     ]
@@ -14312,6 +14464,7 @@
     "storage_access": "good",
     "nearest_storage_km": 129,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "West Fraser Hinton Pulp Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~129 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -14438,6 +14591,7 @@
     "storage_access": "good",
     "nearest_storage_km": 638,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Canfor Intercontinental Pulp Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~638 km) with a retrofittable pulp_paper anchor (Canfor Intercontinental Pulp Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -14564,6 +14718,7 @@
     "storage_access": "good",
     "nearest_storage_km": 713,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~713 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -14672,6 +14827,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1401,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1401 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -14780,6 +14936,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1950,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1950 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -14877,26 +15034,62 @@
     "name": "Northwest Territories",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
     "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 1236,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1236 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1236 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~1236 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
+          "Local biomass is diffuse — hauling to a central plant is costly"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~1236 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -14908,23 +15101,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -14961,6 +15137,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1683,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1683 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -15058,26 +15235,27 @@
     "name": "Nunavut",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "recommended": "none",
+    "recommended_label": "No viable BiCRS pathway",
+    "runner_up": null,
+    "runner_up_label": null,
+    "kpi_score": null,
+    "cdr_efficiency": null,
+    "cost_band": null,
     "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 2140,
     "has_retrofit": false,
+    "no_option": true,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~2140 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -15089,23 +15267,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -15142,6 +15303,7 @@
     "storage_access": "good",
     "nearest_storage_km": 553,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Resolute Thunder Bay Pulp & Paper Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~553 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -15268,6 +15430,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1662,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~1662 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -15373,6 +15536,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1199,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Domtar Windsor Pulp & Paper Mill (pulp_paper)",
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~1199 km) with a retrofittable pulp_paper anchor (Domtar Windsor Pulp & Paper Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -15499,6 +15663,7 @@
     "storage_access": "good",
     "nearest_storage_km": 446,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~446 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -15596,26 +15761,62 @@
     "name": "Yukon",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
     "cdr_potential_mtpa": 0.0,
     "storage_access": "good",
     "nearest_storage_km": 1608,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1608 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, good geologic storage access (nearest qualifying storage ~1608 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~1608 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
+          "Local biomass is diffuse — hauling to a central plant is costly"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~1608 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -15627,23 +15828,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -15680,6 +15864,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1320,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1320 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -15788,6 +15973,7 @@
     "storage_access": "good",
     "nearest_storage_km": 203,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~203 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -15896,6 +16082,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1799,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1799 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -16004,6 +16191,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1597,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~1597 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -16112,6 +16300,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1034,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~1034 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -16211,26 +16400,27 @@
     "name": "Chandigarh",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 0.2,
+    "recommended": "none",
+    "recommended_label": "No viable BiCRS pathway",
+    "runner_up": null,
+    "runner_up_label": null,
+    "kpi_score": null,
+    "cdr_efficiency": null,
+    "cost_band": null,
+    "cdr_potential_mtpa": 0.0,
     "storage_access": "moderate",
     "nearest_storage_km": 1653,
     "has_retrofit": false,
+    "no_option": true,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~1653 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -16241,23 +16431,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -16293,6 +16466,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 535,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~535 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -16390,36 +16564,39 @@
     "name": "Dadra and Nagar Haveli and Daman and Diu",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
     "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
     "cdr_potential_mtpa": 0.1,
     "storage_access": "moderate",
     "nearest_storage_km": 991,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~991 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~991 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "burial",
-        "label": "Biomass burial",
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
         "badge": "Recommended",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
         "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass"
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
+          "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
       {
@@ -16437,6 +16614,22 @@
         "cons": [
           "Lower CDR efficiency (~45%)",
           "Higher $/t than injection where storage is proximate"
+        ]
+      },
+      {
+        "key": "burial",
+        "label": "Biomass burial",
+        "badge": "Possible",
+        "cdr_efficiency": 0.9,
+        "cost_band": "<$100-150",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Simple and low-cost; needs no geologic CO2 storage",
+          "Works for distributed biomass"
+        ],
+        "cons": [
+          "Durability still being validated (Frontier prepurchase, not offtake)",
+          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
         ]
       },
       {
@@ -16461,26 +16654,27 @@
     "name": "Delhi",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 1.6,
+    "recommended": "none",
+    "recommended_label": "No viable BiCRS pathway",
+    "runner_up": null,
+    "runner_up_label": null,
+    "kpi_score": null,
+    "cdr_efficiency": null,
+    "cost_band": null,
+    "cdr_potential_mtpa": 0.0,
     "storage_access": "moderate",
     "nearest_storage_km": 1429,
     "has_retrofit": false,
+    "no_option": true,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, moderate geologic storage access (~1429 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock but there is no waste-to-energy plant within range to retrofit with capture (and MSW is landfilled, not a removal feedstock), while other biomass — agricultural and forestry residues, manure — is limited. The options below are marginal at best.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -16491,23 +16685,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -16532,37 +16709,39 @@
     "name": "Goa",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
     "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
     "cdr_potential_mtpa": 0.1,
     "storage_access": "moderate",
     "nearest_storage_km": 802,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~802 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~802 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "burial",
-        "label": "Biomass burial",
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
         "badge": "Recommended",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
         "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass",
-          "Suits the region's diffuse, distributed biomass"
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway"
         ],
         "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
+          "Geologic storage only moderately accessible — transport adds cost",
+          "Local biomass is diffuse — hauling to a central plant is costly"
         ]
       },
       {
@@ -16580,6 +16759,23 @@
         "cons": [
           "Lower CDR efficiency (~45%)",
           "Higher $/t than injection where storage is proximate"
+        ]
+      },
+      {
+        "key": "burial",
+        "label": "Biomass burial",
+        "badge": "Possible",
+        "cdr_efficiency": 0.9,
+        "cost_band": "<$100-150",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Simple and low-cost; needs no geologic CO2 storage",
+          "Works for distributed biomass",
+          "Suits the region's diffuse, distributed biomass"
+        ],
+        "cons": [
+          "Durability still being validated (Frontier prepurchase, not offtake)",
+          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
         ]
       },
       {
@@ -16616,6 +16812,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1213,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~1213 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -16724,6 +16921,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1506,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, moderate geologic storage access (~1506 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -16832,6 +17030,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1767,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1767 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -16940,6 +17139,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 2011,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~2011 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -17048,6 +17248,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 883,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~883 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -17156,6 +17357,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 593,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "West Coast Paper Mills Dandeli (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~593 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -17283,6 +17485,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 872,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~872 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -17391,6 +17594,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 2006,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse wet animal manure / biosolids, low nutrient status, moderate geologic storage access (~2006 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
@@ -17436,43 +17640,27 @@
     "name": "Lakshadweep",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
+    "recommended": "bio_oil",
+    "recommended_label": "Bio-oil sequestration",
+    "runner_up": "biochar",
+    "runner_up_label": "Biochar",
+    "kpi_score": 42,
+    "cdr_efficiency": 0.45,
+    "cost_band": "$140-360",
     "cdr_potential_mtpa": 0.0,
     "storage_access": "moderate",
     "nearest_storage_km": 1129,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~1129 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Diffuse municipal solid waste, low nutrient status, moderate geologic storage access (~1129 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "burial",
-        "label": "Biomass burial",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
-        "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass",
-          "Suits the region's diffuse, distributed biomass"
-        ],
-        "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
         "key": "bio_oil",
         "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
         "pros": [
@@ -17489,7 +17677,7 @@
       {
         "key": "biochar",
         "label": "Biochar",
-        "badge": "Poor fit",
+        "badge": "Runner-up",
         "cdr_efficiency": 0.3,
         "cost_band": "~$100-200",
         "pros": [
@@ -17500,6 +17688,23 @@
         "cons": [
           "Low CDR efficiency (~30%)",
           "Durability and verification questions; Frontier's lower-preference pathway"
+        ]
+      },
+      {
+        "key": "burial",
+        "label": "Biomass burial",
+        "badge": "Possible",
+        "cdr_efficiency": 0.9,
+        "cost_band": "<$100-150",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Simple and low-cost; needs no geologic CO2 storage",
+          "Works for distributed biomass",
+          "Suits the region's diffuse, distributed biomass"
+        ],
+        "cons": [
+          "Durability still being validated (Frontier prepurchase, not offtake)",
+          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
         ]
       }
     ]
@@ -17520,6 +17725,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 770,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~770 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -17628,6 +17834,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 683,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~683 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -17734,6 +17941,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1579,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1579 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -17842,6 +18050,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1433,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1433 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -17950,6 +18159,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1405,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1405 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -18058,6 +18268,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1731,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1731 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -18166,6 +18377,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 619,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "JK Paper Mills Rayagada (JKPM) (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~619 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -18293,6 +18505,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 543,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, moderate geologic storage access (~543 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -18401,6 +18614,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1741,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, moderate geologic storage access (~1741 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -18509,6 +18723,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1389,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse wet animal manure / biosolids, moderate nutrient status, moderate geologic storage access (~1389 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
@@ -18565,6 +18780,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1419,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1419 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -18673,6 +18889,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 672,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Tamil Nadu Newsprint & Papers Ltd (TNPL) Kagithapuram (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~672 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -18800,6 +19017,7 @@
     "storage_access": "good",
     "nearest_storage_km": 263,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "ITC Bhadrachalam Paperboards & Specialty Papers (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~263 km) with a retrofittable pulp_paper anchor (ITC Bhadrachalam Paperboards & Specialty Papers) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -18923,6 +19141,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1348,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1348 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -19031,6 +19250,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1169,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "India Biogas Cluster (biogas_ad)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, moderate geologic storage access (~1169 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -19139,6 +19359,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 1533,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1533 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -19247,6 +19468,7 @@
     "storage_access": "moderate",
     "nearest_storage_km": 985,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~985 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
@@ -19355,6 +19577,7 @@
     "storage_access": "good",
     "nearest_storage_km": 601,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~601 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -19461,6 +19684,7 @@
     "storage_access": "good",
     "nearest_storage_km": 347,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Beijing Asuwei WtE Plant (wte)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~347 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -19532,6 +19756,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1007,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~1007 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -19641,6 +19866,7 @@
     "storage_access": "good",
     "nearest_storage_km": 446,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~446 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -19749,6 +19975,7 @@
     "storage_access": "good",
     "nearest_storage_km": 494,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~494 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -19857,6 +20084,7 @@
     "storage_access": "good",
     "nearest_storage_km": 205,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Nine Dragons Paper Dongguan Mill (pulp_paper)",
     "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~205 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -19929,6 +20157,7 @@
     "storage_access": "good",
     "nearest_storage_km": 658,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~658 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -20034,6 +20263,7 @@
     "storage_access": "good",
     "nearest_storage_km": 937,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~937 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -20142,6 +20372,7 @@
     "storage_access": "good",
     "nearest_storage_km": 618,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~618 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -20250,6 +20481,7 @@
     "storage_access": "good",
     "nearest_storage_km": 287,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~287 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -20356,6 +20588,7 @@
     "storage_access": "good",
     "nearest_storage_km": 383,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~383 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -20461,6 +20694,7 @@
     "storage_access": "good",
     "nearest_storage_km": 575,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "China Biogas Cluster (biogas_ad)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~575 km) with a retrofittable biogas_ad anchor (China Biogas Cluster) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -20567,6 +20801,7 @@
     "storage_access": "good",
     "nearest_storage_km": 906,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~906 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -20673,6 +20908,7 @@
     "storage_access": "good",
     "nearest_storage_km": 626,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~626 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -20779,6 +21015,7 @@
     "storage_access": "good",
     "nearest_storage_km": 609,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~609 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -20887,6 +21124,7 @@
     "storage_access": "good",
     "nearest_storage_km": 484,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~484 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -20993,6 +21231,7 @@
     "storage_access": "good",
     "nearest_storage_km": 515,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~515 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -21099,6 +21338,7 @@
     "storage_access": "good",
     "nearest_storage_km": 137,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~137 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -21204,6 +21444,7 @@
     "storage_access": "good",
     "nearest_storage_km": 373,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~373 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -21309,6 +21550,7 @@
     "storage_access": "good",
     "nearest_storage_km": 235,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~235 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -21417,6 +21659,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1142,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse biomass residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1142 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -21525,6 +21768,7 @@
     "storage_access": "good",
     "nearest_storage_km": 369,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~369 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -21633,6 +21877,7 @@
     "storage_access": "good",
     "nearest_storage_km": 71,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Sun Paper Group Yanzhou Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~71 km) with a retrofittable pulp_paper anchor (Sun Paper Group Yanzhou Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
@@ -21756,6 +22001,7 @@
     "storage_access": "good",
     "nearest_storage_km": 718,
     "has_retrofit": true,
+    "no_option": false,
     "anchor_facility": "Shanghai Laogang WtE Phase I+II (wte)",
     "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~718 km) -> WtE + CCS captures biogenic CO2 from municipal waste already being combusted (55% CDR efficiency, energy co-product).",
     "caveats": [],
@@ -21827,6 +22073,7 @@
     "storage_access": "good",
     "nearest_storage_km": 197,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~197 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -21935,6 +22182,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1070,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": "Chengdu Wanxing WtE Plant (wte)",
     "rationale": "Concentrated dry agricultural residues, excess nutrient status, good geologic storage access (nearest qualifying storage ~1070 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -22030,26 +22278,61 @@
     "name": "Tianjin",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 2.5,
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "injection",
+    "runner_up_label": "Biomass waste injection",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
+    "cdr_potential_mtpa": 2.2,
     "storage_access": "good",
     "nearest_storage_km": 244,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~244 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, moderate nutrient status, good geologic storage access (nearest qualifying storage ~244 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~244 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
+        ]
+      },
+      {
+        "key": "injection",
+        "label": "Biomass waste injection",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.9,
+        "cost_band": "$125-285",
+        "pros": [
+          "Very high CDR efficiency (>90%)",
+          "Cheaper on balance than bio-oil where wells are near",
+          "PFAS destruction; disposes problematic wet wastes",
+          "Proximate geologic storage here (~244 km)"
+        ],
+        "cons": [
+          "No emissions-avoiding co-product",
+          "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Possible",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -22060,23 +22343,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -22112,6 +22378,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1832,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse biomass residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1832 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -22220,6 +22487,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1930,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~1930 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [],
@@ -22328,6 +22596,7 @@
     "storage_access": "good",
     "nearest_storage_km": 1419,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~1419 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
@@ -22425,26 +22694,44 @@
     "name": "Zhejiang",
     "level": "subnational",
     "superseded_by_subnational": false,
-    "recommended": "burial",
-    "recommended_label": "Biomass burial",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
-    "kpi_score": 54,
-    "cdr_efficiency": 0.9,
-    "cost_band": "<$100-150",
-    "cdr_potential_mtpa": 6.8,
+    "recommended": "beccs",
+    "recommended_label": "BECCS (heat/electricity)",
+    "runner_up": "burial",
+    "runner_up_label": "Biomass burial",
+    "kpi_score": 73,
+    "cdr_efficiency": 0.8,
+    "cost_band": "$200-225 (to <$100 at scale)",
+    "cdr_potential_mtpa": 6.0,
     "storage_access": "good",
     "nearest_storage_km": 845,
     "has_retrofit": false,
+    "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~845 km) -> with excess nutrients and no viable geologic storage, biomass burial offers >89% CDR efficiency at low cost without needing CO2 storage (Kodama/Graphyte model).",
+    "rationale": "Concentrated municipal solid waste, excess nutrient status, good geologic storage access (nearest qualifying storage ~845 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
+        "badge": "Recommended",
+        "cdr_efficiency": 0.8,
+        "cost_band": "$200-225 (to <$100 at scale)",
+        "pros": [
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
+          "Proximate geologic storage here (~845 km)"
+        ],
+        "cons": [
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings"
+        ]
+      },
+      {
         "key": "burial",
         "label": "Biomass burial",
-        "badge": "Recommended",
+        "badge": "Runner-up",
         "cdr_efficiency": 0.9,
         "cost_band": "<$100-150",
         "pros": [
@@ -22456,23 +22743,6 @@
         "cons": [
           "Durability still being validated (Frontier prepurchase, not offtake)",
           "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
-        "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
-        "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
-        ],
-        "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
-          "Returns nutrients to soils already in surplus here"
         ]
       },
       {

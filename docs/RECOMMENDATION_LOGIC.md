@@ -62,7 +62,9 @@ flowchart TD
     %% ---------- 2. MSW  (WtE+CCS gated on a WtE plant within ~50 km) ----------
     DOM -->|msw| Wnear{storage near AND<br/>WtE plant within ~50 km?}
     Wnear -->|yes| Wwte["WtE + CCS<br/>runner: burial"]
-    Wnear -->|no| Wbur["Biomass burial<br/>runner: bio-oil"]
+    Wnear -->|no| Wsec{other significant<br/>biomass? ≥25% of MSW}
+    Wsec -->|yes| Wre["re-evaluate on the<br/>secondary feedstock<br/>(ag / forestry / manure)"]
+    Wsec -->|no| Wnone["No viable BiCRS pathway"]
 
     %% ---------- 3. WOODY  OR  DRY-AG & CONCENTRATED ----------
     DOM -->|forestry_woody<br/>OR ag_dry & concentrated| Csa{storage<br/>access?}
@@ -87,16 +89,20 @@ flowchart TD
     Fsa -->|else| Fbe2["BECCS<br/>runner: bio-oil"]
 
     %% ---------- POST-STEP ----------
-    Mad & Minj & Mad2 & Mbio & Wwte & Wbur & Cpp & Cbe & Cbe2 & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
+    Mad & Minj & Mad2 & Mbio & Wwte & Cpp & Cbe & Cbe2 & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
     NUT -->|yes| Swap["swap runner-up to Biomass burial<br/>removal-consistent; bio-oil would<br/>return nutrients to surplus soils"]
     NUT -->|no| Keep["keep runner-up"]
     Swap --> Done([Recommended + runner-up])
     Keep --> Done
+    Wre --> Done
+    Wnone --> Done
 
     classDef rec fill:#15967f,stroke:#0d5530,color:#eafffb;
     classDef q fill:#1c2730,stroke:#2a3742,color:#e8edf1;
-    class Mad,Minj,Mad2,Mbio,Wwte,Wbur,Cpp,Cbe,Cbe2,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
-    class DOM,Mgate,Wnear,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
+    classDef none fill:#3a4350,stroke:#222a33,color:#cdd6df;
+    class Mad,Minj,Mad2,Mbio,Wwte,Wre,Cpp,Cbe,Cbe2,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
+    class DOM,Mgate,Wnear,Wsec,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
+    class Wnone none;
 ```
 
 ## Notes & exclusions

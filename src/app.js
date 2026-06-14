@@ -552,8 +552,8 @@
       if (c) { fill = c; opacity = 0.92; }
     } else {
       const rec = recById[id];
-      if (rec && !rec.low_supply && PATH_META[rec.recommended]) { fill = PATH_META[rec.recommended].color; opacity = 0.9; }
-      else if (rec && rec.low_supply) { fill = NODATA; opacity = 0.5; }
+      if (rec && !rec.low_supply && !rec.no_option && PATH_META[rec.recommended]) { fill = PATH_META[rec.recommended].color; opacity = 0.9; }
+      else if (rec && (rec.low_supply || rec.no_option)) { fill = NODATA; opacity = 0.5; }
     }
     return { fillColor: fill, fillOpacity: opacity, color: "#0e1419", weight: 0.5 };
   }
@@ -585,8 +585,10 @@
       sub = v == null ? "no data" : `<span class="ht-val">${fmt(v)} Mt/yr</span>`;
     } else {
       const rec = recById[id];
-      sub = rec ? `<span class="ht-val">${PATH_META[rec.recommended].label}</span>`
-        + (rec.low_supply ? ' <span class="lowsup">· low supply</span>' : "") : "no data";
+      if (!rec) sub = "no data";
+      else if (rec.no_option) sub = `<span class="ht-val lowsup">No viable BiCRS pathway</span>`;
+      else sub = `<span class="ht-val">${PATH_META[rec.recommended].label}</span>`
+        + (rec.low_supply ? ' <span class="lowsup">· low supply</span>' : "");
     }
     dom.hovertip.innerHTML = `<div class="ht-name">${name}</div>${sub}`;
     dom.hovertip.classList.remove("hidden");
@@ -646,6 +648,20 @@
   }
 
   function recCard(rec, sc) {
+    if (rec.no_option) {   // no good BiCRS pathway — distinct muted card, no KPI grid
+      let h = `<div class="rec-card">
+        <div class="rec-top"><span class="rec-pill" style="background:#3a4350">NO VIABLE PATHWAY</span>
+          <h3>No good BiCRS option here</h3></div>
+        <p class="rationale">${rec.rationale || ""}</p>`;
+      (rec.caveats || []).forEach(c => { h += `<div class="caveat">${c}</div>`; });
+      h += `</div>`;
+      if (sc.storageDetailRows) {
+        const rows = sc.storageDetailRows(rec);
+        h += `<div class="d-metrics">` + rows.map(r =>
+          `<div><div class="k">${r.k}</div><div class="v">${r.v}</div></div>`).join("") + `</div>`;
+      }
+      return h;
+    }
     const meta = PATH_META[rec.recommended] || { label: rec.recommended_label, color: "#888" };
     const eff = rec.cdr_efficiency != null ? Math.round(rec.cdr_efficiency * 100) + "%" : "—";
     const cdr = rec.cdr_potential_mtpa != null ? fmt(rec.cdr_potential_mtpa) + " Mtpa" : "—";
@@ -723,7 +739,9 @@
     } else {
       dom.legendTitle.textContent = "Recommended pathway";
       const counts = {};
+      let nNone = 0;
       Object.values(recById).forEach(r => {
+        if (r.no_option) { nNone++; return; }
         if (sc.lowSupplyAware && r.low_supply) return;
         counts[r.recommended] = (counts[r.recommended] || 0) + 1;
       });
@@ -733,7 +751,8 @@
         html += `<div class="legend-row"><span class="box" style="background:${PATH_META[k].color}"></span>
           ${PATH_META[k].label} <span style="color:var(--ink-3);margin-left:auto;font-family:var(--mono);font-size:10px">${counts[k]}</span></div>`;
       });
-      html += `<div class="legend-row"><span class="box" style="background:${NODATA}"></span>${sc.lowSupplyAware ? "Low / negligible supply" : "No data"}</div>`;
+      const greyLabel = nNone ? "No viable pathway" + (sc.lowSupplyAware ? " / low supply" : "") : (sc.lowSupplyAware ? "Low / negligible supply" : "No data");
+      html += `<div class="legend-row"><span class="box" style="background:${NODATA}"></span>${greyLabel}${nNone ? ` <span style="color:var(--ink-3);margin-left:auto;font-family:var(--mono);font-size:10px">${nNone}</span>` : ""}</div>`;
       html += `<div class="legend-note">${sc.legendNote.recommendation}</div>`;
       dom.legend.innerHTML = html;
     }

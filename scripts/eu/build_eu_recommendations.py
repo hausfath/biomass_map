@@ -27,8 +27,9 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
 from engine_core import (
-    PATHWAYS, ODT_TO_CO2, PROC_RADIUS_KM, AD_MIN_CAP_MTPA, num, haversine_km, _point_in_geometry,
-    decide, kpi_score, cdr_potential_mtpa, build_ranked,
+    PATHWAYS, ODT_TO_CO2, PROC_RADIUS_KM, AD_MIN_CAP_MTPA, NO_OPTION_RATIONALE,
+    num, haversine_km, _point_in_geometry,
+    decide, kpi_score, cdr_potential_mtpa, build_ranked, build_ranked_none,
     build_rationale, build_caveats_flags,
 )
 
@@ -234,22 +235,33 @@ def main():
             region["centroid"], facilities)
 
         rec_key, runner_key = decide(region, access, has_retrofit, avail)
+        no_option = (rec_key == "none")
+        anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
 
         nutrient_alt = False
-        if (region.get("nutrient_status") == "excess"
-                and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
-                and runner_key != "burial"):
-            runner_key, nutrient_alt = "burial", True
-
-        score = kpi_score(rec_key, access)
-        cdr = cdr_potential_mtpa(region, rec_key)
-        rationale = build_rationale(region, rec_key, access, nearest_km,
-                                    has_retrofit, anchor_name, anchor_type)
+        if no_option:
+            rec_label, runner_label = "No viable BiCRS pathway", None
+            score = eff = cost = None
+            cdr = 0.0
+            rationale = NO_OPTION_RATIONALE
+            ranked = build_ranked_none(region, access, nearest_km, avail, anchor_str)
+        else:
+            if (region.get("nutrient_status") == "excess"
+                    and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
+                    and runner_key != "burial"):
+                runner_key, nutrient_alt = "burial", True
+            score = kpi_score(rec_key, access)
+            eff = PATHWAYS[rec_key]["cdr_efficiency"]
+            cost = PATHWAYS[rec_key]["cost_band"]
+            cdr = cdr_potential_mtpa(region, rec_key)
+            rec_label = PATHWAYS[rec_key]["label"]
+            runner_label = PATHWAYS[runner_key]["label"]
+            rationale = build_rationale(region, rec_key, access, nearest_km,
+                                        has_retrofit, anchor_name, anchor_type)
+            ranked = build_ranked(region, rec_key, runner_key, access, nearest_km,
+                                  avail, anchor_str)
         caveats, flags = build_caveats_flags(region, rec_key, runner_key, False,
                                              anchor_type, nutrient_alt)
-        anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
-        ranked = build_ranked(region, rec_key, runner_key, access, nearest_km,
-                              avail, anchor_str)
 
         low_supply = co2_total(region) < MIN_SUPPLY_MT
         if low_supply:
@@ -267,13 +279,14 @@ def main():
             "nuts_id": region["nuts_id"],
             "level": "nuts2",
             "recommended": rec_key,
-            "recommended_label": PATHWAYS[rec_key]["label"],
+            "recommended_label": rec_label,
             "runner_up": runner_key,
-            "runner_up_label": PATHWAYS[runner_key]["label"],
+            "runner_up_label": runner_label,
             "kpi_score": score,
-            "cdr_efficiency": PATHWAYS[rec_key]["cdr_efficiency"],
-            "cost_band": PATHWAYS[rec_key]["cost_band"],
+            "cdr_efficiency": eff,
+            "cost_band": cost,
             "cdr_potential_mtpa": cdr,
+            "no_option": no_option,
             "storage_access": access,
             "nearest_storage_km": nearest_km,
             "storage_detail": sdetail,

@@ -256,12 +256,42 @@ def _point_in_geometry(x, y, geom):
 # --------------------------------------------------------------------------
 # Decision tree (first match wins)
 # --------------------------------------------------------------------------
+# A non-MSW feedstock counts as "significant" (worth re-routing an MSW region to) if its CDR-
+# relevant CO2 potential is at least this fraction of the region's biogenic-MSW potential.
+SECONDARY_FRAC = 0.25
+
+
+def _secondary_dom(region):
+    """For an MSW-dominant region with no WtE to retrofit: the next-significant feedstock to
+    recommend on, or None if MSW overwhelmingly dominates -> no good BiCRS option."""
+    ag = num(region.get("ag_residues_odt_mt"))
+    forestry = num(region.get("forestry_residues_odt_mt"))
+    dry = (ag + forestry) * ODT_TO_CO2
+    wet = (num(region.get("animal_manure_odt_mt")) + num(region.get("human_wwtp_odt_mt"))) * ODT_TO_CO2
+    msw = num(region.get("msw_total_mt")) * num(region.get("msw_biogenic_frac"), 0.5)
+    best = max(dry, wet)
+    if best <= 0 or best < SECONDARY_FRAC * msw:
+        return None
+    if dry >= wet:
+        return "forestry_woody" if forestry > ag else "ag_dry"
+    return "manure_wet"
+
+
 def decide(region, storage_access, has_retrofit, avail=None):
     dom = region.get("dominant_feedstock")
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
     near = storage_access in ("good", "moderate")
     av = _avail(avail)  # {pp, wte, ad}: is a retrofittable facility of each type within reach?
+
+    # MSW with no WtE plant to retrofit: municipal waste is landfilled here, not a standalone
+    # removal feedstock. Re-evaluate on the region's next-significant feedstock; if there is no
+    # other significant biomass, there is no good BiCRS option ("none").
+    if dom == "msw" and not (near and av["wte"]):
+        alt = _secondary_dom(region)
+        if alt is None:
+            return "none", None
+        dom = alt  # decide on the secondary feedstock instead
 
     # Preferred distributed-removal pathway for DRY biomass, set by storage proximity.
     # Frontier is bullish on Vaulted-style slurry injection: it handles the same dry
@@ -286,11 +316,9 @@ def decide(region, storage_access, has_retrofit, avail=None):
             return "ad_ccs", "biochar"
         return "biochar", "injection"
 
-    # 2. MSW. WtE+CCS only where an existing WtE plant is within reach (retrofit-only).
+    # 2. MSW. Only reached when an existing WtE plant is within reach (else re-routed above).
     if dom == "msw":
-        if near and av["wte"]:
-            return "wte_ccs", "burial"
-        return "burial", "bio_oil"
+        return "wte_ccs", "burial"
 
     # 3. forestry_woody OR (ag_dry & concentrated)
     if dom == "forestry_woody" or (dom == "ag_dry" and density == "concentrated"):
@@ -523,6 +551,33 @@ def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
             "cost_band": PATHWAYS[a]["cost_band"],
             "pros": pros,
             "cons": cons,
+        })
+    return ranked
+
+
+NO_OPTION_RATIONALE = (
+    "No strong near-term BiCRS pathway here: municipal waste is the only significant feedstock "
+    "but there is no waste-to-energy plant within range to retrofit with capture (and MSW is "
+    "landfilled, not a removal feedstock), while other biomass — agricultural and forestry "
+    "residues, manure — is limited. The options below are marginal at best."
+)
+
+
+def build_ranked_none(region, storage_access, nearest_km, avail, anchor):
+    """Ranked list for a 'no good BiCRS option' region: the technically-applicable pathways,
+    scored and badged honestly (no pinned recommendation)."""
+    dom = region.get("dominant_feedstock")
+    apps = applicable_pathways(dom, avail)
+    scores = {a: fit_score(region, a, storage_access, avail) for a in apps}
+    ranked = []
+    for a in sorted(apps, key=lambda a: -scores[a]):
+        sc = scores[a]
+        badge = "Possible" if sc >= 45 else "Poor fit"
+        pros, cons = region_pros_cons(region, a, storage_access, nearest_km, avail, anchor)
+        ranked.append({
+            "key": a, "label": PATHWAYS[a]["label"], "badge": badge,
+            "cdr_efficiency": PATHWAYS[a]["cdr_efficiency"], "cost_band": PATHWAYS[a]["cost_band"],
+            "pros": pros, "cons": cons,
         })
     return ranked
 

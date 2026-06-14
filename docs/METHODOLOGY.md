@@ -185,7 +185,11 @@ is within the typical **feedstock-procurement radius** of an existing facility o
   individually small, so *cumulative regional capacity* is what matters for a retrofit.
 
 Outside the radius the engine falls back to a non-retrofit pathway (no mill → plain BECCS/injection;
-no WtE → biomass burial; no AD → injection or biochar). Plain BECCS (heat/electricity) is **not**
+no AD → injection or biochar). For **MSW with no WtE plant in range**, municipal waste is landfilled
+rather than a removal feedstock, so the region is re-evaluated on its next-significant biomass
+(agricultural / forestry residues or manure ≥ 25% of the MSW potential); if there is no other
+significant feedstock, the result is **"no viable BiCRS pathway"** rather than a forced burial.
+Plain BECCS (heat/electricity) is **not**
 gated. At country scope (global view) "within radius" reduces to "a facility of that type exists in
 the country". **Facility coverage for the gate:** pulp & paper and WtE from the global + EPA
 GHGRP / E-PRTR datasets; AD from **EPA AgSTAR** (US livestock digester database, mapped to counties

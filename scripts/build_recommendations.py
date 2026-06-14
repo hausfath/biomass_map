@@ -23,6 +23,7 @@ from collections import Counter
 from engine_core import (
     PATHWAYS,
     HAS_SUBNATIONAL,
+    NO_OPTION_RATIONALE,
     haversine_km,
     region_country,
     _point_in_geometry,
@@ -30,6 +31,7 @@ from engine_core import (
     kpi_score,
     cdr_potential_mtpa,
     build_ranked,
+    build_ranked_none,
     build_rationale,
     build_caveats_flags,
 )
@@ -277,35 +279,38 @@ def build():
         has_retrofit, anchor_name, anchor_type, avail = compute_retrofit(region, facilities)
         # Step 3
         rec_key, runner_key = decide(region, storage_access, has_retrofit, avail)
+        no_option = (rec_key == "none")
+        anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
 
-        # Excess-nutrient nuance (thesis sec 2.2, China example): where the ecosystem
-        # carries surplus nutrients, high-removal pathways (incl. biomass burial) are
-        # tolerable/favoured, so burial is surfaced as the alternative for dry-biomass
-        # removal recommendations even when BECCS/bio-oil leads on storage grounds.
-        # Injection is included: where it leads in an excess-nutrient region, burial is a
-        # more coherent alternative than bio-oil, which *returns* nutrients to soils.
         nutrient_alt = False
-        if (region.get("nutrient_status") == "excess"
-                and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
-                and runner_key != "burial"):
-            runner_key = "burial"
-            nutrient_alt = True
-        # Step 4
-        score = kpi_score(rec_key, storage_access)
-        # Step 5
-        cdr = cdr_potential_mtpa(region, rec_key)
+        if no_option:
+            # No good BiCRS pathway (MSW-only region with no WtE and no other significant biomass).
+            rec_label, runner_label = "No viable BiCRS pathway", None
+            score = eff = cost = None
+            cdr = 0.0
+            rationale = NO_OPTION_RATIONALE
+            ranked = build_ranked_none(region, storage_access, nearest_km, avail, anchor_str)
+        else:
+            # Excess-nutrient nuance (thesis sec 2.2): where the ecosystem carries surplus
+            # nutrients, surface biomass burial as the alternative for dry-biomass removal recs.
+            if (region.get("nutrient_status") == "excess"
+                    and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
+                    and runner_key != "burial"):
+                runner_key = "burial"
+                nutrient_alt = True
+            score = kpi_score(rec_key, storage_access)
+            eff = PATHWAYS[rec_key]["cdr_efficiency"]
+            cost = PATHWAYS[rec_key]["cost_band"]
+            cdr = cdr_potential_mtpa(region, rec_key)
+            rec_label = PATHWAYS[rec_key]["label"]
+            runner_label = PATHWAYS[runner_key]["label"]
+            rationale = build_rationale(region, rec_key, storage_access, nearest_km,
+                                        has_retrofit, anchor_name, anchor_type)
+            ranked = build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
+                                  avail, anchor_str)
 
-        rationale = build_rationale(
-            region, rec_key, storage_access, nearest_km,
-            has_retrofit, anchor_name, anchor_type
-        )
         caveats, flags = build_caveats_flags(
             region, rec_key, runner_key, only_low_conf, anchor_type, nutrient_alt
-        )
-
-        anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
-        ranked = build_ranked(
-            region, rec_key, runner_key, storage_access, nearest_km, avail, anchor_str
         )
 
         # Country rollups for countries we also map sub-nationally are redundant with their
@@ -319,16 +324,17 @@ def build():
             "level": region.get("level"),
             "superseded_by_subnational": superseded,
             "recommended": rec_key,
-            "recommended_label": PATHWAYS[rec_key]["label"],
+            "recommended_label": rec_label,
             "runner_up": runner_key,
-            "runner_up_label": PATHWAYS[runner_key]["label"],
+            "runner_up_label": runner_label,
             "kpi_score": score,
-            "cdr_efficiency": PATHWAYS[rec_key]["cdr_efficiency"],
-            "cost_band": PATHWAYS[rec_key]["cost_band"],
+            "cdr_efficiency": eff,
+            "cost_band": cost,
             "cdr_potential_mtpa": cdr,
             "storage_access": storage_access,
             "nearest_storage_km": nearest_km,
             "has_retrofit": has_retrofit,
+            "no_option": no_option,
             "anchor_facility": anchor_str,
             "rationale": rationale,
             "caveats": caveats,
@@ -354,9 +360,10 @@ def print_summary(records):
     for key in PATHWAYS:
         if by_path.get(key):
             print(f"  {key:12s} {PATHWAYS[key]['label']:28s} {by_path[key]:4d}")
-    # any pathway not in PATHWAYS (shouldn't happen)
+    if by_path.get("none"):
+        print(f"  {'none':12s} {'No viable BiCRS pathway':28s} {by_path['none']:4d}")
     for key, n in by_path.items():
-        if key not in PATHWAYS:
+        if key not in PATHWAYS and key != "none":
             print(f"  {key:12s} (UNKNOWN) {n}")
 
     print(f"\nTotal regions: {sum(by_path.values())}")
