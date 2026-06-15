@@ -1,0 +1,134 @@
+[
+ {
+  "name": "Quest CCS (Shell Scotford)",
+  "status": "operational",
+  "prov": "AB",
+  "lat": 53.73,
+  "lon": -113.07,
+  "operator": "Shell Canada",
+  "source": "Quest CCS — operational dedicated geologic storage",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Alberta Carbon Trunk Line (ACTL)",
+  "status": "operational",
+  "prov": "AB",
+  "lat": 53.95,
+  "lon": -113.1,
+  "operator": "Wolf Midstream",
+  "source": "ACTL — operational CO2 transport & storage/EOR",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Aquistore (Boundary Dam)",
+  "status": "operational",
+  "prov": "SK",
+  "lat": 49.12,
+  "lon": -103.0,
+  "operator": "PTRC",
+  "source": "Aquistore — operational deep saline storage",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Boundary Dam CCS (SaskPower)",
+  "status": "operational",
+  "prov": "SK",
+  "lat": 49.09,
+  "lon": -103.02,
+  "operator": "SaskPower",
+  "source": "Boundary Dam Unit 3 — operational power-CCS",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Weyburn-Midale CO2-EOR & Storage",
+  "status": "operational",
+  "prov": "SK",
+  "lat": 49.66,
+  "lon": -103.85,
+  "operator": "Whitecap Resources",
+  "source": "Weyburn-Midale — large CO2-EOR with monitored storage",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Entropy Glacier Gas Plant CCS",
+  "status": "operational",
+  "prov": "AB",
+  "lat": 56.2,
+  "lon": -117.6,
+  "operator": "Entropy Inc.",
+  "source": "Glacier Phase 1 — operational CCS",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Polaris CCS / Atlas Carbon Storage Hub (Scotford)",
+  "status": "issued",
+  "prov": "AB",
+  "lat": 53.73,
+  "lon": -113.05,
+  "operator": "Shell Canada",
+  "source": "Polaris/Atlas — under development at Scotford",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Pathways Alliance CCS Hub (Cold Lake)",
+  "status": "pending",
+  "prov": "AB",
+  "lat": 54.46,
+  "lon": -110.18,
+  "operator": "Pathways Alliance",
+  "source": "Oil-sands CCS trunkline + Cold Lake storage hub (proposed)",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Enbridge Wabamun Carbon Hub",
+  "status": "pending",
+  "prov": "AB",
+  "lat": 53.55,
+  "lon": -114.5,
+  "operator": "Enbridge / Capital Power",
+  "source": "Wabamun open-access carbon hub (proposed)",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Bison Low Carbon Ventures (Whitecap)",
+  "status": "pending",
+  "prov": "SK",
+  "lat": 50.4,
+  "lon": -102.8,
+  "operator": "Whitecap Resources",
+  "source": "Saskatchewan saline storage hub (appraisal)",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Meadowbrook / Carbon Connect (Strathcona)",
+  "status": "pending",
+  "prov": "AB",
+  "lat": 53.52,
+  "lon": -113.1,
+  "operator": "various",
+  "source": "Alberta industrial-heartland storage hub (appraisal)",
+  "kind": "project",
+  "co2_mtpa": null
+ },
+ {
+  "name": "Genesee Carbon Conversion / CCS (Capital Power)",
+  "status": "pending",
+  "prov": "AB",
+  "lat": 53.3,
+  "lon": -114.3,
+  "operator": "Capital Power",
+  "source": "Genesee CCS (appraisal)",
+  "kind": "project",
+  "co2_mtpa": null
+ }
+]

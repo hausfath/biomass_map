@@ -1,0 +1,802 @@
+[
+ {
+  "name": "West Fraser Hinton Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 53.4,
+  "lon": -117.6,
+  "capacity_note": "~250 kt/yr unbleached kraft pulp + co-located biomass energy facility",
+  "est_biogenic_co2_mtpa": {
+   "value": 1.3
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Emissions Reduction Alberta (ERA) grant announcement ($3.25M ERA / $11.8M total); Vault 44.01 project page",
+  "prov": "AB"
+ },
+ {
+  "name": "Alberta-Pacific (Al-Pac) Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 55.09,
+  "lon": -112.14,
+  "capacity_note": "~650 kt/yr NBSK kraft pulp; largest single-line kraft pulp producer in North America",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.6
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Al-Pac website (alpac.ca); GEM Wiki AlPac Boyle power station; calc: ~0.92 t CO2/adt × 650 kt/yr",
+  "prov": "AB"
+ },
+ {
+  "name": "Domtar Windsor Pulp & Paper Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 45.58,
+  "lon": -71.99,
+  "capacity_note": "645,000 short tons/yr uncoated fine paper; integrated pulp+paper mill (Eastern Townships, Quebec)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.55
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Domtar Windsor Mill fact sheet 2025; Pulp and Paper Canada Windsor modernization 2024; GEM Wiki Windsor Pulp Mill power station",
+  "prov": "QC"
+ },
+ {
+  "name": "Cariboo Pulp & Paper (Quesnel)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 52.97,
+  "lon": -122.5,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Prince George Pulp & Paper (Canfor)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 53.92,
+  "lon": -122.72,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.5
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Resolute Thunder Bay Pulp & Paper Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 48.4,
+  "lon": -89.32,
+  "capacity_note": "~535 kt/yr combined pulp, newsprint, and specialty papers (Thunder Bay, Ontario)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.49
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Pulp and Paper Canada: Thunder Bay Pulp and Paper acquires Resolute mill; EUWID Resolute Thunder Bay capacity",
+  "prov": "ON"
+ },
+ {
+  "name": "Mercer Celgar Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 49.3,
+  "lon": -117.7,
+  "capacity_note": "520 kt/yr NBSK pulp; Castlegar, British Columbia",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.48
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Mercer International annual report; Mercer Celgar mill description",
+  "prov": "BC"
+ },
+ {
+  "name": "West Fraser Quesnel River Pulp",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 52.96,
+  "lon": -122.46,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.45
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Howe Sound Pulp & Paper (Port Mellon)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 49.52,
+  "lon": -123.48,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.45
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": ""
+ },
+ {
+  "name": "Canfor Northwood Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 53.97,
+  "lon": -122.73,
+  "capacity_note": "~480 kt/yr NBSK (post-2024 curtailment of one line; formerly 510 kt/yr two-line)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.44
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Canfor press release May 2024 (indefinite curtailment of one line); PulpPaperCanada; Canfor AIF",
+  "prov": "BC"
+ },
+ {
+  "name": "Catalyst Powell River Mill (Paper Excellence)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 49.87,
+  "lon": -124.55,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Harmac Pacific Pulp Mill (Nanaimo)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 49.13,
+  "lon": -123.85,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Kruger Wayagamack / Trois-Rivières (QC)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 46.35,
+  "lon": -72.55,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "QC"
+ },
+ {
+  "name": "Domtar Dryden Pulp Mill (ON)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 49.78,
+  "lon": -92.83,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "ON"
+ },
+ {
+  "name": "Irving Pulp & Paper Saint John Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 45.24,
+  "lon": -66.1,
+  "capacity_note": "335 kt/yr NBSK+NHBK kraft pulp; undergoing 'NextGen' $1.1B expansion to 1,800 ADt/d (~657 kt/yr)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.38
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Pulp and Paper Canada: Irving NextGen upgrade; Tissue Online: Irving $1.1B upgrade; Irving Pulp and Paper Wikipedia; Paper Age 2024",
+  "prov": "NB"
+ },
+ {
+  "name": "Kruger Biomass Cogeneration — Brompton & Wayagamack",
+  "type": "bioenergy",
+  "country": "CAN",
+  "lat": 45.75,
+  "lon": -72.38,
+  "capacity_note": "Combined ~150 MWe biomass CHP across two Kruger pulp/paper facilities; Trois-Rivières and Brompton, Quebec",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.38
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "Kruger Incorporated operations website; Pulp and Paper Canada mill directory; Kruger Wayagamack Wikipedia",
+  "prov": "QC"
+ },
+ {
+  "name": "AV Group Nackawic Pulp Mill (NB)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 45.99,
+  "lon": -67.24,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.35
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "NB"
+ },
+ {
+  "name": "Port Hawkesbury Paper (NS)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 45.61,
+  "lon": -61.36,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.35
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": ""
+ },
+ {
+  "name": "Resolute Alma Pulp & Paper (QC)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 48.55,
+  "lon": -71.65,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.35
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "QC"
+ },
+ {
+  "name": "Terrace Bay Pulp Mill (AV Terrace Bay, ON)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 48.78,
+  "lon": -87.1,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.35
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "ON"
+ },
+ {
+  "name": "Canfor Intercontinental Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 53.9,
+  "lon": -122.8,
+  "capacity_note": "353 kt/yr NBSK pulp, Prince George BC",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.33
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Paper World mill database; Canfor corporate reports; BC BECCS industry discussions",
+  "prov": "BC"
+ },
+ {
+  "name": "Paper Excellence Crofton Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 48.86,
+  "lon": -123.65,
+  "capacity_note": "~355 kt/yr NBSK (pulp continues; paper production indefinitely curtailed Jan 2024)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.33
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "Crofton Mill Wikipedia; PaperAge Jan 2024; Domtar Dec 2025 closure announcement",
+  "prov": "BC"
+ },
+ {
+  "name": "Mercer Pulp (formerly Domtar) Kamloops Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 50.67,
+  "lon": -120.35,
+  "capacity_note": "~350 kt/yr NBSK kraft pulp; two-line mill (A+B lines; B-line restarted 2025)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.32
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Tissue World Magazine: Kruger acquires Domtar Kamloops mill; Paper Excellence sale announcement 2024; Domtar Kamloops fact sheet 2016",
+  "prov": "BC"
+ },
+ {
+  "name": "Twin Rivers Edmundston Mill (NB)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 47.37,
+  "lon": -68.33,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "NB"
+ },
+ {
+  "name": "White Birch — Stadacona Mill (Québec City)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 46.83,
+  "lon": -71.2,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "QC"
+ },
+ {
+  "name": "Mercer Peace River Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 56.2,
+  "lon": -117.3,
+  "capacity_note": "~305 kt/yr NBSK pulp",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.28
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Svante + Mercer Pre-FEED announcement Apr 2025; Bioenergy International; Paper Age",
+  "prov": "AB"
+ },
+ {
+  "name": "Resolute Forest Products Saint-Félicien Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 48.65,
+  "lon": -72.45,
+  "capacity_note": "~290 kt/yr NBSK kraft pulp; Lac-Saint-Jean, Quebec",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.27
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "Resolute Forest Products mill listing; Resolute 2023 annual report; calc: ~0.92 t CO2/adt × 290 kt",
+  "prov": "QC"
+ },
+ {
+  "name": "Millar Western Whitecourt BCTMP Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 54.14,
+  "lon": -115.68,
+  "capacity_note": "350 kt/yr BCTMP (bleached chemi-thermomechanical pulp); 20 grades HW+SW; co-located green energy facility",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.22
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Millar Western pulp mill page (millarwestern.com); Alberta CSA Registries GHGR facility listing (FacilityId 392); Pulp and Paper Canada BCTMP article",
+  "prov": "AB"
+ },
+ {
+  "name": "Domtar Espanola Pulp Mill",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 46.26,
+  "lon": -81.77,
+  "capacity_note": "~215 kt/yr NBSK kraft pulp; Espanola, Ontario",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "Domtar mill locations all-locations page; Pulp and Paper Canada Espanola; Canadian NBSK mill database",
+  "prov": "ON"
+ },
+ {
+  "name": "Williams Lake Bioenergy (BC)",
+  "type": "bioenergy",
+  "country": "CAN",
+  "lat": 52.13,
+  "lon": -122.14,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Metro Vancouver Waste-to-Energy (Burnaby)",
+  "type": "wte",
+  "country": "CAN",
+  "lat": 49.21,
+  "lon": -122.95,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.18
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Greenfield Global Chatham Ethanol (ON)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 42.4,
+  "lon": -82.19,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.18
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "ON"
+ },
+ {
+  "name": "Greenfield Global Johnstown Ethanol (ON)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 44.75,
+  "lon": -75.45,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.18
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": ""
+ },
+ {
+  "name": "Greenfield Global Varennes Ethanol (QC)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 45.68,
+  "lon": -73.43,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.16
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "QC"
+ },
+ {
+  "name": "Kruger Pulp & Paper Kamloops (formerly Domtar, now Kruger)",
+  "type": "bioenergy",
+  "country": "CAN",
+  "lat": 50.67,
+  "lon": -120.37,
+  "capacity_note": "~50 MWe biomass cogeneration at Kamloops kraft mill",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.15
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "GEM Wiki Powell River Pulp Mill power station; Kruger Kamloops acquisition; Domtar Kamloops biomass cogen",
+  "prov": "BC"
+ },
+ {
+  "name": "Canada Biogas Cluster",
+  "type": "biogas_ad",
+  "country": "CAN",
+  "lat": 44.5,
+  "lon": -79.5,
+  "capacity_note": "farm + WWTP AD (ON/QC)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.15
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "Canadian Biogas Association — aggregate cluster",
+  "proc_radius_km": 500,
+  "prov": "ON"
+ },
+ {
+  "name": "IGPC Ethanol (Aylmer, ON)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 42.77,
+  "lon": -80.98,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.15
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "ON"
+ },
+ {
+  "name": "Fort St. James Green Energy (BC)",
+  "type": "bioenergy",
+  "country": "CAN",
+  "lat": 54.44,
+  "lon": -124.25,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.15
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "BC"
+ },
+ {
+  "name": "Emerald Energy from Waste (EFW) Brampton",
+  "type": "wte",
+  "country": "CAN",
+  "lat": 43.72,
+  "lon": -79.67,
+  "capacity_note": "182 kt/yr current; approved expansion to ~900 kt/yr (100 MWe); Brampton, Ontario",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.14
+  },
+  "retrofit_score": "medium",
+  "existing": false,
+  "source": "Emerald EFW website; HAZMAT Management expansion review Jul 2025; National Observer May 2026; Ontario MECP approval Apr 2025",
+  "prov": "ON"
+ },
+ {
+  "name": "Atikokan Generating Station (Biomass)",
+  "type": "bioenergy",
+  "country": "CAN",
+  "lat": 48.75,
+  "lon": -91.62,
+  "capacity_note": "205 MWe biomass; 90,000 t/yr wood pellets; converted from coal 2014; North America's largest 100% biomass plant",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.14
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "OPG Atikokan biomass page; Atikokan GS Wikipedia; EDI Weekly largest NA biomass plant; Canadian Biomass Magazine conversion story",
+  "prov": "ON"
+ },
+ {
+  "name": "Incinérateur de la Ville de Québec",
+  "type": "wte",
+  "country": "CAN",
+  "lat": 46.83,
+  "lon": -71.27,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.14
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "QC"
+ },
+ {
+  "name": "Suncor St. Clair Ethanol (Mooretown, ON)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 42.85,
+  "lon": -82.4,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.12
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "ON"
+ },
+ {
+  "name": "Cenovus Lloydminster Ethanol (SK)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 53.28,
+  "lon": -110.0,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "SK"
+ },
+ {
+  "name": "Husky Minnedosa Ethanol (MB)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 50.25,
+  "lon": -99.84,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "MB"
+ },
+ {
+  "name": "Permolex Red Deer (AB)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 52.27,
+  "lon": -113.81,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "AB"
+ },
+ {
+  "name": "Tolko Industries Heffley Creek Pulp Mill (formerly Weyerhaeuser)",
+  "type": "pulp_paper",
+  "country": "CAN",
+  "lat": 50.87,
+  "lon": -120.11,
+  "capacity_note": "~100 kt/yr NBSK pulp; Heffley Creek, BC (Kamloops area)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.09
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "Tolko Industries Heffley Creek mill page; PulpPaperCanada mill map 2021; BC mill database",
+  "prov": "BC"
+ },
+ {
+  "name": "Pound-Maker Ethanol (Lanigan, SK)",
+  "type": "ethanol",
+  "country": "CAN",
+  "lat": 51.85,
+  "lon": -105.03,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.08
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "SK"
+ },
+ {
+  "name": "Ontario AD/RNG Cluster (Golden Horseshoe)",
+  "type": "biogas_ad",
+  "country": "CAN",
+  "lat": 43.55,
+  "lon": -79.75,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.07
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "proc_radius_km": 40,
+  "prov": "ON"
+ },
+ {
+  "name": "Saint-Hyacinthe Biométhanisation (QC)",
+  "type": "biogas_ad",
+  "country": "CAN",
+  "lat": 45.63,
+  "lon": -72.95,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.05
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "proc_radius_km": 40,
+  "prov": "QC"
+ },
+ {
+  "name": "Durham York Energy Centre (DYEC)",
+  "type": "wte",
+  "country": "CAN",
+  "lat": 43.93,
+  "lon": -78.47,
+  "capacity_note": "140 kt/yr MSW (expanding to 160 kt/yr); 17.5 MWe; Clarington, Ontario",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.04
+  },
+  "retrofit_score": "low",
+  "existing": true,
+  "source": "Durham York Energy Centre website; DYEC capacity increase page; WtERT Canada DYEC profile",
+  "prov": "ON"
+ },
+ {
+  "name": "Lethbridge Biogas / Southern AB AD Cluster",
+  "type": "biogas_ad",
+  "country": "CAN",
+  "lat": 49.7,
+  "lon": -112.8,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.04
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "proc_radius_km": 40,
+  "prov": "AB"
+ },
+ {
+  "name": "Fraser Valley AD Cluster (BC)",
+  "type": "biogas_ad",
+  "country": "CAN",
+  "lat": 49.1,
+  "lon": -122.3,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.04
+  },
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "proc_radius_km": 40,
+  "prov": "BC"
+ },
+ {
+  "name": "Charlottetown Energy-from-Waste (PEI)",
+  "type": "wte",
+  "country": "CAN",
+  "lat": 46.25,
+  "lon": -63.13,
+  "capacity_note": "estimated biogenic CO2 (curated; capacity-based)",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.03
+  },
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "Curated (industry registries / company reports)",
+  "prov": "PE"
+ }
+]

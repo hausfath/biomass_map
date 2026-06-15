@@ -363,6 +363,69 @@
       ],
       methodologyHTML: () => EU_METHODOLOGY,
     },
+
+    ca: {
+      label: "Canada",
+      hint: "~290 census divisions. Storage basins (WCSB/Williston), CCS projects, curated biogenic sources.",
+      scripts: ["../data/geo/geometry_ca_cd.js", "../data/geo/geometry_ca_basins.js", "data_bundle_ca.js"],
+      view: { center: [59, -97], zoom: 4, minZoom: 3, maxZoom: 11 },
+      fitBounds: false,
+      attribution: "CDs: StatCan · Feedstocks: StatCan Census of Ag 2021 · Storage: curated (WCSB) · see Methodology",
+      choroRenderer: "svg",
+      lowSupplyAware: true,
+      statFooter: recs => ({ value: fmt(recs.reduce((s, r) => s + (r.cdr_potential_mtpa || 0), 0)),
+        label: "Mt CO₂/yr Canada CD CDR potential" }),
+      legendNote: {
+        feedstock: "Quantile classes across all Canadian census divisions.",
+        recommendation: "Best use per Frontier's KPI ranking, computed per census division (storage distance + feedstock density). Click a CD for rationale.",
+      },
+      buildGeometry: function () {
+        const fc = { type: "FeatureCollection", features: [] };
+        (window.GEO_CA_CD.features || []).forEach(f => {
+          const p = f.properties;
+          fc.features.push({ type: "Feature", geometry: f.geometry,
+            properties: { _id: p.id, _name: `${p.name}, ${p.prov}` } });
+        });
+        return fc;
+      },
+      loadData: function () {
+        const profile = window.CA_PATHWAY_PROFILE || {};
+        const feedById = {}, recById = {};
+        (window.CA_FEEDSTOCKS || []).forEach(r => {
+          feedById[r.id] = {
+            _id: r.id, _name: `${r.name}, ${r.prov}`, regionKind: "Census division — " + r.prov,
+            ag: r.ag, forestry: r.forestry, msw: r.msw, manure: r.manure, wwtp: r.wwtp,
+            biofrac: r.biofrac || 0.55, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
+          };
+        });
+        (window.CA_RECOMMENDATIONS || []).forEach(r => {
+          recById[r.id] = Object.assign({}, r, { ranked: reconstructRanked(r, profile) });
+        });
+        return { feedById: feedById, recById: recById };
+      },
+      feedSection: slimFeedSection,
+      storageDetailRows: function (rec) {
+        const sd = rec.storage_detail || {};
+        return [
+          { k: "Storage basin", v: sd.in_basin ? "On-site: " + sd.in_basin
+              : (sd.nearest_basin ? `${sd.nearest_basin} (~${sd.nearest_basin_km} km)` : "—") },
+          { k: "Nearest CCS project", v: sd.nearest_well ? `${sd.nearest_well}${sd.nearest_well_km != null ? ` (~${sd.nearest_well_km} km)` : ""}` : "—" },
+          { k: "Feedstock density", v: `${cap1(rec.feedstock_density)} · ${fmt(rec.residue_density_tco2_km2)} tCO₂/km²` },
+          { k: "Supply within 80 km", v: `${fmt(rec.haul_supply_mtco2)} Mt CO₂/yr` },
+        ];
+      },
+      overlays: [
+        { id: "facilities", label: "Biogenic point sources (curated)", swatch: "sw-fac",
+          build: r => facilityCircleLayer(window.CA_FACILITIES || [], r.ov) },
+        { id: "wwtps", label: "Large WWTPs (major urban)", swatch: "sw-wwtp",
+          build: r => wwtpLayer(window.CA_WWTPS || [], r.ov, w => `${w.prov || "Canada"}`) },
+        { id: "projects", label: "CO₂ storage projects / hubs", swatch: "sw-well6",
+          build: r => wellLayer(window.CA_WELLS || [], r.ov, "#46b3ff") },
+        { id: "basins", label: "Storage basins (WCSB / Williston)", swatch: "sw-form",
+          build: r => polygonLayer(window.GEO_CA_BASINS, r.mid, "Curated (Canadian storage basins)") },
+      ],
+      methodologyHTML: () => CA_METHODOLOGY,
+    },
   };
 
   // Slim feedstock detail (US/EU): flat values, no per-field sources.
@@ -514,10 +577,12 @@
   }
   function wellPopup(w) {
     const cls = w.well_class === "V" ? "Class V (biomass / bio-oil injection)"
-      : w.well_class === "VI/RR" ? "Geologic sequestration (Subpart RR)" : "Class VI (CO₂ storage)";
+      : w.well_class === "VI/RR" ? "Geologic sequestration (Subpart RR)"
+      : w.well_class === "VI" ? "Class VI (CO₂ storage)"
+      : "CO₂ storage project / hub";  // Canada: curated CCS projects (no US well classes)
     return `<b>${w.name}</b><br>${cls} · ${cap1(w.status)}<br>
       ${w.operator ? "Operator: " + w.operator + "<br>" : ""}
-      ${w.co2_mtpa ? "CO₂: <b>" + fmt(w.co2_mtpa) + " Mtpa</b><br>" : ""}${w.state || ""}
+      ${w.co2_mtpa ? "CO₂: <b>" + fmt(w.co2_mtpa) + " Mtpa</b><br>" : ""}${w.state || w.prov || ""}
       <div class="pop-src">Source: ${w.source || "—"}</div>`;
   }
 
@@ -920,7 +985,7 @@
     <h2>Methodology &amp; sources — Global</h2>
     <p>The BiCRS Atlas overlays biomass feedstock supply with CO₂ storage options and a best-use-of-biomass
     recommendation, grounded in Frontier's BiCRS purchasing POV. Use the <b>Region scope</b> switcher for
-    finer detail: <b>US</b> (county resolution) and <b>Europe</b> (NUTS-2). Every estimate carries an
+    finer detail: <b>US</b> (county), <b>Canada</b> (census division) and <b>Europe</b> (NUTS-2). Every estimate carries an
     uncertainty range and a cited source, surfaced in each region's detail panel.</p>
     <h3>Feedstock supply</h3>
     <p>Recoverable biomass tonnages (Mt oven-dry/yr) by country, plus US/CA/IN/CN at admin-1. Ag residues
@@ -987,6 +1052,33 @@
     <p>Storage access: in-formation = on-site, else distance graded good &lt;150 km / moderate &lt;400 km
     (wider than US, for offshore-dominant storage). Density: residue tCO₂/km². Manure → AD+CCS in mature-AD
     countries (most of Europe). Distances are great-circle screening, not routed.</p>`;
+
+  const CA_METHODOLOGY = `
+    <h2>Methodology &amp; sources — Canada census-division scope</h2>
+    <p>Resolves the Atlas to ~290 census divisions (CDs, the Canadian county-equivalent), sharing the
+    global decision engine with CD-level inputs.</p>
+    <h3>CD feedstocks</h3>
+    <p>"Province totals, spatially disaggregated to census divisions." Within-province distribution from the
+    StatCan 2021 Census of Agriculture (residue-crop area for ag; cattle/pigs/poultry for manure) and 2021
+    Census population (MSW &amp; biosolids), with forestry allocated by CD land area, then scaled so each
+    province's CDs sum exactly to that province's total in the global tool. Forestry's CD split is a
+    land-area proxy (weakest layer — no CD-level timberland inventory); ag and manure are highest-confidence.</p>
+    <h3>CO₂ storage</h3>
+    <p>Canada has no NATCARB/CO2StoP-style open polygon atlas, so basins are <b>curated</b> simplified extents
+    of the storage fairways that actually host or are appraised for CO₂ — chiefly the Western Canada
+    Sedimentary Basin (AB/SK/NE-BC/SW-MB) and the Williston Basin. A CD inside a basin has storage on-site,
+    else distance is to the nearest basin boundary / CCS project. The "wells" layer is curated Canadian CCS
+    projects &amp; hubs (Quest, ACTL, Aquistore, Boundary Dam, Weyburn, Polaris/Atlas, Pathways, Wabamun, …).</p>
+    <h3>Point sources &amp; WWTPs</h3>
+    <p>Curated Canadian biogenic-CO₂ facilities (pulp &amp; paper, WtE, fuel-ethanol, biomass energy,
+    biogas/AD), seeded from the global tool — ECCC GHGRP does not publish a clean biogenic-CO₂ column;
+    large WWTPs are major urban water-resource-recovery plants. Biogenic CO₂ is capacity-estimated (weakest
+    layer, like the EU).</p>
+    <h3>CD engine</h3>
+    <p>Storage access: in-basin = on-site, else distance graded good &lt;100 km / moderate &lt;300 km. Canada's
+    appraised storage is concentrated in the prairie WCSB, so biomass-rich but storage-distant BC, Ontario,
+    Québec and the Atlantic legitimately read "poor" → bio-oil / biochar / burial, while the prairies enable
+    injection / BECCS / AD+CCS. Distances are great-circle screening, not routed.</p>`;
 
   // ============================================================
   // Init

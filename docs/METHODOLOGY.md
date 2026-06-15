@@ -400,10 +400,71 @@ remote N. Sweden far from storage → bio-oil). Much EU storage is offshore, so 
 
 ---
 
-## 10. Consolidated data sources
+## 10. Canada census-division (CD) scope
+
+The **Canada scope** of the integrated Atlas (`src/index.html` → Region scope: **Canada**) resolves
+the country to its **293 census divisions** (CDs, the Canadian county-equivalent). It shares the decision
+framework via `scripts/engine_core.py` (imported unchanged); only the inputs are computed at CD
+granularity, exactly mirroring the US county scope.
+
+**Pipeline** (`scripts/ca/`): `download_raw.sh` stages the public sources, then `build_all.sh` runs
+`build_cd_geo.py` → `build_basin_geo.py` → `build_cd_feedstocks.py` → `build_ca_infrastructure.py` →
+`build_ca_recommendations.py` → `bundle_ca.py`. View via the Canada scope in `src/index.html`.
+
+**CD feedstocks** — "province totals, spatially disaggregated to census divisions." Each feedstock's
+within-province distribution comes from authoritative CD-level StatCan data, then is scaled so a
+province's CDs sum **exactly** to that province's total already in the global tool (the 13 `CA-<Province>`
+records in `feedstocks_can_sub.json`, anchored to StatCan / NRCan / IEA):
+- *Ag residues*: StatCan **Census of Agriculture 2021** CD field-crop area (table 32-10-0309, hectares of
+  residue-producing cereals/oilseeds/pulses; hay, forage and silage excluded) × per-hectare residue
+  weights.
+- *Manure*: StatCan Census of Ag 2021 CD inventories — cattle (table 32-10-0370, dairy-weighted),
+  pigs (32-10-0372) and poultry (32-10-0374) × relative manure volatile-solids weights.
+- *MSW & biosolids*: StatCan **2021 Census** CD population (table 98-10-0002) × per-capita allocation
+  of province totals.
+- *Forestry*: province forestry-residue total allocated to CDs by **land area** (the weakest layer —
+  Canada has no clean CD-level timberland inventory; province totals are always preserved).
+
+**Storage basins (curated polygons)** — Canada has no NATCARB/CO2StoP-style open polygon atlas, so the
+basins are **curated** simplified extents of the fairways that actually host or are appraised for CO₂
+storage: chiefly the **Western Canada Sedimentary Basin** (Alberta, much of Saskatchewan, NE British
+Columbia, SW Manitoba — a world-class resource already hosting Quest, ACTL, Aquistore and the Weyburn
+complex) and the **Williston Basin** (SE Saskatchewan / SW Manitoba). A CD whose centroid falls inside a
+basin has storage on-site. These are first-order, province-scale extents for screening, not site
+appraisal.
+
+**CCS projects (the "wells" equivalent)** — Canada has no US-style Class V/VI well system, so the wells
+layer is a curated set of Canadian CCS projects and storage hubs with status: operational (Quest, ACTL,
+Aquistore, Boundary Dam, Weyburn-Midale, Entropy Glacier), under construction (Polaris/Atlas), and
+proposed/appraisal (Pathways Alliance, Enbridge Wabamun, Bison, Meadowbrook, Genesee).
+
+**Biogenic point sources & WWTPs** — curated Canadian biogenic-CO₂ facilities (53: pulp & paper, WtE,
+fuel-ethanol, biomass energy, biogas/AD), seeded from the records already in the global tool — ECCC's
+GHGRP does not publish a clean biogenic-CO₂ column and is served behind signed/SPA endpoints, so (as for
+the EU) biogenic CO₂ is capacity-estimated (the weakest layer, expandable via ECCC GHGRP). Large WWTPs
+are curated major urban water-resource-recovery plants. Each facility is reverse-geocoded to its province
+via point-in-CD.
+
+**CD engine** (`build_ca_recommendations.py`): storage access — inside-a-basin = on-site, else
+great-circle to the nearest basin boundary AND nearest operational/under-construction CCS project, graded
+**good < 100 km, moderate < 300 km** (same as the US); feedstock density from residue tCO₂/km² + an 80 km
+haul-radius supply sum; CDs below a minimum recoverable supply flagged "low supply".
+
+**Sanity**: all 13 provinces × 5 streams reconcile exactly to the global tool's province totals; the
+pathway mix is geographically coherent and strategically telling — Canada's appraised storage is
+concentrated in the prairie WCSB, so the **prairies (AB/SK/MB) enable injection / BECCS / AD+CCS** while
+biomass-rich but storage-distant **BC, Ontario, Québec and the Atlantic legitimately read `poor` →
+bio-oil / biochar / burial**. (A consequence worth noting: southern-Ontario depleted-reservoir storage is
+*not* in the curated basin set, so urban Ontario/Québec read poor and several dense urban CDs fall to "no
+viable pathway".) Raw sources live under `data/geo/ca_raw/` (gitignored; re-fetch with `download_raw.sh`).
+
+---
+
+## 11. Consolidated data sources
 
 Every layer, with its source and resolution. "Scope" = which view consumes it
-(**G** global country-level, **US** county scope, **EU** NUTS-2 scope).
+(**G** global country-level, **US** county scope, **CA** Canada census-division scope,
+**EU** NUTS-2 scope).
 
 ### 10.1 Feedstock supply
 
@@ -413,15 +474,19 @@ Every layer, with its source and resolution. "Scope" = which view consumes it
 | Ag residues | G (sub) | **US** DOE 2023 Billion-Ton + USDA NASS; **EU** JRC-S2BIOM; **Canada** StatCan crop production (Nov 2023); **China** NBS 2022 output + Liu et al. 2013 RPR; **India** MNRE atlas / Hiloidhari et al. + Agriculture Census | State / province |
 | Ag residues | US | USDA **Census of Agriculture 2022** county crop production (corn, wheat, soy, sorghum, barley, oats, rice, cotton, sugarcane) × RPR × ~40% | County, scaled to BT23 state totals |
 | Ag residues | EU | JRC **ENSPRESO** `MINBIOAGRW` | NUTS-2, scaled to country totals |
+| Ag residues | CA | StatCan **Census of Agriculture 2021** CD residue-crop area (32-10-0309) × per-ha residue weight | Census division, scaled to province totals |
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
 | Forestry residues | US | State BT total allocated by Census-of-Ag woodland acreage *(weakest spatial layer)* | County, scaled to state |
 | Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |
+| Forestry residues | CA | Province total allocated by CD land area *(weakest spatial layer — no CD timberland inventory)* | Census division, scaled |
 | MSW | G | World Bank *What a Waste 2.0* (2018) totals + treatment shares; EPA (US); Eurostat (EU); biogenic fraction US≈0.61 / EU≈0.50 / LMIC 0.55–0.70 | Country |
 | MSW & biosolids | US | Census **Vintage-2023** county population × per-capita allocation of state totals | County |
 | MSW & biosolids | EU | Eurostat `demo_r_pjanaggr3` (2023; 2019 fallback UK) population allocation | NUTS-2 |
+| MSW & biosolids | CA | StatCan **2021 Census** CD population (98-10-0002) × per-capita allocation of province totals | Census division |
 | Animal manure | G | FAO livestock heads × excretion/dry-matter factors; IEA *Outlook for Biogas and Biomethane* (2020) | Country |
 | Animal manure | US | USDA Census of Ag 2022 county livestock × volatile-solids weights | County, scaled to state |
 | Animal manure | EU | ENSPRESO `MINBIOGAS` | NUTS-2, scaled |
+| Animal manure | CA | StatCan Census of Ag 2021 CD cattle/pigs/poultry (32-10-0370/0372/0374) × manure-VS weights | Census division, scaled |
 | Human / WWTP biosolids | G | IEA biogas outlook; population × treatment coverage × solids factor | Country |
 | Nutrient status | G/sub | FAO FAOSTAT fertilizer use per ha 2022; Zhang et al. 2015 (China); AAFC (Canada) | Country / province |
 
@@ -436,6 +501,8 @@ Every layer, with its source and resolution. "Scope" = which view consumes it
 | Wells — operational | US | EPA **GHGRP 2023 Subpart RR** reporters | Points |
 | Wells — Class VI | US | EPA **Class VI Data Repository** (issued / draft / pending, to 2026) | Points |
 | Wells — Class V | US | Curated biomass-injection / bio-oil (Vaulted Deep, Charm Industrial) | Points |
+| Storage basins | CA | **Curated** simplified extents — Western Canada Sedimentary Basin (WCSB) + Williston (no open Canadian polygon atlas) | **Polygons** |
+| CCS projects / hubs | CA | Curated (Quest, ACTL, Aquistore, Boundary Dam, Weyburn, Polaris/Atlas, Pathways, Wabamun, …); status operational / construction / proposed | Points (the "wells" layer) |
 
 ### 10.3 Retrofit-candidate facilities (and the gate)
 
@@ -444,10 +511,13 @@ Every layer, with its source and resolution. "Scope" = which view consumes it
 | Biogenic point sources | G | IEA Bioenergy, company reports, Global CCS Institute, CEWEP (European WtE), industry registries | pulp&paper, WtE, bioenergy, ethanol, AD |
 | Biogenic point sources | US | EPA **GHGRP 2023** (pulp&paper, bioenergy, WtE, landfill gas, ethanol), kept where biogenic CO₂ ≥ 25 kt/yr | Facility-level, reported biogenic CO₂ |
 | Biogenic point sources | EU | Curated European facilities (126); biogenic CO₂ estimated from capacity *(weakest EU layer)* | Expandable via E-PRTR |
+| Biogenic point sources | CA | Curated (53: pulp&paper, WtE, fuel-ethanol, biomass energy, biogas/AD), seeded from the global tool; biogenic CO₂ capacity-estimated *(ECCC GHGRP has no clean biogenic column)* | Expandable via ECCC GHGRP |
 | Anaerobic digesters (AD gate) | US | EPA **AgSTAR** livestock digester database, mapped to counties & aggregated | 459 matched → 191 county nodes |
 | Anaerobic digesters (AD gate) | EU/G | **EBA-based regional cumulative clusters** (German states, Po Valley, Denmark, France, …) | `facilities_ad.json`, each with `proc_radius_km` |
+| Anaerobic digesters (AD gate) | CA | Curated regional AD/RNG clusters (ON Golden Horseshoe, QC, S. Alberta, Fraser Valley) | each with `proc_radius_km` |
 | Large WWTPs | US | EPA **FRS / NPDES** "major" POTWs (≥ 1 MGD) | Points |
 | Large WWTPs | EU | EEA/EMODnet **UWWTD** (Waterbase), ≥ 150,000-PE plants | Points |
+| Large WWTPs | CA | Curated major urban water-resource-recovery plants | Points |
 
 ### 10.4 Geometry
 
@@ -455,6 +525,7 @@ Every layer, with its source and resolution. "Scope" = which view consumes it
 |---|---|---|
 | Country + admin-1 polygons | G | Natural Earth 1:50m admin-0 + admin-1 (US, Canada, India, China), slimmed to `{id,name}` |
 | County polygons | US | US Census TIGER/cartographic boundaries (~3,140 counties) |
+| Census-division polygons | CA | StatCan **2021 Cartographic Boundary File** (ArcGIS GeoJSON), 293 census divisions |
 | NUTS-2 polygons | EU | Eurostat **GISCO** NUTS-2 geojson (EU-27 + UK + Norway, ~290 regions) |
 
 ### 10.5 Key model constants (all tunable, in `scripts/engine_core.py`)
@@ -467,8 +538,10 @@ Every layer, with its source and resolution. "Scope" = which view consumes it
 | `SECONDARY_FRAC` / `SECONDARY_ABS_MTPA` | 0.25 / 0.05 | MSW-fallback significance (relative OR absolute) |
 | Storage grading (G) | good < 500 km / moderate < 1000 km | Centroid → nearest storage |
 | Storage grading (US) | good < 100 km / moderate < 300 km | Tighter for county scale |
+| Storage grading (CA) | good < 100 km / moderate < 300 km | Same as US (county-equivalent scale) |
 | Storage grading (EU) | good < 150 km / moderate < 400 km | NUTS-2 scale, offshore-dominant |
 
 **Current coverage:** global 214 regions (2 "no viable pathway"); US 3,144 counties (204 "no viable
-pathway"); EU 290 NUTS-2 regions (0). Raw source files for the detail scopes live under
-`data/geo/us_raw/` and `data/geo/eu_raw/` (gitignored; re-fetch via each scope's `download_raw.sh`).
+pathway"); Canada 293 census divisions (17 "no viable pathway"); EU 290 NUTS-2 regions (0). Raw source
+files for the detail scopes live under `data/geo/us_raw/`, `data/geo/ca_raw/`, and `data/geo/eu_raw/`
+(gitignored; re-fetch via each scope's `download_raw.sh`).
