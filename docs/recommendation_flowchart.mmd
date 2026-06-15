@@ -53,9 +53,9 @@ flowchart TD
     %% ---------- legend ----------
     subgraph Legend["Recommended pathway — coloured by how the carbon ends up stored"]
         direction LR
-        L1["Capture & store CO₂<br/>BECCS · WtE + CCS"]
-        L2["Put the biomass / biogas<br/>underground · injection · AD + CCS"]
-        L3["Store carbon without geology<br/>bio-oil · biochar · burial"]
+        L1["Capture CO₂ gas → geologic storage<br/>BECCS · WtE + CCS · AD + CCS"]
+        L2["Inject biomass / bio-oil → geologic storage<br/>slurry injection · bio-oil"]
+        L3["Store carbon without geology<br/>biochar · burial"]
         L4["No good option"]
     end
 
@@ -70,9 +70,9 @@ flowchart TD
 
     class Start start;
     class DOM,M,W,Wsec,C,Cmill,Cpoor,D,F q;
-    class Cpp,Cbe,Cbe2,Fbe,Fbe2,Wwte geo;
-    class Mad,Minj,Dinj inj;
-    class Mbio,Cbur,Cbo,Dbur,Dbo,Fbur store;
+    class Cpp,Cbe,Cbe2,Fbe,Fbe2,Wwte,Mad geo;
+    class Minj,Dinj,Cbo,Dbo inj;
+    class Mbio,Cbur,Dbur,Fbur store;
     class Wnone none;
     class Wre reroute;
     class L1 geo;
