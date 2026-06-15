@@ -10,7 +10,12 @@ computes storage_access / density its own way); the logic that turns those input
 recommendation lives here.
 """
 
+import json
 import math
+import os
+
+_DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                         "data", "processed")
 
 # --------------------------------------------------------------------------
 # Pathway constants (thesis sec 2.1 / ENGINE_SPEC.md)
@@ -141,14 +146,46 @@ BURIAL_CAVEAT = (
     "Frontier pursuing via prepurchase not offtake."
 )
 
-# Countries with mature anaerobic-digestion sectors, where most manure is already routed to
-# digesters. There, AD+CCS retrofits existing biogas infrastructure and is preferred over
-# biomass injection for wet-manure feedstock. (Elsewhere -- e.g. the US, where on-farm AD is
-# uncommon -- injection remains the lead for manure.)
-HIGH_AD_PENETRATION = {
-    "DEU", "DNK", "NLD", "BEL", "ITA", "AUT", "FRA", "GBR", "IRL", "CZE",
-    "SWE", "FIN", "CHE", "POL", "SVK", "HUN", "LUX", "ESP",
-}
+# --------------------------------------------------------------------------
+# AD maturity (data-driven; replaces the former hardcoded HIGH_AD_PENETRATION binary).
+# ad_maturity in [0,1] = the fraction of a region's organic/manure AD potential already
+# realized as biogas/biomethane ("utilization", IEA framing). Where it is high, a large
+# existing AD industry exists to retrofit, so AD+CCS leads over injection for wet manure;
+# where low, on-farm/industrial AD is too sparse and Vaulted-style injection leads.
+# Built by scripts/build_ad_maturity.py -> data/processed/ad_maturity.json (country scores
+# from IEA Outlook 2025 / FAOSTAT / IRENA / EBA; sub-national from AgSTAR (US), Canadian
+# Biogas Association (CA), and AD-facility density vs ENSPRESO manure potential (EU)).
+AD_MATURITY_THRESHOLD = 0.15   # score >= this => AD+CCS leads over injection (tunable)
+AD_MATURITY_DEFAULT = 0.05     # nascent-AD economies with no compiled score
+_AD_MATURITY = None
+
+
+def _load_ad_maturity():
+    global _AD_MATURITY
+    if _AD_MATURITY is None:
+        try:
+            with open(os.path.join(_DATA_DIR, "ad_maturity.json")) as f:
+                _AD_MATURITY = json.load(f)
+        except (FileNotFoundError, ValueError):
+            _AD_MATURITY = {"_meta": {}, "countries": {}, "regions": {}}
+    return _AD_MATURITY
+
+
+def ad_maturity_score(region):
+    """Continuous AD-maturity [0,1] for a region: a sub-national override if one exists
+    (by region id, or by US state / Canada province), else the country score, else default."""
+    d = _load_ad_maturity()
+    regions = d.get("regions", {})
+    rid = region.get("id")
+    if rid in regions:                                   # EU NUTS-2 (and any exact override)
+        return regions[rid]
+    st = region.get("state")
+    if st and ("US-" + st) in regions:                   # US county inherits its state score
+        return regions["US-" + st]
+    pv = region.get("prov")
+    if pv and ("CA-" + pv) in regions:                   # Canada CD inherits its province score
+        return regions["CA-" + pv]
+    return d.get("countries", {}).get(region_country(region), AD_MATURITY_DEFAULT)
 
 # Large, internally heterogeneous countries: a single national recommendation is a
 # rollup and masks strong sub-national variation in feedstock, storage, and nutrients.
@@ -180,8 +217,9 @@ def _avail(avail):
 
 
 def manure_ad_preferred(region):
-    """True where mature AD infrastructure makes AD+CCS the lead manure pathway."""
-    return region_country(region) in HIGH_AD_PENETRATION
+    """True where realized AD maturity is high enough that AD+CCS leads over injection."""
+    thr = _load_ad_maturity().get("_meta", {}).get("threshold", AD_MATURITY_THRESHOLD)
+    return ad_maturity_score(region) >= thr
 
 
 # --------------------------------------------------------------------------

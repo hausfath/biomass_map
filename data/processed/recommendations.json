@@ -7671,44 +7671,27 @@
     "name": "Ireland",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "ad_ccs",
-    "recommended_label": "AD + CCS",
-    "runner_up": "injection",
-    "runner_up_label": "Biomass waste injection",
-    "kpi_score": 50,
-    "cdr_efficiency": 0.37,
-    "cost_band": "$145-300",
-    "cdr_potential_mtpa": 1.9,
+    "recommended": "injection",
+    "recommended_label": "Biomass waste injection",
+    "runner_up": "ad_ccs",
+    "runner_up_label": "AD + CCS",
+    "kpi_score": 69,
+    "cdr_efficiency": 0.9,
+    "cost_band": "$125-285",
+    "cdr_potential_mtpa": 4.7,
     "storage_access": "good",
     "nearest_storage_km": 284,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "Ireland Biogas Cluster (biogas_ad)",
-    "rationale": "Diffuse wet animal manure / biosolids, moderate nutrient status, good geologic storage access (nearest qualifying storage ~284 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
+    "rationale": "Diffuse wet animal manure / biosolids, moderate nutrient status, good geologic storage access (nearest qualifying storage ~284 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers >89% CDR efficiency with PFAS-destruction co-benefit.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
-        "badge": "Recommended",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
-        "pros": [
-          "Manure is already digested here — AD+CCS retrofits existing biogas plants",
-          "Suits wet feedstock; mature technology",
-          "Returns nutrients to fields",
-          "RNG co-product displaces fossil gas; viable offtake option"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR"
-        ]
-      },
-      {
         "key": "injection",
         "label": "Biomass waste injection",
-        "badge": "Runner-up",
+        "badge": "Recommended",
         "cdr_efficiency": 0.9,
         "cost_band": "$125-285",
         "pros": [
@@ -7720,6 +7703,23 @@
         "cons": [
           "No emissions-avoiding co-product",
           "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "ad_ccs",
+        "label": "AD + CCS",
+        "badge": "Runner-up",
+        "cdr_efficiency": 0.37,
+        "cost_band": "$145-300",
+        "pros": [
+          "Suits wet feedstock; mature technology",
+          "Returns nutrients to fields",
+          "RNG co-product displaces fossil gas; viable offtake option",
+          "Proximate geologic storage here (~284 km)"
+        ],
+        "cons": [
+          "Low CDR efficiency (~30-44%)",
+          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR"
         ]
       },
       {

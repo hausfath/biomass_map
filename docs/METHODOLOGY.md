@@ -128,10 +128,28 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 ### Logic (first match wins)
 1. **Wet manure** → AD+CCS and slurry injection both place CO₂ (or the slurry) into geologic
    storage, so — like BECCS and WtE+CCS — **both require storage proximity**. With storage near:
-   AD+CCS where manure already flows to anaerobic digesters (mature-AD countries, e.g. Europe — it
-   retrofits existing biogas plants), otherwise injection. With storage **poor**, the only
+   AD+CCS where the region's **AD maturity** is high enough that a large existing digester industry
+   can be retrofitted (see below), otherwise injection. With storage **poor**, the only
    storage-independent wet-manure CDR is distributed **biochar** (AD+CCS / injection are not
    recommended there). *Never combustion.*
+
+   **AD maturity (data-driven).** Whether AD+CCS leads over injection is set by a continuous
+   `ad_maturity` index ∈ [0,1] — *the share of a region's organic/manure AD potential already
+   realized as biogas/biomethane* (the IEA "utilization" framing: EU avg ~40%, US/China/India <5%).
+   AD+CCS leads where `ad_maturity ≥ 0.15` (a tunable threshold). This replaces a former hardcoded
+   list of "mature-AD countries". **Country scores** are transcribed from IEA *Outlook for Biogas
+   and Biomethane* (2025, the potential denominator + utilization framing), FAOSTAT bioenergy
+   (biogas production), IRENA (capacity cross-check) and the EBA Statistical Report — e.g. Germany
+   0.85, Denmark 0.70, Italy 0.45, Netherlands/UK 0.35, France/Sweden/Belgium 0.30; USA 0.03,
+   Canada 0.14, China 0.07, India 0.04. Notably the *data* places Spain (0.10), Poland (0.08) and
+   Ireland (0.06) **below** threshold despite large potential — their AD industries are barely
+   built out — so they lead with injection, a correction over the old subjective list.
+   **Sub-national** scores override the country value where real facility data exists: US states
+   from EPA AgSTAR digester capacity ÷ state manure potential (California 0.26 — the Central-Valley
+   dairy-digester cluster — Vermont, Arizona above threshold); Canada provinces from Canadian Biogas
+   Association fleet shares ÷ provincial manure (**Ontario 0.41 and BC 0.49 lead with AD+CCS**;
+   Quebec 0.11, Alberta 0.03 lead with injection); EU NUTS-2 refined by AD-facility density within
+   each country. Built by `scripts/build_ad_maturity.py` → `data/processed/ad_maturity.json`.
 2. **MSW** → WtE+CCS (storage near) else burial.
 3. **Woody / concentrated dry ag** → BECCS (pulp & paper retrofit if anchor present) where
    storage is good/moderate; if storage poor → burial (excess nutrients) or bio-oil. Where
@@ -208,7 +226,7 @@ states, Po Valley, Denmark, France, etc.). Radii are tunable constants (`PROC_RA
 ### Frontier exclusions (flagged, never recommended)
 - **Purpose-grown energy crops** — land-use competition; thesis sourcing principles.
 - **RNG + CCS / AD + CCS** — *no longer excluded.* Frontier is open to it as an offtake option,
-  and it is preferred over injection for manure in mature-AD regions (e.g. Europe). Its partial
+  and it is preferred over injection for manure in regions of high measured AD maturity (§5). Its partial
   CDR (carbon split between RNG fuel and storage) is surfaced in the ranked-options cons.
 - **Corn-ethanol + CCS** — food/land competition, marginal additionality; flagged where local
   ethanol capacity exists (US corn belt). (Brazilian sugarcane ethanol is *not* excluded.)
@@ -397,8 +415,10 @@ expandable via E-PRTR). Large WWTPs are ≥150,000-PE plants from the EEA/EMODne
 on-site, else great-circle to the nearest CO2StoP formation boundary AND nearest storage project,
 graded **good < 150 km, moderate < 400 km** (wider than the US, for NUTS-2 scale + offshore-dominant
 storage); feedstock density from residue tCO₂/km² (≥ 90 → concentrated; no haul-radius sum, as NUTS-2
-regions are large). The manure → AD+CCS preference fires automatically via `HIGH_AD_PENETRATION` (most
-European countries) once each region's `parent` is its ISO3.
+regions are large). The manure → AD+CCS preference fires via the data-driven `ad_maturity` index
+(§5): most European countries score above the 0.15 threshold (Germany 0.85, Denmark 0.70, …) so their
+manure regions lead with AD+CCS where storage is near, while Spain/Poland/Ireland — low realized AD —
+lead with injection. NUTS-2 scores are refined within each country by AD-facility density.
 
 **Sanity**: all 29 countries × 4 streams reconcile exactly to the global tool's totals; pathway mix is
 geographically coherent (Scandinavia/forestry → BECCS; Po Valley/NL manure → AD+CCS; urban → WtE+CCS;
@@ -533,6 +553,20 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Large WWTPs | EU | EEA/EMODnet **UWWTD** (Waterbase), ≥ 150,000-PE plants | Points |
 | Large WWTPs | CA | Curated major urban water-resource-recovery plants | Points |
 
+### 10.3a AD maturity (AD+CCS-vs-injection for wet manure)
+
+The continuous `ad_maturity` index (§5) — *biogas/biomethane actually produced ÷ sustainable
+biomethane potential* — built by `scripts/build_ad_maturity.py` → `data/processed/ad_maturity.json`.
+
+| Role | Scope | Source(s) |
+|---|---|---|
+| Potential (denominator) | G | **IEA *Outlook for Biogas and Biomethane*** (2025) — sustainable biomethane potential + utilization framing |
+| Production (numerator) | G | **FAOSTAT** bioenergy (biogas production, bulk CSV); **IEA** production for biomethane-led markets; **IRENA** capacity cross-check |
+| Manure share / EU detail | EU | **EBA Statistical Report** (feedstock-mix shares, plant counts) |
+| Sub-national | US | **EPA AgSTAR** operating-digester capacity ÷ state manure potential (e.g. California 0.26) |
+| Sub-national | CA | **Canadian Biogas Association** provincial fleet shares ÷ provincial manure (Ontario 0.41, BC 0.49) |
+| Sub-national | EU | AD-facility density vs **JRC ENSPRESO** `MINBIOGAS` per NUTS-2 (within-country refinement) |
+
 ### 10.4 Geometry
 
 | Layer | Scope | Source |
@@ -549,6 +583,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | `ODT_TO_CO2` | 1.47 tCO₂/odt | Dry-biomass → CO₂ yield |
 | `PROC_RADIUS_KM` | pulp&paper 150 / WtE 50 / AD 15 km | Retrofit-gate procurement radii |
 | `AD_MIN_CAP_MTPA` | 0.01 Mt CO₂/yr | Cumulative AD capacity to enable `ad_ccs` |
+| `AD_MATURITY_THRESHOLD` | 0.15 | `ad_maturity` score at/above which AD+CCS leads over injection for wet manure |
 | `SECONDARY_FRAC` / `SECONDARY_ABS_MTPA` | 0.25 / 0.05 | MSW-fallback significance (relative OR absolute) |
 | Storage grading (G) | good < 500 km / moderate < 1000 km | Centroid → nearest storage |
 | Storage grading (US) | good < 100 km / moderate < 300 km | Tighter for county scale |

@@ -20,7 +20,7 @@ After the tree, a post-step can swap the runner-up to biomass burial in excess-n
 | `avail.pp` | true / false — an existing pulp & paper mill within ~150 km (pulpwood haul radius) | facilities (radius) |
 | `avail.wte` | true / false — an existing waste-to-energy plant within ~50 km | facilities (radius) |
 | `avail.ad` | true / false — cumulative anaerobic-digestion capacity within reach (~15 km for discrete digesters; regional clusters carry their own radius) ≥ a small threshold | facilities (radius + cumulative) |
-| `manure_ad_preferred` | true / false — region is in a mature anaerobic-digestion country (e.g. Europe) | country list |
+| `manure_ad_preferred` | true / false — region's measured `ad_maturity` ≥ 0.15 (large existing AD industry to retrofit) | `ad_maturity.json` (IEA/FAOSTAT/IRENA/EBA; sub-national AgSTAR/CBA/ENSPRESO) |
 
 ### Retrofit-only gate
 **BECCS pulp & paper (`beccs_pp`), WtE+CCS (`wte_ccs`), and AD+CCS (`ad_ccs`) only make sense as
@@ -60,7 +60,7 @@ flowchart TD
 
     %% ---------- 1. WET MANURE  (AD+CCS & injection BOTH need storage, like BECCS/WtE) ----------
     DOM -->|manure_wet| Mst{storage near?}
-    Mst -->|yes + AD nearby<br/>+ mature-AD country| Mad["AD + CCS<br/>runner: injection"]
+    Mst -->|yes + AD nearby<br/>+ AD maturity ≥ 0.15| Mad["AD + CCS<br/>runner: injection"]
     Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else biochar"]
     Mst -->|no — storage poor| Mbio["Biochar<br/>runner: AD+CCS if AD else injection"]
 
@@ -121,8 +121,13 @@ flowchart TD
 - **Injection vs bio-oil** for dry residues turns on storage proximity: injection (>90% efficiency,
   cheaper on balance) wins where wells are near; bio-oil (~45%) wins at distance because
   pyrolysis densifies the carbon for cheaper transport.
-- **AD+CCS** is preferred over injection for manure in mature-AD regions (Europe) *with storage near*,
-  where it retrofits existing biogas plants. RNG+CCS is **not** excluded — it is a viable offtake option.
+- **AD+CCS** is preferred over injection for manure where measured **AD maturity ≥ 0.15** *with storage
+  near* (it retrofits an existing digester industry). `ad_maturity` = biogas/biomethane produced ÷
+  sustainable potential (IEA/FAOSTAT/IRENA/EBA; sub-national from AgSTAR (US), Canadian Biogas
+  Association (CA), ENSPRESO-density (EU)) — `data/processed/ad_maturity.json`, built by
+  `scripts/build_ad_maturity.py`. This replaced a hardcoded "mature-AD country" list; the data flips
+  ES/PL/IE to injection (large potential, little realized AD) and lifts Ontario/BC, California to AD+CCS.
+  RNG+CCS is **not** excluded — it is a viable offtake option.
 - **Cross-border storage** (US + Canada detail scopes): storage proximity ignores the border — a
   Canadian census division is scored against US wells/basins and vice-versa (e.g. southern
   Saskatchewan reaching the North Dakota Class VI wells / the US side of the Williston Basin).
