@@ -214,17 +214,68 @@ states, Po Valley, Denmark, France, etc.). Radii are tunable constants (`PROC_RA
 
 ---
 
-## 6. Caveats
+## 6. Key uncertainties, assumptions & limitations
 
-- Tonnages are modelled estimates, not measured inventories. Ranges reflect cross-source spread,
-  not formal confidence intervals.
-- **Country-level analysis cannot capture sub-national feedstock/storage mismatch** (e.g. interior
-  vs. coastal China; corn belt vs. the rest of the US). National recommendations for large,
-  heterogeneous countries (US, China, India, Russia, Brazil, Canada, Australia) are rollups and
-  carry a caveat to that effect; the US is shown at state resolution to mitigate this.
-- Storage basin capacities are theoretical and require site appraisal.
-- The tool informs strategy; it does not substitute for project-level diligence (biomass sourcing
-  verification, LCA boundaries, additionality, execution risk).
+Everything here is a screening model, not a measured inventory. The items below are ordered by how
+much they could change a recommendation if revisited — the top ones are the most worth re-addressing.
+
+### Highest-leverage uncertainties (could flip a recommendation)
+1. **Storage proximity is great-circle, not routed, and basin capacities are theoretical.** We screen
+   on straight-line distance to the nearest project or assessed basin/formation *boundary* (and an
+   in-country/in-basin override). Real CO₂ transport follows pipelines/rail and real injectability
+   needs site appraisal — a region we call "good" could be infeasible, and vice-versa. This is the
+   single biggest driver of the geologic-vs-storage-independent split (BECCS/injection vs. bio-oil/
+   burial/biochar), so it deserves the most scrutiny.
+2. **Retrofit-gate radii (`PROC_RADIUS_KM`: pulp&paper 150 km, WtE 50 km, AD 15 km) and the AD
+   capacity floor (`AD_MIN_CAP_MTPA = 0.01`) are tunable single-point assumptions.** They decide
+   whether `beccs_pp`, `wte_ccs`, and `ad_ccs` are even *offered*. Procurement radii vary widely by
+   facility and region; the chosen values are literature midpoints. Widening/narrowing them shifts how
+   many regions get a retrofit pathway vs. fall back to greenfield injection/burial.
+3. **Centroid artifacts in large/irregular regions.** Distance and facility-presence tests use the
+   region centroid. For big or oddly-shaped polygons this misfires — e.g. **Los Angeles County's
+   centroid sits in the San Gabriel mountains**, far from its coastal population and the SERRF WtE
+   plant, so LA registers *no* WtE in range and re-routes to biosolids injection. The outcome is
+   defensible but the mechanism is a geometry artifact; population-weighted centroids would be a fix.
+4. **The MSW-fallback significance thresholds** (`SECONDARY_FRAC = 0.25` relative **or**
+   `SECONDARY_ABS_MTPA = 0.05` absolute Mt CO₂/yr) decide when a no-WtE city re-routes to its
+   secondary feedstock vs. reads "no viable BiCRS pathway." The absolute floor is what lets big-city
+   biosolids count (LA case); both constants are judgment calls, not derived.
+
+### Feedstock-supply assumptions (affect magnitudes more than pathway choice)
+5. **~40% sustainable-removal cap on agricultural residues** and crop-specific residue-to-product
+   ratios. The cap is a single global default standing in for soil-carbon/erosion limits that truly
+   vary by soil, climate, and tillage. Drives all dry-residue tonnages.
+6. **MSW biogenic fractions** (US ≈ 0.61, EU ≈ 0.50, ~0.55–0.70 LMIC) applied uniformly within a
+   region. Real biogenic share varies by waste stream and season.
+7. **CO₂ yield factor ~1.47 tCO₂/odt** applied to all dry biomass, and ~1.0 tCO₂/t to MSW. A
+   carbon-content midpoint; herbaceous vs. woody and ash content shift it.
+8. **Forestry county/region placement is the weakest spatial layer.** US within-state forestry is
+   allocated by *farm-woodland acreage* (Census of Ag), which under-represents national forests and
+   industrial timberland; EU uses ENSPRESO. State/country totals are always preserved, but
+   *within*-area forestry geography is approximate.
+9. **Manure & WWTP biosolids** rest on livestock-head excretion factors and population × treatment-
+   coverage × solids factors — order-of-magnitude reasonable, not facility-metered (except where US
+   AgSTAR digester capacity is used for the AD gate).
+
+### Coverage & resolution limits
+10. **Country-level scope cannot capture sub-national feedstock/storage mismatch** (interior vs.
+    coastal China; corn belt vs. the rest of the US). Large heterogeneous countries (US, China, India,
+    Russia, Brazil, Canada, Australia) are rollups carrying a caveat; US/EU detail scopes mitigate this
+    for two of them, and China/India/Canada have province/state feedstocks but not the full county-level
+    storage/facility overlays.
+11. **The long tail of small economies is unpopulated** (renders grey). Coverage follows data
+    availability and the thesis focus (US, Europe, China, SE Asia).
+12. **EU facility biogenic-CO₂ is estimated from capacity**, since EU ETS zero-rates sustainable
+    biomass and there is no clean reported biogenic column — the weakest EU layer, expandable via
+    E-PRTR. The US has reported biogenic CO₂ (GHGRP Subpart) and is more reliable.
+13. **ENSPRESO is NUTS v2013**; ~33 regions recoded since (mainly France's 2016 reform) fall back to
+    population allocation of their country total (flagged per-record).
+
+### Scope of the tool
+- Ranges shown in detail panels reflect **cross-source spread, not formal confidence intervals**.
+- The tool informs *strategy*; it does not substitute for project-level diligence (biomass sourcing
+  verification, LCA boundaries, additionality, durability, execution risk). Burial in particular
+  carries a mandatory durability caveat.
 
 ---
 
@@ -346,3 +397,78 @@ geographically coherent (Scandinavia/forestry → BECCS; Po Valley/NL manure →
 remote N. Sweden far from storage → bio-oil). Much EU storage is offshore, so inland regions read
 `poor` legitimately. Raw sources live under `data/geo/eu_raw/` (gitignored; re-fetch with
 `download_raw.sh`).
+
+---
+
+## 10. Consolidated data sources
+
+Every layer, with its source and resolution. "Scope" = which view consumes it
+(**G** global country-level, **US** county scope, **EU** NUTS-2 scope).
+
+### 10.1 Feedstock supply
+
+| Layer | Scope | Source(s) | Resolution / method |
+|---|---|---|---|
+| Ag residues | G | FAOSTAT crop production × residue-to-product ratios × ~40% removal cap; cross-checked Slade et al. 2014, IEA 2022, Tripathi et al. 2019 | Country |
+| Ag residues | G (sub) | **US** DOE 2023 Billion-Ton + USDA NASS; **EU** JRC-S2BIOM; **Canada** StatCan crop production (Nov 2023); **China** NBS 2022 output + Liu et al. 2013 RPR; **India** MNRE atlas / Hiloidhari et al. + Agriculture Census | State / province |
+| Ag residues | US | USDA **Census of Agriculture 2022** county crop production (corn, wheat, soy, sorghum, barley, oats, rice, cotton, sugarcane) × RPR × ~40% | County, scaled to BT23 state totals |
+| Ag residues | EU | JRC **ENSPRESO** `MINBIOAGRW` | NUTS-2, scaled to country totals |
+| Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
+| Forestry residues | US | State BT total allocated by Census-of-Ag woodland acreage *(weakest spatial layer)* | County, scaled to state |
+| Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |
+| MSW | G | World Bank *What a Waste 2.0* (2018) totals + treatment shares; EPA (US); Eurostat (EU); biogenic fraction US≈0.61 / EU≈0.50 / LMIC 0.55–0.70 | Country |
+| MSW & biosolids | US | Census **Vintage-2023** county population × per-capita allocation of state totals | County |
+| MSW & biosolids | EU | Eurostat `demo_r_pjanaggr3` (2023; 2019 fallback UK) population allocation | NUTS-2 |
+| Animal manure | G | FAO livestock heads × excretion/dry-matter factors; IEA *Outlook for Biogas and Biomethane* (2020) | Country |
+| Animal manure | US | USDA Census of Ag 2022 county livestock × volatile-solids weights | County, scaled to state |
+| Animal manure | EU | ENSPRESO `MINBIOGAS` | NUTS-2, scaled |
+| Human / WWTP biosolids | G | IEA biogas outlook; population × treatment coverage × solids factor | Country |
+| Nutrient status | G/sub | FAO FAOSTAT fertilizer use per ha 2022; Zhang et al. 2015 (China); AAFC (Canada) | Country / province |
+
+### 10.2 CO₂ storage
+
+| Layer | Scope | Source(s) | Form |
+|---|---|---|---|
+| Storage projects / hubs | G/EU | Global CCS Institute Status Report (2024), IEA CCUS database, company announcements | Points (operational / construction / planned) |
+| Storage basins (capacity) | G | US DOE NATCARB / NETL Carbon Storage Atlas, EU CO2StoP, CO2CRC (Australia), regional assessments | Basin points, graded high/med/low |
+| Saline storage formations | US | NETL **NATCARB** `NATCARB_Saline_Poly_v1502` (349 assessed formations), reprojected LAEA→WGS84 | **Polygons** |
+| Storage formations | EU | JRC/SETIS **CO2StoP** `StorageUnits_March13.kml` (325 units) | **Polygons** |
+| Wells — operational | US | EPA **GHGRP 2023 Subpart RR** reporters | Points |
+| Wells — Class VI | US | EPA **Class VI Data Repository** (issued / draft / pending, to 2026) | Points |
+| Wells — Class V | US | Curated biomass-injection / bio-oil (Vaulted Deep, Charm Industrial) | Points |
+
+### 10.3 Retrofit-candidate facilities (and the gate)
+
+| Layer | Scope | Source(s) | Notes |
+|---|---|---|---|
+| Biogenic point sources | G | IEA Bioenergy, company reports, Global CCS Institute, CEWEP (European WtE), industry registries | pulp&paper, WtE, bioenergy, ethanol, AD |
+| Biogenic point sources | US | EPA **GHGRP 2023** (pulp&paper, bioenergy, WtE, landfill gas, ethanol), kept where biogenic CO₂ ≥ 25 kt/yr | Facility-level, reported biogenic CO₂ |
+| Biogenic point sources | EU | Curated European facilities (126); biogenic CO₂ estimated from capacity *(weakest EU layer)* | Expandable via E-PRTR |
+| Anaerobic digesters (AD gate) | US | EPA **AgSTAR** livestock digester database, mapped to counties & aggregated | 459 matched → 191 county nodes |
+| Anaerobic digesters (AD gate) | EU/G | **EBA-based regional cumulative clusters** (German states, Po Valley, Denmark, France, …) | `facilities_ad.json`, each with `proc_radius_km` |
+| Large WWTPs | US | EPA **FRS / NPDES** "major" POTWs (≥ 1 MGD) | Points |
+| Large WWTPs | EU | EEA/EMODnet **UWWTD** (Waterbase), ≥ 150,000-PE plants | Points |
+
+### 10.4 Geometry
+
+| Layer | Scope | Source |
+|---|---|---|
+| Country + admin-1 polygons | G | Natural Earth 1:50m admin-0 + admin-1 (US, Canada, India, China), slimmed to `{id,name}` |
+| County polygons | US | US Census TIGER/cartographic boundaries (~3,140 counties) |
+| NUTS-2 polygons | EU | Eurostat **GISCO** NUTS-2 geojson (EU-27 + UK + Norway, ~290 regions) |
+
+### 10.5 Key model constants (all tunable, in `scripts/engine_core.py`)
+
+| Constant | Value | Role |
+|---|---|---|
+| `ODT_TO_CO2` | 1.47 tCO₂/odt | Dry-biomass → CO₂ yield |
+| `PROC_RADIUS_KM` | pulp&paper 150 / WtE 50 / AD 15 km | Retrofit-gate procurement radii |
+| `AD_MIN_CAP_MTPA` | 0.01 Mt CO₂/yr | Cumulative AD capacity to enable `ad_ccs` |
+| `SECONDARY_FRAC` / `SECONDARY_ABS_MTPA` | 0.25 / 0.05 | MSW-fallback significance (relative OR absolute) |
+| Storage grading (G) | good < 500 km / moderate < 1000 km | Centroid → nearest storage |
+| Storage grading (US) | good < 100 km / moderate < 300 km | Tighter for county scale |
+| Storage grading (EU) | good < 150 km / moderate < 400 km | NUTS-2 scale, offshore-dominant |
+
+**Current coverage:** global 214 regions (2 "no viable pathway"); US 3,144 counties (204 "no viable
+pathway"); EU 290 NUTS-2 regions (0). Raw source files for the detail scopes live under
+`data/geo/us_raw/` and `data/geo/eu_raw/` (gitignored; re-fetch via each scope's `download_raw.sh`).
