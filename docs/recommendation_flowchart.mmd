@@ -1,0 +1,82 @@
+---
+title: "How the BiCRS Atlas picks the best use of biomass"
+config:
+  theme: base
+  flowchart:
+    curve: basis
+    nodeSpacing: 45
+    rankSpacing: 55
+  themeVariables:
+    fontFamily: "Helvetica, Arial, sans-serif"
+    fontSize: "15px"
+    lineColor: "#7d8a97"
+    primaryTextColor: "#0f1922"
+---
+flowchart TD
+    Start([A region:<br/>its biomass, how close<br/>CO₂ storage is, &<br/>what plants are nearby]) --> DOM{What is the main<br/>biomass here?}
+
+    %% ---------- WET ----------
+    DOM -->|"💧 Wet manure<br/>& sewage sludge"| M{Biogas digesters<br/>nearby to retrofit?}
+    M -->|Yes — mature<br/>biogas region| Mad["Anaerobic<br/>digestion + CCS"]
+    M -->|"No, but CO₂<br/>storage is close"| Minj["Inject as slurry<br/>underground"]
+    M -->|"No digesters,<br/>storage far"| Mbio["Biochar"]
+
+    %% ---------- MSW ----------
+    DOM -->|"🗑️ Municipal<br/>trash (MSW)"| W{Waste-to-energy plant<br/>within ~50 km<br/>& storage close?}
+    W -->|Yes| Wwte["Waste-to-energy<br/>+ CCS"]
+    W -->|No| Wsec{Any other<br/>significant biomass?}
+    Wsec -->|Yes| Wre[/"Re-decide using<br/>that feedstock"/]
+    Wsec -->|No| Wnone["No viable<br/>BiCRS pathway"]
+
+    %% ---------- WOODY / DENSE DRY ----------
+    DOM -->|"🌲 Wood or dense<br/>crop residue"| C{How close is<br/>CO₂ storage?}
+    C -->|Close| Cmill{Pulp/paper mill<br/>within ~150 km?}
+    Cmill -->|Yes| Cpp["BECCS retrofit<br/>at the mill"]
+    Cmill -->|No| Cbe["BECCS<br/>heat / power"]
+    C -->|Moderate| Cbe2["BECCS<br/>heat / power"]
+    C -->|Far| Cpoor{Soils already<br/>nutrient-rich?}
+    Cpoor -->|Yes| Cbur["Bury the<br/>biomass"]
+    Cpoor -->|No| Cbo["Bio-oil<br/>sequestration"]
+
+    %% ---------- DIFFUSE DRY ----------
+    DOM -->|"🌾 Scattered<br/>crop residue"| D{How close is<br/>CO₂ storage?}
+    D -->|Close| Dinj["Inject as slurry<br/>underground"]
+    D -->|"Far &<br/>nutrient-rich soil"| Dbur["Bury the<br/>biomass"]
+    D -->|Otherwise| Dbo["Bio-oil<br/>sequestration"]
+
+    %% ---------- MIXED ----------
+    DOM -->|"🔀 Mixed /<br/>unclear"| F{Good storage<br/>& a plant<br/>to retrofit?}
+    F -->|Yes| Fbe["BECCS<br/>heat / power"]
+    F -->|Poor storage| Fbur["Bury the<br/>biomass"]
+    F -->|Otherwise| Fbe2["BECCS<br/>heat / power"]
+
+    %% ---------- legend ----------
+    subgraph Legend["Recommended pathway — coloured by how the carbon ends up stored"]
+        direction LR
+        L1["Capture & store CO₂<br/>BECCS · WtE + CCS"]
+        L2["Put the biomass / biogas<br/>underground · injection · AD + CCS"]
+        L3["Store carbon without geology<br/>bio-oil · biochar · burial"]
+        L4["No good option"]
+    end
+
+    %% ---------- styles ----------
+    classDef start fill:#0f1922,stroke:#0f1922,color:#ffffff,font-weight:bold;
+    classDef q fill:#eef2f5,stroke:#9aa7b2,color:#1c2730;
+    classDef geo fill:#2f6f8f,stroke:#1d4859,color:#ffffff,font-weight:bold;
+    classDef inj fill:#15967f,stroke:#0d5530,color:#ffffff,font-weight:bold;
+    classDef store fill:#b07a2e,stroke:#7a5012,color:#ffffff,font-weight:bold;
+    classDef none fill:#9aa3ac,stroke:#5b636b,color:#ffffff,font-weight:bold;
+    classDef reroute fill:#f3e3c2,stroke:#b07a2e,color:#5a3d0a;
+
+    class Start start;
+    class DOM,M,W,Wsec,C,Cmill,Cpoor,D,F q;
+    class Cpp,Cbe,Cbe2,Fbe,Fbe2,Wwte geo;
+    class Mad,Minj,Dinj inj;
+    class Mbio,Cbur,Cbo,Dbur,Dbo,Fbur store;
+    class Wnone none;
+    class Wre reroute;
+    class L1 geo;
+    class L2 inj;
+    class L3 store;
+    class L4 none;
+    style Legend fill:#f7f9fa,stroke:#c7d0d8,color:#1c2730;

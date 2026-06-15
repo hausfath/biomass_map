@@ -48,6 +48,12 @@ else **bio-oil** (pyrolysis densifies carbon, so bio-oil wins only when wells ar
 
 ## Flow chart
 
+> **Shareable, plain-language version:** `docs/recommendation_flowchart.png` (rendered from
+> `docs/recommendation_flowchart.mmd`) — a simplified, colour-coded chart for non-technical
+> colleagues. Re-render after edits with
+> `mmdc -i docs/recommendation_flowchart.mmd -o docs/recommendation_flowchart.png -b white -s 3`.
+> The detailed, code-faithful version (with runner-ups and the excess-nutrient post-step) is below.
+
 ```mermaid
 flowchart TD
     Start([Region]) --> DOM{dominant<br/>feedstock?}
