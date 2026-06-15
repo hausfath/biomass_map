@@ -2,6 +2,9 @@
 # (the thesis .docx is the only Word doc in the folder; this keeps it out of the public repo)
 *.docx
 
+# Internal working notes — planned improvements backlog (not published)
+to_do.md
+
 # OS / editor cruft
 .DS_Store
 *.swp
