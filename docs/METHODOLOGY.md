@@ -296,12 +296,14 @@ Data schema: `data/SCHEMA.md`. Engine spec: `data/ENGINE_SPEC.md`.
 
 ---
 
-## 8. US county-level scope
+## 8. US county-level data
 
-The **US scope** of the integrated Atlas (`src/index.html` → Region scope: **US**) resolves the
-United States to ~3,140 counties. It shares the decision framework via `scripts/engine_core.py`;
-only the *inputs* are recomputed at county granularity. (Originally a standalone `us.html`; now a
-lazy-loaded scope within the single app.)
+The US county data resolves the United States to ~3,140 counties. It shares the decision framework
+via `scripts/engine_core.py`; only the *inputs* are recomputed at county granularity. In the app it
+is surfaced together with the Canadian census-division data (§10) as the single **North America**
+scope (`src/index.html` → Region scope: **North America**) — the two datasets are built by separate
+pipelines but merged into one view, so the US and Canada are seen and compared together. (Originally
+a standalone `us.html`; now lazy-loaded within the single app.)
 
 **Pipeline** (`scripts/us/`): `download_raw.sh` stages the public sources, then `build_all.sh` runs
 `build_county_geo.py` → `build_basin_geo.py` → `build_county_feedstocks.py` →
@@ -400,12 +402,14 @@ remote N. Sweden far from storage → bio-oil). Much EU storage is offshore, so 
 
 ---
 
-## 10. Canada census-division (CD) scope
+## 10. Canada census-division (CD) data
 
-The **Canada scope** of the integrated Atlas (`src/index.html` → Region scope: **Canada**) resolves
-the country to its **293 census divisions** (CDs, the Canadian county-equivalent). It shares the decision
-framework via `scripts/engine_core.py` (imported unchanged); only the inputs are computed at CD
-granularity, exactly mirroring the US county scope.
+The Canada data resolves the country to its **293 census divisions** (CDs, the Canadian
+county-equivalent). It shares the decision framework via `scripts/engine_core.py` (imported
+unchanged); only the inputs are computed at CD granularity, exactly mirroring the US county pipeline.
+In the app it is surfaced together with the US county data (§8) as the single **North America** scope
+(`src/index.html` → Region scope: **North America**) — one merged view spanning ~3,440 US counties +
+Canadian census divisions, summing to ~533 Mt CO₂/yr of CDR potential.
 
 **Pipeline** (`scripts/ca/`): `download_raw.sh` stages the public sources, then `build_all.sh` runs
 `build_cd_geo.py` → `build_basin_geo.py` → `build_cd_feedstocks.py` → `build_ca_infrastructure.py` →
@@ -463,8 +467,8 @@ viable pathway".) Raw sources live under `data/geo/ca_raw/` (gitignored; re-fetc
 ## 11. Consolidated data sources
 
 Every layer, with its source and resolution. "Scope" = which view consumes it
-(**G** global country-level, **US** county scope, **CA** Canada census-division scope,
-**EU** NUTS-2 scope).
+(**G** global country-level; **US** county data + **CA** Canada census-division data, which
+together form the combined **North America** scope; **EU** NUTS-2 scope).
 
 ### 10.1 Feedstock supply
 

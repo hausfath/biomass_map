@@ -10,42 +10,44 @@ offline — all data is bundled as JavaScript.
 
 ## What you can do
 
-- **Region scope** switcher — one map, four resolutions: **Global** (countries, with
-  US/Canada/India/China at state-province level), **US** (~3,140 counties), **Canada**
-  (293 census divisions), and **Europe** (~290 NUTS-2 regions, EU-27 + UK + Norway). The
-  US/Canada/Europe data load on demand when you first switch; the map, overlays, legend, and stat
-  all adapt to the active scope.
+- **Region scope** switcher — one map, three resolutions: **Global** (countries, with
+  US/Canada/India/China at state-province level), **North America** (~3,140 US counties + 293
+  Canadian census divisions in one view), and **Europe** (~290 NUTS-2 regions, EU-27 + UK + Norway).
+  The North America / Europe data load on demand when you first switch; the map, overlays, legend,
+  and stat all adapt to the active scope.
 - **Feedstock supply** mode — choropleth switchable across agricultural residues, forestry
   residues, biogenic MSW, animal manure, and human/WWTP biosolids (Mt/yr).
 - **Best-use recommendation** mode — each region colored by its recommended BiCRS pathway
   (BECCS, WtE+CCS, biomass injection, bio-oil, burial, AD+CCS, biochar), per Frontier's KPI ranking.
 - **Overlays** (scope-specific) — retrofit-candidate / biogenic point sources, large WWTPs, and the
-  region-appropriate storage layers: global storage projects + basins; US **Class VI/V wells** +
-  NATCARB basin polygons; Canada **CCS projects/hubs** (Quest, ACTL, Aquistore, …) + curated
-  WCSB/Williston basin polygons; Europe **CO₂ storage projects/hubs** (Northern Lights, Porthos, …) +
-  CO2StoP formation polygons.
+  region-appropriate storage layers: global storage projects + basins; North America **CO₂ storage
+  wells / projects** (US Class VI/V wells + Canadian CCS hubs like Quest, ACTL, Aquistore) +
+  NATCARB and WCSB/Williston basin polygons; Europe **CO₂ storage projects/hubs** (Northern Lights,
+  Porthos, …) + CO2StoP formation polygons.
 - **Click any region** for the full detail: feedstock breakdown (with sources & uncertainty at the
   global scope), and the recommendation with rationale, ranked options, storage/density metrics,
   caveats, and Frontier-exclusion flags.
 - **Methodology & sources** button in the sidebar — adapts to the active scope.
 
 Deep-link views via URL hash, e.g.
-`index.html#scope=us&mode=recommendation&region=US-06037`,
-`index.html#scope=ca&mode=recommendation&region=CA-4706`, or
+`index.html#scope=na&mode=recommendation&region=US-06037`,
+`index.html#scope=na&mode=recommendation&region=CA-4706`, or
 `index.html#scope=eu&mode=recommendation&ov=projects,formations&region=EU-DE21`.
+(Legacy `scope=us` / `scope=ca` links still work — they resolve to the combined North America scope.)
 
-## The four scopes share one engine
+## The scopes share one engine
 
-All four scopes are driven by the same recommendation engine (`scripts/engine_core.py`); only the
+All scopes are driven by the same recommendation engine (`scripts/engine_core.py`); only the
 *inputs* differ in resolution. The frontend is a single app (`src/app.js`) parameterized by a
-per-scope config, so the chrome (modes, detail panel, legend, hover) is written once.
+per-scope config, so the chrome (modes, detail panel, legend, hover) is written once. The **North
+America** scope merges two independently-built datasets (US counties + Canada census divisions) into
+one view; their pipelines stay separate so each is independently rebuildable.
 
-- **US scope** — counties from US Census TIGER; biomass disaggregates DOE Billion-Ton state totals
+- **US data** — counties from US Census TIGER; biomass disaggregates DOE Billion-Ton state totals
   via USDA Census of Agriculture; storage = NATCARB saline formation polygons + Class VI/V wells +
-  EPA GHGRP point sources + EPA FRS WWTPs. Storage access uses distance-to-basin-edge / nearest well;
-  density uses tCO₂/km² + an 80 km haul-radius supply. Build: `scripts/us/download_raw.sh` then
+  EPA GHGRP point sources + EPA FRS WWTPs. Build: `scripts/us/download_raw.sh` then
   `scripts/us/build_all.sh`; see `docs/METHODOLOGY.md` §8.
-- **Canada scope** — 293 census divisions from StatCan; biomass disaggregates province totals via the
+- **Canada data** — 293 census divisions from StatCan; biomass disaggregates province totals via the
   StatCan 2021 Census of Agriculture (crops + cattle/pigs/poultry) and Census population; storage =
   curated WCSB/Williston basin polygons + curated Canadian CCS projects/hubs + curated biogenic
   facilities + major urban WWTPs. Build: `scripts/ca/download_raw.sh` then `scripts/ca/build_all.sh`;
@@ -58,7 +60,7 @@ per-scope config, so the chrome (modes, detail panel, legend, hover) is written 
 ## Layout
 
 ```
-src/index.html, styles.css, app.js    # the single application (all four scopes)
+src/index.html, styles.css, app.js    # the single application (Global / North America / Europe scopes)
 src/vendor/                            # Leaflet (vendored)
 src/data_bundle.js                     # global datasets, preloaded (generated)
 src/data_bundle_us.js, _ca.js, _eu.js  # US / Canada / EU datasets, lazy-loaded on scope switch (generated)

@@ -234,21 +234,22 @@
       methodologyHTML: () => GLOBAL_METHODOLOGY,
     },
 
-    us: {
-      label: "United States",
-      hint: "~3,140 counties. Storage basins (NATCARB), Class VI/V wells, GHGRP point sources.",
-      scripts: ["../data/geo/geometry_us_counties.js", "../data/geo/geometry_us_basins.js", "data_bundle_us.js"],
-      view: { center: [39, -96], zoom: 4, minZoom: 3, maxZoom: 11 },
+    na: {
+      label: "North America",
+      hint: "US counties + Canada census divisions (~3,440 regions). Storage basins, wells / CCS projects, point sources.",
+      scripts: ["../data/geo/geometry_us_counties.js", "../data/geo/geometry_us_basins.js", "data_bundle_us.js",
+                "../data/geo/geometry_ca_cd.js", "../data/geo/geometry_ca_basins.js", "data_bundle_ca.js"],
+      view: { center: [50, -96], zoom: 3, minZoom: 2, maxZoom: 11 },
       fitBounds: false,
-      attribution: "Counties: US Census · Storage: NATCARB · see Methodology",
-      choroRenderer: "svg",  // SVG handles the ~3,140 simplified counties fine and keeps
+      attribution: "US: Census + NATCARB · Canada: StatCan + curated · see Methodology",
+      choroRenderer: "svg",  // SVG handles the ~3,440 simplified regions fine and keeps
                              // clicks/hover consistent with the other scopes (no canvas quirks)
       lowSupplyAware: true,
       statFooter: recs => ({ value: fmt(recs.reduce((s, r) => s + (r.cdr_potential_mtpa || 0), 0)),
-        label: "Mt CO₂/yr US county CDR potential" }),
+        label: "Mt CO₂/yr North America CDR potential" }),
       legendNote: {
-        feedstock: "Quantile classes across all US counties.",
-        recommendation: "Best use per Frontier's KPI ranking, computed per county (storage distance + feedstock density). Click a county for rationale.",
+        feedstock: "Quantile classes across all US counties + Canadian census divisions.",
+        recommendation: "Best use per Frontier's KPI ranking, computed per county / census division (storage distance + feedstock density). Click a region for rationale.",
       },
       buildGeometry: function () {
         const fc = { type: "FeatureCollection", features: [] };
@@ -257,10 +258,15 @@
           fc.features.push({ type: "Feature", geometry: f.geometry,
             properties: { _id: p.id, _name: `${p.name}, ${p.state}` } });
         });
+        (window.GEO_CA_CD.features || []).forEach(f => {
+          const p = f.properties;
+          fc.features.push({ type: "Feature", geometry: f.geometry,
+            properties: { _id: p.id, _name: `${p.name}, ${p.prov}` } });
+        });
         return fc;
       },
       loadData: function () {
-        const profile = window.US_PATHWAY_PROFILE || {};
+        const profile = window.US_PATHWAY_PROFILE || window.CA_PATHWAY_PROFILE || {};
         const feedById = {}, recById = {};
         (window.US_FEEDSTOCKS || []).forEach(r => {
           feedById[r.id] = {
@@ -269,7 +275,17 @@
             biofrac: r.biofrac || 0.61, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
           };
         });
+        (window.CA_FEEDSTOCKS || []).forEach(r => {
+          feedById[r.id] = {
+            _id: r.id, _name: `${r.name}, ${r.prov}`, regionKind: "Census division — " + r.prov,
+            ag: r.ag, forestry: r.forestry, msw: r.msw, manure: r.manure, wwtp: r.wwtp,
+            biofrac: r.biofrac || 0.55, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
+          };
+        });
         (window.US_RECOMMENDATIONS || []).forEach(r => {
+          recById[r.id] = Object.assign({}, r, { ranked: reconstructRanked(r, profile) });
+        });
+        (window.CA_RECOMMENDATIONS || []).forEach(r => {
           recById[r.id] = Object.assign({}, r, { ranked: reconstructRanked(r, profile) });
         });
         return { feedById: feedById, recById: recById };
@@ -280,24 +296,26 @@
         return [
           { k: "Storage basin", v: sd.in_basin ? "On-site: " + sd.in_basin
               : (sd.nearest_basin ? `${sd.nearest_basin} (~${sd.nearest_basin_km} km)` : "—") },
-          { k: "Nearest well", v: sd.nearest_well ? `${sd.nearest_well}${sd.nearest_well_km != null ? ` (~${sd.nearest_well_km} km)` : ""}` : "—" },
+          { k: "Nearest well / project", v: sd.nearest_well ? `${sd.nearest_well}${sd.nearest_well_km != null ? ` (~${sd.nearest_well_km} km)` : ""}` : "—" },
           { k: "Feedstock density", v: `${cap1(rec.feedstock_density)} · ${fmt(rec.residue_density_tco2_km2)} tCO₂/km²` },
           { k: "Supply within 80 km", v: `${fmt(rec.haul_supply_mtco2)} Mt CO₂/yr` },
         ];
       },
       overlays: [
-        { id: "facilities", label: "Biogenic point sources (GHGRP)", swatch: "sw-fac",
-          build: r => facilityCircleLayer(window.US_FACILITIES || [], r.ov) },
-        { id: "wwtps", label: "Large WWTPs (NPDES major)", swatch: "sw-wwtp",
-          build: r => wwtpLayer(window.US_WWTPS || [], r.ov, w => `${w.state}`) },
-        { id: "wells6", label: "Class VI wells (CO₂ storage)", swatch: "sw-well6",
-          build: r => wellLayer((window.US_WELLS || []).filter(w => w.well_class !== "V"), r.ov, "#46b3ff") },
-        { id: "wells5", label: "Class V injection (biomass / bio-oil)", swatch: "sw-well5",
+        { id: "facilities", label: "Biogenic point sources (GHGRP / curated)", swatch: "sw-fac",
+          build: r => facilityCircleLayer([...(window.US_FACILITIES || []), ...(window.CA_FACILITIES || [])], r.ov) },
+        { id: "wwtps", label: "Large WWTPs", swatch: "sw-wwtp",
+          build: r => wwtpLayer([...(window.US_WWTPS || []), ...(window.CA_WWTPS || [])], r.ov, w => `${w.state || w.prov || ""}`) },
+        { id: "wells6", label: "CO₂ storage wells / projects", swatch: "sw-well6",
+          build: r => wellLayer([...((window.US_WELLS || []).filter(w => w.well_class !== "V")), ...(window.CA_WELLS || [])], r.ov, "#46b3ff") },
+        { id: "wells5", label: "Class V injection (US — biomass / bio-oil)", swatch: "sw-well5",
           build: r => wellLayer((window.US_WELLS || []).filter(w => w.well_class === "V"), r.ov, "#c97be0") },
-        { id: "basins", label: "Storage basins (NATCARB saline)", swatch: "sw-form",
-          build: r => polygonLayer(window.GEO_US_BASINS, r.mid, "NATCARB Atlas (saline)") },
+        { id: "basins", label: "Storage basins (NATCARB · WCSB / Williston)", swatch: "sw-form",
+          build: r => polygonLayer({ type: "FeatureCollection",
+            features: [...(window.GEO_US_BASINS.features || []), ...(window.GEO_CA_BASINS.features || [])] },
+            r.mid, "NATCARB (US) · curated (Canada)") },
       ],
-      methodologyHTML: () => US_METHODOLOGY,
+      methodologyHTML: () => US_METHODOLOGY + CA_METHODOLOGY,
     },
 
     eu: {
@@ -362,69 +380,6 @@
           build: r => polygonLayer(window.GEO_EU_STORAGE, r.mid, "CO2StoP (JRC)") },
       ],
       methodologyHTML: () => EU_METHODOLOGY,
-    },
-
-    ca: {
-      label: "Canada",
-      hint: "~290 census divisions. Storage basins (WCSB/Williston), CCS projects, curated biogenic sources.",
-      scripts: ["../data/geo/geometry_ca_cd.js", "../data/geo/geometry_ca_basins.js", "data_bundle_ca.js"],
-      view: { center: [59, -97], zoom: 4, minZoom: 3, maxZoom: 11 },
-      fitBounds: false,
-      attribution: "CDs: StatCan · Feedstocks: StatCan Census of Ag 2021 · Storage: curated (WCSB) · see Methodology",
-      choroRenderer: "svg",
-      lowSupplyAware: true,
-      statFooter: recs => ({ value: fmt(recs.reduce((s, r) => s + (r.cdr_potential_mtpa || 0), 0)),
-        label: "Mt CO₂/yr Canada CD CDR potential" }),
-      legendNote: {
-        feedstock: "Quantile classes across all Canadian census divisions.",
-        recommendation: "Best use per Frontier's KPI ranking, computed per census division (storage distance + feedstock density). Click a CD for rationale.",
-      },
-      buildGeometry: function () {
-        const fc = { type: "FeatureCollection", features: [] };
-        (window.GEO_CA_CD.features || []).forEach(f => {
-          const p = f.properties;
-          fc.features.push({ type: "Feature", geometry: f.geometry,
-            properties: { _id: p.id, _name: `${p.name}, ${p.prov}` } });
-        });
-        return fc;
-      },
-      loadData: function () {
-        const profile = window.CA_PATHWAY_PROFILE || {};
-        const feedById = {}, recById = {};
-        (window.CA_FEEDSTOCKS || []).forEach(r => {
-          feedById[r.id] = {
-            _id: r.id, _name: `${r.name}, ${r.prov}`, regionKind: "Census division — " + r.prov,
-            ag: r.ag, forestry: r.forestry, msw: r.msw, manure: r.manure, wwtp: r.wwtp,
-            biofrac: r.biofrac || 0.55, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
-          };
-        });
-        (window.CA_RECOMMENDATIONS || []).forEach(r => {
-          recById[r.id] = Object.assign({}, r, { ranked: reconstructRanked(r, profile) });
-        });
-        return { feedById: feedById, recById: recById };
-      },
-      feedSection: slimFeedSection,
-      storageDetailRows: function (rec) {
-        const sd = rec.storage_detail || {};
-        return [
-          { k: "Storage basin", v: sd.in_basin ? "On-site: " + sd.in_basin
-              : (sd.nearest_basin ? `${sd.nearest_basin} (~${sd.nearest_basin_km} km)` : "—") },
-          { k: "Nearest CCS project", v: sd.nearest_well ? `${sd.nearest_well}${sd.nearest_well_km != null ? ` (~${sd.nearest_well_km} km)` : ""}` : "—" },
-          { k: "Feedstock density", v: `${cap1(rec.feedstock_density)} · ${fmt(rec.residue_density_tco2_km2)} tCO₂/km²` },
-          { k: "Supply within 80 km", v: `${fmt(rec.haul_supply_mtco2)} Mt CO₂/yr` },
-        ];
-      },
-      overlays: [
-        { id: "facilities", label: "Biogenic point sources (curated)", swatch: "sw-fac",
-          build: r => facilityCircleLayer(window.CA_FACILITIES || [], r.ov) },
-        { id: "wwtps", label: "Large WWTPs (major urban)", swatch: "sw-wwtp",
-          build: r => wwtpLayer(window.CA_WWTPS || [], r.ov, w => `${w.prov || "Canada"}`) },
-        { id: "projects", label: "CO₂ storage projects / hubs", swatch: "sw-well6",
-          build: r => wellLayer(window.CA_WELLS || [], r.ov, "#46b3ff") },
-        { id: "basins", label: "Storage basins (WCSB / Williston)", swatch: "sw-form",
-          build: r => polygonLayer(window.GEO_CA_BASINS, r.mid, "Curated (Canadian storage basins)") },
-      ],
-      methodologyHTML: () => CA_METHODOLOGY,
     },
   };
 
@@ -960,6 +915,8 @@
     const h = (location.hash || "").replace(/^#/, "");
     const p = {};
     h.split("&").forEach(kv => { const [k, v] = kv.split("="); if (k) p[k] = decodeURIComponent(v || ""); });
+    // `us` and `ca` are now the combined North America scope; alias old deep links.
+    if (p.scope === "us" || p.scope === "ca") p.scope = "na";
     const scope = (p.scope && SCOPES[p.scope]) ? p.scope : "global";
     setScope(scope).then(() => {
       if (p.mode === "recommendation" || p.mode === "feedstock") {
