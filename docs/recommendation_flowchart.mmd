@@ -16,10 +16,10 @@ flowchart TD
     Start([A region:<br/>its biomass, how close<br/>CO₂ storage is, &<br/>what plants are nearby]) --> DOM{What is the main<br/>biomass here?}
 
     %% ---------- WET ----------
-    DOM -->|"💧 Wet manure<br/>& sewage sludge"| M{Biogas digesters<br/>nearby to retrofit?}
-    M -->|Yes — mature<br/>biogas region| Mad["Anaerobic<br/>digestion + CCS"]
-    M -->|"No, but CO₂<br/>storage is close"| Minj["Inject as slurry<br/>underground"]
-    M -->|"No digesters,<br/>storage far"| Mbio["Biochar"]
+    DOM -->|"💧 Wet manure<br/>& sewage sludge"| M{CO₂ storage<br/>close?}
+    M -->|Yes — digesters nearby,<br/>mature biogas region| Mad["Anaerobic<br/>digestion + CCS"]
+    M -->|"Yes (otherwise)"| Minj["Inject as slurry<br/>underground"]
+    M -->|"No — storage far"| Mbio["Biochar"]
 
     %% ---------- MSW ----------
     DOM -->|"🗑️ Municipal<br/>trash (MSW)"| W{Waste-to-energy plant<br/>within ~50 km<br/>& storage close?}

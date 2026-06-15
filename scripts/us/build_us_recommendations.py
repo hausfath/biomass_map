@@ -45,6 +45,19 @@ FACS = os.path.join(PROC, "facilities_us_detailed.json")
 COUNTIES = os.path.join(GEO, "us_counties.json")
 OUT = os.path.join(PROC, "recommendations_us.json")
 
+# Cross-border storage: a US county is also scored against Canadian storage (the Western Canada
+# Sedimentary Basin / Quest / ACTL across from the northern-tier states). Loaded if present.
+WELLS_CA = os.path.join(PROC, "wells_ca.json")
+BASINS_CA = os.path.join(PROC, "storage_ca_basins.json")
+
+
+def _load_opt(path):
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
 # --- tunable thresholds ---
 GOOD_KM = 100.0        # within this of qualifying storage -> good
 MOD_KM = 300.0         # within this -> moderate
@@ -221,8 +234,8 @@ def compute_storage_access_county(centroid, basins, wells):
 
 def main():
     feeds = json.load(open(FEED))
-    basins = json.load(open(BASINS))
-    wells = json.load(open(WELLS))
+    basins = json.load(open(BASINS)) + _load_opt(BASINS_CA)
+    wells = json.load(open(WELLS)) + _load_opt(WELLS_CA)
     facilities = json.load(open(FACS))
     counties = json.load(open(COUNTIES))["features"]
     # (retrofit availability is now radius-based from each county centroid — no point-in-polygon

@@ -58,12 +58,11 @@ else **bio-oil** (pyrolysis densifies carbon, so bio-oil wins only when wells ar
 flowchart TD
     Start([Region]) --> DOM{dominant<br/>feedstock?}
 
-    %% ---------- 1. WET MANURE  (AD+CCS gated on nearby AD capacity) ----------
-    DOM -->|manure_wet| Mgate{AD capacity nearby?<br/>~15 km / regional cluster}
-    Mgate -->|yes + mature-AD country| Mad["AD + CCS<br/>runner: injection near / biochar"]
-    Mgate -->|storage near| Minj["Injection<br/>runner: AD+CCS if AD else biochar"]
-    Mgate -->|AD nearby, storage far| Mad2["AD + CCS<br/>runner: biochar"]
-    Mgate -->|no AD, storage far| Mbio["Biochar<br/>runner: injection"]
+    %% ---------- 1. WET MANURE  (AD+CCS & injection BOTH need storage, like BECCS/WtE) ----------
+    DOM -->|manure_wet| Mst{storage near?}
+    Mst -->|yes + AD nearby<br/>+ mature-AD country| Mad["AD + CCS<br/>runner: injection"]
+    Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else biochar"]
+    Mst -->|no — storage poor| Mbio["Biochar<br/>runner: AD+CCS if AD else injection"]
 
     %% ---------- 2. MSW  (WtE+CCS gated on a WtE plant within ~50 km) ----------
     DOM -->|msw| Wnear{storage near AND<br/>WtE plant within ~50 km?}
@@ -95,7 +94,7 @@ flowchart TD
     Fsa -->|else| Fbe2["BECCS<br/>runner: bio-oil"]
 
     %% ---------- POST-STEP ----------
-    Mad & Minj & Mad2 & Mbio & Wwte & Cpp & Cbe & Cbe2 & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
+    Mad & Minj & Mbio & Wwte & Cpp & Cbe & Cbe2 & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
     NUT -->|yes| Swap["swap runner-up to Biomass burial<br/>removal-consistent; bio-oil would<br/>return nutrients to surplus soils"]
     NUT -->|no| Keep["keep runner-up"]
     Swap --> Done([Recommended + runner-up])
@@ -106,19 +105,27 @@ flowchart TD
     classDef rec fill:#15967f,stroke:#0d5530,color:#eafffb;
     classDef q fill:#1c2730,stroke:#2a3742,color:#e8edf1;
     classDef none fill:#3a4350,stroke:#222a33,color:#cdd6df;
-    class Mad,Minj,Mad2,Mbio,Wwte,Wre,Cpp,Cbe,Cbe2,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
-    class DOM,Mgate,Wnear,Wsec,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
+    class Mad,Minj,Mbio,Wwte,Wre,Cpp,Cbe,Cbe2,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
+    class DOM,Mst,Wnear,Wsec,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
     class Wnone none;
 ```
 
 ## Notes & exclusions
 
-- **Wet feedstocks never combust** — manure/biosolids route to injection or AD+CCS only.
+- **Wet feedstocks never combust** — manure/biosolids route to injection, AD+CCS or biochar only.
+- **AD+CCS and injection both need geologic CO₂ storage** — AD+CCS captures a concentrated CO₂
+  stream that must be injected, and injection places the slurry itself underground — so, exactly like
+  BECCS and WtE+CCS, both require **storage proximity**. Where storage is poor, wet manure falls back
+  to distributed **biochar** (the only storage-independent wet-manure CDR); AD+CCS / injection are not
+  recommended there.
 - **Injection vs bio-oil** for dry residues turns on storage proximity: injection (>90% efficiency,
   cheaper on balance) wins where wells are near; bio-oil (~45%) wins at distance because
   pyrolysis densifies the carbon for cheaper transport.
-- **AD+CCS** is preferred over injection for manure in mature-AD regions (Europe), where it
-  retrofits existing biogas plants. RNG+CCS is **not** excluded — it is a viable offtake option.
+- **AD+CCS** is preferred over injection for manure in mature-AD regions (Europe) *with storage near*,
+  where it retrofits existing biogas plants. RNG+CCS is **not** excluded — it is a viable offtake option.
+- **Cross-border storage** (US + Canada detail scopes): storage proximity ignores the border — a
+  Canadian census division is scored against US wells/basins and vice-versa (e.g. southern
+  Saskatchewan reaching the North Dakota Class VI wells / the US side of the Williston Basin).
 - **Never recommended** (flagged): purpose-grown energy crops; corn-ethanol+CCS (US-scoped flag).
 - The KPI score that orders the ranked list (and colours the map) is
   `60·CDR-efficiency + 25·(energy co-product) + 15·(co-benefit) − 10·(needs storage but poor access)`.

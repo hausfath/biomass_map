@@ -126,9 +126,12 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 | Biochar | 30% | ~$100–200 | nutrients |
 
 ### Logic (first match wins)
-1. **Wet manure** → AD+CCS where manure already flows to anaerobic digesters (mature-AD
-   countries, e.g. Europe — it retrofits existing biogas plants); otherwise injection (storage
-   near) else AD+CCS. *Never combustion.*
+1. **Wet manure** → AD+CCS and slurry injection both place CO₂ (or the slurry) into geologic
+   storage, so — like BECCS and WtE+CCS — **both require storage proximity**. With storage near:
+   AD+CCS where manure already flows to anaerobic digesters (mature-AD countries, e.g. Europe — it
+   retrofits existing biogas plants), otherwise injection. With storage **poor**, the only
+   storage-independent wet-manure CDR is distributed **biochar** (AD+CCS / injection are not
+   recommended there). *Never combustion.*
 2. **MSW** → WtE+CCS (storage near) else burial.
 3. **Woody / concentrated dry ag** → BECCS (pulp & paper retrofit if anchor present) where
    storage is good/moderate; if storage poor → burial (excess nutrients) or bio-oil. Where
@@ -340,6 +343,9 @@ dominates; large WWTPs are NPDES "major" POTWs (≥ 1 MGD) from EPA FRS.
 - *Transport distance*: inside-a-basin = storage on-site (good); else great-circle to the nearest
   basin boundary AND nearest Class VI / operational well; graded good < 100 km, moderate < 300 km
   (tighter than the global 500/1000 km). These are great-circle screening distances, not routed.
+  **Cross-border:** storage proximity ignores the border — US counties are also scored against
+  Canadian basins/CCS projects (the WCSB / Quest / ACTL across from the northern-tier states), just
+  as Canadian CDs are scored against US wells/basins.
 - *Feedstock density*: real residue density (tCO₂/km²) **and** an 80 km haul-radius supply sum decide
   whether biomass is concentrated enough (density ≥ 120 tCO₂/km² and ≥ 0.75 Mt CO₂/yr within reach)
   to anchor a central BECCS/pulp plant; otherwise diffuse → favours injection/bio-oil.
@@ -452,7 +458,11 @@ via point-in-CD.
 **CD engine** (`build_ca_recommendations.py`): storage access — inside-a-basin = on-site, else
 great-circle to the nearest basin boundary AND nearest operational/under-construction CCS project, graded
 **good < 100 km, moderate < 300 km** (same as the US); feedstock density from residue tCO₂/km² + an 80 km
-haul-radius supply sum; CDs below a minimum recoverable supply flagged "low supply".
+haul-radius supply sum; CDs below a minimum recoverable supply flagged "low supply". **Cross-border:**
+a Canadian CD is also scored against US storage — the North Dakota Class VI wells just across from
+southern Saskatchewan, and the US side of the Williston Basin — since CO₂ storage doesn't stop at the
+border. (This is what pulls much of the southern prairies and southern Ontario into good/moderate
+access.)
 
 **Sanity**: all 13 provinces × 5 streams reconcile exactly to the global tool's province totals; the
 pathway mix is geographically coherent and strategically telling — Canada's appraised storage is

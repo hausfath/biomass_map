@@ -44,6 +44,20 @@ WELLS = os.path.join(PROC, "wells_ca.json")
 FACS = os.path.join(PROC, "facilities_ca_detailed.json")
 OUT = os.path.join(PROC, "recommendations_ca.json")
 
+# Cross-border storage: CO2 storage doesn't stop at the border, so a Canadian CD is also scored
+# against US storage (e.g. the North Dakota Class VI wells just across from southern Saskatchewan,
+# and the US side of the Williston Basin). Loaded if present (US pipeline must have run).
+WELLS_US = os.path.join(PROC, "wells_us.json")
+BASINS_US = os.path.join(PROC, "storage_us_basins.json")
+
+
+def _load_opt(path):
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
 HAUL_KM = 80.0
 DENS_THRESH = 120.0
 CONC_SUPPLY_MT = 0.75
@@ -52,8 +66,8 @@ MIN_SUPPLY_MT = 0.02
 
 def main():
     feeds = json.load(open(FEED))
-    basins = json.load(open(BASINS))
-    wells = json.load(open(WELLS))
+    basins = json.load(open(BASINS)) + _load_opt(BASINS_US)
+    wells = json.load(open(WELLS)) + _load_opt(WELLS_US)
     facilities = json.load(open(FACS))
 
     cents = [(f["centroid"][0], f["centroid"][1], co2_dry(f)) for f in feeds]

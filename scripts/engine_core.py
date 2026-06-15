@@ -318,19 +318,20 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
     #   good storage (proximate) -> injection ;  moderate/poor (distant) -> bio-oil.
     dry_removal = "injection" if storage_access == "good" else "bio_oil"
 
-    # 1. wet manure. AD+CCS only where existing AD capacity is within reach (retrofit-only).
+    # 1. wet manure. AD+CCS and Vaulted-style slurry injection BOTH place CO2 (or the slurry)
+    #    into geologic storage, so — like BECCS and WtE+CCS — both require storage proximity;
+    #    AD+CCS additionally needs existing AD capacity within reach to retrofit (av["ad"]).
+    #    Where storage is poor, neither can place its carbon, so the only viable wet-manure CDR
+    #    is distributed biochar.
     if dom == "manure_wet":
-        # Where manure already flows to anaerobic digesters (e.g. Europe) AND there is AD
-        # capacity nearby to retrofit, AD+CCS retrofits that infrastructure and leads.
-        if av["ad"] and manure_ad_preferred(region):
-            return "ad_ccs", ("injection" if near else "biochar")
-        # Otherwise injection leads near storage (US-style: on-farm AD uncommon / none nearby).
         if near:
+            # Storage proximate. In mature-AD regions with AD capacity nearby, AD+CCS retrofits
+            # existing digesters and leads; otherwise injection leads (US-style: on-farm AD rare).
+            if av["ad"] and manure_ad_preferred(region):
+                return "ad_ccs", "injection"
             return "injection", ("ad_ccs" if av["ad"] else "biochar")
-        # Far from storage: AD+CCS only if there is AD to retrofit; else distributed biochar.
-        if av["ad"]:
-            return "ad_ccs", "biochar"
-        return "biochar", "injection"
+        # Storage poor: AD+CCS / injection cannot place their CO2 -> distributed biochar.
+        return "biochar", ("ad_ccs" if av["ad"] else "injection")
 
     # 2. MSW. Only reached when an existing WtE plant is within reach (else re-routed above).
     if dom == "msw":
