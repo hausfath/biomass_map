@@ -11,7 +11,7 @@ Method — "Billion-Ton state totals, spatially disaggregated to counties":
   the per-county factors only need to be RELATIVELY correct within a state.
 
 County distribution signals (USDA Census of Agriculture 2022, county FIPS):
-  ag residues  <- crop production x residue-to-product ratio x recoverable fraction
+  ag residues  <- crop production x residue-to-product ratio x ~30% recoverable fraction
   manure       <- livestock inventory x relative manure (volatile-solids) weights
   forestry     <- county woodland acreage (AG LAND, WOODLAND) — proxy within state
   MSW & WWTP   <- county population (Census Vintage-2023 estimates)
@@ -245,7 +245,7 @@ def main():
                 "centroid": props["centroid"],
                 "ag_residues_odt_mt": est(
                     ag, source="USDA Census of Ag 2022 county crop production x RPR x "
-                    "recoverable fraction, scaled to BT23 state total",
+                    "~30% recoverable fraction, scaled to BT23 state total",
                     notes="cereal straw + corn stover + sorghum/cotton/rice/sugarcane residues"),
                 "forestry_residues_odt_mt": est(
                     forestry, source="BT23 state forestry residue allocated by county "

@@ -41,7 +41,7 @@ reflect cross-source spread.
 
 | Feedstock | Method & primary sources |
 |---|---|
-| **Agricultural residues** | Crop production (FAOSTAT; USDA NASS for US; Eurostat for EU) × residue-to-product ratios × **~40% sustainable removal cap** (rest left for soil carbon/nutrients). Cross-checked against Slade et al. 2014, IEA 2022, Tripathi et al. 2019, JRC-S2BIOM (EU), DOE 2023 Billion-Ton Report (US, incl. state level). |
+| **Agricultural residues** | Crop production (FAOSTAT; USDA NASS for US; Eurostat for EU) × residue-to-product ratios × **~30% sustainable removal cap** (the conservative end; rest left for soil carbon/erosion/nutrients). Applied where we compute recoverable from gross; regions taken from a published net/technical potential (e.g. EU JRC-S2BIOM, Australia Crawford 2016) retain that source's own removal assumption. Cross-checked against Slade et al. 2014, IEA 2022, Tripathi et al. 2019, DOE 2023 Billion-Ton Report (US, incl. state level). |
 | **Forestry residues** | Logging + processing residues from FAO FRA, DOE Billion-Ton (US), JRC-S2BIOM (EU), NRCan (Canada). |
 | **MSW** | World Bank *What a Waste 2.0* (2018) country totals + treatment shares; EPA (US), Eurostat (EU). Biogenic fraction applied: **US ≈ 0.61, EU ≈ 0.50**, higher (~0.55–0.70) in LMICs due to greater organic content. Only the biogenic share counts toward CDR. |
 | **Animal manure** | FAO livestock heads × excretion/dry-matter factors; IEA *Outlook for Biogas and Biomethane* (2020). Dry-matter basis. |
@@ -55,10 +55,12 @@ reflect cross-source spread.
   favored, since nutrient export is less of a constraint (thesis §2.2).
 
 ### Sanity check vs. thesis
-Country-level sums: **ag residues 2.31 Gt + forestry 0.60 Gt = 2.91 Gt odt/yr**, within the
-thesis range of 2.8–4.0 Gt odt. At ~1.47 tCO₂/odt and ~90% efficiency that is ~3.85 Gt CO₂/yr
-of gross potential — consistent with the thesis 2–5 Gtpa. Global MSW ≈ 1.7 Gt/yr (World Bank
-global ≈ 2.0 Gt; we cover the major producers).
+Country-level sums: **ag residues 1.84 Gt + forestry 0.60 Gt = 2.45 Gt odt/yr**. This sits just
+**below** the thesis biomass range of 2.8–4.0 Gt odt **by design** — that range reflects a higher
+(~40%) residue-removal assumption, whereas we apply a more conservative **~30%** sustainable-removal
+cap (see Feedstock supply, above), which alone lowers the ag stream ~25%. At ~1.47 tCO₂/odt and ~90%
+efficiency that is ~3.2 Gt CO₂/yr of gross potential — still within the thesis 2–5 Gtpa. Global MSW
+≈ 1.7 Gt/yr (World Bank global ≈ 2.0 Gt; we cover the major producers).
 
 ---
 
@@ -263,9 +265,11 @@ much they could change a recommendation if revisited — the top ones are the mo
    biosolids count (LA case); both constants are judgment calls, not derived.
 
 ### Feedstock-supply assumptions (affect magnitudes more than pathway choice)
-5. **~40% sustainable-removal cap on agricultural residues** and crop-specific residue-to-product
-   ratios. The cap is a single global default standing in for soil-carbon/erosion limits that truly
-   vary by soil, climate, and tillage. Drives all dry-residue tonnages.
+5. **~30% sustainable-removal cap on agricultural residues** and crop-specific residue-to-product
+   ratios. The cap is a single conservative global default standing in for soil-carbon/erosion limits
+   that truly vary by soil, climate, and tillage. Drives all dry-residue tonnages. (Applied where we
+   compute recoverable from gross; regions taken directly from a published net/technical potential
+   keep that source's own removal assumption, so the effective cap is not perfectly uniform.)
 6. **MSW biogenic fractions** (US ≈ 0.61, EU ≈ 0.50, ~0.55–0.70 LMIC) applied uniformly within a
    region. Real biogenic share varies by waste stream and season.
 7. **CO₂ yield factor ~1.47 tCO₂/odt** applied to all dry biomass, and ~1.0 tCO₂/t to MSW. A
@@ -336,7 +340,7 @@ feedstock's within-state distribution comes from authoritative county data, then
 state's counties sum to that state's existing global-tool total (anchored to the DOE 2023
 Billion-Ton Report + USDA NASS):
 - *Ag residues*: USDA Census of Agriculture 2022 county crop production (corn, wheat, soy, sorghum,
-  barley, oats, rice, cotton, sugarcane) × residue-to-product ratios × ~40% recoverable fraction.
+  barley, oats, rice, cotton, sugarcane) × residue-to-product ratios × ~30% recoverable fraction.
 - *Manure*: USDA Census of Ag 2022 county livestock inventory × relative manure (volatile-solids) weights.
 - *MSW & WWTP biosolids*: Census Vintage-2023 county population × per-capita allocation of state totals.
 - *Forestry*: state forestry-residue total allocated to counties by woodland acreage (Census of Ag).
@@ -504,9 +508,9 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 
 | Layer | Scope | Source(s) | Resolution / method |
 |---|---|---|---|
-| Ag residues | G | FAOSTAT crop production × residue-to-product ratios × ~40% removal cap; cross-checked Slade et al. 2014, IEA 2022, Tripathi et al. 2019 | Country |
+| Ag residues | G | FAOSTAT crop production × residue-to-product ratios × ~30% removal cap (published net/technical-potential sources keep their own); cross-checked Slade et al. 2014, IEA 2022, Tripathi et al. 2019 | Country |
 | Ag residues | G (sub) | **US** DOE 2023 Billion-Ton + USDA NASS; **EU** JRC-S2BIOM; **Canada** StatCan crop production (Nov 2023); **China** NBS 2022 output + Liu et al. 2013 RPR; **India** MNRE atlas / Hiloidhari et al. + Agriculture Census | State / province |
-| Ag residues | US | USDA **Census of Agriculture 2022** county crop production (corn, wheat, soy, sorghum, barley, oats, rice, cotton, sugarcane) × RPR × ~40% | County, scaled to BT23 state totals |
+| Ag residues | US | USDA **Census of Agriculture 2022** county crop production (corn, wheat, soy, sorghum, barley, oats, rice, cotton, sugarcane) × RPR × ~30% | County, scaled to BT23 state totals |
 | Ag residues | EU | JRC **ENSPRESO** `MINBIOAGRW` | NUTS-2, scaled to country totals |
 | Ag residues | CA | StatCan **Census of Agriculture 2021** CD residue-crop area (32-10-0309) × per-ha residue weight | Census division, scaled to province totals |
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
