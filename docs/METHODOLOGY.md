@@ -544,21 +544,32 @@ differs by pathway, so the same distance costs very differently:
 
 So a long haul leaves **bio-oil viable but prices slurry-injection out**, and is irrelevant to
 burial/biochar — the current qualitative injection-vs-bio-oil-vs-burial logic, now quantified. Example:
-*Polk Co, IA* (corn belt) routes truck→rail→truck 849 km to Vaulted Deep (Kansas) — **bio-oil ≈ $30,
-slurry ≈ $135 /tCO₂**; coastal/long routes (e.g. NYC → ADM Decatur, 1,900 km) push slurry past $200.
+*Polk Co, IA* (corn belt) routes truck→rail→truck ~900 km to ADM Decatur — **bio-oil ≈ $29,
+slurry ≈ $129 /tCO₂**; coastal/long routes (e.g. NYC → ADM Decatur) push slurry past $240.
 
 **Mode model** (country-level $/t·km, tunable in `scripts/transport_common.py`): truck ~$0.12, rail
-~$0.035, ship/barge ~$0.015, plus per-mode handling and a one-off ~$25/t CO₂ liquefaction; great-circle
-× mode detour factors. **Routing:** a sparse multimodal graph over curated **rail terminals + ports**
-(`data/geo/transport_nodes_us.json`; basins let Mississippi/Ohio barge reach Gulf storage), solved with a
-small Dijkstra per region (`scripts/us/build_us_transport.py` → `transport_us.json`). The cost-minimising
-*path* is payload-independent (carbon density is a scalar multiplier), so one path is solved per region
-and costs are scaled per payload. **v1 caveats:** distances are **great-circle screening × detour, not
-network-routed**; transfer nodes are a curated subset (expandable to BTS NTAD / NGA World Port Index);
-drawn legs are straight (stylised). Restricted to **operating** wells (US: 24).
+~$0.035, coastal ship ~$0.015, river barge ~$0.012, plus per-mode handling and a one-off ~$25/t CO₂
+liquefaction. **Routing (v2):** a multimodal graph solved with a small per-region Dijkstra
+(`scripts/us/build_us_transport.py` → `transport_us.json`), over:
+- **Rail** — the **233 real NTAD intermodal (TOFC/COFC) terminals** (was 44 curated), so the truck
+  first-mile to a railhead is short and realistic (built by `build_transport_nodes.py` from the NTAD
+  feed; nodes in `data/geo/transport_nodes_us.json`).
+- **Coastal ship** — port-to-port legs routed by **`searoute`**: real sea distance and a marine-lane
+  **geometry that goes around land** (e.g. Gulf→Atlantic rounds Florida), cached at build time.
+- **Inland barge** — a curated **navigable-river network** (Mississippi / Ohio / Missouri / Illinois /
+  Tennessee corridors as ordered channel waypoints; corridors meet only at real confluences). Barge
+  legs route **along the channel and are drawn following the river — never crossing land** — and
+  require a connected waterway.
 
-*Planned:* extend the transport model (and thus cost-based storage access) to Canada and the EU, and
-upgrade v1's schematic routing to real network geometry (NTAD/World Port Index, `searoute`).
+The cost-minimising *path* is payload-independent (carbon density is a scalar multiplier), so one path
+is solved per region and scaled per payload. Each ship/barge leg carries its real water geometry for
+the map; truck/rail legs are straight. Restricted to **operating** wells (US: 24).
+
+**Remaining v2/v3 caveats:** land legs (truck/rail) use great-circle × a mode detour factor rather than
+real road/rail-network geometry, so drawn land legs are straight and their distance is approximate;
+intermodal-terminal coverage is real but TOFC/COFC-only (some regions still have a long first-mile where
+terminals are genuinely sparse, e.g. Iowa ~200 km). *Planned:* extend the transport model (and cost-based
+storage access) to Canada and the EU.
 
 ---
 

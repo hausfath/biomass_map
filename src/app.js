@@ -563,7 +563,8 @@
   const ROUTE_MODE = {                 // colour + label per transport mode
     truck: { color: "#e0843b", label: "Truck" },
     rail: { color: "#8a6fd4", label: "Rail" },
-    ship: { color: "#46b3ff", label: "Ship / barge" },
+    ship: { color: "#46b3ff", label: "Ship (coastal)" },
+    barge: { color: "#3fb6a8", label: "Barge (river)" },
   };
 
   const dom = {
@@ -651,12 +652,14 @@
     if (!t || !t.legs || !t.legs.length) return;
     t.legs.forEach(leg => {
       const m = ROUTE_MODE[leg.mode] || { color: "#aaa", label: leg.mode };
+      // ship/barge legs follow real water geometry (leg.path); truck/rail are straight from→to
+      const line = (leg.path && leg.path.length > 1) ? leg.path : [leg.from, leg.to];
       // dark casing underneath so the coloured line is legible over any choropleth colour
-      L.polyline([leg.from, leg.to], { color: "#0e1419", weight: 7, opacity: 0.55,
+      L.polyline(line, { color: "#0e1419", weight: 7, opacity: 0.55,
         renderer: ovRenderer }).addTo(routeGroup);
-      L.polyline([leg.from, leg.to], {
+      L.polyline(line, {
         color: m.color, weight: 4, opacity: 0.95, renderer: ovRenderer,
-        dashArray: leg.mode === "ship" ? "8 5" : null,
+        dashArray: (leg.mode === "ship" || leg.mode === "barge") ? "8 5" : null,
       }).bindTooltip(`${m.label}: ${leg.km} km`, { sticky: true }).addTo(routeGroup);
       if (leg.to_name) {   // transfer / destination node marker
         L.circleMarker(leg.to, { radius: 4, fillColor: m.color, color: "#0e1419",
@@ -866,7 +869,7 @@
       const lbl = document.createElement("label");
       lbl.className = "chk";
       lbl.innerHTML = `<input type="checkbox" data-ov="route" /> ` +
-        `<span class="sw" style="background:linear-gradient(90deg,#e0843b 0 33%,#8a6fd4 33% 66%,#46b3ff 66%)"></span> ` +
+        `<span class="sw" style="background:linear-gradient(90deg,#e0843b 0 25%,#8a6fd4 25% 50%,#46b3ff 50% 75%,#3fb6a8 75%)"></span> ` +
         `CO₂ transport route <span class="hint" style="font-weight:400">(selected region)</span>`;
       lbl.querySelector("input").onchange = e => {
         state.showRoute = e.target.checked;

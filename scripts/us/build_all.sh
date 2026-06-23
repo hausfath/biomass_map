@@ -8,7 +8,8 @@ echo "1/6 county geometry ..."        ; python3 build_county_geo.py
 echo "2/6 storage-basin polygons ..." ; python3 build_basin_geo.py
 echo "3/6 county feedstocks ..."      ; python3 build_county_feedstocks.py
 echo "4/6 infrastructure ..."         ; python3 build_us_infrastructure.py
-echo "5/7 transport cost + routes ..." ; python3 build_us_transport.py
-echo "6/7 county recommendations ..." ; python3 build_us_recommendations.py
-echo "7/7 bundle ..."                 ; python3 bundle_us.py
+echo "5/8 transport nodes (NTAD rail + ports + rivers) ..." ; python3 build_transport_nodes.py
+echo "6/8 transport cost + routes ..." ; python3 build_us_transport.py
+echo "7/8 county recommendations ..." ; python3 build_us_recommendations.py
+echo "8/8 bundle ..."                 ; python3 bundle_us.py
 echo "done — open src/index.html (US scope) in a browser."

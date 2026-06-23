@@ -35,4 +35,12 @@ for off in 0 2000 4000; do
     | python3 -c "import sys,json;[print(json.dumps(ft['attributes'])) for ft in json.load(sys.stdin).get('features',[])]" >> wwtp_major.ndjson
 done
 
+echo "NTAD intermodal rail TOFC/COFC terminals (transport model) ..."
+mkdir -p transport_raw
+RAILSVC="https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/NTAD_Intermodal_Freight_Facilities_Rail_TOFC_COFC/FeatureServer/0/query"
+curl -sSL --max-time 90 "$RAILSVC?where=1%3D1&outFields=TERMINAL,CITY,STATE,RAIL_CO,LAT,LON&returnGeometry=false&f=json" \
+  -o transport_raw/ntad_rail_tofc.json
+
 echo "done — raw files staged. Now run build_all.sh"
+echo "NOTE: the transport model also needs the 'searoute' Python package:"
+echo "      python3 -m pip install --break-system-packages searoute"

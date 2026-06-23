@@ -25,5 +25,8 @@ data/geo/eu_raw/
 # Canada CD map — large raw source downloads (re-fetch with scripts/ca/download_raw.sh)
 data/geo/ca_raw/
 
+# Transport model — NTAD raw download + searoute cache (re-fetch/rebuild with download_raw.sh)
+data/geo/transport_raw/
+
 # AD gating — EPA AgSTAR raw download (re-fetch with scripts/us/download_raw.sh)
 data/geo/ad_raw/

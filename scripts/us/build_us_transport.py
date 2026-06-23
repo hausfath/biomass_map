@@ -17,7 +17,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
-from transport_common import TransportGraph, payload_costs  # noqa: E402
+from transport_common import TransportGraph, payload_costs, save_caches  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -35,10 +35,13 @@ def main():
     wells = [w for w in json.load(open(WELLS))
              if w.get("status") == "operational" and w.get("lat") is not None]
     nodes = json.load(open(NODES))
-    terminals, ports = nodes["rail_terminals"], nodes["ports"]
-
-    print(f"operating wells: {len(wells)} | rail terminals: {len(terminals)} | ports: {len(ports)}")
-    graph = TransportGraph(wells, terminals, ports)
+    terminals = nodes["rail_terminals"]
+    coastal_ports = nodes["coastal_ports"]
+    river_corridors = nodes["river_corridors"]
+    nwp = sum(len(v) for v in river_corridors.values())
+    print(f"operating wells: {len(wells)} | rail terminals: {len(terminals)} | "
+          f"coastal ports: {len(coastal_ports)} | river waypoints: {nwp}")
+    graph = TransportGraph(wells, terminals, coastal_ports, river_corridors)
 
     out = {}
     n_path = n_nopath = 0
@@ -68,6 +71,7 @@ def main():
             "total_km": total_km,
         }
 
+    save_caches()
     with open(OUT, "w") as f:
         json.dump(out, f, separators=(",", ":"))
 
