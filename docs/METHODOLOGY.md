@@ -128,12 +128,15 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 | Biochar | 30% | ~$100–200 | nutrients |
 
 ### Logic (first match wins)
-1. **Wet manure** → AD+CCS and slurry injection both place CO₂ (or the slurry) into geologic
-   storage, so — like BECCS and WtE+CCS — **both require storage proximity**. With storage near:
-   AD+CCS where the region's **AD maturity** is high enough that a large existing digester industry
-   can be retrofitted (see below), otherwise injection. With storage **poor**, the only
-   storage-independent wet-manure CDR is distributed **biochar** (AD+CCS / injection are not
-   recommended there). *Never combustion.*
+1. **Wet manure** → wet biomass has **no solid-feedstock options** — biochar and burial both need
+   dry/solid biomass and are never used here. AD+CCS and slurry injection both place CO₂ (or the
+   slurry) into geologic storage, so — like BECCS and WtE+CCS — **both require storage proximity**.
+   With storage near: AD+CCS where the region's **AD maturity** is high enough that a large existing
+   digester industry can be retrofitted (see below), otherwise direct **injection**. With storage
+   **poor** (or where injection's wet-slurry transport exceeds the $100/tCO₂ cap), → **HTL bio-oil**:
+   hydrothermal liquefaction densifies the wet feedstock so it can be hauled. Bio-oil is pricier and
+   less preferred than direct injection, so it leads only when storage is distant/expensive.
+   *Never combustion, biochar, or burial.*
 
    **AD maturity (data-driven).** Whether AD+CCS leads over injection is set by a continuous
    `ad_maturity` index ∈ [0,1] — *the share of a region's organic/manure AD potential already

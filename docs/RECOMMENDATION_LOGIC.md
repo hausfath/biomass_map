@@ -64,11 +64,11 @@ else **bio-oil** (pyrolysis densifies carbon, so bio-oil wins only when wells ar
 flowchart TD
     Start([Region]) --> DOM{dominant<br/>feedstock?}
 
-    %% ---------- 1. WET MANURE  (AD+CCS & injection BOTH need storage, like BECCS/WtE) ----------
+    %% ---------- 1. WET MANURE  (no solid options: never biochar/burial. AD+CCS & injection need storage) ----------
     DOM -->|manure_wet| Mst{storage near?}
     Mst -->|yes + AD nearby<br/>+ AD maturity ≥ 0.15| Mad["AD + CCS<br/>runner: injection"]
-    Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else biochar"]
-    Mst -->|no — storage poor| Mbio["Biochar<br/>runner: AD+CCS if AD else injection"]
+    Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else bio-oil"]
+    Mst -->|no — storage poor<br/>or slurry transport > cap| Mbio["HTL bio-oil<br/>runner: AD+CCS if AD else injection"]
 
     %% ---------- 2. MSW  (WtE+CCS gated on a WtE plant within ~50 km) ----------
     DOM -->|msw| Wnear{storage near AND<br/>WtE plant within ~50 km?}
@@ -117,7 +117,10 @@ flowchart TD
 
 ## Notes & exclusions
 
-- **Wet feedstocks never combust** — manure/biosolids route to injection, AD+CCS or biochar only.
+- **Wet feedstocks (manure/biosolids)** route only to **injection, AD+CCS, or HTL bio-oil** — never
+  combustion, and never biochar/burial (those need dry/solid biomass). Bio-oil (via hydrothermal
+  liquefaction) leads only where storage is distant/expensive; direct injection is preferred when
+  storage is near and affordable.
 - **AD+CCS and injection both need geologic CO₂ storage** — AD+CCS captures a concentrated CO₂
   stream that must be injected, and injection places the slurry itself underground — so, exactly like
   BECCS and WtE+CCS, both require **storage proximity**. Where storage is poor, wet manure falls back

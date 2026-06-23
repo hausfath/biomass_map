@@ -1170,8 +1170,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -1203,34 +1203,19 @@
         ]
       },
       {
-        "key": "burial",
-        "label": "Biomass burial",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass",
-          "Removes carbon and nutrients from an over-fertilized landscape"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
         ],
         "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Distributed and storage-independent; simple and near-term"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway",
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -6665,17 +6650,19 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway",
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -6739,17 +6726,19 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway",
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -7525,17 +7514,19 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway",
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -7723,19 +7714,20 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
+        "badge": "Possible",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term",
-          "Suits the region's diffuse, distributed biomass"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       }
     ]
@@ -8619,36 +8611,38 @@
     "name": "Cyprus",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "biochar",
-    "recommended_label": "Biochar",
+    "recommended": "bio_oil",
+    "recommended_label": "Bio-oil sequestration",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
-    "kpi_score": 33,
-    "cdr_efficiency": 0.3,
-    "cost_band": "~$100-200",
+    "kpi_score": 42,
+    "cdr_efficiency": 0.45,
+    "cost_band": "$140-360",
     "cdr_potential_mtpa": 0.1,
     "storage_access": "poor",
     "nearest_storage_km": 1870,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
+    "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Recommended",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       },
       {
@@ -8677,8 +8671,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "biochar",
-    "runner_up_label": "Biochar",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -8710,18 +8704,20 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       }
     ]
@@ -10349,8 +10345,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "burial",
-    "runner_up_label": "Biomass burial",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -10383,34 +10379,19 @@
         ]
       },
       {
-        "key": "burial",
-        "label": "Biomass burial",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.9,
-        "cost_band": "<$100-150",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Very high CDR efficiency (>90%)",
-          "Simple and low-cost; needs no geologic CO2 storage",
-          "Works for distributed biomass",
-          "Removes carbon and nutrients from an over-fertilized landscape"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
         ],
         "cons": [
-          "Durability still being validated (Frontier prepurchase, not offtake)",
-          "No emissions-avoiding co-product; nutrient-export risk with ag residues"
-        ]
-      },
-      {
-        "key": "biochar",
-        "label": "Biochar",
-        "badge": "Poor fit",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
-        "pros": [
-          "Distributed and storage-independent; simple and near-term"
-        ],
-        "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway",
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -14031,8 +14012,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "biochar",
-    "runner_up_label": "Biochar",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -14064,18 +14045,20 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       }
     ]
@@ -14412,35 +14395,37 @@
     "name": "Israel",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "biochar",
-    "recommended_label": "Biochar",
+    "recommended": "bio_oil",
+    "recommended_label": "Bio-oil sequestration",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
-    "kpi_score": 33,
-    "cdr_efficiency": 0.3,
-    "cost_band": "~$100-200",
-    "cdr_potential_mtpa": 1.1,
+    "kpi_score": 42,
+    "cdr_efficiency": 0.45,
+    "cost_band": "$140-360",
+    "cdr_potential_mtpa": 1.7,
     "storage_access": "poor",
     "nearest_storage_km": 1557,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, poor/absent geologic storage access -> distributed biochar returns nutrients to soils (30% CDR efficiency); lower preference but storage-independent.",
+    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Recommended",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway",
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
       },
@@ -14471,8 +14456,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "biochar",
-    "runner_up_label": "Biochar",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -14504,18 +14489,20 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       }
     ]
@@ -16779,8 +16766,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "biochar",
-    "runner_up_label": "Biochar",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -16812,18 +16799,20 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       }
     ]
@@ -17726,8 +17715,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "biochar",
-    "runner_up_label": "Biochar",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -17759,19 +17748,20 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term",
-          "Suits the region's diffuse, distributed biomass"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       }
     ]
@@ -18890,8 +18880,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "biochar",
-    "runner_up_label": "Biochar",
+    "runner_up": "bio_oil",
+    "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -18923,19 +18913,20 @@
         ]
       },
       {
-        "key": "biochar",
-        "label": "Biochar",
+        "key": "bio_oil",
+        "label": "Bio-oil sequestration",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.3,
-        "cost_band": "~$100-200",
+        "cdr_efficiency": 0.45,
+        "cost_band": "$140-360",
         "pros": [
-          "Returns nutrients to soils, improving yields",
-          "Distributed and storage-independent; simple and near-term",
-          "Suits the region's diffuse, distributed biomass"
+          "Modular and distributed (Charm-style roving model)",
+          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
+          "Returns biochar and nutrients to fields",
+          "Low durability risk"
         ],
         "cons": [
-          "Low CDR efficiency (~30%)",
-          "Durability and verification questions; Frontier's lower-preference pathway"
+          "Lower CDR efficiency (~45%)",
+          "Higher $/t than injection where storage is proximate"
         ]
       }
     ]

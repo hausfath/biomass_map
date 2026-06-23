@@ -297,6 +297,7 @@ def build():
             # Excess-nutrient nuance (thesis sec 2.2): where the ecosystem carries surplus
             # nutrients, surface biomass burial as the alternative for dry-biomass removal recs.
             if (region.get("nutrient_status") == "excess"
+                    and eff_dom != "manure_wet"          # wet biomass: burial needs solid feedstock
                     and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
                     and runner_key != "burial"):
                 runner_key = "burial"

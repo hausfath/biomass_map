@@ -269,14 +269,20 @@ def transport_cost_for(pathway, tcost):
 
 def apply_transport_cap(rec, runner, dom, region, tcost):
     """Carbon-density-correct >$100 cutoff. If the recommended storage-dependent pathway's payload
-    delivered cost exceeds TRANSPORT_MAX_USD, fall back to the cheapest still-affordable option,
-    preferring densified bio-oil for dry biomass, else a storage-independent pathway (burial in
-    excess-nutrient regions, else biochar). Returns (rec, runner, capped)."""
+    delivered cost exceeds TRANSPORT_MAX_USD, fall back to the cheapest still-affordable option.
+    The fallback differs by feedstock: WET manure has no solid-biomass options (no biochar/burial),
+    so it falls to HTL bio-oil (densified, haulable); DRY biomass falls to densified bio-oil, else a
+    storage-independent pathway (burial in excess-nutrient regions, else biochar). Returns
+    (rec, runner, capped)."""
     if not tcost:
         return rec, runner, False
     nutrient = region.get("nutrient_status")
-    indep = "burial" if nutrient == "excess" else "biochar"
-    indep_alt = "biochar" if indep == "burial" else "burial"
+    wet = (dom == "manure_wet")
+    if wet:                                # wet manure: HTL bio-oil is the densified fallback
+        indep, indep_alt = "bio_oil", "injection"
+    else:
+        indep = "burial" if nutrient == "excess" else "biochar"
+        indep_alt = "biochar" if indep == "burial" else "burial"
 
     def affordable(p):
         c = transport_cost_for(p, tcost)
@@ -284,11 +290,12 @@ def apply_transport_cap(rec, runner, dom, region, tcost):
 
     if affordable(rec):
         if not affordable(runner):
-            runner = indep
+            runner = indep if indep != rec else indep_alt   # never duplicate the recommendation
         return rec, runner, False
     # recommended pathway can't deliver its payload affordably -> fall back by feedstock type
-    if dom == "manure_wet":
-        return "biochar", "injection", True
+    if wet:
+        # injection / AD+CCS priced out -> HTL bio-oil (densified). Least-bad even if itself costly.
+        return "bio_oil", "injection", True
     if dom == "msw":
         return "burial", "biochar", True
     if affordable("bio_oil"):              # dry biomass: densify and haul
@@ -443,20 +450,23 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
     #   good storage (proximate) -> injection ;  moderate/poor (distant) -> bio-oil.
     dry_removal = "injection" if storage_access == "good" else "bio_oil"
 
-    # 1. wet manure. AD+CCS and Vaulted-style slurry injection BOTH place CO2 (or the slurry)
-    #    into geologic storage, so — like BECCS and WtE+CCS — both require storage proximity;
-    #    AD+CCS additionally needs existing AD capacity within reach to retrofit (av["ad"]).
-    #    Where storage is poor, neither can place its carbon, so the only viable wet-manure CDR
-    #    is distributed biochar.
+    # 1. wet manure. Wet biomass has NO solid-feedstock options — biochar and burial both need
+    #    dry/solid biomass, so they are never used here. The wet pathways are: AD+CCS and
+    #    Vaulted-style slurry injection (both place CO2/slurry into geologic storage, so — like
+    #    BECCS/WtE+CCS — both require storage proximity; AD+CCS also needs AD capacity to retrofit),
+    #    and HTL bio-oil (hydrothermal liquefaction densifies the wet feedstock so it can be hauled).
+    #    Bio-oil is pricier / less preferred than direct injection, so it leads only where storage is
+    #    poor or injection transport is too costly (the transport cap handles the latter downstream).
     if dom == "manure_wet":
         if near:
             # Storage proximate. In mature-AD regions with AD capacity nearby, AD+CCS retrofits
-            # existing digesters and leads; otherwise injection leads (US-style: on-farm AD rare).
+            # existing digesters and leads; otherwise direct injection leads (US-style: on-farm AD rare).
             if av["ad"] and manure_ad_preferred(region):
                 return "ad_ccs", "injection"
-            return "injection", ("ad_ccs" if av["ad"] else "biochar")
-        # Storage poor: AD+CCS / injection cannot place their CO2 -> distributed biochar.
-        return "biochar", ("ad_ccs" if av["ad"] else "injection")
+            return "injection", ("ad_ccs" if av["ad"] else "bio_oil")
+        # Storage poor: injection / AD+CCS cannot place their carbon here -> HTL bio-oil (densified,
+        # haulable). Never biochar/burial (wet feedstock).
+        return "bio_oil", ("ad_ccs" if av["ad"] else "injection")
 
     # 2. MSW. Only reached when an existing WtE plant is within reach (else re-routed above).
     if dom == "msw":
@@ -559,8 +569,8 @@ def applicable_pathways(dom, avail=None):
     (beccs_pp / wte_ccs / ad_ccs) are included only where an existing facility of that type is
     within reach (avail flag set)."""
     av = _avail(avail)
-    if dom == "manure_wet":                                # wet: never combustion
-        lst = ["injection", "biochar"]
+    if dom == "manure_wet":         # wet: never combustion, never solid-biomass (no biochar/burial)
+        lst = ["injection", "bio_oil"]   # direct injection, else HTL bio-oil (densified, haulable)
         if av["ad"]:
             lst.insert(1, "ad_ccs")
         return lst

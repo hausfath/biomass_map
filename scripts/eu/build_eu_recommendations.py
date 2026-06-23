@@ -248,6 +248,7 @@ def main():
             ranked = build_ranked_none(region, access, nearest_km, avail, anchor_str)
         else:
             if (region.get("nutrient_status") == "excess"
+                    and eff_dom != "manure_wet"          # wet biomass: burial needs solid feedstock
                     and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
                     and runner_key != "burial"):
                 runner_key, nutrient_alt = "burial", True

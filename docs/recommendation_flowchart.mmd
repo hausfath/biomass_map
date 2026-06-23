@@ -19,7 +19,7 @@ flowchart TD
     DOM -->|"💧 Wet manure<br/>& sewage sludge"| M{CO₂ storage<br/>close?}
     M -->|Yes — digesters nearby,<br/>mature biogas region| Mad["Anaerobic<br/>digestion + CCS"]
     M -->|"Yes (otherwise)"| Minj["Inject as slurry<br/>underground"]
-    M -->|"No — storage far"| Mbio["Biochar"]
+    M -->|"No — storage far"| Mbio["HTL bio-oil"]
 
     %% ---------- MSW ----------
     DOM -->|"🗑️ Municipal<br/>trash (MSW)"| W{Waste-to-energy plant<br/>within ~50 km<br/>& storage close?}
@@ -70,8 +70,8 @@ flowchart TD
     class Start start;
     class DOM,M,W,Wsec,C,Cmill,Cpoor,D,F q;
     class Cpp,Cbe,Fbe,Fbe2,Wwte,Mad geo;
-    class Minj,Dinj,Cbo,Dbo inj;
-    class Mbio,Cbur,Dbur,Fbur store;
+    class Minj,Dinj,Cbo,Dbo,Mbio inj;
+    class Cbur,Dbur,Fbur store;
     class Wnone none;
     class Wre reroute;
     class L1 geo;
