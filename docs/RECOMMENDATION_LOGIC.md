@@ -43,6 +43,12 @@ good      = within 500 km of qualifying storage  (or a high-confidence in-countr
 moderate  = within 1000 km
 poor      = otherwise, or only low-confidence storage nearby
 ```
+(US scope: distance is **replaced by transport cost** — `storage_access` = good ≤ $66 / moderate ≤ $100 /
+poor > $100 per tCO₂, from the carbon-density-weighted multimodal delivered cost to the nearest operating
+well; see METHODOLOGY §11. Each storage-dependent pathway is also disqualified above $100/tCO₂ for its own
+payload — wet slurry hits the cap far sooner than densified bio-oil — falling back to bio-oil / burial /
+biochar. Other scopes still use the distance bands above.)
+
 `dry_removal` (the preferred distributed dry-biomass pathway) = **injection** if `storage = good`,
 else **bio-oil** (pyrolysis densifies carbon, so bio-oil wins only when wells are far).
 

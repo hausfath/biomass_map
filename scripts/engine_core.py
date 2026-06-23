@@ -208,6 +208,93 @@ AD_MIN_CAP_MTPA = 0.01   # cumulative AD biogenic-CO2 capacity within reach to e
 # pathway key -> avail flag it is gated on
 RETROFIT_GATE = {"beccs_pp": "pp", "wte_ccs": "wte", "ad_ccs": "ad"}
 
+# --------------------------------------------------------------------------
+# Cost-based storage access (to_do item 4, Phase C). Where a multimodal transport cost is
+# available (currently the US scope; transport_us.json), storage access is derived from the
+# carbon-density-weighted DELIVERED COST ($/tCO₂) to the nearest operating well instead of from
+# great-circle distance, and storage-dependent pathways are disqualified above a max cost.
+#   low  $0–33  -> good        medium $33–66 ┐
+#   high $66–100 -> moderate (viable, costly) ┘ (both map to "moderate": storage reachable)
+#   over $100   -> poor (storage not viable) -> falls back to burial / biochar (no transport)
+# The delivered cost depends on WHAT is moved, so each pathway is gated on its own payload:
+#   capture pathways move CO₂ (~1.0 t/tCO₂); bio-oil ~0.45; wet slurry (injection) ~2.0;
+#   burial/biochar move nothing (stored locally) -> never gated.
+TRANSPORT_BANDS = (33.0, 66.0, 100.0)   # $/tCO₂ thresholds: low | medium | high | over
+TRANSPORT_MAX_USD = 100.0               # storage-dependent pathway disqualified above this
+TRANSPORT_KPI_PENALTY = {"low": 0, "medium": 4, "high": 8, "over": 0}  # soft KPI nudge by band
+
+# pathway -> transport payload class (None = storage-independent, no transport-to-well cost)
+PATHWAY_PAYLOAD = {
+    "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2",
+    "bio_oil": "bio_oil", "injection": "slurry",
+}
+
+
+def transport_band(usd):
+    """4-band label for a delivered $/tCO₂ (low / medium / high / over $100)."""
+    if usd is None:
+        return None
+    if usd < TRANSPORT_BANDS[0]:
+        return "low"
+    if usd < TRANSPORT_BANDS[1]:
+        return "medium"
+    if usd <= TRANSPORT_BANDS[2]:
+        return "high"
+    return "over"
+
+
+def storage_access_from_cost(co2_usd):
+    """Map the CO₂ delivered cost to the engine's storage_access tiers:
+      good     ≤ $66/tCO₂  (clearly cheap — prefer geologic pathways: BECCS / injection)
+      moderate ≤ $100      (viable but marginal — bio-oil competitive)
+      poor     > $100      (CO₂ cannot be moved to an operating well affordably → storage-independent)
+    The finer 4-band label (low/medium/high/over at 33/66/100) is kept separately for display and a
+    soft KPI penalty; this 3-tier mapping is what the decision tree branches on."""
+    if co2_usd is None:
+        return None
+    if co2_usd <= TRANSPORT_BANDS[1]:      # ≤ $66
+        return "good"
+    if co2_usd <= TRANSPORT_MAX_USD:       # ≤ $100
+        return "moderate"
+    return "poor"
+
+
+def transport_cost_for(pathway, tcost):
+    """Delivered $/tCO₂ for a pathway's payload (None for storage-independent / no data)."""
+    pay = PATHWAY_PAYLOAD.get(pathway)
+    if pay is None or not tcost:
+        return None
+    return tcost.get(pay)
+
+
+def apply_transport_cap(rec, runner, dom, region, tcost):
+    """Carbon-density-correct >$100 cutoff. If the recommended storage-dependent pathway's payload
+    delivered cost exceeds TRANSPORT_MAX_USD, fall back to the cheapest still-affordable option,
+    preferring densified bio-oil for dry biomass, else a storage-independent pathway (burial in
+    excess-nutrient regions, else biochar). Returns (rec, runner, capped)."""
+    if not tcost:
+        return rec, runner, False
+    nutrient = region.get("nutrient_status")
+    indep = "burial" if nutrient == "excess" else "biochar"
+    indep_alt = "biochar" if indep == "burial" else "burial"
+
+    def affordable(p):
+        c = transport_cost_for(p, tcost)
+        return c is None or c <= TRANSPORT_MAX_USD
+
+    if affordable(rec):
+        if not affordable(runner):
+            runner = indep
+        return rec, runner, False
+    # recommended pathway can't deliver its payload affordably -> fall back by feedstock type
+    if dom == "manure_wet":
+        return "biochar", "injection", True
+    if dom == "msw":
+        return "burial", "biochar", True
+    if affordable("bio_oil"):              # dry biomass: densify and haul
+        return "bio_oil", indep, True
+    return indep, indep_alt, True
+
 
 def _avail(avail):
     """Normalize the per-region retrofit-availability flags (default all available)."""

@@ -498,13 +498,23 @@ viable pathway".) Raw sources live under `data/geo/ca_raw/` (gitignored; re-fetc
 
 ---
 
-## 11. Multimodal transport cost & route (US scope; display-only v1)
+## 11. Multimodal transport cost & route (US scope; drives storage access)
 
 For each subnational unit the Atlas estimates the **least-cost combination of truck + rail + ship/barge**
 to move material from the region centroid to the **nearest operating** geologic-storage well, the
 **carbon-density-weighted delivered cost** ($/tCO₂), and a drawable route. Live for the **US** today
-(toggle *CO₂ transport route* in Map layers; cost shown in the detail panel). **Display-only for now** —
-not yet an input to the recommendation engine (that is a planned follow-up).
+(toggle *CO₂ transport route* in Map layers; cost shown in the detail panel).
+
+**Now an engine input (US).** For the US scope, this delivered cost **replaces great-circle distance as
+the storage-access signal**: `storage_access` is derived from the CO₂ delivered cost (good ≤ $66/tCO₂,
+moderate ≤ $100, poor > $100), and each storage-dependent pathway is **disqualified above $100/tCO₂ for
+its own payload** (carbon-density-correct — wet slurry hits the cap far sooner than densified bio-oil),
+falling back to bio-oil or a storage-independent pathway (burial/biochar). A soft KPI penalty scales with
+the cost band below the cap. Because only ~24 *operating* wells anchor the US today (vs the generous
+basin-polygon proximity used before), this pushes ~40% of counties past $100/tCO₂ → storage-independent,
+and mid-distance counties toward **bio-oil** (densify-to-haul) rather than moving CO₂ or wet slurry — an
+economically grounded shift. Other scopes (global, Canada, EU) still use distance-based access until the
+transport model is extended to them.
 
 **Delivered cost** = `mass_per_tCO₂(payload) × Σ_legs[mode $/t·km × routed-km] + per-mode handling +
 CO₂ liquefaction (for gaseous CO₂ only)`. The **payload carbon density** is the crux — what's hauled
@@ -532,9 +542,8 @@ and costs are scaled per payload. **v1 caveats:** distances are **great-circle s
 network-routed**; transfer nodes are a curated subset (expandable to BTS NTAD / NGA World Port Index);
 drawn legs are straight (stylised). Restricted to **operating** wells (US: 24).
 
-*Planned (Phase C):* feed the payload-weighted delivered cost into the engine — a hard cap
-(~$100/tCO₂) disqualifies storage-dependent pathways that exceed it, with a soft KPI penalty below —
-and extend the model to Canada and the EU.
+*Planned:* extend the transport model (and thus cost-based storage access) to Canada and the EU, and
+upgrade v1's schematic routing to real network geometry (NTAD/World Port Index, `searoute`).
 
 ---
 
@@ -630,11 +639,14 @@ biomethane potential* — built by `scripts/build_ad_maturity.py` → `data/proc
 | `AD_MATURITY_THRESHOLD` | 0.15 | `ad_maturity` score at/above which AD+CCS leads over injection for wet manure |
 | `SECONDARY_FRAC` / `SECONDARY_ABS_MTPA` | 0.25 / 0.05 | MSW-fallback significance (relative OR absolute) |
 | Storage grading (G) | good < 500 km / moderate < 1000 km | Centroid → nearest storage |
-| Storage grading (US) | good < 100 km / moderate < 300 km | Tighter for county scale |
-| Storage grading (CA) | good < 100 km / moderate < 300 km | Same as US (county-equivalent scale) |
+| Storage grading (US) | **cost-based**: good ≤ $66 / moderate ≤ $100 / poor > $100 (per tCO₂) | §11 transport cost replaces distance |
+| Storage grading (CA) | good < 100 km / moderate < 300 km | distance (transport model not yet extended) |
 | Storage grading (EU) | good < 150 km / moderate < 400 km | NUTS-2 scale, offshore-dominant |
+| `TRANSPORT_BANDS` / `TRANSPORT_MAX_USD` | 33 / 66 / 100 ; cap 100 ($/tCO₂) | cost-band labels + storage-dependent cutoff |
+| `TRANSPORT_KPI_PENALTY` | low 0 / medium 4 / high 8 | soft KPI penalty by cost band |
 
-**Current coverage:** global 214 regions (2 "no viable pathway"); US 3,144 counties (204 "no viable
-pathway"); Canada 293 census divisions (17 "no viable pathway"); EU 290 NUTS-2 regions (0). Raw source
+**Current coverage:** global 214 regions (2 "no viable pathway"); US 3,144 counties (266 "no viable
+pathway" under cost-based access); Canada 293 census divisions (17 "no viable pathway"); EU 290 NUTS-2
+regions (0). Raw source
 files for the detail scopes live under `data/geo/us_raw/`, `data/geo/ca_raw/`, and `data/geo/eu_raw/`
 (gitignored; re-fetch via each scope's `download_raw.sh`).

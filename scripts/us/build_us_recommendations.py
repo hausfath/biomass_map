@@ -31,6 +31,8 @@ from engine_core import (
     num, haversine_km, _point_in_geometry,
     decide, kpi_score, cdr_potential_mtpa, build_ranked, build_ranked_none,
     build_rationale, build_caveats_flags,
+    storage_access_from_cost, apply_transport_cap, transport_band, transport_cost_for,
+    TRANSPORT_MAX_USD, TRANSPORT_KPI_PENALTY, PATHWAY_PAYLOAD,
 )
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -43,6 +45,7 @@ BASINS = os.path.join(PROC, "storage_us_basins.json")
 WELLS = os.path.join(PROC, "wells_us.json")
 FACS = os.path.join(PROC, "facilities_us_detailed.json")
 COUNTIES = os.path.join(GEO, "us_counties.json")
+TRANSPORT = os.path.join(PROC, "transport_us.json")   # multimodal delivered $/tCO2 (build_us_transport)
 OUT = os.path.join(PROC, "recommendations_us.json")
 
 # Cross-border storage: a US county is also scored against Canadian storage (the Western Canada
@@ -238,6 +241,7 @@ def main():
     wells = json.load(open(WELLS)) + _load_opt(WELLS_CA)
     facilities = json.load(open(FACS))
     counties = json.load(open(COUNTIES))["features"]
+    transport = _load_opt(TRANSPORT) or {}   # county id -> {by_payload:{co2,bio_oil,slurry}, ...}
     # (retrofit availability is now radius-based from each county centroid — no point-in-polygon
     #  facility tagging needed.)
 
@@ -260,6 +264,15 @@ def main():
 
         access, nearest_km, sdetail = compute_storage_access_county(centroid, basins, wells)
 
+        # Cost-based storage access: where a multimodal transport cost exists, the storage-access
+        # grade comes from the CO₂ delivered $/tCO₂ to the nearest OPERATING well, not great-circle
+        # distance (the basin/well names in sdetail are kept for the detail panel). Falls back to
+        # distance when no transport record (shouldn't happen for US, but safe).
+        tinfo = transport.get(region["id"])
+        tcost = tinfo.get("by_payload") if tinfo else None
+        if tcost and tcost.get("co2") is not None:
+            access = storage_access_from_cost(tcost["co2"])
+
         # density from real area + haul-radius supply
         area = region.get("area_km2") or 1.0
         dens_tco2_km2 = round(co2_dry(region) * 1e6 / area, 2)
@@ -275,6 +288,12 @@ def main():
 
         rec_key, runner_key, eff_dom = decide(region, access, has_retrofit, avail)
         no_option = (rec_key == "none")
+        # >$100/tCO₂ cutoff (carbon-density-correct, per payload): disqualify a storage-dependent
+        # pathway that can't deliver its payload affordably -> bio-oil / burial / biochar.
+        transport_capped = False
+        if not no_option:
+            rec_key, runner_key, transport_capped = apply_transport_cap(
+                rec_key, runner_key, eff_dom, region, tcost)
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         rregion = region if eff_dom == region.get("dominant_feedstock") else dict(region, dominant_feedstock=eff_dom)
 
@@ -291,6 +310,10 @@ def main():
                     and runner_key != "burial"):
                 runner_key, nutrient_alt = "burial", True
             score = kpi_score(rec_key, access)
+            # soft KPI penalty scaled by transport-cost band (storage-dependent pathways only)
+            if tcost and rec_key in PATHWAY_PAYLOAD:
+                score = max(0, score - TRANSPORT_KPI_PENALTY.get(
+                    transport_band(transport_cost_for(rec_key, tcost)), 0))
             eff = PATHWAYS[rec_key]["cdr_efficiency"]
             cost = PATHWAYS[rec_key]["cost_band"]
             cdr = cdr_potential_mtpa(rregion, rec_key)
@@ -311,6 +334,10 @@ def main():
         if sdetail["in_basin"]:
             caveats = [f"Storage on-site: county overlaps the {sdetail['in_basin']} saline "
                        f"storage formation."] + caveats
+        if transport_capped:
+            caveats = [f"Transport to the nearest operating well exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ "
+                       f"for this pathway's payload — defaulted to a storage-independent option "
+                       f"(burial/biochar) or densified bio-oil."] + caveats
 
         records.append({
             "id": region["id"],
@@ -330,6 +357,11 @@ def main():
             "storage_access": access,
             "nearest_storage_km": nearest_km,
             "storage_detail": sdetail,
+            "transport_usd_per_tco2": (round(transport_cost_for(rec_key, tcost), 1)
+                                       if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
+            "transport_band": (transport_band(transport_cost_for(rec_key, tcost))
+                               if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
+            "transport_capped": transport_capped,
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,
             "haul_supply_mtco2": supply_mt,
