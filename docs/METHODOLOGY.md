@@ -498,13 +498,53 @@ viable pathway".) Raw sources live under `data/geo/ca_raw/` (gitignored; re-fetc
 
 ---
 
-## 11. Consolidated data sources
+## 11. Multimodal transport cost & route (US scope; display-only v1)
+
+For each subnational unit the Atlas estimates the **least-cost combination of truck + rail + ship/barge**
+to move material from the region centroid to the **nearest operating** geologic-storage well, the
+**carbon-density-weighted delivered cost** ($/tCO₂), and a drawable route. Live for the **US** today
+(toggle *CO₂ transport route* in Map layers; cost shown in the detail panel). **Display-only for now** —
+not yet an input to the recommendation engine (that is a planned follow-up).
+
+**Delivered cost** = `mass_per_tCO₂(payload) × Σ_legs[mode $/t·km × routed-km] + per-mode handling +
+CO₂ liquefaction (for gaseous CO₂ only)`. The **payload carbon density** is the crux — what's hauled
+differs by pathway, so the same distance costs very differently:
+
+| Pathway | Moves to the well | ~t per tCO₂ stored |
+|---|---|---|
+| BECCS · BECCS-pp · WtE+CCS · AD+CCS | captured CO₂ (liquefied) | ~1.0 |
+| Bio-oil sequestration | pyrolysis-densified bio-oil | ~0.45 |
+| Biomass waste injection | wet biomass slurry | ~2.0 |
+| Biomass burial · biochar | nothing — stored locally | 0 (no transport-to-well) |
+
+So a long haul leaves **bio-oil viable but prices slurry-injection out**, and is irrelevant to
+burial/biochar — the current qualitative injection-vs-bio-oil-vs-burial logic, now quantified. Example:
+*Polk Co, IA* (corn belt) routes truck→rail→truck 849 km to Vaulted Deep (Kansas) — **bio-oil ≈ $30,
+slurry ≈ $135 /tCO₂**; coastal/long routes (e.g. NYC → ADM Decatur, 1,900 km) push slurry past $200.
+
+**Mode model** (country-level $/t·km, tunable in `scripts/transport_common.py`): truck ~$0.12, rail
+~$0.035, ship/barge ~$0.015, plus per-mode handling and a one-off ~$25/t CO₂ liquefaction; great-circle
+× mode detour factors. **Routing:** a sparse multimodal graph over curated **rail terminals + ports**
+(`data/geo/transport_nodes_us.json`; basins let Mississippi/Ohio barge reach Gulf storage), solved with a
+small Dijkstra per region (`scripts/us/build_us_transport.py` → `transport_us.json`). The cost-minimising
+*path* is payload-independent (carbon density is a scalar multiplier), so one path is solved per region
+and costs are scaled per payload. **v1 caveats:** distances are **great-circle screening × detour, not
+network-routed**; transfer nodes are a curated subset (expandable to BTS NTAD / NGA World Port Index);
+drawn legs are straight (stylised). Restricted to **operating** wells (US: 24).
+
+*Planned (Phase C):* feed the payload-weighted delivered cost into the engine — a hard cap
+(~$100/tCO₂) disqualifies storage-dependent pathways that exceed it, with a soft KPI penalty below —
+and extend the model to Canada and the EU.
+
+---
+
+## 12. Consolidated data sources
 
 Every layer, with its source and resolution. "Scope" = which view consumes it
 (**G** global country-level; **US** county data + **CA** Canada census-division data, which
 together form the combined **North America** scope; **EU** NUTS-2 scope).
 
-### 10.1 Feedstock supply
+### 12.1 Feedstock supply
 
 | Layer | Scope | Source(s) | Resolution / method |
 |---|---|---|---|
@@ -528,7 +568,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Human / WWTP biosolids | G | IEA biogas outlook; population × treatment coverage × solids factor | Country |
 | Nutrient status | G/sub | FAO FAOSTAT fertilizer use per ha 2022; Zhang et al. 2015 (China); AAFC (Canada) | Country / province |
 
-### 10.2 CO₂ storage
+### 12.2 CO₂ storage
 
 | Layer | Scope | Source(s) | Form |
 |---|---|---|---|
@@ -542,7 +582,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Storage basins | CA | **Curated** simplified extents — Western Canada Sedimentary Basin (WCSB) + Williston (no open Canadian polygon atlas) | **Polygons** |
 | CCS projects / hubs | CA | Curated (Quest, ACTL, Aquistore, Boundary Dam, Weyburn, Polaris/Atlas, Pathways, Wabamun, …); status operational / construction / proposed | Points (the "wells" layer) |
 
-### 10.3 Retrofit-candidate facilities (and the gate)
+### 12.3 Retrofit-candidate facilities (and the gate)
 
 | Layer | Scope | Source(s) | Notes |
 |---|---|---|---|
@@ -557,7 +597,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Large WWTPs | EU | EEA/EMODnet **UWWTD** (Waterbase), ≥ 150,000-PE plants | Points |
 | Large WWTPs | CA | Curated major urban water-resource-recovery plants | Points |
 
-### 10.3a AD maturity (AD+CCS-vs-injection for wet manure)
+### 12.3a AD maturity (AD+CCS-vs-injection for wet manure)
 
 The continuous `ad_maturity` index (§5) — *biogas/biomethane actually produced ÷ sustainable
 biomethane potential* — built by `scripts/build_ad_maturity.py` → `data/processed/ad_maturity.json`.
@@ -571,7 +611,7 @@ biomethane potential* — built by `scripts/build_ad_maturity.py` → `data/proc
 | Sub-national | CA | **Canadian Biogas Association** provincial fleet shares ÷ provincial manure (Ontario 0.41, BC 0.49) |
 | Sub-national | EU | AD-facility density vs **JRC ENSPRESO** `MINBIOGAS` per NUTS-2 (within-country refinement) |
 
-### 10.4 Geometry
+### 12.4 Geometry
 
 | Layer | Scope | Source |
 |---|---|---|
@@ -580,7 +620,7 @@ biomethane potential* — built by `scripts/build_ad_maturity.py` → `data/proc
 | Census-division polygons | CA | StatCan **2021 Cartographic Boundary File** (ArcGIS GeoJSON), 293 census divisions |
 | NUTS-2 polygons | EU | Eurostat **GISCO** NUTS-2 geojson (EU-27 + UK + Norway, ~290 regions) |
 
-### 10.5 Key model constants (all tunable, in `scripts/engine_core.py`)
+### 12.5 Key model constants (all tunable, in `scripts/engine_core.py`)
 
 | Constant | Value | Role |
 |---|---|---|

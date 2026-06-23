@@ -76,6 +76,7 @@ bundle = {
     "US_FACILITIES": load("facilities_us_detailed.json"),
     "US_WELLS": load("wells_us.json"),
     "US_WWTPS": load("wwtps_us.json"),
+    "US_TRANSPORT": load("transport_us.json"),
     "US_PATHWAY_PROFILE": PROFILE,
 }
 

@@ -291,6 +291,7 @@
         return { feedById: feedById, recById: recById };
       },
       feedSection: slimFeedSection,
+      transportLookup: id => (window.US_TRANSPORT || {})[id] || (window.CA_TRANSPORT || {})[id] || null,
       storageDetailRows: function (rec) {
         const sd = rec.storage_detail || {};
         return [
@@ -544,10 +545,16 @@
   // ============================================================
   // Active-scope state + shared rendering
   // ============================================================
-  const state = { scope: "global", mode: "feedstock", feedstock: "ag", breaks: [], openRegion: null };
+  const state = { scope: "global", mode: "feedstock", feedstock: "ag", breaks: [], openRegion: null, showRoute: false };
   let combined = null, feedById = {}, recById = {};
   let geoLayer = null, choroRenderer = null;
   let activeOverlays = [];  // [{id, layer, checkbox}]
+  const routeGroup = L.featureGroup();   // multimodal transport route (featureGroup → has getBounds)
+  const ROUTE_MODE = {                 // colour + label per transport mode
+    truck: { color: "#e0843b", label: "Truck" },
+    rail: { color: "#8a6fd4", label: "Rail" },
+    ship: { color: "#46b3ff", label: "Ship / barge" },
+  };
 
   const dom = {
     hovertip: document.getElementById("hovertip"),
@@ -621,6 +628,53 @@
   function hideHoverTip() { dom.hovertip.classList.add("hidden"); }
 
   // ---- Detail panel (shared) ----
+  // ---- Multimodal transport route (to_do item 4) ----
+  function transportFor(sc, id) {
+    return (sc.transportLookup && id) ? sc.transportLookup(id) : null;
+  }
+
+  function redrawRoute() {
+    routeGroup.clearLayers();
+    const sc = SCOPES[state.scope];
+    if (!state.showRoute || !state.openRegion) { return; }
+    const t = transportFor(sc, state.openRegion.id);
+    if (!t || !t.legs || !t.legs.length) return;
+    t.legs.forEach(leg => {
+      const m = ROUTE_MODE[leg.mode] || { color: "#aaa", label: leg.mode };
+      // dark casing underneath so the coloured line is legible over any choropleth colour
+      L.polyline([leg.from, leg.to], { color: "#0e1419", weight: 7, opacity: 0.55,
+        renderer: ovRenderer }).addTo(routeGroup);
+      L.polyline([leg.from, leg.to], {
+        color: m.color, weight: 4, opacity: 0.95, renderer: ovRenderer,
+        dashArray: leg.mode === "ship" ? "8 5" : null,
+      }).bindTooltip(`${m.label}: ${leg.km} km`, { sticky: true }).addTo(routeGroup);
+      if (leg.to_name) {   // transfer / destination node marker
+        L.circleMarker(leg.to, { radius: 4, fillColor: m.color, color: "#0e1419",
+          weight: 1, fillOpacity: 1, renderer: ovRenderer })
+          .bindTooltip(leg.to_name, { direction: "top" }).addTo(routeGroup);
+      }
+    });
+    if (!map.hasLayer(routeGroup)) routeGroup.addTo(map);
+  }
+
+  function transportSummaryHTML(sc, id) {
+    const t = transportFor(sc, id);
+    if (!t) return "";
+    const modes = (t.modes || []).map(m => (ROUTE_MODE[m] || { label: m }).label).join(" → ");
+    const bp = t.by_payload || {};
+    const row = (lbl, v) => `<div><div class="k">${lbl}</div><div class="v">${v == null ? "—" : "$" + fmt(v) + "/tCO₂"}</div></div>`;
+    return `<div class="chart-card">
+      <div class="chart-title">Transport to storage <span class="hint" style="font-weight:400">(screening, v1)</span></div>
+      <div class="chart-sub">Least-cost route to nearest operating well: <b>${t.dest_well || "—"}</b> · ${modes || "—"} · ${fmt(t.total_km)} km. Delivered cost by what's moved (carbon-density-weighted):</div>
+      <div class="d-metrics">
+        ${row("Captured CO₂ (BECCS/WtE/AD)", bp.co2)}
+        ${row("Bio-oil (densified)", bp.bio_oil)}
+        ${row("Wet biomass slurry (injection)", bp.slurry)}
+      </div>
+      <div class="chart-sub" style="margin-top:6px">Toggle <b>CO₂ transport route</b> in Map layers to draw the path. Great-circle screening, not yet network-routed.</div>
+    </div>`;
+  }
+
   function openDetail(id, name) {
     state.openRegion = { id: id, name: name };
     const rec = recById[id], feed = feedById[id];
@@ -640,8 +694,10 @@
       if (rec) html += recCard(rec, sc) + rankedList(rec);
       else if (feed) html += sc.feedSection(feed);
     }
+    html += transportSummaryHTML(sc, id);
     dom.detailBody.innerHTML = html;
     dom.detail.classList.remove("hidden");
+    redrawRoute();
   }
 
   function feedstockBarChart(feed) {
@@ -737,7 +793,7 @@
       openDetail(state.openRegion.id, state.openRegion.name);
     }
   }
-  function closeDetail() { dom.detail.classList.add("hidden"); state.openRegion = null; }
+  function closeDetail() { dom.detail.classList.add("hidden"); state.openRegion = null; redrawRoute(); }
   document.getElementById("detail-close").onclick = closeDetail;
 
   // ---- Legend (shared; scope supplies notes + low-supply awareness) ----
@@ -793,6 +849,24 @@
       dom.overlayList.appendChild(lbl);
       activeOverlays.push({ id: def.id, layer: layer, checkbox: cb });
     });
+    // Region-dependent transport-route toggle (only where a transport model exists for the scope).
+    routeGroup.clearLayers();
+    state.showRoute = false;
+    if (sc.transportLookup) {
+      const lbl = document.createElement("label");
+      lbl.className = "chk";
+      lbl.innerHTML = `<input type="checkbox" data-ov="route" /> ` +
+        `<span class="sw" style="background:linear-gradient(90deg,#e0843b 0 33%,#8a6fd4 33% 66%,#46b3ff 66%)"></span> ` +
+        `CO₂ transport route <span class="hint" style="font-weight:400">(selected region)</span>`;
+      lbl.querySelector("input").onchange = e => {
+        state.showRoute = e.target.checked;
+        redrawRoute();
+        if (state.showRoute && routeGroup.getLayers().length) {
+          try { map.fitBounds(routeGroup.getBounds(), { padding: [40, 40], maxZoom: 7 }); } catch (_) {}
+        }
+      };
+      dom.overlayList.appendChild(lbl);
+    }
   }
 
   // ============================================================
