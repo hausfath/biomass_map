@@ -260,20 +260,21 @@ def transport_band(usd):
     return "over"
 
 
-def storage_access_from_cost(co2_usd):
+def storage_access_from_cost(co2_usd, dest_status="operational"):
     """Map the CO₂ delivered cost to the engine's storage_access tiers:
       good     ≤ $66/tCO₂  (clearly cheap — prefer geologic pathways: BECCS / injection)
       moderate ≤ $100      (viable but marginal — bio-oil competitive)
-      poor     > $100      (CO₂ cannot be moved to an operating well affordably → storage-independent)
-    The finer 4-band label (low/medium/high/over at 33/66/100) is kept separately for display and a
-    soft KPI penalty; this 3-tier mapping is what the decision tree branches on."""
+      poor     > $100      (CO₂ cannot be moved to a well affordably → storage-independent)
+    Tiering by well status: a route to a PERMITTED (not-yet-operating) well is capped at "moderate"
+    no matter how cheap — the storage exists only on paper, so it can't earn "good". The finer 4-band
+    label (low/medium/high/over at 33/66/100) is kept separately for display + soft KPI penalty."""
     if co2_usd is None:
         return None
-    if co2_usd <= TRANSPORT_BANDS[1]:      # ≤ $66
+    if co2_usd > TRANSPORT_MAX_USD:        # > $100
+        return "poor"
+    if co2_usd <= TRANSPORT_BANDS[1] and dest_status == "operational":   # ≤ $66 to a real well
         return "good"
-    if co2_usd <= TRANSPORT_MAX_USD:       # ≤ $100
-        return "moderate"
-    return "poor"
+    return "moderate"                      # ≤ $100, or any permitted-well destination
 
 
 def transport_cost_for(pathway, tcost):

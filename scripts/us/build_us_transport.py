@@ -30,17 +30,25 @@ NODES = os.path.join(GEO, "transport_nodes_us.json")
 OUT = os.path.join(PROC, "transport_us.json")
 
 
+CAP = 100.0   # $/tCO₂ CO₂-delivered cap (matches engine TRANSPORT_MAX_USD)
+
+
 def main():
     counties = json.load(open(COUNTIES))["features"]
-    wells = [w for w in json.load(open(WELLS))
-             if w.get("status") == "operational" and w.get("lat") is not None]
+    # Tier by status: operating wells are full-confidence storage; permitted (issued / under-
+    # construction / draft / pending) wells "rescue" counties that have no affordable operating
+    # well, but are flagged lower-confidence. Route to BOTH and choose per county below.
+    allw = [w for w in json.load(open(WELLS)) if w.get("lat") is not None]
+    wells = allw
+    n_op = sum(1 for w in allw if w.get("status") == "operational")
     nodes = json.load(open(NODES))
     terminals = nodes["rail_terminals"]
     coastal_ports = nodes["coastal_ports"]
     river_corridors = nodes["river_corridors"]
     nwp = sum(len(v) for v in river_corridors.values())
-    print(f"operating wells: {len(wells)} | rail terminals: {len(terminals)} | "
-          f"coastal ports: {len(coastal_ports)} | river waypoints: {nwp}")
+    print(f"wells: {len(wells)} ({n_op} operating + {len(wells)-n_op} permitted) | "
+          f"rail terminals: {len(terminals)} | coastal ports: {len(coastal_ports)} | "
+          f"river waypoints: {nwp}")
     graph = TransportGraph(wells, terminals, coastal_ports, river_corridors)
 
     out = {}
@@ -48,13 +56,30 @@ def main():
     from collections import Counter
     mode_use = Counter()
     cost_samples = []
+    n_rescued = 0
     for f in counties:
         p = f["properties"]
         lon, lat = p["centroid"]
-        per_tonne, legs, dest = graph.least_cost_to_well([lat, lon])
-        if per_tonne is None:
+        res = graph.least_cost_to_well([lat, lon])
+        op, perm = res["operational"], res["permitted"]
+        # CO₂-delivered cost at each candidate (operating preferred when affordable).
+        op_co2 = payload_costs(op[0], True)["co2"] if op else None
+        # Choose destination: operating if it exists and is affordable (≤cap); else the permitted
+        # well if that is affordable (a "rescue"); else fall back to operating (will grade poor),
+        # else permitted.
+        chosen, dest_status = None, None
+        if op and op_co2 is not None and op_co2 <= CAP:
+            chosen, dest_status = op, "operational"
+        elif perm:
+            perm_co2 = payload_costs(perm[0], True)["co2"]
+            if perm_co2 is not None and perm_co2 <= CAP:
+                chosen, dest_status, n_rescued = perm, perm[3], (n_rescued + 1)
+        if chosen is None:
+            chosen, dest_status = (op, "operational") if op else ((perm, perm[3]) if perm else (None, None))
+        if chosen is None:
             n_nopath += 1
             continue
+        per_tonne, legs, dest = chosen[0], chosen[1], chosen[2]
         n_path += 1
         modes = sorted({leg["mode"] for leg in legs})
         for m in modes:
@@ -62,14 +87,19 @@ def main():
         total_km = sum(leg["km"] for leg in legs)
         bp = payload_costs(per_tonne, has_path=bool(legs))
         cost_samples.append(bp["slurry"])
-        out[p["id"]] = {
+        rec = {
             "per_tonne_usd": per_tonne,
             "dest_well": dest,
+            "dest_status": dest_status,            # 'operational' or a permitted status
             "legs": legs,
             "by_payload": bp,
             "modes": modes,
             "total_km": total_km,
         }
+        # also expose the nearest-operating cost so the engine can grade confidence
+        if op:
+            rec["operating_co2_usd"] = op_co2
+        out[p["id"]] = rec
 
     save_caches()
     with open(OUT, "w") as f:
@@ -78,7 +108,7 @@ def main():
     cost_samples.sort()
     med = cost_samples[len(cost_samples) // 2] if cost_samples else None
     print(f"wrote {len(out)} county transport records -> {OUT}")
-    print(f"  paths found: {n_path} | no path: {n_nopath}")
+    print(f"  paths found: {n_path} | no path: {n_nopath} | rescued by a permitted well: {n_rescued}")
     print(f"  leg-mode usage (counties whose route includes the mode): {dict(mode_use)}")
     print(f"  slurry $/tCO₂: min {cost_samples[0]:.0f} / median {med:.0f} / max {cost_samples[-1]:.0f}")
     # spot checks

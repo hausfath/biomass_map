@@ -127,13 +127,14 @@ class TransportGraph:
     add a temporary origin, Dijkstra to the nearest well, then drop the origin."""
 
     def __init__(self, wells, terminals, coastal_ports, river_corridors):
-        self.nodes = {}                # id -> {pos,kind,name,basin?}
+        self.nodes = {}                # id -> {pos,kind,name,basin?,status?}
         self.adj = {}                  # id -> list[(nbr, cost, mode, km, path|None)]
         self._wells, self._terms, self._ports, self._rivers = [], [], [], []
 
         for i, w in enumerate(wells):
             nid = f"W{i}"
-            self.nodes[nid] = {"pos": [w["lat"], w["lon"]], "kind": "well", "name": w["name"]}
+            self.nodes[nid] = {"pos": [w["lat"], w["lon"]], "kind": "well", "name": w["name"],
+                               "status": w.get("status", "operational")}
             self._wells.append(nid)
         for i, t in enumerate(terminals):
             nid = f"R{i}"
@@ -215,6 +216,9 @@ class TransportGraph:
 
     # per-region solve -----------------------------------------------------
     def least_cost_to_well(self, origin_pos):
+        """Full Dijkstra (no early stop) → cheapest per-tonne path to the nearest OPERATING well and
+        to the nearest PERMITTED (non-operating) well. Returns
+        {"operational": (cost, legs, name) | None, "permitted": (cost, legs, name, status) | None}."""
         O = "_O"
         self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin"}
         self.adj[O] = []
@@ -230,14 +234,10 @@ class TransportGraph:
         dist = {O: 0.0}
         prev = {}
         pq = [(0.0, O)]
-        best_well, best_cost = None, None
         while pq:
             d, u = heapq.heappop(pq)
             if d > dist.get(u, float("inf")):
                 continue
-            if self.nodes[u]["kind"] == "well":
-                best_well, best_cost = u, d
-                break
             for v, c, mode, km, path in self.adj.get(u, []):
                 nd = d + c
                 if nd < dist.get(v, float("inf")):
@@ -245,11 +245,29 @@ class TransportGraph:
                     prev[v] = (u, mode, km, path)
                     heapq.heappush(pq, (nd, v))
 
-        legs = self._reconstruct(prev, best_well) if best_well is not None else []
-        dest_name = self.nodes[best_well]["name"] if best_well is not None else None
+        best_op = best_perm = None      # (cost, well_id)
+        for w in self._wells:
+            if w not in dist:
+                continue
+            if self.nodes[w]["status"] == "operational":
+                if best_op is None or dist[w] < best_op[0]:
+                    best_op = (dist[w], w)
+            else:
+                if best_perm is None or dist[w] < best_perm[0]:
+                    best_perm = (dist[w], w)
+
+        def pack(entry, with_status=False):
+            if entry is None:
+                return None
+            cost, wid = entry
+            legs = self._reconstruct(prev, wid)
+            out = (round(cost, 2), legs, self.nodes[wid]["name"])
+            return out + (self.nodes[wid]["status"],) if with_status else out
+
+        result = {"operational": pack(best_op), "permitted": pack(best_perm, with_status=True)}
         del self.nodes[O]
         del self.adj[O]
-        return (round(best_cost, 2) if best_cost is not None else None, legs, dest_name)
+        return result
 
     def _reconstruct(self, prev, well):
         # walk back to origin collecting (a, b, mode, km, path)

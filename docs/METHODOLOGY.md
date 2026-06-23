@@ -563,7 +563,18 @@ liquefaction. **Routing (v2):** a multimodal graph solved with a small per-regio
 
 The cost-minimising *path* is payload-independent (carbon density is a scalar multiplier), so one path
 is solved per region and scaled per payload. Each ship/barge leg carries its real water geometry for
-the map; truck/rail legs are straight. Restricted to **operating** wells (US: 24).
+the map; truck/rail legs are straight.
+
+**Wells tiered by status.** Routing considers **all 36 US wells** — 24 **operating** plus 12
+**permitted / under-construction** (issued Class VI, draft/pending). A county uses its nearest
+*operating* well where that is affordable (≤ $100/tCO₂); otherwise a **permitted** well can "rescue"
+it (237 counties), but storage access is then **capped at "moderate"** (never "good") and flagged
+lower-confidence in the detail panel — the storage exists only on paper until the project comes online.
+This is what lets river barging matter: e.g. Ohio-Valley counties barge the Ohio River to the *issued*
+Wabash Carbon Services well, and lower-Mississippi counties reach the Louisiana "CCS-alley" permitted
+wells. (There is **no Class V well beyond the curated CDR sites** — EPA's UIC inventory publishes only
+state-level *counts*, not locations; Class V/II well coordinates are administered by ~30 state agencies
+with no clean national point dataset.)
 
 **Remaining v2/v3 caveats:** land legs (truck/rail) use great-circle × a mode detour factor rather than
 real road/rail-network geometry, so drawn land legs are straight and their distance is approximate;

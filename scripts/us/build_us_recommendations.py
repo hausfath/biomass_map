@@ -265,13 +265,16 @@ def main():
         access, nearest_km, sdetail = compute_storage_access_county(centroid, basins, wells)
 
         # Cost-based storage access: where a multimodal transport cost exists, the storage-access
-        # grade comes from the CO₂ delivered $/tCO₂ to the nearest OPERATING well, not great-circle
-        # distance (the basin/well names in sdetail are kept for the detail panel). Falls back to
-        # distance when no transport record (shouldn't happen for US, but safe).
+        # grade comes from the CO₂ delivered $/tCO₂ to the chosen well, not great-circle distance.
+        # Wells are tiered by status: a route to a PERMITTED (not-yet-operating) well is capped at
+        # "moderate" (storage that exists only on paper can't earn "good"). Falls back to distance
+        # when no transport record.
         tinfo = transport.get(region["id"])
         tcost = tinfo.get("by_payload") if tinfo else None
+        dest_status = tinfo.get("dest_status", "operational") if tinfo else "operational"
+        permitted_storage = (dest_status != "operational")
         if tcost and tcost.get("co2") is not None:
-            access = storage_access_from_cost(tcost["co2"])
+            access = storage_access_from_cost(tcost["co2"], dest_status)
 
         # density from real area + haul-radius supply
         area = region.get("area_km2") or 1.0
@@ -336,9 +339,13 @@ def main():
             caveats = [f"Storage on-site: county overlaps the {sdetail['in_basin']} saline "
                        f"storage formation."] + caveats
         if transport_capped:
-            caveats = [f"Transport to the nearest operating well exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ "
+            caveats = [f"Transport to the nearest well exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ "
                        f"for this pathway's payload — defaulted to a storage-independent option "
                        f"(burial/biochar) or densified bio-oil."] + caveats
+        if permitted_storage and not no_option and rec_key in PATHWAY_PAYLOAD:
+            caveats = [f"Nearest affordable storage is a permitted / under-construction well "
+                       f"({tinfo.get('dest_well')}), not yet operating — storage access capped at "
+                       f"'moderate' (lower confidence; depends on that project coming online)."] + caveats
 
         records.append({
             "id": region["id"],
@@ -364,6 +371,9 @@ def main():
                                if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
             "transport_by_payload": tcost,   # {co2,bio_oil,slurry} $/tCO2 — for ranked-list cons
             "transport_capped": transport_capped,
+            "transport_dest_well": tinfo.get("dest_well") if tinfo else None,
+            "transport_dest_status": dest_status,
+            "permitted_storage": permitted_storage,
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,
             "haul_supply_mtco2": supply_mt,
