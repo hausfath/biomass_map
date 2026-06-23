@@ -464,13 +464,16 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
 
     # 3. forestry_woody OR (ag_dry & concentrated)
     if dom == "forestry_woody" or (dom == "ag_dry" and density == "concentrated"):
-        if storage_access == "good":
-            # BECCS leads; pulp&paper retrofit only where an existing mill is within reach.
+        if storage_access in ("good", "moderate"):
+            # BECCS leads; the pulp&paper RETROFIT leads over greenfield BECCS wherever an existing
+            # mill is within reach (av["pp"]) — both need the same geologic storage, but the retrofit
+            # leverages existing biomass logistics + lower execution risk, so it is preferred at good
+            # AND moderate storage alike. Runner-up: injection where storage is proximate (good),
+            # else bio-oil (densified carbon hauls cheaper when wells are farther).
+            runner = dry_removal if storage_access == "good" else "bio_oil"
             if av["pp"]:
-                return "beccs_pp", dry_removal
-            return "beccs", dry_removal
-        elif storage_access == "moderate":
-            return "beccs", "bio_oil"
+                return "beccs_pp", runner
+            return "beccs", runner
         else:  # poor
             if nutrient == "excess":
                 return "burial", "bio_oil"

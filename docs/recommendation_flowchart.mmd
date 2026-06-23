@@ -30,10 +30,9 @@ flowchart TD
 
     %% ---------- WOODY / DENSE DRY ----------
     DOM -->|"🌲 Wood or dense<br/>crop residue"| C{How close is<br/>CO₂ storage?}
-    C -->|Close| Cmill{Pulp/paper mill<br/>within ~150 km?}
+    C -->|Close or moderate| Cmill{Pulp/paper mill<br/>within ~150 km?}
     Cmill -->|Yes| Cpp["BECCS retrofit<br/>at the mill"]
     Cmill -->|No| Cbe["BECCS<br/>heat / power"]
-    C -->|Moderate| Cbe2["BECCS<br/>heat / power"]
     C -->|Far| Cpoor{Soils already<br/>nutrient-rich?}
     Cpoor -->|Yes| Cbur["Bury the<br/>biomass"]
     Cpoor -->|No| Cbo["Bio-oil<br/>sequestration"]
@@ -70,7 +69,7 @@ flowchart TD
 
     class Start start;
     class DOM,M,W,Wsec,C,Cmill,Cpoor,D,F q;
-    class Cpp,Cbe,Cbe2,Fbe,Fbe2,Wwte,Mad geo;
+    class Cpp,Cbe,Fbe,Fbe2,Wwte,Mad geo;
     class Minj,Dinj,Cbo,Dbo inj;
     class Mbio,Cbur,Dbur,Fbur store;
     class Wnone none;

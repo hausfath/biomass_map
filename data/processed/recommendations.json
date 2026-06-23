@@ -6023,38 +6023,38 @@
     "name": "France",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "beccs",
-    "recommended_label": "BECCS (heat/electricity)",
+    "recommended": "beccs_pp",
+    "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
     "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
-    "cost_band": "$200-225 (to <$100 at scale)",
+    "cost_band": "$200-225",
     "cdr_potential_mtpa": 37.0,
     "storage_access": "moderate",
     "nearest_storage_km": 653,
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Fibre Excellence Tarascon Pulp Mill (Provence) (pulp_paper)",
-    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~653 km) with a retrofittable pulp_paper anchor (Fibre Excellence Tarascon Pulp Mill (Provence)) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~653 km) with a retrofittable pulp_paper anchor (Fibre Excellence Tarascon Pulp Mill (Provence)) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "beccs",
-        "label": "BECCS (heat/electricity)",
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
         "badge": "Recommended",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225 (to <$100 at scale)",
+        "cost_band": "$200-225",
         "pros": [
-          "High CDR efficiency (~80%)",
-          "Energy co-product (heat/electricity) displaces fossil emissions",
-          "Low durability risk; Frontier's most-preferred pathway",
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Capital-intensive; works best at large scale",
-          "Not very modular — hard to deploy in distributed settings",
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -6076,20 +6076,20 @@
         ]
       },
       {
-        "key": "beccs_pp",
-        "label": "BECCS pulp & paper",
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
         "badge": "Strong fit",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225",
+        "cost_band": "$200-225 (to <$100 at scale)",
         "pros": [
-          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
-          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
-          "Leverages existing biomass logistics + grid connection",
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Requires an existing mill to retrofit",
-          "Capture capex on flue gas",
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -6760,38 +6760,38 @@
     "name": "Czechia",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "beccs",
-    "recommended_label": "BECCS (heat/electricity)",
+    "recommended": "beccs_pp",
+    "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
     "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
-    "cost_band": "$200-225 (to <$100 at scale)",
+    "cost_band": "$200-225",
     "cdr_potential_mtpa": 10.0,
     "storage_access": "moderate",
     "nearest_storage_km": 629,
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Mondi Štětí Pulp & Paper Mill (pulp_paper)",
-    "rationale": "Concentrated woody forestry residues, moderate nutrient status, moderate geologic storage access (~629 km) with a retrofittable pulp_paper anchor (Mondi Štětí Pulp & Paper Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated woody forestry residues, moderate nutrient status, moderate geologic storage access (~629 km) with a retrofittable pulp_paper anchor (Mondi Štětí Pulp & Paper Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "beccs",
-        "label": "BECCS (heat/electricity)",
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
         "badge": "Recommended",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225 (to <$100 at scale)",
+        "cost_band": "$200-225",
         "pros": [
-          "High CDR efficiency (~80%)",
-          "Energy co-product (heat/electricity) displaces fossil emissions",
-          "Low durability risk; Frontier's most-preferred pathway",
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Capital-intensive; works best at large scale",
-          "Not very modular — hard to deploy in distributed settings",
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -6813,20 +6813,20 @@
         ]
       },
       {
-        "key": "beccs_pp",
-        "label": "BECCS pulp & paper",
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
         "badge": "Strong fit",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225",
+        "cost_band": "$200-225 (to <$100 at scale)",
         "pros": [
-          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
-          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
-          "Leverages existing biomass logistics + grid connection",
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Requires an existing mill to retrofit",
-          "Capture capex on flue gas",
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -7546,38 +7546,38 @@
     "name": "Finland",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "beccs",
-    "recommended_label": "BECCS (heat/electricity)",
+    "recommended": "beccs_pp",
+    "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
     "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
-    "cost_band": "$200-225 (to <$100 at scale)",
+    "cost_band": "$200-225",
     "cdr_potential_mtpa": 12.3,
     "storage_access": "moderate",
     "nearest_storage_km": 793,
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Metsä Fibre Äänekoski Bioproduct Mill (pulp_paper)",
-    "rationale": "Concentrated woody forestry residues, low nutrient status, moderate geologic storage access (~793 km) with a retrofittable pulp_paper anchor (Metsä Fibre Äänekoski Bioproduct Mill) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated woody forestry residues, low nutrient status, moderate geologic storage access (~793 km) with a retrofittable pulp_paper anchor (Metsä Fibre Äänekoski Bioproduct Mill) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "beccs",
-        "label": "BECCS (heat/electricity)",
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
         "badge": "Recommended",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225 (to <$100 at scale)",
+        "cost_band": "$200-225",
         "pros": [
-          "High CDR efficiency (~80%)",
-          "Energy co-product (heat/electricity) displaces fossil emissions",
-          "Low durability risk; Frontier's most-preferred pathway",
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Capital-intensive; works best at large scale",
-          "Not very modular — hard to deploy in distributed settings",
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -7599,20 +7599,20 @@
         ]
       },
       {
-        "key": "beccs_pp",
-        "label": "BECCS pulp & paper",
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
         "badge": "Strong fit",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225",
+        "cost_band": "$200-225 (to <$100 at scale)",
         "pros": [
-          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
-          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
-          "Leverages existing biomass logistics + grid connection",
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Requires an existing mill to retrofit",
-          "Capture capex on flue gas",
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -7963,38 +7963,38 @@
     "name": "Slovakia",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "beccs",
-    "recommended_label": "BECCS (heat/electricity)",
+    "recommended": "beccs_pp",
+    "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
     "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
-    "cost_band": "$200-225 (to <$100 at scale)",
+    "cost_band": "$200-225",
     "cdr_potential_mtpa": 5.9,
     "storage_access": "moderate",
     "nearest_storage_km": 715,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "Mondi SCP Ružomberok Pulp & Paper Mill (pulp_paper)",
-    "rationale": "Concentrated woody forestry residues, moderate nutrient status, moderate geologic storage access (~715 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated woody forestry residues, moderate nutrient status, moderate geologic storage access (~715 km) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "beccs",
-        "label": "BECCS (heat/electricity)",
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
         "badge": "Recommended",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225 (to <$100 at scale)",
+        "cost_band": "$200-225",
         "pros": [
-          "High CDR efficiency (~80%)",
-          "Energy co-product (heat/electricity) displaces fossil emissions",
-          "Low durability risk; Frontier's most-preferred pathway",
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Capital-intensive; works best at large scale",
-          "Not very modular — hard to deploy in distributed settings",
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -8016,20 +8016,20 @@
         ]
       },
       {
-        "key": "beccs_pp",
-        "label": "BECCS pulp & paper",
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
         "badge": "Strong fit",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225",
+        "cost_band": "$200-225 (to <$100 at scale)",
         "pros": [
-          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
-          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
-          "Leverages existing biomass logistics + grid connection",
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Requires an existing mill to retrofit",
-          "Capture capex on flue gas",
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -9717,38 +9717,38 @@
     "name": "Vietnam",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "beccs",
-    "recommended_label": "BECCS (heat/electricity)",
+    "recommended": "beccs_pp",
+    "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
     "runner_up_label": "Bio-oil sequestration",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
-    "cost_band": "$200-225 (to <$100 at scale)",
+    "cost_band": "$200-225",
     "cdr_potential_mtpa": 38.2,
     "storage_access": "moderate",
     "nearest_storage_km": 927,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "Vietnam Lee & Man Paper Hau Giang (pulp_paper)",
-    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~927 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~927 km) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "beccs",
-        "label": "BECCS (heat/electricity)",
+        "key": "beccs_pp",
+        "label": "BECCS pulp & paper",
         "badge": "Recommended",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225 (to <$100 at scale)",
+        "cost_band": "$200-225",
         "pros": [
-          "High CDR efficiency (~80%)",
-          "Energy co-product (heat/electricity) displaces fossil emissions",
-          "Low durability risk; Frontier's most-preferred pathway",
+          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
+          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
+          "Leverages existing biomass logistics + grid connection",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Capital-intensive; works best at large scale",
-          "Not very modular — hard to deploy in distributed settings",
+          "Requires an existing mill to retrofit",
+          "Capture capex on flue gas",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },
@@ -9770,20 +9770,20 @@
         ]
       },
       {
-        "key": "beccs_pp",
-        "label": "BECCS pulp & paper",
+        "key": "beccs",
+        "label": "BECCS (heat/electricity)",
         "badge": "Strong fit",
         "cdr_efficiency": 0.8,
-        "cost_band": "$200-225",
+        "cost_band": "$200-225 (to <$100 at scale)",
         "pros": [
-          "Retrofits an existing pulp & paper mill — low execution risk, near-term",
-          "High CDR efficiency (~80%) from concentrated recovery-boiler flue gas",
-          "Leverages existing biomass logistics + grid connection",
+          "High CDR efficiency (~80%)",
+          "Energy co-product (heat/electricity) displaces fossil emissions",
+          "Low durability risk; Frontier's most-preferred pathway",
           "Biomass is concentrated — supports a central facility"
         ],
         "cons": [
-          "Requires an existing mill to retrofit",
-          "Capture capex on flue gas",
+          "Capital-intensive; works best at large scale",
+          "Not very modular — hard to deploy in distributed settings",
           "Geologic storage only moderately accessible — transport adds cost"
         ]
       },

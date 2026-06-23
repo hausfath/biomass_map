@@ -153,9 +153,12 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
    Quebec 0.11, Alberta 0.03 lead with injection); EU NUTS-2 refined by AD-facility density within
    each country. Built by `scripts/build_ad_maturity.py` → `data/processed/ad_maturity.json`.
 2. **MSW** → WtE+CCS (storage near) else burial.
-3. **Woody / concentrated dry ag** → BECCS (pulp & paper retrofit if anchor present) where
-   storage is good/moderate; if storage poor → burial (excess nutrients) or bio-oil. Where
-   storage is proximate, **injection** is the runner-up (it beats bio-oil there — see below).
+3. **Woody / concentrated dry ag** → BECCS where storage is good/moderate, as the **pulp & paper
+   retrofit (`beccs_pp`) whenever an existing mill is within reach** (good *and* moderate storage
+   alike — the retrofit leverages existing logistics and lower execution risk, and needs the same
+   geologic storage as greenfield BECCS), else greenfield BECCS. If storage poor → burial (excess
+   nutrients) or bio-oil. Runner-up is **injection** at good storage (it beats bio-oil there — see
+   below), **bio-oil** at moderate (densified carbon hauls cheaper when wells are farther).
 4. **Diffuse dry ag** → **injection where geologic storage is proximate** (good access), else
    bio-oil (Charm roving model) where wells are distant, or biochar; burial if poor storage +
    excess nutrients.

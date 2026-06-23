@@ -79,10 +79,9 @@ flowchart TD
 
     %% ---------- 3. WOODY  OR  DRY-AG & CONCENTRATED ----------
     DOM -->|forestry_woody<br/>OR ag_dry & concentrated| Csa{storage<br/>access?}
-    Csa -->|good| Cmill{pulp & paper mill<br/>within ~150 km?}
-    Cmill -->|yes| Cpp["BECCS pulp & paper<br/>runner: injection"]
-    Cmill -->|no| Cbe["BECCS<br/>runner: injection"]
-    Csa -->|moderate| Cbe2["BECCS<br/>runner: bio-oil"]
+    Csa -->|good or moderate| Cmill{pulp & paper mill<br/>within ~150 km?}
+    Cmill -->|yes| Cpp["BECCS pulp & paper<br/>runner: injection if good,<br/>else bio-oil"]
+    Cmill -->|no| Cbe["BECCS<br/>runner: injection if good,<br/>else bio-oil"]
     Csa -->|poor| Cnut{nutrient<br/>status?}
     Cnut -->|excess| Cbur["Biomass burial<br/>runner: bio-oil"]
     Cnut -->|else| Cbo["Bio-oil<br/>runner: biochar"]
@@ -100,7 +99,7 @@ flowchart TD
     Fsa -->|else| Fbe2["BECCS<br/>runner: bio-oil"]
 
     %% ---------- POST-STEP ----------
-    Mad & Minj & Mbio & Wwte & Cpp & Cbe & Cbe2 & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
+    Mad & Minj & Mbio & Wwte & Cpp & Cbe & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
     NUT -->|yes| Swap["swap runner-up to Biomass burial<br/>removal-consistent; bio-oil would<br/>return nutrients to surplus soils"]
     NUT -->|no| Keep["keep runner-up"]
     Swap --> Done([Recommended + runner-up])
@@ -111,7 +110,7 @@ flowchart TD
     classDef rec fill:#15967f,stroke:#0d5530,color:#eafffb;
     classDef q fill:#1c2730,stroke:#2a3742,color:#e8edf1;
     classDef none fill:#3a4350,stroke:#222a33,color:#cdd6df;
-    class Mad,Minj,Mbio,Wwte,Wre,Cpp,Cbe,Cbe2,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
+    class Mad,Minj,Mbio,Wwte,Wre,Cpp,Cbe,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
     class DOM,Mst,Wnear,Wsec,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
     class Wnone none;
 ```
