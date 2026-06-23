@@ -573,8 +573,11 @@ def applicable_pathways(dom, avail=None):
     return dry
 
 
-def fit_score(region, pathway, storage_access, avail=None):
-    """Region-fit score for ranking: intrinsic KPI score + local modifiers."""
+def fit_score(region, pathway, storage_access, avail=None, tcost=None):
+    """Region-fit score for ranking: intrinsic KPI score + local modifiers. When a transport
+    cost is supplied (`tcost` = per-payload delivered $/tCO₂), a storage-dependent pathway whose
+    payload cannot be delivered under TRANSPORT_MAX_USD is hard-demoted (it is not viable here),
+    and one below the cap takes the same graduated soft penalty the headline KPI uses."""
     av = _avail(avail)
     p = PATHWAYS[pathway]
     score = kpi_score(pathway, storage_access)
@@ -599,10 +602,17 @@ def fit_score(region, pathway, storage_access, avail=None):
             score += 4
     if pathway == "beccs_pp":
         score += 8 if av["pp"] else -50
+    # transport-cost demotion (storage-dependent pathways only, where a cost is known)
+    tc = transport_cost_for(pathway, tcost)
+    if tc is not None:
+        if tc > TRANSPORT_MAX_USD:
+            score -= 50               # cannot deliver its payload affordably -> not viable here
+        else:
+            score -= TRANSPORT_KPI_PENALTY.get(transport_band(tc), 0)
     return score
 
 
-def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor):
+def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor, tcost=None):
     """Static profile pros/cons plus region-specific modifiers."""
     prof = PATHWAY_PROFILE[pathway]
     pros = list(prof["pros"])
@@ -610,6 +620,15 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor)
     p = PATHWAYS[pathway]
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
+
+    # transport-cost note (storage-dependent pathways where a delivered cost is known)
+    tc = transport_cost_for(pathway, tcost)
+    if tc is not None:
+        if tc > TRANSPORT_MAX_USD:
+            cons.insert(0, f"Transport to the nearest operating well ~${tc:.0f}/tCO₂ — exceeds the "
+                           f"${TRANSPORT_MAX_USD:.0f}/tCO₂ viability cap, so this pathway is not viable here")
+        elif tc >= TRANSPORT_BANDS[1]:   # >= $66 (high band, still under cap)
+            cons.append(f"Transport to the nearest operating well is costly (~${tc:.0f}/tCO₂)")
 
     if p["needs_geologic_storage"]:
         if storage_access == "good":
@@ -661,15 +680,16 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor)
 
 
 def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
-                 avail, anchor):
-    """Ordered best->worst list of applicable pathways with pros/cons + fit badge."""
+                 avail, anchor, tcost=None):
+    """Ordered best->worst list of applicable pathways with pros/cons + fit badge. `tcost`
+    (per-payload delivered $/tCO₂) demotes storage-dependent pathways priced out of transport."""
     dom = region.get("dominant_feedstock")
     apps = applicable_pathways(dom, avail)
     for k in (rec_key, runner_key):          # always include the engine's picks
         if k not in apps:
             apps.append(k)
 
-    scores = {a: fit_score(region, a, storage_access, avail) for a in apps}
+    scores = {a: fit_score(region, a, storage_access, avail, tcost) for a in apps}
     rest = sorted((a for a in apps if a not in (rec_key, runner_key)),
                   key=lambda a: -scores[a])
     order = [rec_key, runner_key] + rest
@@ -684,7 +704,7 @@ def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
             sc = scores.get(a, 0)
             badge = "Strong fit" if sc >= 60 else ("Possible" if sc >= 45 else "Poor fit")
         pros, cons = region_pros_cons(region, a, storage_access, nearest_km,
-                                      avail, anchor)
+                                      avail, anchor, tcost)
         ranked.append({
             "key": a,
             "label": PATHWAYS[a]["label"],

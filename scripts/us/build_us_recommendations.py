@@ -322,7 +322,7 @@ def main():
             rationale = build_rationale(rregion, rec_key, access, nearest_km,
                                         has_retrofit, anchor_name, anchor_type)
             ranked = build_ranked(rregion, rec_key, runner_key, access, nearest_km,
-                                  avail, anchor_str)
+                                  avail, anchor_str, tcost)
         caveats, flags = build_caveats_flags(region, rec_key, runner_key, False,
                                              anchor_type, nutrient_alt)
 
@@ -361,6 +361,7 @@ def main():
                                        if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
             "transport_band": (transport_band(transport_cost_for(rec_key, tcost))
                                if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
+            "transport_by_payload": tcost,   # {co2,bio_oil,slurry} $/tCO2 — for ranked-list cons
             "transport_capped": transport_capped,
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,

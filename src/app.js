@@ -91,10 +91,19 @@
   }
 
   // ---- Ranked pros/cons reconstruction (US/EU; mirrors engine_core.region_pros_cons) ----
+  const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", bio_oil: "bio_oil", injection: "slurry" };
+  const TRANSPORT_CAP = 100;
   function regionProsCons(rec, key, profile) {
     const prof = profile[key];
     let pros = prof.pros.slice(), cons = prof.cons.slice();
     const sa = rec.storage_access, dens = rec.feedstock_density, nut = rec.nutrient_status;
+    // transport-cost note (storage-dependent pathways, where a per-payload delivered cost is known)
+    const tbp = rec.transport_by_payload, pay = PAYLOAD_OF[key];
+    const tc = (tbp && pay) ? tbp[pay] : null;
+    if (tc != null) {
+      if (tc > TRANSPORT_CAP) cons.unshift(`Transport to the nearest operating well ~$${fmt(tc)}/tCO₂ — exceeds the $${TRANSPORT_CAP}/tCO₂ viability cap, so this pathway is not viable here`);
+      else if (tc >= 66) cons.push(`Transport to the nearest operating well is costly (~$${fmt(tc)}/tCO₂)`);
+    }
     const central = key === "beccs" || key === "beccs_pp" || key === "wte_ccs";
     const distributed = key === "bio_oil" || key === "biochar" || key === "burial";
     if (prof.needs_storage) {
