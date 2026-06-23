@@ -67,8 +67,8 @@ flowchart TD
     %% ---------- 1. WET MANURE  (no solid options: never biochar/burial. AD+CCS & injection need storage) ----------
     DOM -->|manure_wet| Mst{storage near?}
     Mst -->|yes + AD nearby<br/>+ AD maturity ≥ 0.15| Mad["AD + CCS<br/>runner: injection"]
-    Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else bio-oil"]
-    Mst -->|no — storage poor<br/>or slurry transport > cap| Mbio["HTL bio-oil<br/>runner: AD+CCS if AD else injection"]
+    Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else HTL bio-oil"]
+    Mst -->|no — storage poor<br/>or slurry transport > cap| Mbio["Bio-oil (HTL)<br/>runner: AD+CCS if AD else injection"]
 
     %% ---------- 2. MSW  (WtE+CCS gated on a WtE plant within ~50 km) ----------
     DOM -->|msw| Wnear{storage near AND<br/>WtE plant within ~50 km?}
@@ -84,7 +84,7 @@ flowchart TD
     Cmill -->|no| Cbe["BECCS<br/>runner: injection if good,<br/>else bio-oil"]
     Csa -->|poor| Cnut{nutrient<br/>status?}
     Cnut -->|excess| Cbur["Biomass burial<br/>runner: bio-oil"]
-    Cnut -->|else| Cbo["Bio-oil<br/>runner: biochar"]
+    Cnut -->|else| Cbo["Bio-oil (pyrolysis)<br/>runner: biochar"]
 
     %% ---------- 4. DRY-AG & DIFFUSE ----------
     DOM -->|ag_dry & diffuse| Dsa{storage<br/>access?}

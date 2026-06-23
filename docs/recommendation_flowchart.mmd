@@ -19,7 +19,7 @@ flowchart TD
     DOM -->|"💧 Wet manure<br/>& sewage sludge"| M{CO₂ storage<br/>close?}
     M -->|Yes — digesters nearby,<br/>mature biogas region| Mad["Anaerobic<br/>digestion + CCS"]
     M -->|"Yes (otherwise)"| Minj["Inject as slurry<br/>underground"]
-    M -->|"No — storage far"| Mbio["HTL bio-oil"]
+    M -->|"No — storage far"| Mbio["Bio-oil (HTL)"]
 
     %% ---------- MSW ----------
     DOM -->|"🗑️ Municipal<br/>trash (MSW)"| W{Waste-to-energy plant<br/>within ~50 km<br/>& storage close?}
@@ -35,13 +35,13 @@ flowchart TD
     Cmill -->|No| Cbe["BECCS<br/>heat / power"]
     C -->|Far| Cpoor{Soils already<br/>nutrient-rich?}
     Cpoor -->|Yes| Cbur["Bury the<br/>biomass"]
-    Cpoor -->|No| Cbo["Bio-oil<br/>sequestration"]
+    Cpoor -->|No| Cbo["Bio-oil (pyrolysis)"]
 
     %% ---------- DIFFUSE DRY ----------
     DOM -->|"🌾 Scattered<br/>crop residue"| D{How close is<br/>CO₂ storage?}
     D -->|Close| Dinj["Inject as slurry<br/>underground"]
     D -->|"Far &<br/>nutrient-rich soil"| Dbur["Bury the<br/>biomass"]
-    D -->|Otherwise| Dbo["Bio-oil<br/>sequestration"]
+    D -->|Otherwise| Dbo["Bio-oil (pyrolysis)"]
 
     %% ---------- MIXED ----------
     DOM -->|"🔀 Mixed /<br/>unclear"| F{Good storage<br/>& a plant<br/>to retrofit?}

@@ -122,7 +122,8 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 | BECCS pulp & paper | 80% | $200–225 | energy |
 | WtE + CCS | 55% | ~$100–200 | energy |
 | Biomass waste injection | 90% | $125–285 | PFAS destruction |
-| Bio-oil sequestration | 45% | $140–360 | biochar/nutrients |
+| Bio-oil (pyrolysis) | 45% | $140–360 | biochar/nutrients |
+| Bio-oil (hydrothermal liquefaction) | 50% | $200–400 | nutrients |
 | Biomass burial | 90% | <$100–150 | none |
 | Anaerobic digestion + CCS | 37% | $145–300 | low-C fuel |
 | Biochar | 30% | ~$100–200 | nutrients |
@@ -167,14 +168,22 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
    excess nutrients.
 5. **Mixed / fallback** → BECCS (good storage + retrofit), burial (poor storage), else BECCS.
 
+#### Two bio-oil routes: pyrolysis (dry) vs. HTL (wet)
+Bio-oil is split into two pathways by feedstock moisture: **`bio_oil` — pyrolysis** densifies *dry*
+biomass (crop/forestry residues; the Charm-style roving model), and **`bio_oil_htl` — hydrothermal
+liquefaction** processes *wet* biomass (manure/biosolids) directly without drying. Both densify the
+carbon into a haulable bio-crude injected at a well, so both win over direct injection only at
+distance; HTL is the costlier, earlier-stage route. The engine never crosses them — dry feedstocks
+use pyrolysis, wet feedstocks use HTL.
+
 #### Injection vs. bio-oil for dry residues
 Frontier is bullish on Vaulted-style slurry injection: it handles the same dry crop residues
 as bio-oil, has higher CDR efficiency (>90% vs. ~45%), and is cheaper on balance — so where
 geologic storage (injection wells) is **proximate** it is preferred over bio-oil. Bio-oil's
 advantage is only at distance: pyrolysis densifies the carbon (less-carbon-dense raw biomass is
 expensive to haul), so it wins when wells are far. The engine therefore routes dry-residue
-removal to **injection at good storage access** and **bio-oil at moderate/poor access**. In
-excess-nutrient regions where injection leads, **burial** is surfaced as the alternative rather
+removal to **injection at good storage access** and **bio-oil (pyrolysis) at moderate/poor access**.
+In excess-nutrient regions where injection leads, **burial** is surfaced as the alternative rather
 than bio-oil, since bio-oil returns nutrients to soils that are already in surplus.
 
 ### Storage proximity

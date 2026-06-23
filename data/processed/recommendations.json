@@ -7,7 +7,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -44,7 +44,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -56,6 +56,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -226,7 +227,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -238,6 +239,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -265,7 +267,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -277,13 +279,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~840 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~840 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -295,6 +297,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -462,7 +465,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -474,6 +477,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -571,7 +575,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -583,6 +587,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -612,7 +617,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -645,7 +650,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -657,6 +662,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -807,7 +813,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -819,6 +825,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -916,7 +923,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -927,6 +934,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -956,7 +964,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -989,7 +997,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1001,6 +1009,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -1131,7 +1140,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1143,6 +1152,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -1170,8 +1180,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -1203,19 +1213,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -1313,7 +1323,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1324,6 +1334,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -1439,7 +1450,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1451,6 +1462,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -1547,7 +1559,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1559,6 +1571,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -1587,7 +1600,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -1620,7 +1633,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1632,6 +1645,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -1784,7 +1798,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1796,6 +1810,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -1896,7 +1911,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -1908,6 +1923,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -2007,7 +2023,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -2018,6 +2034,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -2047,7 +2064,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -2080,7 +2097,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -2092,6 +2109,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -2156,7 +2174,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -2189,7 +2207,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -2201,6 +2219,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -2265,7 +2284,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -2298,7 +2317,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -2310,6 +2329,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -2478,7 +2498,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -2490,6 +2510,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -2734,7 +2755,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -2746,6 +2767,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -2864,7 +2886,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -2876,6 +2898,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -2992,7 +3015,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3004,6 +3027,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -3103,7 +3127,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3115,6 +3139,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -3145,7 +3170,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -3178,7 +3203,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3190,6 +3215,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -3323,7 +3349,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3334,6 +3360,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -3429,7 +3456,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3441,6 +3468,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -3537,7 +3565,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3549,6 +3577,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -3650,7 +3679,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -3683,7 +3712,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3695,6 +3724,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -3915,7 +3945,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -3926,6 +3956,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -3955,7 +3986,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -3988,7 +4019,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4000,6 +4031,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -4134,7 +4166,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4146,6 +4178,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -4244,7 +4277,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4256,6 +4289,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -4354,7 +4388,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4366,6 +4400,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -4481,7 +4516,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4493,6 +4528,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -4589,7 +4625,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4601,6 +4637,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -4715,7 +4752,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4727,6 +4764,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -4756,7 +4794,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -4791,7 +4829,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4803,6 +4841,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -4867,7 +4906,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -4900,7 +4939,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -4912,6 +4951,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -4994,7 +5034,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -5027,7 +5067,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5039,6 +5079,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -5103,7 +5144,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -5136,7 +5177,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5148,6 +5189,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -5280,7 +5322,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5292,6 +5334,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -5407,7 +5450,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5419,6 +5462,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -5517,7 +5561,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5529,6 +5573,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -5626,7 +5671,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5638,6 +5683,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -5737,7 +5783,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5749,6 +5795,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -5779,7 +5826,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -5812,7 +5859,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5824,6 +5871,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -5971,7 +6019,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -5983,6 +6031,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6011,7 +6060,7 @@
     "recommended": "beccs_pp",
     "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225",
@@ -6045,7 +6094,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -6057,6 +6106,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6202,7 +6252,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -6214,6 +6264,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6240,7 +6291,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -6252,13 +6303,13 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Ence Navia Biofactory (Pulp Mill) (pulp_paper)",
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -6270,6 +6321,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6453,7 +6505,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -6465,6 +6517,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6493,7 +6546,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -6527,7 +6580,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -6539,6 +6592,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6650,19 +6704,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Poor fit",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -6726,19 +6780,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Poor fit",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -6752,7 +6806,7 @@
     "recommended": "beccs_pp",
     "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225",
@@ -6786,7 +6840,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -6798,6 +6852,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6875,7 +6930,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -6887,13 +6942,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~978 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~978 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -6905,6 +6960,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -6984,7 +7040,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -6996,13 +7052,13 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Navigator Company Figueira da Foz Pulp & Paper Mill (pulp_paper)",
-    "rationale": "Concentrated woody forestry residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated woody forestry residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -7014,6 +7070,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -7194,7 +7251,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -7206,6 +7263,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -7234,7 +7292,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -7268,7 +7326,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -7280,6 +7338,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -7424,7 +7483,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -7436,6 +7495,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -7514,19 +7574,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Poor fit",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -7540,7 +7600,7 @@
     "recommended": "beccs_pp",
     "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225",
@@ -7574,7 +7634,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -7586,6 +7646,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -7714,20 +7775,20 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Possible",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage",
+          "Suits the region's diffuse, distributed biomass"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       }
     ]
@@ -7738,7 +7799,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -7750,13 +7811,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -7768,6 +7829,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -7849,7 +7911,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -7882,7 +7944,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -7894,6 +7956,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -7958,7 +8021,7 @@
     "recommended": "beccs_pp",
     "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225",
@@ -7992,7 +8055,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -8004,6 +8067,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -8083,7 +8147,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -8116,7 +8180,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -8128,6 +8192,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -8255,7 +8320,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -8267,6 +8332,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -8361,7 +8427,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -8373,6 +8439,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -8401,7 +8468,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -8435,7 +8502,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -8447,6 +8514,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -8574,7 +8642,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -8586,6 +8654,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -8611,38 +8680,37 @@
     "name": "Cyprus",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended": "bio_oil_htl",
+    "recommended_label": "Bio-oil (hydrothermal liquefaction)",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
-    "kpi_score": 42,
-    "cdr_efficiency": 0.45,
-    "cost_band": "$140-360",
+    "kpi_score": 45,
+    "cdr_efficiency": 0.5,
+    "cost_band": "$200-400",
     "cdr_potential_mtpa": 0.1,
     "storage_access": "poor",
     "nearest_storage_km": 1870,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, poor/absent geologic storage access -> wet feedstock far from affordable geologic storage favors hydrothermal liquefaction (HTL) to a stable bio-crude (~50% CDR efficiency): it handles the wet biomass without drying and densifies the carbon for haulage to a distant well. Pricier than direct injection, so used only where storage is distant.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Recommended",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       },
       {
@@ -8671,8 +8739,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -8704,20 +8772,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       }
     ]
@@ -8885,7 +8952,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -8897,6 +8964,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -8995,7 +9063,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -9007,13 +9075,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9025,6 +9093,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -9104,7 +9173,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -9138,7 +9207,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9150,6 +9219,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -9297,7 +9367,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9308,6 +9378,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -9335,7 +9406,7 @@
     "level": "country",
     "superseded_by_subnational": true,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "burial",
     "runner_up_label": "Biomass burial",
     "kpi_score": 42,
@@ -9347,7 +9418,7 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "ITC Bhadrachalam Paperboards & Specialty Papers (pulp_paper)",
-    "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~532 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~532 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
       "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local. See the subnational (state/province) cells for spatially-resolved recommendations."
     ],
@@ -9355,7 +9426,7 @@
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9367,6 +9438,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -9552,7 +9624,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9564,6 +9636,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -9590,7 +9663,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -9602,13 +9675,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "Phoenix Pulp & Paper Khon Kaen (pulp_paper)",
-    "rationale": "Mixed dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Mixed dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9620,6 +9693,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -9716,7 +9790,7 @@
     "recommended": "beccs_pp",
     "recommended_label": "BECCS pulp & paper",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225",
@@ -9750,7 +9824,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9762,6 +9836,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -9907,7 +9982,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9919,6 +9994,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -9945,7 +10021,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -9957,13 +10033,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -9975,6 +10051,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -10054,7 +10131,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -10066,13 +10143,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -10084,6 +10161,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -10163,7 +10241,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -10175,13 +10253,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -10193,6 +10271,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -10345,8 +10424,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -10379,19 +10458,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)",
           "Returns nutrients to soils already in surplus here"
         ]
       }
@@ -10403,7 +10482,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -10415,13 +10494,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Mixed dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Mixed dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -10433,6 +10512,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -10509,7 +10589,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -10521,13 +10601,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -10539,6 +10619,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -10620,7 +10701,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -10655,7 +10736,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -10667,6 +10748,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -10749,7 +10831,7 @@
     "recommended": "burial",
     "recommended_label": "Biomass burial",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 54,
     "cdr_efficiency": 0.9,
     "cost_band": "<$100-150",
@@ -10782,7 +10864,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -10794,6 +10876,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -10877,7 +10960,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -10889,13 +10972,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -10907,6 +10990,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -10986,7 +11070,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -10998,13 +11082,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~960 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~960 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11016,6 +11100,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11182,7 +11267,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11194,6 +11279,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11220,7 +11306,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -11232,13 +11318,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "Ledesma Ingenio Sugar/Ethanol Mill (ethanol)",
-    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11250,6 +11336,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11327,7 +11414,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -11339,13 +11426,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "Incauca Sugar Mill & Bioethanol Plant (ethanol)",
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11357,6 +11444,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11436,7 +11524,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -11448,13 +11536,13 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Arauco MAPA Complex (Horcones), Chile (pulp_paper)",
-    "rationale": "Concentrated woody forestry residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated woody forestry residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11466,6 +11554,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11561,7 +11650,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -11573,13 +11662,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11591,6 +11680,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11670,7 +11760,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -11682,13 +11772,13 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "UPM Paso de los Toros Pulp Mill (pulp_paper)",
-    "rationale": "Concentrated woody forestry residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated woody forestry residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11700,6 +11790,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11795,7 +11886,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -11807,13 +11898,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11825,6 +11916,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -11904,7 +11996,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -11916,13 +12008,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -11934,6 +12026,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12013,7 +12106,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12025,13 +12118,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12043,6 +12136,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12122,7 +12216,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12134,13 +12228,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12152,6 +12246,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12229,7 +12324,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12241,13 +12336,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12259,6 +12354,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12336,7 +12432,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12348,7 +12444,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
       "Only low-confidence geologic storage mapped nearby (e.g. cratonic / basalt settings); treated as no viable storage pending appraisal."
     ],
@@ -12356,7 +12452,7 @@
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12368,6 +12464,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12447,7 +12544,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12459,7 +12556,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
       "Only low-confidence geologic storage mapped nearby (e.g. cratonic / basalt settings); treated as no viable storage pending appraisal."
     ],
@@ -12467,7 +12564,7 @@
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12479,6 +12576,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12558,7 +12656,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12570,13 +12668,13 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Sappi Ngodwana Pulp & Paper Mill (pulp_paper)",
-    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12588,6 +12686,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12685,7 +12784,7 @@
     "recommended": "burial",
     "recommended_label": "Biomass burial",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 54,
     "cdr_efficiency": 0.9,
     "cost_band": "<$100-150",
@@ -12718,7 +12817,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12729,6 +12828,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -12792,7 +12892,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12804,13 +12904,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12822,6 +12922,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -12901,7 +13002,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -12913,13 +13014,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -12931,6 +13032,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13010,7 +13112,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13022,13 +13124,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13040,6 +13142,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13119,7 +13222,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13131,13 +13234,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13149,6 +13252,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13228,7 +13332,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13240,13 +13344,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13258,6 +13362,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13337,7 +13442,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13349,13 +13454,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13367,6 +13472,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13446,7 +13552,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13458,13 +13564,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13476,6 +13582,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13555,7 +13662,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13567,13 +13674,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13585,6 +13692,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13662,7 +13770,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13674,13 +13782,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13692,6 +13800,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13771,7 +13880,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13783,7 +13892,7 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "Ilim Bratsk Pulp & Paper Mill (pulp_paper)",
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
       "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local.",
       "Only low-confidence geologic storage mapped nearby (e.g. cratonic / basalt settings); treated as no viable storage pending appraisal."
@@ -13792,7 +13901,7 @@
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13804,6 +13913,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -13902,7 +14012,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -13914,13 +14024,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "ISTAÇ Odayeri Waste-to-Energy Plant, Istanbul (wte)",
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -13932,6 +14042,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -14012,8 +14123,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -14045,20 +14156,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       }
     ]
@@ -14069,7 +14179,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -14081,13 +14191,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~747 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~747 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -14099,6 +14209,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -14178,7 +14289,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -14190,13 +14301,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -14208,6 +14319,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -14287,7 +14399,7 @@
     "level": "country",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -14299,13 +14411,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -14317,6 +14429,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -14395,37 +14508,37 @@
     "name": "Israel",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended": "bio_oil_htl",
+    "recommended_label": "Bio-oil (hydrothermal liquefaction)",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
-    "kpi_score": 42,
-    "cdr_efficiency": 0.45,
-    "cost_band": "$140-360",
-    "cdr_potential_mtpa": 1.7,
+    "kpi_score": 45,
+    "cdr_efficiency": 0.5,
+    "cost_band": "$200-400",
+    "cdr_potential_mtpa": 1.9,
     "storage_access": "poor",
     "nearest_storage_km": 1557,
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, poor/absent geologic storage access -> wet feedstock far from affordable geologic storage favors hydrothermal liquefaction (HTL) to a stable bio-crude (~50% CDR efficiency): it handles the wet biomass without drying and densifies the carbon for haulage to a distant well. Pricier than direct injection, so used only where storage is distant.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Recommended",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate",
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)",
           "Returns nutrients to soils already in surplus here"
         ]
       },
@@ -14456,8 +14569,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -14489,20 +14602,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       }
     ]
@@ -14515,7 +14627,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -14548,7 +14660,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -14560,6 +14672,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -14728,7 +14841,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -14740,6 +14853,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -14769,7 +14883,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -14802,7 +14916,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -14814,6 +14928,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -14946,7 +15061,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -14958,6 +15073,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15055,7 +15171,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15067,6 +15183,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15164,7 +15281,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15176,6 +15293,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15273,7 +15391,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15285,6 +15403,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15371,7 +15490,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -15404,7 +15523,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15416,6 +15535,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15564,7 +15684,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15576,6 +15696,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15690,7 +15811,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15702,6 +15823,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15731,7 +15853,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -15764,7 +15886,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15776,6 +15898,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15908,7 +16031,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15920,6 +16043,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -15949,7 +16073,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -15983,7 +16107,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -15995,6 +16119,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -16058,7 +16183,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -16091,7 +16216,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16103,6 +16228,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -16167,7 +16293,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -16201,7 +16327,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16213,6 +16339,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -16274,7 +16401,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -16286,13 +16413,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~1597 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~1597 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16304,6 +16431,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -16383,7 +16511,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "burial",
     "runner_up_label": "Biomass burial",
     "kpi_score": 42,
@@ -16395,13 +16523,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~1034 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~1034 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16413,6 +16541,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -16551,7 +16680,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -16585,7 +16714,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16597,6 +16726,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -16660,7 +16790,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -16694,7 +16824,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16706,6 +16836,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -16766,8 +16897,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -16799,20 +16930,19 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       }
     ]
@@ -16825,7 +16955,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -16859,7 +16989,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16871,6 +17001,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -16932,7 +17063,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -16944,13 +17075,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~1213 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~1213 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -16962,6 +17093,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17112,7 +17244,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17123,6 +17255,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -17152,7 +17285,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -17186,7 +17319,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17198,6 +17331,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17259,7 +17393,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -17271,13 +17405,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~2011 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~2011 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17289,6 +17423,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17370,7 +17505,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -17404,7 +17539,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17416,6 +17551,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17477,7 +17613,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -17489,13 +17625,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": "West Coast Paper Mills Dandeli (pulp_paper)",
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~593 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~593 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17507,6 +17643,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17605,7 +17742,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -17617,13 +17754,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~872 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~872 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17635,6 +17772,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17715,8 +17853,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -17748,20 +17886,20 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage",
+          "Suits the region's diffuse, distributed biomass"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       }
     ]
@@ -17772,7 +17910,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -17784,13 +17922,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~1129 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~1129 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17802,6 +17940,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17881,7 +18020,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -17893,13 +18032,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~770 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~770 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -17911,6 +18050,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -17992,7 +18132,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -18026,7 +18166,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18038,6 +18178,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -18099,7 +18240,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -18133,7 +18274,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18145,6 +18286,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -18208,7 +18350,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -18242,7 +18384,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18254,6 +18396,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -18317,7 +18460,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -18351,7 +18494,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18363,6 +18506,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -18426,7 +18570,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -18460,7 +18604,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18472,6 +18616,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -18533,7 +18678,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -18545,13 +18690,13 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "JK Paper Mills Rayagada (JKPM) (pulp_paper)",
-    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~619 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~619 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18563,6 +18708,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -18732,7 +18878,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18743,6 +18889,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -18841,7 +18988,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18852,6 +18999,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -18880,8 +19028,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up": "bio_oil_htl",
+    "runner_up_label": "Bio-oil (hydrothermal liquefaction)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -18913,20 +19061,20 @@
         ]
       },
       {
-        "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "key": "bio_oil_htl",
+        "label": "Bio-oil (hydrothermal liquefaction)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.45,
-        "cost_band": "$140-360",
+        "cdr_efficiency": 0.5,
+        "cost_band": "$200-400",
         "pros": [
-          "Modular and distributed (Charm-style roving model)",
-          "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
-          "Returns biochar and nutrients to fields",
-          "Low durability risk"
+          "Handles WET biomass (manure/biosolids) directly — no drying needed",
+          "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+          "Viable where wet-slurry injection/AD would need nearby geologic storage",
+          "Suits the region's diffuse, distributed biomass"
         ],
         "cons": [
-          "Lower CDR efficiency (~45%)",
-          "Higher $/t than injection where storage is proximate"
+          "Higher cost and earlier-stage than pyrolysis or direct injection",
+          "Lower CDR efficiency than slurry injection (~50% vs >90%)"
         ]
       }
     ]
@@ -18939,7 +19087,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -18973,7 +19121,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -18985,6 +19133,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -19046,7 +19195,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -19058,13 +19207,13 @@
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Tamil Nadu Newsprint & Papers Ltd (TNPL) Kagithapuram (pulp_paper)",
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~672 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~672 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19076,6 +19225,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -19260,7 +19410,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19271,6 +19421,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -19300,7 +19451,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -19334,7 +19485,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19346,6 +19497,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -19478,7 +19630,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19489,6 +19641,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -19518,7 +19671,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -19552,7 +19705,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19564,6 +19717,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -19625,7 +19779,7 @@
     "level": "subnational",
     "superseded_by_subnational": false,
     "recommended": "bio_oil",
-    "recommended_label": "Bio-oil sequestration",
+    "recommended_label": "Bio-oil (pyrolysis)",
     "runner_up": "biochar",
     "runner_up_label": "Biochar",
     "kpi_score": 42,
@@ -19637,13 +19791,13 @@
     "has_retrofit": false,
     "no_option": false,
     "anchor_facility": null,
-    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~985 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
+    "rationale": "Diffuse dry agricultural residues, moderate nutrient status, moderate geologic storage access (~985 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~45% CDR efficiency) returning biochar + nutrients.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Recommended",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19655,6 +19809,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -19803,7 +19958,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19814,6 +19969,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -19983,7 +20139,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -19995,6 +20151,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -20093,7 +20250,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20105,6 +20262,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -20134,7 +20292,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -20167,7 +20325,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20179,6 +20337,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -20382,7 +20541,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20394,6 +20553,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -20422,7 +20582,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -20455,7 +20615,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20467,6 +20627,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -20531,7 +20692,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -20564,7 +20725,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20576,6 +20737,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -20707,7 +20869,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20718,6 +20880,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -20813,7 +20976,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20825,6 +20988,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -20920,7 +21084,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -20931,6 +21095,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -21027,7 +21192,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21038,6 +21203,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -21134,7 +21300,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21145,6 +21311,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -21174,7 +21341,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -21207,7 +21374,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21219,6 +21386,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -21350,7 +21518,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21361,6 +21529,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -21457,7 +21626,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21468,6 +21637,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -21563,7 +21733,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21575,6 +21745,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -21669,7 +21840,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21681,6 +21852,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -21709,7 +21881,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -21742,7 +21914,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21754,6 +21926,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -21818,7 +21991,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -21852,7 +22025,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21864,6 +22037,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -21927,7 +22101,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -21960,7 +22134,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -21972,6 +22146,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -22120,7 +22295,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22131,6 +22306,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -22232,7 +22408,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -22265,7 +22441,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22277,6 +22453,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -22408,7 +22585,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22419,6 +22596,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]
@@ -22514,7 +22692,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22526,6 +22704,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -22554,7 +22733,7 @@
     "recommended": "beccs",
     "recommended_label": "BECCS (heat/electricity)",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 73,
     "cdr_efficiency": 0.8,
     "cost_band": "$200-225 (to <$100 at scale)",
@@ -22588,7 +22767,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22600,6 +22779,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -22663,7 +22843,7 @@
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
     "runner_up": "bio_oil",
-    "runner_up_label": "Bio-oil sequestration",
+    "runner_up_label": "Bio-oil (pyrolysis)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -22696,7 +22876,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Runner-up",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22708,6 +22888,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -22840,7 +23021,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Possible",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22852,6 +23033,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate"
         ]
       },
@@ -22948,7 +23130,7 @@
       },
       {
         "key": "bio_oil",
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "badge": "Poor fit",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
@@ -22959,6 +23141,7 @@
         ],
         "cons": [
           "Lower CDR efficiency (~45%)",
+          "Needs dry/solid biomass — not for wet feedstocks",
           "Higher $/t than injection where storage is proximate",
           "Returns nutrients to soils already in surplus here"
         ]

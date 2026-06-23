@@ -16,7 +16,8 @@
     beccs_pp:  { label: "BECCS — pulp & paper",        color: "#2cc0a4" },
     wte_ccs:   { label: "WtE + CCS",                   color: "#3b7dd8" },
     injection: { label: "Biomass waste injection",     color: "#9b59d0" },
-    bio_oil:   { label: "Bio-oil sequestration",       color: "#e08a2b" },
+    bio_oil:   { label: "Bio-oil (pyrolysis)",         color: "#e08a2b" },
+    bio_oil_htl: { label: "Bio-oil (HTL)",             color: "#e0b56b" },
     burial:    { label: "Biomass burial",              color: "#b07d3a" },
     ad_ccs:    { label: "Anaerobic digestion + CCS",   color: "#6b8a9c" },
     biochar:   { label: "Biochar",                     color: "#8aa53f" },
@@ -91,7 +92,7 @@
   }
 
   // ---- Ranked pros/cons reconstruction (US/EU; mirrors engine_core.region_pros_cons) ----
-  const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", bio_oil: "bio_oil", injection: "slurry" };
+  const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", bio_oil: "bio_oil", bio_oil_htl: "bio_oil", injection: "slurry" };
   const TRANSPORT_CAP = 100;
   function regionProsCons(rec, key, profile) {
     const prof = profile[key];
@@ -105,7 +106,7 @@
       else if (tc >= 66) cons.push(`Transport to the nearest operating well is costly (~$${fmt(tc)}/tCO₂)`);
     }
     const central = key === "beccs" || key === "beccs_pp" || key === "wte_ccs";
-    const distributed = key === "bio_oil" || key === "biochar" || key === "burial";
+    const distributed = key === "bio_oil" || key === "bio_oil_htl" || key === "biochar" || key === "burial";
     if (prof.needs_storage) {
       if (sa === "good") pros.push("Proximate geologic storage here" + (rec.nearest_storage_km != null ? ` (~${rec.nearest_storage_km} km)` : ""));
       else if (sa === "moderate") cons.push("Geologic storage only moderately accessible — transport adds cost");
@@ -116,7 +117,7 @@
       else if (distributed) pros.push("Suits the region's diffuse, distributed biomass");
     } else if (dens === "concentrated" && central) pros.push("Biomass is concentrated — supports a central facility");
     if (nut === "excess") {
-      if (key === "bio_oil" || key === "biochar" || key === "ad_ccs") {
+      if (key === "bio_oil" || key === "bio_oil_htl" || key === "biochar" || key === "ad_ccs") {
         pros = pros.filter(x => !/nutrient/i.test(x));
         cons.push("Returns nutrients to soils already in surplus here");
       } else if (key === "burial" || key === "injection") {

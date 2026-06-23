@@ -52,10 +52,19 @@ PATHWAYS = {
         "needs_geologic_storage": True,
     },
     "bio_oil": {
-        "label": "Bio-oil sequestration",
+        "label": "Bio-oil (pyrolysis)",
         "cdr_efficiency": 0.45,
         "cost_band": "$140-360",
         "co_product": "biochar/nutrients",
+        "needs_geologic_storage": False,
+    },
+    "bio_oil_htl": {
+        # Hydrothermal liquefaction — for WET biomass (manure/biosolids). Handles wet feedstock
+        # without drying; densifies it into a stable bio-crude that is injected into a well.
+        "label": "Bio-oil (hydrothermal liquefaction)",
+        "cdr_efficiency": 0.50,
+        "cost_band": "$200-400",
+        "co_product": "nutrients",
         "needs_geologic_storage": False,
     },
     "burial": {
@@ -116,7 +125,15 @@ PATHWAY_PROFILE = {
                  "Returns biochar and nutrients to fields",
                  "Low durability risk"],
         "cons": ["Lower CDR efficiency (~45%)",
+                 "Needs dry/solid biomass — not for wet feedstocks",
                  "Higher $/t than injection where storage is proximate"],
+    },
+    "bio_oil_htl": {
+        "pros": ["Handles WET biomass (manure/biosolids) directly — no drying needed",
+                 "Hydrothermal liquefaction densifies the carbon into a stable bio-crude, cheap to haul to distant wells",
+                 "Viable where wet-slurry injection/AD would need nearby geologic storage"],
+        "cons": ["Higher cost and earlier-stage than pyrolysis or direct injection",
+                 "Lower CDR efficiency than slurry injection (~50% vs >90%)"],
     },
     "burial": {
         "pros": ["Very high CDR efficiency (>90%)",
@@ -226,7 +243,7 @@ TRANSPORT_KPI_PENALTY = {"low": 0, "medium": 4, "high": 8, "over": 0}  # soft KP
 # pathway -> transport payload class (None = storage-independent, no transport-to-well cost)
 PATHWAY_PAYLOAD = {
     "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2",
-    "bio_oil": "bio_oil", "injection": "slurry",
+    "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil", "injection": "slurry",
 }
 
 
@@ -279,7 +296,7 @@ def apply_transport_cap(rec, runner, dom, region, tcost):
     nutrient = region.get("nutrient_status")
     wet = (dom == "manure_wet")
     if wet:                                # wet manure: HTL bio-oil is the densified fallback
-        indep, indep_alt = "bio_oil", "injection"
+        indep, indep_alt = "bio_oil_htl", "injection"
     else:
         indep = "burial" if nutrient == "excess" else "biochar"
         indep_alt = "biochar" if indep == "burial" else "burial"
@@ -295,7 +312,7 @@ def apply_transport_cap(rec, runner, dom, region, tcost):
     # recommended pathway can't deliver its payload affordably -> fall back by feedstock type
     if wet:
         # injection / AD+CCS priced out -> HTL bio-oil (densified). Least-bad even if itself costly.
-        return "bio_oil", "injection", True
+        return "bio_oil_htl", "injection", True
     if dom == "msw":
         return "burial", "biochar", True
     if affordable("bio_oil"):              # dry biomass: densify and haul
@@ -463,10 +480,10 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
             # existing digesters and leads; otherwise direct injection leads (US-style: on-farm AD rare).
             if av["ad"] and manure_ad_preferred(region):
                 return "ad_ccs", "injection"
-            return "injection", ("ad_ccs" if av["ad"] else "bio_oil")
+            return "injection", ("ad_ccs" if av["ad"] else "bio_oil_htl")
         # Storage poor: injection / AD+CCS cannot place their carbon here -> HTL bio-oil (densified,
         # haulable). Never biochar/burial (wet feedstock).
-        return "bio_oil", ("ad_ccs" if av["ad"] else "injection")
+        return "bio_oil_htl", ("ad_ccs" if av["ad"] else "injection")
 
     # 2. MSW. Only reached when an existing WtE plant is within reach (else re-routed above).
     if dom == "msw":
@@ -570,7 +587,7 @@ def applicable_pathways(dom, avail=None):
     within reach (avail flag set)."""
     av = _avail(avail)
     if dom == "manure_wet":         # wet: never combustion, never solid-biomass (no biochar/burial)
-        lst = ["injection", "bio_oil"]   # direct injection, else HTL bio-oil (densified, haulable)
+        lst = ["injection", "bio_oil_htl"]   # direct injection, else HTL bio-oil (densified, haulable)
         if av["ad"]:
             lst.insert(1, "ad_ccs")
         return lst
@@ -597,7 +614,7 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
     centralized = pathway in ("beccs", "beccs_pp", "wte_ccs")
-    distributed = pathway in ("bio_oil", "biochar", "burial")
+    distributed = pathway in ("bio_oil", "bio_oil_htl", "biochar", "burial")
 
     if density == "diffuse" and centralized:
         score -= 10
@@ -609,7 +626,7 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
         elif storage_access == "moderate":
             score -= 5
     if nutrient == "excess":
-        if pathway in ("bio_oil", "biochar", "ad_ccs"):
+        if pathway in ("bio_oil", "bio_oil_htl", "biochar", "ad_ccs"):
             score -= 8
         elif pathway in ("burial", "injection"):
             score += 4
@@ -655,13 +672,13 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
     if density == "diffuse":
         if pathway in ("beccs", "beccs_pp", "wte_ccs"):
             cons.append("Local biomass is diffuse — hauling to a central plant is costly")
-        elif pathway in ("bio_oil", "biochar", "burial"):
+        elif pathway in ("bio_oil", "bio_oil_htl", "biochar", "burial"):
             pros.append("Suits the region's diffuse, distributed biomass")
     elif density == "concentrated" and pathway in ("beccs", "beccs_pp", "wte_ccs"):
         pros.append("Biomass is concentrated — supports a central facility")
 
     if nutrient == "excess":
-        if pathway in ("bio_oil", "biochar", "ad_ccs"):
+        if pathway in ("bio_oil", "bio_oil_htl", "biochar", "ad_ccs"):
             # Nutrient return is a liability here, not a benefit: drop any nutrient pro.
             pros = [x for x in pros if "nutrient" not in x.lower()]
             cons.append("Returns nutrients to soils already in surplus here")
@@ -820,8 +837,13 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
                 f"efficiency, RNG co-product that displaces fossil gas); never combustion.")
     if rec_key == "bio_oil":
         return (f"{base} -> diffuse residues distant from concentrated storage favor modular "
-                f"bio-oil sequestration (Charm-style roving model, ~{eff_pct}% CDR efficiency) "
-                f"returning biochar + nutrients.")
+                f"bio-oil sequestration via pyrolysis (Charm-style roving model, ~{eff_pct}% CDR "
+                f"efficiency) returning biochar + nutrients.")
+    if rec_key == "bio_oil_htl":
+        return (f"{base} -> wet feedstock far from affordable geologic storage favors hydrothermal "
+                f"liquefaction (HTL) to a stable bio-crude (~{eff_pct}% CDR efficiency): it handles "
+                f"the wet biomass without drying and densifies the carbon for haulage to a distant "
+                f"well. Pricier than direct injection, so used only where storage is distant.")
     if rec_key == "burial":
         return (f"{base} -> with excess nutrients and no viable geologic storage, biomass burial "
                 f"offers >{eff_pct - 1}% CDR efficiency at low cost without needing CO2 storage "
