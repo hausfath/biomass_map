@@ -513,23 +513,30 @@ viable pathway".) Raw sources live under `data/geo/ca_raw/` (gitignored; re-fetc
 
 ---
 
-## 11. Multimodal transport cost & route (US scope; drives storage access)
+## 11. Multimodal transport cost & route (US + Canada + EU; drives storage access)
 
-For each subnational unit the Atlas estimates the **least-cost combination of truck + rail + ship/barge**
-to move material from the region centroid to the **nearest operating** geologic-storage well, the
-**carbon-density-weighted delivered cost** ($/tCO₂), and a drawable route. Live for the **US** today
-(toggle *CO₂ transport route* in Map layers; cost shown in the detail panel).
+For each subnational unit the Atlas estimates the **least-cost combination of truck + rail + ship +
+barge** to move material from the region centroid to the nearest viable geologic-storage destination,
+the **carbon-density-weighted delivered cost** ($/tCO₂), and a drawable route. Live for the **US,
+Canada (cross-border) and EU** scopes (toggle *CO₂ transport route* in Map layers; cost in the detail
+panel).
 
-**Now an engine input (US).** For the US scope, this delivered cost **replaces great-circle distance as
+**An engine input in all three detail scopes.** The delivered cost **replaces great-circle distance as
 the storage-access signal**: `storage_access` is derived from the CO₂ delivered cost (good ≤ $66/tCO₂,
 moderate ≤ $100, poor > $100), and each storage-dependent pathway is **disqualified above $100/tCO₂ for
 its own payload** (carbon-density-correct — wet slurry hits the cap far sooner than densified bio-oil),
 falling back to bio-oil or a storage-independent pathway (burial/biochar). A soft KPI penalty scales with
-the cost band below the cap. Because only ~24 *operating* wells anchor the US today (vs the generous
-basin-polygon proximity used before), this pushes ~40% of counties past $100/tCO₂ → storage-independent,
-and mid-distance counties toward **bio-oil** (densify-to-haul) rather than moving CO₂ or wet slurry — an
-economically grounded shift. Other scopes (global, Canada, EU) still use distance-based access until the
-transport model is extended to them.
+the cost band below the cap. Because storage destinations are real wells/projects (not theoretical basin
+polygons), this is a much stricter — and economically grounded — signal: mid-distance regions shift
+toward **bio-oil** (densify-to-haul) rather than moving CO₂ or wet slurry.
+
+- **Canada** routes **cross-border**: the graph combines the US + Canada transfer nodes *and* wells, so a
+  CD goes to whichever storage — Canadian (Quest/ACTL/Aquistore/…) or US (e.g. ADM Decatur via the Great
+  Lakes, North Dakota Class VI) — is cheapest. ~⅔ of CDs route to a US well.
+- **EU** storage is the offshore CCS **projects** (Northern Lights, Porthos, Greensand, Ravenna, …),
+  flagged *marine* and reached from coastal ports by **ship** (searoute); inland regions truck/rail/barge
+  (Rhine, Danube, Rhône, …) to a port first. Status-tiered like the US (operational vs planned/
+  construction).
 
 **Delivered cost** = `mass_per_tCO₂(payload) × Σ_legs[mode $/t·km × routed-km] + per-mode handling +
 CO₂ liquefaction (for gaseous CO₂ only)`. The **payload carbon density** is the crux — what's hauled
@@ -576,11 +583,11 @@ wells. (There is **no Class V well beyond the curated CDR sites** — EPA's UIC 
 state-level *counts*, not locations; Class V/II well coordinates are administered by ~30 state agencies
 with no clean national point dataset.)
 
-**Remaining v2/v3 caveats:** land legs (truck/rail) use great-circle × a mode detour factor rather than
-real road/rail-network geometry, so drawn land legs are straight and their distance is approximate;
-intermodal-terminal coverage is real but TOFC/COFC-only (some regions still have a long first-mile where
-terminals are genuinely sparse, e.g. Iowa ~200 km). *Planned:* extend the transport model (and cost-based
-storage access) to Canada and the EU.
+**Remaining caveats:** land legs (truck/rail) use great-circle × a mode detour factor rather than
+real road/rail-network geometry, so drawn land legs are straight and their distance is approximate.
+US rail terminals are the real NTAD set; **Canada and EU transfer nodes (rail hubs, ports, river
+corridors) are curated major-node sets** (v1) — expandable to full national datasets later. *Planned
+(v3):* real road/rail network geometry for land legs.
 
 ---
 

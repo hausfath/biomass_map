@@ -1,0 +1,34 @@
+{
+ "_meta": "Curated Canadian multimodal transport nodes (v1) for the transport model. Rail = major CN/CP intermodal terminals; ports with navigable basin; river_corridors = St Lawrence Seaway + Mackenzie. Combined with the US node set at build time so Canadian CDs can route cross-border where cheaper.",
+ "rail_terminals": [
+  {"name": "Vancouver Intermodal (BC)", "lat": 49.20, "lon": -122.90},
+  {"name": "Prince Rupert (BC)", "lat": 54.32, "lon": -130.32},
+  {"name": "Kamloops (BC)", "lat": 50.67, "lon": -120.34},
+  {"name": "Calgary Intermodal (AB)", "lat": 51.05, "lon": -114.07},
+  {"name": "Edmonton Intermodal (AB)", "lat": 53.55, "lon": -113.49},
+  {"name": "Saskatoon (SK)", "lat": 52.13, "lon": -106.67},
+  {"name": "Regina (SK)", "lat": 50.45, "lon": -104.62},
+  {"name": "Winnipeg Intermodal (MB)", "lat": 49.90, "lon": -97.14},
+  {"name": "Thunder Bay (ON)", "lat": 48.38, "lon": -89.25},
+  {"name": "Toronto (Brampton/Vaughan) Intermodal (ON)", "lat": 43.75, "lon": -79.72},
+  {"name": "Windsor (ON)", "lat": 42.31, "lon": -83.04},
+  {"name": "London (ON)", "lat": 42.98, "lon": -81.25},
+  {"name": "Montreal Intermodal (QC)", "lat": 45.50, "lon": -73.62},
+  {"name": "Quebec City (QC)", "lat": 46.81, "lon": -71.21},
+  {"name": "Halifax (NS)", "lat": 44.65, "lon": -63.57},
+  {"name": "Saint John (NB)", "lat": 45.27, "lon": -66.06},
+  {"name": "Moncton (NB)", "lat": 46.10, "lon": -64.79},
+  {"name": "Prince George (BC)", "lat": 53.92, "lon": -122.75}
+ ],
+ "coastal_ports": [
+  {"name": "Vancouver (BC)", "lat": 49.29, "lon": -123.11, "basin": "Pacific"},
+  {"name": "Prince Rupert (BC)", "lat": 54.31, "lon": -130.32, "basin": "Pacific"},
+  {"name": "Montreal (QC)", "lat": 45.55, "lon": -73.54, "basin": "Atlantic"},
+  {"name": "Quebec City (QC)", "lat": 46.83, "lon": -71.20, "basin": "Atlantic"},
+  {"name": "Halifax (NS)", "lat": 44.63, "lon": -63.55, "basin": "Atlantic"},
+  {"name": "Saint John (NB)", "lat": 45.26, "lon": -66.06, "basin": "Atlantic"},
+  {"name": "Thunder Bay (ON)", "lat": 48.40, "lon": -89.23, "basin": "GreatLakes"},
+  {"name": "Hamilton (ON)", "lat": 43.27, "lon": -79.85, "basin": "GreatLakes"}
+ ],
+ "river_corridors": {}
+}

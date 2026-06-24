@@ -369,6 +369,7 @@
         return { feedById: feedById, recById: recById };
       },
       feedSection: slimFeedSection,
+      transportLookup: id => (window.EU_TRANSPORT || {})[id] || null,
       storageDetailRows: function (rec) {
         const sd = rec.storage_detail || {};
         return [

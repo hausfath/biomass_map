@@ -134,7 +134,8 @@ class TransportGraph:
         for i, w in enumerate(wells):
             nid = f"W{i}"
             self.nodes[nid] = {"pos": [w["lat"], w["lon"]], "kind": "well", "name": w["name"],
-                               "status": w.get("status", "operational")}
+                               "status": w.get("status", "operational"),
+                               "marine": bool(w.get("marine"))}   # offshore storage → reached by ship
             self._wells.append(nid)
         for i, t in enumerate(terminals):
             nid = f"R{i}"
@@ -194,8 +195,12 @@ class TransportGraph:
                 if nbr != t:
                     self._edge(t, nbr, "rail")
         # coastal ship network: searoute between nearest same/adjacent-basin ports
-        OPEN = {"Gulf": {"Gulf", "Atlantic"}, "Atlantic": {"Atlantic", "Gulf"},
-                "Pacific": {"Pacific"}, "GreatLakes": {"GreatLakes"}}
+        # navigably-connected sea basins (US + EU; scopes build separately so no transatlantic mix)
+        OPEN = {"Gulf": {"Gulf", "Atlantic"}, "Atlantic": {"Atlantic", "Gulf", "NorthSea"},
+                "Pacific": {"Pacific"}, "GreatLakes": {"GreatLakes"},
+                "NorthSea": {"NorthSea", "Atlantic", "Baltic"}, "Baltic": {"Baltic", "NorthSea"},
+                "Mediterranean": {"Mediterranean", "BlackSea", "Atlantic"},
+                "BlackSea": {"BlackSea", "Mediterranean"}}
         for p in self._ports:
             bp = self.nodes[p]["basin"]
             pool = [q for q in self._ports if q != p and self.nodes[q]["basin"] in OPEN.get(bp, {bp})]
@@ -207,6 +212,12 @@ class TransportGraph:
             for t in self._nearest(self.nodes[p]["pos"], self._terms, PORT_RAIL_LINK):
                 self._edge(p, t, "truck")
         for w in self._wells:
+            if self.nodes[w]["marine"]:
+                # offshore storage (e.g. North-Sea CCS): reached from coastal ports by SHIP, not truck
+                for p in self._nearest(self.nodes[w]["pos"], self._ports, 3):
+                    km, path = _sea_route(self.nodes[p]["pos"], self.nodes[w]["pos"])
+                    self._edge(w, p, "ship", km=km, path=list(reversed(path)))
+                continue
             for t in self._nearest(self.nodes[w]["pos"], self._terms, WELL_RAIL_LASTMILE):
                 self._edge(w, t, "truck")
             for p in self._nearest(self.nodes[w]["pos"], self._ports, WELL_PORT_LASTMILE):
@@ -222,8 +233,9 @@ class TransportGraph:
         O = "_O"
         self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin"}
         self.adj[O] = []
-        for w in self._nearest(origin_pos, self._wells, ORIG_WELL):
-            self._edge(O, w, "truck", bidir=False)
+        onshore_wells = [w for w in self._wells if not self.nodes[w]["marine"]]
+        for w in self._nearest(origin_pos, onshore_wells, ORIG_WELL):
+            self._edge(O, w, "truck", bidir=False)   # direct truck only to onshore wells
         for t in self._nearest(origin_pos, self._terms, ORIG_RAIL):
             self._edge(O, t, "truck", bidir=False)
         for p in self._nearest(origin_pos, self._ports, ORIG_PORT):
@@ -304,6 +316,47 @@ class TransportGraph:
             if L["mode"] in ("truck", "rail"):
                 L.pop("path", None)
         return legs
+
+
+def build_records(graph, regions, cap=100.0):
+    """Per-region transport records with status tiering, shared by all scopes.
+    `regions` = iterable of (region_id, [lat, lon]). Returns (records_dict, stats_dict).
+    Operating well preferred where its CO₂-delivered cost ≤ cap; else a permitted well 'rescues'
+    the region (flagged via dest_status). Stores legs (with water geometry), per-payload cost,
+    dest_well/status, and the nearest-operating CO₂ cost for confidence grading."""
+    from collections import Counter
+    out, mode_use = {}, Counter()
+    n_path = n_nopath = n_rescued = 0
+    for rid, pos in regions:
+        res = graph.least_cost_to_well(pos)
+        op, perm = res["operational"], res["permitted"]
+        op_co2 = payload_costs(op[0], True)["co2"] if op else None
+        chosen, dest_status = None, None
+        if op and op_co2 is not None and op_co2 <= cap:
+            chosen, dest_status = op, "operational"
+        elif perm:
+            perm_co2 = payload_costs(perm[0], True)["co2"]
+            if perm_co2 is not None and perm_co2 <= cap:
+                chosen, dest_status, n_rescued = perm, perm[3], n_rescued + 1
+        if chosen is None:
+            chosen, dest_status = (op, "operational") if op else ((perm, perm[3]) if perm else (None, None))
+        if chosen is None:
+            n_nopath += 1
+            continue
+        per_tonne, legs, dest = chosen[0], chosen[1], chosen[2]
+        n_path += 1
+        modes = sorted({leg["mode"] for leg in legs})
+        for m in modes:
+            mode_use[m] += 1
+        rec = {
+            "per_tonne_usd": per_tonne, "dest_well": dest, "dest_status": dest_status,
+            "legs": legs, "by_payload": payload_costs(per_tonne, has_path=bool(legs)),
+            "modes": modes, "total_km": sum(leg["km"] for leg in legs),
+        }
+        if op:
+            rec["operating_co2_usd"] = op_co2
+        out[rid] = rec
+    return out, {"paths": n_path, "no_path": n_nopath, "rescued": n_rescued, "modes": dict(mode_use)}
 
 
 def payload_costs(per_tonne_usd, has_path):

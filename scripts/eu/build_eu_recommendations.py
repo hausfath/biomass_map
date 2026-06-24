@@ -31,6 +31,8 @@ from engine_core import (
     num, haversine_km, _point_in_geometry,
     decide, kpi_score, cdr_potential_mtpa, build_ranked, build_ranked_none,
     build_rationale, build_caveats_flags,
+    storage_access_from_cost, apply_transport_cap, transport_band, transport_cost_for,
+    TRANSPORT_MAX_USD, TRANSPORT_KPI_PENALTY, PATHWAY_PAYLOAD,
 )
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -43,6 +45,7 @@ FORMATIONS = os.path.join(PROC, "storage_eu_formations.json")
 PROJECTS = os.path.join(PROC, "storage_projects_eu.json")
 FACS = os.path.join(PROC, "facilities_eu.json")
 NUTS = os.path.join(GEO, "eu_nuts.json")
+TRANSPORT = os.path.join(PROC, "transport_eu.json")   # multimodal delivered $/tCO2 to offshore storage
 OUT = os.path.join(PROC, "recommendations_eu.json")
 
 # --- tunable thresholds (NUTS-2 scale; EU storage often offshore/clustered) ---
@@ -218,6 +221,10 @@ def main():
     projects = json.load(open(PROJECTS))
     facilities = json.load(open(FACS))
     regions = json.load(open(NUTS))["features"]
+    try:
+        transport = json.load(open(TRANSPORT))
+    except FileNotFoundError:
+        transport = {}
 
     # (retrofit availability is radius-based from each NUTS-2 centroid — no point-in-polygon.)
 
@@ -225,6 +232,16 @@ def main():
     for region in feeds:
         centroid = region["centroid"]
         access, nearest_km, sdetail = compute_storage_access_nuts(centroid, formations, projects)
+
+        # Cost-based storage access: grade from the CO₂ delivered $/tCO₂ to the chosen storage
+        # project (mostly offshore, reached by ship). Permitted (planned/construction) projects cap
+        # access at "moderate" + flag. Replaces the distance-based grade where transport is known.
+        tinfo = transport.get(region["id"])
+        tcost = tinfo.get("by_payload") if tinfo else None
+        dest_status = tinfo.get("dest_status", "operational") if tinfo else "operational"
+        permitted_storage = (dest_status != "operational")
+        if tcost and tcost.get("co2") is not None:
+            access = storage_access_from_cost(tcost["co2"], dest_status)
 
         area = region.get("area_km2") or 1.0
         dens_tco2_km2 = round(co2_dry(region) * 1e6 / area, 2)
@@ -236,6 +253,10 @@ def main():
 
         rec_key, runner_key, eff_dom = decide(region, access, has_retrofit, avail)
         no_option = (rec_key == "none")
+        transport_capped = False
+        if not no_option:
+            rec_key, runner_key, transport_capped = apply_transport_cap(
+                rec_key, runner_key, eff_dom, region, tcost)
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         rregion = region if eff_dom == region.get("dominant_feedstock") else dict(region, dominant_feedstock=eff_dom)
 
@@ -253,6 +274,9 @@ def main():
                     and runner_key != "burial"):
                 runner_key, nutrient_alt = "burial", True
             score = kpi_score(rec_key, access)
+            if tcost and rec_key in PATHWAY_PAYLOAD:
+                score = max(0, score - TRANSPORT_KPI_PENALTY.get(
+                    transport_band(transport_cost_for(rec_key, tcost)), 0))
             eff = PATHWAYS[rec_key]["cdr_efficiency"]
             cost = PATHWAYS[rec_key]["cost_band"]
             cdr = cdr_potential_mtpa(rregion, rec_key)
@@ -261,7 +285,7 @@ def main():
             rationale = build_rationale(rregion, rec_key, access, nearest_km,
                                         has_retrofit, anchor_name, anchor_type)
             ranked = build_ranked(rregion, rec_key, runner_key, access, nearest_km,
-                                  avail, anchor_str)
+                                  avail, anchor_str, tcost)
         caveats, flags = build_caveats_flags(region, rec_key, runner_key, False,
                                              anchor_type, nutrient_alt)
 
@@ -272,6 +296,14 @@ def main():
         if sdetail["in_formation"]:
             caveats = [f"Storage on-site: region overlaps the {sdetail['in_formation']} "
                        f"storage formation."] + caveats
+        if transport_capped:
+            caveats = [f"Transport to the nearest storage project exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ "
+                       f"for this pathway's payload — defaulted to a storage-independent option or "
+                       f"densified bio-oil."] + caveats
+        if permitted_storage and not no_option and rec_key in PATHWAY_PAYLOAD:
+            caveats = [f"Nearest affordable storage is a planned / under-construction project "
+                       f"({tinfo.get('dest_well')}), not yet operating — storage access capped at "
+                       f"'moderate' (lower confidence)."] + caveats
 
         records.append({
             "id": region["id"],
@@ -292,6 +324,15 @@ def main():
             "storage_access": access,
             "nearest_storage_km": nearest_km,
             "storage_detail": sdetail,
+            "transport_usd_per_tco2": (round(transport_cost_for(rec_key, tcost), 1)
+                                       if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
+            "transport_band": (transport_band(transport_cost_for(rec_key, tcost))
+                               if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
+            "transport_by_payload": tcost,
+            "transport_capped": transport_capped,
+            "transport_dest_well": tinfo.get("dest_well") if tinfo else None,
+            "transport_dest_status": dest_status,
+            "permitted_storage": permitted_storage,
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,
             "has_retrofit": has_retrofit,

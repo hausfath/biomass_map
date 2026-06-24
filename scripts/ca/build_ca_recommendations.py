@@ -28,6 +28,8 @@ from engine_core import (  # noqa: E402
     num, haversine_km, _point_in_geometry,
     decide, kpi_score, cdr_potential_mtpa, build_ranked, build_ranked_none,
     build_rationale, build_caveats_flags,
+    storage_access_from_cost, apply_transport_cap, transport_band, transport_cost_for,
+    TRANSPORT_MAX_USD, TRANSPORT_KPI_PENALTY, PATHWAY_PAYLOAD,
 )
 from build_ca_recommendations_helpers import (  # noqa: E402
     compute_avail_anchor, compute_storage_access_cd, co2_dry, co2_total,
@@ -42,6 +44,7 @@ FEED = os.path.join(PROC, "feedstocks_ca_cd.json")
 BASINS = os.path.join(PROC, "storage_ca_basins.json")
 WELLS = os.path.join(PROC, "wells_ca.json")
 FACS = os.path.join(PROC, "facilities_ca_detailed.json")
+TRANSPORT = os.path.join(PROC, "transport_ca.json")   # cross-border multimodal delivered $/tCO2
 OUT = os.path.join(PROC, "recommendations_ca.json")
 
 # Cross-border storage: CO2 storage doesn't stop at the border, so a Canadian CD is also scored
@@ -69,6 +72,7 @@ def main():
     basins = json.load(open(BASINS)) + _load_opt(BASINS_US)
     wells = json.load(open(WELLS)) + _load_opt(WELLS_US)
     facilities = json.load(open(FACS))
+    transport = _load_opt(TRANSPORT) or {}   # CD id -> cross-border multimodal delivered $/tCO2
 
     cents = [(f["centroid"][0], f["centroid"][1], co2_dry(f)) for f in feeds]
 
@@ -88,6 +92,15 @@ def main():
 
         access, nearest_km, sdetail = compute_storage_access_cd(centroid, basins, wells)
 
+        # Cost-based storage access (cross-border): grade from the CO₂ delivered $/tCO₂ to the chosen
+        # well; permitted (not-yet-operating) destinations cap access at "moderate" + flag.
+        tinfo = transport.get(region["id"])
+        tcost = tinfo.get("by_payload") if tinfo else None
+        dest_status = tinfo.get("dest_status", "operational") if tinfo else "operational"
+        permitted_storage = (dest_status != "operational")
+        if tcost and tcost.get("co2") is not None:
+            access = storage_access_from_cost(tcost["co2"], dest_status)
+
         area = region.get("area_km2") or 1.0
         dens_tco2_km2 = round(co2_dry(region) * 1e6 / area, 2)
         supply_mt = round(haul_supply(lon, lat), 3)
@@ -99,6 +112,10 @@ def main():
 
         rec_key, runner_key, eff_dom = decide(region, access, has_retrofit, avail)
         no_option = (rec_key == "none")
+        transport_capped = False
+        if not no_option:
+            rec_key, runner_key, transport_capped = apply_transport_cap(
+                rec_key, runner_key, eff_dom, region, tcost)
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         rregion = region if eff_dom == region.get("dominant_feedstock") else dict(
             region, dominant_feedstock=eff_dom)
@@ -117,6 +134,9 @@ def main():
                     and runner_key != "burial"):
                 runner_key, nutrient_alt = "burial", True
             score = kpi_score(rec_key, access)
+            if tcost and rec_key in PATHWAY_PAYLOAD:
+                score = max(0, score - TRANSPORT_KPI_PENALTY.get(
+                    transport_band(transport_cost_for(rec_key, tcost)), 0))
             eff = PATHWAYS[rec_key]["cdr_efficiency"]
             cost = PATHWAYS[rec_key]["cost_band"]
             cdr = cdr_potential_mtpa(rregion, rec_key)
@@ -125,7 +145,7 @@ def main():
             rationale = build_rationale(rregion, rec_key, access, nearest_km,
                                         has_retrofit, anchor_name, anchor_type)
             ranked = build_ranked(rregion, rec_key, runner_key, access, nearest_km,
-                                  avail, anchor_str)
+                                  avail, anchor_str, tcost)
         caveats, flags = build_caveats_flags(region, rec_key, runner_key, False,
                                              anchor_type, nutrient_alt)
 
@@ -135,6 +155,14 @@ def main():
                        "with neighbours; recommendation is indicative only."] + caveats
         if sdetail["in_basin"]:
             caveats = [f"Storage on-site: CD overlaps the {sdetail['in_basin']} basin."] + caveats
+        if transport_capped:
+            caveats = [f"Transport to the nearest well exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ for this "
+                       f"pathway's payload — defaulted to a storage-independent option or densified "
+                       f"bio-oil."] + caveats
+        if permitted_storage and not no_option and rec_key in PATHWAY_PAYLOAD:
+            caveats = [f"Nearest affordable storage is a permitted / under-construction well "
+                       f"({tinfo.get('dest_well')}), not yet operating — storage access capped at "
+                       f"'moderate' (lower confidence)."] + caveats
 
         records.append({
             "id": region["id"],
@@ -154,6 +182,15 @@ def main():
             "storage_access": access,
             "nearest_storage_km": nearest_km,
             "storage_detail": sdetail,
+            "transport_usd_per_tco2": (round(transport_cost_for(rec_key, tcost), 1)
+                                       if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
+            "transport_band": (transport_band(transport_cost_for(rec_key, tcost))
+                               if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
+            "transport_by_payload": tcost,
+            "transport_capped": transport_capped,
+            "transport_dest_well": tinfo.get("dest_well") if tinfo else None,
+            "transport_dest_status": dest_status,
+            "permitted_storage": permitted_storage,
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,
             "haul_supply_mtco2": supply_mt,

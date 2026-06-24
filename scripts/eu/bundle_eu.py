@@ -68,6 +68,7 @@ bundle = {
     "EU_RECOMMENDATIONS": slim_recs(load("recommendations_eu.json")),
     "EU_FACILITIES": load("facilities_eu.json"),
     "EU_STORAGE_PROJECTS": load("storage_projects_eu.json"),
+    "EU_TRANSPORT": load("transport_eu.json"),
     "EU_WWTPS": load("wwtps_eu.json"),
     "EU_PATHWAY_PROFILE": PROFILE,
 }
