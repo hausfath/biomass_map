@@ -582,16 +582,22 @@ The cost-minimising *path* is payload-independent (carbon density is a scalar mu
 is solved per region and scaled per payload. Each ship/barge leg carries its real water geometry for
 the map; truck/rail legs are straight.
 
-**Wells tiered by status.** Routing considers **all 36 US wells** — 24 **operating** plus 12
-**permitted / under-construction** (issued Class VI, draft/pending). A county uses its nearest
-*operating* well where that is affordable (≤ $100/tCO₂); otherwise a **permitted** well can "rescue"
-it (237 counties), but storage access is then **capped at "moderate"** (never "good") and flagged
-lower-confidence in the detail panel — the storage exists only on paper until the project comes online.
-This is what lets river barging matter: e.g. Ohio-Valley counties barge the Ohio River to the *issued*
-Wabash Carbon Services well, and lower-Mississippi counties reach the Louisiana "CCS-alley" permitted
-wells. (There is **no Class V well beyond the curated CDR sites** — EPA's UIC inventory publishes only
-state-level *counts*, not locations; Class V/II well coordinates are administered by ~30 state agencies
-with no clean national point dataset.)
+**Wells tiered by permit confidence.** Routing considers **all 36 US wells**, graded by how likely each
+permit stage is to be operational in time for a project starting today (from the Class VI conversion
+record — EPA had issued only ~11 final permits against 175–239 under review by 2025, with 3–5-yr
+timelines, though state primacy is accelerating issuance):
+- **Firm = operational + issued.** An *issued* Class VI permit has cleared the hard regulatory gate
+  (~80–90% reach injection), so it is treated like operating storage — it can earn **"good"** access
+  where the delivered cost is cheap. (1,161 US counties route to an issued well, e.g. ADM Decatur, Wabash.)
+- **Draft** permit (public-comment stage, ~55–70%) → usable but **capped at "moderate"** and flagged.
+- **Pending** application (no draft yet, ~30–50%, slow) → used **only as a fallback** when nothing firmer
+  is affordable, capped at "moderate" and flagged speculative.
+
+The same tiering applies to Canada (cross-border) and to the EU storage projects (under-**construction**
+→ firm; **planned** → pending). This is also what lets river barging matter: Ohio-Valley counties barge
+to the *issued* Wabash well; far-south counties reach the Louisiana "CCS-alley" *draft* wells. (There is
+**no Class V well beyond the curated CDR sites** — EPA's UIC inventory publishes only state-level
+*counts*, not locations; Class V/II well coordinates sit with ~30 state agencies, no clean national set.)
 
 **Remaining caveats:** land legs (truck/rail) use great-circle × a mode detour factor rather than
 real road/rail-network geometry, so drawn land legs are straight and their distance is approximate.

@@ -261,21 +261,41 @@ def transport_band(usd):
     return "over"
 
 
+# Well statuses treated as FIRM storage (operational or issued Class VI): high odds of being
+# operational in time for a project starting today, so they can earn full "good" storage access.
+# Draft / pending permits are lower-confidence and capped at "moderate" no matter how cheap.
+FIRM_STORAGE_STATUS = {"operational", "issued"}
+
+
+def permitted_storage_caveat(dest_status, dest_well):
+    """Lower-confidence caveat text for a draft/pending storage destination (None if firm)."""
+    if dest_status == "draft":
+        return (f"Nearest affordable storage is a draft-permit well ({dest_well}) at the "
+                f"public-comment stage (~55-70% reach injection) — storage access capped at "
+                f"'moderate' (lower confidence).")
+    if dest_status == "pending":
+        return (f"Nearest affordable storage is a pending Class VI application ({dest_well}), "
+                f"speculative (~30-50% reach injection, multi-year) — counted only as a fallback; "
+                f"storage access capped at 'moderate'.")
+    return None
+
+
 def storage_access_from_cost(co2_usd, dest_status="operational"):
     """Map the CO₂ delivered cost to the engine's storage_access tiers:
       good     ≤ $66/tCO₂  (clearly cheap — prefer geologic pathways: BECCS / injection)
       moderate ≤ $100      (viable but marginal — bio-oil competitive)
       poor     > $100      (CO₂ cannot be moved to a well affordably → storage-independent)
-    Tiering by well status: a route to a PERMITTED (not-yet-operating) well is capped at "moderate"
-    no matter how cheap — the storage exists only on paper, so it can't earn "good". The finer 4-band
-    label (low/medium/high/over at 33/66/100) is kept separately for display + soft KPI penalty."""
+    Tiered by well-permit confidence: a FIRM destination (operational or issued Class VI) can earn
+    "good"; a DRAFT or PENDING permit is capped at "moderate" however cheap (storage not yet assured).
+    The finer 4-band label (low/medium/high/over at 33/66/100) is kept separately for display +
+    soft KPI penalty."""
     if co2_usd is None:
         return None
     if co2_usd > TRANSPORT_MAX_USD:        # > $100
         return "poor"
-    if co2_usd <= TRANSPORT_BANDS[1] and dest_status == "operational":   # ≤ $66 to a real well
+    if co2_usd <= TRANSPORT_BANDS[1] and dest_status in FIRM_STORAGE_STATUS:   # ≤ $66 to a firm well
         return "good"
-    return "moderate"                      # ≤ $100, or any permitted-well destination
+    return "moderate"                      # ≤ $100, or any draft/pending destination
 
 
 def transport_cost_for(pathway, tcost):

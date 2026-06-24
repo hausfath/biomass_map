@@ -36,6 +36,15 @@ MODES = {
 }
 CO2_LIQUEFACTION_USD_PER_T = 25.0   # once, to move captured CO₂ by truck/rail/ship (not pipeline)
 
+# Storage-well confidence tiers by permit status (how likely to be operational in time for a
+# project starting today; see the Class VI permit-conversion analysis):
+#   firm    — operational, or ISSUED (final permit granted; ~80-90% reach injection) → real storage.
+#   draft   — draft permit at public-comment stage (~55-70%) → usable but lower confidence.
+#   pending — application under review, no draft (~30-50%, slow/uncertain) → fallback only.
+# (EU "construction" maps to issued; "planned" to pending — done in the EU transport build.)
+STATUS_TIER = {"operational": "firm", "issued": "firm", "draft": "draft", "pending": "pending"}
+FIRM_STATUSES = {"operational", "issued"}
+
 # Payload carbon density: tonnes MOVED per tonne CO₂ stored (drives the whole cost). Derived from
 # the material's carbon mass-fraction as transported:  mass = (12/44) / f_C = 0.273 / f_C  (storing
 # 1 t CO₂ needs 0.273 t C). So a denser-carbon payload is cheaper to haul per tCO₂.
@@ -242,9 +251,11 @@ class TransportGraph:
 
     # per-region solve -----------------------------------------------------
     def least_cost_to_well(self, origin_pos):
-        """Full Dijkstra (no early stop) → cheapest per-tonne path to the nearest OPERATING well and
-        to the nearest PERMITTED (non-operating) well. Returns
-        {"operational": (cost, legs, name) | None, "permitted": (cost, legs, name, status) | None}."""
+        """Full Dijkstra (no early stop) → cheapest per-tonne path to the nearest well in each
+        CONFIDENCE TIER (by permit status; see STATUS_TIER): 'firm' = operational + issued (high odds
+        of being operational in time, treated as real storage), 'draft' = draft permit (moderate),
+        'pending' = pending application (speculative, fallback only). Returns
+        {tier: (cost, legs, name, status) | None}."""
         O = "_O"
         self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin"}
         self.adj[O] = []
@@ -272,26 +283,22 @@ class TransportGraph:
                     prev[v] = (u, mode, km, path)
                     heapq.heappush(pq, (nd, v))
 
-        best_op = best_perm = None      # (cost, well_id)
+        best = {"firm": None, "draft": None, "pending": None}   # tier -> (cost, well_id)
         for w in self._wells:
             if w not in dist:
                 continue
-            if self.nodes[w]["status"] == "operational":
-                if best_op is None or dist[w] < best_op[0]:
-                    best_op = (dist[w], w)
-            else:
-                if best_perm is None or dist[w] < best_perm[0]:
-                    best_perm = (dist[w], w)
+            tier = STATUS_TIER.get(self.nodes[w]["status"], "pending")
+            if best[tier] is None or dist[w] < best[tier][0]:
+                best[tier] = (dist[w], w)
 
-        def pack(entry, with_status=False):
+        def pack(entry):
             if entry is None:
                 return None
             cost, wid = entry
             legs = self._reconstruct(prev, wid)
-            out = (round(cost, 2), legs, self.nodes[wid]["name"])
-            return out + (self.nodes[wid]["status"],) if with_status else out
+            return (round(cost, 2), legs, self.nodes[wid]["name"], self.nodes[wid]["status"])
 
-        result = {"operational": pack(best_op), "permitted": pack(best_perm, with_status=True)}
+        result = {tier: pack(entry) for tier, entry in best.items()}
         del self.nodes[O]
         del self.adj[O]
         return result
@@ -346,21 +353,28 @@ def build_records(graph, regions, cap=100.0):
         rid, pos = region[0], region[1]
         dom = region[2] if len(region) > 2 else None
         res = graph.least_cost_to_well(pos)
-        op, perm = res["operational"], res["permitted"]
-        op_co2 = payload_costs(op[0], True)["co2"] if op else None
-        chosen, dest_status = None, None
-        if op and op_co2 is not None and op_co2 <= cap:
-            chosen, dest_status = op, "operational"
-        elif perm:
-            perm_co2 = payload_costs(perm[0], True)["co2"]
-            if perm_co2 is not None and perm_co2 <= cap:
-                chosen, dest_status, n_rescued = perm, perm[3], n_rescued + 1
+        firm, draft, pend = res["firm"], res["draft"], res["pending"]
+
+        def co2_of(entry):
+            return payload_costs(entry[0], True, dom)["co2"] if entry else None
+
+        # Prefer a FIRM well (operational/issued) when its delivered cost is within the cap; then a
+        # draft permit; then a pending application as a last-resort fallback. If none is affordable,
+        # fall back to the cheapest well that has any path (it will grade "poor").
+        chosen = None
+        if firm and co2_of(firm) is not None and co2_of(firm) <= cap:
+            chosen = firm
+        elif draft and co2_of(draft) is not None and co2_of(draft) <= cap:
+            chosen = draft; n_rescued += 1
+        elif pend and co2_of(pend) is not None and co2_of(pend) <= cap:
+            chosen = pend; n_rescued += 1
         if chosen is None:
-            chosen, dest_status = (op, "operational") if op else ((perm, perm[3]) if perm else (None, None))
+            cands = [e for e in (firm, draft, pend) if e]
+            chosen = min(cands, key=lambda e: e[0]) if cands else None
         if chosen is None:
             n_nopath += 1
             continue
-        per_tonne, legs, dest = chosen[0], chosen[1], chosen[2]
+        per_tonne, legs, dest, dest_status = chosen[0], chosen[1], chosen[2], chosen[3]
         n_path += 1
         modes = sorted({leg["mode"] for leg in legs})
         for m in modes:
@@ -370,8 +384,8 @@ def build_records(graph, regions, cap=100.0):
             "legs": legs, "by_payload": payload_costs(per_tonne, bool(legs), dom),
             "modes": modes, "total_km": sum(leg["km"] for leg in legs),
         }
-        if op:
-            rec["operating_co2_usd"] = op_co2
+        if firm:
+            rec["firm_co2_usd"] = co2_of(firm)   # nearest firm-storage CO₂ cost, for reference
         out[rid] = rec
     return out, {"paths": n_path, "no_path": n_nopath, "rescued": n_rescued, "modes": dict(mode_use)}
 

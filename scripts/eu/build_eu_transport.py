@@ -32,20 +32,22 @@ CAP = 100.0
 def main():
     feeds = json.load(open(FEED))
     projects = json.load(open(PROJECTS))
-    # storage projects -> offshore "wells" (marine, reached by ship). status: operational vs others.
+    # storage projects -> offshore "wells" (marine, reached by ship). Map project status to the
+    # permit-confidence tiers: operational stays firm; under-CONSTRUCTION → 'issued' (firm, near-
+    # certain); PLANNED/announced → 'pending' (speculative fallback).
+    STAGE = {"operational": "operational", "construction": "issued", "planned": "pending"}
     wells = [{"name": p["name"], "lat": p["lat"], "lon": p["lon"],
-              "status": "operational" if p.get("status") == "operational" else "permitted",
-              "marine": True}
+              "status": STAGE.get(p.get("status"), "pending"), "marine": True}
              for p in projects if p.get("lat") is not None]
-    n_op = sum(1 for w in wells if w["status"] == "operational")
+    n_op = sum(1 for w in wells if w["status"] in ("operational", "issued"))
 
     nodes = json.load(open(NODES))
     terminals = nodes["rail_terminals"]
     coastal_ports = nodes["coastal_ports"]
     river_corridors = nodes["river_corridors"]
-    print(f"storage projects: {len(wells)} ({n_op} operational + {len(wells)-n_op} planned/constr.; "
-          f"all offshore) | rail hubs: {len(terminals)} | ports: {len(coastal_ports)} | "
-          f"river waypoints: {sum(len(v) for v in river_corridors.values())}")
+    print(f"storage projects: {len(wells)} ({n_op} firm [operational+construction] + "
+          f"{len(wells)-n_op} planned; all offshore) | rail hubs: {len(terminals)} | "
+          f"ports: {len(coastal_ports)} | river waypoints: {sum(len(v) for v in river_corridors.values())}")
     graph = TransportGraph(wells, terminals, coastal_ports, river_corridors)
 
     regions = [(r["id"], [r["centroid"][1], r["centroid"][0]], r.get("dominant_feedstock"))

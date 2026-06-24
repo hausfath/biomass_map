@@ -29,7 +29,7 @@ from engine_core import (  # noqa: E402
     decide, kpi_score, cdr_potential_mtpa, build_ranked, build_ranked_none,
     build_rationale, build_caveats_flags,
     storage_access_from_cost, apply_transport_cap, transport_band, transport_cost_for,
-    TRANSPORT_MAX_USD, TRANSPORT_KPI_PENALTY, PATHWAY_PAYLOAD,
+    permitted_storage_caveat, TRANSPORT_MAX_USD, TRANSPORT_KPI_PENALTY, PATHWAY_PAYLOAD,
 )
 from build_ca_recommendations_helpers import (  # noqa: E402
     compute_avail_anchor, compute_storage_access_cd, co2_dry, co2_total,
@@ -97,7 +97,7 @@ def main():
         tinfo = transport.get(region["id"])
         tcost = tinfo.get("by_payload") if tinfo else None
         dest_status = tinfo.get("dest_status", "operational") if tinfo else "operational"
-        permitted_storage = (dest_status != "operational")
+        permitted_storage = dest_status in ("draft", "pending")
         if tcost and tcost.get("co2") is not None:
             access = storage_access_from_cost(tcost["co2"], dest_status)
 
@@ -161,9 +161,9 @@ def main():
                        f"pathway's payload — defaulted to a storage-independent option or densified "
                        f"bio-oil."] + caveats
         if permitted_storage and not no_option and rec_key in PATHWAY_PAYLOAD:
-            caveats = [f"Nearest affordable storage is a permitted / under-construction well "
-                       f"({tinfo.get('dest_well')}), not yet operating — storage access capped at "
-                       f"'moderate' (lower confidence)."] + caveats
+            cav = permitted_storage_caveat(dest_status, tinfo.get("dest_well"))
+            if cav:
+                caveats = [cav] + caveats
 
         records.append({
             "id": region["id"],
