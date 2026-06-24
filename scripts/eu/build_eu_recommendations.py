@@ -294,8 +294,9 @@ def main():
             caveats = ["Negligible recoverable biomass in this region — recommendation is "
                        "indicative only."] + caveats
         if sdetail["in_formation"]:
-            caveats = [f"Storage on-site: region overlaps the {sdetail['in_formation']} "
-                       f"storage formation."] + caveats
+            caveats = [f"Overlaps the {sdetail['in_formation']} storage formation (theoretical "
+                       f"capacity — storage still needs a developed well + transport, not on-site)."
+                       ] + caveats
         if transport_capped:
             caveats = [f"Transport to the nearest storage project exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ "
                        f"for this pathway's payload — defaulted to a storage-independent option or "

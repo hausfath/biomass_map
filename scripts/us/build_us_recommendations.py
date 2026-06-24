@@ -336,8 +336,9 @@ def main():
                        "neighbouring counties; recommendation is indicative only."] + caveats
 
         if sdetail["in_basin"]:
-            caveats = [f"Storage on-site: county overlaps the {sdetail['in_basin']} saline "
-                       f"storage formation."] + caveats
+            caveats = [f"Overlaps the {sdetail['in_basin']} saline storage basin (theoretical "
+                       f"capacity — storage still needs a developed well + transport, not on-site)."
+                       ] + caveats
         if transport_capped:
             caveats = [f"Transport to the nearest well exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ "
                        f"for this pathway's payload — defaulted to a storage-independent option "

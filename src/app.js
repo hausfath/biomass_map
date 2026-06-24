@@ -305,7 +305,7 @@
       storageDetailRows: function (rec) {
         const sd = rec.storage_detail || {};
         return [
-          { k: "Storage basin", v: sd.in_basin ? "On-site: " + sd.in_basin
+          { k: "Storage basin", v: sd.in_basin ? "Overlaps " + sd.in_basin + " (theoretical)"
               : (sd.nearest_basin ? `${sd.nearest_basin} (~${sd.nearest_basin_km} km)` : "—") },
           { k: "Nearest well / project", v: sd.nearest_well ? `${sd.nearest_well}${sd.nearest_well_km != null ? ` (~${sd.nearest_well_km} km)` : ""}` : "—" },
           { k: "Feedstock density", v: `${cap1(rec.feedstock_density)} · ${fmt(rec.residue_density_tco2_km2)} tCO₂/km²` },
@@ -373,7 +373,7 @@
       storageDetailRows: function (rec) {
         const sd = rec.storage_detail || {};
         return [
-          { k: "Storage formation", v: sd.in_formation ? "On-site: " + sd.in_formation
+          { k: "Storage formation", v: sd.in_formation ? "Overlaps " + sd.in_formation + " (theoretical)"
               : (sd.nearest_formation ? `${sd.nearest_formation} (~${sd.nearest_formation_km} km)` : "—") },
           { k: "Nearest project", v: sd.nearest_project ? `${sd.nearest_project}${sd.nearest_project_km != null ? ` (~${sd.nearest_project_km} km)` : ""}` : "—" },
           { k: "Feedstock density", v: `${cap1(rec.feedstock_density)} · ${fmt(rec.residue_density_tco2_km2)} tCO₂/km²` },
@@ -755,16 +755,23 @@
     const meta = PATH_META[rec.recommended] || { label: rec.recommended_label, color: "#888" };
     const eff = rec.cdr_efficiency != null ? Math.round(rec.cdr_efficiency * 100) + "%" : "—";
     const cdr = rec.cdr_potential_mtpa != null ? fmt(rec.cdr_potential_mtpa) + " Mtpa" : "—";
-    const storage = `${cap1(rec.storage_access)}${rec.nearest_storage_km != null ? " · ~" + fmt(rec.nearest_storage_km) + " km" : ""}`;
+    // routed transport distance (from the transport model) + delivered storage-transport cost,
+    // shown only for storage-dependent pathways (burial/biochar are stored locally — no transport).
+    const usesTransport = !!PAYLOAD_OF[rec.recommended];
+    const t = (sc.transportLookup && rec.id) ? sc.transportLookup(rec.id) : null;
+    const distKm = (t && t.total_km != null) ? t.total_km : rec.nearest_storage_km;
+    const storage = cap1(rec.storage_access) + (usesTransport && distKm != null ? " · ~" + fmt(distKm) + " km" : "");
+    const storageCost = rec.transport_usd_per_tco2 != null ? "$" + fmt(rec.transport_usd_per_tco2) + "/tCO₂"
+      : (usesTransport ? "—" : "none (stored locally)");
     let html = `<div class="rec-card">
       <div class="rec-top"><span class="rec-pill" style="background:${meta.color}">RECOMMENDED</span>
         <h3>${rec.recommended_label}</h3></div>`;
     if (rec.low_supply) html += `<div class="caveat lowsup">Negligible recoverable biomass — recommendation indicative only.</div>`;
     html += `<div class="rec-meta">
         <div><div class="k">CDR efficiency</div><div class="v">${eff}</div></div>
-        <div><div class="k">KPI score</div><div class="v">${rec.kpi_score}</div></div>
-        <div><div class="k">Cost band</div><div class="v" style="font-size:12px">${rec.cost_band || "—"}</div></div>
         <div><div class="k">CDR potential</div><div class="v">${cdr}</div></div>
+        <div><div class="k">Pathway cost</div><div class="v" style="font-size:12px">${rec.cost_band || "—"}</div></div>
+        <div><div class="k">Storage transport</div><div class="v" style="font-size:12px">${storageCost}</div></div>
         <div><div class="k">Storage access</div><div class="v" style="font-size:12px">${storage}</div></div>
         <div><div class="k">Retrofit anchor</div><div class="v" style="font-size:11px">${rec.anchor_facility || "none mapped"}</div></div>
       </div>

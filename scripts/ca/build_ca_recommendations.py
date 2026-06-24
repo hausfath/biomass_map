@@ -154,7 +154,8 @@ def main():
             caveats = ["Negligible recoverable biomass in this census division — aggregate "
                        "with neighbours; recommendation is indicative only."] + caveats
         if sdetail["in_basin"]:
-            caveats = [f"Storage on-site: CD overlaps the {sdetail['in_basin']} basin."] + caveats
+            caveats = [f"Overlaps the {sdetail['in_basin']} storage basin (theoretical capacity — "
+                       f"storage still needs a developed well + transport, not on-site)."] + caveats
         if transport_capped:
             caveats = [f"Transport to the nearest well exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ for this "
                        f"pathway's payload — defaulted to a storage-independent option or densified "
