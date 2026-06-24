@@ -48,7 +48,8 @@ def main():
           f"river waypoints: {sum(len(v) for v in river_corridors.values())}")
     graph = TransportGraph(wells, terminals, coastal_ports, river_corridors)
 
-    regions = [(r["id"], [r["centroid"][1], r["centroid"][0]]) for r in feeds if r.get("centroid")]
+    regions = [(r["id"], [r["centroid"][1], r["centroid"][0]], r.get("dominant_feedstock"))
+               for r in feeds if r.get("centroid")]
     out, stats = build_records(graph, regions, cap=CAP)
     save_caches()
     with open(OUT, "w") as f:

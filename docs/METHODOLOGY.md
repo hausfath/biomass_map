@@ -540,19 +540,29 @@ toward **bio-oil** (densify-to-haul) rather than moving CO₂ or wet slurry.
 
 **Delivered cost** = `mass_per_tCO₂(payload) × Σ_legs[mode $/t·km × routed-km] + per-mode handling +
 CO₂ liquefaction (for gaseous CO₂ only)`. The **payload carbon density** is the crux — what's hauled
-differs by pathway, so the same distance costs very differently:
+differs by pathway *and feedstock*, so the same distance costs very differently. The mass factor is
+derived from the carbon mass-fraction of the material **as transported**: `tonnes hauled / tCO₂ stored
+= 0.273 / f_C` (0.273 = 12/44; storing 1 t CO₂ needs 0.273 t C):
 
-| Pathway | Moves to the well | ~t per tCO₂ stored |
-|---|---|---|
-| BECCS · BECCS-pp · WtE+CCS · AD+CCS | captured CO₂ (liquefied) | ~1.0 |
-| Bio-oil sequestration | pyrolysis-densified bio-oil | ~0.45 |
-| Biomass waste injection | wet biomass slurry | ~2.0 |
-| Biomass burial · biochar | nothing — stored locally | 0 (no transport-to-well) |
+| Pathway | Moves to the well | ~f_C as hauled | ~t per tCO₂ |
+|---|---|---|---|
+| BECCS · BECCS-pp · WtE+CCS · AD+CCS | captured CO₂ (liquefied) | 27% (it's CO₂) | ~1.0 (+ liquefaction) |
+| Bio-oil (pyrolysis) | densified bio-oil | ~50% | ~0.55 |
+| Bio-oil (HTL) | deoxygenated bio-crude | ~60–65% | ~0.45 |
+| Injection — woody residue | ground-woody slurry (~50% C dry, ~30% solids) | ~15% | ~1.8 |
+| Injection — crop residue | crop-residue slurry (~45% C dry, ~28% solids) | ~13% | ~2.2 |
+| Injection — manure / biosolids | native wet slurry (~38% C dry, ~18% solids) | ~7% | ~4.0 |
+| Injection — MSW / mixed | — | ~10% | ~2.6 |
+| Biomass burial · biochar | nothing — stored locally | — | 0 (no transport-to-well) |
 
-So a long haul leaves **bio-oil viable but prices slurry-injection out**, and is irrelevant to
-burial/biochar — the current qualitative injection-vs-bio-oil-vs-burial logic, now quantified. Example:
-*Polk Co, IA* (corn belt) routes truck→rail→truck ~900 km to ADM Decatur — **bio-oil ≈ $29,
-slurry ≈ $129 /tCO₂**; coastal/long routes (e.g. NYC → ADM Decatur) push slurry past $240.
+The injection factor is **feedstock-specific** (a manure slurry is mostly water and lower-carbon, so it
+hauls ~2× the mass of woody residue per tCO₂), and bio-oil was corrected from an earlier 0.45 (which
+back-implied an optimistic ~60% carbon) to ~0.55 for raw/pyrolysis oil. A long haul therefore leaves
+**bio-oil viable but prices slurry-injection out** — especially manure slurry — pushing far-from-storage
+manure regions toward **HTL bio-oil** (densify, then haul) and dry residues toward pyrolysis bio-oil;
+it is irrelevant to burial/biochar (stored locally). Example: *Polk Co, IA* (corn belt) routes
+truck→rail→truck ~900 km to ADM Decatur — **bio-oil ≈ $29, crop slurry ≈ $129 /tCO₂**; a manure region
+the same distance would see slurry ≈ $230 (the 4× factor) and so densifies via HTL instead.
 
 **Mode model** (country-level $/t·km, tunable in `scripts/transport_common.py`): truck ~$0.12, rail
 ~$0.035, coastal ship ~$0.015, river barge ~$0.012, plus per-mode handling and a one-off ~$25/t CO₂

@@ -92,7 +92,7 @@
   }
 
   // ---- Ranked pros/cons reconstruction (US/EU; mirrors engine_core.region_pros_cons) ----
-  const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", bio_oil: "bio_oil", bio_oil_htl: "bio_oil", injection: "slurry" };
+  const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", bio_oil: "bio_oil", bio_oil_htl: "bio_oil_htl", injection: "slurry" };
   const TRANSPORT_CAP = 100;
   function regionProsCons(rec, key, profile) {
     const prof = profile[key];

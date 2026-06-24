@@ -27,6 +27,7 @@ GEO = os.path.join(ROOT, "data", "geo")
 COUNTIES = os.path.join(GEO, "us_counties.json")
 WELLS = os.path.join(PROC, "wells_us.json")
 NODES = os.path.join(GEO, "transport_nodes_us.json")
+FEED = os.path.join(PROC, "feedstocks_us_county.json")   # for dominant feedstock (slurry density)
 OUT = os.path.join(PROC, "transport_us.json")
 
 
@@ -51,8 +52,9 @@ def main():
           f"river waypoints: {nwp}")
     graph = TransportGraph(wells, terminals, coastal_ports, river_corridors)
 
-    regions = [(f["properties"]["id"], [f["properties"]["centroid"][1], f["properties"]["centroid"][0]])
-               for f in counties]
+    dom = {r["id"]: r.get("dominant_feedstock") for r in json.load(open(FEED))}
+    regions = [(f["properties"]["id"], [f["properties"]["centroid"][1], f["properties"]["centroid"][0]],
+                dom.get(f["properties"]["id"])) for f in counties]
     out, stats = build_records(graph, regions, cap=CAP)
     save_caches()
     with open(OUT, "w") as f:

@@ -36,11 +36,26 @@ MODES = {
 }
 CO2_LIQUEFACTION_USD_PER_T = 25.0   # once, to move captured CO₂ by truck/rail/ship (not pipeline)
 
-# Payload carbon density: tonnes MOVED per tonne CO₂ stored (drives the whole cost).
-PAYLOAD_MASS_PER_TCO2 = {"co2": 1.00, "bio_oil": 0.45, "slurry": 2.00}
+# Payload carbon density: tonnes MOVED per tonne CO₂ stored (drives the whole cost). Derived from
+# the material's carbon mass-fraction as transported:  mass = (12/44) / f_C = 0.273 / f_C  (storing
+# 1 t CO₂ needs 0.273 t C). So a denser-carbon payload is cheaper to haul per tCO₂.
+#   co2     1.00  — captured CO₂ is 27.3% C and the whole molecule is stored (+ liquefaction $).
+#   bio_oil 0.55  — pyrolysis bio-oil ~50% C as transported (raw ~55-65% C dry but carries water).
+#   bio_oil_htl 0.45 — HTL bio-crude is more deoxygenated (~60-65% C), so denser than pyrolysis oil.
+#   slurry  — biomass injected as a pumpable slurry; carbon density depends HEAVILY on feedstock
+#             (dry C fraction × as-injected solids fraction), so it is feedstock-specific below.
+PAYLOAD_MASS_PER_TCO2 = {"co2": 1.00, "bio_oil": 0.55, "bio_oil_htl": 0.45, "slurry": 2.6}
+
+# Biomass-injection (slurry) mass per tCO₂ by dominant feedstock. f_C_hauled = dry-C × solids:
+#   woody  ~50% C dry × ~30% solids = 0.15 -> 1.8 ;  crop ~45% × ~28% = 0.126 -> 2.2 ;
+#   manure/biosolids ~38% C dry × ~18% solids = 0.068 -> 4.0 (mostly water) ;  msw/mixed -> 2.6.
+SLURRY_MASS_BY_FEEDSTOCK = {
+    "forestry_woody": 1.8, "ag_dry": 2.2, "manure_wet": 4.0, "msw": 2.6, "mixed": 2.6,
+}
+
 PATHWAY_PAYLOAD = {
     "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2",
-    "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil", "injection": "slurry",
+    "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil_htl", "injection": "slurry",
 }
 
 # Graph fan-out (k-nearest keeps per-region Dijkstra small).
@@ -320,14 +335,16 @@ class TransportGraph:
 
 def build_records(graph, regions, cap=100.0):
     """Per-region transport records with status tiering, shared by all scopes.
-    `regions` = iterable of (region_id, [lat, lon]). Returns (records_dict, stats_dict).
-    Operating well preferred where its CO₂-delivered cost ≤ cap; else a permitted well 'rescues'
-    the region (flagged via dest_status). Stores legs (with water geometry), per-payload cost,
-    dest_well/status, and the nearest-operating CO₂ cost for confidence grading."""
+    `regions` = iterable of (region_id, [lat, lon]) or (region_id, [lat, lon], dominant_feedstock).
+    The dominant feedstock (if given) sets the feedstock-specific slurry carbon density. Returns
+    (records_dict, stats_dict). Operating well preferred where its CO₂-delivered cost ≤ cap; else a
+    permitted well 'rescues' the region. Stores legs (water geometry), per-payload cost, dest, etc."""
     from collections import Counter
     out, mode_use = {}, Counter()
     n_path = n_nopath = n_rescued = 0
-    for rid, pos in regions:
+    for region in regions:
+        rid, pos = region[0], region[1]
+        dom = region[2] if len(region) > 2 else None
         res = graph.least_cost_to_well(pos)
         op, perm = res["operational"], res["permitted"]
         op_co2 = payload_costs(op[0], True)["co2"] if op else None
@@ -350,7 +367,7 @@ def build_records(graph, regions, cap=100.0):
             mode_use[m] += 1
         rec = {
             "per_tonne_usd": per_tonne, "dest_well": dest, "dest_status": dest_status,
-            "legs": legs, "by_payload": payload_costs(per_tonne, has_path=bool(legs)),
+            "legs": legs, "by_payload": payload_costs(per_tonne, bool(legs), dom),
             "modes": modes, "total_km": sum(leg["km"] for leg in legs),
         }
         if op:
@@ -359,11 +376,16 @@ def build_records(graph, regions, cap=100.0):
     return out, {"paths": n_path, "no_path": n_nopath, "rescued": n_rescued, "modes": dict(mode_use)}
 
 
-def payload_costs(per_tonne_usd, has_path):
+def payload_costs(per_tonne_usd, has_path, dom=None):
+    """Delivered $/tCO₂ per payload class. The slurry (biomass-injection) factor is feedstock-
+    specific (`dom` = dominant feedstock) since a manure slurry hauls ~2× the mass of woody residue
+    per tCO₂; other payloads are feedstock-independent."""
     if per_tonne_usd is None:
         return {k: None for k in PAYLOAD_MASS_PER_TCO2}
     out = {}
     for payload, mass in PAYLOAD_MASS_PER_TCO2.items():
+        if payload == "slurry":
+            mass = SLURRY_MASS_BY_FEEDSTOCK.get(dom, mass)
         c = per_tonne_usd * mass
         if payload == "co2" and has_path:
             c += CO2_LIQUEFACTION_USD_PER_T

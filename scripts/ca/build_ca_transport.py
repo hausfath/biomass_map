@@ -22,6 +22,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 GEO = os.path.join(ROOT, "data", "geo")
 
 CD_GEO = os.path.join(GEO, "ca_cd.json")
+FEED_CA = os.path.join(PROC, "feedstocks_ca_cd.json")   # dominant feedstock for slurry density
 WELLS_CA = os.path.join(PROC, "wells_ca.json")
 WELLS_US = os.path.join(PROC, "wells_us.json")
 NODES_CA = os.path.join(GEO, "transport_nodes_ca.json")
@@ -55,8 +56,9 @@ def main():
           f"river waypoints: {sum(len(v) for v in river_corridors.values())}")
     graph = TransportGraph(wells, terminals, coastal_ports, river_corridors)
 
-    regions = [(f["properties"]["id"], [f["properties"]["centroid"][1], f["properties"]["centroid"][0]])
-               for f in cds]
+    dom = {r["id"]: r.get("dominant_feedstock") for r in json.load(open(FEED_CA))}
+    regions = [(f["properties"]["id"], [f["properties"]["centroid"][1], f["properties"]["centroid"][0]],
+                dom.get(f["properties"]["id"])) for f in cds]
     out, stats = build_records(graph, regions, cap=CAP)
     save_caches()
     with open(OUT, "w") as f:

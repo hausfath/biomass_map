@@ -240,10 +240,11 @@ TRANSPORT_BANDS = (33.0, 66.0, 100.0)   # $/tCO₂ thresholds: low | medium | hi
 TRANSPORT_MAX_USD = 100.0               # storage-dependent pathway disqualified above this
 TRANSPORT_KPI_PENALTY = {"low": 0, "medium": 4, "high": 8, "over": 0}  # soft KPI nudge by band
 
-# pathway -> transport payload class (None = storage-independent, no transport-to-well cost)
+# pathway -> transport payload class (None = storage-independent, no transport-to-well cost).
+# bio_oil (pyrolysis) and bio_oil_htl (HTL bio-crude) have different carbon densities, so distinct.
 PATHWAY_PAYLOAD = {
     "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2",
-    "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil", "injection": "slurry",
+    "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil_htl", "injection": "slurry",
 }
 
 
