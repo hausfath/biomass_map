@@ -142,8 +142,11 @@ def main():
             cdr = cdr_potential_mtpa(rregion, rec_key)
             rec_label = PATHWAYS[rec_key]["label"]
             runner_label = PATHWAYS[runner_key]["label"]
+            tdesc = {"usd": (transport_cost_for(rec_key, tcost)
+                              if rec_key in PATHWAY_PAYLOAD else (tcost or {}).get("co2")),
+                     "km": tinfo.get("total_km"), "well": tinfo.get("dest_well")} if tinfo else None
             rationale = build_rationale(rregion, rec_key, access, nearest_km,
-                                        has_retrofit, anchor_name, anchor_type)
+                                        has_retrofit, anchor_name, anchor_type, tdesc)
             ranked = build_ranked(rregion, rec_key, runner_key, access, nearest_km,
                                   avail, anchor_str, tcost)
         caveats, flags = build_caveats_flags(region, rec_key, runner_key, False,

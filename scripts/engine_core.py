@@ -800,14 +800,16 @@ def build_ranked_none(region, storage_access, nearest_km, avail, anchor):
 # Rationale + caveats + flags
 # --------------------------------------------------------------------------
 def build_rationale(region, rec_key, storage_access, nearest_km,
-                    has_retrofit, anchor_name, anchor_type):
+                    has_retrofit, anchor_name, anchor_type, transport=None):
+    """`transport` (optional) = {"usd": delivered $/tCO₂ for the recommended pathway, "km": routed
+    transport distance, "well": destination name}. When present (US/CA/EU cost-based scopes), the
+    storage description is framed in transport-cost terms rather than great-circle distance."""
     dom = region.get("dominant_feedstock")
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
     p = PATHWAYS[rec_key]
     eff_pct = int(round(p["cdr_efficiency"] * 100))
 
-    dist = f"{nearest_km} km" if nearest_km is not None else "no mapped"
     feed_desc = {
         "ag_dry": "dry agricultural residues",
         "forestry_woody": "woody forestry residues",
@@ -816,11 +818,24 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
         "mixed": "mixed biomass residues",
     }.get(dom, "biomass residues")
 
-    storage_desc = {
-        "good": f"good geologic storage access (nearest qualifying storage ~{dist})",
-        "moderate": f"moderate geologic storage access (~{dist})",
-        "poor": "poor/absent geologic storage access",
-    }[storage_access]
+    if transport and transport.get("usd") is not None:
+        # cost-based scopes: describe the delivered route to the chosen storage well
+        km = transport.get("km")
+        well = transport.get("well")
+        det = f"~${round(transport['usd'])}/tCO₂ delivered" + (f" over ~{km} km" if km else "") \
+            + (f" to {well}" if well else "")
+        storage_desc = {
+            "good": f"good (low-cost) geologic storage access ({det})",
+            "moderate": f"moderate geologic storage access ({det})",
+            "poor": "poor geologic storage access (no affordable route to a storage well)",
+        }[storage_access]
+    else:
+        dist = f"{nearest_km} km" if nearest_km is not None else "no mapped"
+        storage_desc = {
+            "good": f"good geologic storage access (nearest qualifying storage ~{dist})",
+            "moderate": f"moderate geologic storage access (~{dist})",
+            "poor": "poor/absent geologic storage access",
+        }[storage_access]
 
     anchor_clip = ""
     if has_retrofit and anchor_name:
