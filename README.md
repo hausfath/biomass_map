@@ -5,8 +5,10 @@ An interactive map overlaying **biomass feedstock supply**, **CO₂ storage opti
 
 ## Open it
 
-Double-click **`src/index.html`** (or open it in any browser). No server, no build step, works
-offline — all data is bundled as JavaScript.
+**Live map: https://hausfath.github.io/biomass_map/src/index.html**
+
+Or run it locally: double-click **`src/index.html`** (or open it in any browser). No server, no
+build step, works offline — all data is bundled as JavaScript.
 
 ## What you can do
 
