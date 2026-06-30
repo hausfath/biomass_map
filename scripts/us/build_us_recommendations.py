@@ -73,6 +73,23 @@ MIN_SUPPLY_MT = 0.02   # total recoverable CO2 (Mt/yr) below which a county is "
 STRONG_WELL = {"operational", "issued"}
 ANY_WELL = {"operational", "issued", "draft", "pending"}
 
+# --- Forestry-residue utilization flag (to_do item 2, Option A — qualitative, no tonnage change) ---
+# We do NOT net forestry residue down (gross tonnage is anchored to DOE BT23, which is itself partly
+# availability-conditioned — re-subtracting risks double-counting; pellet-plant *locations* are
+# proprietary (Forisk), only regional EIA aggregates are public). Instead we FLAG forestry-dominant
+# counties where existing wood-bioenergy and/or wood-pellet capacity already draws heavily on the
+# residue/chip stream, so the strategist knows the *spare* stream is below the gross figure shown.
+#   - bioenergy draw: cumulative biomass-power biogenic CO2 within the pulpwood-haul radius (we have
+#     the plants from GHGRP); a real plant nearby competes for residue/chips.
+#   - pellet density: EIA-63C "SOUTH" region — the Southeast pellet/export belt (Enviva/Drax) that
+#     dominates US pellet capacity (EIA Monthly Densified Biomass Fuel Report). A coarse regional
+#     fact (not plant-level), appropriate for a qualitative flag.
+BIOENERGY_DRAW_FLOOR_MTPA = 0.10   # cumulative biomass-power biogenic CO2 (Mt/yr) in range to flag
+EIA_PELLET_SOUTH = {  # USPS abbrevs in the EIA-63C SOUTH densified-biomass region (pellet/export belt)
+    "AL", "AR", "DE", "DC", "FL", "GA", "KY", "LA", "MD", "MS", "NC", "OK",
+    "SC", "TN", "TX", "VA", "WV",
+}
+
 
 def bbox_of_geom(geom):
     xs, ys = [], []
@@ -138,11 +155,14 @@ def compute_avail_anchor(centroid, facilities):
     centroid: beccs_pp <- a pulp & paper mill within ~150 km; wte_ccs <- a WtE plant within
     ~50 km; ad_ccs <- cumulative anaerobic-digestion capacity within ~15 km >= AD_MIN_CAP;
     lfg_* <- a qualifying gas-collecting landfill within ~40 km.
-    Returns (avail, has_retrofit, anchor_name, anchor_type, lf_info) where lf_info (or None) =
-    {"name","co2","pref"} for the nearest qualifying landfill (for the LFG pathways)."""
+    Returns (avail, has_retrofit, anchor_name, anchor_type, lf_info, bioenergy_draw) where lf_info
+    (or None) = {"name","co2","pref"} for the nearest qualifying landfill (for the LFG pathways) and
+    bioenergy_draw = cumulative biomass-power biogenic CO2 (Mt/yr) within the pulpwood-haul radius
+    (the forestry-residue utilization signal, item 2 Option A)."""
     lon, lat = centroid[0], centroid[1]
     avail = {"pp": False, "wte": False, "ad": False, "lf": False}
     ad_cap = 0.0
+    bioenergy_draw = 0.0   # cumulative biomass-power biogenic CO2 (Mt/yr) in range -> residue draw
     cands = []   # (pref, dist, facility) within its type radius -> retrofit anchor
     lf_cands = []   # (co2, dist, facility) qualifying landfills in range
     for f in facilities:
@@ -159,6 +179,7 @@ def compute_avail_anchor(centroid, facilities):
         elif t == "bioenergy":          # supports plain BECCS (ungated) -> anchor only
             if d <= PROC_RADIUS_KM["pulp_paper"]:
                 cands.append((0, d, f))
+                bioenergy_draw += (f.get("est_biogenic_co2_mtpa") or {}).get("value", 0) or 0
         elif t == "wte":
             if d <= PROC_RADIUS_KM["wte"]:
                 avail["wte"] = True; cands.append((1, d, f))
@@ -184,7 +205,7 @@ def compute_avail_anchor(centroid, facilities):
         cands.sort(key=lambda c: (c[0], c[1]))   # prefer pp/bioenergy, then wte, ad, landfill; nearest
         best = cands[0][2]
         anchor_name, anchor_type = best.get("name"), best.get("type")
-    return avail, has_retrofit, anchor_name, anchor_type, lf_info
+    return avail, has_retrofit, anchor_name, anchor_type, lf_info, bioenergy_draw
 
 
 def compute_storage_access_county(centroid, basins, wells):
@@ -300,7 +321,7 @@ def main():
                    else "diffuse")
         region["feedstock_density"] = density   # feed into shared decide()
 
-        avail, has_retrofit, anchor_name, anchor_type, lf_info = compute_avail_anchor(
+        avail, has_retrofit, anchor_name, anchor_type, lf_info, bioenergy_draw = compute_avail_anchor(
             region["centroid"], facilities)
         # Carry the anchor landfill's collected-gas CO2 + project type into the region so decide()
         # can pick the LFG variant and cdr_potential can size the LFG pathways.
@@ -373,6 +394,30 @@ def main():
             if cav:
                 caveats = [cav] + caveats
 
+        # Forestry-residue utilization flag (item 2, Option A): where the recommendation rests on
+        # woody forestry AND existing wood-bioenergy and/or Southeast pellet capacity already draws
+        # on the residue/chip stream, note that the (gross) figure is NOT net of that competing use.
+        # Qualitative only — no tonnage is subtracted (the BT23 basis is itself partly
+        # availability-conditioned, so re-netting would double-count; pellet-plant locations are not
+        # public). See METHODOLOGY §2/§8.
+        forestry_util = False
+        if not no_option and eff_dom == "forestry_woody":
+            bio_flag = bioenergy_draw >= BIOENERGY_DRAW_FLOOR_MTPA
+            pellet_flag = region.get("state") in EIA_PELLET_SOUTH
+            if bio_flag or pellet_flag:
+                forestry_util = True
+                drivers = []
+                if bio_flag:
+                    drivers.append(f"existing wood-bioenergy capacity (~{bioenergy_draw:.1f} Mt "
+                                   f"biogenic CO₂/yr within haul range)")
+                if pellet_flag:
+                    drivers.append("the Southeast wood-pellet / export industry (EIA-63C South region)")
+                caveats = caveats + [
+                    "Forestry residue here is already drawn on by " + " and ".join(drivers) +
+                    "; the figure shown is gross recoverable residue, NOT net of this competing use, "
+                    "so the spare stream available to new BiCRS is lower. (Utilization is flagged, not "
+                    "subtracted — see methodology.)"]
+
         records.append({
             "id": region["id"],
             "name": region["name"],
@@ -407,6 +452,7 @@ def main():
             "avail": avail,
             "anchor_facility": anchor_str,
             "low_supply": low_supply,
+            "forestry_residue_utilized": forestry_util,   # item 2 Option A: gross not net of pellet/bioenergy draw
             "nutrient_status": region.get("nutrient_status"),
             "dominant_feedstock": region.get("dominant_feedstock"),
             "rationale": rationale,

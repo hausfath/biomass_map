@@ -1106,7 +1106,10 @@
     nutrient status, and retrofit availability. Wet wastes → injection or AD+CCS (AD+CCS preferred where
     digesters already exist, e.g. Europe); concentrated woody/dry residues near storage → BECCS; dry
     residues near storage → injection, far → bio-oil; no storage + excess nutrients → burial; concentrated
-    MSW → WtE+CCS. <b>Excluded</b> (flagged): purpose-grown energy crops, corn-ethanol+CCS.</p>
+    MSW → WtE+CCS, or — where a large gas-collecting landfill is in range (US scope) → landfill-gas + CCS.
+    <b>Excluded</b> (flagged): purpose-grown energy crops, corn-ethanol+CCS. (The US/CA/EU detail scopes
+    add a multimodal transport cost → cost-based storage access and a delivered cost = conversion +
+    transport.)</p>
     <h3>Caveats</h3>
     <p>Tonnages are modelled estimates, not measured inventories. Storage capacities are theoretical and
     require site appraisal. This tool informs strategy; it does not substitute for project-level diligence.</p>`;
@@ -1117,22 +1120,35 @@
     at county granularity.</p>
     <h3>County feedstocks</h3>
     <p>"DOE Billion-Ton state totals, spatially disaggregated to counties." Within-state distribution from
-    USDA Census of Agriculture 2022 (crop production × residue ratios for ag; livestock for manure),
-    Census population (MSW &amp; biosolids), and county woodland area (forestry), then scaled so each
-    state's counties sum to that state's Billion-Ton total. Forestry's county split is a woodland-area
-    proxy (weakest layer); ag and manure are highest-confidence.</p>
+    USDA Census of Agriculture 2022 (crop production × residue ratios for ag; livestock for manure) and
+    Census population (MSW &amp; biosolids), then scaled so each state's counties sum to that state's
+    Billion-Ton total. <b>Forestry</b> is now allocated by real <b>USFS FIA</b> county forest data
+    (0.7 × harvest removals + 0.3 × standing biomass) — replacing the old farm-woodland-acreage proxy —
+    plus a separate <b>USFS FACTS wildfire-fuels-treatment</b> residue stream (thinning / pile-burn /
+    chipping biomass, largely additional, ~10 Mt odt/yr concentrated in the fire-prone West), shown in
+    the detail panel and folded into the forestry total. Where existing wood-bioenergy or Southeast
+    wood-pellet capacity already draws on the residue, a county is <b>flagged</b> "residue utilized" —
+    the gross figure is not net of that competing use (utilization is flagged, not subtracted, to avoid
+    double-counting the Billion-Ton availability basis). Ag and manure remain highest-confidence.</p>
     <h3>CO₂ storage</h3>
     <p>Storage basins are <b>actual polygons</b> (NETL NATCARB assessed saline formations); a county inside
     a formation has storage on-site, else distance is to the nearest formation boundary / well. Wells:
     operational geologic sequestration (EPA GHGRP Subpart RR), Class VI permits (issued/draft/pending),
     curated Class V biomass-injection / bio-oil (Vaulted, Charm).</p>
     <h3>Point sources &amp; WWTPs</h3>
-    <p>Facility-level biogenic CO₂ from EPA GHGRP 2023 (pulp &amp; paper, bioenergy, WtE, landfill gas,
-    ethanol); large WWTPs are NPDES "major" POTWs (≥1 MGD) from EPA FRS.</p>
+    <p>Facility-level biogenic CO₂ from EPA GHGRP 2023 (pulp &amp; paper, bioenergy, WtE, ethanol);
+    large WWTPs are NPDES "major" POTWs (≥1 MGD) from EPA FRS. <b>Landfills</b> come from the
+    <b>EPA LMOP</b> Landfill &amp; Project Database (gas collection, LFG flow, %CH₄, RNG/electricity
+    project) — gas-collecting landfills above a collected-gas size floor anchor the landfill-gas
+    removal pathways (below).</p>
     <h3>County engine</h3>
-    <p>Storage access: in-basin = on-site, else distance graded good &lt;100 km / moderate &lt;300 km.
-    Density: residue tCO₂/km² + an 80 km haul-radius supply sum. Counties below a minimum recoverable
-    supply are flagged "low supply". Distances are great-circle screening, not routed.</p>`;
+    <p>Storage access is <b>cost-based</b> where the multimodal transport model reaches a well
+    (good ≤ $66 / moderate ≤ $100 / poor &gt; $100 per tCO₂ delivered; see the global Methodology §11),
+    else great-circle distance (good &lt;100 km / moderate &lt;300 km). The detail panel shows a
+    <b>delivered cost</b> ≈ pathway conversion band + transport-to-well. MSW with no waste-to-energy
+    plant but a large gas-collecting landfill in range → <b>landfill gas + CCS</b> (runner-up
+    landfill-gas RNG + CCS). Density: residue tCO₂/km² + an 80 km haul-radius supply sum. Counties below
+    a minimum recoverable supply are flagged "low supply".</p>`;
 
   const EU_METHODOLOGY = `
     <h2>Methodology &amp; sources — EU NUTS-2 scope</h2>

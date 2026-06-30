@@ -118,7 +118,7 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 ### Pathway constants (thesis §2.1)
 | Pathway | CDR efficiency | Cost band ($/tCO₂) | Co-product |
 |---|---|---|---|
-| BECCS (heat/elec) | 80% | $200–225 (→<$100 at scale) | energy |
+| BECCS (heat/elec) | 80% | $200–225 | energy |
 | BECCS pulp & paper | 80% | $200–225 | energy |
 | WtE + CCS | 55% | ~$100–200 | energy |
 | Landfill gas + CCS | 52% | $100–200 | energy |
@@ -410,8 +410,20 @@ Billion-Ton Report + USDA NASS):
   high (pile-burn counterfactual) but there may be partial overlap with BT23's "other forest residue"
   category; supply is policy-driven and seasonal, often favouring distributed pathways (bio-oil /
   biochar / burial) over a central plant.
-  *Remaining (item 2, later phases): net out current utilization — pellet/pulp/bioenergy draw — and
-  add mill-residue point sources.*
+- *Forestry — current-utilization flag (qualitative, no tonnage change).* The forestry figure is
+  **gross recoverable** residue, **not net of competing use**. We deliberately do **not** subtract
+  existing demand, because (a) the DOE Billion-Ton basis is itself partly availability-conditioned, so
+  re-netting would double-count, and (b) the dominant in-forest-residue sink — **wood-pellet plants** —
+  has no public plant-level location data (Forisk is proprietary; only EIA regional aggregates are
+  public). Instead, a forestry-dominant county is **flagged** where existing demand already draws on its
+  residue/chip stream: **wood-bioenergy** capacity (cumulative biomass-power biogenic CO₂ ≥ 0.1 Mt/yr
+  within the pulpwood-haul radius, from the GHGRP bioenergy plants) and/or the **Southeast wood-pellet /
+  export belt** (the EIA-63C "South" densified-biomass region — Enviva/Drax supply — which dominates US
+  pellet capacity). The flag adds a detail-panel caveat ("the spare stream available to new BiCRS is
+  below the gross figure shown") naming the driver(s); it changes no tonnage or recommendation. ~716 of
+  856 forestry-dominant counties are flagged, concentrated in the SE. *(A full quantitative net-of-
+  utilization layer and mill-residue point sources remain a later item-2 phase, blocked on the
+  proprietary pellet data and on double-count risk with the BECCS-pulp&paper retrofit anchor.)*
 
 **Storage basins (actual polygons)** — NETL NATCARB Atlas assessed saline storage formations
 (`NATCARB_Saline_Poly_v1502`, 349 assessed/non-duplicate formations), reprojected from Lambert
@@ -690,6 +702,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
 | Forestry residues | US | State BT total allocated by **USFS FIA** county forest data (0.7 harvest-removals + 0.3 standing-biomass share) | County, scaled to state |
 | Forestry — fuels residue | US | **USFS FACTS** hazardous-fuel treatments (FY2018–2024 removable types × per-acre odt yield, annualized) | County point-in-polygon; added to forestry total |
+| Forestry — utilization flag | US | GHGRP wood-bioenergy capacity (in-range) + **EIA-63C** South pellet/export region | Qualitative caveat only; no tonnage change |
 | Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |
 | Forestry residues | CA | Province total allocated by CD land area *(weakest spatial layer — no CD timberland inventory)* | Census division, scaled |
 | MSW | G | World Bank *What a Waste 2.0* (2018) totals + treatment shares; EPA (US); Eurostat (EU); biogenic fraction US≈0.61 / EU≈0.50 / LMIC 0.55–0.70 | Country |

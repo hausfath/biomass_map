@@ -26,7 +26,7 @@ PATHWAYS = {
     "beccs": {
         "label": "BECCS (heat/electricity)",
         "cdr_efficiency": 0.80,
-        "cost_band": "$200-225 (to <$100 at scale)",
+        "cost_band": "$200-225",
         "co_product": "energy",
         "needs_geologic_storage": True,
     },
