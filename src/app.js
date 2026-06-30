@@ -107,8 +107,11 @@
       const t = transportLookup ? transportLookup(rec.id) : null;
       const st = (rec.transport_dest_status && rec.transport_dest_status !== "operational")
         ? ` · ${rec.transport_dest_status}` : "";
-      const km = (t && t.total_km != null) ? ` (~${fmt(t.total_km)} km routed)` : "";
-      return `${rec.transport_dest_well}${st}${km}`;
+      // routed km to the destination the recommended pathway actually uses (CO₂-eligible well for
+      // capture pathways — item 7); fall back to the general routed km where not separately stored.
+      const km = (rec.transport_dest_km != null) ? rec.transport_dest_km
+        : (t && t.total_km != null) ? t.total_km : null;
+      return `${rec.transport_dest_well}${st}${km != null ? ` (~${fmt(km)} km routed)` : ""}`;
     }
     return fallbackName ? `${fallbackName}${fallbackKm != null ? ` (~${fallbackKm} km)` : ""}` : "—";
   }
@@ -809,7 +812,10 @@
     // shown only for storage-dependent pathways (burial/biochar are stored locally — no transport).
     const usesTransport = !!PAYLOAD_OF[rec.recommended];
     const t = (sc.transportLookup && rec.id) ? sc.transportLookup(rec.id) : null;
-    const distKm = (t && t.total_km != null) ? t.total_km : rec.nearest_storage_km;
+    // routed km to the destination the recommended pathway uses (CO₂-eligible well for capture
+    // pathways — item 7); fall back to the general route, then great-circle.
+    const distKm = (rec.transport_dest_km != null) ? rec.transport_dest_km
+      : (t && t.total_km != null) ? t.total_km : rec.nearest_storage_km;
     const storage = cap1(rec.storage_access) + (usesTransport && distKm != null ? " · ~" + fmt(distKm) + " km" : "");
     const storageCost = rec.transport_usd_per_tco2 != null ? "$" + fmt(rec.transport_usd_per_tco2) + "/tCO₂"
       : (usesTransport ? "—" : "none (stored locally)");

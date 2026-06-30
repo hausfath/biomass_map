@@ -371,8 +371,14 @@ def apply_transport_cap(rec, runner, dom, region, tcost):
         indep_alt = "biochar" if indep == "burial" else "burial"
 
     def affordable(p):
+        # Storage-independent pathways (burial/biochar — no payload) need no transport-to-well.
+        if PATHWAY_PAYLOAD.get(p) is None:
+            return True
+        # A storage-dependent pathway must be able to DELIVER its payload: a known cost ≤ cap. A
+        # None cost means no eligible well is reachable (e.g. gaseous CO₂ with no CO₂-eligible well
+        # in range, item 7) → not viable here.
         c = transport_cost_for(p, tcost)
-        return c is None or c <= TRANSPORT_MAX_USD
+        return c is not None and c <= TRANSPORT_MAX_USD
 
     if affordable(rec):
         if not affordable(runner):
@@ -754,11 +760,11 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
         score += 8 if av["pp"] else -50
     if pathway in ("lfg_ccs", "lfg_rng_ccs"):
         score += 6 if av["lf"] else -50
-    # transport-cost demotion (storage-dependent pathways only, where a cost is known)
-    tc = transport_cost_for(pathway, tcost)
-    if tc is not None:
-        if tc > TRANSPORT_MAX_USD:
-            score -= 50               # cannot deliver its payload affordably -> not viable here
+    # transport-cost demotion (storage-dependent pathways only)
+    if tcost and PATHWAY_PAYLOAD.get(pathway) is not None:
+        tc = transport_cost_for(pathway, tcost)
+        if tc is None or tc > TRANSPORT_MAX_USD:
+            score -= 50               # cannot deliver its payload (no eligible well, or over cap)
         else:
             score -= TRANSPORT_KPI_PENALTY.get(transport_band(tc), 0)
     return score

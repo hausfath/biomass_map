@@ -159,7 +159,14 @@ class TransportGraph:
             nid = f"W{i}"
             self.nodes[nid] = {"pos": [w["lat"], w["lon"]], "kind": "well", "name": w["name"],
                                "status": w.get("status", "operational"),
-                               "marine": bool(w.get("marine"))}   # offshore storage → reached by ship
+                               "marine": bool(w.get("marine")),   # offshore storage → reached by ship
+                               # Gaseous-CO₂ eligibility (item 7): captured CO₂ needs a dedicated CO₂
+                               # store — a Class VI/RR well (or an offshore CCS project) — NOT a
+                               # Class V biomass/bio-oil injection site (Vaulted/Charm). Class V is
+                               # the ONLY ineligible class; everything else (VI, VI/RR, CA/EU CCS
+                               # projects with no class) accepts CO₂.
+                               "well_class": w.get("well_class"),
+                               "co2_ok": w.get("well_class") != "V"}
             self._wells.append(nid)
         for i, t in enumerate(terminals):
             nid = f"R{i}"
@@ -254,8 +261,11 @@ class TransportGraph:
         """Full Dijkstra (no early stop) → cheapest per-tonne path to the nearest well in each
         CONFIDENCE TIER (by permit status; see STATUS_TIER): 'firm' = operational + issued (high odds
         of being operational in time, treated as real storage), 'draft' = draft permit (moderate),
-        'pending' = pending application (speculative, fallback only). Returns
-        {tier: (cost, legs, name, status) | None}."""
+        'pending' = pending application (speculative, fallback only). The path/cost are payload-
+        independent, but the eligible DESTINATION SET differs by payload (item 7): gaseous CO₂ may
+        only go to a CO₂-eligible well (Class VI/RR or a CCS project — `co2_ok`), while biomass
+        bio-oil/slurry may use ANY well. So we return best-per-tier for both groups:
+        {"gen": {tier: packed|None}, "co2": {tier: packed|None}}  (packed = (cost, legs, name, status))."""
         O = "_O"
         self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin"}
         self.adj[O] = []
@@ -283,13 +293,17 @@ class TransportGraph:
                     prev[v] = (u, mode, km, path)
                     heapq.heappush(pq, (nd, v))
 
-        best = {"firm": None, "draft": None, "pending": None}   # tier -> (cost, well_id)
+        empty = {"firm": None, "draft": None, "pending": None}
+        best = {"gen": dict(empty), "co2": dict(empty)}   # group -> tier -> (cost, well_id)
         for w in self._wells:
             if w not in dist:
                 continue
             tier = STATUS_TIER.get(self.nodes[w]["status"], "pending")
-            if best[tier] is None or dist[w] < best[tier][0]:
-                best[tier] = (dist[w], w)
+            d = dist[w]
+            if best["gen"][tier] is None or d < best["gen"][tier][0]:
+                best["gen"][tier] = (d, w)
+            if self.nodes[w]["co2_ok"] and (best["co2"][tier] is None or d < best["co2"][tier][0]):
+                best["co2"][tier] = (d, w)
 
         def pack(entry):
             if entry is None:
@@ -298,7 +312,7 @@ class TransportGraph:
             legs = self._reconstruct(prev, wid)
             return (round(cost, 2), legs, self.nodes[wid]["name"], self.nodes[wid]["status"])
 
-        result = {tier: pack(entry) for tier, entry in best.items()}
+        result = {grp: {tier: pack(e) for tier, e in tiers.items()} for grp, tiers in best.items()}
         del self.nodes[O]
         del self.adj[O]
         return result
@@ -348,46 +362,75 @@ def build_records(graph, regions, cap=100.0):
     permitted well 'rescues' the region. Stores legs (water geometry), per-payload cost, dest, etc."""
     from collections import Counter
     out, mode_use = {}, Counter()
-    n_path = n_nopath = n_rescued = 0
+    n_path = n_nopath = n_rescued = n_co2_far = 0
     for region in regions:
         rid, pos = region[0], region[1]
         dom = region[2] if len(region) > 2 else None
         res = graph.least_cost_to_well(pos)
-        firm, draft, pend = res["firm"], res["draft"], res["pending"]
 
         def co2_of(entry):
             return payload_costs(entry[0], True, dom)["co2"] if entry else None
 
-        # Prefer a FIRM well (operational/issued) when its delivered cost is within the cap; then a
-        # draft permit; then a pending application as a last-resort fallback. If none is affordable,
-        # fall back to the cheapest well that has any path (it will grade "poor").
-        chosen = None
-        if firm and co2_of(firm) is not None and co2_of(firm) <= cap:
-            chosen = firm
-        elif draft and co2_of(draft) is not None and co2_of(draft) <= cap:
-            chosen = draft; n_rescued += 1
-        elif pend and co2_of(pend) is not None and co2_of(pend) <= cap:
-            chosen = pend; n_rescued += 1
-        if chosen is None:
-            cands = [e for e in (firm, draft, pend) if e]
-            chosen = min(cands, key=lambda e: e[0]) if cands else None
-        if chosen is None:
+        def choose(tiers):
+            """Prefer a FIRM well (operational/issued) when its CO₂-delivered cost is within the cap;
+            then a draft permit; then a pending application; else the cheapest well with any path."""
+            firm, draft, pend = tiers["firm"], tiers["draft"], tiers["pending"]
+            rescued = False
+            pick = None
+            if firm and co2_of(firm) is not None and co2_of(firm) <= cap:
+                pick = firm
+            elif draft and co2_of(draft) is not None and co2_of(draft) <= cap:
+                pick = draft; rescued = True
+            elif pend and co2_of(pend) is not None and co2_of(pend) <= cap:
+                pick = pend; rescued = True
+            if pick is None:
+                cands = [e for e in (firm, draft, pend) if e]
+                pick = min(cands, key=lambda e: e[0]) if cands else None
+            return pick, rescued
+
+        # General destination (ANY well) — drives storage access + the biomass payloads (bio-oil /
+        # slurry can use any well, incl. Class V). CO₂-eligible destination (Class VI/RR or a CCS
+        # project) — drives the gaseous-CO₂ payload only (item 7).
+        gen, rescued = choose(res["gen"])
+        co2, _ = choose(res["co2"])
+        if gen is None:
             n_nopath += 1
             continue
-        per_tonne, legs, dest, dest_status = chosen[0], chosen[1], chosen[2], chosen[3]
+        if rescued:
+            n_rescued += 1
+        per_tonne, legs, dest, dest_status = gen
         n_path += 1
         modes = sorted({leg["mode"] for leg in legs})
         for m in modes:
             mode_use[m] += 1
+
+        by = payload_costs(per_tonne, bool(legs), dom)          # biomass payloads via the ANY well
+        # gaseous CO₂ is re-costed to the nearest CO₂-ELIGIBLE well (None if none reachable → the
+        # capture pathways get disqualified downstream). access_co2_usd keeps the general (any-well)
+        # CO₂ cost for the storage-access grade so injection/bio-oil availability is NOT tightened.
+        access_co2 = by["co2"]
+        co2_dest = co2_status = co2_km = None
+        if co2:
+            co2_pt, co2_legs, co2_dest, co2_status = co2
+            by["co2"] = payload_costs(co2_pt, True, dom)["co2"]
+            co2_km = sum(L["km"] for L in co2_legs)
+            if co2_dest != dest:
+                n_co2_far += 1
+        else:
+            by["co2"] = None
+
         rec = {
             "per_tonne_usd": per_tonne, "dest_well": dest, "dest_status": dest_status,
-            "legs": legs, "by_payload": payload_costs(per_tonne, bool(legs), dom),
+            "legs": legs, "by_payload": by,
             "modes": modes, "total_km": sum(leg["km"] for leg in legs),
+            "access_co2_usd": access_co2,        # general (any-well) CO₂ cost → storage-access grade
+            "co2_dest_well": co2_dest, "co2_dest_status": co2_status, "co2_total_km": co2_km,
         }
-        if firm:
-            rec["firm_co2_usd"] = co2_of(firm)   # nearest firm-storage CO₂ cost, for reference
+        if res["co2"]["firm"]:
+            rec["firm_co2_usd"] = co2_of(res["co2"]["firm"])   # nearest firm CO₂ store, for reference
         out[rid] = rec
-    return out, {"paths": n_path, "no_path": n_nopath, "rescued": n_rescued, "modes": dict(mode_use)}
+    return out, {"paths": n_path, "no_path": n_nopath, "rescued": n_rescued,
+                 "co2_to_distinct_well": n_co2_far, "modes": dict(mode_use)}
 
 
 def payload_costs(per_tonne_usd, has_path, dom=None):

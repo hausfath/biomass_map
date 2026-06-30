@@ -608,6 +608,25 @@ toward **bio-oil** (densify-to-haul) rather than moving CO₂ or wet slurry.
   (Rhine, Danube, Rhône, …) to a port first. Status-tiered like the US (operational vs planned/
   construction).
 
+**Payload-class-aware destinations (well eligibility).** A well's class governs what it can physically
+take, so the *eligible destination set* differs by payload:
+- **Gaseous CO₂** (the capture pathways — BECCS, BECCS-pp, WtE+CCS, AD+CCS, landfill-gas+CCS) may only
+  go to a **CO₂-eligible** well: a Class VI / Subpart-RR well or an offshore CCS project — **not** a
+  Class V biomass/bio-oil injection site (Vaulted/Charm). The `co2` payload is costed to the nearest
+  *CO₂-eligible* well; if none is affordable, the capture pathway is disqualified by the cap (→ bio-oil
+  / burial). US effect: ~97 counties that previously "stored" captured CO₂ at a nearby Class V site now
+  correctly route to a real CO₂ well (often far → over cap), so e.g. **Los Angeles flips LFG+CCS →
+  burial** (its nearest CO₂ store, Shute Creek, is ~1,460 km away).
+- **Bio-oil and wet slurry** (bio-oil/HTL, injection) may use **any** well (Class V *or* VI) — they
+  inject organic matter, for which Class V/disposal wells are the natural (and far more numerous) home.
+  *Not* restricted (see the Class-V-coverage caveat — our Class V point set is only the curated CDR
+  sites, far fewer than the real disposal-well universe, so restricting these payloads would wrongly
+  starve them).
+- **Storage access** (the good/moderate/poor grade that drives the dry-biomass branch) is graded on CO₂
+  cost to the nearest *any* well — a general "is geologic storage reachable" signal — so injection/
+  bio-oil availability is **not** tightened by the CO₂→Class-VI rule; only the capture pathways are.
+  (Asymmetric by design: CO₂ is restricted, biomass is not.)
+
 **Delivered cost** = `mass_per_tCO₂(payload) × Σ_legs[mode $/t·km × routed-km] + per-mode handling +
 CO₂ liquefaction (for gaseous CO₂ only)`. The **payload carbon density** is the crux — what's hauled
 differs by pathway *and feedstock*, so the same distance costs very differently. The mass factor is
