@@ -42,6 +42,7 @@ CENSUS = os.path.join(RAW, "qs.census2022.txt.gz")
 POP = os.path.join(RAW, "co-est2023.csv")
 COUNTIES = os.path.join(ROOT, "data", "geo", "us_counties.json")
 STATE_FEED = os.path.join(PROC, "feedstocks.json")
+FIA = os.path.join(PROC, "fia_county_forestry.json")   # FIA county forestry weights (item 2 ph.1)
 OUT = os.path.join(PROC, "feedstocks_us_county.json")
 
 # --- residue-to-product factors: odt recoverable residue per production unit ---
@@ -164,6 +165,16 @@ def main():
     census = load_census()
     pop = load_population()
 
+    # FIA county forestry weights (item 2, phase 1): a within-state blend of harvest removals
+    # (residue-generation proxy) + standing biomass, replacing the woodland-acreage proxy where
+    # available. Falls back to woodland acreage for any county/state the FIA build didn't cover.
+    fia = {}
+    if os.path.exists(FIA):
+        fia = json.load(open(FIA))
+    n_fia = sum(1 for v in fia.values() if (v.get("weight") or 0) > 0)
+    print(f"  FIA forestry weights: {n_fia} counties with positive weight"
+          if fia else "  (no FIA weights — using woodland-acreage proxy for forestry)")
+
     counties = {f["properties"]["fips"]: f["properties"]
                 for f in json.load(open(COUNTIES))["features"]}
 
@@ -180,13 +191,29 @@ def main():
         v = rec.get(key)
         return (v or {}).get("value", 0.0) if isinstance(v, dict) else 0.0
 
+    # States with FIA coverage (>=1 county with a positive FIA weight). Forestry is allocated by
+    # FIA weight for ALL counties in such a state (a county absent from FIA -> 0, i.e. no forest);
+    # states without FIA coverage fall back to the woodland-acreage proxy for all their counties.
+    # (Never mix the two within one state — the scales differ.)
+    fia_states = set()
+    for fp, v in fia.items():
+        if (v.get("weight") or 0) > 0:
+            fia_states.add(fp[:2])
+
     # --- 1. raw per-county signals ---
     raw = {}
     for fips, props in counties.items():
         c = census.get(fips, {})
+        if fips[:2] in fia_states:
+            forestry_sig = (fia.get(fips, {}).get("weight") or 0.0)
+            forestry_src = "fia"
+        else:
+            forestry_sig = c.get(WOODLAND, 0.0)
+            forestry_src = "woodland"
         raw[fips] = {
             "ag": raw_ag(c),
-            "forestry": c.get(WOODLAND, 0.0),
+            "forestry": forestry_sig,
+            "forestry_src": forestry_src,
             "manure": raw_manure(c),
             "pop": pop.get(fips, 0.0),
             "state_fips": fips[:2],
@@ -248,9 +275,15 @@ def main():
                     "~30% recoverable fraction, scaled to BT23 state total",
                     notes="cereal straw + corn stover + sorghum/cotton/rice/sugarcane residues"),
                 "forestry_residues_odt_mt": est(
-                    forestry, source="BT23 state forestry residue allocated by county "
-                    "woodland acreage (USDA Census of Ag 2022)",
-                    notes="county distribution is a woodland-area proxy"),
+                    forestry,
+                    source=("BT23 state forestry residue allocated by county FIA forest data "
+                            "(USFS FIA: 0.7 harvest-removals + 0.3 standing-biomass share)"
+                            if r["forestry_src"] == "fia" else
+                            "BT23 state forestry residue allocated by county woodland acreage "
+                            "(USDA Census of Ag 2022)"),
+                    notes=("removals track logging-residue generation; standing biomass smooths the "
+                           "signal" if r["forestry_src"] == "fia"
+                           else "county distribution is a woodland-area proxy (no FIA coverage)")),
                 "msw_total_mt": est(
                     msw, source="state MSW total allocated by county population "
                     "(Census Vintage-2023)"),

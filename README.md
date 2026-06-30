@@ -47,9 +47,10 @@ America** scope merges two independently-built datasets (US counties + Canada ce
 one view; their pipelines stay separate so each is independently rebuildable.
 
 - **US data** — counties from US Census TIGER; biomass disaggregates DOE Billion-Ton state totals
-  via USDA Census of Agriculture; storage = NATCARB saline formation polygons + Class VI/V wells +
-  EPA GHGRP point sources + EPA FRS WWTPs. Build: `scripts/us/download_raw.sh` then
-  `scripts/us/build_all.sh`; see `docs/METHODOLOGY.md` §8.
+  via USDA Census of Agriculture (ag, manure) and **USFS FIA forest data** (forestry — harvest
+  removals + standing biomass); storage = NATCARB saline formation polygons + Class VI/V wells +
+  EPA GHGRP point sources + **EPA LMOP landfills** (LFG+CCS gate) + EPA FRS WWTPs. Build:
+  `scripts/us/download_raw.sh` then `scripts/us/build_all.sh`; see `docs/METHODOLOGY.md` §8.
 - **Canada data** — 293 census divisions from StatCan; biomass disaggregates province totals via the
   StatCan 2021 Census of Agriculture (crops + cattle/pigs/poultry) and Census population; storage =
   curated WCSB/Williston basin polygons + curated Canadian CCS projects/hubs + curated biogenic

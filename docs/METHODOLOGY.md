@@ -306,10 +306,14 @@ much they could change a recommendation if revisited — the top ones are the mo
    region. Real biogenic share varies by waste stream and season.
 7. **CO₂ yield factor ~1.47 tCO₂/odt** applied to all dry biomass, and ~1.0 tCO₂/t to MSW. A
    carbon-content midpoint; herbaceous vs. woody and ash content shift it.
-8. **Forestry county/region placement is the weakest spatial layer.** US within-state forestry is
-   allocated by *farm-woodland acreage* (Census of Ag), which under-represents national forests and
-   industrial timberland; EU uses ENSPRESO. State/country totals are always preserved, but
-   *within*-area forestry geography is approximate.
+8. **Forestry county/region placement.** US within-state forestry is now allocated by **USFS FIA**
+   county data (0.7 harvest-removals + 0.3 standing-biomass share — item 2, phase 1), replacing the
+   former farm-woodland-acreage proxy that under-represented national forests / industrial timberland.
+   **Canada CDs and the EU still use coarser proxies** (CD land area; ENSPRESO at NUTS-2), so they
+   remain the weaker spatial layers. State/country totals are always preserved. *Not yet netted* for
+   the US: residues already consumed by pellet/pulp/bioenergy plants, mill-residue point sources, and
+   wildfire-fuels-treatment residues (item 2, later phases) — so the US forestry figure is still a
+   gross recoverable estimate, not net-of-utilization.
 9. **Manure & WWTP biosolids** rest on livestock-head excretion factors and population × treatment-
    coverage × solids factors — order-of-magnitude reasonable, not facility-metered (except where US
    AgSTAR digester capacity is used for the AD gate).
@@ -375,10 +379,20 @@ Billion-Ton Report + USDA NASS):
   barley, oats, rice, cotton, sugarcane) × residue-to-product ratios × ~30% recoverable fraction.
 - *Manure*: USDA Census of Ag 2022 county livestock inventory × relative manure (volatile-solids) weights.
 - *MSW & WWTP biosolids*: Census Vintage-2023 county population × per-capita allocation of state totals.
-- *Forestry*: state forestry-residue total allocated to counties by woodland acreage (Census of Ag).
-  This is the weakest layer — farm-woodland under-represents non-farm timberland (national forests,
-  industrial timberland), so within-state county placement of forestry is approximate; ag and manure
-  are the high-confidence county layers. State totals are always preserved.
+- *Forestry*: state forestry-residue total allocated to counties by **USFS FIA forest data**
+  (item 2, phase 1 — `build_fia_forestry.py`). The county weight is a within-state blend of
+  **0.7 × harvest removals** (avg annual removals of aboveground biomass, dry short tons/yr, forest
+  land — the residue-generation proxy: logging residues track what is harvested) **+ 0.3 × standing
+  aboveground biomass** (forest presence, which smooths the noisy single-plot removals signal). This
+  replaces the former woodland-acreage proxy (Census-of-Ag farm woodland, which under-represented
+  non-farm timberland — national forests, industrial timberland — and over-weighted high-acreage,
+  low-harvest counties): the top forestry counties shifted from woodland-area outliers (Okanogan WA,
+  Fairbanks AK) to the real timber heartland (Lane/Douglas OR, Humboldt CA, Aroostook ME, Grays
+  Harbor WA). FIA covers all 50 states (the latest evaluation per state); any state without coverage
+  falls back to woodland acreage. State totals are always preserved (anchored to DOE BT23).
+  *Remaining (item 2, later phases): net out current utilization — pellet/pulp/bioenergy draw — and
+  add mill-residue point sources + wildfire-fuels-treatment residues.* Ag and manure remain the
+  high-confidence county layers.
 
 **Storage basins (actual polygons)** — NETL NATCARB Atlas assessed saline storage formations
 (`NATCARB_Saline_Poly_v1502`, 349 assessed/non-duplicate formations), reprojected from Lambert
@@ -655,7 +669,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Ag residues | EU | JRC **ENSPRESO** `MINBIOAGRW` | NUTS-2, scaled to country totals |
 | Ag residues | CA | StatCan **Census of Agriculture 2021** CD residue-crop area (32-10-0309) × per-ha residue weight | Census division, scaled to province totals |
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
-| Forestry residues | US | State BT total allocated by Census-of-Ag woodland acreage *(weakest spatial layer)* | County, scaled to state |
+| Forestry residues | US | State BT total allocated by **USFS FIA** county forest data (0.7 harvest-removals + 0.3 standing-biomass share) | County, scaled to state |
 | Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |
 | Forestry residues | CA | Province total allocated by CD land area *(weakest spatial layer — no CD timberland inventory)* | Census division, scaled |
 | MSW | G | World Bank *What a Waste 2.0* (2018) totals + treatment shares; EPA (US); Eurostat (EU); biogenic fraction US≈0.61 / EU≈0.50 / LMIC 0.55–0.70 | Country |
