@@ -158,6 +158,9 @@ select {
 .rec-meta div { background: var(--panel); border-radius: 8px; padding: 8px 9px; }
 .rec-meta .k { font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .5px; }
 .rec-meta .v { font-size: 14px; font-weight: 700; margin-top: 2px; }
+.delivered-cost { font-size: 12.5px; color: var(--ink); background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; margin: 2px 0 10px; }
+.delivered-cost .dc-breakdown { color: var(--ink-3); font-size: 11px; }
 .rationale { font-size: 12.5px; line-height: 1.55; color: var(--ink-2); margin: 4px 0 0; }
 .runner { font-size: 11.5px; color: var(--ink-3); margin-top: 9px; }
 .caveat, .flag { font-size: 11.5px; line-height: 1.5; padding: 8px 10px; border-radius: 8px; margin-top: 8px; }

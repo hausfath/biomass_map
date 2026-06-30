@@ -605,6 +605,16 @@ US rail terminals are the real NTAD set; **Canada and EU transfer nodes (rail hu
 corridors) are curated major-node sets** (v1) — expandable to full national datasets later. *Planned
 (v3):* real road/rail network geometry for land legs.
 
+**Delivered (all-in) CDR cost.** Each pathway's `cost_band` (thesis §2.1) is its **conversion/capture**
+cost only. The detail panel and ranked options therefore also show a **delivered cost** =
+`conversion band + payload-weighted transport-to-well` (the §11 figure), e.g. BECCS pulp & paper in a
+county that pays ~$64/tCO₂ to deliver its CO₂ reads *delivered ≈ $264–289/tCO₂ (conversion $200–225 +
+transport ~$64)*. It is a **range** (the conversion band is wide), shown only in the transport-aware
+scopes (US/CA/EU); storage-independent pathways (burial/biochar) carry no transport-to-well term, and
+the global scope omits the line (no routed transport). This is **display-only** — it does not yet
+re-order the ranking, which is still driven by the KPI plus the §11 transport cap/penalty; folding
+total delivered cost into the ranking itself remains a possible refinement.
+
 ---
 
 ## 12. Consolidated data sources

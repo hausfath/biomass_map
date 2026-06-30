@@ -94,6 +94,31 @@
   // ---- Ranked pros/cons reconstruction (US/EU; mirrors engine_core.region_pros_cons) ----
   const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", bio_oil: "bio_oil", bio_oil_htl: "bio_oil_htl", injection: "slurry" };
   const TRANSPORT_CAP = 100;
+
+  // ---- Delivered (all-in) cost = conversion (pathway cost_band) + transport-to-well (item 5) ----
+  // Parse a PATHWAYS cost_band string ("$200-225 (to <$100 at scale)", "~$100-200", "<$100-150")
+  // into a [low, high] conversion range; the parenthetical aspirational figure is ignored.
+  function parseCostBand(band) {
+    if (!band) return null;
+    const nums = (band.split("(")[0].match(/\d+(?:\.\d+)?/g) || []).map(Number);
+    if (!nums.length) return null;
+    return [Math.min.apply(null, nums), Math.max.apply(null, nums)];
+  }
+  // All-in delivered $/tCO₂ for one pathway: conversion band + payload-weighted transport.
+  // `transportUsd` is null for storage-independent pathways (burial/biochar — nothing hauled to a
+  // well). Returns null if the conversion band can't be parsed (so callers fall back to cost_band).
+  function deliveredCost(costBand, transportUsd) {
+    const cv = parseCostBand(costBand);
+    if (!cv) return null;
+    const t = (transportUsd != null) ? transportUsd : 0;
+    const lo = Math.round(cv[0] + t), hi = Math.round(cv[1] + t);
+    return {
+      lo: lo, hi: hi,
+      range: lo === hi ? `$${lo}` : `$${lo}–${hi}`,
+      conv: cv[0] === cv[1] ? `$${cv[0]}` : `$${cv[0]}–${cv[1]}`,
+      transport: transportUsd,
+    };
+  }
   function regionProsCons(rec, key, profile) {
     const prof = profile[key];
     let pros = prof.pros.slice(), cons = prof.cons.slice();
@@ -774,8 +799,22 @@
         <div><div class="k">Storage transport</div><div class="v" style="font-size:12px">${storageCost}</div></div>
         <div><div class="k">Storage access</div><div class="v" style="font-size:12px">${storage}</div></div>
         <div><div class="k">Retrofit anchor</div><div class="v" style="font-size:11px">${rec.anchor_facility || "none mapped"}</div></div>
-      </div>
-      <p class="rationale">${rec.rationale || ""}</p>
+      </div>`;
+    // Delivered (all-in) cost = pathway conversion + transport-to-well. Only meaningful in a
+    // transport-aware scope (US/CA/EU); the global scope has no routed transport, so it is omitted
+    // there (the conversion band is already shown above). Storage-independent pathways
+    // (burial/biochar) have no transport leg, so delivered == conversion.
+    const dc = sc.transportLookup ? deliveredCost(rec.cost_band, rec.transport_usd_per_tco2) : null;
+    if (dc) {
+      const breakdown = rec.transport_usd_per_tco2 != null
+        ? `conversion ${dc.conv} + transport ~$${fmt(rec.transport_usd_per_tco2)}`
+        : (usesTransport
+            ? `conversion ${dc.conv}; transport to storage not separately modelled here`
+            : `conversion ${dc.conv}, no transport to a well (stored locally)`);
+      html += `<div class="delivered-cost">Delivered cost ≈ <b>${dc.range}/tCO₂</b>
+        <span class="dc-breakdown">(${breakdown})</span></div>`;
+    }
+    html += `<p class="rationale">${rec.rationale || ""}</p>
       <div class="runner">Runner-up: <b>${rec.runner_up_label}</b></div>`;
     (rec.caveats || []).forEach(c => { html += `<div class="caveat">${c}</div>`; });
     (rec.flags || []).forEach(f => { html += `<div class="flag">${f}</div>`; });
@@ -796,13 +835,17 @@
       const color = (PATH_META[p.key] || {}).color || "#888";
       const pros = (p.pros || []).map(x => `<li>${x}</li>`).join("");
       const cons = (p.cons || []).map(x => `<li>${x}</li>`).join("");
+      // delivered (all-in) cost per ranked pathway, when a transport cost is known for its payload
+      const ptc = (rec.transport_by_payload && PAYLOAD_OF[p.key]) ? rec.transport_by_payload[PAYLOAD_OF[p.key]] : null;
+      const pdc = (ptc != null) ? deliveredCost(p.cost_band, ptc) : null;
+      const deliveredStr = pdc ? ` · delivered ≈ <b>${pdc.range}/tCO₂</b>` : "";
       html += `<div class="rank-item">
         <div class="rank-head">
           <span class="rank-num" style="background:${color}">${i + 1}</span>
           <span class="rank-name">${p.label}</span>
           <span class="rank-badge ${badgeClass(p.badge)}">${p.badge}</span>
         </div>
-        <div class="rank-meta">${Math.round((p.cdr_efficiency || 0) * 100)}% CDR efficiency · ${p.cost_band || ""}</div>
+        <div class="rank-meta">${Math.round((p.cdr_efficiency || 0) * 100)}% CDR efficiency · ${p.cost_band || ""}${deliveredStr}</div>
         <div class="rank-pc"><ul class="pc-pros">${pros}</ul><ul class="pc-cons">${cons}</ul></div>
       </div>`;
     });
