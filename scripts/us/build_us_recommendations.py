@@ -400,8 +400,10 @@ def main():
         # Qualitative only — no tonnage is subtracted (the BT23 basis is itself partly
         # availability-conditioned, so re-netting would double-count; pellet-plant locations are not
         # public). See METHODOLOGY §2/§8.
+        # NOT shown for a pulp & paper RETROFIT (beccs_pp): it reuses the existing mill's feedstock
+        # logistics, so its *new* residue demand is small — the "already utilized" caveat misleads there.
         forestry_util = False
-        if not no_option and eff_dom == "forestry_woody":
+        if not no_option and eff_dom == "forestry_woody" and rec_key != "beccs_pp":
             bio_flag = bioenergy_draw >= BIOENERGY_DRAW_FLOOR_MTPA
             pellet_flag = region.get("state") in EIA_PELLET_SOUTH
             if bio_flag or pellet_flag:

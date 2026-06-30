@@ -420,8 +420,10 @@ Billion-Ton Report + USDA NASS):
   within the pulpwood-haul radius, from the GHGRP bioenergy plants) and/or the **Southeast wood-pellet /
   export belt** (the EIA-63C "South" densified-biomass region — Enviva/Drax supply — which dominates US
   pellet capacity). The flag adds a detail-panel caveat ("the spare stream available to new BiCRS is
-  below the gross figure shown") naming the driver(s); it changes no tonnage or recommendation. ~716 of
-  856 forestry-dominant counties are flagged, concentrated in the SE. *(A full quantitative net-of-
+  below the gross figure shown") naming the driver(s); it changes no tonnage or recommendation. It is
+  **suppressed for a pulp & paper retrofit** (`beccs_pp`) — that reuses the existing mill's feedstock
+  logistics, so its *new* residue demand is small and the "already utilized" caveat would mislead.
+  ~374 of 856 forestry-dominant counties are flagged (greenfield pathways), concentrated in the SE. *(A full quantitative net-of-
   utilization layer and mill-residue point sources remain a later item-2 phase, blocked on the
   proprietary pellet data and on double-count risk with the BECCS-pulp&paper retrofit anchor.)*
 
