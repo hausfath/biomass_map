@@ -15,6 +15,8 @@
     beccs:     { label: "BECCS (heat/electricity)",   color: "#15967f" },
     beccs_pp:  { label: "BECCS — pulp & paper",        color: "#2cc0a4" },
     wte_ccs:   { label: "WtE + CCS",                   color: "#3b7dd8" },
+    lfg_ccs:   { label: "Landfill gas + CCS",          color: "#d36b9a" },
+    lfg_rng_ccs: { label: "Landfill-gas RNG + CCS",    color: "#9c5577" },
     injection: { label: "Biomass waste injection",     color: "#9b59d0" },
     bio_oil:   { label: "Bio-oil (pyrolysis)",         color: "#e08a2b" },
     bio_oil_htl: { label: "Bio-oil (HTL)",             color: "#e0b56b" },

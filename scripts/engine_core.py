@@ -44,6 +44,33 @@ PATHWAYS = {
         "co_product": "energy",
         "needs_geologic_storage": True,
     },
+    "lfg_ccs": {
+        # Combust collected landfill gas (or its tail gas) and capture the ~100%-biogenic CO2.
+        # Efficiency is expressed as the share of the COLLECTED-gas biogenic carbon captured &
+        # stored; uncollected fugitive methane (collection ~75%) is outside it and is the big
+        # asterisk on the removal claim. Methane avoidance is a co-benefit, NOT counted as CDR.
+        "label": "Landfill gas + CCS",
+        # Conservative: capture of the collected gas is high (~90%), but only a fraction of the
+        # landfill's lifetime biogenic carbon is ever collected (collection ~75%, and much carbon
+        # never becomes gas) and additionality vs flaring is a question — so we credit ~0.52 of the
+        # collected-gas CO2 as durable removal. This keeps it BELOW WtE+CCS (0.55, which combusts the
+        # whole waste stream), so a WtE retrofit leads where one exists; LFG+CCS leads the (common)
+        # no-WtE-but-large-landfill case.
+        "cdr_efficiency": 0.52,
+        "cost_band": "$100-200",
+        "co_product": "energy",
+        "needs_geologic_storage": True,
+    },
+    "lfg_rng_ccs": {
+        # Upgrade landfill gas to pipeline RNG and capture the near-pure CO2 the upgrading already
+        # vents (cheap capture). Only that separated CO2 is removal; the RNG carbon is combusted
+        # downstream (avoidance), so the CDR share is capped — like AD+CCS.
+        "label": "Landfill-gas RNG + CCS",
+        "cdr_efficiency": 0.33,
+        "cost_band": "$80-180",
+        "co_product": "low-C fuel",
+        "needs_geologic_storage": True,
+    },
     "injection": {
         "label": "Biomass waste injection",
         "cdr_efficiency": 0.90,
@@ -111,6 +138,22 @@ PATHWAY_PROFILE = {
                  "Energy co-product; handles MSW at urban scale"],
         "cons": ["Only ~50-60% of flue-gas CO2 is biogenic (CDR efficiency ~55%)",
                  "Urban siting and public-acceptance hurdles"],
+    },
+    "lfg_ccs": {
+        "pros": ["Retrofits an existing landfill gas-collection system — near-term, low execution risk",
+                 "Captures concentrated, ~100%-biogenic CO2 from combusted landfill gas",
+                 "Energy co-product (electricity) and avoids fugitive methane (co-benefit)"],
+        "cons": ["Only the captured biogenic CO2 counts as removal — uncollected fugitive methane "
+                 "(gas collection ~75%) is a large asterisk on the claim",
+                 "Dilute, variable gas stream; capture capex on a modest flue volume"],
+    },
+    "lfg_rng_ccs": {
+        "pros": ["Captures the near-pure CO2 already vented by landfill-gas-to-RNG upgrading — cheap capture",
+                 "RNG co-product displaces fossil pipeline gas; retrofits an existing/planned RNG project",
+                 "Avoids fugitive landfill methane (co-benefit)"],
+        "cons": ["Only the separated CO2 is removal; the RNG carbon is combusted downstream "
+                 "(avoidance, not CDR) — caps CDR efficiency",
+                 "Depends on a gas-upgrading / RNG project being present or viable"],
     },
     "injection": {
         "pros": ["Very high CDR efficiency (>90%)",
@@ -220,10 +263,13 @@ HAS_SUBNATIONAL = {"USA", "CAN", "IND", "CHN"}
 #   pulp_paper ~150 km (pulpwood haul ~80-93 mi); wte ~50 km (local/regional MSW catchment);
 #   biogas_ad ~15 km (wet-manure haul is short) for discrete digesters — regional AD clusters
 #   carry their own coverage radius reflecting the area of dense capacity they aggregate.
-PROC_RADIUS_KM = {"pulp_paper": 150.0, "wte": 50.0, "biogas_ad": 15.0}
+#   landfill ~40 km: a large gas-collecting landfill within the MSW catchment anchors LFG+CCS.
+PROC_RADIUS_KM = {"pulp_paper": 150.0, "wte": 50.0, "biogas_ad": 15.0, "landfill": 40.0}
 AD_MIN_CAP_MTPA = 0.01   # cumulative AD biogenic-CO2 capacity within reach to enable AD+CCS
+LFG_MIN_CO2_MTPA = 0.05  # collected-gas biogenic CO2 (full-combustion basis) to qualify a landfill
 # pathway key -> avail flag it is gated on
-RETROFIT_GATE = {"beccs_pp": "pp", "wte_ccs": "wte", "ad_ccs": "ad"}
+RETROFIT_GATE = {"beccs_pp": "pp", "wte_ccs": "wte", "ad_ccs": "ad",
+                 "lfg_ccs": "lf", "lfg_rng_ccs": "lf"}
 
 # --------------------------------------------------------------------------
 # Cost-based storage access (to_do item 4, Phase C). Where a multimodal transport cost is
@@ -244,6 +290,7 @@ TRANSPORT_KPI_PENALTY = {"low": 0, "medium": 4, "high": 8, "over": 0}  # soft KP
 # bio_oil (pyrolysis) and bio_oil_htl (HTL bio-crude) have different carbon densities, so distinct.
 PATHWAY_PAYLOAD = {
     "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2",
+    "lfg_ccs": "co2", "lfg_rng_ccs": "co2",
     "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil_htl", "injection": "slurry",
 }
 
@@ -343,10 +390,14 @@ def apply_transport_cap(rec, runner, dom, region, tcost):
 
 
 def _avail(avail):
-    """Normalize the per-region retrofit-availability flags (default all available)."""
+    """Normalize the per-region retrofit-availability flags. pp/wte/ad default available (the global
+    scope passes None and assumes facilities may exist); `lf` (landfill LFG+CCS) defaults OFF — it is
+    opt-in for scopes that actually compute a gas-collecting-landfill gate (currently US only), so
+    scopes without landfill data never recommend the LFG pathways."""
     if avail is None:
-        return {"pp": True, "wte": True, "ad": True}
-    return {"pp": bool(avail.get("pp")), "wte": bool(avail.get("wte")), "ad": bool(avail.get("ad"))}
+        return {"pp": True, "wte": True, "ad": True, "lf": False}
+    return {"pp": bool(avail.get("pp")), "wte": bool(avail.get("wte")),
+            "ad": bool(avail.get("ad")), "lf": bool(avail.get("lf"))}
 
 
 def manure_ad_preferred(region):
@@ -453,6 +504,30 @@ def _secondary_dom(region):
     return "manure_wet"
 
 
+def _decide_msw_capture(region, storage_access, av):
+    """MSW with storage near and at least one retrofittable capture anchor (a WtE plant and/or a
+    qualifying gas-collecting landfill). Returns (rec, runner). Candidates are WtE+CCS (where a WtE
+    plant exists) and LFG+CCS (where a large gas-collecting landfill exists), ordered by KPI — so a
+    WtE retrofit leads where present (it combusts the whole MSW stream) and LFG+CCS leads the common
+    no-WtE-but-landfill case. LFG-RNG+CCS is always a runner, not the lead: combusting all collected
+    gas (LFG+CCS) removes more carbon than capturing only the RNG-upgrading vent, so Frontier's
+    CDR-first KPI prefers it; RNG+CCS surfaces as the lower-CDR / cheaper-capture alternative."""
+    opts = []
+    if av["wte"]:
+        opts.append("wte_ccs")
+    if av["lf"]:
+        opts.append("lfg_ccs")
+    opts.sort(key=lambda p: -kpi_score(p, storage_access))
+    rec = opts[0]
+    if len(opts) > 1:
+        runner = opts[1]
+    elif av["lf"]:
+        runner = "lfg_rng_ccs"      # only a landfill: RNG+CCS is the alternative
+    else:
+        runner = "burial"
+    return rec, runner
+
+
 def decide(region, storage_access, has_retrofit, avail=None):
     """Returns (recommended, runner_up, effective_dom). `effective_dom` is the feedstock the
     decision was actually made on; it differs from the region's dominant feedstock when an
@@ -462,10 +537,16 @@ def decide(region, storage_access, has_retrofit, avail=None):
     av = _avail(avail)
     near = storage_access in ("good", "moderate")
 
-    # MSW with no WtE plant to retrofit: municipal waste is landfilled here, not a standalone
-    # removal feedstock. Re-evaluate on the region's next-significant feedstock; if there is no
-    # other significant biomass, there is no good BiCRS option ("none").
-    if dom == "msw" and not (near and av["wte"]):
+    # MSW: capture the biogenic CO2 from waste already being managed. Near storage, this means a
+    # WtE+CCS retrofit OR — where there is a large gas-collecting landfill — LFG+CCS / LFG-RNG+CCS
+    # (ordered by KPI). With neither capture anchor in range (or no storage), municipal waste is
+    # merely landfilled here, not a standalone removal feedstock: re-evaluate on the region's
+    # next-significant feedstock; if there is no other significant biomass, there is no good
+    # BiCRS option ("none").
+    if dom == "msw":
+        if near and (av["wte"] or av["lf"]):
+            rec, runner = _decide_msw_capture(region, storage_access, av)
+            return rec, runner, "msw"
         alt = _secondary_dom(region)
         if alt is None:
             return "none", None, "msw"
@@ -587,6 +668,12 @@ def cdr_potential_mtpa(region, pathway_key):
     biofrac = num(region.get("msw_biogenic_frac"), default=0.5)
     dom = region.get("dominant_feedstock")
 
+    # Landfill-gas pathways draw on the ANCHOR LANDFILL's collected-gas biogenic CO2 (full-
+    # combustion basis, set by the scope builder as region["_lfg_co2_mtpa"]), not the region's
+    # whole MSW stream — the removal is bounded by the gas the landfill actually collects.
+    if pathway_key in ("lfg_ccs", "lfg_rng_ccs"):
+        return round((region.get("_lfg_co2_mtpa") or 0.0) * eff, 2)
+
     # Feedstock basis is set by the region's dominant feedstock, not the pathway:
     # injection now serves dry crop residues too, so it must draw on ag+forestry there
     # (not manure). WtE always operates on the biogenic MSW stream.
@@ -617,6 +704,8 @@ def applicable_pathways(dom, avail=None):
         lst = ["burial", "biochar"]
         if av["wte"]:
             lst.insert(0, "wte_ccs")
+        if av["lf"]:               # gas-collecting landfill in range: both LFG pathways apply
+            lst = ["lfg_ccs", "lfg_rng_ccs"] + lst
         return lst
     # dry: ag_dry / forestry_woody / mixed
     dry = ["beccs", "injection", "bio_oil", "burial", "biochar"]
@@ -654,6 +743,8 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
             score += 4
     if pathway == "beccs_pp":
         score += 8 if av["pp"] else -50
+    if pathway in ("lfg_ccs", "lfg_rng_ccs"):
+        score += 6 if av["lf"] else -50
     # transport-cost demotion (storage-dependent pathways only, where a cost is known)
     tc = transport_cost_for(pathway, tcost)
     if tc is not None:
@@ -727,6 +818,15 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
             pros.append("Existing anaerobic-digestion capacity within range to retrofit")
         else:
             cons.append("No existing anaerobic-digestion capacity within range to retrofit")
+    if pathway in ("lfg_ccs", "lfg_rng_ccs"):
+        if av["lf"] and anchor:
+            pros.append(f"Large gas-collecting landfill to retrofit: {anchor}")
+        elif av["lf"]:
+            pros.append("Large gas-collecting landfill within range to retrofit")
+        else:
+            cons.append("No qualifying gas-collecting landfill within range to retrofit")
+    if pathway == "lfg_rng_ccs" and region.get("_lfg_pref") == "rng":
+        pros.append("Landfill already runs a gas-to-RNG project — the upgrading CO2 vent is cheap to capture")
 
     return pros[:4], cons[:4]
 
@@ -854,6 +954,17 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
     if rec_key == "wte_ccs":
         return (f"{base} -> WtE + CCS captures biogenic CO2 from municipal waste already being "
                 f"combusted ({eff_pct}% CDR efficiency, energy co-product).")
+    if rec_key == "lfg_ccs":
+        return (f"{base}{anchor_clip} -> no WtE plant in range, but a large gas-collecting landfill "
+                f"is: combusting its collected landfill gas and capturing the ~100%-biogenic CO2 "
+                f"(LFG+CCS, ~{eff_pct}% of the collected-gas carbon) turns a fugitive-methane source "
+                f"into removal. Only the captured CO2 is counted as CDR; avoided methane is a "
+                f"co-benefit.")
+    if rec_key == "lfg_rng_ccs":
+        return (f"{base}{anchor_clip} -> the landfill runs/plans a gas-to-RNG project, whose "
+                f"upgrading step already vents a near-pure CO2 stream that is cheap to capture "
+                f"(LFG-RNG+CCS). The RNG displaces fossil gas; only the separated CO2 is removal "
+                f"(~{eff_pct}% CDR efficiency), the RNG carbon being avoidance, not CDR.")
     if rec_key == "injection":
         if dom == "manure_wet":
             return (f"{base} -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style "

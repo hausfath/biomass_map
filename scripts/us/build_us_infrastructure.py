@@ -30,6 +30,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 RAW = os.path.join(ROOT, "data", "geo", "us_raw")
 XLSX = os.path.join(RAW, "ghgrp", "ghgp_data_2023.xlsx")
 WWTP_RAW = os.path.join(RAW, "wwtp_major.ndjson")
+LMOP_XLSX = os.path.join(RAW, "lmop", "lmopcompositedata.xlsx")
 
 FAC_OUT = os.path.join(PROC, "facilities_us_detailed.json")
 WELLS_OUT = os.path.join(PROC, "wells_us.json")
@@ -39,6 +40,11 @@ COUNTIES = os.path.join(ROOT, "data", "geo", "us_counties.json")
 AD_XLSX = os.path.join(ROOT, "data", "geo", "ad_raw", "agstar.xlsx")
 
 BIO_MIN = 25000.0  # metric tons biogenic CO2/yr threshold for point sources
+# Landfill gas (LMOP): collected-gas biogenic CO2 if fully combusted. 1 lb-mol of ideal gas =
+# 379.48 scf (60 degF, 14.696 psia); LFG is ~CH4 + CO2 (~96%), remainder inert. Combustion turns
+# CH4 -> CO2 and the raw CO2 passes through, so CO2 yield = (CH4 frac + CO2 frac) of the gas.
+LBMOL_SCF = 379.48
+LFG_MIN_CO2_MTPA = 0.05    # qualifying-landfill floor (matches engine_core.LFG_MIN_CO2_MTPA)
 # Capturable biogenic CO2 per (cu-ft/day) of biogas, Mtpa: ~total biogas carbon -> CO2
 # (biogas ~60% CH4 / 40% CO2; ~1.98 kg CO2 per m3 biogas).
 CFD_TO_MTPA = 0.0283168 * 365 * 1.98 / 1e9
@@ -102,6 +108,8 @@ def build_facilities(wb):
         ftype = naics_type(naics)
         if ftype is None or ftype == "wwtp":
             continue  # WWTPs handled in the dedicated Major-POTW layer (build_wwtps)
+        if ftype == "landfill":
+            continue  # landfills handled from EPA LMOP (gas-collection + LFG flow) in build_landfills
 
         biofrac = bio / (bio + total_nonbio) if (bio + total_nonbio) > 0 else 0
         if bio < BIO_MIN and biofrac < 0.5:
@@ -125,6 +133,89 @@ def build_facilities(wb):
         })
     facs.sort(key=lambda f: -f["est_biogenic_co2_mtpa"]["value"])
     return facs
+
+
+def _lmop_co2_mtpa(mmscfd, ch4frac):
+    """Collected landfill-gas biogenic CO2 if fully combusted (Mt/yr)."""
+    if not mmscfd:
+        return 0.0
+    co2frac = max(0.0, 0.96 - ch4frac)
+    return mmscfd * 1e6 * 365 / LBMOL_SCF * 44 / 2204.6 * (ch4frac + co2frac) / 1e6
+
+
+def build_landfills():
+    """EPA LMOP gas-collecting landfills as LFG+CCS / LFG-RNG+CCS retrofit anchors.
+
+    Keeps landfills with a gas-collection system in place, coordinates, and collected-gas biogenic
+    CO2 (full-combustion basis) >= LFG_MIN_CO2_MTPA. Tags each with whether it runs/plans an RNG
+    upgrading project (-> LFG-RNG+CCS is the natural retrofit: the upgrading already vents a near-pure
+    CO2 stream) vs electricity/flare (-> LFG combustion+CCS). This is the canonical LFG dataset —
+    location, waste-in-place, LFG collected (mmscfd), gas-collection Y/N, %CH4, project type — far
+    richer than the GHGRP landfill rows it replaces."""
+    if not os.path.exists(LMOP_XLSX):
+        print("  (LMOP file missing; skipping landfills)")
+        return []
+    wb = openpyxl.load_workbook(LMOP_XLSX, read_only=True)
+    ws = wb["LMOP Database"]
+    it = ws.iter_rows(values_only=True)
+    hdr = list(next(it))
+    H = {h: i for i, h in enumerate(hdr)}
+
+    def g(r, k):
+        return r[H[k]] if k in H else None
+
+    lfs = {}   # Landfill ID -> {row, rng, elec} (a landfill can have multiple project rows)
+    for r in it:
+        lid = g(r, "Landfill ID")
+        if lid is None:
+            continue
+        d = lfs.setdefault(lid, {"row": r, "rng": False, "elec": False})
+        cat = str(g(r, "Project Type Category") or "")
+        status = str(g(r, "Current Project Status") or "").lower()
+        live = any(s in status for s in ("operational", "construction", "planned", "design"))
+        if "Renewable Natural Gas" in cat and live:
+            d["rng"] = True
+        if "Electricity" in cat and live:
+            d["elec"] = True
+
+    out = []
+    for d in lfs.values():
+        r = d["row"]
+        gc = str(g(r, "LFG Collection System In Place?") or "").strip().lower() in ("yes", "y")
+        lat, lon = fnum(g(r, "Latitude")), fnum(g(r, "Longitude"))
+        if not (gc and lat and lon):
+            continue
+        coll = fnum(g(r, "LFG Collected (mmscfd)")) or fnum(g(r, "LFG Generated (mmscfd)"))
+        pm = fnum(g(r, "Percent Methane"))
+        ch4 = pm / 100.0 if pm else 0.5
+        co2 = _lmop_co2_mtpa(coll, ch4)
+        if co2 < LFG_MIN_CO2_MTPA:
+            continue
+        pref = "rng" if d["rng"] else "ccs"
+        proj = ("gas-to-RNG project" if d["rng"] else
+                "electricity project" if d["elec"] else "flare / collection only")
+        out.append({
+            "name": title_case(str(g(r, "Landfill Name") or "")),
+            "type": "landfill",
+            "country": "USA",
+            "state": g(r, "State"),
+            "lat": round(lat, 4),
+            "lon": round(lon, 4),
+            "capacity_note": f"{co2 * 1e6:,.0f} t collected-gas biogenic CO2/yr "
+                             f"(LFG, full-combustion basis); {proj}",
+            "est_biogenic_co2_mtpa": {"value": round(co2, 4)},
+            "gas_collection": True,
+            "lfg_project": pref,          # "rng" -> LFG-RNG+CCS preferred; "ccs" -> LFG combustion+CCS
+            "retrofit_score": "high" if co2 >= 0.15 else "medium",
+            "existing": True,
+            "source": "EPA LMOP Landfill & Project Database (2024)",
+            "naics": "562212",
+        })
+    out.sort(key=lambda f: -f["est_biogenic_co2_mtpa"]["value"])
+    nrng = sum(1 for f in out if f["lfg_project"] == "rng")
+    print(f"  US landfills (LMOP, gas-collection, >= {LFG_MIN_CO2_MTPA} Mt CO2/yr): {len(out)} "
+          f"({nrng} with an RNG project)")
+    return out
 
 
 def build_sequestration_wells(wb):
@@ -306,6 +397,7 @@ def main():
     facs = build_facilities(wb)
     counties = json.load(open(COUNTIES))["features"]
     facs += build_ad(counties)
+    facs += build_landfills()
     seq = build_sequestration_wells(wb)
     wwtps = build_wwtps()
 

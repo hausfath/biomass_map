@@ -22,9 +22,10 @@ flowchart TD
     M -->|"No — storage far"| Mbio["Bio-oil (HTL)"]
 
     %% ---------- MSW ----------
-    DOM -->|"🗑️ Municipal<br/>trash (MSW)"| W{Waste-to-energy plant<br/>within ~50 km<br/>& storage close?}
-    W -->|Yes| Wwte["Waste-to-energy<br/>+ CCS"]
-    W -->|No| Wsec{Any other<br/>significant biomass?}
+    DOM -->|"🗑️ Municipal<br/>trash (MSW)"| W{Storage close, & a<br/>waste plant to retrofit?}
+    W -->|"WtE plant ~50 km"| Wwte["Waste-to-energy<br/>+ CCS"]
+    W -->|"Big gas-collecting<br/>landfill ~40 km"| Wlfg["Landfill gas + CCS<br/>(runner-up: LFG→RNG + CCS)"]
+    W -->|"Neither / no storage"| Wsec{Any other<br/>significant biomass?}
     Wsec -->|Yes| Wre[/"Re-decide using<br/>that feedstock"/]
     Wsec -->|No| Wnone["No viable<br/>BiCRS pathway"]
 
@@ -52,7 +53,7 @@ flowchart TD
     %% ---------- legend ----------
     subgraph Legend["Recommended pathway — coloured by how the carbon ends up stored"]
         direction LR
-        L1["Capture CO₂ gas → geologic storage<br/>BECCS · WtE + CCS · AD + CCS"]
+        L1["Capture CO₂ gas → geologic storage<br/>BECCS · WtE + CCS · landfill-gas + CCS · AD + CCS"]
         L2["Inject biomass / bio-oil → geologic storage<br/>slurry injection · bio-oil"]
         L3["Store carbon without geology<br/>biochar · burial"]
         L4["No good option"]
@@ -69,7 +70,7 @@ flowchart TD
 
     class Start start;
     class DOM,M,W,Wsec,C,Cmill,Cpoor,D,F q;
-    class Cpp,Cbe,Fbe,Fbe2,Wwte,Mad geo;
+    class Cpp,Cbe,Fbe,Fbe2,Wwte,Wlfg,Mad geo;
     class Minj,Dinj,Cbo,Dbo,Mbio inj;
     class Cbur,Dbur,Fbur store;
     class Wnone none;

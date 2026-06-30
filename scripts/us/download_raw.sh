@@ -26,6 +26,10 @@ echo "EPA GHGRP 2023 data summary spreadsheets ..."
 curl -sSL -o ghgrp_2023.zip "https://www.epa.gov/system/files/other-files/2024-10/2023_data_summary_spreadsheets.zip"
 mkdir -p ghgrp && (cd ghgrp && unzip -o ../ghgrp_2023.zip >/dev/null)
 
+echo "EPA LMOP Landfill & Project Database (for LFG+CCS / LFG-RNG+CCS gating) ..."
+mkdir -p lmop
+curl -sSL -o lmop/lmopcompositedata.xlsx "https://www.epa.gov/system/files/documents/2024-09/lmopcompositedata.xlsx"
+
 echo "EPA FRS Major POTWs (wastewater) via ArcGIS ..."
 BASE="https://geodata.epa.gov/arcgis/rest/services/OEI/FRS_Wastewater/MapServer/0/query"
 WHERE="CWP_MAJOR_MINOR_STATUS%3D%27Major%27%20AND%20CWP_FACILITY_TYPE_INDICATOR%3D%27POTW%27"

@@ -121,6 +121,8 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 | BECCS (heat/elec) | 80% | $200–225 (→<$100 at scale) | energy |
 | BECCS pulp & paper | 80% | $200–225 | energy |
 | WtE + CCS | 55% | ~$100–200 | energy |
+| Landfill gas + CCS | 52% | $100–200 | energy |
+| Landfill-gas RNG + CCS | 33% | $80–180 | low-C fuel (RNG) |
 | Biomass waste injection | 90% | $125–285 | PFAS destruction |
 | Bio-oil (pyrolysis) | 45% | $140–360 | biochar/nutrients |
 | Bio-oil (hydrothermal liquefaction) | 50% | $200–400 | nutrients |
@@ -156,7 +158,22 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
    Association fleet shares ÷ provincial manure (**Ontario 0.41 and BC 0.49 lead with AD+CCS**;
    Quebec 0.11, Alberta 0.03 lead with injection); EU NUTS-2 refined by AD-facility density within
    each country. Built by `scripts/build_ad_maturity.py` → `data/processed/ad_maturity.json`.
-2. **MSW** → WtE+CCS (storage near) else burial.
+2. **MSW** → capture the biogenic CO₂ from waste already being managed, where storage is near:
+   - a **WtE + CCS** retrofit where an existing waste-to-energy plant is within ~50 km (it combusts
+     the whole waste stream — preferred where present);
+   - else, where a **large gas-collecting landfill** is within ~40 km, **landfill gas + CCS** —
+     combust the collected landfill gas and capture the ~100%-biogenic CO₂. Its runner-up is
+     **landfill-gas RNG + CCS** (upgrade the gas to pipeline RNG and capture the near-pure CO₂ the
+     upgrading already vents — cheap capture but lower CDR, since the RNG carbon is combusted
+     downstream as *avoidance*, not removal). LFG+CCS leads over RNG+CCS because combusting all the
+     collected gas removes more carbon (Frontier's CDR-first KPI). **Only the captured biogenic CO₂
+     is counted as CDR**; avoided fugitive methane is a co-benefit, not removal — and uncollected
+     methane (gas collection ~75%) is the key uncertainty.
+   - with **neither** a WtE plant nor a qualifying landfill in range (or no storage), municipal waste
+     is merely landfilled, not a standalone removal feedstock → re-evaluate on the region's
+     next-significant feedstock, else "no viable pathway". (Landfill data is the **US scope only**
+     today — EPA LMOP; the other scopes lack an equivalent gas-collection dataset, so they fall back
+     to the WtE-or-reroute logic.)
 3. **Woody / concentrated dry ag** → BECCS where storage is good/moderate, as the **pulp & paper
    retrofit (`beccs_pp`) whenever an existing mill is within reach** (good *and* moderate storage
    alike — the retrofit leverages existing logistics and lower execution risk, and needs the same
@@ -373,8 +390,13 @@ permits (issued / draft / pending, curated from the EPA Class VI Data Repository
 and curated Class V biomass-injection / bio-oil projects (Vaulted Deep, Charm Industrial).
 
 **Biogenic point sources & WWTPs** — facility-level biogenic CO₂ from EPA GHGRP 2023 (pulp & paper,
-bioenergy, waste-to-energy, landfill gas, ethanol), kept where biogenic CO₂ ≥ 25 kt/yr or biomass
-dominates; large WWTPs are NPDES "major" POTWs (≥ 1 MGD) from EPA FRS.
+bioenergy, waste-to-energy, ethanol), kept where biogenic CO₂ ≥ 25 kt/yr or biomass dominates; large
+WWTPs are NPDES "major" POTWs (≥ 1 MGD) from EPA FRS. **Landfills** come from the **EPA LMOP**
+Landfill & Project Database (richer than GHGRP for this: per-landfill location, waste-in-place, LFG
+collected, gas-collection Y/N, %CH₄, and project type). We keep gas-collecting landfills whose
+collected-gas biogenic CO₂ (full-combustion basis, from LFG-collected mmscfd × %CH₄) ≥ 0.05 Mt/yr —
+**231 landfills (102 with a gas-to-RNG project)** — as LFG+CCS / LFG-RNG+CCS retrofit anchors (gate
+radius ~40 km).
 
 **County engine upgrades** (`build_us_recommendations.py`) over the global inputs:
 - *Transport distance*: inside-a-basin = storage on-site (good); else great-circle to the nearest
@@ -666,7 +688,8 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Layer | Scope | Source(s) | Notes |
 |---|---|---|---|
 | Biogenic point sources | G | IEA Bioenergy, company reports, Global CCS Institute, CEWEP (European WtE), industry registries | pulp&paper, WtE, bioenergy, ethanol, AD |
-| Biogenic point sources | US | EPA **GHGRP 2023** (pulp&paper, bioenergy, WtE, landfill gas, ethanol), kept where biogenic CO₂ ≥ 25 kt/yr | Facility-level, reported biogenic CO₂ |
+| Biogenic point sources | US | EPA **GHGRP 2023** (pulp&paper, bioenergy, WtE, ethanol), kept where biogenic CO₂ ≥ 25 kt/yr | Facility-level, reported biogenic CO₂ |
+| Landfills (LFG gate) | US | EPA **LMOP** Landfill & Project Database (2024) — location, LFG collected, gas-collection Y/N, %CH₄, project type | 231 gas-collecting landfills ≥ 0.05 Mt CO₂/yr → LFG+CCS / LFG-RNG+CCS anchors |
 | Biogenic point sources | EU | Curated European facilities (126); biogenic CO₂ estimated from capacity *(weakest EU layer)* | Expandable via E-PRTR |
 | Biogenic point sources | CA | Curated (53: pulp&paper, WtE, fuel-ethanol, biomass energy, biogas/AD), seeded from the global tool; biogenic CO₂ capacity-estimated *(ECCC GHGRP has no clean biogenic column)* | Expandable via ECCC GHGRP |
 | Anaerobic digesters (AD gate) | US | EPA **AgSTAR** livestock digester database, mapped to counties & aggregated | 459 matched → 191 county nodes |

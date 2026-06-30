@@ -816,22 +816,6 @@
   "naics": "322120"
  },
  {
-  "name": "Palm Beach Renewable Energy Park (PBREP)",
-  "type": "landfill",
-  "country": "USA",
-  "state": "FL",
-  "lat": 26.7864,
-  "lon": -80.1388,
-  "capacity_note": "955,141 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.9551
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "International Paper - Orange Mill",
   "type": "pulp_paper",
   "country": "USA",
@@ -2784,22 +2768,6 @@
   "naics": "611310"
  },
  {
-  "name": "Puente Hills Landfill And Energy Recovery",
-  "type": "landfill",
-  "country": "USA",
-  "state": "CA",
-  "lat": 34.0249,
-  "lon": -118.0325,
-  "capacity_note": "102,033 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.102
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Nd Otm Llc",
   "type": "pulp_paper",
   "country": "USA",
@@ -3008,22 +2976,6 @@
   "naics": "562213"
  },
  {
-  "name": "Orchard Ridge Landfill & Mrf",
-  "type": "landfill",
-  "country": "USA",
-  "state": "WI",
-  "lat": 43.149,
-  "lon": -88.1221,
-  "capacity_note": "77,331 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0773
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Islip Mcarthur Resource Recovery Facil",
   "type": "wte",
   "country": "USA",
@@ -3070,22 +3022,6 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "221112"
- },
- {
-  "name": "King George Landfill Inc - Wm",
-  "type": "landfill",
-  "country": "USA",
-  "state": "VA",
-  "lat": 38.2775,
-  "lon": -77.3143,
-  "capacity_note": "73,145 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0731
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
  },
  {
   "name": "Regional Waste Systems Incorporated",
@@ -3168,22 +3104,6 @@
   "naics": "221112"
  },
  {
-  "name": "King Cnty Solid Wst Cedar Hills Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "WA",
-  "lat": 47.4626,
-  "lon": -122.046,
-  "capacity_note": "56,525 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0565
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Hibbing Public Utilities Commission",
   "type": "bioenergy",
   "country": "USA",
@@ -3232,54 +3152,6 @@
   "naics": "322120"
  },
  {
-  "name": "Waste Management Disposal Services Of Oregon",
-  "type": "landfill",
-  "country": "USA",
-  "state": "OR",
-  "lat": 45.6336,
-  "lon": -120.2189,
-  "capacity_note": "49,634 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0496
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Metro Methane Recovery Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IA",
-  "lat": 41.5989,
-  "lon": -93.3548,
-  "capacity_note": "48,662 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0487
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Monarch Hill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "FL",
-  "lat": 26.2875,
-  "lon": -80.1514,
-  "capacity_note": "47,169 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0472
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Arauco North America",
   "type": "bioenergy",
   "country": "USA",
@@ -3294,22 +3166,6 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "321219"
- },
- {
-  "name": "Pine Tree Acres Inc",
-  "type": "landfill",
-  "country": "USA",
-  "state": "MI",
-  "lat": 42.7649,
-  "lon": -82.7465,
-  "capacity_note": "46,939 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0469
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
  },
  {
   "name": "University of New Hampshire",
@@ -3344,22 +3200,6 @@
   "naics": "325199"
  },
  {
-  "name": "High Acres Landfill & Recycling Center",
-  "type": "landfill",
-  "country": "USA",
-  "state": "NY",
-  "lat": 43.0869,
-  "lon": -77.3873,
-  "capacity_note": "41,877 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0419
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Hamakua Energy, LLC",
   "type": "bioenergy",
   "country": "USA",
@@ -3374,54 +3214,6 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "221112"
- },
- {
-  "name": "WM of NH - TREE (Turnkey Landfill)",
-  "type": "landfill",
-  "country": "USA",
-  "state": "NH",
-  "lat": 43.2731,
-  "lon": -70.9903,
-  "capacity_note": "40,970 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.041
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Kiefer Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "CA",
-  "lat": 38.5173,
-  "lon": -121.1958,
-  "capacity_note": "40,518 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0405
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Altamont Landfill & Resource Recovery Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "CA",
-  "lat": 37.7231,
-  "lon": -121.6821,
-  "capacity_note": "37,806 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0378
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
  },
  {
   "name": "Clarion Boards/Clarion Plt",
@@ -3472,38 +3264,6 @@
   "naics": "221112"
  },
  {
-  "name": "Metro Recycling and Disposal Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "WI",
-  "lat": 42.849,
-  "lon": -88.0699,
-  "capacity_note": "34,460 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0345
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Riga/Mill Seat Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "NY",
-  "lat": 43.0642,
-  "lon": -77.9329,
-  "capacity_note": "33,179 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0332
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Weyerhaeuser Raymond Lumbermill",
   "type": "bioenergy",
   "country": "USA",
@@ -3534,70 +3294,6 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "221117"
- },
- {
-  "name": "Liberty Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IN",
-  "lat": 40.8837,
-  "lon": -86.7045,
-  "capacity_note": "32,639 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0326
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Douglas County Recycling Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "NE",
-  "lat": 41.3815,
-  "lon": -96.2526,
-  "capacity_note": "30,805 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0308
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Dry Creek Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "OR",
-  "lat": 42.4416,
-  "lon": -122.7514,
-  "capacity_note": "30,533 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0305
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Superior Landfill & Recycling Center",
-  "type": "landfill",
-  "country": "USA",
-  "state": "GA",
-  "lat": 32.0134,
-  "lon": -81.2577,
-  "capacity_note": "30,539 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0305
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
  },
  {
   "name": "Pope/Douglas Solid Waste Management",
@@ -3632,22 +3328,6 @@
   "naics": "221117"
  },
  {
-  "name": "J.E.D. Solid Waste Management Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "FL",
-  "lat": 28.0609,
-  "lon": -81.0952,
-  "capacity_note": "29,491 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0295
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Murphy Plywood",
   "type": "bioenergy",
   "country": "USA",
@@ -3662,86 +3342,6 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "321212"
- },
- {
-  "name": "WM of IL - Greene Valley RDF",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IL",
-  "lat": 41.7339,
-  "lon": -88.0848,
-  "capacity_note": "29,269 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0293
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Middle Peninsula Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "VA",
-  "lat": 37.5217,
-  "lon": -76.6246,
-  "capacity_note": "29,163 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0292
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Rolling Meadows Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "KS",
-  "lat": 39.1841,
-  "lon": -95.7198,
-  "capacity_note": "28,482 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0285
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Clinton County Regional Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "NY",
-  "lat": 44.6906,
-  "lon": -73.5943,
-  "capacity_note": "27,563 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0276
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "River Birch Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "LA",
-  "lat": 29.9364,
-  "lon": -90.2666,
-  "capacity_note": "26,800 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0268
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
  },
  {
   "name": "Oswego Co Energy Recovery Fac",
@@ -3776,86 +3376,6 @@
   "naics": "221330"
  },
  {
-  "name": "Calabasas Sanitary Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "CA",
-  "lat": 34.1413,
-  "lon": -118.7114,
-  "capacity_note": "26,088 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0261
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Pheasant Run Recycling and Disposal Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "WI",
-  "lat": 42.5828,
-  "lon": -88.0439,
-  "capacity_note": "25,926 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0259
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Waste Management Of New York, Llc",
-  "type": "landfill",
-  "country": "USA",
-  "state": "NY",
-  "lat": 42.5831,
-  "lon": -78.4871,
-  "capacity_note": "25,879 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0259
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Settlers Hill Rdf/Midway Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IL",
-  "lat": 41.8708,
-  "lon": -88.2889,
-  "capacity_note": "25,455 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0255
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Arden Ldfl",
-  "type": "landfill",
-  "country": "USA",
-  "state": "PA",
-  "lat": 40.2084,
-  "lon": -80.2648,
-  "capacity_note": "24,376 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0244
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
   "name": "Suny At Binghamton",
   "type": "bioenergy",
   "country": "USA",
@@ -3870,22 +3390,6 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "611310"
- },
- {
-  "name": "Waste Management Of Wisconsin, Inc.",
-  "type": "landfill",
-  "country": "USA",
-  "state": "WI",
-  "lat": 44.1744,
-  "lon": -87.8294,
-  "capacity_note": "24,231 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0242
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
  },
  {
   "name": "Symrise",
@@ -3918,118 +3422,6 @@
   "existing": true,
   "source": "EPA GHGRP 2023 (Direct Point Emitters)",
   "naics": "321113"
- },
- {
-  "name": "Earthmovers Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IN",
-  "lat": 41.6918,
-  "lon": -86.0014,
-  "capacity_note": "19,002 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.019
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Cid Recycling & Disposal Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IL",
-  "lat": 41.6446,
-  "lon": -87.5748,
-  "capacity_note": "15,803 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0158
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Westside Recycling and Disposal Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "TX",
-  "lat": 32.7128,
-  "lon": -97.5308,
-  "capacity_note": "13,667 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0137
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Lake Landfill",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IL",
-  "lat": 42.1055,
-  "lon": -87.8119,
-  "capacity_note": "13,053 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0131
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Deercroft Recycling And Disposal Facility (Rdf)",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IN",
-  "lat": 41.6514,
-  "lon": -86.9034,
-  "capacity_note": "11,539 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0115
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Tazewell Recycling & Disposal Facility",
-  "type": "landfill",
-  "country": "USA",
-  "state": "IL",
-  "lat": 40.6754,
-  "lon": -89.505,
-  "capacity_note": "9,300 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0093
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
- },
- {
-  "name": "Southbridge Recycling & Disposal Park",
-  "type": "landfill",
-  "country": "USA",
-  "state": "MA",
-  "lat": 42.1052,
-  "lon": -72.0319,
-  "capacity_note": "6,137 t biogenic CO2/yr (GHGRP 2023)",
-  "est_biogenic_co2_mtpa": {
-   "value": 0.0061
-  },
-  "retrofit_score": "low",
-  "existing": true,
-  "source": "EPA GHGRP 2023 (Direct Point Emitters)",
-  "naics": "562212"
  },
  {
   "name": "Conway County AD (1 digester)",
@@ -7086,5 +6478,4163 @@
   "existing": true,
   "proc_radius_km": 15,
   "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)"
+ },
+ {
+  "name": "Sunshine Canyon Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.3235,
+  "lon": -118.5029,
+  "capacity_note": "459,818 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4598
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Puente Hills LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.0203,
+  "lon": -118.006,
+  "capacity_note": "448,337 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.4483
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Keystone Sanitary Landfill, Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.427,
+  "lon": -75.608,
+  "capacity_note": "354,276 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.3543
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Central LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "RI",
+  "lat": 41.8047,
+  "lon": -71.5022,
+  "capacity_note": "303,044 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.303
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Seneca Meadows SWMF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.9179,
+  "lon": -76.8472,
+  "capacity_note": "293,258 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2933
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Monarch Hill Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 26.283,
+  "lon": -80.161,
+  "capacity_note": "291,563 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2916
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "GROWS Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.1593,
+  "lon": -74.7767,
+  "capacity_note": "278,939 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2789
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Frank R. Bowerman SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.7205,
+  "lon": -117.7095,
+  "capacity_note": "260,436 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2604
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Olinda Alpha SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.9336,
+  "lon": -117.8436,
+  "capacity_note": "259,275 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2593
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Blue Ridge LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 29.5559,
+  "lon": -95.4419,
+  "capacity_note": "245,491 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2455
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Arbor Hills Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.4068,
+  "lon": -83.5558,
+  "capacity_note": "243,832 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2438
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "King George Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 38.2696,
+  "lon": -77.306,
+  "capacity_note": "237,364 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2374
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "McCommas Bluff Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.6842,
+  "lon": -96.7183,
+  "capacity_note": "225,974 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.226
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Woodland Meadows Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.2652,
+  "lon": -83.4315,
+  "capacity_note": "221,681 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2217
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Chiquita Canyon SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.4281,
+  "lon": -118.6466,
+  "capacity_note": "219,690 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2197
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "McCarty Road LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 29.8275,
+  "lon": -95.2433,
+  "capacity_note": "218,806 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2188
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Atlantic Waste Disposal Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.0692,
+  "lon": -77.1811,
+  "capacity_note": "215,728 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2157
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Carbon Limestone LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 41.0016,
+  "lon": -80.519,
+  "capacity_note": "210,439 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2104
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "BKK Landfill-Phases I & II",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.0353,
+  "lon": -117.913,
+  "capacity_note": "208,780 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2088
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Cedar Hills Regional LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WA",
+  "lat": 47.442,
+  "lon": -122.06,
+  "capacity_note": "202,459 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2025
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Columbia Ridge LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OR",
+  "lat": 45.6392,
+  "lon": -120.2172,
+  "capacity_note": "200,432 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.2004
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Ox Mountain SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.499,
+  "lon": -122.412,
+  "capacity_note": "199,105 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1991
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Lorain County Landfill I & II",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 41.305,
+  "lon": -82.175,
+  "capacity_note": "195,935 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1959
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Turnkey Recycling and Environmental Enterprise (TREE)",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NH",
+  "lat": 43.2448,
+  "lon": -70.9695,
+  "capacity_note": "195,696 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1957
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Rumpke SLF, Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 39.2745,
+  "lon": -84.5982,
+  "capacity_note": "192,987 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.193
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Livingston LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 40.9318,
+  "lon": -88.6573,
+  "capacity_note": "192,581 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1926
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Winnebago Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 42.1597,
+  "lon": -89.0554,
+  "capacity_note": "185,118 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1851
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "High Acres LF and Recycling Center",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.087,
+  "lon": -77.3794,
+  "capacity_note": "184,897 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1849
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Conestoga LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.1806,
+  "lon": -75.9144,
+  "capacity_note": "178,594 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1786
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "El Sobrante SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.7992,
+  "lon": -117.4679,
+  "capacity_note": "172,494 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1725
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Scholl Canyon SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.1519,
+  "lon": -118.1967,
+  "capacity_note": "168,071 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1681
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Simi Valley LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.2945,
+  "lon": -118.7954,
+  "capacity_note": "164,957 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.165
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Orchard Hills Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 42.1432,
+  "lon": -89.0769,
+  "capacity_note": "164,293 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1643
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Johnson County LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "KS",
+  "lat": 39.0423,
+  "lon": -94.7946,
+  "capacity_note": "159,999 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.16
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Pine Bluff Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 34.273,
+  "lon": -84.387,
+  "capacity_note": "159,870 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1599
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Newton County Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 40.9263,
+  "lon": -87.3487,
+  "capacity_note": "159,741 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1597
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Champ Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MO",
+  "lat": 38.743,
+  "lon": -90.46,
+  "capacity_note": "159,059 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1591
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Roosevelt Regional MSW Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WA",
+  "lat": 45.805,
+  "lon": -120.174,
+  "capacity_note": "159,096 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1591
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Pine Tree Acres LF Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.7649,
+  "lon": -82.7456,
+  "capacity_note": "158,451 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1585
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "DFW Recycling & Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 33.0162,
+  "lon": -96.9632,
+  "capacity_note": "157,659 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1577
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Eagle Point Landfill LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 34.3256,
+  "lon": -84.2408,
+  "capacity_note": "156,995 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.157
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Atascocita RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 29.9583,
+  "lon": -95.2383,
+  "capacity_note": "156,829 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1568
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Franklin County SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 39.8419,
+  "lon": -83.109,
+  "capacity_note": "155,926 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1559
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "NTMWD 121 Regional Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 33.2954,
+  "lon": -96.5188,
+  "capacity_note": "155,632 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1556
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Imperial Sanitary Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.4351,
+  "lon": -80.2913,
+  "capacity_note": "151,522 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1515
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "high",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Skyline LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.549,
+  "lon": -96.68,
+  "capacity_note": "148,887 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1489
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Covel Gardens RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 29.3501,
+  "lon": -98.6463,
+  "capacity_note": "148,573 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1486
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Kiefer LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.521,
+  "lon": -121.1989,
+  "capacity_note": "144,427 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1444
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Alliance SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.398,
+  "lon": -75.735,
+  "capacity_note": "140,225 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1402
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Medley Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 25.8586,
+  "lon": -80.3508,
+  "capacity_note": "139,635 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1396
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Middle Point Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TN",
+  "lat": 35.9408,
+  "lon": -86.3584,
+  "capacity_note": "136,631 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1366
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Orchard Ridge RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.188,
+  "lon": -88.0765,
+  "capacity_note": "136,115 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1361
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Roxana LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 38.8274,
+  "lon": -90.0125,
+  "capacity_note": "133,499 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1335
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Ontario County SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.8591,
+  "lon": -77.0804,
+  "capacity_note": "132,135 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1321
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "River Birch Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "LA",
+  "lat": 29.932,
+  "lon": -90.258,
+  "capacity_note": "128,725 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1287
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Commonwealth Environmental Systems (CES) LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.675,
+  "lon": -76.375,
+  "capacity_note": "128,265 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1283
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Twin Bridges RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 39.75,
+  "lon": -86.5,
+  "capacity_note": "127,306 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1273
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Ocean County LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 40.025,
+  "lon": -74.255,
+  "capacity_note": "127,122 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1271
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "South Shelby Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TN",
+  "lat": 34.9981,
+  "lon": -89.9189,
+  "capacity_note": "126,606 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1266
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Otay LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 32.604,
+  "lon": -117.005,
+  "capacity_note": "125,869 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1259
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Carleton Farms Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.0939,
+  "lon": -83.4297,
+  "capacity_note": "124,855 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1249
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "West Miramar SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 32.856,
+  "lon": -117.162,
+  "capacity_note": "122,662 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1227
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Middlesex County LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 40.4688,
+  "lon": -74.3961,
+  "capacity_note": "122,441 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1224
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Okeechobee LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 27.341,
+  "lon": -80.6966,
+  "capacity_note": "121,741 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1217
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Modern LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.956,
+  "lon": -76.595,
+  "capacity_note": "121,594 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1216
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Palos Verdes Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.7919,
+  "lon": -118.3524,
+  "capacity_note": "120,451 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1205
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Tessman Road Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 29.4358,
+  "lon": -98.3392,
+  "capacity_note": "120,414 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1204
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Old Dominion LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.508,
+  "lon": -77.376,
+  "capacity_note": "119,658 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1197
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Land Recovery Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WA",
+  "lat": 46.971,
+  "lon": -122.2905,
+  "capacity_note": "117,871 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1179
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Charlotte Motor Speedway Landfill V",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.3457,
+  "lon": -80.6826,
+  "capacity_note": "117,318 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1173
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Richland County Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.1042,
+  "lon": -80.782,
+  "capacity_note": "116,526 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1165
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Zion Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 42.4848,
+  "lon": -87.885,
+  "capacity_note": "113,817 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1138
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Grand Central SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.8581,
+  "lon": -75.2619,
+  "capacity_note": "113,448 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1134
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Eagle Valley RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.7227,
+  "lon": -83.2548,
+  "capacity_note": "113,135 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1131
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Altamont Landfill & Resource Recovery Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.75,
+  "lon": -121.6567,
+  "capacity_note": "111,697 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1117
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Tullytown LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.13,
+  "lon": -74.805,
+  "capacity_note": "111,366 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1114
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Outer Loop RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "KY",
+  "lat": 38.1358,
+  "lon": -85.7161,
+  "capacity_note": "111,089 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1111
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Tunnel Hill Reclamation Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 39.7358,
+  "lon": -82.1583,
+  "capacity_note": "110,333 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1103
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Liberty Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 40.886,
+  "lon": -86.7,
+  "capacity_note": "107,348 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1073
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Richland Creek Road Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 34.127,
+  "lon": -84.0353,
+  "capacity_note": "106,795 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1068
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Prince William County Sanitary Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 38.638,
+  "lon": -77.422,
+  "capacity_note": "105,984 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.106
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Orange County SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 28.481,
+  "lon": -81.2083,
+  "capacity_note": "103,607 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1036
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Lee County Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.731,
+  "lon": -89.395,
+  "capacity_note": "100,345 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.1003
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Prairie View RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.34,
+  "lon": -88.13,
+  "capacity_note": "99,184 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0992
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Charles City County SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.4392,
+  "lon": -77.1333,
+  "capacity_note": "99,221 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0992
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Forward Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.8746,
+  "lon": -121.1833,
+  "capacity_note": "98,834 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0988
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Oakland Heights Development Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.7085,
+  "lon": -83.2487,
+  "capacity_note": "97,636 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0976
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sycamore SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 32.8496,
+  "lon": -117.0267,
+  "capacity_note": "97,433 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0974
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "National Serv-All LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 41.0311,
+  "lon": -85.2163,
+  "capacity_note": "96,641 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0966
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Newby Island SLF Phases I, II, & III",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.459,
+  "lon": -121.9411,
+  "capacity_note": "94,816 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0948
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Mill Seat LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.065,
+  "lon": -77.9328,
+  "capacity_note": "94,724 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0947
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Riverview Land Preserve",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.1562,
+  "lon": -83.2121,
+  "capacity_note": "93,987 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.094
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Southeast OKC Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OK",
+  "lat": 35.3972,
+  "lon": -97.4592,
+  "capacity_note": "92,992 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.093
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Milam Recycling and Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 38.6547,
+  "lon": -90.1302,
+  "capacity_note": "92,310 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0923
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Calabasas SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.1486,
+  "lon": -118.7095,
+  "capacity_note": "91,518 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0915
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Pine Ridge Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 33.24,
+  "lon": -84.1187,
+  "capacity_note": "89,822 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0898
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Metro RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.8495,
+  "lon": -88.065,
+  "capacity_note": "88,827 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0888
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Countywide Recycling & Disposal LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 40.6668,
+  "lon": -81.4237,
+  "capacity_note": "88,661 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0887
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Metro Park East Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IA",
+  "lat": 41.6007,
+  "lon": -93.3453,
+  "capacity_note": "87,537 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0875
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sunny Farms Landfill, LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 41.1084,
+  "lon": -83.4133,
+  "capacity_note": "87,371 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0874
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Bethlehem Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.625,
+  "lon": -75.307,
+  "capacity_note": "87,426 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0874
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Granger Wood Street Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.7636,
+  "lon": -84.5578,
+  "capacity_note": "87,279 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0873
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Keller Canyon LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.0047,
+  "lon": -121.9361,
+  "capacity_note": "87,058 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0871
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "County Line LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 41.1677,
+  "lon": -86.2349,
+  "capacity_note": "84,662 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0847
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Spadra LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.0386,
+  "lon": -117.8238,
+  "capacity_note": "83,980 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.084
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Shoosmith SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.3512,
+  "lon": -77.4956,
+  "capacity_note": "83,999 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.084
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Coyote Canyon SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.6168,
+  "lon": -117.831,
+  "capacity_note": "83,759 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0838
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Wolf Creek Landfill, LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.7705,
+  "lon": -83.4379,
+  "capacity_note": "83,575 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0836
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Middle Peninsula Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.5202,
+  "lon": -76.6201,
+  "capacity_note": "83,169 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0832
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Pioneer Crossing LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.2736,
+  "lon": -75.8139,
+  "capacity_note": "82,856 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0829
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sauk Trail Hills Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.2744,
+  "lon": -83.4563,
+  "capacity_note": "82,303 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0823
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Greentree Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.2953,
+  "lon": -78.6469,
+  "capacity_note": "80,792 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0808
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "South Wake LF (New)",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.675,
+  "lon": -78.85,
+  "capacity_note": "78,710 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0787
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Austin Community RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 30.3452,
+  "lon": -97.614,
+  "capacity_note": "78,249 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0782
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Douglas County Recycling and Disposal Facility LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NE",
+  "lat": 41.385,
+  "lon": -96.241,
+  "capacity_note": "78,101 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0781
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Apex Sanitary Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 40.435,
+  "lon": -80.91,
+  "capacity_note": "77,438 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0774
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "C.M. Hinton Jr Regional Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.959,
+  "lon": -96.543,
+  "capacity_note": "76,922 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0769
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Bradley Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.2375,
+  "lon": -118.3804,
+  "capacity_note": "76,609 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0766
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Prima Deshecha SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.4865,
+  "lon": -117.6249,
+  "capacity_note": "76,480 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0765
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Mallard Lake LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.9525,
+  "lon": -88.1442,
+  "capacity_note": "76,351 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0764
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Monmouth County Reclamation Center",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 40.245,
+  "lon": -74.115,
+  "capacity_note": "75,927 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0759
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "East Carolina Regional LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NC",
+  "lat": 36.1123,
+  "lon": -77.0719,
+  "capacity_note": "75,835 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0758
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Cherry Island Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "DE",
+  "lat": 39.7308,
+  "lon": -75.52,
+  "capacity_note": "75,208 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0752
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Whiteside County Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.7963,
+  "lon": -89.8861,
+  "capacity_note": "75,171 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0752
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Anchorage Regional Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "AK",
+  "lat": 61.2933,
+  "lon": -149.6021,
+  "capacity_note": "74,932 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0749
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "South Side Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IN",
+  "lat": 39.7279,
+  "lon": -86.2085,
+  "capacity_note": "74,747 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0747
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "City of Fort Worth Southeast Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.6475,
+  "lon": -97.2392,
+  "capacity_note": "74,582 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0746
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Salt Lake Valley LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "UT",
+  "lat": 40.746,
+  "lon": -112.042,
+  "capacity_note": "74,582 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0746
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "DeKalb County LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.898,
+  "lon": -88.686,
+  "capacity_note": "73,955 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.074
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "King and Queen Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.665,
+  "lon": -76.77,
+  "capacity_note": "73,808 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0738
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Mission Hills",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.1073,
+  "lon": -118.4876,
+  "capacity_note": "73,715 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0737
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "NEWSVT Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VT",
+  "lat": 44.9086,
+  "lon": -72.2215,
+  "capacity_note": "73,568 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0736
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Lockwood Regional LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NV",
+  "lat": 39.494,
+  "lon": -119.615,
+  "capacity_note": "71,891 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0719
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Coffin Butte LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OR",
+  "lat": 44.6992,
+  "lon": -123.2251,
+  "capacity_note": "71,799 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0718
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "J.E.D. Solid Waste Management Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 28.064,
+  "lon": -81.098,
+  "capacity_note": "71,578 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0716
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Eco-Vista Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "AR",
+  "lat": 36.1401,
+  "lon": -94.2561,
+  "capacity_note": "71,522 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0715
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Arlington LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.8,
+  "lon": -97.1083,
+  "capacity_note": "70,969 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.071
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Countryside LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 42.3242,
+  "lon": -88.0289,
+  "capacity_note": "70,840 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0708
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sampson County Disposal, LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NC",
+  "lat": 34.982,
+  "lon": -78.457,
+  "capacity_note": "70,711 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0707
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Hyland LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.285,
+  "lon": -78.015,
+  "capacity_note": "70,619 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0706
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Modern Landfill Inc",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.2107,
+  "lon": -78.979,
+  "capacity_note": "70,582 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0706
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Citizens Disposal Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.9147,
+  "lon": -83.7225,
+  "capacity_note": "69,679 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0697
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Meadow Branch Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TN",
+  "lat": 35.4828,
+  "lon": -84.681,
+  "capacity_note": "69,127 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0691
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Oak Grove Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 33.9659,
+  "lon": -83.7728,
+  "capacity_note": "69,016 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.069
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Denver Arapahoe Disposal Site (DADS)",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CO",
+  "lat": 39.66,
+  "lon": -104.69,
+  "capacity_note": "68,629 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0686
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Palmetto Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.9348,
+  "lon": -82.0761,
+  "capacity_note": "68,316 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0683
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Dry Creek Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OR",
+  "lat": 42.382,
+  "lon": -122.773,
+  "capacity_note": "67,966 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.068
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "North Country Environmental Services LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NH",
+  "lat": 44.26,
+  "lon": -71.628,
+  "capacity_note": "67,634 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0676
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Mid-Valley Sanitary LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.1433,
+  "lon": -117.43,
+  "capacity_note": "67,265 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0673
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Monroeville LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.405,
+  "lon": -79.79,
+  "capacity_note": "67,321 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0673
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Uwharrie Environmental Regional LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NC",
+  "lat": 35.3415,
+  "lon": -79.961,
+  "capacity_note": "67,007 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.067
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Potrero Hills SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.2233,
+  "lon": -121.9778,
+  "capacity_note": "66,749 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0667
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Grady Road Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 33.9968,
+  "lon": -85.167,
+  "capacity_note": "65,957 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.066
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Autumn Hills Recycling & Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.781,
+  "lon": -85.9207,
+  "capacity_note": "65,238 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0652
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Bethel LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.072,
+  "lon": -76.427,
+  "capacity_note": "65,146 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0651
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Maplewood Recycling & Waste Disposal",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 37.307,
+  "lon": -78.0634,
+  "capacity_note": "65,017 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.065
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Ada County Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "ID",
+  "lat": 43.698,
+  "lon": -116.283,
+  "capacity_note": "64,704 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0647
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Apex Regional LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NV",
+  "lat": 36.374,
+  "lon": -114.8652,
+  "capacity_note": "64,667 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0647
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Taylor Ridge LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.4438,
+  "lon": -90.677,
+  "capacity_note": "64,501 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0645
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "East Oak SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OK",
+  "lat": 35.5037,
+  "lon": -97.4151,
+  "capacity_note": "64,206 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0642
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Evergreen Landfill, Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 30.808,
+  "lon": -83.3625,
+  "capacity_note": "63,616 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0636
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Cherokee Run Landfill, Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 40.4145,
+  "lon": -83.725,
+  "capacity_note": "63,211 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0632
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Cumberland County LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.1344,
+  "lon": -77.5039,
+  "capacity_note": "62,621 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0626
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Lee County LF, LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "SC",
+  "lat": 34.18,
+  "lon": -80.2725,
+  "capacity_note": "62,529 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0625
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "PBCSWA RRF Site #7",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 26.763,
+  "lon": -80.1374,
+  "capacity_note": "62,382 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0624
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Congress Development Company LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.8721,
+  "lon": -87.8885,
+  "capacity_note": "62,253 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0623
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Camelot Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 33.0292,
+  "lon": -96.951,
+  "capacity_note": "62,289 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0623
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Outagamie County LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.2872,
+  "lon": -88.3487,
+  "capacity_note": "62,050 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.062
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Brown Station Road Sanitary Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MD",
+  "lat": 38.851,
+  "lon": -76.789,
+  "capacity_note": "61,921 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0619
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Operating Industries, Inc. LF (OII)",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.031,
+  "lon": -118.108,
+  "capacity_note": "61,552 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0616
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Burlington County SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 40.076,
+  "lon": -74.76,
+  "capacity_note": "61,571 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0616
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Pine Bend Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.7792,
+  "lon": -93.0571,
+  "capacity_note": "61,534 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0615
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Ava Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 43.453,
+  "lon": -75.4116,
+  "capacity_note": "61,276 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0613
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "American LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 40.72,
+  "lon": -81.264,
+  "capacity_note": "60,889 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0609
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Turkey Creek Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 32.3562,
+  "lon": -97.202,
+  "capacity_note": "60,944 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0609
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Fort Bend Regional Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 29.3965,
+  "lon": -95.7259,
+  "capacity_note": "60,539 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0605
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Brunswick Waste Management Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "VA",
+  "lat": 36.745,
+  "lon": -77.8035,
+  "capacity_note": "60,023 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.06
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Seneca Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.8117,
+  "lon": -80.0783,
+  "capacity_note": "59,949 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0599
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Oakridge Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "SC",
+  "lat": 33.1359,
+  "lon": -80.3963,
+  "capacity_note": "59,875 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0599
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Juniper Ridge Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "ME",
+  "lat": 44.9813,
+  "lon": -68.7247,
+  "capacity_note": "59,544 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0595
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sandy Hill SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MD",
+  "lat": 39.016,
+  "lon": -76.791,
+  "capacity_note": "59,341 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0593
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Burnsville SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MN",
+  "lat": 44.782,
+  "lon": -93.319,
+  "capacity_note": "58,880 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0589
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Fitchburg-Westminster LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MA",
+  "lat": 42.536,
+  "lon": -71.8539,
+  "capacity_note": "58,733 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0587
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Oak Ridge Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MO",
+  "lat": 38.5587,
+  "lon": -90.5266,
+  "capacity_note": "58,714 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0587
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Superior Landfill & Recycling Center",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 32.025,
+  "lon": -81.28,
+  "capacity_note": "58,548 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0585
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Brent Run Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 43.1768,
+  "lon": -83.8383,
+  "capacity_note": "58,438 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0584
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Security Recycling and Disposal LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 30.3292,
+  "lon": -95.2692,
+  "capacity_note": "58,290 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0583
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sand Valley Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "AL",
+  "lat": 34.342,
+  "lon": -85.862,
+  "capacity_note": "58,032 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.058
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Atlantic County Utilities Authority Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NJ",
+  "lat": 39.426,
+  "lon": -74.54,
+  "capacity_note": "57,867 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0579
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "R & B (Banks) Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 34.3518,
+  "lon": -83.4272,
+  "capacity_note": "57,848 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0578
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sunset Farms Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 30.335,
+  "lon": -97.625,
+  "capacity_note": "57,664 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0577
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "North Central Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 28.0239,
+  "lon": -81.8472,
+  "capacity_note": "57,498 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0575
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Greene Valley RDF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 41.7304,
+  "lon": -88.0744,
+  "capacity_note": "57,056 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0571
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Trail Ridge Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.2246,
+  "lon": -82.0447,
+  "capacity_note": "56,650 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0567
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Turkey Run Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "GA",
+  "lat": 33.1637,
+  "lon": -84.8489,
+  "capacity_note": "56,724 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0567
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Noble Road LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OH",
+  "lat": 40.9759,
+  "lon": -82.4874,
+  "capacity_note": "56,558 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0566
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "City of Edinburg Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 26.3977,
+  "lon": -98.1255,
+  "capacity_note": "56,595 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0566
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Sandtown Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "DE",
+  "lat": 39.0327,
+  "lon": -75.7251,
+  "capacity_note": "56,503 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0565
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Blue Ridge Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 39.972,
+  "lon": -77.5568,
+  "capacity_note": "56,503 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0565
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Hamm SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "KS",
+  "lat": 39.0465,
+  "lon": -95.2626,
+  "capacity_note": "56,153 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0562
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Western Regional SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.8358,
+  "lon": -121.3447,
+  "capacity_note": "55,784 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0558
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Glacier Ridge Landfill LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 43.465,
+  "lon": -88.555,
+  "capacity_note": "55,729 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0557
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Fountain Avenue LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 40.6555,
+  "lon": -73.8621,
+  "capacity_note": "55,471 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0555
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Penrose LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 34.2186,
+  "lon": -118.3816,
+  "capacity_note": "55,287 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0553
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Chaffee LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.582,
+  "lon": -78.505,
+  "capacity_note": "54,992 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.055
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Hickory Meadows Landfill LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 44.105,
+  "lon": -88.192,
+  "capacity_note": "54,568 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0546
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "New River Regional LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.0932,
+  "lon": -82.2052,
+  "capacity_note": "54,052 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0541
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Boyd County Sanitary Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "KY",
+  "lat": 38.3718,
+  "lon": -82.747,
+  "capacity_note": "54,126 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0541
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Courtney Ridge Landfill, LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MO",
+  "lat": 39.1411,
+  "lon": -94.3885,
+  "capacity_note": "53,554 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0536
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Prairie View Regional Waste Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MO",
+  "lat": 37.551,
+  "lon": -94.311,
+  "capacity_note": "53,554 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0536
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Mallard Ridge Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.6441,
+  "lon": -88.7218,
+  "capacity_note": "53,646 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0536
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Springhill Regional Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "FL",
+  "lat": 30.921,
+  "lon": -85.4285,
+  "capacity_note": "53,407 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0534
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Greenridge Reclamation Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.129,
+  "lon": -79.5837,
+  "capacity_note": "53,149 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0531
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Temple Recycling & Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TX",
+  "lat": 31.0745,
+  "lon": -97.3017,
+  "capacity_note": "53,093 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0531
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Badlands SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 33.9535,
+  "lon": -117.1176,
+  "capacity_note": "52,909 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0529
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Jones Crossroads Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "DE",
+  "lat": 38.596,
+  "lon": -75.439,
+  "capacity_note": "52,670 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0527
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Clinton County Regional Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 44.691,
+  "lon": -73.594,
+  "capacity_note": "52,706 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0527
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Redwood SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 38.1661,
+  "lon": -122.5792,
+  "capacity_note": "52,430 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0524
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Lanchester LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 40.1067,
+  "lon": -75.9456,
+  "capacity_note": "52,338 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0523
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Town of Colonie SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "NY",
+  "lat": 42.8078,
+  "lon": -73.731,
+  "capacity_note": "52,172 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0522
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Emerald Park Landfill LLC",
+  "type": "landfill",
+  "country": "USA",
+  "state": "WI",
+  "lat": 42.851,
+  "lon": -88.0745,
+  "capacity_note": "52,246 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0522
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Monterey Peninsula SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 36.7133,
+  "lon": -121.7667,
+  "capacity_note": "52,043 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.052
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Venice Park Recycling & Disposal Facility",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 42.9799,
+  "lon": -83.9727,
+  "capacity_note": "51,951 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.052
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Forest Lawn Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "MI",
+  "lat": 41.7757,
+  "lon": -86.6541,
+  "capacity_note": "51,674 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0517
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "West Contra Costa SLF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "CA",
+  "lat": 37.9678,
+  "lon": -122.3764,
+  "capacity_note": "51,416 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0514
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Rolling Meadows LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "KS",
+  "lat": 39.1791,
+  "lon": -95.72,
+  "capacity_note": "51,343 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0513
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Quarry LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "OK",
+  "lat": 36.2068,
+  "lon": -95.8331,
+  "capacity_note": "51,066 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); flare / collection only",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0511
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Clinton Landfill Inc.",
+  "type": "landfill",
+  "country": "USA",
+  "state": "IL",
+  "lat": 40.114,
+  "lon": -88.958,
+  "capacity_note": "51,048 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.051
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Valley View LF",
+  "type": "landfill",
+  "country": "USA",
+  "state": "KY",
+  "lat": 38.505,
+  "lon": -85.29,
+  "capacity_note": "50,624 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); gas-to-RNG project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0506
+  },
+  "gas_collection": true,
+  "lfg_project": "rng",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "Lycoming County Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "PA",
+  "lat": 41.1519,
+  "lon": -76.9194,
+  "capacity_note": "50,255 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0503
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
+ },
+ {
+  "name": "West Camden Sanitary Landfill",
+  "type": "landfill",
+  "country": "USA",
+  "state": "TN",
+  "lat": 36.0545,
+  "lon": -88.1375,
+  "capacity_note": "50,053 t collected-gas biogenic CO2/yr (LFG, full-combustion basis); electricity project",
+  "est_biogenic_co2_mtpa": {
+   "value": 0.0501
+  },
+  "gas_collection": true,
+  "lfg_project": "ccs",
+  "retrofit_score": "medium",
+  "existing": true,
+  "source": "EPA LMOP Landfill & Project Database (2024)",
+  "naics": "562212"
  }
 ]

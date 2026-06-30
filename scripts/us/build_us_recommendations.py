@@ -136,12 +136,15 @@ def annotate_facility_counties(facilities, counties):
 def compute_avail_anchor(centroid, facilities):
     """Retrofit availability for the gated pathways, by procurement radius from the county
     centroid: beccs_pp <- a pulp & paper mill within ~150 km; wte_ccs <- a WtE plant within
-    ~50 km; ad_ccs <- cumulative anaerobic-digestion capacity within ~15 km >= AD_MIN_CAP.
-    Returns (avail, has_retrofit, anchor_name, anchor_type)."""
+    ~50 km; ad_ccs <- cumulative anaerobic-digestion capacity within ~15 km >= AD_MIN_CAP;
+    lfg_* <- a qualifying gas-collecting landfill within ~40 km.
+    Returns (avail, has_retrofit, anchor_name, anchor_type, lf_info) where lf_info (or None) =
+    {"name","co2","pref"} for the nearest qualifying landfill (for the LFG pathways)."""
     lon, lat = centroid[0], centroid[1]
-    avail = {"pp": False, "wte": False, "ad": False}
+    avail = {"pp": False, "wte": False, "ad": False, "lf": False}
     ad_cap = 0.0
     cands = []   # (pref, dist, facility) within its type radius -> retrofit anchor
+    lf_cands = []   # (co2, dist, facility) qualifying landfills in range
     for f in facilities:
         if not f.get("existing", True):
             continue
@@ -164,14 +167,24 @@ def compute_avail_anchor(centroid, facilities):
             if d <= rad:
                 ad_cap += (f.get("est_biogenic_co2_mtpa") or {}).get("value", 0) or 0
                 cands.append((2, d, f))
+        elif t == "landfill" and f.get("gas_collection"):
+            if d <= PROC_RADIUS_KM["landfill"]:
+                lf_cands.append(((f.get("est_biogenic_co2_mtpa") or {}).get("value", 0) or 0, d, f))
     avail["ad"] = ad_cap >= AD_MIN_CAP_MTPA
+    avail["lf"] = len(lf_cands) > 0
+    lf_info = None
+    if lf_cands:
+        lf_cands.sort(key=lambda c: -c[0])     # largest collected-gas CO2 landfill is the anchor
+        co2, _, best = lf_cands[0]
+        lf_info = {"name": best.get("name"), "co2": co2, "pref": best.get("lfg_project", "ccs")}
+        cands.append((3, lf_cands[0][1], best))   # also a candidate generic anchor (lowest priority)
     has_retrofit = len(cands) > 0
     anchor_name = anchor_type = None
     if cands:
-        cands.sort(key=lambda c: (c[0], c[1]))   # prefer pp/bioenergy, then wte, then ad; nearest
+        cands.sort(key=lambda c: (c[0], c[1]))   # prefer pp/bioenergy, then wte, ad, landfill; nearest
         best = cands[0][2]
         anchor_name, anchor_type = best.get("name"), best.get("type")
-    return avail, has_retrofit, anchor_name, anchor_type
+    return avail, has_retrofit, anchor_name, anchor_type, lf_info
 
 
 def compute_storage_access_county(centroid, basins, wells):
@@ -287,8 +300,13 @@ def main():
                    else "diffuse")
         region["feedstock_density"] = density   # feed into shared decide()
 
-        avail, has_retrofit, anchor_name, anchor_type = compute_avail_anchor(
+        avail, has_retrofit, anchor_name, anchor_type, lf_info = compute_avail_anchor(
             region["centroid"], facilities)
+        # Carry the anchor landfill's collected-gas CO2 + project type into the region so decide()
+        # can pick the LFG variant and cdr_potential can size the LFG pathways.
+        if lf_info:
+            region["_lfg_co2_mtpa"] = lf_info["co2"]
+            region["_lfg_pref"] = lf_info["pref"]
 
         rec_key, runner_key, eff_dom = decide(region, access, has_retrofit, avail)
         no_option = (rec_key == "none")
@@ -298,6 +316,9 @@ def main():
         if not no_option:
             rec_key, runner_key, transport_capped = apply_transport_cap(
                 rec_key, runner_key, eff_dom, region, tcost)
+        # When an LFG pathway is recommended, the retrofit anchor IS the landfill.
+        if rec_key in ("lfg_ccs", "lfg_rng_ccs") and lf_info:
+            anchor_name, anchor_type, has_retrofit = lf_info["name"], "landfill", True
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         rregion = region if eff_dom == region.get("dominant_feedstock") else dict(region, dominant_feedstock=eff_dom)
 

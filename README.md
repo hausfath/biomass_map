@@ -20,7 +20,8 @@ build step, works offline — all data is bundled as JavaScript.
 - **Feedstock supply** mode — choropleth switchable across agricultural residues, forestry
   residues, biogenic MSW, animal manure, and human/WWTP biosolids (Mt/yr).
 - **Best-use recommendation** mode — each region colored by its recommended BiCRS pathway
-  (BECCS, WtE+CCS, biomass injection, bio-oil, burial, AD+CCS, biochar), per Frontier's KPI ranking.
+  (BECCS, WtE+CCS, landfill-gas+CCS, biomass injection, bio-oil, burial, AD+CCS, biochar), per
+  Frontier's KPI ranking.
 - **Overlays** (scope-specific) — retrofit-candidate / biogenic point sources, large WWTPs, and the
   region-appropriate storage layers: global storage projects + basins; North America **CO₂ storage
   wells / projects** (US Class VI/V wells + Canadian CCS hubs like Quest, ACTL, Aquistore) +

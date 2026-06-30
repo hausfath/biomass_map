@@ -20,14 +20,16 @@ After the tree, a post-step can swap the runner-up to biomass burial in excess-n
 | `avail.pp` | true / false — an existing pulp & paper mill within ~150 km (pulpwood haul radius) | facilities (radius) |
 | `avail.wte` | true / false — an existing waste-to-energy plant within ~50 km | facilities (radius) |
 | `avail.ad` | true / false — cumulative anaerobic-digestion capacity within reach (~15 km for discrete digesters; regional clusters carry their own radius) ≥ a small threshold | facilities (radius + cumulative) |
+| `avail.lf` | true / false — a large gas-collecting landfill (collected-gas biogenic CO₂ ≥ 0.05 Mt/yr) within ~40 km. **US scope only** (EPA LMOP); defaults false elsewhere | facilities (radius) |
 | `manure_ad_preferred` | true / false — region's measured `ad_maturity` ≥ 0.15 (large existing AD industry to retrofit) | `ad_maturity.json` (IEA/FAOSTAT/IRENA/EBA; sub-national AgSTAR/CBA/ENSPRESO) |
 
 ### Retrofit-only gate
-**BECCS pulp & paper (`beccs_pp`), WtE+CCS (`wte_ccs`), and AD+CCS (`ad_ccs`) only make sense as
-retrofits of existing facilities today**, so each is recommendable — and only appears in the ranked
-options — where the region is within the procurement radius of an existing facility of that type
-(the `avail` flags). Outside the radius the tree falls back to a non-retrofit pathway (no mill →
-plain BECCS / injection; no WtE → burial; no AD → injection or biochar). Plain BECCS
+**BECCS pulp & paper (`beccs_pp`), WtE+CCS (`wte_ccs`), AD+CCS (`ad_ccs`), and the landfill-gas
+pathways (`lfg_ccs` / `lfg_rng_ccs`) only make sense as retrofits of existing facilities today**, so
+each is recommendable — and only appears in the ranked options — where the region is within the
+procurement radius of an existing facility of that type (the `avail` flags). Outside the radius the
+tree falls back to a non-retrofit pathway (no mill → plain BECCS / injection; no WtE → burial; no AD
+→ injection or biochar; no landfill → MSW re-decides on its next feedstock). Plain BECCS
 (heat/electricity) is **not** gated. At country scope the radius reduces to "a facility of that type
 exists in the country". Facility coverage for the gate: pulp & paper and WtE from the global +
 GHGRP/E-PRTR datasets; AD from EPA AgSTAR (US, county-aggregated) and EBA-based regional cumulative
@@ -70,10 +72,11 @@ flowchart TD
     Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else HTL bio-oil"]
     Mst -->|no — storage poor<br/>or slurry transport > cap| Mbio["Bio-oil (HTL)<br/>runner: AD+CCS if AD else injection"]
 
-    %% ---------- 2. MSW  (WtE+CCS gated on a WtE plant within ~50 km) ----------
-    DOM -->|msw| Wnear{storage near AND<br/>WtE plant within ~50 km?}
-    Wnear -->|yes| Wwte["WtE + CCS<br/>runner: burial"]
-    Wnear -->|no| Wsec{other significant<br/>biomass? ≥25% of MSW}
+    %% ---------- 2. MSW  (capture anchors: WtE plant ~50 km, or big gas-collecting landfill ~40 km) ----------
+    DOM -->|msw| Wnear{storage near AND a<br/>capture anchor in range?}
+    Wnear -->|"WtE plant ~50 km<br/>(preferred where present)"| Wwte["WtE + CCS<br/>runner: LFG+CCS or burial"]
+    Wnear -->|"big gas-collecting<br/>landfill ~40 km (US)"| Wlfg["LFG + CCS<br/>runner: LFG-RNG + CCS"]
+    Wnear -->|neither| Wsec{other significant<br/>biomass? ≥25% of MSW}
     Wsec -->|yes| Wre["re-evaluate on the<br/>secondary feedstock<br/>(ag / forestry / manure)"]
     Wsec -->|no| Wnone["No viable BiCRS pathway"]
 
@@ -99,7 +102,7 @@ flowchart TD
     Fsa -->|else| Fbe2["BECCS<br/>runner: bio-oil"]
 
     %% ---------- POST-STEP ----------
-    Mad & Minj & Mbio & Wwte & Cpp & Cbe & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
+    Mad & Minj & Mbio & Wwte & Wlfg & Cpp & Cbe & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
     NUT -->|yes| Swap["swap runner-up to Biomass burial<br/>removal-consistent; bio-oil would<br/>return nutrients to surplus soils"]
     NUT -->|no| Keep["keep runner-up"]
     Swap --> Done([Recommended + runner-up])
@@ -110,7 +113,7 @@ flowchart TD
     classDef rec fill:#15967f,stroke:#0d5530,color:#eafffb;
     classDef q fill:#1c2730,stroke:#2a3742,color:#e8edf1;
     classDef none fill:#3a4350,stroke:#222a33,color:#cdd6df;
-    class Mad,Minj,Mbio,Wwte,Wre,Cpp,Cbe,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
+    class Mad,Minj,Mbio,Wwte,Wlfg,Wre,Cpp,Cbe,Cbur,Cbo,Dinj,Dbur,Dbo,Fbe,Fbur,Fbe2,Swap rec;
     class DOM,Mst,Wnear,Wsec,Csa,Cmill,Cnut,Dsa,Fsa,NUT q;
     class Wnone none;
 ```
