@@ -24,7 +24,7 @@ flowchart TD
     %% ---------- MSW ----------
     DOM -->|"🗑️ Municipal<br/>trash (MSW)"| W{Storage close, & a<br/>waste plant to retrofit?}
     W -->|"WtE plant ~50 km"| Wwte["Waste-to-energy<br/>+ CCS"]
-    W -->|"Big gas-collecting<br/>landfill ~40 km"| Wlfg["Landfill gas + CCS<br/>(runner-up: LFG→RNG + CCS)"]
+    W -->|"Big gas-collecting<br/>landfill ~40 km"| Wlfg["Landfill already makes RNG?<br/>yes → LFG-RNG + CCS<br/>no → Landfill gas + CCS"]
     W -->|"Neither / no storage"| Wsec{Any other<br/>significant biomass?}
     Wsec -->|Yes| Wre[/"Re-decide using<br/>that feedstock"/]
     Wsec -->|No| Wnone["No viable<br/>BiCRS pathway"]

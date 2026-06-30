@@ -75,7 +75,7 @@ flowchart TD
     %% ---------- 2. MSW  (capture anchors: WtE plant ~50 km, or big gas-collecting landfill ~40 km) ----------
     DOM -->|msw| Wnear{storage near AND a<br/>capture anchor in range?}
     Wnear -->|"WtE plant ~50 km<br/>(preferred where present)"| Wwte["WtE + CCS<br/>runner: LFG+CCS or burial"]
-    Wnear -->|"big gas-collecting<br/>landfill ~40 km (US)"| Wlfg["LFG + CCS<br/>runner: LFG-RNG + CCS"]
+    Wnear -->|"big gas-collecting<br/>landfill ~40 km (US)"| Wlfg["landfill makes RNG?<br/>yes → LFG-RNG + CCS<br/>no → LFG + CCS"]
     Wnear -->|neither| Wsec{other significant<br/>biomass? ≥25% of MSW}
     Wsec -->|yes| Wre["re-evaluate on the<br/>secondary feedstock<br/>(ag / forestry / manure)"]
     Wsec -->|no| Wnone["No viable BiCRS pathway"]

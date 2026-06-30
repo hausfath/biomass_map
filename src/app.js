@@ -1162,9 +1162,10 @@
     (good ≤ $66 / moderate ≤ $100 / poor &gt; $100 per tCO₂ delivered; see the global Methodology §11),
     else great-circle distance (good &lt;100 km / moderate &lt;300 km). The detail panel shows a
     <b>delivered cost</b> ≈ pathway conversion band + transport-to-well. MSW with no waste-to-energy
-    plant but a large gas-collecting landfill in range → <b>landfill gas + CCS</b> (runner-up
-    landfill-gas RNG + CCS). Density: residue tCO₂/km² + an 80 km haul-radius supply sum. Counties below
-    a minimum recoverable supply are flagged "low supply".</p>`;
+    plant but a large gas-collecting landfill in range → a <b>landfill-gas</b> pathway matching the
+    landfill's existing setup: <b>landfill-gas RNG + CCS</b> where it already produces RNG (capture the
+    upgrading vent), else <b>landfill gas + CCS</b> (combust + capture). Density: residue tCO₂/km² + an
+    80 km haul-radius supply sum. Counties below a minimum recoverable supply are flagged "low supply".</p>`;
 
   const EU_METHODOLOGY = `
     <h2>Methodology &amp; sources — EU NUTS-2 scope</h2>

@@ -504,25 +504,34 @@ def _secondary_dom(region):
     return "manure_wet"
 
 
+def _lfg_lead(region):
+    """The landfill-gas pathway to lead on, set by the anchor landfill's existing infrastructure
+    (retrofit what is there): a landfill that already produces RNG -> LFG-RNG+CCS (capture the
+    near-pure CO2 the gas-upgrading step already vents); otherwise the collected gas is combusted
+    -> LFG combustion + CCS."""
+    return "lfg_rng_ccs" if region.get("_lfg_pref") == "rng" else "lfg_ccs"
+
+
 def _decide_msw_capture(region, storage_access, av):
     """MSW with storage near and at least one retrofittable capture anchor (a WtE plant and/or a
     qualifying gas-collecting landfill). Returns (rec, runner). Candidates are WtE+CCS (where a WtE
-    plant exists) and LFG+CCS (where a large gas-collecting landfill exists), ordered by KPI — so a
-    WtE retrofit leads where present (it combusts the whole MSW stream) and LFG+CCS leads the common
-    no-WtE-but-landfill case. LFG-RNG+CCS is always a runner, not the lead: combusting all collected
-    gas (LFG+CCS) removes more carbon than capturing only the RNG-upgrading vent, so Frontier's
-    CDR-first KPI prefers it; RNG+CCS surfaces as the lower-CDR / cheaper-capture alternative."""
+    plant exists) and the landfill-gas pathway matching the anchor landfill's existing infrastructure
+    (RNG+CCS where it already produces RNG, else combustion+CCS — see _lfg_lead), ordered by KPI so a
+    WtE retrofit leads where present (it combusts the whole MSW stream). With only a landfill, the
+    landfill pathway leads and the *other* LFG variant is the runner-up."""
     opts = []
     if av["wte"]:
         opts.append("wte_ccs")
+    lfg_var = None
     if av["lf"]:
-        opts.append("lfg_ccs")
+        lfg_var = _lfg_lead(region)
+        opts.append(lfg_var)
     opts.sort(key=lambda p: -kpi_score(p, storage_access))
     rec = opts[0]
     if len(opts) > 1:
         runner = opts[1]
     elif av["lf"]:
-        runner = "lfg_rng_ccs"      # only a landfill: RNG+CCS is the alternative
+        runner = "lfg_ccs" if lfg_var == "lfg_rng_ccs" else "lfg_rng_ccs"   # the other LFG variant
     else:
         runner = "burial"
     return rec, runner

@@ -161,14 +161,15 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 2. **MSW** → capture the biogenic CO₂ from waste already being managed, where storage is near:
    - a **WtE + CCS** retrofit where an existing waste-to-energy plant is within ~50 km (it combusts
      the whole waste stream — preferred where present);
-   - else, where a **large gas-collecting landfill** is within ~40 km, **landfill gas + CCS** —
-     combust the collected landfill gas and capture the ~100%-biogenic CO₂. Its runner-up is
-     **landfill-gas RNG + CCS** (upgrade the gas to pipeline RNG and capture the near-pure CO₂ the
-     upgrading already vents — cheap capture but lower CDR, since the RNG carbon is combusted
-     downstream as *avoidance*, not removal). LFG+CCS leads over RNG+CCS because combusting all the
-     collected gas removes more carbon (Frontier's CDR-first KPI). **Only the captured biogenic CO₂
-     is counted as CDR**; avoided fugitive methane is a co-benefit, not removal — and uncollected
-     methane (gas collection ~75%) is the key uncertainty.
+   - else, where a **large gas-collecting landfill** is within ~40 km, a **landfill-gas** pathway,
+     chosen to retrofit the landfill's *existing* infrastructure: if the anchor landfill **already
+     produces RNG**, → **landfill-gas RNG + CCS** (capture the near-pure CO₂ the gas-upgrading step
+     already vents — cheap capture); otherwise → **landfill gas + CCS** (combust the collected gas
+     and capture the ~100%-biogenic CO₂). The other variant is the runner-up. (RNG+CCS has lower CDR
+     — the RNG carbon is combusted downstream as *avoidance*, not removal — but where an RNG plant
+     exists the realistic retrofit is to capture its vent, not tear it out to combust.) **Only the
+     captured biogenic CO₂ is counted as CDR**; avoided fugitive methane is a co-benefit, not removal
+     — and uncollected methane (gas collection ~75%) is the key uncertainty.
    - with **neither** a WtE plant nor a qualifying landfill in range (or no storage), municipal waste
      is merely landfilled, not a standalone removal feedstock → re-evaluate on the region's
      next-significant feedstock, else "no viable pathway". (Landfill data is the **US scope only**
