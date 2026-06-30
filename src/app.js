@@ -97,6 +97,22 @@
   const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", bio_oil: "bio_oil", bio_oil_htl: "bio_oil_htl", injection: "slurry" };
   const TRANSPORT_CAP = 100;
 
+  // Storage destination shown in the detail panel = the well/project the routed storage access is
+  // actually based on (status-tiered: a firm well is preferred, a draft/pending one only as a
+  // rescue), NOT the great-circle nearest well — which may be an unused draft/pending site, making
+  // the panel inconsistent with the storage-access grade. Falls back to the great-circle nearest
+  // (fallbackName/fallbackKm) for regions with no routed transport record.
+  function storageDestination(rec, transportLookup, fallbackName, fallbackKm) {
+    if (rec.transport_dest_well) {
+      const t = transportLookup ? transportLookup(rec.id) : null;
+      const st = (rec.transport_dest_status && rec.transport_dest_status !== "operational")
+        ? ` · ${rec.transport_dest_status}` : "";
+      const km = (t && t.total_km != null) ? ` (~${fmt(t.total_km)} km routed)` : "";
+      return `${rec.transport_dest_well}${st}${km}`;
+    }
+    return fallbackName ? `${fallbackName}${fallbackKm != null ? ` (~${fallbackKm} km)` : ""}` : "—";
+  }
+
   // ---- Delivered (all-in) cost = conversion (pathway cost_band) + transport-to-well (item 5) ----
   // Parse a PATHWAYS cost_band string ("$200-225 (to <$100 at scale)", "~$100-200", "<$100-150")
   // into a [low, high] conversion range; the parenthetical aspirational figure is ignored.
@@ -335,7 +351,7 @@
         return [
           { k: "Storage basin", v: sd.in_basin ? "Overlaps " + sd.in_basin + " (theoretical)"
               : (sd.nearest_basin ? `${sd.nearest_basin} (~${sd.nearest_basin_km} km)` : "—") },
-          { k: "Nearest well / project", v: sd.nearest_well ? `${sd.nearest_well}${sd.nearest_well_km != null ? ` (~${sd.nearest_well_km} km)` : ""}` : "—" },
+          { k: "Storage destination", v: storageDestination(rec, this.transportLookup, sd.nearest_well, sd.nearest_well_km) },
           { k: "Feedstock density", v: `${cap1(rec.feedstock_density)} · ${fmt(rec.residue_density_tco2_km2)} tCO₂/km²` },
           { k: "Supply within 80 km", v: `${fmt(rec.haul_supply_mtco2)} Mt CO₂/yr` },
         ];
@@ -403,7 +419,7 @@
         return [
           { k: "Storage formation", v: sd.in_formation ? "Overlaps " + sd.in_formation + " (theoretical)"
               : (sd.nearest_formation ? `${sd.nearest_formation} (~${sd.nearest_formation_km} km)` : "—") },
-          { k: "Nearest project", v: sd.nearest_project ? `${sd.nearest_project}${sd.nearest_project_km != null ? ` (~${sd.nearest_project_km} km)` : ""}` : "—" },
+          { k: "Storage destination", v: storageDestination(rec, this.transportLookup, sd.nearest_project, sd.nearest_project_km) },
           { k: "Feedstock density", v: `${cap1(rec.feedstock_density)} · ${fmt(rec.residue_density_tco2_km2)} tCO₂/km²` },
           { k: "Dominant feedstock", v: labelFeed(rec.dominant_feedstock) },
         ];
