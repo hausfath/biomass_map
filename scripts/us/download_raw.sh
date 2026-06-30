@@ -46,5 +46,8 @@ curl -sSL --max-time 90 "$RAILSVC?where=1%3D1&outFields=TERMINAL,CITY,STATE,RAIL
   -o transport_raw/ntad_rail_tofc.json
 
 echo "done — raw files staged. Now run build_all.sh"
+echo "NOTE: build_fia_forestry.py (USFS FIA county forest data) and build_fuels_residues.py"
+echo "      (USFS FACTS hazardous-fuel treatments) self-download + cache their inputs under"
+echo "      data/geo/us_raw/{fia,facts}/ on first run — no staging needed here."
 echo "NOTE: the transport model also needs the 'searoute' Python package:"
 echo "      python3 -m pip install --break-system-packages searoute"

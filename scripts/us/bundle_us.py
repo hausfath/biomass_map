@@ -41,6 +41,7 @@ def slim_feedstocks(feeds):
             "area_km2": r["area_km2"], "centroid": r["centroid"],
             "ag": round(v(r, "ag_residues_odt_mt"), 4),
             "forestry": round(v(r, "forestry_residues_odt_mt"), 4),
+            "forestry_fuels": round(v(r, "forestry_residues_fuels_odt_mt"), 4),  # item 2 ph.3 sub-stream
             "msw": round(v(r, "msw_total_mt"), 4),
             "manure": round(v(r, "animal_manure_odt_mt"), 4),
             "wwtp": round(v(r, "human_wwtp_odt_mt"), 4),

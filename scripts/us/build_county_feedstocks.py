@@ -43,6 +43,7 @@ POP = os.path.join(RAW, "co-est2023.csv")
 COUNTIES = os.path.join(ROOT, "data", "geo", "us_counties.json")
 STATE_FEED = os.path.join(PROC, "feedstocks.json")
 FIA = os.path.join(PROC, "fia_county_forestry.json")   # FIA county forestry weights (item 2 ph.1)
+FUELS = os.path.join(PROC, "fuels_residues_us.json")   # FACTS wildfire-fuels residue (item 2 ph.3)
 OUT = os.path.join(PROC, "feedstocks_us_county.json")
 
 # --- residue-to-product factors: odt recoverable residue per production unit ---
@@ -175,6 +176,14 @@ def main():
     print(f"  FIA forestry weights: {n_fia} counties with positive weight"
           if fia else "  (no FIA weights — using woodland-acreage proxy for forestry)")
 
+    # Wildfire-fuels-treatment residue (item 2, phase 3): a separate, largely-additional forestry
+    # sub-stream (Mt odt/yr per county) from USFS FACTS. Added ON TOP of the BT23-anchored commercial
+    # forestry (it is mostly federal-land treatment not in the commercial logging total), and folded
+    # into the forestry stream so it drives dominant_feedstock + CDR — but kept tagged for provenance.
+    fuels = json.load(open(FUELS)) if os.path.exists(FUELS) else {}
+    print(f"  fuels-treatment residue: {len(fuels)} counties, {sum(fuels.values()):.1f} Mt odt/yr"
+          if fuels else "  (no fuels-treatment residue layer)")
+
     counties = {f["properties"]["fips"]: f["properties"]
                 for f in json.load(open(COUNTIES))["features"]}
 
@@ -255,7 +264,9 @@ def main():
             props = counties[fips]
             r = raw[fips]
             ag = tot_ag * r["ag"] / sum_ag
-            forestry = tot_for * r["forestry"] / sum_for
+            forestry_comm = tot_for * r["forestry"] / sum_for   # BT23-anchored commercial residue
+            fuels_res = fuels.get(fips, 0.0)                    # FACTS fuels-treatment residue (add'l)
+            forestry = forestry_comm + fuels_res               # total forestry the engine sees
             manure = tot_man * r["manure"] / sum_man
             msw = tot_msw * r["pop"] / sum_pop
             wwtp = tot_wwtp * r["pop"] / sum_pop
@@ -276,14 +287,22 @@ def main():
                     notes="cereal straw + corn stover + sorghum/cotton/rice/sugarcane residues"),
                 "forestry_residues_odt_mt": est(
                     forestry,
-                    source=("BT23 state forestry residue allocated by county FIA forest data "
-                            "(USFS FIA: 0.7 harvest-removals + 0.3 standing-biomass share)"
-                            if r["forestry_src"] == "fia" else
-                            "BT23 state forestry residue allocated by county woodland acreage "
-                            "(USDA Census of Ag 2022)"),
-                    notes=("removals track logging-residue generation; standing biomass smooths the "
-                           "signal" if r["forestry_src"] == "fia"
-                           else "county distribution is a woodland-area proxy (no FIA coverage)")),
+                    source=(("BT23 state forestry residue allocated by county FIA forest data "
+                             "(USFS FIA: 0.7 harvest-removals + 0.3 standing-biomass share)"
+                             if r["forestry_src"] == "fia" else
+                             "BT23 state forestry residue allocated by county woodland acreage "
+                             "(USDA Census of Ag 2022)")
+                            + (" + USFS FACTS wildfire-fuels-treatment residue"
+                               if fuels_res > 0 else "")),
+                    notes=("commercial residue " + (
+                        "(FIA-allocated)" if r["forestry_src"] == "fia" else "(woodland-area proxy)")
+                        + (f" plus {fuels_res:.3f} Mt/yr fuels-treatment residue "
+                           f"(thinning/pile/chipping, largely additional)" if fuels_res > 0 else ""))),
+                "forestry_residues_fuels_odt_mt": est(
+                    fuels_res, source="USFS FACTS hazardous-fuel-treatment removable biomass "
+                    "(acres x per-type odt/acre, annualized FY2018-2024)",
+                    notes="wildfire-management residue today pile-burned/left; included in the "
+                          "forestry total above") if fuels_res > 0 else {"value": 0.0},
                 "msw_total_mt": est(
                     msw, source="state MSW total allocated by county population "
                     "(Census Vintage-2023)"),

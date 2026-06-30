@@ -310,9 +310,12 @@ much they could change a recommendation if revisited — the top ones are the mo
    county data (0.7 harvest-removals + 0.3 standing-biomass share — item 2, phase 1), replacing the
    former farm-woodland-acreage proxy that under-represented national forests / industrial timberland.
    **Canada CDs and the EU still use coarser proxies** (CD land area; ENSPRESO at NUTS-2), so they
-   remain the weaker spatial layers. State/country totals are always preserved. *Not yet netted* for
-   the US: residues already consumed by pellet/pulp/bioenergy plants, mill-residue point sources, and
-   wildfire-fuels-treatment residues (item 2, later phases) — so the US forestry figure is still a
+   remain the weaker spatial layers. State/country totals are always preserved. The US forestry stream
+   now also adds a **wildfire-fuels-treatment residue** sub-stream (USFS FACTS — thinning/pile/chipping
+   biomass, ~10 Mt odt/yr, concentrated in the fire-prone West); its per-acre yield is a screening
+   assumption and its additionality, while high, may partly overlap BT23's "other forest residue".
+   *Not yet netted* for the US: residues already consumed by pellet/pulp/bioenergy plants, and
+   mill-residue point sources (item 2, later phases) — so the commercial US forestry figure is still a
    gross recoverable estimate, not net-of-utilization.
 9. **Manure & WWTP biosolids** rest on livestock-head excretion factors and population × treatment-
    coverage × solids factors — order-of-magnitude reasonable, not facility-metered (except where US
@@ -390,9 +393,25 @@ Billion-Ton Report + USDA NASS):
   Fairbanks AK) to the real timber heartland (Lane/Douglas OR, Humboldt CA, Aroostook ME, Grays
   Harbor WA). FIA covers all 50 states (the latest evaluation per state); any state without coverage
   falls back to woodland acreage. State totals are always preserved (anchored to DOE BT23).
+  Ag and manure remain the high-confidence county layers.
+- *Forestry — wildfire-fuels-treatment residue (added on top).* A separate, largely-**additional**
+  forestry sub-stream from **USFS FACTS** Hazardous Fuel Treatments (`build_fuels_residues.py`):
+  treatments completed FY2018–2024 of the biomass-*removing* types (Thinning, Biomass Removal,
+  Machine Pile (+Burn), Chipping) × a conservative per-type removable oven-dry yield
+  (~6–12 odt/acre, mid-range of the western fuels-treatment bioenergy literature), annualized over
+  the window and assigned to the county each treatment falls in. This captures the woody material
+  from hazardous-fuel thinning and pile burns — today largely **pile-burned or left on site**,
+  especially on fire-prone federal land in the interior West (the Sierra Nevada etc.) where there is
+  little commercial logging, so the harvest-based commercial layer misses it. It is **folded into the
+  county forestry total** (so it drives `dominant_feedstock` + CDR) but kept tagged
+  (`forestry_residues_fuels_odt_mt`) and shown separately in the detail panel. Burns that consume
+  biomass on site (Broadcast/Fire-Use/Jackpot) and material left dispersed (Lop-and-Scatter,
+  Mastication) are excluded. *Caveats:* per-acre yield is a screening assumption; additionality is
+  high (pile-burn counterfactual) but there may be partial overlap with BT23's "other forest residue"
+  category; supply is policy-driven and seasonal, often favouring distributed pathways (bio-oil /
+  biochar / burial) over a central plant.
   *Remaining (item 2, later phases): net out current utilization — pellet/pulp/bioenergy draw — and
-  add mill-residue point sources + wildfire-fuels-treatment residues.* Ag and manure remain the
-  high-confidence county layers.
+  add mill-residue point sources.*
 
 **Storage basins (actual polygons)** — NETL NATCARB Atlas assessed saline storage formations
 (`NATCARB_Saline_Poly_v1502`, 349 assessed/non-duplicate formations), reprojected from Lambert
@@ -670,6 +689,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Ag residues | CA | StatCan **Census of Agriculture 2021** CD residue-crop area (32-10-0309) × per-ha residue weight | Census division, scaled to province totals |
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
 | Forestry residues | US | State BT total allocated by **USFS FIA** county forest data (0.7 harvest-removals + 0.3 standing-biomass share) | County, scaled to state |
+| Forestry — fuels residue | US | **USFS FACTS** hazardous-fuel treatments (FY2018–2024 removable types × per-acre odt yield, annualized) | County point-in-polygon; added to forestry total |
 | Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |
 | Forestry residues | CA | Province total allocated by CD land area *(weakest spatial layer — no CD timberland inventory)* | Census division, scaled |
 | MSW | G | World Bank *What a Waste 2.0* (2018) totals + treatment shares; EPA (US); Eurostat (EU); biogenic fraction US≈0.61 / EU≈0.50 / LMIC 0.55–0.70 | Country |

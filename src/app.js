@@ -308,7 +308,8 @@
         (window.US_FEEDSTOCKS || []).forEach(r => {
           feedById[r.id] = {
             _id: r.id, _name: `${r.name}, ${r.state}`, regionKind: "US county — " + r.state,
-            ag: r.ag, forestry: r.forestry, msw: r.msw, manure: r.manure, wwtp: r.wwtp,
+            ag: r.ag, forestry: r.forestry, forestry_fuels: r.forestry_fuels,
+            msw: r.msw, manure: r.manure, wwtp: r.wwtp,
             biofrac: r.biofrac || 0.61, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
           };
         });
@@ -434,7 +435,13 @@
     let html = `<div class="d-sec-title">Feedstock supply</div><table class="feed">`;
     rows.forEach(([lab, v, unit]) => {
       if (v == null || v <= 0) return;
-      html += `<tr><td class="lab">${lab}<div class="unc">${unit}</div></td><td class="val">${fmt(v)}</td></tr>`;
+      // Forestry: where a wildfire-fuels-treatment sub-stream exists (US), note how much of the
+      // forestry total is fuels residue (thinning/pile/chipping, largely additional) vs commercial.
+      let sub = unit;
+      if (lab === "Forestry residues" && feed.forestry_fuels > 0) {
+        sub = `${unit} · incl. ~${fmt(feed.forestry_fuels)} from wildfire-fuels treatment`;
+      }
+      html += `<tr><td class="lab">${lab}<div class="unc">${sub}</div></td><td class="val">${fmt(v)}</td></tr>`;
     });
     html += `<tr><td class="lab">MSW biogenic fraction</td><td class="val">${Math.round((feed.biofrac || 0.5) * 100)}%</td></tr></table>`;
     html += `<div class="chips">
