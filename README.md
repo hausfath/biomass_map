@@ -12,11 +12,11 @@ build step, works offline — all data is bundled as JavaScript.
 
 ## What you can do
 
-- **Region scope** switcher — one map, three resolutions: **Global** (countries, with
-  US/Canada/India/China at state-province level), **North America** (~3,140 US counties + 293
-  Canadian census divisions in one view), and **Europe** (~290 NUTS-2 regions, EU-27 + UK + Norway).
-  The North America / Europe data load on demand when you first switch; the map, overlays, legend,
-  and stat all adapt to the active scope.
+- **Region scope** switcher — one map, three resolutions: **North America** (~3,140 US counties + 293
+  Canadian census divisions in one view, with multimodal transport-cost storage routing — the default
+  view), **Europe** (~290 NUTS-2 regions, EU-27 + UK + Norway), and **Global** (countries, with
+  US/Canada/India/China at state-province level). The map, overlays, legend, and stat all adapt to the
+  active scope; Europe / Global data load on demand when you first switch.
 - **Feedstock supply** mode — choropleth switchable across agricultural residues, forestry
   residues, biogenic MSW, animal manure, and human/WWTP biosolids (Mt/yr).
 - **Best-use recommendation** mode — each region colored by its recommended BiCRS pathway
@@ -62,7 +62,7 @@ one view; their pipelines stay separate so each is independently rebuildable.
 ## Layout
 
 ```
-src/index.html, styles.css, app.js    # the single application (Global / North America / Europe scopes)
+src/index.html, styles.css, app.js    # the single application (North America / Europe / Global scopes)
 src/vendor/                            # Leaflet (vendored)
 src/data_bundle.js                     # global datasets, preloaded (generated)
 src/data_bundle_us.js, _ca.js, _eu.js  # US / Canada / EU datasets, lazy-loaded on scope switch (generated)

@@ -556,7 +556,7 @@
   // ============================================================
   // Active-scope state + shared rendering
   // ============================================================
-  const state = { scope: "global", mode: "feedstock", feedstock: "ag", breaks: [], openRegion: null, showRoute: false };
+  const state = { scope: "na", mode: "feedstock", feedstock: "ag", breaks: [], openRegion: null, showRoute: false };
   let combined = null, feedById = {}, recById = {};
   let geoLayer = null, choroRenderer = null;
   let activeOverlays = [];  // [{id, layer, checkbox}]
@@ -1012,7 +1012,7 @@
     h.split("&").forEach(kv => { const [k, v] = kv.split("="); if (k) p[k] = decodeURIComponent(v || ""); });
     // `us` and `ca` are now the combined North America scope; alias old deep links.
     if (p.scope === "us" || p.scope === "ca") p.scope = "na";
-    const scope = (p.scope && SCOPES[p.scope]) ? p.scope : "global";
+    const scope = (p.scope && SCOPES[p.scope]) ? p.scope : "na";   // default to North America
     setScope(scope).then(() => {
       if (p.mode === "recommendation" || p.mode === "feedstock") {
         const btn = document.querySelector(`#mode-seg .seg-btn[data-mode="${p.mode}"]`);
