@@ -600,9 +600,14 @@ the cost band below the cap. Because storage destinations are real wells/project
 polygons), this is a much stricter — and economically grounded — signal: mid-distance regions shift
 toward **bio-oil** (densify-to-haul) rather than moving CO₂ or wet slurry.
 
-- **Canada** routes **cross-border**: the graph combines the US + Canada transfer nodes *and* wells, so a
-  CD goes to whichever storage — Canadian (Quest/ACTL/Aquistore/…) or US (e.g. ADM Decatur via the Great
-  Lakes, North Dakota Class VI) — is cheapest. ~⅔ of CDs route to a US well.
+- **North America routes cross-border in BOTH directions** (the US and Canada builds each combine the
+  US + Canada transfer nodes *and* wells, so storage doesn't stop at the 49th parallel). A Canadian CD
+  goes to whichever store — Canadian (Quest/ACTL/Aquistore/…) or US (e.g. ADM Decatur via the Great
+  Lakes, North Dakota Class VI) — is cheapest (~⅔ of CDs route to a US well). Symmetrically, a US county
+  can route to a Canadian well: ~30 capture-pathway counties send CO₂ north (e.g. the **Idaho panhandle
+  → Quest CCS, Alberta**, closer than any US Class VI well), and ~170 counties reach a Canadian well for
+  some payload. (Earlier the US build omitted the Canadian wells, so US→Canada routing never happened —
+  fixed so the two scopes are symmetric.)
 - **EU** storage is the offshore CCS **projects** (Northern Lights, Porthos, Greensand, Ravenna, …),
   flagged *marine* and reached from coastal ports by **ship** (searoute); inland regions truck/rail/barge
   (Rhine, Danube, Rhône, …) to a port first. Status-tiered like the US (operational vs planned/

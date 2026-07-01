@@ -98,8 +98,13 @@ def main():
         tcost = tinfo.get("by_payload") if tinfo else None
         dest_status = tinfo.get("dest_status", "operational") if tinfo else "operational"
         permitted_storage = dest_status in ("draft", "pending")
-        if tcost and tcost.get("co2") is not None:
-            access = storage_access_from_cost(tcost["co2"], dest_status)
+        # Storage access is graded on the CO₂ cost to the nearest ANY well (access_co2_usd) — a
+        # general "is geologic storage reachable" signal — so injection/bio-oil (which may use any
+        # well) are NOT tightened by the item-7 CO₂→Class-VI restriction; the capture pathways are
+        # gated instead by the transport cap on by_payload.co2 (CO₂-eligible wells only).
+        access_co2 = tinfo.get("access_co2_usd") if tinfo else None
+        if access_co2 is not None:
+            access = storage_access_from_cost(access_co2, dest_status)
 
         area = region.get("area_km2") or 1.0
         dens_tco2_km2 = round(co2_dry(region) * 1e6 / area, 2)
@@ -119,6 +124,19 @@ def main():
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         rregion = region if eff_dom == region.get("dominant_feedstock") else dict(
             region, dominant_feedstock=eff_dom)
+
+        # Display destination = the well the RECOMMENDED pathway ships to (item 7): a gaseous-CO₂
+        # capture pathway routes to a CO₂-eligible well; everything else uses the general destination.
+        co2_payload = PATHWAY_PAYLOAD.get(rec_key) == "co2"
+        if co2_payload and tinfo and tinfo.get("co2_dest_well"):
+            disp_well = tinfo.get("co2_dest_well")
+            disp_status = tinfo.get("co2_dest_status", "operational")
+            disp_km = tinfo.get("co2_total_km")
+        else:
+            disp_well = tinfo.get("dest_well") if tinfo else None
+            disp_status = dest_status
+            disp_km = tinfo.get("total_km") if tinfo else None
+        permitted_storage = disp_status in ("draft", "pending")
 
         nutrient_alt = False
         if no_option:
@@ -144,7 +162,7 @@ def main():
             runner_label = PATHWAYS[runner_key]["label"]
             tdesc = {"usd": (transport_cost_for(rec_key, tcost)
                               if rec_key in PATHWAY_PAYLOAD else (tcost or {}).get("co2")),
-                     "km": tinfo.get("total_km"), "well": tinfo.get("dest_well")} if tinfo else None
+                     "km": disp_km, "well": disp_well} if tinfo else None
             rationale = build_rationale(rregion, rec_key, access, nearest_km,
                                         has_retrofit, anchor_name, anchor_type, tdesc)
             ranked = build_ranked(rregion, rec_key, runner_key, access, nearest_km,
@@ -164,7 +182,7 @@ def main():
                        f"pathway's payload — defaulted to a storage-independent option or densified "
                        f"bio-oil."] + caveats
         if permitted_storage and not no_option and rec_key in PATHWAY_PAYLOAD:
-            cav = permitted_storage_caveat(dest_status, tinfo.get("dest_well"))
+            cav = permitted_storage_caveat(disp_status, disp_well)
             if cav:
                 caveats = [cav] + caveats
 
@@ -192,8 +210,11 @@ def main():
                                if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
             "transport_by_payload": tcost,
             "transport_capped": transport_capped,
-            "transport_dest_well": tinfo.get("dest_well") if tinfo else None,
-            "transport_dest_status": dest_status,
+            # destination the RECOMMENDED pathway ships to (CO₂-eligible well for capture pathways,
+            # else the general any-well destination; item 7)
+            "transport_dest_well": disp_well,
+            "transport_dest_status": disp_status,
+            "transport_dest_km": disp_km,
             "permitted_storage": permitted_storage,
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,
