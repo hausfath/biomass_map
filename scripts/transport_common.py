@@ -410,10 +410,11 @@ def build_records(graph, regions, cap=100.0):
         # CO₂ cost for the storage-access grade so injection/bio-oil availability is NOT tightened.
         access_co2 = by["co2"]
         co2_dest = co2_status = co2_km = None
+        co2_route_legs = None
         if co2:
-            co2_pt, co2_legs, co2_dest, co2_status = co2
+            co2_pt, co2_route_legs, co2_dest, co2_status = co2
             by["co2"] = payload_costs(co2_pt, True, dom)["co2"]
-            co2_km = sum(L["km"] for L in co2_legs)
+            co2_km = sum(L["km"] for L in co2_route_legs)
             if co2_dest != dest:
                 n_co2_far += 1
         else:
@@ -426,6 +427,11 @@ def build_records(graph, regions, cap=100.0):
             "access_co2_usd": access_co2,        # general (any-well) CO₂ cost → storage-access grade
             "co2_dest_well": co2_dest, "co2_dest_status": co2_status, "co2_total_km": co2_km,
         }
+        # For a capture (gaseous-CO₂) pathway the CO₂ ships to a CO₂-ELIGIBLE well, which may differ
+        # from the general destination — store its route legs so the map draws the right path (item 7).
+        # Only stored when it actually differs, to keep the bundle small.
+        if co2_route_legs is not None and co2_dest != dest:
+            rec["co2_legs"] = co2_route_legs
         if res["co2"]["firm"]:
             rec["firm_co2_usd"] = co2_of(res["co2"]["firm"])   # nearest firm CO₂ store, for reference
         out[rid] = rec

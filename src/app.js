@@ -704,7 +704,13 @@
     if (!state.showRoute || !state.openRegion) { return; }
     const t = transportFor(sc, state.openRegion.id);
     if (!t || !t.legs || !t.legs.length) return;
-    t.legs.forEach(leg => {
+    // For a capture (gaseous-CO₂) pathway the CO₂ ships to a CO₂-eligible (Class VI/RR) well, which
+    // can differ from the general destination — draw THAT route (co2_legs) so the map matches the
+    // recommended pathway's actual storage destination (item 7). Otherwise draw the general route.
+    const rec = recById[state.openRegion.id];
+    const isCapture = rec && PAYLOAD_OF[rec.recommended] === "co2";
+    const legs = (isCapture && t.co2_legs && t.co2_legs.length) ? t.co2_legs : t.legs;
+    legs.forEach(leg => {
       const m = ROUTE_MODE[leg.mode] || { color: "#aaa", label: leg.mode };
       // ship/barge legs follow real water geometry (leg.path); truck/rail are straight from→to
       const line = (leg.path && leg.path.length > 1) ? leg.path : [leg.from, leg.to];
