@@ -1,13 +1,14 @@
 # Best-Use-of-Biomass Recommendation Logic
 
-A flow chart of the deterministic decision tree in `scripts/build_recommendations.py`
-(`decide()` plus the storage-access pre-step and the excess-nutrient post-step). The tree is
-**first-match-wins** on the region's dominant feedstock. It encodes Frontier's KPI priority —
+A flow chart of the deterministic decision tree in `scripts/engine_core.py` (`decide()` /
+`_decide_for()`, shared by all scopes), plus the scope builders' storage-access pre-step and
+excess-nutrient post-step. The tree is **first-match-wins** on the region's dominant feedstock. It encodes Frontier's KPI priority —
 **CDR efficiency › emissions-avoiding co-product › other co-benefits** — modulated by storage
 proximity, feedstock density, nutrient status, retrofit availability, and AD maturity.
 
 Each teal leaf shows the **recommended** pathway (first line) and the *runner-up* (second line).
-After the tree, a post-step can swap the runner-up to biomass burial in excess-nutrient regions.
+After the tree, a post-step can swap the runner-up to biomass burial in excess-nutrient regions —
+**dry feedstocks only** (wet manure/biosolids can't be buried, so they are never swapped).
 
 ## Inputs (per region)
 
@@ -29,7 +30,8 @@ pathways (`lfg_ccs` / `lfg_rng_ccs`) only make sense as retrofits of existing fa
 each is recommendable — and only appears in the ranked options — where the region is within the
 procurement radius of an existing facility of that type (the `avail` flags). Outside the radius the
 tree falls back to a non-retrofit pathway (no mill → plain BECCS / injection; no WtE → burial; no AD
-→ injection or biochar; no landfill → MSW re-decides on its next feedstock). Plain BECCS
+→ injection when storage is near, else HTL bio-oil; no landfill → MSW re-decides on its next
+feedstock). Plain BECCS
 (heat/electricity) is **not** gated. At country scope the radius reduces to "a facility of that type
 exists in the country". Facility coverage for the gate: pulp & paper and WtE from the global +
 GHGRP/E-PRTR datasets; AD from EPA AgSTAR (US, county-aggregated) and EBA-based regional cumulative
@@ -45,11 +47,19 @@ good      = within 500 km of qualifying storage  (or a high-confidence in-countr
 moderate  = within 1000 km
 poor      = otherwise, or only low-confidence storage nearby
 ```
-(US scope: distance is **replaced by transport cost** — `storage_access` = good ≤ $66 / moderate ≤ $100 /
-poor > $100 per tCO₂, from the carbon-density-weighted multimodal delivered cost to the nearest operating
-well; see METHODOLOGY §11. Each storage-dependent pathway is also disqualified above $100/tCO₂ for its own
-payload — wet slurry hits the cap far sooner than densified bio-oil — falling back to bio-oil / burial /
-biochar. Other scopes still use the distance bands above.)
+(**US / Canada / Europe detail scopes:** distance is **replaced by transport cost** — `storage_access` =
+good ≤ $66 / moderate ≤ $100 / poor > $100 per tCO₂, from the carbon-density-weighted multimodal delivered
+cost to the nearest firm well (operational or issued/under-construction); see METHODOLOGY §11. Each
+storage-dependent pathway is also disqualified above $100/tCO₂ for its own payload — wet slurry hits the
+cap far sooner than densified bio-oil — falling back to bio-oil (HTL for wet manure) / burial / biochar.
+Only the **global** scope still uses the distance bands above.)
+
+**Well eligibility by payload (item 7).** Gaseous **CO₂** (BECCS · BECCS-pp · WtE+CCS · AD+CCS ·
+LFG+CCS / LFG-RNG+CCS) may only be stored in a **CO₂-eligible well** — Class VI / Subpart-RR or a CCS
+project, **not** a Class V biomass/bio-oil site (Vaulted/Charm); a capture pathway with no affordable
+CO₂-eligible well in range is disqualified (→ bio-oil / burial). **Bio-oil and slurry** may use *any*
+well (Class V or VI). `storage_access` itself is graded on the CO₂ cost to the nearest *any* well, so
+injection/bio-oil availability is not tightened — only the capture pathways are. (US + Canada scopes.)
 
 `dry_removal` (the preferred distributed dry-biomass pathway) = **injection** if `storage = good`,
 else **bio-oil** (pyrolysis densifies carbon, so bio-oil wins only when wells are far).
@@ -102,7 +112,7 @@ flowchart TD
     Fsa -->|else| Fbe2["BECCS<br/>runner: bio-oil"]
 
     %% ---------- POST-STEP ----------
-    Mad & Minj & Mbio & Wwte & Wlfg & Cpp & Cbe & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{recommended is<br/>BECCS / bio-oil / injection<br/>AND nutrient = excess?}
+    Mad & Minj & Mbio & Wwte & Wlfg & Cpp & Cbe & Cbur & Cbo & Dinj & Dbur & Dbo & Fbe & Fbur & Fbe2 --> NUT{DRY feedstock, recommended is<br/>BECCS / BECCS-pp / bio-oil / injection,<br/>AND nutrient = excess?}
     NUT -->|yes| Swap["swap runner-up to Biomass burial<br/>removal-consistent; bio-oil would<br/>return nutrients to surplus soils"]
     NUT -->|no| Keep["keep runner-up"]
     Swap --> Done([Recommended + runner-up])
@@ -126,9 +136,11 @@ flowchart TD
   storage is near and affordable.
 - **AD+CCS and injection both need geologic CO₂ storage** — AD+CCS captures a concentrated CO₂
   stream that must be injected, and injection places the slurry itself underground — so, exactly like
-  BECCS and WtE+CCS, both require **storage proximity**. Where storage is poor, wet manure falls back
-  to distributed **biochar** (the only storage-independent wet-manure CDR); AD+CCS / injection are not
-  recommended there.
+  BECCS and WtE+CCS, both require **storage proximity**. Where storage is poor (or slurry transport
+  exceeds the cost cap), wet manure falls back to **HTL bio-oil** — hydrothermal liquefaction densifies
+  the wet feedstock into a haulable, storage-independent bio-crude; AD+CCS / injection are not
+  recommended there. Wet feedstocks are **never** sent to biochar or burial (both need dry/solid
+  biomass).
 - **Injection vs bio-oil** for dry residues turns on storage proximity: injection (>90% efficiency,
   cheaper on balance) wins where wells are near; bio-oil (~45%) wins at distance because
   pyrolysis densifies the carbon for cheaper transport.
@@ -146,4 +158,5 @@ flowchart TD
 - The KPI score that orders the ranked list (and colours the map) is
   `60·CDR-efficiency + 25·(energy co-product) + 15·(co-benefit) − 10·(needs storage but poor access)`.
 
-> Keep this chart in sync with `decide()` in `scripts/build_recommendations.py` if the logic changes.
+> Keep this chart in sync with `decide()` / `_decide_for()` in `scripts/engine_core.py` if the logic
+> changes (it is the shared tree behind every scope).
