@@ -42,7 +42,10 @@ CO2_LIQUEFACTION_USD_PER_T = 25.0   # once, to move captured CO₂ by truck/rail
 #   draft   — draft permit at public-comment stage (~55-70%) → usable but lower confidence.
 #   pending — application under review, no draft (~30-50%, slow/uncertain) → fallback only.
 # (EU "construction" maps to issued; "planned" to pending — done in the EU transport build.)
-STATUS_TIER = {"operational": "firm", "issued": "firm", "draft": "draft", "pending": "pending"}
+STATUS_TIER = {"operational": "firm", "issued": "firm", "draft": "draft", "pending": "pending",
+               # a developable-but-undeveloped injection site (e.g. a UK salt cavern not yet
+               # permitted for bio-oil/biomass storage) is the lowest-confidence tier.
+               "prospective": "pending"}
 FIRM_STATUSES = {"operational", "issued"}
 
 # Payload carbon density: tonnes MOVED per tonne CO₂ stored (drives the whole cost). Derived from
@@ -85,6 +88,16 @@ _SEAROUTE_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                "..", "data", "geo", "transport_raw", "searoute_cache.json")
 
 
+def _accepts_set(well):
+    """Payload-eligibility group set {"co2","inj"} for a well/site. Explicit `accepts` (payload
+    classes co2 / bio_oil / bio_oil_htl / slurry) wins, normalised to the two groups; otherwise the
+    default preserves prior behaviour (CO₂ where co2_ok, injection always)."""
+    acc = well.get("accepts")
+    if acc:
+        return {"co2" if a == "co2" else "inj" for a in acc}
+    return ({"co2"} if well.get("well_class") != "V" else set()) | {"inj"}
+
+
 def _leg_cost(mode, km):
     m = MODES[mode]
     return m["handling_usd_per_t"] + m["usd_per_tkm"] * km * m["detour"]
@@ -92,6 +105,23 @@ def _leg_cost(mode, km):
 
 def _km(a, b):
     return haversine_km(a[1], a[0], b[1], b[0])   # nodes are [lat, lon]
+
+
+# --- Landmass separation: TRUCK & RAIL may not cross open sea between islands. -----------
+# A land route may only connect nodes on the SAME landmass; sea gaps are bridged by SHIP
+# (or, for GB<->continent rail freight, the explicit Channel Tunnel link added in
+# _build_static_edges). Without this, the k-nearest graph happily drew a "rail" leg straight
+# from Birmingham across the North Sea to Rotterdam, and trucked from Wales across the Irish
+# Sea to Dublin. Coarse bounding boxes are enough for the curated node set: Great Britain,
+# the island of Ireland, everything else -> the "mainland". Other scopes (US/CA) have no
+# nodes inside the GB/IE boxes, so they collapse to a single "mainland" and stay fully
+# connected — this restriction is a no-op there.
+def landmass(lat, lon):
+    if 51.3 <= lat <= 55.5 and -10.8 <= lon <= -5.3:   # island of Ireland (incl. N. Ireland)
+        return "IE"
+    if 49.8 <= lat <= 59.0 and -5.9 <= lon <= 1.9:      # Great Britain (England/Wales/Scotland)
+        return "GB"
+    return "mainland"
 
 
 # --- searoute coastal geometry/distance, cached on disk (key "lat,lon|lat,lon") ---
@@ -123,9 +153,41 @@ def _save_searoute_cache():
             json.dump(_sr_cache, f, separators=(",", ":"))
 
 
+# Curated coastal paths for corridors where searoute's coarse global marine network detours badly
+# (it routes narrow enclosed seas the long way — e.g. Milford Haven -> Liverpool Bay dips south into
+# the Celtic Sea and back instead of running straight up the Irish Sea). Each entry is (endpointA,
+# endpointB, waypoints A..B in the water); matched on endpoints in EITHER direction within ~0.35°.
+COASTAL_OVERRIDES = [
+    ((51.71, -5.04), (53.45, -3.95),          # Milford Haven <-> Liverpool Bay (HyNet), up the Irish Sea
+     [[51.71, -5.04], [52.0, -5.35], [52.6, -5.05], [53.0, -5.0],
+      [53.5, -4.8], [53.55, -4.1], [53.45, -3.95]]),
+]
+
+
+def _near(p, q, tol=0.35):
+    return abs(p[0] - q[0]) <= tol and abs(p[1] - q[1]) <= tol
+
+
+def _coastal_override(a, b):
+    """Curated (km, path) for a known searoute-detour corridor, matched either direction; else None."""
+    for A, B, path in COASTAL_OVERRIDES:
+        fwd = _near(a, A) and _near(b, B)
+        rev = _near(a, B) and _near(b, A)
+        if fwd or rev:
+            pts = [list(p) for p in path]
+            if rev:
+                pts.reverse()
+            km = round(sum(_km(pts[i], pts[i + 1]) for i in range(len(pts) - 1)))
+            return km, pts
+    return None
+
+
 def _sea_route(a, b):
     """(km, path[[lat,lon]...]) along real sea lanes between coastal points a,b ([lat,lon])."""
     global _sr_dirty
+    ov = _coastal_override(a, b)   # curated corridors win over searoute's coarse network
+    if ov is not None:
+        return ov
     sr = _load_searoute()
     key = f"{a[0]:.3f},{a[1]:.3f}|{b[0]:.3f},{b[1]:.3f}"
     if key in _sr_cache:
@@ -159,6 +221,7 @@ class TransportGraph:
             nid = f"W{i}"
             self.nodes[nid] = {"pos": [w["lat"], w["lon"]], "kind": "well", "name": w["name"],
                                "status": w.get("status", "operational"),
+                               "land": landmass(w["lat"], w["lon"]),
                                "marine": bool(w.get("marine")),   # offshore storage → reached by ship
                                # Gaseous-CO₂ eligibility (item 7): captured CO₂ needs a dedicated CO₂
                                # store — a Class VI/RR well (or an offshore CCS project) — NOT a
@@ -166,16 +229,26 @@ class TransportGraph:
                                # the ONLY ineligible class; everything else (VI, VI/RR, CA/EU CCS
                                # projects with no class) accepts CO₂.
                                "well_class": w.get("well_class"),
-                               "co2_ok": w.get("well_class") != "V"}
+                               "co2_ok": w.get("well_class") != "V",
+                               # Payload eligibility: which payload classes this site can store.
+                               # "co2" = gaseous/dense-phase CO₂ store (CCS project, Class VI/RR);
+                               # "inj" = bio-oil / biomass-slurry injection (salt cavern, Class V).
+                               # Explicit `accepts` (from the scope's site record) wins; otherwise
+                               # default preserves prior behaviour: CO₂ where co2_ok, injection
+                               # always (so US bio-oil/slurry still reach any well). EU sets these
+                               # explicitly so CO₂-only offshore projects stop accepting slurry.
+                               "accepts": _accepts_set(w)}
             self._wells.append(nid)
         for i, t in enumerate(terminals):
             nid = f"R{i}"
             self.nodes[nid] = {"pos": [t["lat"], t["lon"]], "kind": "rail",
+                               "land": landmass(t["lat"], t["lon"]),
                                "name": t.get("name", "rail terminal")}
             self._terms.append(nid)
         for i, p in enumerate(coastal_ports):
             nid = f"P{i}"
             self.nodes[nid] = {"pos": [p["lat"], p["lon"]], "kind": "port",
+                               "land": landmass(p["lat"], p["lon"]),
                                "name": p.get("name", "port"), "basin": p.get("basin", "?")}
             self._ports.append(nid)
         # river waypoints: shared name == same node (junction)
@@ -185,7 +258,8 @@ class TransportGraph:
             for (name, lat, lon) in corridor:
                 if name not in self._wp_by_name:
                     nid = f"V{len(self._rivers)}"
-                    self.nodes[nid] = {"pos": [lat, lon], "kind": "river", "name": name}
+                    self.nodes[nid] = {"pos": [lat, lon], "kind": "river", "name": name,
+                                       "land": landmass(lat, lon)}
                     self._wp_by_name[name] = nid
                     self._rivers.append(nid)
                 nid = self._wp_by_name[name]
@@ -220,11 +294,20 @@ class TransportGraph:
         return [n for _, n in cand[:k]]
 
     def _build_static_edges(self):
-        # rail network
+        # rail network — only between terminals on the SAME landmass (no rail across open sea)
         for t in self._terms:
-            for nbr in self._nearest(self.nodes[t]["pos"], self._terms, K_RAIL_NEIGHBORS + 1):
-                if nbr != t:
-                    self._edge(t, nbr, "rail")
+            lm = self.nodes[t]["land"]
+            pool = [x for x in self._terms if x != t and self.nodes[x]["land"] == lm]
+            for nbr in self._nearest(self.nodes[t]["pos"], pool, K_RAIL_NEIGHBORS + 1):
+                self._edge(t, nbr, "rail")
+        # Channel Tunnel: the one GB<->mainland rail-freight link (Eurotunnel). Connect the GB
+        # terminal nearest the English portal to the mainland terminal nearest the French portal.
+        gb = [t for t in self._terms if self.nodes[t]["land"] == "GB"]
+        ml = [t for t in self._terms if self.nodes[t]["land"] == "mainland"]
+        if gb and ml:
+            g = min(gb, key=lambda t: _km(self.nodes[t]["pos"], [51.09, 1.12]))   # Folkestone portal
+            m = min(ml, key=lambda t: _km(self.nodes[t]["pos"], [50.92, 1.81]))   # Coquelles portal
+            self._edge(g, m, "rail")
         # coastal ship network: searoute between nearest same/adjacent-basin ports
         # navigably-connected sea basins (US + EU; scopes build separately so no transatlantic mix)
         OPEN = {"Gulf": {"Gulf", "Atlantic"}, "Atlantic": {"Atlantic", "Gulf", "NorthSea"},
@@ -238,9 +321,14 @@ class TransportGraph:
             for nbr in self._nearest(self.nodes[p]["pos"], pool, 4):
                 km, path = _sea_route(self.nodes[p]["pos"], self.nodes[nbr]["pos"])
                 self._edge(p, nbr, "ship", km=km, path=path, bidir=False)
-        # link ports & wells to the rail/river networks via truck last-mile
+        # link ports & wells to the rail/river networks via truck last-mile (SAME landmass only —
+        # a truck cannot drive a port's cargo onto another island)
+        def _same_land(pos, pool, k, lm):
+            return self._nearest(pos, [n for n in pool if self.nodes[n]["land"] == lm], k)
+
         for p in self._ports:
-            for t in self._nearest(self.nodes[p]["pos"], self._terms, PORT_RAIL_LINK):
+            lm = self.nodes[p]["land"]
+            for t in _same_land(self.nodes[p]["pos"], self._terms, PORT_RAIL_LINK, lm):
                 self._edge(p, t, "truck")
         for w in self._wells:
             if self.nodes[w]["marine"]:
@@ -249,11 +337,12 @@ class TransportGraph:
                     km, path = _sea_route(self.nodes[p]["pos"], self.nodes[w]["pos"])
                     self._edge(w, p, "ship", km=km, path=list(reversed(path)))
                 continue
-            for t in self._nearest(self.nodes[w]["pos"], self._terms, WELL_RAIL_LASTMILE):
+            lm = self.nodes[w]["land"]
+            for t in _same_land(self.nodes[w]["pos"], self._terms, WELL_RAIL_LASTMILE, lm):
                 self._edge(w, t, "truck")
-            for p in self._nearest(self.nodes[w]["pos"], self._ports, WELL_PORT_LASTMILE):
+            for p in _same_land(self.nodes[w]["pos"], self._ports, WELL_PORT_LASTMILE, lm):
                 self._edge(w, p, "truck")
-            for v in self._nearest(self.nodes[w]["pos"], self._rivers, WELL_RIVER_LASTMILE):
+            for v in _same_land(self.nodes[w]["pos"], self._rivers, WELL_RIVER_LASTMILE, lm):
                 self._edge(w, v, "truck")
 
     # per-region solve -----------------------------------------------------
@@ -267,16 +356,20 @@ class TransportGraph:
         bio-oil/slurry may use ANY well. So we return best-per-tier for both groups:
         {"gen": {tier: packed|None}, "co2": {tier: packed|None}}  (packed = (cost, legs, name, status))."""
         O = "_O"
-        self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin"}
+        lm = landmass(origin_pos[0], origin_pos[1])
+        self.nodes[O] = {"pos": list(origin_pos), "kind": "origin", "name": "origin", "land": lm}
         self.adj[O] = []
+        # The origin's first-mile is always a truck — so it may only reach nodes on its OWN
+        # landmass (an island region trucks to its own ports/terminals, then ships across).
+        same = lambda pool: [n for n in pool if self.nodes[n]["land"] == lm]
         onshore_wells = [w for w in self._wells if not self.nodes[w]["marine"]]
-        for w in self._nearest(origin_pos, onshore_wells, ORIG_WELL):
+        for w in self._nearest(origin_pos, same(onshore_wells), ORIG_WELL):
             self._edge(O, w, "truck", bidir=False)   # direct truck only to onshore wells
-        for t in self._nearest(origin_pos, self._terms, ORIG_RAIL):
+        for t in self._nearest(origin_pos, same(self._terms), ORIG_RAIL):
             self._edge(O, t, "truck", bidir=False)
-        for p in self._nearest(origin_pos, self._ports, ORIG_PORT):
+        for p in self._nearest(origin_pos, same(self._ports), ORIG_PORT):
             self._edge(O, p, "truck", bidir=False)
-        for v in self._nearest(origin_pos, self._rivers, ORIG_RIVER):
+        for v in self._nearest(origin_pos, same(self._rivers), ORIG_RIVER):
             self._edge(O, v, "truck", bidir=False)
 
         dist = {O: 0.0}
@@ -294,16 +387,20 @@ class TransportGraph:
                     heapq.heappush(pq, (nd, v))
 
         empty = {"firm": None, "draft": None, "pending": None}
-        best = {"gen": dict(empty), "co2": dict(empty)}   # group -> tier -> (cost, well_id)
+        # Two payload-eligibility groups: "co2" (gaseous-CO₂ stores — CCS projects / Class VI-RR)
+        # and "inj" (bio-oil / biomass-slurry injection sites — salt caverns / Class V). A payload
+        # may only go to a site whose `accepts` includes its group, so slurry/bio-oil can no longer
+        # route to a CO₂-only offshore project (item 12A).
+        best = {"co2": dict(empty), "inj": dict(empty)}   # group -> tier -> (cost, well_id)
         for w in self._wells:
             if w not in dist:
                 continue
             tier = STATUS_TIER.get(self.nodes[w]["status"], "pending")
             d = dist[w]
-            if best["gen"][tier] is None or d < best["gen"][tier][0]:
-                best["gen"][tier] = (d, w)
-            if self.nodes[w]["co2_ok"] and (best["co2"][tier] is None or d < best["co2"][tier][0]):
-                best["co2"][tier] = (d, w)
+            acc = self.nodes[w]["accepts"]
+            for grp in ("co2", "inj"):
+                if grp in acc and (best[grp][tier] is None or d < best[grp][tier][0]):
+                    best[grp][tier] = (d, w)
 
         def pack(entry):
             if entry is None:
@@ -315,7 +412,7 @@ class TransportGraph:
         result = {grp: {tier: pack(e) for tier, e in tiers.items()} for grp, tiers in best.items()}
         del self.nodes[O]
         del self.adj[O]
-        return result
+        return result   # {"co2": {tier: packed|None}, "inj": {tier: packed|None}}
 
     def _reconstruct(self, prev, well):
         # walk back to origin collecting (a, b, mode, km, path)
@@ -347,9 +444,12 @@ class TransportGraph:
                     "path": [[round(x, 3), round(y, 3)] for x, y in seg],
                     "to_name": self.nodes[b]["name"] if self.nodes[b]["kind"] != "origin" else None,
                 })
-        # drop trivial straight path on land legs (frontend draws from->to); keep water geometry
+        # Drop the path only for a SINGLE-hop land leg (frontend draws a straight from->to for it).
+        # A MULTI-hop merged land leg (e.g. GB-rail -> Channel Tunnel -> mainland-rail) keeps its
+        # waypoint polyline, so it renders through the real hubs (via the tunnel) instead of a
+        # straight line across the sea. Water geometry (ship/barge) is always kept.
         for L in legs:
-            if L["mode"] in ("truck", "rail"):
+            if L["mode"] in ("truck", "rail") and len(L.get("path", [])) <= 2:
                 L.pop("path", None)
         return legs
 
@@ -388,50 +488,60 @@ def build_records(graph, regions, cap=100.0):
                 pick = min(cands, key=lambda e: e[0]) if cands else None
             return pick, rescued
 
-        # General destination (ANY well) — drives storage access + the biomass payloads (bio-oil /
-        # slurry can use any well, incl. Class V). CO₂-eligible destination (Class VI/RR or a CCS
-        # project) — drives the gaseous-CO₂ payload only (item 7).
-        gen, rescued = choose(res["gen"])
-        co2, _ = choose(res["co2"])
-        if gen is None:
+        # CO₂-store destination (CCS project / Class VI-RR) — drives storage access + the gaseous-CO₂
+        # payload. INJECTION-site destination (salt cavern / Class V) — drives the bio-oil & slurry
+        # payloads (item 12A): these can no longer route to a CO₂-only offshore project.
+        co2, rescued = choose(res["co2"])
+        inj, _ = choose(res["inj"])
+        if co2 is None and inj is None:
             n_nopath += 1
             continue
         if rescued:
             n_rescued += 1
-        per_tonne, legs, dest, dest_status = gen
+
+        by = {k: None for k in PAYLOAD_MASS_PER_TCO2}
+        # CO₂ payload + storage-access grade from the CO₂-store group.
+        co2_dest = co2_status = co2_km = None
+        co2_legs = None
+        if co2:
+            co2_pt, co2_legs, co2_dest, co2_status = co2
+            by["co2"] = payload_costs(co2_pt, True, dom)["co2"]
+            co2_km = sum(L["km"] for L in co2_legs)
+        access_co2 = by["co2"]
+        # bio-oil / slurry payloads from the injection-site group (salt caverns / Class V).
+        inj_dest = inj_status = inj_km = None
+        inj_legs = None
+        if inj:
+            inj_pt, inj_legs, inj_dest, inj_status = inj
+            ic = payload_costs(inj_pt, True, dom)
+            by["bio_oil"], by["bio_oil_htl"], by["slurry"] = ic["bio_oil"], ic["bio_oil_htl"], ic["slurry"]
+            inj_km = sum(L["km"] for L in inj_legs)
+
+        # Primary (shown) destination = the CO₂ store where present (most pathways capture CO₂);
+        # else the injection site. Storage-access grading uses the CO₂ cost.
+        prim = co2 if co2 else inj
+        per_tonne, legs, dest, dest_status = prim
         n_path += 1
         modes = sorted({leg["mode"] for leg in legs})
         for m in modes:
             mode_use[m] += 1
-
-        by = payload_costs(per_tonne, bool(legs), dom)          # biomass payloads via the ANY well
-        # gaseous CO₂ is re-costed to the nearest CO₂-ELIGIBLE well (None if none reachable → the
-        # capture pathways get disqualified downstream). access_co2_usd keeps the general (any-well)
-        # CO₂ cost for the storage-access grade so injection/bio-oil availability is NOT tightened.
-        access_co2 = by["co2"]
-        co2_dest = co2_status = co2_km = None
-        co2_route_legs = None
-        if co2:
-            co2_pt, co2_route_legs, co2_dest, co2_status = co2
-            by["co2"] = payload_costs(co2_pt, True, dom)["co2"]
-            co2_km = sum(L["km"] for L in co2_route_legs)
-            if co2_dest != dest:
-                n_co2_far += 1
-        else:
-            by["co2"] = None
+        if co2 and inj and inj_dest != co2_dest:
+            n_co2_far += 1
 
         rec = {
             "per_tonne_usd": per_tonne, "dest_well": dest, "dest_status": dest_status,
             "legs": legs, "by_payload": by,
             "modes": modes, "total_km": sum(leg["km"] for leg in legs),
-            "access_co2_usd": access_co2,        # general (any-well) CO₂ cost → storage-access grade
+            "access_co2_usd": access_co2,        # CO₂-store cost → storage-access grade
             "co2_dest_well": co2_dest, "co2_dest_status": co2_status, "co2_total_km": co2_km,
+            "inj_dest_well": inj_dest, "inj_dest_status": inj_status, "inj_total_km": inj_km,
         }
-        # For a capture (gaseous-CO₂) pathway the CO₂ ships to a CO₂-ELIGIBLE well, which may differ
-        # from the general destination — store its route legs so the map draws the right path (item 7).
-        # Only stored when it actually differs, to keep the bundle small.
-        if co2_route_legs is not None and co2_dest != dest:
-            rec["co2_legs"] = co2_route_legs
+        # Route legs kept when a payload's destination differs from the shown one, so the map can
+        # draw the right path: CO₂ store (capture pathways) and injection site (bio-oil / slurry).
+        if co2_legs is not None and co2_dest != dest:
+            rec["co2_legs"] = co2_legs
+        if inj_legs is not None and inj_dest != dest:
+            rec["inj_legs"] = inj_legs
         if res["co2"]["firm"]:
             rec["firm_co2_usd"] = co2_of(res["co2"]["firm"])   # nearest firm CO₂ store, for reference
         out[rid] = rec

@@ -80,7 +80,8 @@ PATHWAYS = {
     },
     "bio_oil": {
         "label": "Bio-oil (pyrolysis)",
-        "cdr_efficiency": 0.45,
+        "cdr_efficiency": 0.65,   # 2026 update per Charm feedback (was 0.45): improved pyrolysis
+                                  # bio-oil carbon yield to durable sequestration.
         "cost_band": "$140-360",
         "co_product": "biochar/nutrients",
         "needs_geologic_storage": False,
@@ -167,7 +168,7 @@ PATHWAY_PROFILE = {
                  "Pyrolysis densifies the carbon, so it is cheap to haul to distant wells",
                  "Returns biochar and nutrients to fields",
                  "Low durability risk"],
-        "cons": ["Lower CDR efficiency (~45%)",
+        "cons": ["Lower CDR efficiency than direct injection (~65% vs >90%)",
                  "Needs dry/solid biomass — not for wet feedstocks",
                  "Higher $/t than injection where storage is proximate"],
     },
@@ -353,15 +354,19 @@ def transport_cost_for(pathway, tcost):
     return tcost.get(pay)
 
 
-def apply_transport_cap(rec, runner, dom, region, tcost):
+def apply_transport_cap(rec, runner, dom, region, tcost, avail=None):
     """Carbon-density-correct >$100 cutoff. If the recommended storage-dependent pathway's payload
     delivered cost exceeds TRANSPORT_MAX_USD, fall back to the cheapest still-affordable option.
     The fallback differs by feedstock: WET manure has no solid-biomass options (no biochar/burial),
-    so it falls to HTL bio-oil (densified, haulable); DRY biomass falls to densified bio-oil, else a
-    storage-independent pathway (burial in excess-nutrient regions, else biochar). Returns
-    (rec, runner, capped)."""
+    so it falls to HTL bio-oil / injection / AD+CCS (whichever is reachable), else no viable pathway;
+    DRY biomass falls to densified bio-oil, else a storage-independent pathway (burial in
+    excess-nutrient regions, else biochar). `avail` (retrofit-availability flags) is optional: when
+    given, AD+CCS is only offered as a wet fallback where AD capacity actually exists to retrofit
+    (av['ad']); when None (US/CA/global callers), behaviour is unchanged. Returns (rec, runner, capped)."""
     if not tcost:
         return rec, runner, False
+    strict = avail is not None   # explicit avail (EU) => AD-gate the wet fallback + allow "none"
+    av = _avail(avail)
     nutrient = region.get("nutrient_status")
     wet = (dom == "manure_wet")
     if wet:                                # wet manure: HTL bio-oil is the densified fallback
@@ -386,13 +391,25 @@ def apply_transport_cap(rec, runner, dom, region, tcost):
         return rec, runner, False
     # recommended pathway can't deliver its payload affordably -> fall back by feedstock type
     if wet:
-        # injection / AD+CCS priced out -> HTL bio-oil (densified). Least-bad even if itself costly.
-        return "bio_oil_htl", "injection", True
+        # Wet biomass has NO storage-independent option (can't biochar/bury wet feedstock). Its only
+        # pathways all need a reachable store: HTL bio-oil / slurry injection (an injection SITE),
+        # or AD+CCS (a CO₂ store). Fall to the first AFFORDABLE one; if none is reachable (e.g. no
+        # salt-cavern injection site AND no affordable AD), there is genuinely no viable pathway.
+        for cand in ("bio_oil_htl", "injection", "ad_ccs"):
+            if cand == rec or not affordable(cand):
+                continue
+            if cand == "ad_ccs" and strict and not av["ad"]:
+                continue                       # AD+CCS needs existing digesters to retrofit (EU)
+            return cand, rec, True
+        # No affordable wet option. With explicit avail (EU) this is a genuine no-option region;
+        # for callers that don't pass avail (US/CA/global) preserve the prior behaviour (return the
+        # densified HTL bio-oil even if costly — least-bad) so their outputs are unchanged.
+        return ("none", None, True) if strict else ("bio_oil_htl", "injection", True)
     if dom == "msw":
         return "burial", "biochar", True
     if affordable("bio_oil"):              # dry biomass: densify and haul
         return "bio_oil", indep, True
-    return indep, indep_alt, True
+    return indep, indep_alt, True          # dry biomass always has biochar/burial (storage-independent)
 
 
 def _avail(avail):
@@ -578,7 +595,7 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
 
     # Preferred distributed-removal pathway for DRY biomass, set by storage proximity.
     # Frontier is bullish on Vaulted-style slurry injection: it handles the same dry
-    # residues as bio-oil, has higher CDR efficiency (>90% vs ~45%), and is cheaper on
+    # residues as bio-oil, has higher CDR efficiency (>90% vs ~65%), and is cheaper on
     # balance -- so where geologic storage (injection wells) is PROXIMATE it beats bio-oil.
     # Bio-oil's edge is only at distance: pyrolysis densifies the carbon, making the
     # less-carbon-dense raw biomass cheaper to haul to far-off wells. So:

@@ -256,7 +256,10 @@ def main():
         transport_capped = False
         if not no_option:
             rec_key, runner_key, transport_capped = apply_transport_cap(
-                rec_key, runner_key, eff_dom, region, tcost)
+                rec_key, runner_key, eff_dom, region, tcost, avail)
+            # the transport cap can find NO viable pathway for wet biomass (e.g. no reachable
+            # injection site and no affordable AD) -> becomes a no-option region.
+            no_option = (rec_key == "none")
         anchor_str = f"{anchor_name} ({anchor_type})" if anchor_name else None
         rregion = region if eff_dom == region.get("dominant_feedstock") else dict(region, dominant_feedstock=eff_dom)
 
@@ -304,7 +307,22 @@ def main():
             caveats = [f"Transport to the nearest storage project exceeds ${TRANSPORT_MAX_USD:.0f}/tCO₂ "
                        f"for this pathway's payload — defaulted to a storage-independent option or "
                        f"densified bio-oil."] + caveats
-        if permitted_storage and not no_option and rec_key in PATHWAY_PAYLOAD:
+        # Injection / bio-oil pathways are stored at an INJECTION site (salt cavern / Class V), not
+        # the CO₂ store — surface that destination, and flag prospective (undeveloped) UK salt
+        # caverns as developable-not-yet-permitted (item 12A/D). Capture pathways keep the CO₂ store.
+        INJ_PATHS = ("injection", "bio_oil", "bio_oil_htl")
+        if tinfo and rec_key in INJ_PATHS and tinfo.get("inj_dest_well"):
+            disp_dest, disp_status = tinfo["inj_dest_well"], tinfo.get("inj_dest_status", "prospective")
+            disp_km = tinfo.get("inj_total_km")
+        else:
+            disp_dest = tinfo.get("dest_well") if tinfo else None
+            disp_status = dest_status
+            disp_km = tinfo.get("total_km") if tinfo else None
+        if not no_option and rec_key in INJ_PATHS and disp_status == "prospective":
+            caveats = [f"Bio-oil / biomass injection here would use {disp_dest} — a prospective "
+                       f"salt-cavern store, NOT yet developed or permitted for bio-oil/biomass "
+                       f"storage in the UK. Treat as developable potential, not shovel-ready."] + caveats
+        elif permitted_storage and not no_option and PATHWAY_PAYLOAD.get(rec_key) == "co2":
             cav = permitted_storage_caveat(dest_status, tinfo.get("dest_well"))
             if cav:
                 caveats = [cav] + caveats
@@ -334,8 +352,9 @@ def main():
                                if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
             "transport_by_payload": tcost,
             "transport_capped": transport_capped,
-            "transport_dest_well": tinfo.get("dest_well") if tinfo else None,
-            "transport_dest_status": dest_status,
+            "transport_dest_well": disp_dest,
+            "transport_dest_status": disp_status,
+            "transport_dest_km": disp_km,
             "permitted_storage": permitted_storage,
             "feedstock_density": density,
             "residue_density_tco2_km2": dens_tco2_km2,

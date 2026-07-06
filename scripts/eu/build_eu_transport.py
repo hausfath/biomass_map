@@ -35,10 +35,23 @@ def main():
     # storage projects -> offshore "wells" (marine, reached by ship). Map project status to the
     # permit-confidence tiers: operational stays firm; under-CONSTRUCTION → 'issued' (firm, near-
     # certain); PLANNED/announced → 'pending' (speculative fallback).
-    STAGE = {"operational": "operational", "construction": "issued", "planned": "pending"}
-    wells = [{"name": p["name"], "lat": p["lat"], "lon": p["lon"],
-              "status": STAGE.get(p.get("status"), "pending"), "marine": True}
-             for p in projects if p.get("lat") is not None]
+    STAGE = {"operational": "operational", "construction": "issued", "planned": "pending",
+             "prospective": "prospective"}
+    wells = []
+    for p in projects:
+        if p.get("lat") is None:
+            continue
+        if p.get("kind") == "salt_cavern" or p.get("storage_type") == "salt_cavern":
+            # onshore bio-oil / biomass-slurry injection site (reached by land, not ship); not yet
+            # developed/permitted -> prospective tier, accepts injection payloads only (item 12A/D).
+            wells.append({"name": p["name"], "lat": p["lat"], "lon": p["lon"],
+                          "status": STAGE.get(p.get("status"), "prospective"),
+                          "marine": False, "accepts": p.get("accepts", ["bio_oil", "slurry"])})
+        else:
+            # offshore CO₂-storage project: reached by ship, accepts gaseous CO₂ only.
+            wells.append({"name": p["name"], "lat": p["lat"], "lon": p["lon"],
+                          "status": STAGE.get(p.get("status"), "pending"),
+                          "marine": True, "accepts": p.get("accepts", ["co2"])})
     n_op = sum(1 for w in wells if w["status"] in ("operational", "issued"))
 
     nodes = json.load(open(NODES))

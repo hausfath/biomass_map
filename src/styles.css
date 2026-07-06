@@ -138,12 +138,16 @@ select {
   background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
   box-shadow: var(--shadow); z-index: 1200; overflow-y: auto; padding: 22px 22px 26px;
   transition: transform .22s ease, opacity .22s ease;
+  /* Reserve the scrollbar gutter so a classic (non-overlay) scrollbar — e.g. Firefox/Windows —
+     never sits on top of content or the close button (which otherwise forces an off-centre click). */
+  scrollbar-gutter: stable;
 }
 #detail.hidden { transform: translateX(20px); opacity: 0; pointer-events: none; }
 .detail-close {
-  position: absolute; top: 12px; right: 14px; background: var(--panel-2);
-  border: 1px solid var(--line); color: var(--ink-2); width: 28px; height: 28px;
-  border-radius: 7px; font-size: 18px; line-height: 1; cursor: pointer;
+  position: absolute; top: 12px; right: 14px; z-index: 3; background: var(--panel-2);
+  border: 1px solid var(--line); color: var(--ink-2); width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;   /* centre the ✕ in its hit box */
+  border-radius: 7px; font-size: 19px; line-height: 1; cursor: pointer;
 }
 .detail-close:hover { color: var(--ink); }
 
@@ -214,7 +218,7 @@ table.feed td.val { text-align: right; font-weight: 700; font-family: var(--mono
 /* ---------- Modal ---------- */
 .modal { position: absolute; inset: 0; background: rgba(4,8,11,.66); z-index: 2000; display: flex; align-items: center; justify-content: center; }
 .modal.hidden { display: none; }
-.modal-card { position: relative; width: min(720px, 90vw); max-height: 86vh; overflow-y: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 30px 34px; box-shadow: var(--shadow); }
+.modal-card { position: relative; width: min(720px, 90vw); max-height: 86vh; overflow-y: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 30px 34px; box-shadow: var(--shadow); scrollbar-gutter: stable; }
 .modal-card h2 { margin: 0 0 6px; font-size: 20px; }
 .modal-card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px; color: var(--accent); margin: 20px 0 7px; }
 .modal-card p, .modal-card li { font-size: 13px; line-height: 1.6; color: var(--ink-2); }

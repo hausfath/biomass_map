@@ -44,6 +44,7 @@ POP = os.path.join(RAW, "eurostat_pop.json")        # 2023 (UK absent post-Brexi
 POP_FALLBACK = os.path.join(RAW, "eurostat_pop_2019.json")  # 2019 (covers UK)
 NUTS = os.path.join(ROOT, "data", "geo", "eu_nuts.json")
 COUNTRY_FEED = os.path.join(PROC, "feedstocks.json")
+UK_WEIGHTS = os.path.join(ROOT, "data", "geo", "uk_feedstock_weights.json")  # item 11: UK Census
 OUT = os.path.join(PROC, "feedstocks_eu_nuts.json")
 
 SCENARIO, YEAR = "ENS_Med", "2020"
@@ -95,6 +96,17 @@ def load_population():
         for code, v in _load_pop_file(POP_FALLBACK).items():
             pop.setdefault(code, v)
     return pop
+
+
+def load_uk_weights():
+    """UK ITL-2 manure/ag distribution weights from the UK June Census (item 11), keyed by 2021
+    code. Replaces the population/ENSPRESO-imputed weights for UK manure & ag residues so, e.g.,
+    London no longer gets phantom manure. Absent file -> {} (falls back to the ENSPRESO path)."""
+    if not os.path.exists(UK_WEIGHTS):
+        print("  (UK census weights not found — UK falls back to ENSPRESO/population; run "
+              "build_uk_ag_weights.py)")
+        return {}
+    return {k: v for k, v in json.load(open(UK_WEIGHTS)).items() if not k.startswith("_")}
 
 
 def load_conversion(wb):
@@ -166,6 +178,7 @@ def main():
     pj = load_enspreso(wb)
     new2old = load_conversion(wb)
     pop = load_population()
+    uk_weights = load_uk_weights()
     ctot = load_country_totals()
     regions = [f["properties"] for f in json.load(open(NUTS))["features"]]
 
@@ -229,6 +242,13 @@ def main():
                 else:
                     w[k] = rpop
             w["pop"] = rpop
+            # item 11: for the UK, drive manure by housed-livestock units and ag by arable land
+            # from the UK June Census (Eurostat FSS 2016), not ENSPRESO/population. Overrides the
+            # weights BEFORE the per-country normalisation, so UK country totals stay exact.
+            if iso3 == "GBR" and code in uk_weights:
+                w["manure"] = uk_weights[code]["manure_w"]
+                w["ag"] = uk_weights[code]["ag_w"]
+                w["_uk_census"] = True
             raw[code] = w
 
         # normalization factors so each stream sums to the country total
@@ -255,6 +275,11 @@ def main():
 
             enspreso_src = ("JRC ENSPRESO NUTS-2 (ENS_Med 2020) share, scaled to country total"
                             if rp else "population-allocated country total (no ENSPRESO NUTS-2 match)")
+            uk_census = w.get("_uk_census")
+            man_src = ("UK June Agricultural Census (Eurostat FSS 2016) — housed-livestock units "
+                       "(bovine+swine+poultry), scaled to country total") if uk_census else enspreso_src
+            ag_src = ("UK June Agricultural Census (Eurostat FSS 2016) — arable land area, scaled "
+                      "to country total") if uk_census else enspreso_src
             records.append({
                 "id": p["id"],
                 "name": p["name"],
@@ -264,12 +289,13 @@ def main():
                 "nuts_id": code,
                 "area_km2": p["area_km2"],
                 "centroid": p["centroid"],
-                "ag_residues_odt_mt": est(ag, source=enspreso_src),
+                "ag_residues_odt_mt": est(ag, source=ag_src),
                 "forestry_residues_odt_mt": est(forestry, source=enspreso_src),
                 "msw_total_mt": est(msw, source="country MSW total allocated by NUTS-2 population (Eurostat)"),
                 "msw_biogenic_frac": {"value": biofrac, "source": "country value (global tool)"},
-                "animal_manure_odt_mt": est(manure, source=enspreso_src,
-                                            notes="ENSPRESO biogas feedstock (manure_liq+sol)"),
+                "animal_manure_odt_mt": est(manure, source=man_src,
+                                            notes=("housed cattle/pig/poultry manure" if uk_census
+                                                   else "ENSPRESO biogas feedstock (manure_liq+sol)")),
                 "human_wwtp_odt_mt": est(wwtp, source="country biosolids total allocated by NUTS-2 population"),
                 "nutrient_status": tot["nutrient_status"],
                 "nutrient_status_source": "inherited from country (global tool)",

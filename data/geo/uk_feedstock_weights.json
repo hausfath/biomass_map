@@ -1,0 +1,208 @@
+{
+"_meta": "UK ITL-2 (NUTS-2 2021) feedstock distribution weights from Eurostat Farm Structure Survey 2016 (UK June Census). manure_w = bovine+swine+poultry LSU (ef_lsk_main); ag_w = arable land ha (ef_lus_main). Crosswalk 2013->2021 by region name; UKM3 split to UKM8/UKM9 by documented fractions. Weights are relative \u2014 build_nuts_feedstocks.py normalises them to the UK country totals.",
+"UKC1": {
+"manure_w": 108690,
+"ag_w": 70830,
+"src": "FSS2016 UKC1"
+},
+"UKC2": {
+"manure_w": 112450,
+"ag_w": 123950,
+"src": "FSS2016 UKC2"
+},
+"UKD1": {
+"manure_w": 358050,
+"ag_w": 70740,
+"src": "FSS2016 UKD1"
+},
+"UKD3": {
+"manure_w": 25460,
+"ag_w": 7950,
+"src": "FSS2016 UKD3"
+},
+"UKD4": {
+"manure_w": 209280,
+"ag_w": 42180,
+"src": "FSS2016 UKD4"
+},
+"UKD6": {
+"manure_w": 0,
+"ag_w": 0,
+"src": "FSS2016 UKD2"
+},
+"UKD7": {
+"manure_w": 0,
+"ag_w": 0,
+"src": "FSS2016 UKD5"
+},
+"UKE1": {
+"manure_w": 248330,
+"ag_w": 236370,
+"src": "FSS2016 UKE1"
+},
+"UKE2": {
+"manure_w": 515450,
+"ag_w": 284020,
+"src": "FSS2016 UKE2"
+},
+"UKE3": {
+"manure_w": 38720,
+"ag_w": 50440,
+"src": "FSS2016 UKE3"
+},
+"UKE4": {
+"manure_w": 67570,
+"ag_w": 31540,
+"src": "FSS2016 UKE4"
+},
+"UKF1": {
+"manure_w": 233550,
+"ag_w": 158580,
+"src": "FSS2016 UKF1"
+},
+"UKF2": {
+"manure_w": 211370,
+"ag_w": 242400,
+"src": "FSS2016 UKF2"
+},
+"UKF3": {
+"manure_w": 244290,
+"ag_w": 440210,
+"src": "FSS2016 UKF3"
+},
+"UKG1": {
+"manure_w": 267990,
+"ag_w": 248390,
+"src": "FSS2016 UKG1"
+},
+"UKG2": {
+"manure_w": 458270,
+"ag_w": 225740,
+"src": "FSS2016 UKG2"
+},
+"UKG3": {
+"manure_w": 7110,
+"ag_w": 7980,
+"src": "FSS2016 UKG3"
+},
+"UKH1": {
+"manure_w": 541570,
+"ag_w": 782640,
+"src": "FSS2016 UKH1"
+},
+"UKH2": {
+"manure_w": 33300,
+"ag_w": 134280,
+"src": "FSS2016 UKH2"
+},
+"UKH3": {
+"manure_w": 55780,
+"ag_w": 202130,
+"src": "FSS2016 UKH3"
+},
+"UKI3": {
+"manure_w": 0.0,
+"ag_w": 0.0,
+"src": "n/a (inner London)"
+},
+"UKI4": {
+"manure_w": 0,
+"ag_w": 0,
+"src": "FSS2016 UKI4"
+},
+"UKI5": {
+"manure_w": 250,
+"ag_w": 2820,
+"src": "FSS2016 UKI5"
+},
+"UKI6": {
+"manure_w": 80,
+"ag_w": 1940,
+"src": "FSS2016 UKI6"
+},
+"UKI7": {
+"manure_w": 1110,
+"ag_w": 580,
+"src": "FSS2016 UKI7"
+},
+"UKJ1": {
+"manure_w": 167130,
+"ag_w": 238160,
+"src": "FSS2016 UKJ1"
+},
+"UKJ2": {
+"manure_w": 111100,
+"ag_w": 103780,
+"src": "FSS2016 UKJ2"
+},
+"UKJ3": {
+"manure_w": 89520,
+"ag_w": 137780,
+"src": "FSS2016 UKJ3"
+},
+"UKJ4": {
+"manure_w": 77550,
+"ag_w": 135520,
+"src": "FSS2016 UKJ4"
+},
+"UKK1": {
+"manure_w": 333780,
+"ag_w": 280520,
+"src": "FSS2016 UKK1"
+},
+"UKK2": {
+"manure_w": 444320,
+"ag_w": 197560,
+"src": "FSS2016 UKK2"
+},
+"UKK3": {
+"manure_w": 251290,
+"ag_w": 100330,
+"src": "FSS2016 UKK3"
+},
+"UKK4": {
+"manure_w": 485740,
+"ag_w": 149180,
+"src": "FSS2016 UKK4"
+},
+"UKL1": {
+"manure_w": 559140,
+"ag_w": 120400,
+"src": "FSS2016 UKL1"
+},
+"UKL2": {
+"manure_w": 346350,
+"ag_w": 102540,
+"src": "FSS2016 UKL2"
+},
+"UKM5": {
+"manure_w": 262320,
+"ag_w": 212640,
+"src": "FSS2016 UKM5"
+},
+"UKM6": {
+"manure_w": 248490,
+"ag_w": 118770,
+"src": "FSS2016 UKM6"
+},
+"UKM7": {
+"manure_w": 383890,
+"ag_w": 394830,
+"src": "FSS2016 UKM2"
+},
+"UKM8": {
+"manure_w": 104365.8,
+"ag_w": 27168.0,
+"src": "FSS2016 UKM3 (South Western Scotland) split 18%/30% man/ag"
+},
+"UKM9": {
+"manure_w": 475444.2,
+"ag_w": 63392.0,
+"src": "FSS2016 UKM3 (South Western Scotland) split 82%/70% man/ag"
+},
+"UKN0": {
+"manure_w": 1418690,
+"ag_w": 198920,
+"src": "FSS2016 UKN0"
+}
+}
