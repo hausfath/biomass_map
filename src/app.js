@@ -1155,8 +1155,8 @@
     <p>A transparent rule set encoding Frontier's KPI ranking — <b>CDR efficiency › emissions-avoiding
     co-product › other co-benefits</b> — modulated by feedstock moisture/density, storage proximity,
     nutrient status, and retrofit availability. Wet wastes → injection or AD+CCS (AD+CCS preferred where
-    digesters already exist, e.g. Europe: AD RNG+CCS captures the upgrading-vent CO₂ at biomethane plants,
-    ~18% of manure carbon; all-carbon AD+CCS captures the combusted biogas at CHP digesters, ~40%); concentrated woody/dry residues near storage → BECCS; dry
+    digesters already exist, e.g. Europe: AD RNG+CCS captures the upgrading-vent CO₂ at biomethane plants;
+    all-carbon AD+CCS captures the combusted biogas at CHP digesters — efficiencies on each pathway card); concentrated woody/dry residues near storage → BECCS; dry
     residues near storage → injection, far → bio-oil; no storage + excess nutrients → burial; concentrated
     MSW → WtE+CCS, or — where a large gas-collecting landfill is in range (US scope) → landfill-gas + CCS.
     <b>Excluded</b> (flagged): purpose-grown energy crops, corn-ethanol+CCS. (The US/CA/EU detail scopes

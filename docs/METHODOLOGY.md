@@ -142,9 +142,10 @@ biogas carbon ≈ 0.45 × 0.90 flue/fuel-cell capture = **0.40** (range ≈ 0.15
 two AD rows (*"~44% (from Reverion)"* for fuel-cell AD+CCS and *"~30%, if there's no leakage of
 intentionally produced methane"* for traditional/RNG AD+CCS). The POV gives no feedstock basis;
 ~30% matches crop feedstock (maize silage converts far more of its carbon to biogas), not slurry.
-*Sensitivity (POV values 0.30 / 0.44):* recommended and runner-up pathways are unchanged (the manure branch
-chooses AD by AD maturity, not by efficiency; lower ranked-list order may shift); AD CDR scales linearly: Europe 9.5 → ~15.8 Mt/yr, global 5.0 →
-~8.3, Canada 0.3 → ~0.5. Methane slip is not netted in the coefficient; it is a debit of ~12% of
+*Sensitivity (POV values 0.30 / 0.44, rebuilt and diffed 2026-09-25):* zero changes to recommended,
+runner-up, or ranked-list order in the Europe, Canada and global scopes (the manure branch chooses AD
+by AD maturity, not by efficiency); AD CDR on recommended regions rises Europe 9.5 → 15.2 Mt/yr,
+global 5.0 → 8.3, Canada 0.3 → 0.4. Methane slip is not netted in the coefficient; it is a debit of ~12% of
 captured CO₂ per 1% of CH₄ lost (GWP100) and is listed in the pathway cons.
 
 **Which AD variant.** Mirroring the landfill-gas pair, the engine retrofits what is there: an
