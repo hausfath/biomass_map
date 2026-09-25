@@ -78,7 +78,7 @@ flowchart TD
 
     %% ---------- 1. WET MANURE  (no solid options: never biochar/burial. AD+CCS & injection need storage) ----------
     DOM -->|manure_wet| Mst{storage near?}
-    Mst -->|yes + AD nearby<br/>+ AD maturity ≥ 0.15| Mad["AD + CCS<br/>runner: injection"]
+    Mst -->|yes + AD nearby<br/>+ AD maturity ≥ 0.15| Mad["AD RNG+CCS if upgrading plant,<br/>else AD+CCS (all carbon)<br/>runner: injection"]
     Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else HTL bio-oil"]
     Mst -->|no — storage poor<br/>or slurry transport > cap| Mbio["Bio-oil (HTL)<br/>runner: AD+CCS if AD else injection"]
 
@@ -142,15 +142,20 @@ flowchart TD
   recommended there. Wet feedstocks are **never** sent to biochar or burial (both need dry/solid
   biomass).
 - **Injection vs bio-oil** for dry residues turns on storage proximity: injection (>90% efficiency,
-  cheaper on balance) wins where wells are near; bio-oil (~45%) wins at distance because
+  cheaper on balance) wins where wells are near; bio-oil (~65%) wins at distance because
   pyrolysis densifies the carbon for cheaper transport.
+- **AD+CCS** comes in two variants (mirroring the landfill-gas pair): **AD RNG+CCS** (`ad_rng_ccs`,
+  capture the upgrading-vent CO₂ and sell the biomethane, ~18% of manure carbon) where an upgrading
+  digester is in reach, else **all-carbon AD+CCS** (`ad_ccs`, combust the biogas and capture all its
+  carbon, ~40%) where only CHP digesters are. Both efficiencies are derived in `engine_core.py`.
 - **AD+CCS** is preferred over injection for manure where measured **AD maturity ≥ 0.15** *with storage
   near* (it retrofits an existing digester industry). `ad_maturity` = biogas/biomethane produced ÷
   sustainable potential (IEA/FAOSTAT/IRENA/EBA; sub-national from AgSTAR (US), Canadian Biogas
   Association (CA), ENSPRESO-density (EU)) — `data/processed/ad_maturity.json`, built by
   `scripts/build_ad_maturity.py`. This replaced a hardcoded "mature-AD country" list; the data flips
   ES/PL/IE to injection (large potential, little realized AD) and lifts Ontario/BC, California to AD+CCS.
-  RNG+CCS is **not** excluded — it is a viable offtake option.
+  RNG+CCS is **not** excluded in this tool (Frontier POV §3.4, late 2024: "not pursuing biogas/RNG
+  projects at this time").
 - **Cross-border storage** (US + Canada detail scopes): storage proximity ignores the border — a
   Canadian census division is scored against US wells/basins and vice-versa (e.g. southern
   Saskatchewan reaching the North Dakota Class VI wells / the US side of the Williston Basin).

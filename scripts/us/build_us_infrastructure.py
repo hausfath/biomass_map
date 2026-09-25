@@ -21,11 +21,14 @@ Input: data/geo/us_raw/ghgrp/ghgp_data_2023.xlsx
 """
 import json
 import os
+import sys
 
 import openpyxl
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, os.path.dirname(HERE))  # scripts/
+from engine_core import AD_BIOGAS_CH4_FRAC  # noqa: E402
 PROC = os.path.join(ROOT, "data", "processed")
 RAW = os.path.join(ROOT, "data", "geo", "us_raw")
 XLSX = os.path.join(RAW, "ghgrp", "ghgp_data_2023.xlsx")
@@ -49,6 +52,9 @@ LFG_MIN_CO2_MTPA = 0.05    # qualifying-landfill floor (matches engine_core.LFG_
 # (biogas ~60% CH4 / 40% CO2; ~1.98 kg CO2 per m3 biogas).
 CFD_TO_MTPA = 0.0283168 * 365 * 1.98 / 1e9
 AD_DEFAULT_MTPA = 0.003   # per digester when biogas estimate is missing
+# AgSTAR "Biogas End Use(s)" values that mean the biogas is UPGRADED (biomethane), i.e. the plant
+# has a near-pure upgrading-vent CO2 stream (gates AD RNG+CCS; see engine_core._avail).
+AD_UPGRADING_END_USES = ("cng", "pipeline gas")
 
 
 def naics_type(code):
@@ -357,7 +363,8 @@ def build_ad(counties):
     ci = {h: i for i, h in enumerate(hdr)}
     i_county, i_state = ci["County"], ci["State"]
     i_biogas = ci.get("Biogas Generation Estimate (cu-ft/day)")
-    agg = {}   # fips -> {co2, n, props}
+    i_use = ci.get("Biogas End Use(s)")
+    agg = {}   # fips -> {co2, co2_upg, n, n_upg, props}
     matched = unmatched = 0
     for r in it:
         if not r or r[0] is None:
@@ -373,9 +380,14 @@ def build_ad(counties):
         if bg:
             co2 = bg * CFD_TO_MTPA
         fips = prop["fips"]
-        a = agg.setdefault(fips, {"co2": 0.0, "n": 0, "p": prop})
+        a = agg.setdefault(fips, {"co2": 0.0, "co2_upg": 0.0, "n": 0, "n_upg": 0, "p": prop})
         a["co2"] += co2
         a["n"] += 1
+        use = str(r[i_use] or "").lower() if i_use is not None else ""
+        if any(u in use for u in AD_UPGRADING_END_USES):
+            # upgrading-vent CO2 = the CO2 fraction of the raw biogas (co2 above is all biogas carbon)
+            a["co2_upg"] += co2 * (1 - AD_BIOGAS_CH4_FRAC)
+            a["n_upg"] += 1
     out = []
     for fips, a in agg.items():
         p = a["p"]
@@ -383,8 +395,10 @@ def build_ad(counties):
             "name": f"{p['name']} County AD ({a['n']} digester{'s' if a['n'] != 1 else ''})",
             "type": "biogas_ad", "country": "USA", "state": p["state"],
             "lat": round(p["centroid"][1], 4), "lon": round(p["centroid"][0], 4),
-            "capacity_note": f"{a['n']} livestock digester(s), cumulative",
+            "capacity_note": f"{a['n']} livestock digester(s), cumulative ({a['n_upg']} upgrading to RNG/CNG)",
             "est_biogenic_co2_mtpa": {"value": round(a["co2"], 4)},
+            "upgrading_co2_mtpa": round(a["co2_upg"], 4),
+            "n_upgrading": a["n_upg"],
             "retrofit_score": "medium", "existing": True, "proc_radius_km": 15,
             "source": "EPA AgSTAR Livestock Anaerobic Digester Database (aggregated to county)",
         })

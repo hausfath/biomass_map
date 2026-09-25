@@ -124,11 +124,35 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 | Landfill gas + CCS | 52% | $100–200 | energy |
 | Landfill-gas RNG + CCS | 33% | $80–180 | low-C fuel (RNG) |
 | Biomass waste injection | 90% | $125–285 | PFAS destruction |
-| Bio-oil (pyrolysis) | 45% | $140–360 | biochar/nutrients |
+| Bio-oil (pyrolysis) | 65% | $140–360 | biochar/nutrients |
 | Bio-oil (hydrothermal liquefaction) | 50% | $200–400 | nutrients |
 | Biomass burial | 90% | <$100–150 | none |
-| Anaerobic digestion + CCS | 37% | $145–300 | low-C fuel |
+| AD + CCS (all biogas carbon: on-site combustion / fuel cell) | 40% (derived) | $145–300 | energy |
+| AD RNG + CCS (capture the upgrading-vent CO₂, sell the biomethane) | 18% (derived) | $80–180 (by analogy to LFG-RNG+CCS) | low-C fuel (RNG) |
 | Biochar | 30% | ~$100–200 | nutrients |
+
+**AD + CCS efficiencies (derived, 2026-09-25).** The engine applies `cdr_efficiency` to the feed's
+dry-matter carbon (manure/biosolids odt × 1.47 tCO₂/odt), so the AD coefficients are derived on
+that basis in `scripts/engine_core.py` (`AD_EFF_RNG`, `AD_EFF_ALLC`) from a representative dairy
+slurry: FNR 17 Nm³ CH₄/t fresh matter at 9% dry matter (8–10%) → ~189 Nm³ CH₄/odt; biogas 57% CH₄
+(55–60%) → ~143 Nm³ CO₂/odt. Only ~45% of slurry carbon becomes biogas (the rest, largely lignin,
+stays in the digestate). Upgrading-vent CO₂ ≈ 0.19 of feed carbon × 0.95 capture = **0.18**; all
+biogas carbon ≈ 0.45 × 0.90 flue/fuel-cell capture = **0.40** (range ≈ 0.15–0.20 and 0.36–0.45 over
+8–10% DM and 55–60% CH₄). These replace a single 0.37, which was the midpoint of the Frontier POV's
+two AD rows (*"~44% (from Reverion)"* for fuel-cell AD+CCS and *"~30%, if there's no leakage of
+intentionally produced methane"* for traditional/RNG AD+CCS). The POV gives no feedstock basis;
+~30% matches crop feedstock (maize silage converts far more of its carbon to biogas), not slurry.
+*Sensitivity (POV values 0.30 / 0.44):* recommended and runner-up pathways are unchanged (the manure branch
+chooses AD by AD maturity, not by efficiency; lower ranked-list order may shift); AD CDR scales linearly: Europe 9.5 → ~15.8 Mt/yr, global 5.0 →
+~8.3, Canada 0.3 → ~0.5. Methane slip is not netted in the coefficient; it is a debit of ~12% of
+captured CO₂ per 1% of CH₄ lost (GWP100) and is listed in the pathway cons.
+
+**Which AD variant.** Mirroring the landfill-gas pair, the engine retrofits what is there: an
+**upgrading (biomethane) digester** in reach → AD RNG+CCS (what operating projects such as Nature
+Energy/BioCirc and Future Biogas do); only **CHP digesters** → all-carbon AD+CCS. US: AgSTAR
+"Biogas End Use" CNG / pipeline gas marks upgrading plants. Europe/Canada/global AD data carry no
+output type yet, so the RNG gate falls back to the any-digester gate (**interim**, until the
+plant-level inventory in `docs/ad_research/PLAN.md` lands).
 
 ### Logic (first match wins)
 1. **Wet manure** → wet biomass has **no solid-feedstock options** — biochar and burial both need
@@ -196,7 +220,7 @@ use pyrolysis, wet feedstocks use HTL.
 
 #### Injection vs. bio-oil for dry residues
 Frontier is bullish on Vaulted-style slurry injection: it handles the same dry crop residues
-as bio-oil, has higher CDR efficiency (>90% vs. ~45%), and is cheaper on balance — so where
+as bio-oil, has higher CDR efficiency (>90% vs. ~65%), and is cheaper on balance — so where
 geologic storage (injection wells) is **proximate** it is preferred over bio-oil. Bio-oil's
 advantage is only at distance: pyrolysis densifies the carbon (less-carbon-dense raw biomass is
 expensive to haul), so it wins when wells are far. The engine therefore routes dry-residue
@@ -236,9 +260,11 @@ is within the typical **feedstock-procurement radius** of an existing facility o
 - **pulp & paper → `beccs_pp`**: a pulp & paper mill within **~150 km** (pulpwood haul averages
   ~80–93 mi). Bioenergy plants anchor plain BECCS (ungated), not `beccs_pp`.
 - **waste-to-energy → `wte_ccs`**: a WtE plant within **~50 km** (local/regional MSW catchment).
-- **anaerobic digestion → `ad_ccs`**: cumulative AD capacity within reach (**~15 km** for discrete
-  digesters; regional clusters carry their own coverage radius) above a small threshold — ADs are
-  individually small, so *cumulative regional capacity* is what matters for a retrofit.
+- **anaerobic digestion → `ad_ccs` / `ad_rng_ccs`**: cumulative AD capacity within reach (**~15 km**
+  for discrete digesters; regional clusters carry their own coverage radius) above a small threshold —
+  ADs are individually small, so *cumulative regional capacity* is what matters for a retrofit.
+  `ad_ccs` counts all digesters (all-biogas-carbon basis); `ad_rng_ccs` counts only upgrading
+  digesters' vent CO₂ (US), else falls back to the all-digester gate (interim, EU/CA/global).
 
 Outside the radius the engine falls back to a non-retrofit pathway (no mill → plain BECCS/injection;
 no AD → injection or biochar). For **MSW with no WtE plant in range**, municipal waste is landfilled
@@ -260,9 +286,11 @@ states, Po Valley, Denmark, France, etc.). Radii are tunable constants (`PROC_RA
 
 ### Frontier exclusions (flagged, never recommended)
 - **Purpose-grown energy crops** — land-use competition; thesis sourcing principles.
-- **RNG + CCS / AD + CCS** — *no longer excluded.* Frontier is open to it as an offtake option,
-  and it is preferred over injection for manure in regions of high measured AD maturity (§5). Its partial
-  CDR (carbon split between RNG fuel and storage) is surfaced in the ranked-options cons.
+- **RNG + CCS / AD + CCS** — *not excluded in this tool* (kept recommendable per user decision,
+  2026-09-25). It is preferred over injection for manure in regions of high measured AD maturity (§5),
+  and its partial CDR (the RNG carbon is avoidance, not removal) is surfaced in the ranked-options cons.
+  Note the Frontier POV §3.4 (late 2024) states Frontier is *"not pursuing biogas/RNG projects at this
+  time"*; revisit if that position is updated.
 - **Corn-ethanol + CCS** — food/land competition, marginal additionality; flagged where local
   ethanol capacity exists (US corn belt). (Brazilian sugarcane ethanol is *not* excluded.)
 - **Burial** carries a mandatory durability caveat (Isometric 2024 protocol projects 1,000-yr;
@@ -802,7 +830,7 @@ biomethane potential* — built by `scripts/build_ad_maturity.py` → `data/proc
 |---|---|---|
 | `ODT_TO_CO2` | 1.47 tCO₂/odt | Dry-biomass → CO₂ yield |
 | `PROC_RADIUS_KM` | pulp&paper 150 / WtE 50 / AD 15 km | Retrofit-gate procurement radii |
-| `AD_MIN_CAP_MTPA` | 0.01 Mt CO₂/yr | Cumulative AD capacity to enable `ad_ccs` |
+| `AD_MIN_CAP_MTPA` | 0.01 Mt CO₂/yr | Cumulative AD capacity to enable `ad_ccs` (all biogas carbon) or `ad_rng_ccs` (upgrading-vent CO₂) |
 | `AD_MATURITY_THRESHOLD` | 0.15 | `ad_maturity` score at/above which AD+CCS leads over injection for wet manure |
 | `SECONDARY_FRAC` / `SECONDARY_ABS_MTPA` | 0.25 / 0.05 | MSW-fallback significance (relative OR absolute) |
 | Storage grading (G) | good < 500 km / moderate < 1000 km | Centroid → nearest storage |

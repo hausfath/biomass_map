@@ -15,9 +15,10 @@ This is decision-support, not a black box — every output carries a transparent
 | BECCS pulp & paper | `beccs_pp` | 0.80 | "$200–225" | energy/none | yes |
 | WtE + CCS | `wte_ccs` | 0.55 | "~$100–200" | energy | yes |
 | Biomass waste injection | `injection` | 0.90 | "$125–285" | PFAS destruction | yes |
-| Bio-oil sequestration | `bio_oil` | 0.45 | "$140–360" | biochar/nutrients | no |
+| Bio-oil sequestration | `bio_oil` | 0.65 | "$140–360" | biochar/nutrients | no |
 | Biomass burial | `burial` | 0.90 | "<$100–150" | none | no |
-| AD + CCS | `ad_ccs` | 0.37 | "$145–300" | low-C fuel | partial |
+| AD + CCS (all biogas carbon) | `ad_ccs` | 0.40 (derived) | "$145–300" | energy | yes |
+| AD RNG + CCS (upgrading CO2) | `ad_rng_ccs` | 0.18 (derived) | "$80–180" | low-C fuel | yes |
 | Biochar | `biochar` | 0.30 | "~$100–200" | nutrients | no |
 
 CDR efficiency = fraction of feedstock carbon durably stored. 1 odt biomass ≈ 1.47 tCO2.
@@ -52,17 +53,18 @@ plus `storage_access` and `has_retrofit`.
 
 # Preferred distributed-removal pathway for DRY biomass, by storage proximity.
 # Frontier is bullish on Vaulted-style injection: same dry residues as bio-oil, higher CDR
-# efficiency (>90% vs ~45%), cheaper on balance -> wins where wells are PROXIMATE. Bio-oil's
+# efficiency (>90% vs ~65%), cheaper on balance -> wins where wells are PROXIMATE. Bio-oil's
 # pyrolysis densifies carbon, so it only wins at distance (cheaper to haul dense product).
 dry_removal = "injection" if storage_access == "good" else "bio_oil"
 
 ```
 1. dominant_feedstock == "manure_wet":
      IF manure_ad_preferred (country has a mature AD sector, e.g. Europe):
-         → ad_ccs (retrofits existing biogas plants), runner-up = injection (near) else biochar
+         → ad_rng_ccs if an upgrading digester is in reach, else ad_ccs (CHP digesters);
+           runner-up = injection
      ELSE (e.g. US, on-farm AD uncommon):
          → injection if storage_access in (good,moderate) else ad_ccs
-   (RNG+CCS / AD+CCS is no longer a Frontier exclusion — it is a viable offtake option.)
+   (RNG+CCS / AD+CCS is not excluded in this tool; see METHODOLOGY re Frontier POV §3.4.)
 2. dominant_feedstock == "msw"         → wte_ccs if storage_access in (good,moderate)
                                           else burial
 3. dominant_feedstock in (forestry_woody) OR (ag_dry & concentrated):
@@ -132,8 +134,9 @@ Give value only (best estimate); note assumptions in rationale.
 - Never recommend purpose-grown crops or corn-ethanol+CCS.
 - Corn-ethanol flag is scoped to US regions (corn ethanol is a US phenomenon; do NOT flag
   sugarcane ethanol in Brazil/Argentina/Colombia or UK wheat ethanol).
-- RNG+CCS / AD+CCS is NOT excluded — it is a viable offtake option (and preferred over
-  injection for manure in mature-AD regions). No RNG exclusion flag.
+- RNG+CCS / AD+CCS is NOT excluded in this tool (preferred over injection for manure in
+  mature-AD regions). No RNG exclusion flag. Frontier POV §3.4 (late 2024) says Frontier is not
+  pursuing biogas/RNG projects at this time.
 - Burial- and excess-nutrient explainer caveats are omitted (internal audience already knows
   them); the burial durability trade-off still appears in the ranked-options cons.
 

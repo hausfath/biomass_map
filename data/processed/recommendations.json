@@ -6651,38 +6651,38 @@
     "name": "Netherlands",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "ad_ccs",
-    "recommended_label": "AD + CCS",
+    "recommended": "ad_rng_ccs",
+    "recommended_label": "AD RNG + CCS (upgrading CO₂)",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
-    "kpi_score": 50,
-    "cdr_efficiency": 0.37,
-    "cost_band": "$145-300",
-    "cdr_potential_mtpa": 4.5,
+    "kpi_score": 38,
+    "cdr_efficiency": 0.18,
+    "cost_band": "$80-180",
+    "cdr_potential_mtpa": 2.2,
     "storage_access": "good",
     "nearest_storage_km": 89,
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "AVR Rozenburg Waste-to-Energy (wte)",
-    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~89 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
+    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~89 km) -> much of the manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas plants by capturing the near-pure CO2 its biomethane upgrading already vents (18% of the manure carbon; the RNG carbon is avoidance, not CDR), and is preferred over injection.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
+        "key": "ad_rng_ccs",
+        "label": "AD RNG + CCS (upgrading CO₂)",
         "badge": "Recommended",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
+        "cdr_efficiency": 0.18,
+        "cost_band": "$80-180",
         "pros": [
           "Manure is already digested here — AD+CCS retrofits existing biogas plants",
-          "Suits wet feedstock; mature technology",
-          "RNG co-product displaces fossil gas; viable offtake option",
+          "Captures the near-pure CO2 already vented by biogas upgrading — cheap capture",
+          "RNG co-product displaces fossil gas; retrofits an existing biomethane plant",
           "Proximate geologic storage here (~89 km)"
         ],
         "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR",
+          "Low CDR efficiency (~18% of manure carbon): the RNG carbon is combusted downstream (avoidance, not CDR)",
+          "Methane slip from digestion/upgrading erodes the removal (~12% of captured CO2 per 1% CH4 lost)",
           "Returns nutrients to soils already in surplus here"
         ]
       },
@@ -6701,6 +6701,24 @@
         "cons": [
           "No emissions-avoiding co-product",
           "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "ad_ccs",
+        "label": "AD + CCS (all biogas carbon)",
+        "badge": "Possible",
+        "cdr_efficiency": 0.4,
+        "cost_band": "$145-300",
+        "pros": [
+          "Manure is already digested here — AD+CCS retrofits existing biogas plants",
+          "Suits wet feedstock; mature digestion technology",
+          "Captures all the biogas carbon (combusted on site), not just the upgrading CO2",
+          "Proximate geologic storage here (~89 km)"
+        ],
+        "cons": [
+          "Only ~40% of manure carbon is captured — much of it stays in the digestate",
+          "Dilute flue-gas (or fuel-cell) capture at small plant scale is costly",
+          "Returns nutrients to soils already in surplus here"
         ]
       },
       {
@@ -6727,38 +6745,38 @@
     "name": "Belgium",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "ad_ccs",
-    "recommended_label": "AD + CCS",
+    "recommended": "ad_rng_ccs",
+    "recommended_label": "AD RNG + CCS (upgrading CO₂)",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
-    "kpi_score": 50,
-    "cdr_efficiency": 0.37,
-    "cost_band": "$145-300",
-    "cdr_potential_mtpa": 2.5,
+    "kpi_score": 38,
+    "cdr_efficiency": 0.18,
+    "cost_band": "$80-180",
+    "cdr_potential_mtpa": 1.2,
     "storage_access": "good",
     "nearest_storage_km": 170,
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Indaver Doel / SLECO Waste-to-Energy (wte)",
-    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~170 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
+    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~170 km) -> much of the manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas plants by capturing the near-pure CO2 its biomethane upgrading already vents (18% of the manure carbon; the RNG carbon is avoidance, not CDR), and is preferred over injection.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
+        "key": "ad_rng_ccs",
+        "label": "AD RNG + CCS (upgrading CO₂)",
         "badge": "Recommended",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
+        "cdr_efficiency": 0.18,
+        "cost_band": "$80-180",
         "pros": [
           "Manure is already digested here — AD+CCS retrofits existing biogas plants",
-          "Suits wet feedstock; mature technology",
-          "RNG co-product displaces fossil gas; viable offtake option",
+          "Captures the near-pure CO2 already vented by biogas upgrading — cheap capture",
+          "RNG co-product displaces fossil gas; retrofits an existing biomethane plant",
           "Proximate geologic storage here (~170 km)"
         ],
         "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR",
+          "Low CDR efficiency (~18% of manure carbon): the RNG carbon is combusted downstream (avoidance, not CDR)",
+          "Methane slip from digestion/upgrading erodes the removal (~12% of captured CO2 per 1% CH4 lost)",
           "Returns nutrients to soils already in surplus here"
         ]
       },
@@ -6777,6 +6795,24 @@
         "cons": [
           "No emissions-avoiding co-product",
           "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "ad_ccs",
+        "label": "AD + CCS (all biogas carbon)",
+        "badge": "Possible",
+        "cdr_efficiency": 0.4,
+        "cost_band": "$145-300",
+        "pros": [
+          "Manure is already digested here — AD+CCS retrofits existing biogas plants",
+          "Suits wet feedstock; mature digestion technology",
+          "Captures all the biogas carbon (combusted on site), not just the upgrading CO2",
+          "Proximate geologic storage here (~170 km)"
+        ],
+        "cons": [
+          "Only ~40% of manure carbon is captured — much of it stays in the digestate",
+          "Dilute flue-gas (or fuel-cell) capture at small plant scale is costly",
+          "Returns nutrients to soils already in surplus here"
         ]
       },
       {
@@ -7521,38 +7557,38 @@
     "name": "Denmark",
     "level": "country",
     "superseded_by_subnational": false,
-    "recommended": "ad_ccs",
-    "recommended_label": "AD + CCS",
+    "recommended": "ad_rng_ccs",
+    "recommended_label": "AD RNG + CCS (upgrading CO₂)",
     "runner_up": "injection",
     "runner_up_label": "Biomass waste injection",
-    "kpi_score": 50,
-    "cdr_efficiency": 0.37,
-    "cost_band": "$145-300",
-    "cdr_potential_mtpa": 3.3,
+    "kpi_score": 38,
+    "cdr_efficiency": 0.18,
+    "cost_band": "$80-180",
+    "cdr_potential_mtpa": 1.6,
     "storage_access": "good",
     "nearest_storage_km": 287,
     "has_retrofit": true,
     "no_option": false,
     "anchor_facility": "Ørsted Asnæs Power Station (bioenergy)",
-    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~287 km) -> most manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas infrastructure (37% CDR efficiency) and is preferred over injection; the RNG co-product displaces fossil gas. A viable offtake option (no longer a Frontier exclusion).",
+    "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, good geologic storage access (nearest qualifying storage ~287 km) -> much of the manure here already flows to anaerobic digesters, so AD+CCS retrofits existing biogas plants by capturing the near-pure CO2 its biomethane upgrading already vents (18% of the manure carbon; the RNG carbon is avoidance, not CDR), and is preferred over injection.",
     "caveats": [],
     "flags": [],
     "ranked": [
       {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
+        "key": "ad_rng_ccs",
+        "label": "AD RNG + CCS (upgrading CO₂)",
         "badge": "Recommended",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
+        "cdr_efficiency": 0.18,
+        "cost_band": "$80-180",
         "pros": [
           "Manure is already digested here — AD+CCS retrofits existing biogas plants",
-          "Suits wet feedstock; mature technology",
-          "RNG co-product displaces fossil gas; viable offtake option",
+          "Captures the near-pure CO2 already vented by biogas upgrading — cheap capture",
+          "RNG co-product displaces fossil gas; retrofits an existing biomethane plant",
           "Proximate geologic storage here (~287 km)"
         ],
         "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR",
+          "Low CDR efficiency (~18% of manure carbon): the RNG carbon is combusted downstream (avoidance, not CDR)",
+          "Methane slip from digestion/upgrading erodes the removal (~12% of captured CO2 per 1% CH4 lost)",
           "Returns nutrients to soils already in surplus here"
         ]
       },
@@ -7571,6 +7607,24 @@
         "cons": [
           "No emissions-avoiding co-product",
           "Hauling bulky, less-carbon-dense biomass is costly if wells are far"
+        ]
+      },
+      {
+        "key": "ad_ccs",
+        "label": "AD + CCS (all biogas carbon)",
+        "badge": "Possible",
+        "cdr_efficiency": 0.4,
+        "cost_band": "$145-300",
+        "pros": [
+          "Manure is already digested here — AD+CCS retrofits existing biogas plants",
+          "Suits wet feedstock; mature digestion technology",
+          "Captures all the biogas carbon (combusted on site), not just the upgrading CO2",
+          "Proximate geologic storage here (~287 km)"
+        ],
+        "cons": [
+          "Only ~40% of manure carbon is captured — much of it stays in the digestate",
+          "Dilute flue-gas (or fuel-cell) capture at small plant scale is costly",
+          "Returns nutrients to soils already in surplus here"
         ]
       },
       {
@@ -7725,8 +7779,8 @@
     "superseded_by_subnational": false,
     "recommended": "injection",
     "recommended_label": "Biomass waste injection",
-    "runner_up": "ad_ccs",
-    "runner_up_label": "AD + CCS",
+    "runner_up": "ad_rng_ccs",
+    "runner_up_label": "AD RNG + CCS (upgrading CO₂)",
     "kpi_score": 69,
     "cdr_efficiency": 0.9,
     "cost_band": "$125-285",
@@ -7758,20 +7812,37 @@
         ]
       },
       {
-        "key": "ad_ccs",
-        "label": "AD + CCS",
+        "key": "ad_rng_ccs",
+        "label": "AD RNG + CCS (upgrading CO₂)",
         "badge": "Runner-up",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
+        "cdr_efficiency": 0.18,
+        "cost_band": "$80-180",
         "pros": [
-          "Suits wet feedstock; mature technology",
-          "Returns nutrients to fields",
-          "RNG co-product displaces fossil gas; viable offtake option",
+          "Captures the near-pure CO2 already vented by biogas upgrading — cheap capture",
+          "RNG co-product displaces fossil gas; retrofits an existing biomethane plant",
+          "Digestate returns nutrients to fields",
           "Proximate geologic storage here (~284 km)"
         ],
         "cons": [
-          "Low CDR efficiency (~30-44%)",
-          "Carbon is split between the RNG (fuel) and CDR streams, capping CDR"
+          "Low CDR efficiency (~18% of manure carbon): the RNG carbon is combusted downstream (avoidance, not CDR)",
+          "Methane slip from digestion/upgrading erodes the removal (~12% of captured CO2 per 1% CH4 lost)"
+        ]
+      },
+      {
+        "key": "ad_ccs",
+        "label": "AD + CCS (all biogas carbon)",
+        "badge": "Possible",
+        "cdr_efficiency": 0.4,
+        "cost_band": "$145-300",
+        "pros": [
+          "Suits wet feedstock; mature digestion technology",
+          "Captures all the biogas carbon (combusted on site), not just the upgrading CO2",
+          "Energy co-product (electricity/heat); digestate returns nutrients to fields",
+          "Proximate geologic storage here (~284 km)"
+        ],
+        "cons": [
+          "Only ~40% of manure carbon is captured — much of it stays in the digestate",
+          "Dilute flue-gas (or fuel-cell) capture at small plant scale is costly"
         ]
       },
       {

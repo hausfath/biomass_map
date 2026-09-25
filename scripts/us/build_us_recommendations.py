@@ -153,15 +153,17 @@ def annotate_facility_counties(facilities, counties):
 def compute_avail_anchor(centroid, facilities):
     """Retrofit availability for the gated pathways, by procurement radius from the county
     centroid: beccs_pp <- a pulp & paper mill within ~150 km; wte_ccs <- a WtE plant within
-    ~50 km; ad_ccs <- cumulative anaerobic-digestion capacity within ~15 km >= AD_MIN_CAP;
+    ~50 km; ad_ccs <- cumulative anaerobic-digestion capacity within ~15 km >= AD_MIN_CAP (all biogas
+    carbon); ad_rng_ccs <- upgrading-vent CO2 of RNG/CNG digesters within ~15 km >= AD_MIN_CAP;
     lfg_* <- a qualifying gas-collecting landfill within ~40 km.
     Returns (avail, has_retrofit, anchor_name, anchor_type, lf_info, bioenergy_draw) where lf_info
     (or None) = {"name","co2","pref"} for the nearest qualifying landfill (for the LFG pathways) and
     bioenergy_draw = cumulative biomass-power biogenic CO2 (Mt/yr) within the pulpwood-haul radius
     (the forestry-residue utilization signal, item 2 Option A)."""
     lon, lat = centroid[0], centroid[1]
-    avail = {"pp": False, "wte": False, "ad": False, "lf": False}
+    avail = {"pp": False, "wte": False, "ad": False, "ad_rng": False, "lf": False}
     ad_cap = 0.0
+    ad_upg_cap = 0.0   # upgrading-vent CO2 of RNG/CNG digesters in reach (gates AD RNG+CCS)
     bioenergy_draw = 0.0   # cumulative biomass-power biogenic CO2 (Mt/yr) in range -> residue draw
     cands = []   # (pref, dist, facility) within its type radius -> retrofit anchor
     lf_cands = []   # (co2, dist, facility) qualifying landfills in range
@@ -187,11 +189,13 @@ def compute_avail_anchor(centroid, facilities):
             rad = f.get("proc_radius_km") or PROC_RADIUS_KM["biogas_ad"]
             if d <= rad:
                 ad_cap += (f.get("est_biogenic_co2_mtpa") or {}).get("value", 0) or 0
+                ad_upg_cap += f.get("upgrading_co2_mtpa") or 0
                 cands.append((2, d, f))
         elif t == "landfill" and f.get("gas_collection"):
             if d <= PROC_RADIUS_KM["landfill"]:
                 lf_cands.append(((f.get("est_biogenic_co2_mtpa") or {}).get("value", 0) or 0, d, f))
     avail["ad"] = ad_cap >= AD_MIN_CAP_MTPA
+    avail["ad_rng"] = ad_upg_cap >= AD_MIN_CAP_MTPA
     avail["lf"] = len(lf_cands) > 0
     lf_info = None
     if lf_cands:

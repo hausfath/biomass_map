@@ -21,7 +21,8 @@
     bio_oil:   { label: "Bio-oil (pyrolysis)",         color: "#e08a2b" },
     bio_oil_htl: { label: "Bio-oil (HTL)",             color: "#e0b56b" },
     burial:    { label: "Biomass burial",              color: "#b07d3a" },
-    ad_ccs:    { label: "Anaerobic digestion + CCS",   color: "#6b8a9c" },
+    ad_ccs:    { label: "AD + CCS (all biogas carbon)", color: "#6b8a9c" },
+    ad_rng_ccs: { label: "AD RNG + CCS (upgrading CO₂)", color: "#8fb8c9" },
     biochar:   { label: "Biochar",                     color: "#8aa53f" },
   };
   const FAC_META = {
@@ -97,7 +98,7 @@
   // Mirrors engine_core.PATHWAY_PAYLOAD — the transport payload class per pathway. The landfill-gas
   // pathways move gaseous CO₂ (like BECCS/WtE), so they must be here too, else the frontend would
   // treat them as storage-independent (drawing the wrong route, hiding the transport cost).
-  const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", lfg_ccs: "co2", lfg_rng_ccs: "co2", bio_oil: "bio_oil", bio_oil_htl: "bio_oil_htl", injection: "slurry" };
+  const PAYLOAD_OF = { beccs: "co2", beccs_pp: "co2", wte_ccs: "co2", ad_ccs: "co2", ad_rng_ccs: "co2", lfg_ccs: "co2", lfg_rng_ccs: "co2", bio_oil: "bio_oil", bio_oil_htl: "bio_oil_htl", injection: "slurry" };
   const TRANSPORT_CAP = 100;
 
   // Storage destination shown in the detail panel = the well/project the routed storage access is
@@ -166,15 +167,16 @@
       else if (distributed) pros.push("Suits the region's diffuse, distributed biomass");
     } else if (dens === "concentrated" && central) pros.push("Biomass is concentrated — supports a central facility");
     if (nut === "excess") {
-      if (key === "bio_oil" || key === "bio_oil_htl" || key === "biochar" || key === "ad_ccs") {
+      if (key === "bio_oil" || key === "bio_oil_htl" || key === "biochar" || key === "ad_ccs" || key === "ad_rng_ccs") {
         pros = pros.filter(x => !/nutrient/i.test(x));
         cons.push("Returns nutrients to soils already in surplus here");
       } else if (key === "burial" || key === "injection") {
         pros.push("Removes carbon and nutrients from an over-fertilized landscape");
       }
     }
-    // Retrofit-only pathways: mirror engine_core.region_pros_cons (avail = {pp,wte,ad}).
+    // Retrofit-only pathways: mirror engine_core.region_pros_cons (avail = {pp,wte,ad,ad_rng}).
     const av = rec.avail || { pp: true, wte: true, ad: true };
+    const adRng = av.ad_rng !== undefined ? av.ad_rng : av.ad;   // engine _avail: ad_rng falls back to ad
     if (key === "beccs_pp") {
       if (av.pp && rec.anchor_facility) pros.push("Existing mill to retrofit: " + rec.anchor_facility);
       else if (av.pp) pros.push("Existing pulp/bioenergy mill within procurement range to retrofit");
@@ -187,6 +189,10 @@
     if (key === "ad_ccs") {
       if (av.ad) pros.push("Existing anaerobic-digestion capacity within range to retrofit");
       else cons.push("No existing anaerobic-digestion capacity within range to retrofit");
+    }
+    if (key === "ad_rng_ccs") {
+      if (adRng) pros.push("Existing biomethane-upgrading plant within range to retrofit");
+      else cons.push("No existing biomethane-upgrading plant within range to retrofit");
     }
     return [pros.slice(0, 4), cons.slice(0, 4)];
   }
@@ -1149,7 +1155,8 @@
     <p>A transparent rule set encoding Frontier's KPI ranking — <b>CDR efficiency › emissions-avoiding
     co-product › other co-benefits</b> — modulated by feedstock moisture/density, storage proximity,
     nutrient status, and retrofit availability. Wet wastes → injection or AD+CCS (AD+CCS preferred where
-    digesters already exist, e.g. Europe); concentrated woody/dry residues near storage → BECCS; dry
+    digesters already exist, e.g. Europe: AD RNG+CCS captures the upgrading-vent CO₂ at biomethane plants,
+    ~18% of manure carbon; all-carbon AD+CCS captures the combusted biogas at CHP digesters, ~40%); concentrated woody/dry residues near storage → BECCS; dry
     residues near storage → injection, far → bio-oil; no storage + excess nutrients → burial; concentrated
     MSW → WtE+CCS, or — where a large gas-collecting landfill is in range (US scope) → landfill-gas + CCS.
     <b>Excluded</b> (flagged): purpose-grown energy crops, corn-ethanol+CCS. (The US/CA/EU detail scopes

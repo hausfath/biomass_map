@@ -22,6 +22,29 @@ _DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file_
 # --------------------------------------------------------------------------
 ODT_TO_CO2 = 1.47  # tCO2 per oven-dry-ton of biomass carbon basis
 
+# AD + CCS efficiencies, derived (not asserted) on the engine's feed basis: the fraction of the
+# feed's dry-matter carbon (manure/biosolids odt x ODT_TO_CO2) that ends up captured and stored.
+# Representative dairy slurry: FNR 17 Nm3 CH4 per t fresh matter at ~9% dry matter (range 8-10%),
+# biogas 57% CH4 (55-60%). Slurry converts only ~45% of its carbon to biogas (much is lignin that
+# stays in the digestate), so:
+#   RNG variant   (upgrade to biomethane, sell it, capture the upgrading-vent CO2):  ~0.18
+#   all-carbon    (combust the biogas on site / fuel cell, capture all its carbon):   ~0.40
+# Frontier's POV table gives ~30% (traditional, RNG) and ~44% (fuel cell) with no feedstock
+# basis; 30% matches crop feedstock (maize converts far more of its carbon), not slurry. The POV
+# values are run as a sensitivity test (docs/METHODOLOGY.md). Methane slip is a debit on top
+# (~12% of captured CO2 per 1% CH4 lost, GWP100) and is surfaced in cons, not in the coefficient.
+AD_SLURRY_CH4_NM3_PER_T_FM = 17.0
+AD_SLURRY_DM_FRAC = 0.09
+AD_BIOGAS_CH4_FRAC = 0.57
+AD_CO2_KG_PER_NM3 = 1.977
+AD_CAPTURE_VENT = 0.95     # upgrading-vent CO2 is near-pure; capture/compression losses only
+AD_CAPTURE_FLUE = 0.90     # post-combustion / fuel-cell capture of all biogas carbon
+_ad_ch4 = AD_SLURRY_CH4_NM3_PER_T_FM / AD_SLURRY_DM_FRAC                  # Nm3 CH4 per odt
+_ad_co2 = _ad_ch4 * (1 - AD_BIOGAS_CH4_FRAC) / AD_BIOGAS_CH4_FRAC        # Nm3 CO2 per odt
+AD_EFF_RNG = round(_ad_co2 * AD_CO2_KG_PER_NM3 / 1000 / ODT_TO_CO2 * AD_CAPTURE_VENT, 2)
+AD_EFF_ALLC = round((_ad_ch4 + _ad_co2) * AD_CO2_KG_PER_NM3 / 1000 / ODT_TO_CO2
+                    * AD_CAPTURE_FLUE, 2)
+
 PATHWAYS = {
     "beccs": {
         "label": "BECCS (heat/electricity)",
@@ -103,11 +126,24 @@ PATHWAYS = {
         "needs_geologic_storage": False,
     },
     "ad_ccs": {
-        "label": "AD + CCS",
-        "cdr_efficiency": 0.37,
-        "cost_band": "$145-300",
+        # Digest, then combust the biogas on site (CHP engine / fuel cell) and capture ALL its
+        # carbon (the Reverion-style fuel-cell case in the POV). Retrofits a CHP digester.
+        "label": "AD + CCS (all biogas carbon)",
+        "cdr_efficiency": AD_EFF_ALLC,
+        "cost_band": "$145-300",         # POV (fuel-cell AD+CCS row)
+        "co_product": "energy",
+        "needs_geologic_storage": True,
+    },
+    "ad_rng_ccs": {
+        # Digest, upgrade to biomethane (RNG, sold) and capture the near-pure CO2 the upgrading
+        # already vents. Only that separated CO2 is removal; the RNG carbon is combusted
+        # downstream (avoidance, not CDR). Retrofits an upgrading (biomethane) plant.
+        "label": "AD RNG + CCS (upgrading CO₂)",
+        "cdr_efficiency": AD_EFF_RNG,
+        "cost_band": "$80-180",          # not costed in the POV; by analogy to LFG-RNG+CCS
+                                         # (same upgrading-vent capture)
         "co_product": "low-C fuel",
-        "needs_geologic_storage": True,  # partial in spec; treat as needing storage
+        "needs_geologic_storage": True,
     },
     "biochar": {
         "label": "Biochar",
@@ -187,11 +223,21 @@ PATHWAY_PROFILE = {
                  "No emissions-avoiding co-product; nutrient-export risk with ag residues"],
     },
     "ad_ccs": {
-        "pros": ["Suits wet feedstock; mature technology",
-                 "Returns nutrients to fields",
-                 "RNG co-product displaces fossil gas; viable offtake option"],
-        "cons": ["Low CDR efficiency (~30-44%)",
-                 "Carbon is split between the RNG (fuel) and CDR streams, capping CDR"],
+        "pros": ["Suits wet feedstock; mature digestion technology",
+                 "Captures all the biogas carbon (combusted on site), not just the upgrading CO2",
+                 "Energy co-product (electricity/heat); digestate returns nutrients to fields"],
+        "cons": [f"Only ~{round(AD_EFF_ALLC * 100)}% of manure carbon is captured — much of it "
+                 "stays in the digestate",
+                 "Dilute flue-gas (or fuel-cell) capture at small plant scale is costly"],
+    },
+    "ad_rng_ccs": {
+        "pros": ["Captures the near-pure CO2 already vented by biogas upgrading — cheap capture",
+                 "RNG co-product displaces fossil gas; retrofits an existing biomethane plant",
+                 "Digestate returns nutrients to fields"],
+        "cons": [f"Low CDR efficiency (~{round(AD_EFF_RNG * 100)}% of manure carbon): the RNG "
+                 "carbon is combusted downstream (avoidance, not CDR)",
+                 "Methane slip from digestion/upgrading erodes the removal (~12% of captured CO2 "
+                 "per 1% CH4 lost)"],
     },
     "biochar": {
         "pros": ["Returns nutrients to soils, improving yields",
@@ -269,7 +315,7 @@ PROC_RADIUS_KM = {"pulp_paper": 150.0, "wte": 50.0, "biogas_ad": 15.0, "landfill
 AD_MIN_CAP_MTPA = 0.01   # cumulative AD biogenic-CO2 capacity within reach to enable AD+CCS
 LFG_MIN_CO2_MTPA = 0.05  # collected-gas biogenic CO2 (full-combustion basis) to qualify a landfill
 # pathway key -> avail flag it is gated on
-RETROFIT_GATE = {"beccs_pp": "pp", "wte_ccs": "wte", "ad_ccs": "ad",
+RETROFIT_GATE = {"beccs_pp": "pp", "wte_ccs": "wte", "ad_ccs": "ad", "ad_rng_ccs": "ad_rng",
                  "lfg_ccs": "lf", "lfg_rng_ccs": "lf"}
 
 # --------------------------------------------------------------------------
@@ -290,7 +336,7 @@ TRANSPORT_KPI_PENALTY = {"low": 0, "medium": 4, "high": 8, "over": 0}  # soft KP
 # pathway -> transport payload class (None = storage-independent, no transport-to-well cost).
 # bio_oil (pyrolysis) and bio_oil_htl (HTL bio-crude) have different carbon densities, so distinct.
 PATHWAY_PAYLOAD = {
-    "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2",
+    "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2", "ad_rng_ccs": "co2",
     "lfg_ccs": "co2", "lfg_rng_ccs": "co2",
     "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil_htl", "injection": "slurry",
 }
@@ -395,10 +441,10 @@ def apply_transport_cap(rec, runner, dom, region, tcost, avail=None):
         # pathways all need a reachable store: HTL bio-oil / slurry injection (an injection SITE),
         # or AD+CCS (a CO₂ store). Fall to the first AFFORDABLE one; if none is reachable (e.g. no
         # salt-cavern injection site AND no affordable AD), there is genuinely no viable pathway.
-        for cand in ("bio_oil_htl", "injection", "ad_ccs"):
+        for cand in ("bio_oil_htl", "injection", "ad_rng_ccs", "ad_ccs"):
             if cand == rec or not affordable(cand):
                 continue
-            if cand == "ad_ccs" and strict and not av["ad"]:
+            if cand in RETROFIT_GATE and strict and not av[RETROFIT_GATE[cand]]:
                 continue                       # AD+CCS needs existing digesters to retrofit (EU)
             return cand, rec, True
         # No affordable wet option. With explicit avail (EU) this is a genuine no-option region;
@@ -416,11 +462,27 @@ def _avail(avail):
     """Normalize the per-region retrofit-availability flags. pp/wte/ad default available (the global
     scope passes None and assumes facilities may exist); `lf` (landfill LFG+CCS) defaults OFF — it is
     opt-in for scopes that actually compute a gas-collecting-landfill gate (currently US only), so
-    scopes without landfill data never recommend the LFG pathways."""
+    scopes without landfill data never recommend the LFG pathways.
+    `ad` = any digester in reach (gates the all-carbon AD+CCS); `ad_rng` = an UPGRADING (biomethane)
+    digester in reach (gates AD RNG+CCS). Scopes whose AD data carry no output type (EU clusters,
+    CA, global) do not set `ad_rng`, and it falls back to `ad` — an INTERIM default until the
+    plant-level inventory (docs/ad_research/PLAN.md) supplies upgrading vs CHP."""
     if avail is None:
-        return {"pp": True, "wte": True, "ad": True, "lf": False}
-    return {"pp": bool(avail.get("pp")), "wte": bool(avail.get("wte")),
-            "ad": bool(avail.get("ad")), "lf": bool(avail.get("lf"))}
+        return {"pp": True, "wte": True, "ad": True, "ad_rng": True, "lf": False}
+    ad = bool(avail.get("ad"))
+    return {"pp": bool(avail.get("pp")), "wte": bool(avail.get("wte")), "ad": ad,
+            "ad_rng": bool(avail.get("ad_rng", ad)), "lf": bool(avail.get("lf"))}
+
+
+def _ad_lead(av):
+    """Which AD+CCS variant to lead with, retrofitting what is there (mirrors _lfg_lead): an
+    upgrading plant in reach -> AD RNG+CCS (capture the vent CO2, what operating projects do);
+    only CHP digesters -> all-carbon AD+CCS. None if no digester is in reach."""
+    if av["ad_rng"]:
+        return "ad_rng_ccs"
+    if av["ad"]:
+        return "ad_ccs"
+    return None
 
 
 def manure_ad_preferred(region):
@@ -613,12 +675,13 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
         if near:
             # Storage proximate. In mature-AD regions with AD capacity nearby, AD+CCS retrofits
             # existing digesters and leads; otherwise direct injection leads (US-style: on-farm AD rare).
-            if av["ad"] and manure_ad_preferred(region):
-                return "ad_ccs", "injection"
-            return "injection", ("ad_ccs" if av["ad"] else "bio_oil_htl")
+            ad = _ad_lead(av)
+            if ad and manure_ad_preferred(region):
+                return ad, "injection"
+            return "injection", (ad or "bio_oil_htl")
         # Storage poor: injection / AD+CCS cannot place their carbon here -> HTL bio-oil (densified,
         # haulable). Never biochar/burial (wet feedstock).
-        return "bio_oil_htl", ("ad_ccs" if av["ad"] else "injection")
+        return "bio_oil_htl", (_ad_lead(av) or "injection")
 
     # 2. MSW. Only reached when an existing WtE plant is within reach (else re-routed above).
     if dom == "msw":
@@ -731,6 +794,8 @@ def applicable_pathways(dom, avail=None):
         lst = ["injection", "bio_oil_htl"]   # direct injection, else HTL bio-oil (densified, haulable)
         if av["ad"]:
             lst.insert(1, "ad_ccs")
+        if av["ad_rng"]:
+            lst.insert(1, "ad_rng_ccs")
         return lst
     if dom == "msw":
         lst = ["burial", "biochar"]
@@ -769,7 +834,7 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
         elif storage_access == "moderate":
             score -= 5
     if nutrient == "excess":
-        if pathway in ("bio_oil", "bio_oil_htl", "biochar", "ad_ccs"):
+        if pathway in ("bio_oil", "bio_oil_htl", "biochar", "ad_ccs", "ad_rng_ccs"):
             score -= 8
         elif pathway in ("burial", "injection"):
             score += 4
@@ -823,7 +888,7 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
         pros.append("Biomass is concentrated — supports a central facility")
 
     if nutrient == "excess":
-        if pathway in ("bio_oil", "bio_oil_htl", "biochar", "ad_ccs"):
+        if pathway in ("bio_oil", "bio_oil_htl", "biochar", "ad_ccs", "ad_rng_ccs"):
             # Nutrient return is a liability here, not a benefit: drop any nutrient pro.
             pros = [x for x in pros if "nutrient" not in x.lower()]
             cons.append("Returns nutrients to soils already in surplus here")
@@ -843,13 +908,15 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
             pros.append(f"Existing WtE plant to retrofit: {anchor}")
         elif not av["wte"]:
             cons.append("No existing waste-to-energy plant within range to retrofit")
-    if pathway == "ad_ccs":
-        if av["ad"] and manure_ad_preferred(region):
+    if pathway in ("ad_ccs", "ad_rng_ccs"):
+        gate = av[RETROFIT_GATE[pathway]]
+        what = "biomethane-upgrading plant" if pathway == "ad_rng_ccs" else "anaerobic-digestion capacity"
+        if gate and manure_ad_preferred(region):
             pros.insert(0, "Manure is already digested here — AD+CCS retrofits existing biogas plants")
-        elif av["ad"]:
-            pros.append("Existing anaerobic-digestion capacity within range to retrofit")
+        elif gate:
+            pros.append(f"Existing {what} within range to retrofit")
         else:
-            cons.append("No existing anaerobic-digestion capacity within range to retrofit")
+            cons.append(f"No existing {what} within range to retrofit")
     if pathway in ("lfg_ccs", "lfg_rng_ccs"):
         if av["lf"] and anchor:
             pros.append(f"Large gas-collecting landfill to retrofit: {anchor}")
@@ -1007,14 +1074,19 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
                 f"(>{eff_pct - 1}% CDR efficiency): raw biomass is injected at nearby wells rather "
                 f"than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as "
                 f"wells get more distant.")
-    if rec_key == "ad_ccs":
+    if rec_key in ("ad_ccs", "ad_rng_ccs"):
+        if rec_key == "ad_rng_ccs":
+            how = (f"capturing the near-pure CO2 its biomethane upgrading already vents ({eff_pct}% "
+                   f"of the manure carbon; the RNG carbon is avoidance, not CDR)")
+        else:
+            how = (f"combusting the biogas on site and capturing all its carbon ({eff_pct}% of the "
+                   f"manure carbon; the rest stays in the digestate)")
         if manure_ad_preferred(region):
-            return (f"{base} -> most manure here already flows to anaerobic digesters, so AD+CCS "
-                    f"retrofits existing biogas infrastructure ({eff_pct}% CDR efficiency) and is "
-                    f"preferred over injection; the RNG co-product displaces fossil gas. A viable "
-                    f"offtake option (no longer a Frontier exclusion).")
-        return (f"{base} -> wet feedstock favors anaerobic digestion + CCS ({eff_pct}% CDR "
-                f"efficiency, RNG co-product that displaces fossil gas); never combustion.")
+            return (f"{base} -> much of the manure here already flows to anaerobic digesters, so "
+                    f"AD+CCS retrofits existing biogas plants by {how}, and is preferred over "
+                    f"injection.")
+        return (f"{base} -> anaerobic digestion + CCS, {how}; never combustion of the raw "
+                f"feedstock.")
     if rec_key == "bio_oil":
         return (f"{base} -> diffuse residues distant from concentrated storage favor modular "
                 f"bio-oil sequestration via pyrolysis (Charm-style roving model, ~{eff_pct}% CDR "
