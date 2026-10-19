@@ -48,10 +48,16 @@
     msw_biogenic: "Biogenic fraction of municipal solid waste, Mt/yr — only the biogenic share counts as CDR.",
     manure: "Animal manure dry-matter, Mt/yr. Wet waste → injection / AD, not combustion.",
     wwtp: "Sewage sludge / biosolids dry solids, Mt/yr.",
+    forestry_fuels: "Woody residue from completed hazardous-fuel treatments (thinning, piling, biomass removal, " +
+      "chipping), Mt oven-dry/yr, 2018–2024: USFS (FACTS) + DOI and state (TWIG). Today mostly pile-burned or left. " +
+      "Already included in the forestry layer. US only (Canada: no open data).",
+    forestry_fuels_wcs: "POTENTIAL, not an estimate: the fuels residue scaled to the Wildfire Crisis Strategy " +
+      "(up to 50M additional acres over 10 years) at today's treatment mix and spatial pattern. US only.",
   };
   const FEEDSTOCK_LABEL = {
     ag: "Agricultural residues", forestry: "Forestry residues",
     msw_biogenic: "MSW (biogenic)", manure: "Animal manure", wwtp: "Human / WWTP biosolids",
+    forestry_fuels: "Wildfire-fuels residue", forestry_fuels_wcs: "Wildfire-fuels residue (WCS potential)",
   };
 
   // ---- Generic helpers ----
@@ -347,6 +353,7 @@
           feedById[r.id] = {
             _id: r.id, _name: `${r.name}, ${r.state}`, regionKind: "US county — " + r.state,
             ag: r.ag, forestry: r.forestry, forestry_fuels: r.forestry_fuels,
+            forestry_fuels_wcs: r.forestry_fuels_wcs, forestry_fuels_low: r.forestry_fuels_low,
             msw: r.msw, manure: r.manure, wwtp: r.wwtp,
             biofrac: r.biofrac || 0.61, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
           };
@@ -477,7 +484,9 @@
       // forestry total is fuels residue (thinning/pile/chipping, largely additional) vs commercial.
       let sub = unit;
       if (lab === "Forestry residues" && feed.forestry_fuels > 0) {
-        sub = `${unit} · incl. ~${fmt(feed.forestry_fuels)} from wildfire-fuels treatment`;
+        sub = `${unit} · incl. ~${fmt(feed.forestry_fuels)} from wildfire-fuels treatment`
+          + (feed.forestry_fuels_low != null ? ` (low case ${fmt(feed.forestry_fuels_low)}`
+             + (feed.forestry_fuels_wcs ? `; WCS scale-up potential ${fmt(feed.forestry_fuels_wcs)})` : ")") : "");
       }
       html += `<tr><td class="lab">${lab}<div class="unc">${sub}</div></td><td class="val">${fmt(v)}</td></tr>`;
     });
@@ -941,13 +950,15 @@
   function renderLegend() {
     const sc = SCOPES[state.scope];
     if (state.mode === "feedstock") {
-      dom.legendTitle.textContent = FEEDSTOCK_LABEL[state.feedstock] + " (Mt/yr)";
+      // county-scale fuels residue is mostly < 1 kt, so show those layers in kt/yr
+      const kt = /^forestry_fuels/.test(state.feedstock), k = kt ? 1000 : 1;
+      dom.legendTitle.textContent = FEEDSTOCK_LABEL[state.feedstock] + (kt ? " (kt odt/yr)" : " (Mt/yr)");
       const b = state.breaks, ranges = [];
       let prev = 0;
       for (let i = 0; i < GREENS.length; i++) { const hi = i < b.length ? b[i] : null; ranges.push([prev, hi]); prev = hi; }
       let html = "";
       ranges.forEach((rg, i) => {
-        const lab = rg[1] == null ? `≥ ${fmt(rg[0])}` : `${fmt(rg[0])} – ${fmt(rg[1])}`;
+        const lab = rg[1] == null ? `≥ ${fmt(rg[0] * k)}` : `${fmt(rg[0] * k)} – ${fmt(rg[1] * k)}`;
         html += `<div class="legend-row"><span class="box" style="background:${GREENS[i]}"></span>${lab}</div>`;
       });
       html += `<div class="legend-row"><span class="box" style="background:${NODATA}"></span>No / negligible data</div>`;
@@ -1048,6 +1059,14 @@
 
     return loadScope(id).then(() => {
       state.scope = id;
+      // wildfire-fuels layers exist only in the North America scope (US data; Canada shows no data)
+      document.querySelectorAll("#feedstock-select option.na-only").forEach(o => {
+        o.hidden = o.disabled = (id !== "na");
+      });
+      if (id !== "na" && /^forestry_fuels/.test(state.feedstock)) {
+        dom.feedSelect.value = "forestry"; state.feedstock = "forestry";
+        dom.feedHint.textContent = FEEDSTOCK_HINTS.forestry;
+      }
       closeDetail();
       hideHoverTip();
 
@@ -1195,9 +1214,10 @@
     Census population (MSW &amp; biosolids), then scaled so each state's counties sum to that state's
     Billion-Ton total. <b>Forestry</b> is now allocated by real <b>USFS FIA</b> county forest data
     (0.7 × harvest removals + 0.3 × standing biomass) — replacing the old farm-woodland-acreage proxy —
-    plus a separate <b>USFS FACTS wildfire-fuels-treatment</b> residue stream (thinning / pile-burn /
-    chipping biomass, largely additional, ~10 Mt odt/yr concentrated in the fire-prone West), shown in
-    the detail panel and folded into the forestry total. Where existing wood-bioenergy or Southeast
+    plus a separate <b>wildfire-fuels-treatment</b> residue stream (completed thinning / piling / biomass
+    removal / chipping, 2018–2024, USFS FACTS + DOI and state treatments via TWIG; largely additional,
+    concentrated in the fire-prone West), folded into the forestry total and mapped as its own layer,
+    with a Wildfire Crisis Strategy scale-up shown as a separate <i>potential</i> layer. Where existing wood-bioenergy or Southeast
     wood-pellet capacity already draws on the residue, a county is <b>flagged</b> "residue utilized" —
     the gross figure is not net of that competing use (utilization is flagged, not subtracted, to avoid
     double-counting the Billion-Ton availability basis). Ag and manure remain highest-confidence.</p>

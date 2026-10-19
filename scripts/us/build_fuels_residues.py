@@ -37,6 +37,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 RAW = os.path.join(ROOT, "data", "geo", "us_raw", "facts")
 COUNTIES = os.path.join(ROOT, "data", "geo", "us_counties.json")
 OUT = os.path.join(ROOT, "data", "processed", "fuels_residues_us.json")
+OUT_DETAIL = os.path.join(ROOT, "data", "processed", "fuels_residues_us_detail.json")
 
 SERVICE = ("https://apps.fs.usda.gov/arcx/rest/services/EDW/"
            "EDW_HazardousFuelsTreatments_01/MapServer/15/query")
@@ -48,13 +49,45 @@ PAGE = 2000
 # Conservative, mid-range of the western fuels-treatment literature; documented in METHODOLOGY.
 # Excluded entirely: Broadcast Burn / Fire Use / Jackpot Burn (combusted on site), Lop and Scatter /
 # Mastication / Crushing / Mowing (left dispersed on site, not a collectable stream), Grazing/Chemical.
+# Recalibrated 2026-10-19 (docs/wildfire_research/scoping_us.md §4): units that are actually
+# piled or have biomass removed carry ~13 odt/acre (Barker et al. 2025, 11 western NFs: 13.5 +/- 2.0
+# BDT/ac cut, piled and burned; CA PFIRS burn permits 12.9 t/ac; Getting to Neutral 15 BDT/ac).
+# Thinning with no pile/removal activity on the unit, chipping and hand piles (smaller material)
+# carry ~6. A unit takes its highest-yield activity (see dedup below), so thin -> pile -> burn = 13.
 YIELD_ODT_PER_ACRE = {
-    "Thinning": 12.0,
-    "Biomass Removal": 10.0,
-    "Machine Pile": 8.0,
-    "Machine Pile Burn": 8.0,     # piled slash currently burned — divertible to BiCRS
+    "Thinning": 6.0,
+    "Biomass Removal": 13.0,
+    "Machine Pile": 13.0,
+    "Machine Pile Burn": 13.0,    # piled slash currently burned — divertible to BiCRS
     "Chipping": 6.0,
+    "Hand Pile": 6.0,             # TWIG (DOI) only; FACTS HFT has no hand-pile type
+    "Hand Pile Burn": 6.0,
 }
+# Low case (sensitivity): one all-type mean, BT23's high-end "mean biomass yield (5.2 dry tons per
+# acre)" for fire-reduction thinnings (roadside, economically available framing).
+YIELD_LOW_ODT_PER_ACRE = 5.2
+
+# Wildfire Crisis Strategy scenario (a POTENTIAL, not an estimate): "treating up to 20 million
+# additional acres of National Forest System (NFS) lands over the coming decade, and ... up to 30
+# million additional acres on adjoining lands of multiple ownerships" (USFS Chief R. Moore, House
+# Agriculture testimony, 16 May 2023). Scaled version: today's spatial pattern and treatment-type
+# mix, scaled by (current all-type completed activity-acres + 5.0 M ac/yr) / current. Current =
+# 5.57 M activity-acres/yr, TWIG 2018-2024 (FACTS HFT + NFPORS + IFPRS + NASF, excl. CAL FIRE
+# tracker), queried 2026-10-19. The same testimony's "up to four times previous treatment levels"
+# is an upper bound (x4), not used. WCS_MECH_MIX scales the removal-type share relative to today.
+WCS_ADDITIONAL_AC_YR = 5.0e6
+WCS_CURRENT_AC_YR = 5.57e6
+WCS_MECH_MIX = 1.0
+WCS_SCALE = (WCS_CURRENT_AC_YR + WCS_ADDITIONAL_AC_YR * WCS_MECH_MIX) / WCS_CURRENT_AC_YR
+FACTS_TYPES = ("Thinning", "Biomass Removal", "Machine Pile", "Machine Pile Burn", "Chipping")
+
+# TWIG (Treatment and Wildfire Interagency Geodatabase; CC BY 4.0): adds DOI (BLM/NPS/FWS/BIA via
+# NFPORS and its successor IFPRS) and state-agency (NASF) treatments that FACTS (USFS only) misses.
+# The CAL FIRE/CARB Interagency Treatment Tracker rows are excluded: all dated 2021-22, multi-agency
+# (duplicates FACTS/NFPORS) and dominated by chipping/mowing/herbicide acres (an artifact for this use).
+TWIG = ("https://gis.reshapewildfire.org/arcgis/rest/services/Hosted/"
+        "Treatment_Index_View/FeatureServer/0/query")
+RAW_TWIG = os.path.join(ROOT, "data", "geo", "us_raw", "twig")
 UA = {"User-Agent": "BiCRS-Atlas/1.0 (research; wildfire-fuels residue)"}
 
 
@@ -64,7 +97,7 @@ def fetch_pages():
     successive activities on the same treated unit (thin -> machine pile -> pile burn) can be
     collapsed to one biomass stream."""
     os.makedirs(RAW, exist_ok=True)
-    types = ",".join("'%s'" % t for t in YIELD_ODT_PER_ACRE)
+    types = ",".join("'%s'" % t for t in FACTS_TYPES)
     where = (f"fiscal_year_completed>={FY_LO} AND fiscal_year_completed<={FY_HI} "
              f"AND treatment_type IN ({types})")
     recs = []
@@ -102,6 +135,47 @@ def fetch_pages():
             recs.append((lon, lat, float(acres), tt, key))
         print(f"  page {page_idx}: {len(feats)} features (cum {len(recs)})")
         if not d.get("exceededTransferLimit") or not feats:
+            break
+        offset += PAGE
+        page_idx += 1
+    return recs
+
+
+def fetch_twig():
+    """Completed removal-type DOI + state treatments from TWIG (same window), cached per page.
+    Returns list of (lon, lat, acres, type, unit_key)."""
+    os.makedirs(RAW_TWIG, exist_ok=True)
+    types = ",".join("'%s'" % t for t in YIELD_ODT_PER_ACRE)
+    where = (f"status='Completed' AND identifier_database IN ('NFPORS','IFPRS','NASF') "
+             f"AND agency NOT LIKE 'CALFIRE%' AND type IN ({types}) "
+             f"AND treatment_date >= DATE '{FY_LO}-01-01' AND treatment_date < DATE '{FY_HI + 1}-01-01'")
+    recs, offset, page_idx = [], 0, 0
+    while True:
+        dest = os.path.join(RAW_TWIG, f"twig_{FY_LO}_{FY_HI}_pg{page_idx:04d}.json")
+        if os.path.exists(dest) and os.path.getsize(dest) > 0:
+            txt = open(dest, encoding="utf-8").read()
+        else:
+            params = {"where": where, "outFields": "type,acres,agency,identifier_database",
+                      "returnGeometry": "true", "outSR": "4326", "maxAllowableOffset": "0.02",
+                      "geometryPrecision": "4", "resultRecordCount": PAGE,
+                      "resultOffset": offset, "orderByFields": "objectid", "f": "json"}
+            txt = _get(TWIG + "?" + urllib.parse.urlencode(params), dest)
+            if not txt:
+                break
+        try:
+            d = json.loads(txt)
+        except ValueError:
+            break
+        feats = d.get("features", [])
+        for f in feats:
+            a = f.get("attributes", {})
+            rings = (f.get("geometry") or {}).get("rings") or []
+            if not a.get("acres") or not rings or not rings[0]:
+                continue
+            key = hashlib.md5(json.dumps(rings, separators=(",", ":")).encode()).hexdigest()
+            recs.append((rings[0][0][0], rings[0][0][1], float(a["acres"]), a.get("type"), key))
+        print(f"  TWIG page {page_idx}: {len(feats)} features (cum {len(recs)})")
+        if not feats or (not d.get("exceededTransferLimit") and len(feats) < PAGE):
             break
         offset += PAGE
         page_idx += 1
@@ -165,6 +239,8 @@ class CountyGrid:
 def main():
     recs = fetch_pages()
     print(f"FACTS: {len(recs)} removable fuels-treatment records (FY{FY_LO}-{FY_HI})")
+    twig = fetch_twig()
+    print(f"TWIG (DOI + state, excl. CAL FIRE tracker): {len(twig)} records")
     counties = json.load(open(COUNTIES))["features"]
     grid = CountyGrid(counties)
 
@@ -173,30 +249,52 @@ def main():
     # the same slash, so each unit is counted ONCE at its highest-yield activity (identical polygon
     # geometry = same unit). Overlapping-but-not-identical polygons are not collapsed, so this is
     # still an upper bound. (Before this fix every activity was summed: 10.46 Mt odt/yr.)
+    # Same-type repeats on one polygon are also collapsed: some are genuine re-entries years apart
+    # (separate biomass), some duplicate records; we cannot tell them apart, so this undercounts any
+    # true re-entries (documented assumption). FACTS and TWIG polygons share one key space, so a
+    # TWIG record with a FACTS-identical geometry is collapsed too (state work on NFS land).
     units = {}
-    for lon, lat, acres, tt, key in recs:
-        y = YIELD_ODT_PER_ACRE.get(tt, 0.0)
-        u = units.get(key)
-        if u is None:
-            units[key] = [lon, lat, acres, y]
-        else:
-            u[2] = max(u[2], acres)
-            u[3] = max(u[3], y)
-    print(f"  {len(recs)} activity records -> {len(units)} treated units (identical polygons collapsed)")
+    for src, rows in (("usfs", recs), ("other", twig)):
+        for lon, lat, acres, tt, key in rows:
+            y = YIELD_ODT_PER_ACRE.get(tt, 0.0)
+            u = units.get(key)
+            if u is None:
+                units[key] = [lon, lat, acres, y, src]
+            else:
+                u[2] = max(u[2], acres)
+                u[3] = max(u[3], y)
+    n_in = len(recs) + len(twig)
+    print(f"  {n_in} activity records -> {len(units)} treated units (identical polygons collapsed)")
 
-    by_fips = {}
+    by_fips, detail = {}, {}
     unmatched = 0
-    for lon, lat, acres, y in units.values():
+    for lon, lat, acres, y, src in units.values():
         fips = grid.fips_of(lon, lat)
         if fips is None:
             unmatched += 1
             continue
         odt = acres * y / N_YEARS   # annual oven-dry tons
         by_fips[fips] = by_fips.get(fips, 0.0) + odt
+        d = detail.setdefault(fips, {"usfs": 0.0, "other": 0.0, "low": 0.0, "acres": 0.0})
+        d[src] += odt
+        d["low"] += acres * YIELD_LOW_ODT_PER_ACRE / N_YEARS
+        d["acres"] += acres / N_YEARS
 
     out = {f: round(v / 1e6, 6) for f, v in by_fips.items() if v > 0}   # Mt odt/yr
     with open(OUT, "w") as f:
         json.dump(out, f)
+    det = {f: {"usfs": round(d["usfs"] / 1e6, 6), "other": round(d["other"] / 1e6, 6),
+               "low": round(d["low"] / 1e6, 6),
+               "wcs": round((d["usfs"] + d["other"]) * WCS_SCALE / 1e6, 6),
+               "acres_yr": round(d["acres"])}
+           for f, d in detail.items() if f in out}
+    with open(OUT_DETAIL, "w") as f:
+        json.dump(det, f)
+    print(f"  by source: USFS (FACTS) {sum(d['usfs'] for d in det.values()):.2f}, "
+          f"DOI+state (TWIG) {sum(d['other'] for d in det.values()):.2f} | low case "
+          f"{sum(d['low'] for d in det.values()):.2f} | WCS scenario (x{WCS_SCALE:.2f}) "
+          f"{sum(d['wcs'] for d in det.values()):.2f} Mt odt/yr | "
+          f"{sum(d['acres_yr'] for d in det.values()) / 1e6:.2f} M treated ac/yr")
 
     tot = sum(out.values())
     top = sorted(out.items(), key=lambda kv: -kv[1])[:8]

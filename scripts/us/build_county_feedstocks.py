@@ -43,7 +43,8 @@ POP = os.path.join(RAW, "co-est2023.csv")
 COUNTIES = os.path.join(ROOT, "data", "geo", "us_counties.json")
 STATE_FEED = os.path.join(PROC, "feedstocks.json")
 FIA = os.path.join(PROC, "fia_county_forestry.json")   # FIA county forestry weights (item 2 ph.1)
-FUELS = os.path.join(PROC, "fuels_residues_us.json")   # FACTS wildfire-fuels residue (item 2 ph.3)
+FUELS = os.path.join(PROC, "fuels_residues_us.json")   # wildfire-fuels residue (FACTS + TWIG)
+FUELS_DETAIL = os.path.join(PROC, "fuels_residues_us_detail.json")   # by source + low + WCS scenario
 OUT = os.path.join(PROC, "feedstocks_us_county.json")
 
 # --- residue-to-product factors: odt recoverable residue per production unit ---
@@ -181,6 +182,7 @@ def main():
     # forestry (it is mostly federal-land treatment not in the commercial logging total), and folded
     # into the forestry stream so it drives dominant_feedstock + CDR — but kept tagged for provenance.
     fuels = json.load(open(FUELS)) if os.path.exists(FUELS) else {}
+    fuels_det = json.load(open(FUELS_DETAIL)) if os.path.exists(FUELS_DETAIL) else {}
     print(f"  fuels-treatment residue: {len(fuels)} counties, {sum(fuels.values()):.1f} Mt odt/yr"
           if fuels else "  (no fuels-treatment residue layer)")
 
@@ -292,17 +294,27 @@ def main():
                              if r["forestry_src"] == "fia" else
                              "BT23 state forestry residue allocated by county woodland acreage "
                              "(USDA Census of Ag 2022)")
-                            + (" + USFS FACTS wildfire-fuels-treatment residue"
+                            + (" + wildfire-fuels-treatment residue (USFS FACTS + DOI/state via TWIG)"
                                if fuels_res > 0 else "")),
                     notes=("commercial residue " + (
                         "(FIA-allocated)" if r["forestry_src"] == "fia" else "(woodland-area proxy)")
                         + (f" plus {fuels_res:.3f} Mt/yr fuels-treatment residue "
                            f"(thinning/pile/chipping, largely additional)" if fuels_res > 0 else ""))),
-                "forestry_residues_fuels_odt_mt": est(
-                    fuels_res, source="USFS FACTS hazardous-fuel-treatment removable biomass "
-                    "(acres x per-type odt/acre, annualized FY2018-2024)",
+                "forestry_residues_fuels_odt_mt": dict(est(
+                    fuels_res,
+                    lo=(fuels_det.get(fips, {}).get("low", fuels_res) / fuels_res) if fuels_res else 0.6,
+                    hi=1.0,
+                    source="Hazardous-fuel-treatment removable biomass: USFS FACTS + DOI (NFPORS/"
+                           "IFPRS) and state (NASF) treatments via TWIG; completed 2018-2024, one "
+                           "treated unit counted once at its highest-yield activity x per-type "
+                           "odt/acre (piled/removed ~13, thinning-only/chipping/hand-pile ~6)",
                     notes="wildfire-management residue today pile-burned/left; included in the "
-                          "forestry total above") if fuels_res > 0 else {"value": 0.0},
+                          "forestry total above. low = flat 5.2 odt/ac (BT23)"),
+                    usfs=round(fuels_det.get(fips, {}).get("usfs", 0.0), 4),
+                    other=round(fuels_det.get(fips, {}).get("other", 0.0), 4),
+                    wcs=round(fuels_det.get(fips, {}).get("wcs", 0.0), 4),
+                    acres_yr=fuels_det.get(fips, {}).get("acres_yr", 0))
+                    if fuels_res > 0 else {"value": 0.0},
                 "msw_total_mt": est(
                     msw, source="state MSW total allocated by county population "
                     "(Census Vintage-2023)"),

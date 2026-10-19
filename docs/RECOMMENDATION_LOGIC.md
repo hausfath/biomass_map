@@ -53,6 +53,10 @@ cost to the nearest firm well (operational or issued/under-construction); see ME
 storage-dependent pathway is also disqualified above $100/tCO₂ for its own payload — wet slurry hits the
 cap far sooner than densified bio-oil — falling back to bio-oil (HTL for wet manure) / burial / biochar.
 Only the **global** scope still uses the distance bands above.)
+**Per-payload grades (2026-10-19):** in the detail scopes each pathway is judged on its *own* payload's
+grade — capture pathways (and AD) on CO₂ to a CO₂-eligible store; slurry injection, pyrolysis bio-oil
+and HTL on their own delivered cost to an injection site. "Injection over bio-oil" needs a *good*
+slurry grade; burial (excess nutrients) leads where slurry cannot reach an injection site under the cap.
 
 **Well eligibility by payload (item 7).** Gaseous **CO₂** (BECCS · BECCS-pp · WtE+CCS · AD+CCS ·
 LFG+CCS / LFG-RNG+CCS) may only be stored in a **CO₂-eligible well** — Class VI / Subpart-RR or a CCS

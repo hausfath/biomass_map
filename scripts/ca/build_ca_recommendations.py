@@ -190,6 +190,15 @@ def main():
             cav = permitted_storage_caveat(disp_status, disp_well)
             if cav:
                 caveats = [cav] + caveats
+        # BC wildfire-management residue (docs/wildfire_research/scoping_canada.md): no open,
+        # quantified fuel-treatment or burned-slash dataset exists, so this is a caveat, not tonnage.
+        if region["prov"] == "BC" and num(region.get("forestry_residues_odt_mt")) >= 0.01:
+            caveats.append(
+                "BC: much harvest slash is piled and burned for fire-hazard abatement — it is part of "
+                "the forestry residue above (not additional), and diverting it is a near-term, high-"
+                "additionality supply. No primary volume or spatial data exist (one secondary estimate: "
+                "~3.9 Mt CO₂ from BC slash-pile burning in 2019, UBC policy brief, unverified). "
+                "Community fuel treatments (BC CRI program) are small (~6,000 ha completed, 2013-2023).")
 
         records.append({
             "id": region["id"],

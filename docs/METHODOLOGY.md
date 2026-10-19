@@ -487,7 +487,32 @@ Billion-Ton Report + USDA NASS):
   treated unit (thin → machine pile → pile burn) are the same slash, so each unit (identical polygon)
   is counted **once** at its highest-yield activity: 135,536 activity records → 79,931 units,
   **5.87 Mt odt/yr across 606 counties** (an earlier build summed every activity, 10.46 Mt; fixed
-  2026-10-19; overlapping-but-not-identical polygons are still not collapsed, so an upper bound). This captures the woody material
+  2026-10-19; overlapping-but-not-identical polygons are still not collapsed, so an upper bound).
+  **Extended 2026-10-19** (`docs/wildfire_research/scoping_us.md`):
+  - *Coverage:* adds DOI (BLM/NPS/FWS/BIA via NFPORS and its successor IFPRS) and state-agency (NASF)
+    completed removal-type treatments from **TWIG** (Treatment and Wildfire Interagency Geodatabase,
+    CC BY 4.0; 9,290 records), excluding the CAL FIRE/CARB Interagency Treatment Tracker (all dated
+    2021–22, multi-agency duplicates, dominated by chipping/mowing/herbicide acres). TWIG and FACTS
+    polygons share one dedup key space. Private and tribal treatments are absent from open data.
+  - *Yields (recalibrated):* units actually piled or with biomass removed ~13 odt/ac (Barker et al.
+    2025: 13.5 ± 2.0 BDT/ac cut, piled and burned across 11 western NFs; CA PFIRS burn permits
+    12.9 t/ac; Getting to Neutral 15 BDT/ac); thinning-only, chipping and hand-pile units ~6. A unit
+    takes its highest-yield activity. Same-type repeats on one polygon are collapsed (some may be
+    genuine re-entries years apart, undercounted; documented assumption).
+  - *Result:* **6.91 Mt odt/yr across 817 counties** (USFS 5.48, DOI+state 1.43; ~0.72 M treated
+    ac/yr). Low case (flat 5.2 odt/ac, BT23's high-end fire-reduction-thinning mean): 3.74.
+    This is gross treated residue, not BT23-style economically available roadside supply (BT23
+    extrapolates 1.8–2.9 Mdt/yr for fire-reduction thinnings across its priority landscapes).
+  - *Wildfire Crisis Strategy potential (separate layer, not in the forestry total):* "treating up to
+    20 million additional acres of National Forest System (NFS) lands over the coming decade, and …
+    up to 30 million additional acres on adjoining lands of multiple ownerships" (USFS Chief R. Moore,
+    House Agriculture testimony, 16 May 2023). Scaled version: today's pattern and treatment mix ×
+    (5.57 M current completed activity-acres/yr + 5.0 M)/5.57 = ×1.90 → **13.1 Mt odt/yr**. The same
+    testimony's "up to four times previous treatment levels" would be ×4 (upper bound, not used).
+  - *Canada:* no open, quantified fuel-treatment or burned-slash dataset outside BC; BC census
+    divisions carry a caveat that much harvest slash is pile-burned (already inside the forestry
+    residue; one secondary estimate ~3.9 Mt CO₂ in 2019, unverified). BC CRI treatment polygons are
+    "Access Only" licensed and tiny (~6,000 ha completed), so not ingested. This captures the woody material
   from hazardous-fuel thinning and pile burns — today largely **pile-burned or left on site**,
   especially on fire-prone federal land in the interior West (the Sierra Nevada etc.) where there is
   little commercial logging, so the harvest-based commercial layer misses it. It is **folded into the
@@ -714,10 +739,17 @@ take, so the *eligible destination set* differs by payload:
   *Not* restricted (see the Class-V-coverage caveat — our Class V point set is only the curated CDR
   sites, far fewer than the real disposal-well universe, so restricting these payloads would wrongly
   starve them).
-- **Storage access** (the good/moderate/poor grade that drives the dry-biomass branch) is graded on CO₂
-  cost to the nearest *any* well — a general "is geologic storage reachable" signal — so injection/
-  bio-oil availability is **not** tightened by the CO₂→Class-VI rule; only the capture pathways are.
-  (Asymmetric by design: CO₂ is restricted, biomass is not.)
+- **Storage access is graded per payload (2026-10-19).** Each pathway is judged on its *own* payload's
+  delivered cost (good ≤ $66 / moderate ≤ $100 / poor > $100 per tCO₂, permitted-well cap as before):
+  capture pathways and AD on CO₂ to a CO₂-eligible store; slurry injection, pyrolysis bio-oil and HTL
+  on their cost to an injection site (`engine_core.access_by_payload` / `pathway_access`). Injection
+  leads over bio-oil only where the slurry grade is *good*; burial (excess nutrients) leads where
+  slurry cannot reach an injection site under the cap. This replaced a single grade on "CO₂ to the
+  nearest *any* well", which the routing change in `c17051d` had silently redefined as "CO₂-eligible
+  store" (US/Canada transport files had not been regenerated, so the live map was still on the old
+  definition). Effect on regeneration: US 316 county changes (133 bio-oil → burial, 127 injection →
+  bio-oil, the rest mostly the transport refresh), CDR 361.6 → 351.9 Mt/yr; Canada 8 changes;
+  Europe 2; global unchanged.
 
 **Delivered cost** = `mass_per_tCO₂(payload) × Σ_legs[mode $/t·km × routed-km] + per-mode handling +
 CO₂ liquefaction (for gaseous CO₂ only)`. The **payload carbon density** is the crux — what's hauled
@@ -815,7 +847,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Ag residues | CA | StatCan **Census of Agriculture 2021** CD residue-crop area (32-10-0309) × per-ha residue weight | Census division, scaled to province totals |
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
 | Forestry residues | US | State BT total allocated by **USFS FIA** county forest data (0.7 harvest-removals + 0.3 standing-biomass share) | County, scaled to state |
-| Forestry — fuels residue | US | **USFS FACTS** hazardous-fuel treatments (FY2018–2024 removable types × per-acre odt yield, annualized) | County point-in-polygon; added to forestry total |
+| Forestry — fuels residue | US | **USFS FACTS** + DOI/state via **TWIG** hazardous-fuel treatments (2018–2024 completed removal types, one unit once × per-type odt/ac, annualized) | County point-in-polygon; added to forestry total; WCS scale-up as a separate potential |
 | Forestry — utilization flag | US | GHGRP wood-bioenergy capacity (in-range) + **EIA-63C** South pellet/export region | Qualitative caveat only; no tonnage change |
 | Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |
 | Forestry residues | CA | Province total allocated by CD land area *(weakest spatial layer — no CD timberland inventory)* | Census division, scaled |
