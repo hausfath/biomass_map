@@ -739,17 +739,16 @@ take, so the *eligible destination set* differs by payload:
   *Not* restricted (see the Class-V-coverage caveat — our Class V point set is only the curated CDR
   sites, far fewer than the real disposal-well universe, so restricting these payloads would wrongly
   starve them).
-- **Storage access is graded per payload (2026-10-19).** Each pathway is judged on its *own* payload's
-  delivered cost (good ≤ $66 / moderate ≤ $100 / poor > $100 per tCO₂, permitted-well cap as before):
-  capture pathways and AD on CO₂ to a CO₂-eligible store; slurry injection, pyrolysis bio-oil and HTL
-  on their cost to an injection site (`engine_core.access_by_payload` / `pathway_access`). Injection
-  leads over bio-oil only where the slurry grade is *good*; burial (excess nutrients) leads where
-  slurry cannot reach an injection site under the cap. This replaced a single grade on "CO₂ to the
-  nearest *any* well", which the routing change in `c17051d` had silently redefined as "CO₂-eligible
-  store" (US/Canada transport files had not been regenerated, so the live map was still on the old
-  definition). Effect on regeneration: US 316 county changes (133 bio-oil → burial, 127 injection →
-  bio-oil, the rest mostly the transport refresh), CDR 361.6 → 351.9 Mt/yr; Canada 8 changes;
-  Europe 2; global unchanged.
+- **Storage access** (the good/moderate/poor grade that drives the decision branches) is graded on
+  the CO₂ delivered cost to the nearest **CO₂-eligible well** (Class VI/RR or a CCS project). Because
+  there is no good inventory yet of where biomass slurry or bio-oil could actually be injected, existing
+  CO₂ wells are used as the **proxy** for those locations too — otherwise injection/bio-oil would be
+  restricted to the two Class V sites Charm and Vaulted have developed. (Their payload *costs* in the
+  US still route to any well.) *History:* the US/Canada transport files had not been regenerated after
+  the routing change in `c17051d` and were graded on "CO₂ to the nearest *any* well" (incl. Class V);
+  regenerated 2026-10-19 (US 81 county changes, e.g. Sierra counties near Charm but far from a Class VI
+  well now grade "poor"). A per-payload grade was tried and **deferred** until a biomass-injection site
+  layer exists.
 
 **Delivered cost** = `mass_per_tCO₂(payload) × Σ_legs[mode $/t·km × routed-km] + per-mode handling +
 CO₂ liquefaction (for gaseous CO₂ only)`. The **payload carbon density** is the crux — what's hauled

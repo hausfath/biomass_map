@@ -24,7 +24,6 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
 from engine_core import (
-    access_by_payload, pathway_access,
     pathway_debits, augment_payload_costs,  # noqa: E402
     PATHWAYS, ODT_TO_CO2, NO_OPTION_RATIONALE,
     num, haversine_km, _point_in_geometry,
@@ -100,10 +99,9 @@ def main():
         tcost = tinfo.get("by_payload") if tinfo else None
         dest_status = tinfo.get("dest_status", "operational") if tinfo else "operational"
         permitted_storage = dest_status in ("draft", "pending")
-        # Storage access is graded on the CO₂ cost to the nearest ANY well (access_co2_usd) — a
-        # general "is geologic storage reachable" signal — so injection/bio-oil (which may use any
-        # well) are NOT tightened by the item-7 CO₂→Class-VI restriction; the capture pathways are
-        # gated instead by the transport cap on by_payload.co2 (CO₂-eligible wells only).
+        # Storage access is graded on the CO₂ cost to the nearest CO₂-ELIGIBLE well (access_co2_usd)
+        # for all pathways: existing CO₂ wells are the proxy for where biomass/bio-oil could be
+        # injected until a biomass-injection site layer exists (per-payload grade deferred 2026-10-19).
         access_co2 = tinfo.get("access_co2_usd") if tinfo else None
         if access_co2 is not None:
             access = storage_access_from_cost(access_co2, dest_status)
@@ -116,8 +114,6 @@ def main():
         region["feedstock_density"] = density
 
         avail, has_retrofit, anchor_name, anchor_type = compute_avail_anchor(centroid, facilities)
-
-        region["_access_by_payload"] = access_by_payload(tinfo)
 
         rec_key, runner_key, eff_dom = decide(region, access, has_retrofit, avail)
         no_option = (rec_key == "none")
@@ -218,7 +214,7 @@ def main():
             "cost_band": cost,
             "cdr_potential_mtpa": cdr,
             "no_option": no_option,
-            "storage_access": pathway_access(rec_key, access, region) if not no_option else access,
+            "storage_access": access,
             "nearest_storage_km": nearest_km,
             "storage_detail": sdetail,
             "transport_usd_per_tco2": (round(transport_cost_for(rec_key, tcost), 1)

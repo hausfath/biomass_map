@@ -27,7 +27,6 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
 from engine_core import (
-    access_by_payload, pathway_access,
     pathway_debits, augment_payload_costs,
     PATHWAYS, ODT_TO_CO2, PROC_RADIUS_KM, AD_MIN_CAP_MTPA, NO_OPTION_RATIONALE,
     num, haversine_km, _point_in_geometry,
@@ -314,10 +313,10 @@ def main():
         dest_status = tinfo.get("dest_status", "operational") if tinfo else "operational"
         # issued is treated as firm storage; only draft/pending are flagged lower-confidence.
         permitted_storage = dest_status in ("draft", "pending")
-        # Storage access is graded on the CO₂ cost to the nearest ANY well (access_co2_usd) — a
-        # general "is geologic storage reachable" signal — so injection/bio-oil (which can use any
-        # well) are NOT tightened by the item-7 CO₂→Class-VI restriction. The capture pathways are
-        # instead gated by the transport cap on by_payload.co2 (CO₂-eligible wells only).
+        # Storage access is graded on the CO₂ cost to the nearest CO₂-ELIGIBLE well (access_co2_usd,
+        # Class VI/RR or CCS project) for all pathways: existing CO₂ wells are the proxy for where
+        # biomass/bio-oil could be injected until a biomass-injection site layer exists (a per-payload
+        # grade was tried 2026-10-19 and deferred). Payload COSTS still route bio-oil/slurry to any well.
         access_co2 = tinfo.get("access_co2_usd") if tinfo else None
         if access_co2 is not None:
             access = storage_access_from_cost(access_co2, dest_status)
@@ -339,8 +338,6 @@ def main():
         if lf_info:
             region["_lfg_co2_mtpa"] = lf_info["co2"]
             region["_lfg_pref"] = lf_info["pref"]
-
-        region["_access_by_payload"] = access_by_payload(tinfo)
 
         rec_key, runner_key, eff_dom = decide(region, access, has_retrofit, avail)
         no_option = (rec_key == "none")
@@ -466,7 +463,7 @@ def main():
             "cost_band": cost,
             "cdr_potential_mtpa": cdr,
             "no_option": no_option,
-            "storage_access": pathway_access(rec_key, access, region) if not no_option else access,
+            "storage_access": access,
             "nearest_storage_km": nearest_km,
             "storage_detail": sdetail,
             "transport_usd_per_tco2": (round(transport_cost_for(rec_key, tcost), 1)
