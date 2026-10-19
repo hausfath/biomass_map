@@ -1117,11 +1117,12 @@ def debit_cons(pathway, region):
     d = pathway_debits(pathway, region)
     out = []
     if d["soc"] or d["fert"]:
-        txt = (f"Net of counterfactual debits: {round(d['gross'] * 100)}% gross − "
-               f"{round(d['soc'] * 100)} pts soil carbon the spread "
+        pct = lambda x: int(x * 100 + 0.5)    # half-up, matching the frontend's Math.round
+        txt = (f"Net of counterfactual debits: {pct(d['gross'])}% gross − "
+               f"{pct(d['soc'])} pts soil carbon the spread "
                f"{'digestate' if DEBIT_BASIS[pathway] == 'digestate' else 'manure'} would have built "
                f"({SOC_HORIZON_YR}-yr)")
-        txt += (f" − {round(d['fert'] * 100)} pts replacement fertilizer" if d["fert"]
+        txt += (f" − {pct(d['fert'])} pts replacement fertilizer" if d["fert"]
                 else " (no fertilizer debit: nutrient-surplus region)")
         out.append(txt)
     return out
