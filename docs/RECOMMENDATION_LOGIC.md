@@ -78,7 +78,7 @@ flowchart TD
 
     %% ---------- 1. WET MANURE  (no solid options: never biochar/burial. AD+CCS & injection need storage) ----------
     DOM -->|manure_wet| Mst{storage near?}
-    Mst -->|yes + AD nearby<br/>+ AD maturity ≥ 0.15| Mad["AD RNG+CCS if upgrading plant,<br/>else AD+CCS (all carbon)<br/>runner: injection"]
+    Mst -->|yes + AD nearby<br/>+ AD maturity ≥ 0.15| Mad["AD RNG+CCS (upgrading plant) or AD+CCS (CHP)<br/>+ digestate injection if both legs ≤ cap<br/>runner: the plain AD variant"]
     Mst -->|yes, else| Minj["Injection<br/>runner: AD+CCS if AD else HTL bio-oil"]
     Mst -->|no — storage poor<br/>or slurry transport > cap| Mbio["Bio-oil (HTL)<br/>runner: AD+CCS if AD else injection"]
 
@@ -148,6 +148,12 @@ flowchart TD
   capture the upgrading-vent CO₂ and sell the biomethane, ~18% of manure carbon) where an upgrading
   digester is in reach, else **all-carbon AD+CCS** (`ad_ccs`, combust the biogas and capture all its
   carbon, ~40%) where only CHP digesters are. Both efficiencies are derived in `engine_core.py`.
+- **Digestate injection twins** (`ad_rng_ccs_inj`, `ad_ccs_inj`) also inject the digestate (~55% of
+  feed C) instead of spreading it; they lead in mature-AD regions when BOTH the CO₂ leg and the
+  digestate leg clear the $100/tCO₂ cap, else the plain AD variant leads.
+- **Soil-carbon / fertilizer debits**: manure injection, HTL bio-oil from manure, and the digestate
+  twins are netted for forgone soil carbon (50-yr horizon) and replacement-fertilizer production
+  (zero in nutrient-surplus regions); see METHODOLOGY.
 - **AD+CCS** is preferred over injection for manure where measured **AD maturity ≥ 0.15** *with storage
   near* (it retrofits an existing digester industry). `ad_maturity` = biogas/biomethane produced ÷
   sustainable potential (IEA/FAOSTAT/IRENA/EBA; sub-national from AgSTAR (US), Canadian Biogas

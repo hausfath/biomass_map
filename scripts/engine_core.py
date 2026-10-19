@@ -44,6 +44,46 @@ _ad_co2 = _ad_ch4 * (1 - AD_BIOGAS_CH4_FRAC) / AD_BIOGAS_CH4_FRAC        # Nm3 C
 AD_EFF_RNG = round(_ad_co2 * AD_CO2_KG_PER_NM3 / 1000 / ODT_TO_CO2 * AD_CAPTURE_VENT, 2)
 AD_EFF_ALLC = round((_ad_ch4 + _ad_co2) * AD_CO2_KG_PER_NM3 / 1000 / ODT_TO_CO2
                     * AD_CAPTURE_FLUE, 2)
+# Carbon left in the digestate = feed carbon not converted to biogas (same derivation, so the
+# biogas + digestate split always sums to the feed): ~0.55 of slurry feed C.
+AD_BIOGAS_C_SHARE = (_ad_ch4 + _ad_co2) * AD_CO2_KG_PER_NM3 / 1000 / ODT_TO_CO2
+DIGESTATE_C_SHARE = 1 - AD_BIOGAS_C_SHARE
+# Digestate injection transport: on the same as-injected solids basis the engine assumes for raw
+# manure slurry (transport_common.SLURRY_MASS_BY_FEEDSTOCK), mass per tCO2 scales with carbon per
+# unit dry matter. Digestion removes ~45% of the carbon (as VS) but none of the ash, so digestate
+# DM carries less carbon than raw slurry DM. Assumes slurry DM 20% ash.
+AD_SLURRY_ASH_FRAC_DM = 0.20
+_raw_c_per_dm = 1.0                                         # normalised raw-slurry C per DM
+_dig_c_per_dm = DIGESTATE_C_SHARE / (AD_SLURRY_ASH_FRAC_DM
+                                     + (1 - AD_SLURRY_ASH_FRAC_DM) * DIGESTATE_C_SHARE)
+DIGESTATE_SLURRY_MASS_RATIO = round(_raw_c_per_dm / _dig_c_per_dm, 2)   # ~1.16x raw slurry
+
+# --- Counterfactual debits for pathways that take manure/biosolids carbon off the land -------
+# (docs/ad_research/digestate_injection_soil_carbon.md; METHODOLOGY "Soil-carbon and fertilizer
+# debits"). Expressed, like cdr_efficiency, as a fraction of the feed carbon (feed CO2 basis).
+# SOC forgone: share of applied DIGESTATE carbon still in soil after H years, Yasso07 (Tampio et
+# al. 2024: 48-50% at 5 yr, 20-27% at 25 yr, 3-4% at 100 yr; interpolated 15 yr 34%, 50 yr 13%).
+SOC_RETENTION_DIGESTATE = {15: 0.34, 50: 0.13, 100: 0.035}
+SOC_HORIZON_YR = 50          # central (Isometric feedstock-module fallback); 15 / 100 sensitivity
+# Raw slurry vs digestate retention per unit FEED carbon: Tampio 2024 stable-C shares, 26% (raw
+# manure + straw) vs 21-23% (digested) -> 1.18 (Thomsen 2013 ~1.0; Karki 2013 Daisy up to ~2).
+RAW_TO_DIGESTATE_SOC_RATIO = 1.18
+# Fertilizer replacement: manure N per feed C (C/N ~8.6), mineral-fertilizer equivalence (MFE),
+# fertilizer PRODUCTION emissions only (field N2O excluded: IPCC applies the same EF to manure and
+# synthetic N). N EF: Hoxha & Christensen 2019 (IFS 805) ammonium nitrate, EU avg 3.32, N America
+# 6.71 kg CO2e/kg N (non-European regions use 6.71). P2O5 = 0.4 x N mass at ~1.2 kg CO2e/kg
+# (unverified). Zero in nutrient-surplus regions (no replacement needed; Isometric module 8.2).
+FERT_N_PER_FEED_C = 0.116
+FERT_MFE = {"raw": 0.45, "digestate": 0.60}
+FERT_N_EF = {"europe": 3.32, "other": 6.71}
+FERT_P2O5_PER_N = 0.4
+FERT_P2O5_EF = 1.2
+C_TO_CO2 = 44.0 / 12.0
+EUROPE_ISO3 = {
+    "AUT", "BEL", "BGR", "HRV", "CYP", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN",
+    "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "NLD", "POL", "PRT", "ROU", "SVK", "SVN", "ESP",
+    "SWE", "GBR", "NOR", "CHE", "ISL",
+}
 
 PATHWAYS = {
     "beccs": {
@@ -145,6 +185,20 @@ PATHWAYS = {
         "co_product": "low-C fuel",
         "needs_geologic_storage": True,
     },
+    # AD + CCS + digestate injection: as the parent AD variant, but the digestate (~55% of the feed
+    # carbon) is injected into geologic storage (biomass-injection site) instead of being spread.
+    # Gross efficiency = parent capture + digestate C x the injection process factor; the cost band
+    # and transport are carbon-weighted blends of the parent and injection (filled in below).
+    "ad_rng_ccs_inj": {
+        "label": "AD RNG + CCS + digestate injection",
+        "co_product": "low-C fuel",
+        "needs_geologic_storage": True,
+    },
+    "ad_ccs_inj": {
+        "label": "AD + CCS (all carbon) + digestate injection",
+        "co_product": "energy",
+        "needs_geologic_storage": True,
+    },
     "biochar": {
         "label": "Biochar",
         "cdr_efficiency": 0.30,
@@ -153,6 +207,70 @@ PATHWAYS = {
         "needs_geologic_storage": False,
     },
 }
+
+# Composite AD + digestate-injection pathways: parent AD variant + injected digestate.
+AD_INJ_PARENT = {"ad_rng_ccs_inj": "ad_rng_ccs", "ad_ccs_inj": "ad_ccs"}
+AD_INJ_OF = {v: k for k, v in AD_INJ_PARENT.items()}
+
+
+def _band(cost_band):
+    import re
+    nums = [float(x) for x in re.findall(r"\d+", cost_band.split("(")[0])]
+    return nums[0], nums[-1]
+
+
+def _ad_inj_split(key):
+    """(parent-capture share, injected-digestate share) of the feed carbon stored, gross."""
+    parent = PATHWAYS[AD_INJ_PARENT[key]]["cdr_efficiency"]
+    dig = DIGESTATE_C_SHARE * PATHWAYS["injection"]["cdr_efficiency"]
+    return parent, dig
+
+
+for _k, _par in AD_INJ_PARENT.items():
+    _v, _d = _ad_inj_split(_k)
+    PATHWAYS[_k]["cdr_efficiency"] = round(_v + _d, 2)
+    (_pl, _ph), (_il, _ih) = _band(PATHWAYS[_par]["cost_band"]), _band(PATHWAYS["injection"]["cost_band"])
+    PATHWAYS[_k]["cost_band"] = (f"${round((_v * _pl + _d * _il) / (_v + _d))}-"
+                                 f"{round((_v * _ph + _d * _ih) / (_v + _d))}")
+
+# Pathways whose counterfactual debits apply (manure / biosolids carbon leaves the land), and the
+# land-application counterfactual each displaces: raw slurry spreading for raw injection / HTL,
+# digestate spreading at the existing digester for the AD retrofits that inject the digestate.
+# Plain AD+CCS keeps spreading the digestate -> no debit. Dry-residue pathways: no debit (the
+# residue supply already carries a ~40% sustainable-removal cap for soil carbon).
+DEBIT_BASIS = {"injection": "raw", "bio_oil_htl": "raw",
+               "ad_rng_ccs_inj": "digestate", "ad_ccs_inj": "digestate"}
+
+
+def _is_europe(region):
+    c = (region.get("country") if isinstance(region.get("country"), str)
+         and len(region.get("country")) == 3 else None) or region_country(region)
+    return c in EUROPE_ISO3
+
+
+def pathway_debits(pathway, region, horizon=None):
+    """{"gross","soc","fert","net"} as fractions of feed carbon. Debits apply only to the
+    DEBIT_BASIS pathways in wet-manure/biosolids regions; otherwise net == gross."""
+    gross = PATHWAYS[pathway]["cdr_efficiency"]
+    basis = DEBIT_BASIS.get(pathway)
+    if region is None or basis is None or region.get("dominant_feedstock") != "manure_wet":
+        return {"gross": gross, "soc": 0.0, "fert": 0.0, "net": gross}
+    r = SOC_RETENTION_DIGESTATE[horizon or SOC_HORIZON_YR]
+    soc_dig = DIGESTATE_C_SHARE * r
+    soc = soc_dig * RAW_TO_DIGESTATE_SOC_RATIO if basis == "raw" else soc_dig
+    if region.get("nutrient_status") == "excess":
+        fert = 0.0
+    else:
+        ef = FERT_N_EF["europe" if _is_europe(region) else "other"]
+        n = FERT_N_PER_FEED_C
+        fert = (n * FERT_MFE[basis] * ef + n * FERT_P2O5_PER_N * FERT_P2O5_EF) / C_TO_CO2
+    return {"gross": gross, "soc": round(soc, 3), "fert": round(fert, 3),
+            "net": round(gross - soc - fert, 2)}
+
+
+def net_efficiency(pathway, region=None):
+    return pathway_debits(pathway, region)["net"]
+
 
 # Static advantages / disadvantages per pathway (region-specific ones appended later).
 PATHWAY_PROFILE = {
@@ -239,6 +357,21 @@ PATHWAY_PROFILE = {
                  "Methane slip from digestion/upgrading erodes the removal (~12% of captured CO2 "
                  "per 1% CH4 lost)"],
     },
+    "ad_rng_ccs_inj": {
+        "pros": ["Stores the digestate carbon too, not just the upgrading CO2 — several times the "
+                 "CDR of AD RNG+CCS alone",
+                 "RNG co-product displaces fossil gas; retrofits an existing biomethane plant",
+                 "Captures the near-pure upgrading-vent CO2 cheaply"],
+        "cons": ["Digestate is mostly water — costly to haul to an injection site",
+                 "No digestate-injection project or crediting precedent yet (raw slurry/biosolids only)"],
+    },
+    "ad_ccs_inj": {
+        "pros": ["Highest-CDR AD option: all biogas carbon captured and the digestate carbon injected",
+                 "Energy co-product (electricity/heat); retrofits an existing CHP digester"],
+        "cons": ["Digestate is mostly water — costly to haul to an injection site",
+                 "Dilute flue-gas (or fuel-cell) capture at small plant scale is costly",
+                 "No digestate-injection project or crediting precedent yet (raw slurry/biosolids only)"],
+    },
     "biochar": {
         "pros": ["Returns nutrients to soils, improving yields",
                  "Distributed and storage-independent; simple and near-term"],
@@ -316,6 +449,7 @@ AD_MIN_CAP_MTPA = 0.01   # cumulative AD biogenic-CO2 capacity within reach to e
 LFG_MIN_CO2_MTPA = 0.05  # collected-gas biogenic CO2 (full-combustion basis) to qualify a landfill
 # pathway key -> avail flag it is gated on
 RETROFIT_GATE = {"beccs_pp": "pp", "wte_ccs": "wte", "ad_ccs": "ad", "ad_rng_ccs": "ad_rng",
+                 "ad_ccs_inj": "ad", "ad_rng_ccs_inj": "ad_rng",
                  "lfg_ccs": "lf", "lfg_rng_ccs": "lf"}
 
 # --------------------------------------------------------------------------
@@ -338,6 +472,8 @@ TRANSPORT_KPI_PENALTY = {"low": 0, "medium": 4, "high": 8, "over": 0}  # soft KP
 PATHWAY_PAYLOAD = {
     "beccs": "co2", "beccs_pp": "co2", "wte_ccs": "co2", "ad_ccs": "co2", "ad_rng_ccs": "co2",
     "lfg_ccs": "co2", "lfg_rng_ccs": "co2",
+    # composite: CO2 to a CO2-eligible store + digestate slurry to an injection site
+    "ad_rng_ccs_inj": "ad_rng_ccs_inj", "ad_ccs_inj": "ad_ccs_inj",
     "bio_oil": "bio_oil", "bio_oil_htl": "bio_oil_htl", "injection": "slurry",
 }
 
@@ -397,7 +533,37 @@ def transport_cost_for(pathway, tcost):
     pay = PATHWAY_PAYLOAD.get(pathway)
     if pay is None or not tcost:
         return None
+    if pathway in AD_INJ_PARENT:
+        # Carbon-weighted blend of the CO2 leg and the digestate-slurry leg; both must be reachable.
+        c_co2, c_slurry = tcost.get("co2"), tcost.get("slurry")
+        if c_co2 is None or c_slurry is None:
+            return None
+        v, d = _ad_inj_split(pathway)
+        return round((v * c_co2 + d * c_slurry * DIGESTATE_SLURRY_MASS_RATIO) / (v + d), 1)
     return tcost.get(pay)
+
+
+def composite_legs_ok(pathway, tcost):
+    """Composite AD+injection pathways must deliver BOTH payloads: each leg's own $/tCO2 (for the
+    carbon it carries) must clear the cap — a cheap digestate leg cannot subsidise an over-cap CO2
+    leg (or vice versa). Non-composite pathways: always True."""
+    if pathway not in AD_INJ_PARENT or not tcost:
+        return True
+    c_co2, c_slurry = tcost.get("co2"), tcost.get("slurry")
+    if c_co2 is None or c_slurry is None:
+        return False
+    return (c_co2 <= TRANSPORT_MAX_USD
+            and c_slurry * DIGESTATE_SLURRY_MASS_RATIO <= TRANSPORT_MAX_USD)
+
+
+def augment_payload_costs(tcost):
+    """Per-payload $/tCO2 dict plus the composite AD+injection entries (for records / frontend)."""
+    if not tcost:
+        return tcost
+    out = dict(tcost)
+    for k in AD_INJ_PARENT:
+        out[k] = transport_cost_for(k, tcost)
+    return out
 
 
 def apply_transport_cap(rec, runner, dom, region, tcost, avail=None):
@@ -429,13 +595,19 @@ def apply_transport_cap(rec, runner, dom, region, tcost, avail=None):
         # None cost means no eligible well is reachable (e.g. gaseous CO₂ with no CO₂-eligible well
         # in range, item 7) → not viable here.
         c = transport_cost_for(p, tcost)
-        return c is not None and c <= TRANSPORT_MAX_USD
+        return c is not None and c <= TRANSPORT_MAX_USD and composite_legs_ok(p, tcost)
 
     if affordable(rec):
         if not affordable(runner):
             runner = indep if indep != rec else indep_alt   # never duplicate the recommendation
         return rec, runner, False
     # recommended pathway can't deliver its payload affordably -> fall back by feedstock type
+    if rec in AD_INJ_PARENT and affordable(AD_INJ_PARENT[rec]):
+        # digestate can't reach an injection site affordably: keep the AD retrofit, spread the
+        # digestate (plain AD+CCS). Runner = the next affordable wet option.
+        par = AD_INJ_PARENT[rec]
+        nxt = next((c for c in ("injection", "bio_oil_htl") if affordable(c)), None)
+        return par, (nxt or ("bio_oil_htl" if par != "bio_oil_htl" else "injection")), True
     if wet:
         # Wet biomass has NO storage-independent option (can't biochar/bury wet feedstock). Its only
         # pathways all need a reachable store: HTL bio-oil / slurry injection (an injection SITE),
@@ -677,7 +849,9 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
             # existing digesters and leads; otherwise direct injection leads (US-style: on-farm AD rare).
             ad = _ad_lead(av)
             if ad and manure_ad_preferred(region):
-                return ad, "injection"
+                # retrofit the existing digesters and inject their digestate; the transport cap
+                # falls back to the plain AD variant if no injection site is affordably in reach
+                return AD_INJ_OF[ad], ad
             return "injection", (ad or "bio_oil_htl")
         # Storage poor: injection / AD+CCS cannot place their carbon here -> HTL bio-oil (densified,
         # haulable). Never biochar/burial (wet feedstock).
@@ -724,9 +898,10 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
 # --------------------------------------------------------------------------
 # KPI score
 # --------------------------------------------------------------------------
-def kpi_score(pathway_key, storage_access):
+def kpi_score(pathway_key, storage_access, region=None):
+    """`region` (optional) nets the soil-carbon / fertilizer debits into the CDR term."""
     p = PATHWAYS[pathway_key]
-    eff = p["cdr_efficiency"]
+    eff = net_efficiency(pathway_key, region)
     co = p["co_product"]
 
     # co-product term
@@ -754,7 +929,7 @@ def kpi_score(pathway_key, storage_access):
 # CDR potential (Mtpa)
 # --------------------------------------------------------------------------
 def cdr_potential_mtpa(region, pathway_key):
-    eff = PATHWAYS[pathway_key]["cdr_efficiency"]
+    eff = net_efficiency(pathway_key, region)
     ag = num(region.get("ag_residues_odt_mt"))
     forestry = num(region.get("forestry_residues_odt_mt"))
     manure = num(region.get("animal_manure_odt_mt"))
@@ -794,8 +969,10 @@ def applicable_pathways(dom, avail=None):
         lst = ["injection", "bio_oil_htl"]   # direct injection, else HTL bio-oil (densified, haulable)
         if av["ad"]:
             lst.insert(1, "ad_ccs")
+            lst.insert(1, "ad_ccs_inj")
         if av["ad_rng"]:
             lst.insert(1, "ad_rng_ccs")
+            lst.insert(1, "ad_rng_ccs_inj")
         return lst
     if dom == "msw":
         lst = ["burial", "biochar"]
@@ -818,7 +995,7 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
     and one below the cap takes the same graduated soft penalty the headline KPI uses."""
     av = _avail(avail)
     p = PATHWAYS[pathway]
-    score = kpi_score(pathway, storage_access)
+    score = kpi_score(pathway, storage_access, region)
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
     centralized = pathway in ("beccs", "beccs_pp", "wte_ccs")
@@ -836,7 +1013,7 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
     if nutrient == "excess":
         if pathway in ("bio_oil", "bio_oil_htl", "biochar", "ad_ccs", "ad_rng_ccs"):
             score -= 8
-        elif pathway in ("burial", "injection"):
+        elif pathway in ("burial", "injection", "ad_rng_ccs_inj", "ad_ccs_inj"):
             score += 4
     if pathway == "beccs_pp":
         score += 8 if av["pp"] else -50
@@ -845,7 +1022,7 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
     # transport-cost demotion (storage-dependent pathways only)
     if tcost and PATHWAY_PAYLOAD.get(pathway) is not None:
         tc = transport_cost_for(pathway, tcost)
-        if tc is None or tc > TRANSPORT_MAX_USD:
+        if tc is None or tc > TRANSPORT_MAX_USD or not composite_legs_ok(pathway, tcost):
             score -= 50               # cannot deliver its payload (no eligible well, or over cap)
         else:
             score -= TRANSPORT_KPI_PENALTY.get(transport_band(tc), 0)
@@ -863,7 +1040,10 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
 
     # transport-cost note (storage-dependent pathways where a delivered cost is known)
     tc = transport_cost_for(pathway, tcost)
-    if tc is not None:
+    if tc is not None and not composite_legs_ok(pathway, tcost):
+        cons.insert(0, f"One transport leg (CO₂ to its store, or digestate to the injection site) exceeds "
+                       f"the ${TRANSPORT_MAX_USD:.0f}/tCO₂ viability cap, so this pathway is not viable here")
+    elif tc is not None:
         if tc > TRANSPORT_MAX_USD:
             cons.insert(0, f"Transport to the nearest operating well ~${tc:.0f}/tCO₂ — exceeds the "
                            f"${TRANSPORT_MAX_USD:.0f}/tCO₂ viability cap, so this pathway is not viable here")
@@ -892,7 +1072,7 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
             # Nutrient return is a liability here, not a benefit: drop any nutrient pro.
             pros = [x for x in pros if "nutrient" not in x.lower()]
             cons.append("Returns nutrients to soils already in surplus here")
-        elif pathway in ("burial", "injection"):
+        elif pathway in ("burial", "injection", "ad_rng_ccs_inj", "ad_ccs_inj"):
             pros.append("Removes carbon and nutrients from an over-fertilized landscape")
 
     av = _avail(avail)
@@ -908,9 +1088,10 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
             pros.append(f"Existing WtE plant to retrofit: {anchor}")
         elif not av["wte"]:
             cons.append("No existing waste-to-energy plant within range to retrofit")
-    if pathway in ("ad_ccs", "ad_rng_ccs"):
+    if pathway in ("ad_ccs", "ad_rng_ccs", "ad_ccs_inj", "ad_rng_ccs_inj"):
         gate = av[RETROFIT_GATE[pathway]]
-        what = "biomethane-upgrading plant" if pathway == "ad_rng_ccs" else "anaerobic-digestion capacity"
+        what = ("biomethane-upgrading plant" if pathway in ("ad_rng_ccs", "ad_rng_ccs_inj")
+                else "anaerobic-digestion capacity")
         if gate and manure_ad_preferred(region):
             pros.insert(0, "Manure is already digested here — AD+CCS retrofits existing biogas plants")
         elif gate:
@@ -926,8 +1107,24 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
             cons.append("No qualifying gas-collecting landfill within range to retrofit")
     if pathway == "lfg_rng_ccs" and region.get("_lfg_pref") == "rng":
         pros.append("Landfill already runs a gas-to-RNG project — the upgrading CO2 vent is cheap to capture")
+    cons = debit_cons(pathway, region) + cons
 
     return pros[:4], cons[:4]
+
+
+def debit_cons(pathway, region):
+    """Region-specific cons quantifying the soil-carbon / fertilizer debits netted into efficiency."""
+    d = pathway_debits(pathway, region)
+    out = []
+    if d["soc"] or d["fert"]:
+        txt = (f"Net of counterfactual debits: {round(d['gross'] * 100)}% gross − "
+               f"{round(d['soc'] * 100)} pts soil carbon the spread "
+               f"{'digestate' if DEBIT_BASIS[pathway] == 'digestate' else 'manure'} would have built "
+               f"({SOC_HORIZON_YR}-yr)")
+        txt += (f" − {round(d['fert'] * 100)} pts replacement fertilizer" if d["fert"]
+                else " (no fertilizer debit: nutrient-surplus region)")
+        out.append(txt)
+    return out
 
 
 def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
@@ -960,7 +1157,9 @@ def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
             "key": a,
             "label": PATHWAYS[a]["label"],
             "badge": badge,
-            "cdr_efficiency": PATHWAYS[a]["cdr_efficiency"],
+            "cdr_efficiency": net_efficiency(a, region),
+            "soc_debit": pathway_debits(a, region)["soc"],
+            "fert_debit": pathway_debits(a, region)["fert"],
             "cost_band": PATHWAYS[a]["cost_band"],
             "pros": pros,
             "cons": cons,
@@ -989,7 +1188,9 @@ def build_ranked_none(region, storage_access, nearest_km, avail, anchor):
         pros, cons = region_pros_cons(region, a, storage_access, nearest_km, avail, anchor)
         ranked.append({
             "key": a, "label": PATHWAYS[a]["label"], "badge": badge,
-            "cdr_efficiency": PATHWAYS[a]["cdr_efficiency"], "cost_band": PATHWAYS[a]["cost_band"],
+            "cdr_efficiency": net_efficiency(a, region), "cost_band": PATHWAYS[a]["cost_band"],
+            "soc_debit": pathway_debits(a, region)["soc"],
+            "fert_debit": pathway_debits(a, region)["fert"],
             "pros": pros, "cons": cons,
         })
     return ranked
@@ -1007,7 +1208,7 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
     p = PATHWAYS[rec_key]
-    eff_pct = int(round(p["cdr_efficiency"] * 100))
+    eff_pct = int(round(net_efficiency(rec_key, region) * 100))
 
     feed_desc = {
         "ag_dry": "dry agricultural residues",
@@ -1067,13 +1268,22 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
     if rec_key == "injection":
         if dom == "manure_wet":
             return (f"{base} -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style "
-                    f"slurry injection delivers >{eff_pct - 1}% CDR efficiency with PFAS-destruction "
-                    f"co-benefit.")
+                    f"slurry injection delivers ~{eff_pct}% net CDR efficiency (after the forgone-"
+                    f"soil-carbon and fertilizer-replacement debits) with PFAS-destruction co-benefit.")
         return (f"{base} -> with proximate geologic storage, Vaulted-style slurry injection is "
                 f"cheaper on balance than bio-oil for these residues and removes more carbon "
                 f"(>{eff_pct - 1}% CDR efficiency): raw biomass is injected at nearby wells rather "
                 f"than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as "
                 f"wells get more distant.")
+    if rec_key in AD_INJ_PARENT:
+        cap = ("captures the near-pure CO2 its biomethane upgrading already vents"
+               if rec_key == "ad_rng_ccs_inj" else
+               "combusts the biogas on site and captures all its carbon")
+        return (f"{base} -> much of the manure here already flows to anaerobic digesters, so the "
+                f"retrofit {cap} AND injects the digestate (~{round(DIGESTATE_C_SHARE * 100)}% of the "
+                f"feed carbon) into geologic storage instead of spreading it: ~{eff_pct}% net CDR "
+                f"efficiency after the forgone-soil-carbon and fertilizer-replacement debits, versus "
+                f"~{round(net_efficiency(AD_INJ_PARENT[rec_key], region) * 100)}% without injection.")
     if rec_key in ("ad_ccs", "ad_rng_ccs"):
         if rec_key == "ad_rng_ccs":
             how = (f"capturing the near-pure CO2 its biomethane upgrading already vents ({eff_pct}% "

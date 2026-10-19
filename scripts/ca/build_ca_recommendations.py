@@ -23,7 +23,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
-from engine_core import (  # noqa: E402
+from engine_core import (
+    pathway_debits, augment_payload_costs,  # noqa: E402
     PATHWAYS, ODT_TO_CO2, NO_OPTION_RATIONALE,
     num, haversine_km, _point_in_geometry,
     decide, kpi_score, cdr_potential_mtpa, build_ranked, build_ranked_none,
@@ -151,11 +152,12 @@ def main():
                     and rec_key in ("beccs", "beccs_pp", "bio_oil", "injection")
                     and runner_key != "burial"):
                 runner_key, nutrient_alt = "burial", True
-            score = kpi_score(rec_key, access)
+            score = kpi_score(rec_key, access, rregion)
             if tcost and rec_key in PATHWAY_PAYLOAD:
                 score = max(0, score - TRANSPORT_KPI_PENALTY.get(
                     transport_band(transport_cost_for(rec_key, tcost)), 0))
-            eff = PATHWAYS[rec_key]["cdr_efficiency"]
+            deb = pathway_debits(rec_key, rregion)
+            eff = deb["net"]
             cost = PATHWAYS[rec_key]["cost_band"]
             cdr = cdr_potential_mtpa(rregion, rec_key)
             rec_label = PATHWAYS[rec_key]["label"]
@@ -198,6 +200,9 @@ def main():
             "runner_up_label": runner_label,
             "kpi_score": score,
             "cdr_efficiency": eff,
+            "cdr_efficiency_gross": deb["gross"] if not no_option else None,
+            "soc_debit": deb["soc"] if not no_option else None,
+            "fert_debit": deb["fert"] if not no_option else None,
             "cost_band": cost,
             "cdr_potential_mtpa": cdr,
             "no_option": no_option,
@@ -208,7 +213,7 @@ def main():
                                        if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
             "transport_band": (transport_band(transport_cost_for(rec_key, tcost))
                                if (tcost and rec_key in PATHWAY_PAYLOAD) else None),
-            "transport_by_payload": tcost,
+            "transport_by_payload": augment_payload_costs(tcost),
             "transport_capped": transport_capped,
             # destination the RECOMMENDED pathway ships to (CO₂-eligible well for capture pathways,
             # else the general any-well destination; item 7)

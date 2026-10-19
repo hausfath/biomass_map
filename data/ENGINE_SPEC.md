@@ -19,6 +19,11 @@ This is decision-support, not a black box — every output carries a transparent
 | Biomass burial | `burial` | 0.90 | "<$100–150" | none | no |
 | AD + CCS (all biogas carbon) | `ad_ccs` | 0.40 (derived) | "$145–300" | energy | yes |
 | AD RNG + CCS (upgrading CO2) | `ad_rng_ccs` | 0.18 (derived) | "$80–180" | low-C fuel | yes |
+| AD RNG + CCS + digestate injection | `ad_rng_ccs_inj` | 0.68 gross (derived) | "$113–257" | low-C fuel | yes |
+| AD + CCS (all C) + digestate injection | `ad_ccs_inj` | 0.90 gross (derived) | "$134–292" | energy | yes |
+
+Net efficiency = gross − forgone soil carbon − replacement fertilizer for manure injection, HTL from
+manure and the digestate twins (`engine_core.pathway_debits`; see METHODOLOGY).
 | Biochar | `biochar` | 0.30 | "~$100–200" | nutrients | no |
 
 CDR efficiency = fraction of feedstock carbon durably stored. 1 odt biomass ≈ 1.47 tCO2.
@@ -60,8 +65,8 @@ dry_removal = "injection" if storage_access == "good" else "bio_oil"
 ```
 1. dominant_feedstock == "manure_wet":
      IF manure_ad_preferred (country has a mature AD sector, e.g. Europe):
-         → ad_rng_ccs if an upgrading digester is in reach, else ad_ccs (CHP digesters);
-           runner-up = injection
+         → ad_rng_ccs_inj if an upgrading digester is in reach, else ad_ccs_inj (CHP digesters);
+           runner-up = the plain AD variant (which leads if a transport leg is over the cap)
      ELSE (e.g. US, on-farm AD uncommon):
          → injection if storage_access in (good,moderate) else ad_ccs
    (RNG+CCS / AD+CCS is not excluded in this tool; see METHODOLOGY re Frontier POV §3.4.)

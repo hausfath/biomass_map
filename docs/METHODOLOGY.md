@@ -123,12 +123,14 @@ by storage proximity, retrofit availability, feedstock moisture/density, and nut
 | WtE + CCS | 55% | ~$100–200 | energy |
 | Landfill gas + CCS | 52% | $100–200 | energy |
 | Landfill-gas RNG + CCS | 33% | $80–180 | low-C fuel (RNG) |
-| Biomass waste injection | 90% | $125–285 | PFAS destruction |
+| Biomass waste injection | 90% gross; manure/biosolids net ≈ 75% (Europe) / 70% (elsewhere), 81% in nutrient-surplus regions | $125–285 | PFAS destruction |
 | Bio-oil (pyrolysis) | 65% | $140–360 | biochar/nutrients |
-| Bio-oil (hydrothermal liquefaction) | 50% | $200–400 | nutrients |
+| Bio-oil (hydrothermal liquefaction) | 50% gross; manure net ≈ 35% (Europe) / 30% (elsewhere) | $200–400 | nutrients |
 | Biomass burial | 90% | <$100–150 | none |
 | AD + CCS (all biogas carbon: on-site combustion / fuel cell) | 40% (derived) | $145–300 | energy |
 | AD RNG + CCS (capture the upgrading-vent CO₂, sell the biomethane) | 18% (derived) | $80–180 (by analogy to LFG-RNG+CCS) | low-C fuel (RNG) |
+| AD RNG + CCS + digestate injection | 68% gross; net ≈ 53% (Europe) / 47% (elsewhere), 61% surplus | $113–257 (C-weighted blend) | low-C fuel (RNG) |
+| AD + CCS (all carbon) + digestate injection | 90% gross; net ≈ 75% (Europe) / 69% (elsewhere), 83% surplus | $134–292 (C-weighted blend) | energy |
 | Biochar | 30% | ~$100–200 | nutrients |
 
 **AD + CCS efficiencies (derived, 2026-09-25).** The engine applies `cdr_efficiency` to the feed's
@@ -154,6 +156,52 @@ Energy/BioCirc and Future Biogas do); only **CHP digesters** → all-carbon AD+C
 "Biogas End Use" CNG / pipeline gas marks upgrading plants. Europe/Canada/global AD data carry no
 output type yet, so the RNG gate falls back to the any-digester gate (**interim**, until the
 plant-level inventory in `docs/ad_research/PLAN.md` lands).
+
+**AD + CCS + digestate injection (2026-10-19).** Each AD variant has a twin that also injects the
+digestate into geologic storage (biomass-injection site) instead of spreading it. Digestate carbon =
+the feed carbon not converted to biogas, from the same derivation (`DIGESTATE_C_SHARE` ≈ 0.55), so
+biogas + digestate always sum to the feed. Gross efficiency = parent capture + 0.55 × the injection
+process factor (0.90): **0.68** (RNG) and **0.90** (all-carbon). Cost bands and transport are
+carbon-weighted blends of the CO₂ leg and the digestate leg; digestate hauls ~1.16× raw slurry per
+tCO₂ on the engine's as-injected solids basis (digestion removes carbon, not ash; 20% ash assumed).
+**Each leg must clear the $100/tCO₂ cap on its own** (a cheap digestate leg cannot subsidise an
+over-cap CO₂ leg); otherwise the engine falls back to the plain AD variant (digestate spread). In
+mature-AD regions with storage near, the digestate-injection twin now leads; the plain variant is
+runner-up. No project or protocol yet injects *digested* manure (Vaulted Deep and the Isometric
+Biomass Geological Storage protocol cover raw slurry / biosolids), flagged in the pathway cons.
+
+**Soil-carbon and fertilizer debits (2026-10-19).** Pathways that take manure/biosolids carbon off
+the land are netted for what the spread material would have done (research in
+`docs/ad_research/digestate_injection_soil_carbon.md`). Applied only in wet-manure regions to:
+raw-slurry **injection** and **HTL bio-oil** (counterfactual: raw slurry spread) and the two
+**digestate-injection** twins (counterfactual: digestate spread at the existing digester). Plain
+AD+CCS keeps spreading its digestate (no debit). Dry-residue pathways carry no debit: the residue
+supply already applies a ~40% sustainable-removal cap for soil carbon.
+- *Forgone soil carbon:* share of applied digestate carbon still in soil after H years, Yasso07 run
+  of Tampio et al. (2024): *"after 25 years, only around 20-27 % of the added C was left in the soil
+  and after 100 years, only 3-4 %"*; interpolated 15 yr 34%, **50 yr 13% (central horizon,
+  Isometric feedstock-module fallback)**, 100 yr 3.5%. Per unit feed carbon: digestate 0.55 × 13% =
+  0.072; raw slurry × 1.18 (Tampio stable-C shares 26% raw vs 21–23% digested) = 0.085. Raw vs
+  digested per feed C ranges from ~1.0 (Thomsen 2013) to ~2 (Karki 2013 Daisy run).
+- *Fertilizer replacement:* manure N 0.116 kg per kg feed C, mineral-fertilizer equivalence 0.45
+  (raw) / 0.60 (digestate), **production emissions only** (Hoxha & Christensen 2019, IFS 805,
+  ammonium nitrate: EU 3.32, North America 6.71 kg CO₂e/kg N; non-European regions use 6.71); P₂O₅
+  0.4 × N mass at ~1.2 kg CO₂e/kg (unverified); field N₂O excluded (IPCC applies the same EF1 to
+  manure and synthetic N). Debit 0.06 (raw, Europe) to 0.14 (digestate, elsewhere) of feed carbon.
+  **Zero in nutrient-surplus regions** (no replacement needed; removing nutrients is a co-benefit).
+- Both debits are shown separately on each card ("net of counterfactual debits: X% gross − …").
+- *Not counted:* avoided storage methane, digestate fugitive CH₄/NH₃, capture energy, digestate
+  handling losses (Tampio: 12–17% of carbon unaccounted; would lower digestate rows by up to ~0.1).
+
+*Effect (vs the AD-split build):* raw manure injection 0.90 → 0.75 net (Europe); HTL from manure
+0.50 → 0.35. Recommendation changes: Europe 5 regions AD RNG+CCS → AD RNG+CCS + digestate injection
+(all UK: Lancashire, East Yorkshire & N Lincs, North Yorkshire, Shropshire & Staffs, Gloucs/Wilts/
+Bristol, injecting to prospective salt caverns); global 3; US and Canada none (the four Central
+Valley dairy counties fail the per-leg rule: CO₂ leg $134–152/tCO₂). Recommended-pathway CDR:
+Europe 252.4 → 247.6, US 383.0 → 366.1, Canada 47.6 → 45.3 Mt/yr. UK total 13.8 → 13.9 Mt/yr.
+*Sensitivity (rebuilt and diffed):* zero recommendation changes in any scope under a 15-yr or 100-yr
+horizon or solid-fraction-only injection (35% of digestate C, 15% of N, 25% of P to solids;
+the C share is unverified). Europe recommended CDR: 15 yr 241.4, 100 yr 250.4, solids-only 246.7 Mt/yr.
 
 ### Logic (first match wins)
 1. **Wet manure** → wet biomass has **no solid-feedstock options** — biochar and burial both need

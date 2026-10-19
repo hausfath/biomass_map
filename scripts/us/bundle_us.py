@@ -16,7 +16,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
-from engine_core import PATHWAYS, PATHWAY_PROFILE
+from engine_core import PATHWAYS, PATHWAY_PROFILE, DEBIT_BASIS, SOC_HORIZON_YR
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROC = os.path.join(ROOT, "data", "processed")
@@ -52,11 +52,20 @@ def slim_feedstocks(feeds):
     return out
 
 
+def _rk(x):
+    """Slim ranked entry: key + badge, plus the region-specific net efficiency and the
+    soil-carbon / fertilizer debits when any apply (frontend rebuilds the rest from PROFILE)."""
+    o = {"k": x["key"], "b": x["badge"]}
+    if x.get("soc_debit") or x.get("fert_debit"):
+        o.update(e=x["cdr_efficiency"], s=x["soc_debit"], f=x["fert_debit"])
+    return o
+
+
 def slim_recs(recs):
     out = []
     for r in recs:
         r = dict(r)
-        r["ranked_keys"] = [{"k": x["key"], "b": x["badge"]} for x in r.get("ranked", [])]
+        r["ranked_keys"] = [_rk(x) for x in r.get("ranked", [])]
         r.pop("ranked", None)
         out.append(r)
     return out
@@ -68,7 +77,8 @@ PROFILE = {k: {"label": PATHWAYS[k]["label"],
                "cost": PATHWAYS[k]["cost_band"],
                "needs_storage": PATHWAYS[k]["needs_geologic_storage"],
                "pros": PATHWAY_PROFILE[k]["pros"],
-               "cons": PATHWAY_PROFILE[k]["cons"]}
+               "cons": PATHWAY_PROFILE[k]["cons"],
+               "debit_basis": DEBIT_BASIS.get(k), "soc_h": SOC_HORIZON_YR}
            for k in PATHWAYS}
 
 bundle = {

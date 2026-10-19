@@ -21,6 +21,7 @@ import os
 from collections import Counter
 
 from engine_core import (
+    pathway_debits, augment_payload_costs,
     PATHWAYS,
     HAS_SUBNATIONAL,
     NO_OPTION_RATIONALE,
@@ -302,8 +303,9 @@ def build():
                     and runner_key != "burial"):
                 runner_key = "burial"
                 nutrient_alt = True
-            score = kpi_score(rec_key, storage_access)
-            eff = PATHWAYS[rec_key]["cdr_efficiency"]
+            score = kpi_score(rec_key, storage_access, rregion)
+            deb = pathway_debits(rec_key, rregion)
+            eff = deb["net"]
             cost = PATHWAYS[rec_key]["cost_band"]
             cdr = cdr_potential_mtpa(rregion, rec_key)
             rec_label = PATHWAYS[rec_key]["label"]
@@ -333,6 +335,9 @@ def build():
             "runner_up_label": runner_label,
             "kpi_score": score,
             "cdr_efficiency": eff,
+            "cdr_efficiency_gross": deb["gross"] if not no_option else None,
+            "soc_debit": deb["soc"] if not no_option else None,
+            "fert_debit": deb["fert"] if not no_option else None,
             "cost_band": cost,
             "cdr_potential_mtpa": cdr,
             "storage_access": storage_access,
