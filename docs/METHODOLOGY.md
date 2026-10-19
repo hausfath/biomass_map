@@ -483,7 +483,11 @@ Billion-Ton Report + USDA NASS):
   treatments completed FY2018–2024 of the biomass-*removing* types (Thinning, Biomass Removal,
   Machine Pile (+Burn), Chipping) × a conservative per-type removable oven-dry yield
   (~6–12 odt/acre, mid-range of the western fuels-treatment bioenergy literature), annualized over
-  the window and assigned to the county each treatment falls in. This captures the woody material
+  the window and assigned to the county each treatment falls in. Successive activities on the same
+  treated unit (thin → machine pile → pile burn) are the same slash, so each unit (identical polygon)
+  is counted **once** at its highest-yield activity: 135,536 activity records → 79,931 units,
+  **5.87 Mt odt/yr across 606 counties** (an earlier build summed every activity, 10.46 Mt; fixed
+  2026-10-19; overlapping-but-not-identical polygons are still not collapsed, so an upper bound). This captures the woody material
   from hazardous-fuel thinning and pile burns — today largely **pile-burned or left on site**,
   especially on fire-prone federal land in the interior West (the Sierra Nevada etc.) where there is
   little commercial logging, so the harvest-based commercial layer misses it. It is **folded into the
@@ -507,7 +511,7 @@ Billion-Ton Report + USDA NASS):
   below the gross figure shown") naming the driver(s); it changes no tonnage or recommendation. It is
   **suppressed for a pulp & paper retrofit** (`beccs_pp`) — that reuses the existing mill's feedstock
   logistics, so its *new* residue demand is small and the "already utilized" caveat would mislead.
-  ~374 of 856 forestry-dominant counties are flagged (greenfield pathways), concentrated in the SE. *(A full quantitative net-of-
+  ~374 of 856 forestry-dominant counties (850 after the 2026-10-19 fuels fix; flag count not re-tallied) are flagged (greenfield pathways), concentrated in the SE. *(A full quantitative net-of-
   utilization layer and mill-residue point sources remain a later item-2 phase, blocked on the
   proprietary pellet data and on double-count risk with the BECCS-pulp&paper retrofit anchor.)*
 
