@@ -27,6 +27,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/
 from engine_core import (
+    access_by_payload, pathway_access,
     pathway_debits, augment_payload_costs,
     PATHWAYS, ODT_TO_CO2, PROC_RADIUS_KM, AD_MIN_CAP_MTPA, NO_OPTION_RATIONALE,
     num, haversine_km, _point_in_geometry,
@@ -252,6 +253,8 @@ def main():
         avail, has_retrofit, anchor_name, anchor_type = compute_avail_anchor(
             region["centroid"], facilities)
 
+        region["_access_by_payload"] = access_by_payload(tinfo)
+
         rec_key, runner_key, eff_dom = decide(region, access, has_retrofit, avail)
         no_option = (rec_key == "none")
         transport_capped = False
@@ -348,7 +351,7 @@ def main():
             "cost_band": cost,
             "cdr_potential_mtpa": cdr,
             "no_option": no_option,
-            "storage_access": access,
+            "storage_access": pathway_access(rec_key, access, region) if not no_option else access,
             "nearest_storage_km": nearest_km,
             "storage_detail": sdetail,
             "transport_usd_per_tco2": (round(transport_cost_for(rec_key, tcost), 1)

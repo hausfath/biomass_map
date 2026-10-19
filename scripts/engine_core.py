@@ -528,6 +528,34 @@ def storage_access_from_cost(co2_usd, dest_status="operational"):
     return "moderate"                      # ≤ $100, or any draft/pending destination
 
 
+def access_by_payload(tinfo):
+    """Per-payload storage-access grades from a transport record: each payload is graded on ITS OWN
+    delivered $/tCO₂ (CO₂ to a CO₂-eligible store; slurry / bio-oil / HTL bio-crude to an injection
+    site), with each destination's permit status. So bio-oil that reaches an injection site cheaply
+    is not marked 'poor' just because CO₂ has no affordable Class VI well (2026-10-19)."""
+    if not tinfo:
+        return None
+    bp = tinfo.get("by_payload") or {}
+    st_c = tinfo.get("co2_dest_status") or tinfo.get("dest_status", "operational")
+    st_i = tinfo.get("inj_dest_status") or tinfo.get("dest_status", "operational")
+    return {"co2": storage_access_from_cost(bp.get("co2"), st_c),
+            "slurry": storage_access_from_cost(bp.get("slurry"), st_i),
+            "bio_oil": storage_access_from_cost(bp.get("bio_oil"), st_i),
+            "bio_oil_htl": storage_access_from_cost(bp.get("bio_oil_htl"), st_i)}
+
+
+def pathway_access(pathway, storage_access, region=None):
+    """Storage-access grade relevant to `pathway`: its own payload's grade where the region carries
+    per-payload grades (`_access_by_payload`), else the region's single grade. Capture pathways
+    (and composite AD+injection, which also ships CO₂) use the CO₂ grade."""
+    abp = (region or {}).get("_access_by_payload")
+    pay = PATHWAY_PAYLOAD.get(pathway)
+    if not abp or pay is None:
+        return storage_access
+    key = pay if pay in abp else "co2"
+    return abp.get(key) or storage_access
+
+
 def transport_cost_for(pathway, tcost):
     """Delivered $/tCO₂ for a pathway's payload (None for storage-independent / no data)."""
     pay = PATHWAY_PAYLOAD.get(pathway)
@@ -825,37 +853,39 @@ def decide(region, storage_access, has_retrofit, avail=None):
 def _decide_for(region, storage_access, has_retrofit, av, dom):
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
-    near = storage_access in ("good", "moderate")
+    # Per-payload storage-access grades (2026-10-19): capture pathways are judged on the CO₂ grade
+    # (`storage_access`); slurry injection, pyrolysis bio-oil and HTL on their own delivered cost to
+    # an injection site. Scopes without per-payload grades (global) pass one grade for everything,
+    # which reproduces the previous single-grade logic exactly.
+    a_c = storage_access
+    a_s = pathway_access("injection", storage_access, region)
+    near = ("good", "moderate")
 
-    # Preferred distributed-removal pathway for DRY biomass, set by storage proximity.
+    # Preferred distributed-removal pathway for DRY biomass, set by INJECTION proximity.
     # Frontier is bullish on Vaulted-style slurry injection: it handles the same dry
     # residues as bio-oil, has higher CDR efficiency (>90% vs ~65%), and is cheaper on
     # balance -- so where geologic storage (injection wells) is PROXIMATE it beats bio-oil.
     # Bio-oil's edge is only at distance: pyrolysis densifies the carbon, making the
     # less-carbon-dense raw biomass cheaper to haul to far-off wells. So:
-    #   good storage (proximate) -> injection ;  moderate/poor (distant) -> bio-oil.
-    dry_removal = "injection" if storage_access == "good" else "bio_oil"
+    #   slurry delivered cost good -> injection ;  otherwise -> bio-oil.
+    dry_removal = "injection" if a_s == "good" else "bio_oil"
 
     # 1. wet manure. Wet biomass has NO solid-feedstock options — biochar and burial both need
-    #    dry/solid biomass, so they are never used here. The wet pathways are: AD+CCS and
-    #    Vaulted-style slurry injection (both place CO2/slurry into geologic storage, so — like
-    #    BECCS/WtE+CCS — both require storage proximity; AD+CCS also needs AD capacity to retrofit),
-    #    and HTL bio-oil (hydrothermal liquefaction densifies the wet feedstock so it can be hauled).
-    #    Bio-oil is pricier / less preferred than direct injection, so it leads only where storage is
-    #    poor or injection transport is too costly (the transport cap handles the latter downstream).
+    #    dry/solid biomass, so they are never used here. The wet pathways are: AD+CCS (needs a CO₂
+    #    store and AD capacity to retrofit), Vaulted-style slurry injection (needs an injection site)
+    #    and HTL bio-oil (densifies the wet feedstock so it can be hauled). Bio-oil is pricier / less
+    #    preferred than direct injection, so it leads only where injection is not near.
     if dom == "manure_wet":
-        if near:
-            # Storage proximate. In mature-AD regions with AD capacity nearby, AD+CCS retrofits
-            # existing digesters and leads; otherwise direct injection leads (US-style: on-farm AD rare).
-            ad = _ad_lead(av)
-            if ad and manure_ad_preferred(region):
-                # retrofit the existing digesters and inject their digestate; the transport cap
-                # falls back to the plain AD variant if no injection site is affordably in reach
-                return AD_INJ_OF[ad], ad
-            return "injection", (ad or "bio_oil_htl")
-        # Storage poor: injection / AD+CCS cannot place their carbon here -> HTL bio-oil (densified,
-        # haulable). Never biochar/burial (wet feedstock).
-        return "bio_oil_htl", (_ad_lead(av) or "injection")
+        ad = _ad_lead(av)
+        if ad and a_c in near and manure_ad_preferred(region):
+            # retrofit the existing digesters and inject their digestate; the transport cap
+            # falls back to the plain AD variant if no injection site is affordably in reach
+            return AD_INJ_OF[ad], ad
+        if a_s in near:
+            # US-style: on-farm AD rare -> direct injection leads
+            return "injection", ((ad if a_c in near else None) or "bio_oil_htl")
+        # Injection not near -> HTL bio-oil (densified, haulable). Never biochar/burial (wet).
+        return "bio_oil_htl", ((ad if a_c in near else None) or "injection")
 
     # 2. MSW. Only reached when an existing WtE plant is within reach (else re-routed above).
     if dom == "msw":
@@ -863,35 +893,37 @@ def _decide_for(region, storage_access, has_retrofit, av, dom):
 
     # 3. forestry_woody OR (ag_dry & concentrated)
     if dom == "forestry_woody" or (dom == "ag_dry" and density == "concentrated"):
-        if storage_access in ("good", "moderate"):
+        if a_c in near:
             # BECCS leads; the pulp&paper RETROFIT leads over greenfield BECCS wherever an existing
             # mill is within reach (av["pp"]) — both need the same geologic storage, but the retrofit
             # leverages existing biomass logistics + lower execution risk, so it is preferred at good
-            # AND moderate storage alike. Runner-up: injection where storage is proximate (good),
+            # AND moderate storage alike. Runner-up: injection where slurry delivery is cheap (good),
             # else bio-oil (densified carbon hauls cheaper when wells are farther).
-            runner = dry_removal if storage_access == "good" else "bio_oil"
             if av["pp"]:
-                return "beccs_pp", runner
-            return "beccs", runner
-        else:  # poor
-            if nutrient == "excess":
-                return "burial", "bio_oil"
-            return "bio_oil", "biochar"
+                return "beccs_pp", dry_removal
+            return "beccs", dry_removal
+        # CO₂ storage poor: no combustion+capture. With excess nutrients and no affordable injection
+        # site for the raw biomass, burial leads (bio-oil runner-up); otherwise distributed removal.
+        if nutrient == "excess" and a_s == "poor":
+            return "burial", "bio_oil"
+        return dry_removal, ("burial" if nutrient == "excess" else "biochar")
 
     # 4. ag_dry & diffuse
     if dom == "ag_dry" and density != "concentrated":
-        if storage_access == "good":
+        if a_s == "good":
             # Diffuse crop residues with proximate wells -> injection over bio-oil.
-            return dry_removal, "bio_oil"
-        elif nutrient == "excess" and storage_access == "poor":
+            return "injection", "bio_oil"
+        elif nutrient == "excess" and a_s == "poor":
             return "burial", "bio_oil"
         return "bio_oil", "biochar"
 
     # 5. mixed / fallback
-    if storage_access == "good" and has_retrofit:
-        return "beccs", "injection"
-    elif storage_access == "poor":
-        return "burial", "bio_oil"
+    if a_c == "good" and has_retrofit:
+        return "beccs", dry_removal
+    elif a_c == "poor":
+        if a_s == "poor":
+            return "burial", "bio_oil"
+        return dry_removal, "biochar"
     return "beccs", "bio_oil"
 
 
@@ -902,6 +934,7 @@ def kpi_score(pathway_key, storage_access, region=None):
     """`region` (optional) nets the soil-carbon / fertilizer debits into the CDR term."""
     p = PATHWAYS[pathway_key]
     eff = net_efficiency(pathway_key, region)
+    storage_access = pathway_access(pathway_key, storage_access, region)
     co = p["co_product"]
 
     # co-product term
@@ -996,6 +1029,7 @@ def fit_score(region, pathway, storage_access, avail=None, tcost=None):
     av = _avail(avail)
     p = PATHWAYS[pathway]
     score = kpi_score(pathway, storage_access, region)
+    storage_access = pathway_access(pathway, storage_access, region)
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
     centralized = pathway in ("beccs", "beccs_pp", "wte_ccs")
@@ -1034,6 +1068,7 @@ def region_pros_cons(region, pathway, storage_access, nearest_km, avail, anchor,
     prof = PATHWAY_PROFILE[pathway]
     pros = list(prof["pros"])
     cons = list(prof["cons"])
+    storage_access = pathway_access(pathway, storage_access, region)
     p = PATHWAYS[pathway]
     density = region.get("feedstock_density")
     nutrient = region.get("nutrient_status")
@@ -1210,6 +1245,7 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
     nutrient = region.get("nutrient_status")
     p = PATHWAYS[rec_key]
     eff_pct = int(round(net_efficiency(rec_key, region) * 100))
+    storage_access = pathway_access(rec_key, storage_access, region)
 
     feed_desc = {
         "ag_dry": "dry agricultural residues",
