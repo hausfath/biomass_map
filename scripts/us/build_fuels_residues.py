@@ -21,6 +21,7 @@ Writes: data/processed/fuels_residues_us.json  ->  {fips: Mt odt/yr}
 Consumed by build_county_feedstocks.py, which folds it into the forestry stream (so it drives
 dominant_feedstock + CDR) while keeping it tagged separately for provenance/display.
 """
+import hashlib
 import json
 import os
 import sys
@@ -59,7 +60,9 @@ UA = {"User-Agent": "BiCRS-Atlas/1.0 (research; wildfire-fuels residue)"}
 
 def fetch_pages():
     """Paginate FACTS layer 15 (removable types, completed in window), caching each page.
-    Returns list of (lon, lat, acres, treatment_type)."""
+    Returns list of (lon, lat, acres, treatment_type, unit_key) — unit_key hashes the polygon so
+    successive activities on the same treated unit (thin -> machine pile -> pile burn) can be
+    collapsed to one biomass stream."""
     os.makedirs(RAW, exist_ok=True)
     types = ",".join("'%s'" % t for t in YIELD_ODT_PER_ACRE)
     where = (f"fiscal_year_completed>={FY_LO} AND fiscal_year_completed<={FY_HI} "
@@ -95,7 +98,8 @@ def fetch_pages():
             if not acres or not rings or not rings[0]:
                 continue
             lon, lat = rings[0][0][0], rings[0][0][1]   # representative vertex (small polygons)
-            recs.append((lon, lat, float(acres), tt))
+            key = hashlib.md5(json.dumps(rings, separators=(",", ":")).encode()).hexdigest()
+            recs.append((lon, lat, float(acres), tt, key))
         print(f"  page {page_idx}: {len(feats)} features (cum {len(recs)})")
         if not d.get("exceededTransferLimit") or not feats:
             break
@@ -164,14 +168,30 @@ def main():
     counties = json.load(open(COUNTIES))["features"]
     grid = CountyGrid(counties)
 
+    # FACTS records each ACTIVITY separately, and a treated unit typically carries a chain of them
+    # on the same polygon (thin -> machine pile -> burn the piles; thin -> biomass removal). They are
+    # the same slash, so each unit is counted ONCE at its highest-yield activity (identical polygon
+    # geometry = same unit). Overlapping-but-not-identical polygons are not collapsed, so this is
+    # still an upper bound. (Before this fix every activity was summed: 10.46 Mt odt/yr.)
+    units = {}
+    for lon, lat, acres, tt, key in recs:
+        y = YIELD_ODT_PER_ACRE.get(tt, 0.0)
+        u = units.get(key)
+        if u is None:
+            units[key] = [lon, lat, acres, y]
+        else:
+            u[2] = max(u[2], acres)
+            u[3] = max(u[3], y)
+    print(f"  {len(recs)} activity records -> {len(units)} treated units (identical polygons collapsed)")
+
     by_fips = {}
     unmatched = 0
-    for lon, lat, acres, tt in recs:
+    for lon, lat, acres, y in units.values():
         fips = grid.fips_of(lon, lat)
         if fips is None:
             unmatched += 1
             continue
-        odt = acres * YIELD_ODT_PER_ACRE.get(tt, 0.0) / N_YEARS   # annual oven-dry tons
+        odt = acres * y / N_YEARS   # annual oven-dry tons
         by_fips[fips] = by_fips.get(fips, 0.0) + odt
 
     out = {f: round(v / 1e6, 6) for f, v in by_fips.items() if v > 0}   # Mt odt/yr
