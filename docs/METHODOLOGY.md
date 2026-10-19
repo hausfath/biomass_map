@@ -190,6 +190,12 @@ supply already applies a ~40% sustainable-removal cap for soil carbon.
   manure and synthetic N). Debit 0.06 (raw, Europe) to 0.14 (digestate, elsewhere) of feed carbon.
   **Zero in nutrient-surplus regions** (no replacement needed; removing nutrients is a co-benefit).
 - Both debits are shown separately on each card ("net of counterfactual debits: X% gross − …").
+- *Methods choice to revisit:* HTL from manure carries the full fertilizer debit (assumes no nutrients
+  return to land). In practice the HTL aqueous phase retains much of the N and K and the solids the P,
+  so this is conservative. With no HTL fertilizer debit, recommended HTL CDR rises US 11.5 → 15.8,
+  Europe 10.7 → 12.6, Canada 1.9 → 2.6 Mt/yr (HTL regions outside nutrient surplus).
+- *Limitation:* the global scope has no transport model, so its digestate-injection twins (NLD, BEL,
+  DNK: 17.1 Mt/yr) are not checked for injection-site reach (as for raw injection there).
 - *Not counted:* avoided storage methane, digestate fugitive CH₄/NH₃, capture energy, digestate
   handling losses (Tampio: 12–17% of carbon unaccounted; would lower digestate rows by up to ~0.1).
 
