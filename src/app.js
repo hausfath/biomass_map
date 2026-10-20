@@ -50,7 +50,8 @@
     wwtp: "Sewage sludge / biosolids dry solids, Mt/yr.",
     forestry_fuels: "Woody residue from completed hazardous-fuel treatments (thinning, piling, biomass removal, " +
       "chipping), Mt oven-dry/yr, 2018–2024: USFS (FACTS) + DOI and state (TWIG). Today mostly pile-burned or left. " +
-      "Already included in the forestry layer. US only (Canada: no open data).",
+      "Already included in the forestry layer. Europe: Portugal only, MODELLED from AGIF national fuel-management " +
+      "area × shrub-clearing yield. Canada and other European countries: no open data.",
     forestry_fuels_wcs: "POTENTIAL, not an estimate: the fuels residue scaled to the Wildfire Crisis Strategy " +
       "(up to 50M additional acres over 10 years) at today's treatment mix and spatial pattern. US only.",
   };
@@ -432,7 +433,7 @@
         (window.EU_FEEDSTOCKS || []).forEach(r => {
           feedById[r.id] = {
             _id: r.id, _name: `${r.name} — ${r.country}`, regionKind: "NUTS-2 region — " + r.country,
-            ag: r.ag, forestry: r.forestry, msw: r.msw, manure: r.manure, wwtp: r.wwtp,
+            ag: r.ag, forestry: r.forestry, forestry_fuels: r.forestry_fuels, forestry_fuels_low: r.forestry_fuels_low, msw: r.msw, manure: r.manure, wwtp: r.wwtp,
             biofrac: r.biofrac || 0.5, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
           };
         });
@@ -1059,11 +1060,15 @@
 
     return loadScope(id).then(() => {
       state.scope = id;
-      // wildfire-fuels layers exist only in the North America scope (US data; Canada shows no data)
+      // wildfire-fuels layers: fuels residue in North America (US) and Europe (Portugal, modelled);
+      // the WCS scale-up potential is US-only. Other regions show "no data".
       document.querySelectorAll("#feedstock-select option.na-only").forEach(o => {
-        o.hidden = o.disabled = (id !== "na");
+        const ok = o.value === "forestry_fuels" ? (id === "na" || id === "eu") : id === "na";
+        o.hidden = o.disabled = !ok;
       });
-      if (id !== "na" && /^forestry_fuels/.test(state.feedstock)) {
+      const fuelsOk = state.feedstock === "forestry_fuels" ? (id === "na" || id === "eu")
+        : state.feedstock === "forestry_fuels_wcs" ? id === "na" : true;
+      if (!fuelsOk) {
         dom.feedSelect.value = "forestry"; state.feedstock = "forestry";
         dom.feedHint.textContent = FEEDSTOCK_HINTS.forestry;
       }

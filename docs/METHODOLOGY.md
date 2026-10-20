@@ -512,7 +512,28 @@ Billion-Ton Report + USDA NASS):
   - *Canada:* no open, quantified fuel-treatment or burned-slash dataset outside BC; BC census
     divisions carry a caveat that much harvest slash is pile-burned (already inside the forestry
     residue; one secondary estimate ~3.9 Mt CO₂ in 2019, unverified). BC CRI treatment polygons are
-    "Access Only" licensed and tiny (~6,000 ha completed), so not ingested. This captures the woody material
+    "Access Only" licensed and tiny (~6,000 ha completed), so not ingested.
+  - *Europe (2026-10-19, `docs/wildfire_research/scoping_europe.md`):* no pan-European treatment records
+    exist (EFFIS has burned area and fuel maps only). **Portugal** gets a MODELLED stream
+    (`scripts/eu/build_fuels_pt.py`): AGIF/SGIFR reported mainland fuel management, 2019–2024 mean
+    77,155 ha/yr (65,693–88,058), × 0.92 (drops grazing 5% and controlled fire 3% of the 2024 mix) ×
+    2.3 t DM/ha collected (harvester-baler on Cistus shrubland, Bados et al. 2020; high 6.7 t/ha =
+    standing shrub load 5 yr after fire, Enes et al. 2020; low 0.6×) → **0.163 Mt DM/yr** (0.098–0.476),
+    allocated to the five mainland NUTS-2 by woodland + shrubland area (Eurostat LUCAS lan_lcv_ovw; a
+    neutral proxy that likely over-weights Alentejo). AGIF's reported area excludes most private and
+    municipal work (undercount). Folded into forestry like the US stream; no recommendation changed.
+    Not added to the global-scope PRT total (as with the US stream). ENSPRESO forestry has no
+    fire-prevention category, so no double count. Spain, Greece, Italy, Croatia, Cyprus and the
+    southern French regions carry a caveat, not a number. Post-fire salvage deferred (no volumes).
+  - *Rest of world (`scoping_row.md`):* no global treated-area or biomass dataset exists. Caveats only
+    (`engine_core.WILDFIRE_CAVEAT`): Australia (mostly hazard-reduction burning; ~10% mechanical in
+    NSW 2023-24, secondary), Chile, Turkey, Israel (firebreak km only), South Korea (2025 salvage
+    unreported), India + Uttarakhand/Himachal (pine-needle collection; potential not realised), and
+    South Africa: invasive alien plant clearing (Working for Water), e.g. "551 550 tonnes of readily
+    accessible woody IAPs scattered across 8900 ha within a 50-km radius of the Coega IDZ" (Mugido et
+    al. 2014, S. Afr. J. Sci.), but no national initial-clearing area, so not quantified. Many
+    rest-of-world figures are from secondary sources; the primary NSW RFS / FFMVic / FAO pages
+    returned 403. This captures the woody material
   from hazardous-fuel thinning and pile burns — today largely **pile-burned or left on site**,
   especially on fire-prone federal land in the interior West (the Sierra Nevada etc.) where there is
   little commercial logging, so the harvest-based commercial layer misses it. It is **folded into the
@@ -846,6 +867,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Ag residues | CA | StatCan **Census of Agriculture 2021** CD residue-crop area (32-10-0309) × per-ha residue weight | Census division, scaled to province totals |
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
 | Forestry residues | US | State BT total allocated by **USFS FIA** county forest data (0.7 harvest-removals + 0.3 standing-biomass share) | County, scaled to state |
+| Forestry — fuels residue | PT (EU scope) | **AGIF** national fuel-management area × shrub-clearing yield (MODELLED) | NUTS-2 by woodland + shrubland area; added to forestry total |
 | Forestry — fuels residue | US | **USFS FACTS** + DOI/state via **TWIG** hazardous-fuel treatments (2018–2024 completed removal types, one unit once × per-type odt/ac, annualized) | County point-in-polygon; added to forestry total; WCS scale-up as a separate potential |
 | Forestry — utilization flag | US | GHGRP wood-bioenergy capacity (in-range) + **EIA-63C** South pellet/export region | Qualitative caveat only; no tonnage change |
 | Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |

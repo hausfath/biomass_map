@@ -35,6 +35,8 @@ def slim_feedstocks(feeds):
             "nuts_id": r["nuts_id"], "area_km2": r["area_km2"], "centroid": r["centroid"],
             "ag": round(v(r, "ag_residues_odt_mt"), 4),
             "forestry": round(v(r, "forestry_residues_odt_mt"), 4),
+            "forestry_fuels": round(v(r, "forestry_residues_fuels_odt_mt"), 4),
+            "forestry_fuels_low": (r.get("forestry_residues_fuels_odt_mt") or {}).get("low", 0.0),
             "msw": round(v(r, "msw_total_mt"), 4),
             "manure": round(v(r, "animal_manure_odt_mt"), 4),
             "wwtp": round(v(r, "human_wwtp_odt_mt"), 4),

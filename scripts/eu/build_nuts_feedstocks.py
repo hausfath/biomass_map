@@ -38,6 +38,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 RAW = os.path.join(ROOT, "data", "geo", "eu_raw")
 PROC = os.path.join(ROOT, "data", "processed")
+FUELS = os.path.join(PROC, "fuels_residues_eu.json")   # Portugal fuel-management residue (modelled)
 
 XLSX = os.path.join(RAW, "ENSPRESO_BIOMASS.xlsx")
 POP = os.path.join(RAW, "eurostat_pop.json")        # 2023 (UK absent post-Brexit)
@@ -173,7 +174,12 @@ def dominant(ag, forestry, manure, msw_bio):
     return top
 
 
+FUELS_EU = {}
+
+
 def main():
+    global FUELS_EU
+    FUELS_EU = json.load(open(FUELS)) if os.path.exists(FUELS) else {}
     wb = openpyxl.load_workbook(XLSX, read_only=True)
     pj = load_enspreso(wb)
     new2old = load_conversion(wb)
@@ -266,7 +272,9 @@ def main():
             rp = region_pj[code]
             w = raw[code]
             ag = w["ag"] * f_ag
-            forestry = w["forestry"] * f_for
+            forestry_ens = w["forestry"] * f_for
+            fuel = FUELS_EU.get(code)                          # wildfire fuel-management residue
+            forestry = forestry_ens + (fuel["value"] if fuel else 0.0)
             manure = w["manure"] * f_man
             msw = w["pop"] * f_msw
             wwtp = w["pop"] * f_wwtp
@@ -290,7 +298,15 @@ def main():
                 "area_km2": p["area_km2"],
                 "centroid": p["centroid"],
                 "ag_residues_odt_mt": est(ag, source=ag_src),
-                "forestry_residues_odt_mt": est(forestry, source=enspreso_src),
+                "forestry_residues_odt_mt": est(
+                    forestry, source=enspreso_src + (" + modelled wildfire fuel-management residue "
+                                                     "(AGIF, Portugal)" if fuel else "")),
+                "forestry_residues_fuels_odt_mt": (dict(
+                    value=fuel["value"], low=fuel["low"], high=fuel["high"],
+                    source="MODELLED: AGIF mainland fuel-management ha (2019-2024 mean) x 0.92 removable "
+                           "x 2.3 t DM/ha collected (high 6.7), allocated by woodland+shrubland area",
+                    notes="included in the forestry total above; reported area excludes most private/"
+                          "municipal work") if fuel else {"value": 0.0}),
                 "msw_total_mt": est(msw, source="country MSW total allocated by NUTS-2 population (Eurostat)"),
                 "msw_biogenic_frac": {"value": biofrac, "source": "country value (global tool)"},
                 "animal_manure_odt_mt": est(manure, source=man_src,

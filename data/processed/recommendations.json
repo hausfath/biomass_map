@@ -6790,7 +6790,9 @@
     "no_option": false,
     "anchor_facility": "Fibre Excellence Tarascon Pulp Mill (Provence) (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, moderate geologic storage access (~653 km) with a retrofittable pulp_paper anchor (Fibre Excellence Tarascon Pulp Mill (Provence)) -> BECCS retrofit of existing pulp & paper / bioenergy maximizes CDR efficiency (80%) plus energy co-product -- Frontier's top-preferred use of biomass.",
-    "caveats": [],
+    "caveats": [
+      "Mediterranean wildfire fuel management (shrub clearing, fuel breaks, thinning) generates woody residue, mostly left, mulched or burned today, but no open treated-area or biomass data exist here, so it is not quantified (Portugal is modelled from AGIF in the Europe scope)."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -6931,7 +6933,9 @@
     "no_option": false,
     "anchor_facility": "A2A Brescia Lamarmora Waste-to-Energy (wte)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, good geologic storage access (nearest qualifying storage ~295 km) with a retrofittable wte anchor (A2A Brescia Lamarmora Waste-to-Energy) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [],
+    "caveats": [
+      "Mediterranean wildfire fuel management (shrub clearing, fuel breaks, thinning) generates woody residue, mostly left, mulched or burned today, but no open treated-area or biomass data exist here, so it is not quantified (Portugal is modelled from AGIF in the Europe scope)."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -7051,7 +7055,9 @@
     "no_option": false,
     "anchor_facility": "Ence Navia Biofactory (Pulp Mill) (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~65% CDR efficiency) returning biochar + nutrients.",
-    "caveats": [],
+    "caveats": [
+      "Mediterranean wildfire fuel management (shrub clearing, fuel breaks, thinning) generates woody residue, mostly left, mulched or burned today, but no open treated-area or biomass data exist here, so it is not quantified (Portugal is modelled from AGIF in the Europe scope)."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -7892,7 +7898,9 @@
     "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, moderate geologic storage access (~978 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~65% CDR efficiency) returning biochar + nutrients.",
-    "caveats": [],
+    "caveats": [
+      "Mediterranean wildfire fuel management (shrub clearing, fuel breaks, thinning) generates woody residue, mostly left, mulched or burned today, but no open treated-area or biomass data exist here, so it is not quantified (Portugal is modelled from AGIF in the Europe scope)."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -8015,7 +8023,9 @@
     "no_option": false,
     "anchor_facility": "Navigator Company Figueira da Foz Pulp & Paper Mill (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, low nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~65% CDR efficiency) returning biochar + nutrients.",
-    "caveats": [],
+    "caveats": [
+      "The Europe scope adds a MODELLED wildfire fuel-management residue for mainland Portugal (~0.16 Mt DM/yr, AGIF reported area x 2.3 t/ha); not included in this national figure."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -9113,7 +9123,9 @@
     "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~314 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
-    "caveats": [],
+    "caveats": [
+      "Mediterranean wildfire fuel management (shrub clearing, fuel breaks, thinning) generates woody residue, mostly left, mulched or burned today, but no open treated-area or biomass data exist here, so it is not quantified (Portugal is modelled from AGIF in the Europe scope)."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -9978,7 +9990,9 @@
     "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated wet animal manure / biosolids, low nutrient status, poor/absent geologic storage access -> wet feedstock far from affordable geologic storage favors hydrothermal liquefaction (HTL) to a stable bio-crude (~35% CDR efficiency): it handles the wet biomass without drying and densifies the carbon for haulage to a distant well. Pricier than direct injection, so used only where storage is distant.",
-    "caveats": [],
+    "caveats": [
+      "Mediterranean wildfire fuel management (shrub clearing, fuel breaks, thinning) generates woody residue, mostly left, mulched or burned today, but no open treated-area or biomass data exist here, so it is not quantified (Portugal is modelled from AGIF in the Europe scope)."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -10796,7 +10810,8 @@
     "anchor_facility": "ITC Bhadrachalam Paperboards & Specialty Papers (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, excess nutrient status, moderate geologic storage access (~532 km) -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~65% CDR efficiency) returning biochar + nutrients.",
     "caveats": [
-      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local. See the subnational (state/province) cells for spatially-resolved recommendations."
+      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local. See the subnational (state/province) cells for spatially-resolved recommendations.",
+      "Chir-pine needle collection for fire prevention (Uttarakhand, Himachal Pradesh) is a documented stream; actual collection is small. Not quantified."
     ],
     "flags": [],
     "ranked": [
@@ -11933,7 +11948,9 @@
     "no_option": false,
     "anchor_facility": "Yeongdong Biomass Power Plant (Eco Power) (bioenergy)",
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, moderate geologic storage access (~723 km) -> wet wastes are unsuited to combustion (thesis sec 2.2); Vaulted-style slurry injection delivers ~81% net CDR efficiency (after the forgone-soil-carbon and fertilizer-replacement debits) with PFAS-destruction co-benefit.",
-    "caveats": [],
+    "caveats": [
+      "Post-wildfire salvage after the 2025 fires (~104,000 ha burned, unverified) is not reported as a volume; not quantified."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -12245,7 +12262,8 @@
     "anchor_facility": "Opal Australian Paper Maryvale Mill (pulp_paper)",
     "rationale": "Diffuse dry agricultural residues, low nutrient status, good geologic storage access (nearest qualifying storage ~679 km) -> with proximate geologic storage, Vaulted-style slurry injection is cheaper on balance than bio-oil for these residues and removes more carbon (>89% CDR efficiency): raw biomass is injected at nearby wells rather than pyrolyzed to densify it for long-haul transport. Bio-oil overtakes only as wells get more distant.",
     "caveats": [
-      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local."
+      "National rollup -- feedstock type/density, storage access, and nutrient status vary substantially sub-nationally; the optimal pathway is local.",
+      "Wildfire fuel reduction here is mostly hazard-reduction burning, which leaves no collectable biomass; mechanical treatment was ~10% of NSW's 2023-24 program (13,840 of 139,927 ha, secondary source). Not quantified."
     ],
     "flags": [],
     "ranked": [
@@ -13166,7 +13184,9 @@
     "no_option": false,
     "anchor_facility": "Arauco MAPA Complex (Horcones), Chile (pulp_paper)",
     "rationale": "Concentrated woody forestry residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~65% CDR efficiency) returning biochar + nutrients.",
-    "caveats": [],
+    "caveats": [
+      "Mandated plantation firebreaks and post-megafire (2017, 2023) salvage generate woody residue, but only firebreak length (km) is reported; not quantified."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -14432,7 +14452,9 @@
     "no_option": false,
     "anchor_facility": "Sappi Ngodwana Pulp & Paper Mill (pulp_paper)",
     "rationale": "Concentrated dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~65% CDR efficiency) returning biochar + nutrients.",
-    "caveats": [],
+    "caveats": [
+      "Invasive alien plant clearing (Working for Water) is a large woody stream — e.g. 551,550 t on 8,900 ha within 50 km of the Coega IDZ (Mugido et al. 2014, S. Afr. J. Sci.) — but no national initial-clearing area or biomass is available, so it is not quantified."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -15948,7 +15970,9 @@
     "no_option": false,
     "anchor_facility": "ISTAÇ Odayeri Waste-to-Energy Plant, Istanbul (wte)",
     "rationale": "Diffuse dry agricultural residues, moderate nutrient status, poor/absent geologic storage access -> diffuse residues distant from concentrated storage favor modular bio-oil sequestration via pyrolysis (Charm-style roving model, ~65% CDR efficiency) returning biochar + nutrients.",
-    "caveats": [],
+    "caveats": [
+      "Wildfire fuel-management work is reported only as firebreak km or single years; not quantified."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -16506,7 +16530,9 @@
     "no_option": false,
     "anchor_facility": null,
     "rationale": "Concentrated wet animal manure / biosolids, excess nutrient status, poor/absent geologic storage access -> wet feedstock far from affordable geologic storage favors hydrothermal liquefaction (HTL) to a stable bio-crude (~41% CDR efficiency): it handles the wet biomass without drying and densifies the carbon for haulage to a distant well. Pricier than direct injection, so used only where storage is distant.",
-    "caveats": [],
+    "caveats": [
+      "Wildfire fuel-management work is reported only as firebreak km or single years; not quantified."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -19615,7 +19641,9 @@
     "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1767 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [],
+    "caveats": [
+      "Chir-pine needle collection for fire prevention is a documented stream; actual collection is small. Not quantified."
+    ],
     "flags": [],
     "ranked": [
       {
@@ -22287,7 +22315,9 @@
     "no_option": false,
     "anchor_facility": null,
     "rationale": "Diffuse woody forestry residues, low nutrient status, moderate geologic storage access (~1533 km) -> BECCS (combustion + capture) delivers 80% CDR efficiency with an energy co-product, Frontier's most-preferred pathway where feedstock is concentrated near storage.",
-    "caveats": [],
+    "caveats": [
+      "Chir-pine needle collection for fire prevention is a documented stream (modelled potential ~1.3 Mt/yr in Uttarakhand, unverified); actual collection is small. Not quantified."
+    ],
     "flags": [],
     "ranked": [
       {

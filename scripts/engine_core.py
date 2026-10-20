@@ -1317,6 +1317,57 @@ def build_rationale(region, rec_key, storage_access, nearest_km,
     return base
 
 
+# Wildfire-management residue outside the quantified streams (US: FACTS+TWIG; Portugal: modelled).
+# Caveats, not tonnage: docs/wildfire_research/scoping_europe.md, scoping_row.md (2026-10-19).
+_WF_MED = ("Mediterranean wildfire fuel management (shrub clearing, fuel breaks, thinning) generates "
+           "woody residue, mostly left, mulched or burned today, but no open treated-area or biomass "
+           "data exist here, so it is not quantified (Portugal is modelled from AGIF in the Europe scope).")
+WILDFIRE_CAVEAT = {
+    "AUS": ("Wildfire fuel reduction here is mostly hazard-reduction burning, which leaves no collectable "
+            "biomass; mechanical treatment was ~10% of NSW's 2023-24 program (13,840 of 139,927 ha, "
+            "secondary source). Not quantified."),
+    "CHL": ("Mandated plantation firebreaks and post-megafire (2017, 2023) salvage generate woody residue, "
+            "but only firebreak length (km) is reported; not quantified."),
+    "TUR": "Wildfire fuel-management work is reported only as firebreak km or single years; not quantified.",
+    "ISR": "Wildfire fuel-management work is reported only as firebreak km or single years; not quantified.",
+    "KOR": ("Post-wildfire salvage after the 2025 fires (~104,000 ha burned, unverified) is not reported as "
+            "a volume; not quantified."),
+    "ZAF": ("Invasive alien plant clearing (Working for Water) is a large woody stream — e.g. 551,550 t on "
+            "8,900 ha within 50 km of the Coega IDZ (Mugido et al. 2014, S. Afr. J. Sci.) — but no "
+            "national initial-clearing area or biomass is available, so it is not quantified."),
+    "IN-Uttarakhand": ("Chir-pine needle collection for fire prevention is a documented stream (modelled "
+                       "potential ~1.3 Mt/yr in Uttarakhand, unverified); actual collection is small. "
+                       "Not quantified."),
+    "IN-Himachal_Pradesh": ("Chir-pine needle collection for fire prevention is a documented stream; "
+                            "actual collection is small. Not quantified."),
+    "IND": ("Chir-pine needle collection for fire prevention (Uttarakhand, Himachal Pradesh) is a "
+            "documented stream; actual collection is small. Not quantified."),
+    "PRT": ("The Europe scope adds a MODELLED wildfire fuel-management residue for mainland Portugal "
+            "(~0.16 Mt DM/yr, AGIF reported area x 2.3 t/ha); not included in this national figure."),
+}
+for _c in ("ESP", "GRC", "ITA", "HRV", "CYP", "FRA"):
+    WILDFIRE_CAVEAT[_c] = _WF_MED
+WILDFIRE_MED_NUTS = {"ES", "EL", "IT", "HR", "CY"}
+WILDFIRE_MED_FR = {"FRI1", "FRJ1", "FRJ2", "FRK2", "FRL0", "FRM0"}
+
+
+def wildfire_caveat(region):
+    """Caveat for wildfire-management residue that is NOT quantified here (or modelled), else None.
+    Global scope: by region id (ISO3 or India state id). Europe scope: Mediterranean NUTS-2."""
+    rid = region.get("id") or ""
+    if rid.startswith("EU-"):
+        nuts, cntr = region.get("nuts_id") or rid[3:], region.get("cntr") or rid[3:5]
+        if cntr == "PT":
+            return ("Forestry here includes a MODELLED wildfire fuel-management residue (AGIF mainland "
+                    "fuel-management area x 2.3 t DM/ha collected, allocated by woodland + shrubland "
+                    "area); AGIF's reported area excludes most private and municipal work.") \
+                if num(region.get("forestry_residues_fuels_odt_mt")) > 0 else None
+        if cntr in WILDFIRE_MED_NUTS or nuts in WILDFIRE_MED_FR:
+            return _WF_MED
+        return None
+    return WILDFIRE_CAVEAT.get(rid)
+
+
 def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
                         nutrient_alt=False):
     caveats = []
@@ -1366,4 +1417,7 @@ def build_caveats_flags(region, rec_key, runner_key, only_low_conf, anchor_type,
             "thesis exclusions); recommendation uses residues only."
         )
 
+    wf = wildfire_caveat(region)
+    if wf:
+        caveats.append(wf)
     return caveats, flags
