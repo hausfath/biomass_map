@@ -48,9 +48,12 @@ def slim_feedstocks(feeds):
 
 
 def _rk(x):
-    """Slim ranked entry: key + badge, plus the region-specific net efficiency and the
+    """Slim ranked entry: key + badge + feedstock group + CDR potential (+ its own transport cost), plus the region-specific net efficiency and the
     soil-carbon / fertilizer debits when any apply (frontend rebuilds the rest from PROFILE)."""
-    o = {"k": x["key"], "b": x["badge"]}
+    o = {"k": x["key"], "b": x["badge"], "fs": x.get("feedstock"),
+         "p": x.get("cdr_potential_mtpa")}
+    if x.get("transport_usd") is not None:
+        o["t"] = x["transport_usd"]
     if x.get("soc_debit") or x.get("fert_debit"):
         o.update(e=x["cdr_efficiency"], s=x["soc_debit"], f=x["fert_debit"])
     return o

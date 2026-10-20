@@ -761,6 +761,83 @@ def _secondary_dom(region):
     return "manure_wet"
 
 
+# ---- Multi-feedstock ranked options (2026-10-19) -------------------------------------------
+# The ranked list is no longer limited to the dominant feedstock: any other feedstock GROUP with a
+# meaningful potential (same rule as _secondary_dom: >= SECONDARY_FRAC of the largest stream's CO2
+# OR >= SECONDARY_ABS_MTPA) adds its applicable pathways, each tagged with its feedstock and its own
+# CDR potential. The headline recommendation, runner-up and region totals stay on the dominant one.
+FEEDSTOCK_GROUP_LABEL = {"dry": "crop + forestry residues", "wet": "manure + biosolids",
+                         "msw": "biogenic MSW"}
+MSW_CAPTURE_PATHWAYS = ("wte_ccs", "lfg_ccs", "lfg_rng_ccs")
+
+
+def feedstock_group(dom):
+    return "wet" if dom == "manure_wet" else ("msw" if dom == "msw" else "dry")
+
+
+def feedstock_groups(region):
+    """Embodied biogenic CO2 (Mt/yr) per feedstock group."""
+    ag = num(region.get("ag_residues_odt_mt"))
+    forestry = num(region.get("forestry_residues_odt_mt"))
+    return {"dry": (ag + forestry) * ODT_TO_CO2,
+            "wet": (num(region.get("animal_manure_odt_mt"))
+                    + num(region.get("human_wwtp_odt_mt"))) * ODT_TO_CO2,
+            "msw": num(region.get("msw_total_mt")) * num(region.get("msw_biogenic_frac"), 0.5)}
+
+
+def _dom_for_group(group, region):
+    if group == "wet":
+        return "manure_wet"
+    if group == "msw":
+        return "msw"
+    return ("forestry_woody" if num(region.get("forestry_residues_odt_mt"))
+            > num(region.get("ag_residues_odt_mt")) else "ag_dry")
+
+
+def _base_dom(region):
+    """Dominant feedstock by the CO2-argmax rule (what the transport model's slurry cost assumed)."""
+    co2 = feedstock_groups(region)
+    return _dom_for_group(max(co2, key=co2.get), region)
+
+
+def secondary_feedstocks(region, primary_dom, avail=None):
+    """Dominant-feedstock keys of the OTHER groups worth listing options for. Secondary MSW counts
+    only where a capture anchor (WtE plant / gas-collecting landfill) is in reach — landfilled MSW
+    without one is not a removal feedstock (as in the MSW no-option logic)."""
+    av = _avail(avail)
+    co2 = feedstock_groups(region)
+    top = max(co2.values()) if co2 else 0.0
+    prim = feedstock_group(primary_dom)
+    out = []
+    for g in ("dry", "wet", "msw"):
+        v = co2[g]
+        if g == prim or v <= 0:
+            continue
+        if not (v >= SECONDARY_FRAC * top or v >= SECONDARY_ABS_MTPA):
+            continue
+        if g == "msw" and not (av["wte"] or av["lf"]):
+            continue
+        out.append(_dom_for_group(g, region))
+    return out
+
+
+def tcost_for_dom(tcost, from_dom, to_dom):
+    """Rescale the slurry payload cost (feedstock-specific carbon density) from the feedstock the
+    transport model assumed to another feedstock; other payloads are feedstock-independent."""
+    if not tcost or tcost.get("slurry") is None or from_dom == to_dom:
+        return tcost
+    from transport_common import SLURRY_MASS_BY_FEEDSTOCK as m   # lazy: avoids circular import
+    a, b = m.get(from_dom), m.get(to_dom)
+    if not a or not b:
+        return tcost
+    out = dict(tcost)
+    out["slurry"] = round(tcost["slurry"] * b / a, 1)
+    for k in AD_INJ_PARENT:
+        if k in out:
+            out[k] = transport_cost_for(k, out)
+    return out
+
+
 def _lfg_lead(region):
     """The landfill-gas pathway to lead on, set by the anchor landfill's existing infrastructure
     (retrofit what is there): a landfill that already produces RNG -> LFG-RNG+CCS (capture the
@@ -928,8 +1005,11 @@ def kpi_score(pathway_key, storage_access, region=None):
 # --------------------------------------------------------------------------
 # CDR potential (Mtpa)
 # --------------------------------------------------------------------------
-def cdr_potential_mtpa(region, pathway_key):
+def cdr_potential_mtpa(region, pathway_key, digits=None):
+    """CDR potential (Mt CO2/yr). `digits` overrides the default rounding (1 decimal; 2 for the
+    landfill pathways) — ranked-list entries use 3 so small secondary streams don't show as 0."""
     eff = net_efficiency(pathway_key, region)
+    rnd = (lambda v, d: round(v, d if digits is None else digits))
     ag = num(region.get("ag_residues_odt_mt"))
     forestry = num(region.get("forestry_residues_odt_mt"))
     manure = num(region.get("animal_manure_odt_mt"))
@@ -942,19 +1022,19 @@ def cdr_potential_mtpa(region, pathway_key):
     # combustion basis, set by the scope builder as region["_lfg_co2_mtpa"]), not the region's
     # whole MSW stream — the removal is bounded by the gas the landfill actually collects.
     if pathway_key in ("lfg_ccs", "lfg_rng_ccs"):
-        return round((region.get("_lfg_co2_mtpa") or 0.0) * eff, 2)
+        return rnd((region.get("_lfg_co2_mtpa") or 0.0) * eff, 2)
 
     # Feedstock basis is set by the region's dominant feedstock, not the pathway:
     # injection now serves dry crop residues too, so it must draw on ag+forestry there
     # (not manure). WtE always operates on the biogenic MSW stream.
     if pathway_key == "wte_ccs" or dom == "msw":
-        return round(msw * biofrac * 1.0 * eff, 1)
+        return rnd(msw * biofrac * 1.0 * eff, 1)
 
     if dom == "manure_wet":
-        return round((manure + wwtp) * ODT_TO_CO2 * eff, 1)
+        return rnd((manure + wwtp) * ODT_TO_CO2 * eff, 1)
 
     # dry biomass regions (ag / forestry / mixed) -> ag+forestry residues
-    return round((ag + forestry) * ODT_TO_CO2 * eff, 1)
+    return rnd((ag + forestry) * ODT_TO_CO2 * eff, 1)
 
 
 # --------------------------------------------------------------------------
@@ -1128,44 +1208,64 @@ def debit_cons(pathway, region):
     return out
 
 
+def _ranked_entry(region, a, badge, storage_access, nearest_km, avail, anchor, tcost):
+    pros, cons = region_pros_cons(region, a, storage_access, nearest_km, avail, anchor, tcost)
+    deb = pathway_debits(a, region)
+    return {
+        "key": a,
+        "label": PATHWAYS[a]["label"],
+        "badge": badge,
+        "feedstock": feedstock_group(region.get("dominant_feedstock")),
+        "cdr_efficiency": deb["net"],
+        "soc_debit": deb["soc"],
+        "fert_debit": deb["fert"],
+        "cdr_potential_mtpa": cdr_potential_mtpa(region, a, digits=3),
+        "transport_usd": transport_cost_for(a, tcost),
+        "cost_band": PATHWAYS[a]["cost_band"],
+        "pros": pros,
+        "cons": cons,
+    }
+
+
+def _fit_badge(sc):
+    return "Strong fit" if sc >= 60 else ("Possible" if sc >= 45 else "Poor fit")
+
+
 def build_ranked(region, rec_key, runner_key, storage_access, nearest_km,
                  avail, anchor, tcost=None):
     """Ordered best->worst list of applicable pathways with pros/cons + fit badge. `tcost`
-    (per-payload delivered $/tCO₂) demotes storage-dependent pathways priced out of transport."""
+    (per-payload delivered $/tCO₂) demotes storage-dependent pathways priced out of transport.
+    The recommended + runner-up (dominant feedstock) lead; then all remaining options — the dominant
+    feedstock's AND those of any other feedstock with a meaningful potential — merged by fit score,
+    each tagged with its feedstock and CDR potential."""
     dom = region.get("dominant_feedstock")
+    base = _base_dom(region)
+    tc = tcost_for_dom(tcost, base, dom)
     apps = applicable_pathways(dom, avail)
     for k in (rec_key, runner_key):          # always include the engine's picks
         if k not in apps:
             apps.append(k)
 
-    scores = {a: fit_score(region, a, storage_access, avail, tcost) for a in apps}
-    rest = sorted((a for a in apps if a not in (rec_key, runner_key)),
-                  key=lambda a: -scores[a])
-    order = [rec_key, runner_key] + rest
-
-    ranked = []
-    for a in order:
-        if a == rec_key:
-            badge = "Recommended"
-        elif a == runner_key:
-            badge = "Runner-up"
-        else:
-            sc = scores.get(a, 0)
-            badge = "Strong fit" if sc >= 60 else ("Possible" if sc >= 45 else "Poor fit")
-        pros, cons = region_pros_cons(region, a, storage_access, nearest_km,
-                                      avail, anchor, tcost)
-        ranked.append({
-            "key": a,
-            "label": PATHWAYS[a]["label"],
-            "badge": badge,
-            "cdr_efficiency": net_efficiency(a, region),
-            "soc_debit": pathway_debits(a, region)["soc"],
-            "fert_debit": pathway_debits(a, region)["fert"],
-            "cost_band": PATHWAYS[a]["cost_band"],
-            "pros": pros,
-            "cons": cons,
-        })
-    return ranked
+    scores = {a: fit_score(region, a, storage_access, avail, tc) for a in apps}
+    ranked = [_ranked_entry(region, rec_key, "Recommended", storage_access, nearest_km,
+                            avail, anchor, tc),
+              _ranked_entry(region, runner_key, "Runner-up", storage_access, nearest_km,
+                            avail, anchor, tc)]
+    rest = [(scores[a], _ranked_entry(region, a, _fit_badge(scores[a]), storage_access,
+                                      nearest_km, avail, anchor, tc))
+            for a in apps if a not in (rec_key, runner_key)]
+    for sd in secondary_feedstocks(region, dom, avail):
+        sreg = dict(region, dominant_feedstock=sd)
+        stc = tcost_for_dom(tcost, base, sd)
+        sapps = applicable_pathways(sd, avail)
+        if sd == "msw":
+            sapps = [a for a in sapps if a in MSW_CAPTURE_PATHWAYS]
+        for a in sapps:
+            sc = fit_score(sreg, a, storage_access, avail, stc)
+            rest.append((sc, _ranked_entry(sreg, a, _fit_badge(sc), storage_access, nearest_km,
+                                           avail, anchor, stc)))
+    rest.sort(key=lambda t: -t[0])
+    return ranked + [e for _, e in rest]
 
 
 NO_OPTION_RATIONALE = (
@@ -1189,6 +1289,7 @@ def build_ranked_none(region, storage_access, nearest_km, avail, anchor):
         pros, cons = region_pros_cons(region, a, storage_access, nearest_km, avail, anchor)
         ranked.append({
             "key": a, "label": PATHWAYS[a]["label"], "badge": badge,
+            "feedstock": feedstock_group(dom), "cdr_potential_mtpa": cdr_potential_mtpa(region, a, digits=3),
             "cdr_efficiency": net_efficiency(a, region), "cost_band": PATHWAYS[a]["cost_band"],
             "soc_debit": pathway_debits(a, region)["soc"],
             "fert_debit": pathway_debits(a, region)["fert"],

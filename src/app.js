@@ -159,7 +159,8 @@
     const sa = rec.storage_access, dens = rec.feedstock_density, nut = rec.nutrient_status;
     // transport-cost note (storage-dependent pathways, where a per-payload delivered cost is known)
     const tbp = rec.transport_by_payload, pay = PAYLOAD_OF[key];
-    const tc = (tbp && pay) ? tbp[pay] : null;
+    // a ranked entry carries its own transport cost (secondary feedstocks haul a different slurry)
+    const tc = (item && item.t !== undefined) ? item.t : ((tbp && pay) ? tbp[pay] : null);
     if (tc != null) {
       if (tc > TRANSPORT_CAP) cons.unshift(`Transport to the nearest operating well ~$${fmt(tc)}/tCO₂ — exceeds the $${TRANSPORT_CAP}/tCO₂ viability cap, so this pathway is not viable here`);
       else if (tc >= 66) cons.push(`Transport to the nearest operating well is costly (~$${fmt(tc)}/tCO₂)`);
@@ -220,7 +221,8 @@
       const k = item.k, prof = profile[k] || {};
       const [pros, cons] = regionProsCons(rec, k, profile, item);
       return { key: k, label: prof.label || k, badge: item.b,
-               cdr_efficiency: item.e != null ? item.e : prof.eff, cost_band: prof.cost, pros: pros, cons: cons };
+               cdr_efficiency: item.e != null ? item.e : prof.eff, cost_band: prof.cost, pros: pros, cons: cons,
+               feedstock: item.fs, cdr_potential_mtpa: item.p, transport_usd: item.t };
     });
   }
 
@@ -918,21 +920,24 @@
     if (!rec.ranked || !rec.ranked.length) return "";
     const badgeClass = b => "rk-" + b.toLowerCase().replace(/[^a-z]+/g, "");
     let html = `<div class="d-sec-title">CDR options ranked — best to worst here</div>`;
+    const FS_LABEL = { dry: "crop + forestry residues", wet: "manure + biosolids", msw: "biogenic MSW" };
+    const multiFs = new Set(rec.ranked.map(p => p.feedstock).filter(Boolean)).size > 1;
     rec.ranked.forEach((p, i) => {
       const color = (PATH_META[p.key] || {}).color || "#888";
       const pros = (p.pros || []).map(x => `<li>${x}</li>`).join("");
       const cons = (p.cons || []).map(x => `<li>${x}</li>`).join("");
       // delivered (all-in) cost per ranked pathway, when a transport cost is known for its payload
-      const ptc = (rec.transport_by_payload && PAYLOAD_OF[p.key]) ? rec.transport_by_payload[PAYLOAD_OF[p.key]] : null;
+      const ptc = (p.transport_usd !== undefined && p.transport_usd !== null) ? p.transport_usd
+        : ((rec.transport_by_payload && PAYLOAD_OF[p.key]) ? rec.transport_by_payload[PAYLOAD_OF[p.key]] : null);
       const pdc = (ptc != null) ? deliveredCost(p.cost_band, ptc) : null;
       const deliveredStr = pdc ? ` · delivered ≈ <b>${pdc.range}/tCO₂</b>` : "";
       html += `<div class="rank-item">
         <div class="rank-head">
           <span class="rank-num" style="background:${color}">${i + 1}</span>
-          <span class="rank-name">${p.label}</span>
+          <span class="rank-name">${p.label}${multiFs && p.feedstock ? ` <span class="rank-fs">· ${FS_LABEL[p.feedstock] || p.feedstock}</span>` : ""}</span>
           <span class="rank-badge ${badgeClass(p.badge)}">${p.badge}</span>
         </div>
-        <div class="rank-meta">${Math.round((p.cdr_efficiency || 0) * 100)}% CDR efficiency · ${p.cost_band || ""}${deliveredStr}</div>
+        <div class="rank-meta">${Math.round((p.cdr_efficiency || 0) * 100)}% CDR efficiency${p.cdr_potential_mtpa != null ? ` · ~${fmt(p.cdr_potential_mtpa)} Mt CO₂/yr` : ""} · ${p.cost_band || ""}${deliveredStr}</div>
         <div class="rank-pc"><ul class="pc-pros">${pros}</ul><ul class="pc-cons">${cons}</ul></div>
       </div>`;
     });

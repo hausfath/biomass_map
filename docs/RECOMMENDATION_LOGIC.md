@@ -168,6 +168,9 @@ flowchart TD
   Canadian census division is scored against US wells/basins and vice-versa (e.g. southern
   Saskatchewan reaching the North Dakota Class VI wells / the US side of the Williston Basin).
 - **Never recommended** (flagged): purpose-grown energy crops; corn-ethanol+CCS (US-scoped flag).
+- The ranked list also includes pathways for **other feedstocks with a meaningful potential**
+  (≥ 25% of the largest stream's CO₂ or ≥ 0.05 Mt CO₂/yr), tagged by feedstock and merged by fit;
+  the headline recommendation stays on the dominant feedstock.
 - The KPI score that orders the ranked list (and colours the map) is
   `60·CDR-efficiency + 25·(energy co-product) + 15·(co-benefit) − 10·(needs storage but poor access)`.
 

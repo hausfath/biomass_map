@@ -308,6 +308,19 @@ retrofit availability. The recommended and runner-up pathways are pinned at the 
 are ordered by a fit score (intrinsic KPI score plus local modifiers). This drives the ranked
 list shown in the "Best use" layer's detail panel.
 
+**Other feedstocks (2026-10-19).** The list is not limited to the dominant feedstock: every other
+feedstock group (dry crop + forestry residues; wet manure + biosolids; biogenic MSW) with a
+**meaningful potential** — at least 25% of the largest stream's embodied CO₂ *or* at least 0.05 Mt
+CO₂/yr (`SECONDARY_FRAC` / `SECONDARY_ABS_MTPA`, the same rule as the MSW no-WtE fallback) — adds
+its applicable pathways, merged with the dominant feedstock's by fit score. Each card is tagged with
+its feedstock and shows its own CDR potential (Mt CO₂/yr, on that feedstock's carbon), net
+efficiency (with soil-carbon / fertilizer debits where they apply) and delivered cost (slurry
+transport rescaled to that feedstock's carbon density). Secondary MSW lists only capture pathways
+(WtE+CCS, landfill gas) where an anchor is in reach — landfilled MSW without one is not a removal
+feedstock. The headline recommendation, runner-up, map colour and region CDR totals stay on the
+dominant feedstock (no headline changed in any scope). Effect: secondary options in 208/214 global
+regions, 1,632/3,144 US counties, 264/290 European and 149/293 Canadian regions.
+
 ### Retrofit-only pathway gating
 **BECCS pulp & paper, WtE+CCS, and AD+CCS only make sense as retrofits of existing facilities
 today**, so each is recommendable — and only appears in a region's ranked options — where the region
