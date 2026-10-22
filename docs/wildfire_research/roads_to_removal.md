@@ -47,3 +47,22 @@ reproduces them exactly. BDT-weighted mean: **$97.56/short BDT**. Costs are not 
   weights productive coastal forests (Lane OR, Humboldt and Mendocino CA) far more than where
   treatments happen today. The gap reflects (i) whole small trees + tops (17.3 BDT/ac) vs slash on
   treated units (6–13), and (ii) all 70 M acres mechanically thinned vs today's mostly-burn mix.
+
+## Scenario test: R2R in the recommendation engine (2026-10-22, not adopted)
+Each county's wildfire-fuels component set to max(current completed-treatment stream, R2R tranche) — not
+the sum, since R2R's priority-area thinning would subsume today's treatments — then US transport and
+recommendations rerun (committed files untouched). Baseline: US recommended-pathway CDR 349.7 Mt CO₂/yr;
+western 12 states 52.3 (444 counties); the 174 R2R counties 27.3.
+
+| Scenario | Forestry added (Mt dry/yr) | Counties changing recommendation | US CDR (Mt CO₂/yr) | Western-12 CDR |
+|---|---|---|---|---|
+| A: full R2R (all 6 cost classes) | +106.0 | 27 | 349.7 → 469.5 (+119.8) | 52.3 → 172.1 |
+| B: classes ≤ $100/short BDT (1–4) | +72.5 | 26 | → 432.0 (+82.3) | → 134.6 |
+| C: classes ≤ $82/short BDT (1–2) | +30.5 | 19 | → 383.2 (+33.5) | → 85.8 |
+
+All changes are in R2R counties. Main transitions (A): HTL → BECCS 8, HTL → bio-oil 5, no-option → BECCS 4,
+HTL → burial 3, injection → BECCS 2. About 95% of the added CDR (113 of 120 Mt in A) is in counties whose
+recommendation does not change — mostly forestry-dominant counties already on burial / bio-oil / BECCS,
+which simply get more biomass. CDR gain by pathway (A): burial +53, bio-oil +45, BECCS +17, BECCS p&p +6.
+Caveats: engine uses 1.47 tCO₂/odt (40% C) vs R2R's 0.5 C; possible overlap with BT23 forestry (small-tree /
+thinning material) not netted; R2R is a 10-yr technical potential, not current supply.
