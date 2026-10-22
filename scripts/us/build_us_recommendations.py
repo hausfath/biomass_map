@@ -41,13 +41,14 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 PROC = os.path.join(ROOT, "data", "processed")
 GEO = os.path.join(ROOT, "data", "geo")
 
-FEED = os.path.join(PROC, "feedstocks_us_county.json")
+# FEED / TRANSPORT / OUT are overridable for scenario runs (scripts/us/build_r2r_scenario.py).
+FEED = os.environ.get("BICRS_US_FEED") or os.path.join(PROC, "feedstocks_us_county.json")
 BASINS = os.path.join(PROC, "storage_us_basins.json")
 WELLS = os.path.join(PROC, "wells_us.json")
 FACS = os.path.join(PROC, "facilities_us_detailed.json")
 COUNTIES = os.path.join(GEO, "us_counties.json")
-TRANSPORT = os.path.join(PROC, "transport_us.json")   # multimodal delivered $/tCO2 (build_us_transport)
-OUT = os.path.join(PROC, "recommendations_us.json")
+TRANSPORT = os.environ.get("BICRS_US_TRANSPORT") or os.path.join(PROC, "transport_us.json")   # multimodal delivered $/tCO2 (build_us_transport)
+OUT = os.environ.get("BICRS_US_RECS_OUT") or os.path.join(PROC, "recommendations_us.json")
 
 # Cross-border storage: a US county is also scored against Canadian storage (the Western Canada
 # Sedimentary Basin / Quest / ACTL across from the northern-tier states). Loaded if present.

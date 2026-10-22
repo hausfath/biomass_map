@@ -331,7 +331,7 @@
                              // clicks/hover consistent with the other scopes (no canvas quirks)
       lowSupplyAware: true,
       statFooter: recs => ({ value: fmt(recs.reduce((s, r) => s + (r.cdr_potential_mtpa || 0), 0)),
-        label: "Mt CO₂/yr North America CDR potential" }),
+        label: "Mt CO₂/yr North America CDR potential" + (R2R_ON() ? " — R2R thinning scenario" : "") }),
       legendNote: {
         feedstock: "Quantile classes across all US counties + Canadian census divisions.",
         recommendation: "Best use per Frontier's KPI ranking, computed per county / census division (storage distance + feedstock density). Click a region for rationale.",
@@ -376,10 +376,21 @@
         (window.CA_RECOMMENDATIONS || []).forEach(r => {
           recById[r.id] = Object.assign({}, r, { ranked: reconstructRanked(r, profile) });
         });
+        // Roads to Removal thinning scenario: overlay the US records that differ from today
+        if (R2R_ON()) {
+          const s = window.US_R2R;
+          Object.entries(s.feeds).forEach(([id, o]) => {
+            if (feedById[id]) feedById[id] = Object.assign({}, feedById[id], o, { _scen: true });
+          });
+          s.recs.forEach(r => {
+            recById[r.id] = Object.assign({}, r, { ranked: reconstructRanked(r, profile), _scen: true });
+          });
+        }
         return { feedById: feedById, recById: recById };
       },
       feedSection: slimFeedSection,
-      transportLookup: id => (window.US_TRANSPORT || {})[id] || (window.CA_TRANSPORT || {})[id] || null,
+      transportLookup: id => (R2R_ON() && window.US_R2R.transport[id])
+        || (window.US_TRANSPORT || {})[id] || (window.CA_TRANSPORT || {})[id] || null,
       storageDetailRows: function (rec) {
         const sd = rec.storage_detail || {};
         return [
@@ -657,7 +668,9 @@
   // ============================================================
   // Active-scope state + shared rendering
   // ============================================================
-  const state = { scope: "na", mode: "feedstock", feedstock: "ag", breaks: [], openRegion: null, showRoute: false };
+  const state = { scope: "na", mode: "feedstock", feedstock: "ag", breaks: [], openRegion: null, showRoute: false,
+                  scen: "today" };   // scen: "today" | "r2r" (US Roads to Removal thinning scenario, NA scope)
+  const R2R_ON = () => state.scope === "na" && state.scen === "r2r" && !!window.US_R2R;
   let combined = null, feedById = {}, recById = {};
   let geoLayer = null, choroRenderer = null;
   let activeOverlays = [];  // [{id, layer, checkbox}]
@@ -813,6 +826,12 @@
     }
     const regionKind = (feed && feed.regionKind) || "Region";
     let html = `<div class="d-region">${regionKind}</div><div class="d-name">${name}</div>`;
+    if (R2R_ON() && /^US-/.test(id)) {
+      const changed = (feed && feed._scen) || (rec && rec._scen);
+      html += `<div class="caveat scen">Scenario view — ${window.US_R2R.meta.label}: wildfire-fuels supply set to the
+        Roads to Removal thinning potential (a 10-year technical potential, not current supply).
+        ${changed ? "This county's numbers differ from today." : "This county is unchanged from today."}</div>`;
+    }
     if (state.mode === "feedstock") {
       if (feed) html += feedstockBarChart(feed) + sc.feedSection(feed);
       else if (rec) html += recCard(rec, sc);
@@ -1070,6 +1089,8 @@
 
     return loadScope(id).then(() => {
       state.scope = id;
+      if (scenCtl) scenCtl.hidden = (id !== "na");
+      if (scenHint && id === "na") scenHint.textContent = scenHintText();
       // wildfire-fuels layers: fuels residue in North America (US) and Europe (Portugal, modelled);
       // the Roads to Removal potential is US-only. Other regions show "no data".
       document.querySelectorAll("#feedstock-select option.na-only").forEach(o => {
@@ -1159,6 +1180,46 @@
   document.getElementById("method-close").onclick = () => methodModal.classList.add("hidden");
   methodModal.onclick = e => { if (e.target === methodModal) methodModal.classList.add("hidden"); };
 
+  // ---- Supply scenario toggle (North America: US Roads to Removal thinning, lazy-loaded overlay) ----
+  const scenCtl = document.getElementById("scenario-controls");
+  const scenHint = document.getElementById("scen-hint");
+  let r2rLoaded = null;
+  function loadR2R() {
+    if (window.US_R2R) return Promise.resolve();
+    if (!r2rLoaded) r2rLoaded = new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = "data_bundle_us_r2r.js"; s.onload = resolve;
+      s.onerror = () => reject(new Error("Failed to load data_bundle_us_r2r.js"));
+      document.body.appendChild(s);
+    });
+    return r2rLoaded;
+  }
+  function scenHintText() {
+    if (state.scen !== "r2r" || !window.US_R2R) {
+      return "Current supply (completed treatments). Switch on to see the US with Roads to Removal (LLNL 2023) " +
+        "thinning of priority wildfire-hazard acres, limited to accessibility classes costing ≤$100/short BDT.";
+    }
+    const m = window.US_R2R.meta;
+    return `${m.label}: +${fmt(m.added_mt_dry)} Mt dry/yr of forestry in ${m.counties_with_added_supply} western ` +
+      `counties; ${m.recommendation_changes} US recommendations change; US CDR ${fmt(m.us_cdr_today)} → ` +
+      `${fmt(m.us_cdr_scenario)} Mt CO₂/yr. A technical potential, not current supply. Canada unchanged (no R2R data).`;
+  }
+  function setScen(scen) {
+    const go = () => {
+      state.scen = scen;
+      document.querySelectorAll("#scen-seg .seg-btn").forEach(b => b.classList.toggle("active", b.dataset.scen === scen));
+      if (scenHint) scenHint.textContent = scenHintText();
+      const open = state.openRegion;
+      return setScope("na", { keepView: true }).then(() => {
+        if (open) openDetail(open.id, open.name);
+      });
+    };
+    return scen === "r2r" ? loadR2R().then(go).catch(err => { if (scenHint) scenHint.textContent = err.message; }) : go();
+  }
+  document.querySelectorAll("#scen-seg .seg-btn").forEach(btn => {
+    btn.addEventListener("click", () => { if (btn.dataset.scen !== state.scen && state.scope === "na") setScen(btn.dataset.scen); });
+  });
+
   // ---- Deep-link hash: #scope=us&mode=recommendation&feed=ag&ov=facilities,wells6&region=US-06037 ----
   function applyHash() {
     const h = (location.hash || "").replace(/^#/, "");
@@ -1173,6 +1234,9 @@
         if (btn) btn.click();
       }
       if (p.feed && FEEDSTOCK_LABEL[p.feed]) { dom.feedSelect.value = p.feed; dom.feedSelect.onchange(); }
+      if (p.scen === "r2r" && scope === "na") return setScen("r2r").then(() => p);
+      return p;
+    }).then(p => {
       if (p.ov) p.ov.split(",").forEach(oid => {
         const o = activeOverlays.find(x => x.id === oid);
         if (o) { o.checkbox.checked = true; o.layer.addTo(map); }

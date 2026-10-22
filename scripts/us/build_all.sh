@@ -14,4 +14,5 @@ echo "7/10 transport nodes (NTAD rail + ports + rivers) ..." ; python3 build_tra
 echo "8/10 transport cost + routes ..." ; python3 build_us_transport.py
 echo "9/10 county recommendations ..." ; python3 build_us_recommendations.py
 echo "10/10 bundle ..."                ; python3 bundle_us.py
+echo "11/11 R2R thinning scenario overlay ..." ; python3 build_r2r_scenario.py
 echo "done — open src/index.html (US scope) in a browser."

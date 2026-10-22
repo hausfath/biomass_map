@@ -48,7 +48,7 @@ reproduces them exactly. BDT-weighted mean: **$97.56/short BDT**. Costs are not 
   treatments happen today. The gap reflects (i) whole small trees + tops (17.3 BDT/ac) vs slash on
   treated units (6–13), and (ii) all 70 M acres mechanically thinned vs today's mostly-burn mix.
 
-## Scenario test: R2R in the recommendation engine (2026-10-22, not adopted)
+## Scenario test: R2R in the recommendation engine (2026-10-22)
 Each county's wildfire-fuels component set to max(current completed-treatment stream, R2R tranche) — not
 the sum, since R2R's priority-area thinning would subsume today's treatments — then US transport and
 recommendations rerun (committed files untouched). Baseline: US recommended-pathway CDR 349.7 Mt CO₂/yr;
@@ -66,3 +66,10 @@ recommendation does not change — mostly forestry-dominant counties already on 
 which simply get more biomass. CDR gain by pathway (A): burial +53, bio-oil +45, BECCS +17, BECCS p&p +6.
 Caveats: engine uses 1.47 tCO₂/odt (40% C) vs R2R's 0.5 C; possible overlap with BT23 forestry (small-tree /
 thinning material) not netted; R2R is a 10-yr technical potential, not current supply.
+
+**Adopted as a map toggle (2026-10-22):** scenario B is the "R2R thinning (≤$100/BDT)" option of the North
+America scope's *Supply scenario* control; the map opens on "Today". `scripts/us/build_r2r_scenario.py`
+(build_all.sh step 11) builds it with the unchanged engine and writes only an overlay of the records that
+differ from today (`src/data_bundle_us_r2r.js`, ~0.6 MB, lazy-loaded): 264 recommendation records, 169
+feedstock and 26 transport overrides. Full scenario outputs stay in `data/processed/_scenarios/`
+(gitignored). Deep link: `#scope=na&scen=r2r`.

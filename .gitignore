@@ -31,3 +31,4 @@ data/geo/transport_raw/
 # AD gating — EPA AgSTAR raw download (re-fetch with scripts/us/download_raw.sh)
 data/geo/ad_raw/
 /Roads to Removal Forestry Data.xlsx
+data/processed/_scenarios/

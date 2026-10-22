@@ -528,6 +528,12 @@ Billion-Ton Report + USDA NASS):
     USFS Chief Moore, 16 May 2023), kept here as a low bound. In the 176 counties both cover, R2R is
     109.5 Mt vs 4.2 Mt from completed treatments (county correlation r = 0.34): whole small trees
     (17.3 BDT/ac) vs slash on treated units, and full mechanical thinning vs today's mostly-burn mix.
+    **Scenario toggle (2026-10-22):** the North America scope has a *Supply scenario* control —
+    "Today" (default) or "R2R thinning (≤$100/BDT)", which sets each county's wildfire-fuels component
+    to max(completed-treatment stream, R2R potential in the four accessibility classes ≤ $100/short BDT)
+    and reruns transport + recommendations: +72.5 Mt dry/yr in 169 counties, 26 recommendation changes,
+    US CDR 349.7 → 432.0 Mt CO₂/yr (`scripts/us/build_r2r_scenario.py`; overlay
+    `src/data_bundle_us_r2r.js`). Canada has no R2R data and is unchanged.
   - *Canada:* no open, quantified fuel-treatment or burned-slash dataset outside BC; BC census
     divisions carry a caveat that much harvest slash is pile-burned (already inside the forestry
     residue; one secondary estimate ~3.9 Mt CO₂ in 2019, unverified). BC CRI treatment polygons are

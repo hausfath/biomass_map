@@ -29,8 +29,9 @@ WELLS = os.path.join(PROC, "wells_us.json")
 WELLS_CA = os.path.join(PROC, "wells_ca.json")           # cross-border: Canadian CCS also stores US CO₂
 NODES = os.path.join(GEO, "transport_nodes_us.json")
 NODES_CA = os.path.join(GEO, "transport_nodes_ca.json")  # cross-border transfer nodes
-FEED = os.path.join(PROC, "feedstocks_us_county.json")   # for dominant feedstock (slurry density)
-OUT = os.path.join(PROC, "transport_us.json")
+# Paths overridable for scenario runs (scripts/us/build_r2r_scenario.py).
+FEED = os.environ.get("BICRS_US_FEED") or os.path.join(PROC, "feedstocks_us_county.json")   # dominant feedstock (slurry density)
+OUT = os.environ.get("BICRS_US_TRANSPORT") or os.path.join(PROC, "transport_us.json")
 
 
 CAP = 100.0   # $/tCO₂ CO₂-delivered cap (matches engine TRANSPORT_MAX_USD)
