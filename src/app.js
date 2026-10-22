@@ -52,13 +52,14 @@
       "chipping), Mt oven-dry/yr, 2018–2024: USFS (FACTS) + DOI and state (TWIG). Today mostly pile-burned or left. " +
       "Already included in the forestry layer. Europe: Portugal only, MODELLED from AGIF national fuel-management " +
       "area × shrub-clearing yield. Canada and other European countries: no open data.",
-    forestry_fuels_wcs: "POTENTIAL, not an estimate: the fuels residue scaled to the Wildfire Crisis Strategy " +
-      "(up to 50M additional acres over 10 years) at today's treatment mix and spatial pattern. US only.",
+    forestry_fuels_r2r: "POTENTIAL, not current supply: Roads to Removal (LLNL 2023) county estimate of biomass " +
+      "from thinning 70M priority acres once over 10 years (trees <12 in + tops, to 80% stocking), Mt dry/yr. " +
+      "Western US only; not included in the forestry total or recommendations.",
   };
   const FEEDSTOCK_LABEL = {
     ag: "Agricultural residues", forestry: "Forestry residues",
     msw_biogenic: "MSW (biogenic)", manure: "Animal manure", wwtp: "Human / WWTP biosolids",
-    forestry_fuels: "Wildfire-fuels residue", forestry_fuels_wcs: "Wildfire-fuels residue (WCS potential)",
+    forestry_fuels: "Wildfire-fuels residue", forestry_fuels_r2r: "Wildfire-fuels potential (R2R)",
   };
 
   // ---- Generic helpers ----
@@ -356,7 +357,8 @@
           feedById[r.id] = {
             _id: r.id, _name: `${r.name}, ${r.state}`, regionKind: "US county — " + r.state,
             ag: r.ag, forestry: r.forestry, forestry_fuels: r.forestry_fuels,
-            forestry_fuels_wcs: r.forestry_fuels_wcs, forestry_fuels_low: r.forestry_fuels_low,
+            forestry_fuels_r2r: r.forestry_fuels_r2r, fuels_r2r_cost: r.fuels_r2r_cost,
+            forestry_fuels_low: r.forestry_fuels_low,
             msw: r.msw, manure: r.manure, wwtp: r.wwtp,
             biofrac: r.biofrac || 0.61, nutrient_status: r.nutrient_status, dominant_feedstock: r.dominant_feedstock,
           };
@@ -488,8 +490,11 @@
       let sub = unit;
       if (lab === "Forestry residues" && feed.forestry_fuels > 0) {
         sub = `${unit} · incl. ~${fmt(feed.forestry_fuels)} from wildfire-fuels treatment`
-          + (feed.forestry_fuels_low != null ? ` (low case ${fmt(feed.forestry_fuels_low)}`
-             + (feed.forestry_fuels_wcs ? `; WCS scale-up potential ${fmt(feed.forestry_fuels_wcs)})` : ")") : "");
+          + (feed.forestry_fuels_low != null ? ` (low case ${fmt(feed.forestry_fuels_low)})` : "");
+      }
+      if (lab === "Forestry residues" && feed.forestry_fuels_r2r > 0) {
+        sub += ` · Roads to Removal thinning potential ~${fmt(feed.forestry_fuels_r2r)} Mt dry/yr`
+          + (feed.fuels_r2r_cost ? ` at ~$${Math.round(feed.fuels_r2r_cost)}/short BDT acquisition` : "");
       }
       html += `<tr><td class="lab">${lab}<div class="unc">${sub}</div></td><td class="val">${fmt(v)}</td></tr>`;
     });
@@ -1066,13 +1071,13 @@
     return loadScope(id).then(() => {
       state.scope = id;
       // wildfire-fuels layers: fuels residue in North America (US) and Europe (Portugal, modelled);
-      // the WCS scale-up potential is US-only. Other regions show "no data".
+      // the Roads to Removal potential is US-only. Other regions show "no data".
       document.querySelectorAll("#feedstock-select option.na-only").forEach(o => {
         const ok = o.value === "forestry_fuels" ? (id === "na" || id === "eu") : id === "na";
         o.hidden = o.disabled = !ok;
       });
       const fuelsOk = state.feedstock === "forestry_fuels" ? (id === "na" || id === "eu")
-        : state.feedstock === "forestry_fuels_wcs" ? id === "na" : true;
+        : state.feedstock === "forestry_fuels_r2r" ? id === "na" : true;
       if (!fuelsOk) {
         dom.feedSelect.value = "forestry"; state.feedstock = "forestry";
         dom.feedHint.textContent = FEEDSTOCK_HINTS.forestry;
@@ -1227,7 +1232,7 @@
     plus a separate <b>wildfire-fuels-treatment</b> residue stream (completed thinning / piling / biomass
     removal / chipping, 2018–2024, USFS FACTS + DOI and state treatments via TWIG; largely additional,
     concentrated in the fire-prone West), folded into the forestry total and mapped as its own layer,
-    with a Wildfire Crisis Strategy scale-up shown as a separate <i>potential</i> layer. Where existing wood-bioenergy or Southeast
+    with the Roads to Removal (LLNL 2023) thinning <i>potential</i> shown as a separate layer. Where existing wood-bioenergy or Southeast
     wood-pellet capacity already draws on the residue, a county is <b>flagged</b> "residue utilized" —
     the gross figure is not net of that competing use (utilization is flagged, not subtracted, to avoid
     double-counting the Billion-Ton availability basis). Ag and manure remain highest-confidence.</p>

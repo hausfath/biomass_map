@@ -8,7 +8,7 @@ echo "1/10 county geometry ..."        ; python3 build_county_geo.py
 echo "2/10 storage-basin polygons ..." ; python3 build_basin_geo.py
 echo "3/10 FIA county forestry weights ..." ; python3 build_fia_forestry.py
 echo "4/10 wildfire-fuels-treatment residue (USFS FACTS) ..." ; python3 build_fuels_residues.py
-echo "5/10 county feedstocks ..."      ; python3 build_county_feedstocks.py
+echo "5/10 county feedstocks ..."      ; python3 build_fuels_r2r.py && python3 build_county_feedstocks.py
 echo "6/10 infrastructure (incl. LMOP landfills) ..." ; python3 build_us_infrastructure.py
 echo "7/10 transport nodes (NTAD rail + ports + rivers) ..." ; python3 build_transport_nodes.py
 echo "8/10 transport cost + routes ..." ; python3 build_us_transport.py

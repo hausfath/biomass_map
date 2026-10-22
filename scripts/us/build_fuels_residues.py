@@ -67,18 +67,8 @@ YIELD_ODT_PER_ACRE = {
 # acre)" for fire-reduction thinnings (roadside, economically available framing).
 YIELD_LOW_ODT_PER_ACRE = 5.2
 
-# Wildfire Crisis Strategy scenario (a POTENTIAL, not an estimate): "treating up to 20 million
-# additional acres of National Forest System (NFS) lands over the coming decade, and ... up to 30
-# million additional acres on adjoining lands of multiple ownerships" (USFS Chief R. Moore, House
-# Agriculture testimony, 16 May 2023). Scaled version: today's spatial pattern and treatment-type
-# mix, scaled by (current all-type completed activity-acres + 5.0 M ac/yr) / current. Current =
-# 5.57 M activity-acres/yr, TWIG 2018-2024 (FACTS HFT + NFPORS + IFPRS + NASF, excl. CAL FIRE
-# tracker), queried 2026-10-19. The same testimony's "up to four times previous treatment levels"
-# is an upper bound (x4), not used. WCS_MECH_MIX scales the removal-type share relative to today.
-WCS_ADDITIONAL_AC_YR = 5.0e6
-WCS_CURRENT_AC_YR = 5.57e6
-WCS_MECH_MIX = 1.0
-WCS_SCALE = (WCS_CURRENT_AC_YR + WCS_ADDITIONAL_AC_YR * WCS_MECH_MIX) / WCS_CURRENT_AC_YR
+# (A Wildfire Crisis Strategy scale-up potential — today's pattern x1.90 = 13.1 Mt odt/yr — was
+# replaced 2026-10-22 by the spatially explicit Roads to Removal potential, build_fuels_r2r.py.)
 FACTS_TYPES = ("Thinning", "Biomass Removal", "Machine Pile", "Machine Pile Burn", "Chipping")
 
 # TWIG (Treatment and Wildfire Interagency Geodatabase; CC BY 4.0): adds DOI (BLM/NPS/FWS/BIA via
@@ -285,15 +275,13 @@ def main():
         json.dump(out, f)
     det = {f: {"usfs": round(d["usfs"] / 1e6, 6), "other": round(d["other"] / 1e6, 6),
                "low": round(d["low"] / 1e6, 6),
-               "wcs": round((d["usfs"] + d["other"]) * WCS_SCALE / 1e6, 6),
                "acres_yr": round(d["acres"])}
            for f, d in detail.items() if f in out}
     with open(OUT_DETAIL, "w") as f:
         json.dump(det, f)
     print(f"  by source: USFS (FACTS) {sum(d['usfs'] for d in det.values()):.2f}, "
           f"DOI+state (TWIG) {sum(d['other'] for d in det.values()):.2f} | low case "
-          f"{sum(d['low'] for d in det.values()):.2f} | WCS scenario (x{WCS_SCALE:.2f}) "
-          f"{sum(d['wcs'] for d in det.values()):.2f} Mt odt/yr | "
+          f"{sum(d['low'] for d in det.values()):.2f} Mt odt/yr | "
           f"{sum(d['acres_yr'] for d in det.values()) / 1e6:.2f} M treated ac/yr")
 
     tot = sum(out.values())

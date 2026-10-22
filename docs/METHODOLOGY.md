@@ -516,12 +516,18 @@ Billion-Ton Report + USDA NASS):
     ac/yr). Low case (flat 5.2 odt/ac, BT23's high-end fire-reduction-thinning mean): 3.74.
     This is gross treated residue, not BT23-style economically available roadside supply (BT23
     extrapolates 1.8–2.9 Mdt/yr for fire-reduction thinnings across its priority landscapes).
-  - *Wildfire Crisis Strategy potential (separate layer, not in the forestry total):* "treating up to
-    20 million additional acres of National Forest System (NFS) lands over the coming decade, and …
-    up to 30 million additional acres on adjoining lands of multiple ownerships" (USFS Chief R. Moore,
-    House Agriculture testimony, 16 May 2023). Scaled version: today's pattern and treatment mix ×
-    (5.57 M current completed activity-acres/yr + 5.0 M)/5.57 = ×1.90 → **13.1 Mt odt/yr**. The same
-    testimony's "up to four times previous treatment levels" would be ×4 (upper bound, not used).
+  - *Needed-treatment potential (separate layer, not in the forestry total or recommendations):*
+    **Roads to Removal** county forestry data (LLNL-led, Pett-Ridge et al. 2023; shared by the R2R
+    team, `docs/wildfire_research/roads_to_removal.md`, `scripts/us/build_fuels_r2r.py`): 70 M
+    priority acres (40 M USFS + 30 M other) thinned once over 10 yr, trees < 12 in + tops to 80%
+    stocking → **110.1 Mt dry/yr** in 174 western counties (workbook: 202 Mt CO₂e/yr), with a
+    BDT-weighted acquisition cost of $97.56/short BDT ($77.80–120.57 by road distance and slope;
+    Pan et al. 2007, Petitmermet et al. 2019). The per-class totals reproduce the workbook exactly.
+    It replaced (2026-10-22) a Wildfire Crisis Strategy scale-up of today's pattern (×1.90 →
+    13.1 Mt odt/yr; "up to 20 million additional acres of NFS … up to 30 million additional acres",
+    USFS Chief Moore, 16 May 2023), kept here as a low bound. In the 176 counties both cover, R2R is
+    109.5 Mt vs 4.2 Mt from completed treatments (county correlation r = 0.34): whole small trees
+    (17.3 BDT/ac) vs slash on treated units, and full mechanical thinning vs today's mostly-burn mix.
   - *Canada:* no open, quantified fuel-treatment or burned-slash dataset outside BC; BC census
     divisions carry a caveat that much harvest slash is pile-burned (already inside the forestry
     residue; one secondary estimate ~3.9 Mt CO₂ in 2019, unverified). BC CRI treatment polygons are
@@ -881,6 +887,7 @@ together form the combined **North America** scope; **EU** NUTS-2 scope).
 | Forestry residues | G | FAO FRA; **US** Billion-Ton; **EU** JRC-S2BIOM; **Canada** NRCan | Country / state |
 | Forestry residues | US | State BT total allocated by **USFS FIA** county forest data (0.7 harvest-removals + 0.3 standing-biomass share) | County, scaled to state |
 | Forestry — fuels residue | PT (EU scope) | **AGIF** national fuel-management area × shrub-clearing yield (MODELLED) | NUTS-2 by woodland + shrubland area; added to forestry total |
+| Forestry — fuels potential (layer only) | US West | **Roads to Removal** (LLNL 2023) county thinning potential + acquisition cost by accessibility class | County FIPS; not in totals |
 | Forestry — fuels residue | US | **USFS FACTS** + DOI/state via **TWIG** hazardous-fuel treatments (2018–2024 completed removal types, one unit once × per-type odt/ac, annualized) | County point-in-polygon; added to forestry total; WCS scale-up as a separate potential |
 | Forestry — utilization flag | US | GHGRP wood-bioenergy capacity (in-range) + **EIA-63C** South pellet/export region | Qualitative caveat only; no tonnage change |
 | Forestry residues | EU | ENSPRESO `MINBIOFRSR` (forest residue) + `MINBIOWOOW` (secondary wood) | NUTS-2, scaled |

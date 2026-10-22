@@ -44,7 +44,8 @@ COUNTIES = os.path.join(ROOT, "data", "geo", "us_counties.json")
 STATE_FEED = os.path.join(PROC, "feedstocks.json")
 FIA = os.path.join(PROC, "fia_county_forestry.json")   # FIA county forestry weights (item 2 ph.1)
 FUELS = os.path.join(PROC, "fuels_residues_us.json")   # wildfire-fuels residue (FACTS + TWIG)
-FUELS_DETAIL = os.path.join(PROC, "fuels_residues_us_detail.json")   # by source + low + WCS scenario
+FUELS_DETAIL = os.path.join(PROC, "fuels_residues_us_detail.json")   # by source + low case
+FUELS_R2R = os.path.join(PROC, "fuels_r2r_us.json")   # Roads to Removal needed-treatment POTENTIAL
 OUT = os.path.join(PROC, "feedstocks_us_county.json")
 
 # --- residue-to-product factors: odt recoverable residue per production unit ---
@@ -183,6 +184,7 @@ def main():
     # into the forestry stream so it drives dominant_feedstock + CDR — but kept tagged for provenance.
     fuels = json.load(open(FUELS)) if os.path.exists(FUELS) else {}
     fuels_det = json.load(open(FUELS_DETAIL)) if os.path.exists(FUELS_DETAIL) else {}
+    fuels_r2r = json.load(open(FUELS_R2R)) if os.path.exists(FUELS_R2R) else {}
     print(f"  fuels-treatment residue: {len(fuels)} counties, {sum(fuels.values()):.1f} Mt odt/yr"
           if fuels else "  (no fuels-treatment residue layer)")
 
@@ -312,9 +314,16 @@ def main():
                           "forestry total above. low = flat 5.2 odt/ac (BT23)"),
                     usfs=round(fuels_det.get(fips, {}).get("usfs", 0.0), 4),
                     other=round(fuels_det.get(fips, {}).get("other", 0.0), 4),
-                    wcs=round(fuels_det.get(fips, {}).get("wcs", 0.0), 4),
                     acres_yr=fuels_det.get(fips, {}).get("acres_yr", 0))
                     if fuels_res > 0 else {"value": 0.0},
+                # Roads to Removal needed-treatment POTENTIAL (not in the forestry total; map layer only)
+                "fuels_r2r_potential_odt_mt": (dict(
+                    value=fuels_r2r[fips]["value"], cost_usd_bdt=fuels_r2r[fips]["cost_usd_bdt"],
+                    acres_yr=fuels_r2r[fips]["acres_yr"], usfs_share=fuels_r2r[fips]["usfs_share"],
+                    source="Roads to Removal (LLNL, Pett-Ridge et al. 2023) county forestry data: 70 M "
+                           "priority acres thinned over 10 yr (<12 in + tops, to 80% stocking)",
+                    notes="technical potential, not current supply; not in the forestry total")
+                    if fips in fuels_r2r else {"value": 0.0}),
                 "msw_total_mt": est(
                     msw, source="state MSW total allocated by county population "
                     "(Census Vintage-2023)"),
